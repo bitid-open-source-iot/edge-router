@@ -1,0 +1,51 @@
+<mat-toolbar>
+    <mat-menu-button></mat-menu-button>
+    
+    <mat-label class="spacer">
+        Devices
+    </mat-label>
+
+    <button mat-icon-button routerLink="editor" [queryParams]="{mode: 'add'}">
+        <mat-icon>
+            add
+        </mat-icon>
+    </button>
+</mat-toolbar>
+
+<mat-progress-bar mode="indeterminate" *ngIf="loading"></mat-progress-bar>
+
+<mat-content>
+    <table mat-table [dataSource]="table" matSort>
+        <ng-container matColumnDef="description">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>
+                Description
+            </th>
+            <td mat-cell *matCellDef="let element">
+                {{ element.description }}
+            </td>
+        </ng-container>
+
+        <ng-container matColumnDef="type">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>
+                Type
+            </th>
+            <td mat-cell *matCellDef="let element">
+                {{ element.type == 'modbus' ? 'Modbus' : '' }}
+                {{ element.type == 'external' ? 'External' : '' }}
+                {{ element.type == 'programmable-logic-controller' ? 'Programmable Logic Controller' : '' }}
+            </td>
+        </ng-container>
+
+        <ng-container matColumnDef="enabled">
+            <th mat-header-cell *matHeaderCellDef></th>
+            <td mat-cell *matCellDef="let element">
+                <mat-icon [class.enabled]="element.enabled" [matTooltip]="element.enabled ? 'Enabled' : 'Disabled'" matTooltipPosition="before">
+                    {{ element.enabled ? 'check_circle' : 'remove_circle' }}
+                </mat-icon>
+            </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="columns; sticky: true;"></tr>
+        <tr mat-row *matRowDef="let row; columns: columns;" (click)="options(row)"></tr>
+    </table>
+</mat-content>

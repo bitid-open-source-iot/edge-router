@@ -1,0 +1,27 @@
+.mat-column-type,
+.mat-column-date {
+    width: 150px;
+}
+.info,
+.warn,
+.debug,
+.error {
+    color: #fff;
+    padding: 5px 8px;
+    font-size: 12px;
+    border-radius: 12px;
+    text-transform: capitalize;
+    background-color: #e0e0e0;
+}
+.info {
+    background-color: #2196F3;
+}
+.warn {
+    background-color: #FF9800;
+}
+.debug {
+    background-color: #607D8B;
+}
+.error {
+    background-color: #F44336;
+}

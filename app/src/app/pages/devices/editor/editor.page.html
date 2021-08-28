@@ -1,0 +1,181 @@
+<mat-toolbar>
+    <mat-back-button></mat-back-button>
+
+    <mat-label class="spacer">
+        Devices Editor
+    </mat-label>
+</mat-toolbar>
+
+<mat-progress-bar mode="indeterminate" *ngIf="loading"></mat-progress-bar>
+
+<mat-content>
+    <form [formGroup]="form" (ngSubmit)="!loading && !form.invalid && submit()">
+        <section>
+            <mat-form-field appearance="outline">
+                <mat-label>
+                    Type
+                </mat-label>
+    
+                <mat-select placeholder="type" formControlName="type" required>
+                    <mat-option value="modbus">
+                        Modbus
+                    </mat-option>
+                    <mat-option value="external">
+                        External
+                    </mat-option>
+                    <mat-option value="programmable-logic-controller">
+                        Programmable Logic Controller
+                    </mat-option>
+                </mat-select>
+    
+                <mat-error *ngIf="errors.type">
+                    {{ errors.type }}
+                </mat-error>
+            </mat-form-field>
+    
+            <mat-form-field appearance="outline">
+                <mat-label>
+                    Device ID
+                </mat-label>
+    
+                <input matInput type="text" minlength="24" maxlength="24" placeholder="device id" formControlName="deviceId" required>
+    
+                <mat-error *ngIf="errors.deviceId">
+                    {{ errors.deviceId }}
+                </mat-error>
+            </mat-form-field>
+        </section>
+
+        <section>
+            <mat-form-field appearance="outline">
+                <mat-label>
+                    IP
+                </mat-label>
+
+                <input matInput type="url" placeholder="ip" formControlName="ip" required>
+
+                <mat-error *ngIf="errors.ip">
+                    {{ errors.ip }}
+                </mat-error>
+            </mat-form-field>
+
+            <mat-form-field appearance="outline">
+                <mat-label>
+                    Port
+                </mat-label>
+
+                <input matInput type="number" min="0" placeholder="port" formControlName="port" required>
+
+                <mat-error *ngIf="errors.port">
+                    {{ errors.port }}
+                </mat-error>
+            </mat-form-field>
+        </section>
+
+        <section>
+            <mat-form-field appearance="outline">
+                <mat-label>
+                    Publish
+                </mat-label>
+    
+                <mat-select placeholder="publish" formControlName="publish" required>
+                    <mat-option [value]="true">
+                        Enabled
+                    </mat-option>
+                    <mat-option [value]="false">
+                        Disabled
+                    </mat-option>
+                </mat-select>
+    
+                <mat-error *ngIf="errors.publish">
+                    {{ errors.publish }}
+                </mat-error>
+            </mat-form-field>
+
+            <mat-form-field appearance="outline">
+                <mat-label>
+                    Enabled
+                </mat-label>
+    
+                <mat-select placeholder="enabled" formControlName="enabled" required>
+                    <mat-option [value]="true">
+                        Enabled
+                    </mat-option>
+                    <mat-option [value]="false">
+                        Disabled
+                    </mat-option>
+                </mat-select>
+    
+                <mat-error *ngIf="errors.enabled">
+                    {{ errors.enabled }}
+                </mat-error>
+            </mat-form-field>
+        </section>
+
+        <section>
+            <mat-form-field appearance="outline">
+                <mat-label>
+                    TX Time
+                </mat-label>
+
+                <input matInput type="number" min="1" placeholder="tx time" formControlName="txtime" required>
+
+                <mat-error *ngIf="errors.txtime">
+                    {{ errors.txtime }}
+                </mat-error>
+            </mat-form-field>
+
+            <mat-form-field appearance="outline">
+                <mat-label>
+                    Barcode
+                </mat-label>
+
+                <input matInput type="text" placeholder="barcode" formControlName="barcode" required>
+
+                <mat-error *ngIf="errors.barcode">
+                    {{ errors.barcode }}
+                </mat-error>
+            </mat-form-field>
+        </section>
+
+        <mat-form-field appearance="outline">
+            <mat-label>
+                Description
+            </mat-label>
+
+            <input matInput type="text" placeholder="description" formControlName="description" required>
+
+            <mat-error *ngIf="errors.description">
+                {{ errors.description }}
+            </mat-error>
+        </mat-form-field>
+
+        <button #button type="submit" style="display: none;"></button>
+    </form>
+
+    <table mat-table [dataSource]="table" matSort>
+        <ng-container matColumnDef="description">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>
+                Description
+            </th>
+            <td mat-cell *matCellDef="let element">
+                {{ element.description }}
+            </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="columns; sticky: true;"></tr>
+        <tr mat-row *matRowDef="let row; columns: columns;" (click)="options(row)"></tr>
+    </table>
+
+    <button class="add" mat-icon-button color="primary" (click)="editor('add')">
+        <mat-icon>
+            add
+        </mat-icon>
+    </button>
+</mat-content>
+
+<mat-footer>
+    <button type="button" color="primary" mat-flat-button (click)="button.click()">
+        submit
+    </button>
+</mat-footer>

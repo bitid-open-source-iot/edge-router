@@ -1,0 +1,10 @@
+.mat-column-enabled {
+    width: 32px;
+    padding-right: 16px !important;
+    mat-icon {
+        color: #F44336;
+        &.enabled {
+            color: #4CAF50;
+        }
+    }
+}

@@ -1,0 +1,39 @@
+{
+    "port": 8080,
+    "txtime": 360,
+    "barcode": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+    "deviceId": "xxx",
+    "production": false,
+    "authentication": false,
+    "server": {
+        "host": "mqtt://bitid.co.za",
+        "port": 1888,
+        "username": "xxx",
+        "password": "xxx",
+        "subscribe": {
+            "data": "/rock/v1.1/data",
+            "control": "/rock/v1.1/control"
+        }
+    },
+    "logger": {
+        "appenders": {
+            "edge-router": {
+                "type": "file",
+                "backups": 10,
+                "filename": "./logs/edge-router.log",
+                "absolute": true,
+                "maxLogSize": 102400
+            }
+        },
+        "categories": {
+            "default": {
+                "appenders": [
+                    "edge-router"
+                ],
+                "level": "error"
+            }
+        }
+    },
+    "devices": [],
+    "mapping": []
+}

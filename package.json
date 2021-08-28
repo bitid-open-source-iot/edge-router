@@ -1,0 +1,29 @@
+{
+  "name": "web-service",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "chalk": "^4.1.0",
+    "cors": "^2.8.5",
+    "crc": "^3.8.0",
+    "ethernet-ip": "^1.2.5",
+    "express": "^4.17.1",
+    "fs": "0.0.1-security",
+    "log4js": "^6.3.0",
+    "mqtt": "^4.2.8",
+    "node-fetch": "^2.6.0",
+    "public-ip": "^4.0.4",
+    "q": "^1.5.1",
+    "websocket": "^1.0.34"
+  },
+  "devDependencies": {
+    "chai": "^4.2.0",
+    "chai-subset": "^1.6.0"
+  }
+}

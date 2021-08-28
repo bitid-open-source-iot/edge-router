@@ -1,0 +1,28 @@
+.mat-column-route {
+    width: 40px;
+    mat-icon {
+        color: rgba(#000000, 0.3);
+        display: flex;
+        align-self: center;
+        justify-self: center;
+    }
+}
+.mat-column-source-mask,
+.mat-column-source-inputId,
+.mat-column-source-deviceId,
+.mat-column-destination-mask,
+.mat-column-destination-inputId,
+.mat-column-destination-deviceId {
+    padding-right: 16px;
+}
+.mat-column-options {
+    width: 40px;
+    padding-right: 16px !important;
+}
+mat-form-field {
+    width: 100%;
+    margin-bottom: -16px !important;
+}
+.mat-footer-cell {
+    overflow: hidden;
+}

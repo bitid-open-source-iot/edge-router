@@ -1,0 +1,7 @@
+# Files
+config.json
+package-lock.json
+
+# Folders
+logs/
+node_modules/

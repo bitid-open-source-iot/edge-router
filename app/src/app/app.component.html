@@ -1,0 +1,49 @@
+<mat-drawer-container>
+    <mat-drawer mode="side">
+        <mat-toolbar>
+            <img src="./assets/icons/icon-512x512.png" alt="logo" width="40" height="40" draggable="false">
+
+            <mat-label class="spacer">
+                Edge Router
+            </mat-label>
+        </mat-toolbar>
+
+        <mat-list>
+            <mat-list-item type="button" lines="full" routerLink="/devices" routerLinkActive="active" matRipple (click)="menu.close()">
+                <mat-icon>
+                    router
+                </mat-icon>
+
+                <mat-label>
+                    Devices
+                </mat-label>
+            </mat-list-item>
+
+            <mat-list-item type="button" lines="full" routerLink="/mapping" routerLinkActive="active" matRipple (click)="menu.close()">
+                <mat-icon>
+                    route
+                </mat-icon>
+
+                <mat-label>
+                    Mapping
+                </mat-label>
+            </mat-list-item>
+
+            <mat-list-item type="button" lines="full" routerLink="/live-logs" routerLinkActive="active" matRipple (click)="menu.close()">
+                <mat-icon>
+                    storage
+                </mat-icon>
+
+                <mat-label>
+                    Live Logs
+                </mat-label>
+            </mat-list-item>
+        </mat-list>
+    </mat-drawer>
+
+    <mat-drawer-content>
+        <router-outlet></router-outlet>
+    </mat-drawer-content>
+</mat-drawer-container>
+
+<splashscreen></splashscreen>
