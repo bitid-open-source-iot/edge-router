@@ -1,7 +1,7 @@
 module.exports = (router) => {
     console.log('ABOUT TO TEST');
 
-    var startValue = 65535;
+    var startValue = 819;
 
     var data = [
         {
@@ -217,7 +217,7 @@ module.exports = (router) => {
         //         startValue++;
         //     });
             router.route(deviceId, data);
-        //     if (startValue <= 65535) {
+        //     if (startValue <= 819) {
         //         debugger
         //         clearInterval(interval);
         //     };
