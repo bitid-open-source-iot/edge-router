@@ -207,12 +207,13 @@ module.exports = (router) => {
 
     setTimeout(() => {
         console.log('TEST STARTED');
+        router.route(deviceId, data);
         
         setInterval(() => {
-            router.route(deviceId, data);
             data.map(o => {
                 o.value++;
             });
-        }, 2500);
+            router.route(deviceId, data);
+        }, 10000);
     }, 10000)
 }
