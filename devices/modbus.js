@@ -37,7 +37,7 @@ module.exports = class extends EventEmitter {
 
                 if (register) {
                     try {
-                        await this.wait(500);
+                        // await this.wait(100);
                         if (typeof (o.value) != 'undefined' && o.value !== null) {
                             await this.controller.write(register, o.value);
                         };
