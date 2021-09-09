@@ -37,8 +37,9 @@ module.exports = class extends EventEmitter {
 
                 if (register) {
                     try {
-                        // await this.wait(100);
+                        await this.wait(100);
                         if (typeof (o.value) != 'undefined' && o.value !== null) {
+                            this.controller = modbus(this.ip, this.port, 0);
                             await this.controller.write(register, o.value);
                         };
                         deferred.resolve();
