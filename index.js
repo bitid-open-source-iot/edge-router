@@ -180,8 +180,6 @@ try {
                 });
 
                 deferred.resolve();
-
-                require('./test')(router);
             } catch (error) {
                 deferred.reject(error);
             }
