@@ -1,219 +1,226 @@
 module.exports = (router) => {
     console.log('ABOUT TO TEST');
 
+    var startValue = 65535;
+
     var data = [
         {
-            'value': 1,
+            'value': startValue,
             'inputId': '000000000000000000000001'
         },
         {
-            'value': 1,
+            'value': startValue,
             'inputId': '000000000000000000000002'
         },
         {
-            'value': 1,
+            'value': startValue,
             'inputId': '000000000000000000000003'
         },
         {
-            'value': 1,
+            'value': startValue,
             'inputId': '000000000000000000000004'
         },
         {
-            'value': 1,
+            'value': startValue,
             'inputId': '000000000000000000000005'
         },
         {
-            'value': 1,
+            'value': startValue,
             'inputId': '000000000000000000000006'
         },
         {
-            'value': 1,
+            'value': startValue,
             'inputId': '000000000000000000000007'
         },
         {
-            'value': 1,
+            'value': startValue,
             'inputId': '000000000000000000000008'
         },
         {
-            'value': 1,
+            'value': startValue,
             'inputId': '000000000000000000000009'
         },
         {
-            'value': 1,
+            'value': startValue,
             'inputId': '000000000000000000000010'
         },
         {
-            'value': 1,
+            'value': startValue,
             'inputId': '000000000000000000000011'
         },
         {
-            'value': 1,
+            'value': startValue,
             'inputId': '000000000000000000000012'
         },
         {
-            'value': 1,
+            'value': startValue,
             'inputId': '000000000000000000000013'
         },
         {
-            'value': 1,
+            'value': startValue,
             'inputId': '000000000000000000000014'
         },
         {
-            'value': 1,
+            'value': startValue,
             'inputId': '000000000000000000000015'
         },
         {
-            'value': 1,
+            'value': startValue,
             'inputId': '000000000000000000000016'
         },
         {
-            'value': 1,
+            'value': startValue,
             'inputId': '000000000000000000000017'
         },
         {
-            'value': 1,
+            'value': startValue,
             'inputId': '000000000000000000000018'
         },
         {
-            'value': 1,
+            'value': startValue,
             'inputId': '000000000000000000000019'
         },
         {
-            'value': 1,
+            'value': startValue,
             'inputId': '000000000000000000000020'
         },
         {
-            'value': 1,
+            'value': startValue,
             'inputId': '000000000000000000000021'
         },
         {
-            'value': 1,
+            'value': startValue,
             'inputId': '000000000000000000000022'
         },
         {
-            'value': 1,
+            'value': startValue,
             'inputId': '000000000000000000000023'
         },
         {
-            'value': 1,
+            'value': startValue,
             'inputId': '000000000000000000000024'
         },
         {
-            'value': 1,
+            'value': startValue,
             'inputId': '000000000000000000000025'
         },
         {
-            'value': 1,
+            'value': startValue,
             'inputId': '000000000000000000000026'
         },
         {
-            'value': 1,
+            'value': startValue,
             'inputId': '000000000000000000000027'
         },
         {
-            'value': 1,
+            'value': startValue,
             'inputId': '000000000000000000000028'
         },
         {
-            'value': 1,
+            'value': startValue,
             'inputId': '000000000000000000000029'
         },
         {
-            'value': 1,
+            'value': startValue,
             'inputId': '000000000000000000000030'
         },
         {
-            'value': 1,
+            'value': startValue,
             'inputId': '000000000000000000000031'
         },
         {
-            'value': 1,
+            'value': startValue,
             'inputId': '000000000000000000000032'
         },
         {
-            'value': 1,
+            'value': startValue,
             'inputId': '000000000000000000000033'
         },
         {
-            'value': 1,
+            'value': startValue,
             'inputId': '000000000000000000000034'
         },
         {
-            'value': 1,
+            'value': startValue,
             'inputId': '000000000000000000000035'
         },
         {
-            'value': 1,
+            'value': startValue,
             'inputId': '000000000000000000000036'
         },
         {
-            'value': 1,
+            'value': startValue,
             'inputId': '000000000000000000000037'
         },
         {
-            'value': 1,
+            'value': startValue,
             'inputId': '000000000000000000000038'
         },
         {
-            'value': 1,
+            'value': startValue,
             'inputId': '000000000000000000000039'
         },
         {
-            'value': 1,
+            'value': startValue,
             'inputId': '000000000000000000000040'
         },
         {
-            'value': 1,
+            'value': startValue,
             'inputId': '000000000000000000000041'
         },
         {
-            'value': 1,
+            'value': startValue,
             'inputId': '000000000000000000000042'
         },
         {
-            'value': 1,
+            'value': startValue,
             'inputId': '000000000000000000000043'
         },
         {
-            'value': 1,
+            'value': startValue,
             'inputId': '000000000000000000000044'
         },
         {
-            'value': 1,
+            'value': startValue,
             'inputId': '000000000000000000000045'
         },
         {
-            'value': 1,
+            'value': startValue,
             'inputId': '000000000000000000000046'
         },
         {
-            'value': 1,
+            'value': startValue,
             'inputId': '000000000000000000000047'
         },
         {
-            'value': 1,
+            'value': startValue,
             'inputId': '000000000000000000000048'
         },
         {
-            'value': 1,
+            'value': startValue,
             'inputId': '000000000000000000000049'
         },
         {
-            'value': 1,
+            'value': startValue,
             'inputId': '000000000000000000000050'
         }
     ];
     var deviceId = '000000000000000000000PLC';
 
     setTimeout(() => {
-        console.log('TEST STARTED');
-        router.route(deviceId, data);
+    //     console.log('TEST STARTED');
+    //     router.route(deviceId, data);
         
-        setInterval(() => {
-            data.map(o => {
-                o.value++;
-            });
+        // var interval = setInterval(() => {
+        //     data.map(o => {
+        //         o.value++;
+        //         startValue++;
+        //     });
             router.route(deviceId, data);
-        }, 10000);
-    }, 10000)
+        //     if (startValue <= 65535) {
+        //         debugger
+        //         clearInterval(interval);
+        //     };
+        // }, 500);
+    }, 5000)
 }

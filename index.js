@@ -120,7 +120,7 @@ try {
                 __logger.init();
                 deferred.resolve();
             } catch (error) {
-                deferred.reject(err);
+                deferred.reject(error);
             }
 
             return deferred.promise;
@@ -180,6 +180,8 @@ try {
                 });
 
                 deferred.resolve();
+
+                require('./test')(router);
             } catch (error) {
                 deferred.reject(error);
             }
