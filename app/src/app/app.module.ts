@@ -16,6 +16,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 /* --- SERVICES --- */
 import { ApiService } from './services/api/api.service';
 import { MenuService } from './services/menu/menu.service';
+import { AdminService } from './services/admin/admin.service';
 import { ToastService } from './services/toast/toast.service';
 import { ConfigService } from './services/config/config.service';
 import { DevicesService } from './services/devices/devices.service';
@@ -23,6 +24,7 @@ import { FiltersService } from './services/filters/filters.service';
 import { MappingService } from './services/mapping/mapping.service';
 import { FormErrorService } from './services/form-error/form-error.service';
 import { LocalstorageService } from './services/localstorage/localstorage.service';
+import { SessionStorageService } from './services/session-storage/session-storage.service';
 
 /* --- COMPONENTS --- */
 import { AppComponent } from './app.component';
@@ -45,13 +47,15 @@ import { AppComponent } from './app.component';
     providers: [
         ApiService,
         MenuService,
+        AdminService,
         ToastService,
         ConfigService,
         DevicesService,
         FiltersService,
         MappingService,
         FormErrorService,
-        LocalstorageService
+        LocalstorageService,
+        SessionStorageService
     ],
     bootstrap: [
         AppComponent

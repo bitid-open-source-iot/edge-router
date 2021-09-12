@@ -5,6 +5,10 @@
     "deviceId": "xxx",
     "production": false,
     "authentication": false,
+    "admin": {
+        "email": "admin",
+        "password": "admin"
+    },
     "server": {
         "host": "mqtt://bitid.co.za",
         "port": 1888,

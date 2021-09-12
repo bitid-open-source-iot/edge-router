@@ -22,6 +22,9 @@ export class LiveLogsPage implements OnInit, OnDestroy {
         const socket = new Socket(environment.socket);
 
         socket.data.subscribe((event: any) => {
+            if (this.table.data.length <= 100) {
+                this.table.data.pop();    
+            };
             this.table.data.unshift(event);
             this.table.data = this.table.data.map(o => new Log(o));
         });

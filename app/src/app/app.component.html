@@ -38,6 +38,36 @@
                     Live Logs
                 </mat-label>
             </mat-list-item>
+
+            <mat-list-item type="button" lines="full" routerLink="/change-email" routerLinkActive="active" matRipple (click)="menu.close()">
+                <mat-icon>
+                    email
+                </mat-icon>
+
+                <mat-label>
+                    Change Email
+                </mat-label>
+            </mat-list-item>
+
+            <mat-list-item type="button" lines="full" routerLink="/change-password" routerLinkActive="active" matRipple (click)="menu.close()">
+                <mat-icon>
+                    password
+                </mat-icon>
+
+                <mat-label>
+                    Change Password
+                </mat-label>
+            </mat-list-item>
+
+            <mat-list-item type="button" lines="full" routerLink="/import-export" routerLinkActive="active" matRipple (click)="menu.close()">
+                <mat-icon>
+                    import_export
+                </mat-icon>
+
+                <mat-label>
+                    Import & Export Config
+                </mat-label>
+            </mat-list-item>
         </mat-list>
     </mat-drawer>
 

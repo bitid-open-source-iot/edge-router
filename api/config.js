@@ -7,7 +7,7 @@ router.use((req, res, next) => {
 
 router.post('/get', (req, res) => {
     var myModule = bll.module();
-    myModule.config.add(req, res);
+    myModule.config.get(req, res);
 });
 
 router.post('/import', (req, res) => {

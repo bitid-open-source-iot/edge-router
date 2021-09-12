@@ -15,7 +15,7 @@
                 Source Device
             </th>
             <td mat-cell *matCellDef="let element">
-                <mat-select placeholder="device" [(ngModel)]="element.source.deviceId" required>
+                <mat-select placeholder="device" [(ngModel)]="element.source.deviceId" (ngModelChange)="update(element)" required>
                     <mat-option *ngFor="let device of devices.data" [value]="device.deviceId">
                         {{ device.description }}
                     </mat-option>
@@ -41,7 +41,7 @@
                 Source Input
             </th>
             <td mat-cell *matCellDef="let element">
-                <mat-select placeholder="input" [(ngModel)]="element.source.inputId" required>
+                <mat-select placeholder="input" [(ngModel)]="element.source.inputId" (ngModelChange)="update(element)" required>
                     <mat-option *ngFor="let input of inputs | filterBy : { 'deviceId': element.source.deviceId }" [value]="input.inputId">
                         {{ input.description }}
                     </mat-option>
@@ -67,7 +67,7 @@
                 Source Mask
             </th>
             <td mat-cell *matCellDef="let element">
-                <input matInput min="-1" max="65535" type="number" placeholder="mask" [(ngModel)]="element.source.mask" required>
+                <input matInput min="-1" max="65535" type="number" placeholder="mask" [(ngModel)]="element.source.mask" (ngModelChange)="update(element)" required>
             </td>
             <td mat-footer-cell *matFooterCellDef [formGroup]="map">
                 <mat-form-field formGroupName="source">
@@ -103,7 +103,7 @@
                 Destination Device
             </th>
             <td mat-cell *matCellDef="let element">
-                <mat-select placeholder="device" [(ngModel)]="element.destination.deviceId" required>
+                <mat-select placeholder="device" [(ngModel)]="element.destination.deviceId" (ngModelChange)="update(element)" required>
                     <mat-option *ngFor="let device of devices.data" [value]="device.deviceId">
                         {{ device.description }}
                     </mat-option>
@@ -129,7 +129,7 @@
                 Destination Input
             </th>
             <td mat-cell *matCellDef="let element">
-                <mat-select placeholder="input" [(ngModel)]="element.destination.inputId" required>
+                <mat-select placeholder="input" [(ngModel)]="element.destination.inputId" (ngModelChange)="update(element)" required>
                     <mat-option *ngFor="let input of inputs | filterBy : { 'deviceId': element.destination.deviceId }" [value]="input.inputId">
                         {{ input.description }}
                     </mat-option>
@@ -155,7 +155,7 @@
                 Destination Mask
             </th>
             <td mat-cell *matCellDef="let element">
-                <input matInput min="-1" max="65535" type="number" placeholder="mask" [(ngModel)]="element.destination.mask" required>
+                <input matInput min="-1" max="65535" type="number" placeholder="mask" [(ngModel)]="element.destination.mask" (ngModelChange)="update(element)" required>
             </td>
             <td mat-footer-cell *matFooterCellDef [formGroup]="map">
                 <mat-form-field formGroupName="destination">

@@ -111,6 +111,28 @@ export class MappingPage implements OnInit, OnDestroy {
         this.loading = false;
     }
 
+    public async update(map: Map) {
+        this.loading = true;
+
+        const response = await this.service.update(map);
+
+        if (response.ok) {
+            for (let i = 0; i < this.table.data.length; i++) {
+                if (this.table.data[i].mapId == map.mapId) {
+                    Object.keys(map).map((key: string) => {
+                        (this.table.data[i] as any)[key] = (map as any)[key];
+                    });
+                    break;
+                };
+            };
+            this.table.data = this.table.data.map(o => new Map(o));
+        } else {
+            this.toast.error(response.result.message);
+        };
+
+        this.loading = false;
+    }
+
     ngOnInit(): void {
         (async () => {
             await this.load();

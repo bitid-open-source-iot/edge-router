@@ -38,10 +38,64 @@ try {
                     limit: '50mb'
                 }));
 
+                app.use((req, res, next) => {
+                    if (__settings.authentication) {
+                        if (req.method != 'GET' && req.method != 'PUT') {
+                            var args = {
+                                'req': req,
+                                'res': res
+                            };
+
+                            try {
+                                if (typeof (args.req.body.header) != 'undefined' && args.req.body.header != null) {
+                                    var authenticated = true;
+                                    if (typeof (args.req.body.header.email) != 'undefined' && args.req.body.header.email != null) {
+                                        if (args.req.body.header.email != __settings.admin.email) {
+                                            authenticated = false;
+                                        };
+                                    } else {
+                                        authenticated = false;
+                                        throw 'Invalid payload header.email!';
+                                    };
+                                    if (typeof (args.req.body.header.password) != 'undefined' && args.req.body.header.password != null) {
+                                        if (args.req.body.header.password != __settings.admin.password) {
+                                            authenticated = false;
+                                        };
+                                    } else {
+                                        authenticated = false;
+                                        throw 'Invalid payload header.password!';
+                                    };
+                                    if (authenticated) {
+                                        next();
+                                    } else {
+                                        throw 'Invalid Credentials!';
+                                    };
+                                } else {
+                                    throw 'Invalid payload header!';
+                                };
+                            } catch (error) {
+                                var err = new ErrorResponse();
+                                err.error.code = 401;
+                                err.error.errors[0].code = 401;
+                                err.error.errors[0].reason = error.message;
+                                err.error.errors[0].message = 'Invalid Credentials';
+                                __responder.error(req, res, err);
+                            };
+                        } else {
+                            next();
+                        };
+                    } else {
+                        next();
+                    };
+                });
+
                 app.use('/', express.static(__dirname + '/app/dist/edge-router/'));
                 app.get('/*', (req, res) => {
                     res.sendFile(__dirname + '/app/dist/edge-router/index.html');
                 });
+
+                app.use('/edge-router/admin', require('./api/admin'));
+                __logger.info('Loaded: ./edge-router/admin');
 
                 app.use('/edge-router/config', require('./api/config'));
                 __logger.info('Loaded: ./edge-router/config');

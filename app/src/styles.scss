@@ -289,9 +289,12 @@ body.dark-mode {
 .mat-drawer-inner-container::-webkit-scrollbar-thumb {
     display: none !important;
 }
+tools-page,
 mapping-page,
 devices-page,
+sign-in-page,
 live-logs-page,
+devices-viewer-page,
 input-output-dialog,
 devices-editor-page {
     height: 100vh;

@@ -4,6 +4,46 @@ const ErrorResponse = require('../lib/error-response');
 
 var module = function () {
     return {
+        admin: {
+            authenticate: async (req, res) => {
+                var args = {
+                    req: req,
+                    res: res
+                };
+
+                try {
+                    if (typeof (args.req.body.header) != 'undefined' && args.req.body.header != null) {
+                        var authenticated = true;
+                        if (typeof (args.req.body.header.email) != 'undefined' && args.req.body.header.email != null) {
+                            if (args.req.body.header.email != __settings.admin.email) {
+                                authenticated = false;
+                            };
+                        } else {
+                            authenticated = false;
+                            throw 'Invalid payload header.email!';
+                        };
+                        if (typeof (args.req.body.header.password) != 'undefined' && args.req.body.header.password != null) {
+                            if (args.req.body.header.password != __settings.admin.password) {
+                                authenticated = false;
+                            };
+                        } else {
+                            authenticated = false;
+                            throw 'Invalid payload header.password!';
+                        };
+                        __responder.success(req, res, authenticated);
+                    } else {
+                        throw 'Invalid payload header!';
+                    };
+                } catch (error) {
+                    var err = new ErrorResponse();
+                    err.error.errors[0].code = 503;
+                    err.error.errors[0].reason = error.message;
+                    err.error.errors[0].message = 'Issue updating device!';
+                    __responder.error(req, res, err);
+                };
+            }
+        },
+
         devices: {
             add: async (req, res) => {
                 var args = {
