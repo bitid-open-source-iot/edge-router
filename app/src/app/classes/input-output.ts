@@ -4,6 +4,7 @@ export class InputOutput {
 
     public key: string = '';
     public tagId: string = '';
+    public value: number = 0;
     public inputId: string = ObjectId();
     public register: string = '';
     public moduleId: number = 0;
@@ -49,6 +50,7 @@ export class InputOutput {
 interface INPUT_OUTPUT {
     key: string;
     tagId: string;
+    value: number;
     inputId: string;
     register: string;
     moduleId: number;

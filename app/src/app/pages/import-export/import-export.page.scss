@@ -1,0 +1,9 @@
+mat-content {
+    display: flex;
+    padding: 8px 0px;
+    flex-direction: column;
+    button {
+        margin: 8px auto;
+        max-width: 300px;
+    }
+}

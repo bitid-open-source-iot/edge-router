@@ -4,7 +4,126 @@ const ErrorResponse = require('../lib/error-response');
 
 var module = function () {
     return {
+        config: {
+            import: async (req, res) => {
+                var args = {
+                    req: req,
+                    res: res
+                };
+
+                try {
+                    __settings = args.req.body;
+                    const saved = await SaveConfig(__settings);
+                    if (!saved) {
+                        var err = new ErrorResponse();
+                        err.error.errors[0].code = 503;
+                        err.error.errors[0].reason = error.message;
+                        err.error.errors[0].message = 'Issue loading devices!';
+                        __responder.error(req, res, err);
+                    } else {
+                        args.result = {
+                            n: 1
+                        };
+                        __responder.success(req, res, args.result);
+                    };
+                } catch (error) {
+                    var err = new ErrorResponse();
+                    err.error.errors[0].code = 503;
+                    err.error.errors[0].reason = error.message;
+                    err.error.errors[0].message = 'Issue loading devices!';
+                    __responder.error(req, res, err);
+                };
+            },
+
+            export: async (req, res) => {
+                var args = {
+                    req: req,
+                    res: res
+                };
+
+                try {
+                    __responder.success(req, res, __settings);
+                } catch (error) {
+                    var err = new ErrorResponse();
+                    err.error.errors[0].code = 503;
+                    err.error.errors[0].reason = error.message;
+                    err.error.errors[0].message = 'Issue exporting config!';
+                    __responder.error(req, res, err);
+                };
+            }
+        },
+
         admin: {
+            change: {
+                email: async (req, res) => {
+                    var args = {
+                        req: req,
+                        res: res
+                    };
+
+                    try {
+                        __settings.admin.email = args.req.body.email;
+                        const saved = await SaveConfig(__settings);
+                        if (!saved) {
+                            var err = new ErrorResponse();
+                            err.error.errors[0].code = 503;
+                            err.error.errors[0].reason = error.message;
+                            err.error.errors[0].message = 'Issue loading devices!';
+                            __responder.error(req, res, err);
+                        } else {
+                            args.result = {
+                                n: 1
+                            };
+                            __responder.success(req, res, args.result);
+                        };
+                    } catch (error) {
+                        var err = new ErrorResponse();
+                        err.error.errors[0].code = 503;
+                        err.error.errors[0].reason = error.message;
+                        err.error.errors[0].message = 'Issue loading devices!';
+                        __responder.error(req, res, err);
+                    };
+                },
+
+                password: async (req, res) => {
+                    var args = {
+                        req: req,
+                        res: res
+                    };
+
+                    try {
+                        if (args.req.body.confirm == args.req.body.password) {
+                            __settings.admin.password = args.req.body.password;
+                            const saved = await SaveConfig(__settings);
+                            if (!saved) {
+                                var err = new ErrorResponse();
+                                err.error.errors[0].code = 503;
+                                err.error.errors[0].reason = error.message;
+                                err.error.errors[0].message = 'Issue loading devices!';
+                                __responder.error(req, res, err);
+                            } else {
+                                args.result = {
+                                    n: 1
+                                };
+                                __responder.success(req, res, args.result);
+                            };
+                        } else {
+                            var err = new ErrorResponse();
+                            err.error.errors[0].code = 401;
+                            err.error.errors[0].reason = 'Passwords do not match!';
+                            err.error.errors[0].message = 'Passwords do not match!';
+                            __responder.error(req, res, err);
+                        };
+                    } catch (error) {
+                        var err = new ErrorResponse();
+                        err.error.errors[0].code = 503;
+                        err.error.errors[0].reason = error.message;
+                        err.error.errors[0].message = 'Issue changing password!';
+                        __responder.error(req, res, err);
+                    };
+                }
+            },
+
             authenticate: async (req, res) => {
                 var args = {
                     req: req,

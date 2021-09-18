@@ -20,9 +20,4 @@ router.post('/export', (req, res) => {
     myModule.config.export(req, res);
 });
 
-router.post('/update', (req, res) => {
-    var myModule = bll.module();
-    myModule.config.update(req, res);
-});
-
 module.exports = router;

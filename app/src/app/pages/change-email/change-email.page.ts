@@ -16,7 +16,7 @@ export class ChangeEmailPage implements OnInit, OnDestroy {
     constructor(private toast: ToastService, private router: Router, private service: AdminService, private formerror: FormErrorService) { }
 
     public form: FormGroup = new FormGroup({
-        email: new FormControl(null, [Validators.required])
+        email: new FormControl(null, [Validators.required, Validators.email])
     });
     public errors: any = {
         email: ''
@@ -27,17 +27,13 @@ export class ChangeEmailPage implements OnInit, OnDestroy {
     public async submit() {
         this.loading = true;
 
-        const response = await this.service.authenticate(this.form.value);
+        const response = await this.service.changeEmail(this.form.value);
 
         if (response.ok) {
-            if (response.result.authenticated) {
-                this.router.navigate(['/devices'], {
-                    replaceUrl: true
-                });
-                this.toast.success('Sign in successful!');
-            } else {
-                this.toast.error('Invalid Credentials!');
-            };
+            this.router.navigate(['/devices'], {
+                replaceUrl: true
+            });
+            this.toast.success('Email was changed!');
         } else {
             this.toast.error(response.result.message);
         };

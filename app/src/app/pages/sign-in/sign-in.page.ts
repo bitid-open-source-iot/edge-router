@@ -16,7 +16,7 @@ export class SignInPage implements OnInit, OnDestroy {
     constructor(private toast: ToastService, private router: Router, private service: AdminService, private formerror: FormErrorService) { }
 
     public form: FormGroup = new FormGroup({
-        email: new FormControl(null, [Validators.required]),
+        email: new FormControl(null, [Validators.required, Validators.email]),
         password: new FormControl(null, [Validators.required])
     });
     public errors: any = {

@@ -1,7 +1,6 @@
 import { MatDrawer } from '@angular/material/sidenav';
 import { MenuService } from './services/menu/menu.service';
-import { SplashScreen } from './libs/splashscreen/splashscreen';
-import { LocalstorageService } from './services/localstorage/localstorage.service';
+import { SessionStorageService } from './services/session-storage/session-storage.service';
 import { OnInit, Component, ViewChild } from '@angular/core';
 
 @Component({
@@ -13,19 +12,16 @@ import { OnInit, Component, ViewChild } from '@angular/core';
 export class AppComponent implements OnInit {
 
 	@ViewChild(MatDrawer, { static: true }) private drawer?: MatDrawer;
-	@ViewChild(SplashScreen, { static: true }) private splashscreen?: SplashScreen;
 
-	constructor(public menu: MenuService) { }
+	constructor(public menu: MenuService, private storage: SessionStorageService) { }
 
 	public title: any[] = [];
 	public badges: any = {};
 	public authenticated?: boolean;
 
-
-	private async initialize() {
-		await this.splashscreen?.show();
-
-		await this.splashscreen?.hide();
+	public async logout() {
+		this.menu.close();
+		this.storage.clear();
 	}
 
 	ngOnInit(): void {
@@ -48,8 +44,6 @@ export class AppComponent implements OnInit {
 				(this.badges as any)[key] = data[key];
 			});
 		});
-
-		this.initialize();
 	}
 
 }

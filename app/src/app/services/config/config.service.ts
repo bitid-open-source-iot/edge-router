@@ -14,6 +14,14 @@ export class ConfigService {
 		return this.api.post(environment.server, '/edge-router/config/get', params);
 	}
 
+	public async import(params: any) {
+		return this.api.post(environment.server, '/edge-router/config/import', params);
+	}
+
+	public async export(params: any) {
+		return this.api.post(environment.server, '/edge-router/config/export', params);
+	}
+
 	public async update(params: any) {
 		return this.api.post(environment.server, '/edge-router/config/update', params);
 	}

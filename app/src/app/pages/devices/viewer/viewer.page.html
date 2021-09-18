@@ -9,5 +9,16 @@
 <mat-progress-bar mode="indeterminate" *ngIf="loading"></mat-progress-bar>
 
 <mat-content>
-   
+   <table>
+       <tbody>
+           <tr *ngFor="let item of device.io">
+               <th>
+                   {{ item.description }}
+               </th>
+               <td>
+                   {{ item.value }}
+               </td>
+           </tr>
+       </tbody>
+   </table>
 </mat-content>

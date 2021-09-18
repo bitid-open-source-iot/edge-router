@@ -14,7 +14,8 @@ export class DevicesViewerPage implements OnInit, OnDestroy {
 
     constructor(private toast: ToastService, private route: ActivatedRoute, private router: Router, private service: DevicesService) { }
 
-    public loading?: boolean;
+    public device: Device = new Device();
+    public loading: boolean = false;
     public deviceId?: string;
 
     private async get() {

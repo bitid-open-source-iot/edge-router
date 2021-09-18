@@ -16,9 +16,11 @@ export class ChangePasswordPage implements OnInit, OnDestroy {
     constructor(private toast: ToastService, private router: Router, private service: AdminService, private formerror: FormErrorService) { }
 
     public form: FormGroup = new FormGroup({
+        confirm: new FormControl(null, [Validators.required]),
         password: new FormControl(null, [Validators.required])
     });
     public errors: any = {
+        confirm: '',
         password: ''
     };
     public loading: boolean = false;
@@ -27,17 +29,11 @@ export class ChangePasswordPage implements OnInit, OnDestroy {
     public async submit() {
         this.loading = true;
 
-        const response = await this.service.authenticate(this.form.value);
+        const response = await this.service.changePassword(this.form.value);
 
         if (response.ok) {
-            if (response.result.authenticated) {
-                this.router.navigate(['/devices'], {
-                    replaceUrl: true
-                });
-                this.toast.success('Sign in successful!');
-            } else {
-                this.toast.error('Invalid Credentials!');
-            };
+            this.router.navigate(['/devices']);
+            this.toast.success('Password was changed!');
         } else {
             this.toast.error(response.result.message);
         };

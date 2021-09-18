@@ -10,4 +10,14 @@ router.put('/authenticate', (req, res) => {
     myModule.admin.authenticate(req, res);
 });
 
+router.post('/change-email', (req, res) => {
+    var myModule = bll.module();
+    myModule.admin.change.email(req, res);
+});
+
+router.post('/change-password', (req, res) => {
+    var myModule = bll.module();
+    myModule.admin.change.password(req, res);
+});
+
 module.exports = router;

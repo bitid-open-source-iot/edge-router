@@ -6,7 +6,7 @@
     "production": false,
     "authentication": false,
     "admin": {
-        "email": "admin",
+        "email": "admin@bitid.co.za",
         "password": "admin"
     },
     "server": {
