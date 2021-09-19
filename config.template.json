@@ -3,8 +3,8 @@
     "txtime": 360,
     "barcode": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
     "deviceId": "xxx",
-    "production": false,
-    "authentication": false,
+    "production": true,
+    "authentication": true,
     "admin": {
         "email": "admin@bitid.co.za",
         "password": "admin"

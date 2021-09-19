@@ -1,6 +1,5 @@
 /* --- PAGES --- */
 import { DevicesPage } from './devices.page';
-import { DevicesViewerPage } from './viewer/viewer.page';
 import { DevicesEditorPage } from './editor/editor.page';
 
 /* --- DIALOGS --- */
@@ -35,10 +34,6 @@ const routes: Routes = [
         component: DevicesPage
     },
     {
-        path: 'viewer',
-        component: DevicesViewerPage
-    },
-    {
         path: 'editor',
         component: DevicesEditorPage
     }
@@ -71,7 +66,6 @@ const routes: Routes = [
     declarations: [
         DevicesPage,
         InputOutputDialog,
-        DevicesViewerPage,
         DevicesEditorPage
     ]
 })
