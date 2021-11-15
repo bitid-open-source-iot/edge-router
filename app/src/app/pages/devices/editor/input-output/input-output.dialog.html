@@ -17,11 +17,7 @@
                 Register
             </mat-label>
 
-            <mat-select placeholder="register" formControlName="register" [required]="type == 'modbus'">
-                <mat-option *ngFor="let o of registers" [value]="o">
-                    {{ o }}
-                </mat-option>
-            </mat-select>
+            <input matInput type="number" min="0" placeholder="register" formControlName="register" [required]="type == 'modbus'">
 
             <mat-error *ngIf="errors.register">
                 {{ errors.register }}

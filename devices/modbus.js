@@ -41,12 +41,12 @@ module.exports = class extends EventEmitter {
                     try {
                         await this.wait(100);
                         if (typeof (o.value) != 'undefined' && o.value !== null) {
-                            await this.controller.write(register, o.value);
+                            await this.controller.write(['hr', register].join(''), o.value);
                         };
                         deferred.resolve();
                     } catch (error) {
                         console.log(error);
-                        console.error(`error writing to ${this.ip} register: ${register}`);
+                        console.error(`error writing to ${this.ip} register: ${['hr', register].join('')}`);
                         deferred.resolve();
                     }
                 } else {

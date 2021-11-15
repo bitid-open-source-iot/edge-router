@@ -6,7 +6,7 @@ export class InputOutput {
     public tagId: string = '';
     public value: number = 0;
     public inputId: string = ObjectId();
-    public register: string = '';
+    public register: number = 0;
     public moduleId: number = 0;
     public readable: boolean = false;
     public interface: string = '';
@@ -52,7 +52,7 @@ interface INPUT_OUTPUT {
     tagId: string;
     value: number;
     inputId: string;
-    register: string;
+    register: number;
     moduleId: number;
     readable: boolean;
     interface: string;
