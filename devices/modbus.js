@@ -38,6 +38,7 @@ module.exports = class extends EventEmitter {
                 };
 
                 if (register) {
+                    console.log(['hr', register].join(''), o.value);
                     try {
                         await this.wait(100);
                         if (typeof (o.value) != 'undefined' && o.value !== null) {
