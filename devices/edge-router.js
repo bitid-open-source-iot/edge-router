@@ -118,6 +118,8 @@ module.exports = class extends EventEmitter {
         });
 
         this.mqtt.on('connect', () => {
+            this.emit('connected');
+            
             this.status = 'connected';
 
             __logger.info('Edge Router - Socket connected & subscribing to topics!');
