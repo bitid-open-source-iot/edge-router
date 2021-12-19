@@ -256,6 +256,8 @@ try {
     var send = (deviceId) => {
         __devices.map(device => {
             if (device.deviceId == deviceId) {
+                __logger.info('DATA =================== ' + device.io.map(o => o.value).join(', '));
+
                 const modules = device.io.map(input => input.moduleId).filter(value => (typeof (value) != 'undefined' && value != null)).filter((value, index, self) => self.indexOf(value) === index);
                 modules.map(async moduleId => {
                     var dataIn = {
