@@ -258,6 +258,14 @@ try {
             if (device.deviceId == deviceId) {
                 __logger.info('DATA =================== ' + device.io.map(o => o.value).join(', '));
 
+                device.io.map(a => {
+                    device.values.map(b => {
+                        if (a.inputId == b.inputId) {
+                            a.value = b.value;
+                        };
+                    });
+                });
+
                 const modules = device.io.map(input => input.moduleId).filter(value => (typeof (value) != 'undefined' && value != null)).filter((value, index, self) => self.indexOf(value) === index);
                 modules.map(async moduleId => {
                     var dataIn = {
