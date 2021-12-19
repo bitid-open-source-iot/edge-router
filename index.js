@@ -235,65 +235,11 @@ try {
 
                 router.on('connected', event => {
                     __settings.devices.filter(o => o.publish).map(device => {
-                        __logger.info('Starting publish every ' + device.pxtime + ' seconds');
-                        var send = (device) => {
-                            const modules = device.io.map(input => input.moduleId).filter(value => (typeof (value) != 'undefined' && value != null)).filter((value, index, self) => self.indexOf(value) === index);
-                            modules.map(async moduleId => {
-                                var dataIn = {
-                                    'AI1': 0,
-                                    'AI2': 0,
-                                    'AI3': 0,
-                                    'AI4': 0,
-                                    'AIExt1': 0,
-                                    'AIExt2': 0,
-                                    'AIExt3': 0,
-                                    'AIExt4': 0,
-                                    'AIExt5': 0,
-                                    'AIExt6': 0,
-                                    'AIExt7': 0,
-                                    'AIExt8': 0,
-                                    'BATT': 0,
-                                    'CI1': 0,
-                                    'CI2': 0,
-                                    'CI3': 0,
-                                    'CI4': 0,
-                                    'CI5': 0,
-                                    'CI6': 0,
-                                    'CI7': 0,
-                                    'CI8': 0,
-                                    'LAT': 0,
-                                    'LNG': 0,
-                                    'SIG': 0,
-                                    'TEXT1': 0,
-                                    'TEXT2': 0,
-                                    'TEXT3': 0,
-                                    'TEXT4': 0,
-                                    'txFlag': 0
-                                };
+                        __logger.info('Starting publish every ' + device.pxtime + ' seconds!');
 
-                                device.io.map(input => {
-                                    if (input.moduleId == moduleId) {
-                                        if (dataIn.hasOwnProperty(input.key)) {
-                                            dataIn[input.key] = input.value;
-                                        };
-                                    };
-                                });
+                        send(device.deviceId);
 
-                                __logger.info('Publishing Data To Server: ' + device.deviceId);
-
-                                router.publish({
-                                    'rtuId': device.deviceId,
-                                    'dataIn': dataIn,
-                                    'barcode': device.barcode,
-                                    'rtuDate': new Date().getTime(),
-                                    'moduleId': moduleId
-                                });
-                            });
-                        };
-
-                        send(device);
-
-                        setInterval(() => send(device), (device.pxtime ? device.pxtime : 120) * 1000);
+                        setInterval(() => send(device.deviceId), (device.pxtime ? device.pxtime : 120) * 1000);
                     });
                 });
 
@@ -304,6 +250,65 @@ try {
 
             return deferred.promise;
         }
+    };
+                        
+    var send = (deviceId) => {
+        __settings.devices.map(device => {
+            if (device.deviceId == deviceId) {
+                const modules = device.io.map(input => input.moduleId).filter(value => (typeof (value) != 'undefined' && value != null)).filter((value, index, self) => self.indexOf(value) === index);
+                modules.map(async moduleId => {
+                    var dataIn = {
+                        'AI1': 0,
+                        'AI2': 0,
+                        'AI3': 0,
+                        'AI4': 0,
+                        'AIExt1': 0,
+                        'AIExt2': 0,
+                        'AIExt3': 0,
+                        'AIExt4': 0,
+                        'AIExt5': 0,
+                        'AIExt6': 0,
+                        'AIExt7': 0,
+                        'AIExt8': 0,
+                        'BATT': 0,
+                        'CI1': 0,
+                        'CI2': 0,
+                        'CI3': 0,
+                        'CI4': 0,
+                        'CI5': 0,
+                        'CI6': 0,
+                        'CI7': 0,
+                        'CI8': 0,
+                        'LAT': 0,
+                        'LNG': 0,
+                        'SIG': 0,
+                        'TEXT1': 0,
+                        'TEXT2': 0,
+                        'TEXT3': 0,
+                        'TEXT4': 0,
+                        'txFlag': 0
+                    };
+
+                    device.io.map(input => {
+                        if (input.moduleId == moduleId) {
+                            if (dataIn.hasOwnProperty(input.key)) {
+                                dataIn[input.key] = input.value;
+                            };
+                        };
+                    });
+
+                    __logger.info('Publishing Data To Server: ' + device.deviceId);
+
+                    router.publish({
+                        'rtuId': device.deviceId,
+                        'dataIn': dataIn,
+                        'barcode': device.barcode,
+                        'rtuDate': new Date().getTime(),
+                        'moduleId': moduleId
+                    });
+                });
+            };
+        });
     };
 
     portal.init();
