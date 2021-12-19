@@ -20,6 +20,7 @@ module.exports = class extends EventEmitter {
         this.pxtime = args.pxtime || 120;
         this.status = 'disconnected';
         this.enabled = args.enabled;
+        this.barcode = args.barcode;
         this.deviceId = args.deviceId;
         this.controller = new Controller();
 
