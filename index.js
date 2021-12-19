@@ -254,7 +254,7 @@ try {
     };
                         
     var send = (deviceId) => {
-        __settings.devices.map(device => {
+        __devices.map(device => {
             if (device.deviceId == deviceId) {
                 const modules = device.io.map(input => input.moduleId).filter(value => (typeof (value) != 'undefined' && value != null)).filter((value, index, self) => self.indexOf(value) === index);
                 modules.map(async moduleId => {
