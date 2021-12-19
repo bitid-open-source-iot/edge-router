@@ -8,6 +8,7 @@ export class Device {
     public port: number = 0;
     public type: string = '';
     public txtime: number = 5;
+    public pxtime: number = 5;
     public barcode: string = '';
     public publish: boolean = false;
     public enabled: boolean = false;
@@ -30,6 +31,9 @@ export class Device {
             }
             if (typeof (args.txtime) != 'undefined' && args.txtime != null) {
                 this.txtime = args.txtime;
+            }
+            if (typeof (args.pxtime) != 'undefined' && args.pxtime != null) {
+                this.pxtime = args.pxtime;
             }
             if (typeof (args.barcode) != 'undefined' && args.barcode != null) {
                 this.barcode = args.barcode;
@@ -57,6 +61,7 @@ interface DEVICE {
     port: number;
     type: string;
     txtime: number;
+    pxtime: number;
     barcode: string;
     publish: boolean;
     enabled: boolean;

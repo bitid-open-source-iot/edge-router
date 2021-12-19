@@ -24,7 +24,7 @@
             </mat-error>
         </mat-form-field>
         
-        <section *ngIf="type == 'external'">
+        <section>
             <mat-form-field appearance="outline">
                 <mat-label>
                     Module ID
@@ -42,7 +42,11 @@
                     Key
                 </mat-label>
     
-                <input matInput type="text" placeholder="key" formControlName="key" [required]="type == 'external'">
+                <mat-select placeholder="key" formControlName="key" [required]="type == 'external'">
+                    <mat-option *ngFor="let key of keys" [value]="key">
+                        {{ key }}
+                    </mat-option>
+                </mat-select>
     
                 <mat-error *ngIf="errors.key">
                     {{ errors.key }}

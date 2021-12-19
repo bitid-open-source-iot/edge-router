@@ -13,6 +13,37 @@ export class InputOutputDialog implements OnInit, OnDestroy {
 
     constructor(private dialog: MatDialogRef<InputOutputDialog>, @Inject(MAT_DIALOG_DATA) private config: any, private formerror: FormErrorService) { }
 
+    public keys: string[] = [
+        'AI1',
+        'AI2',
+        'AI3',
+        'AI4',
+        'TEXT1',
+        'TEXT2',
+        'TEXT3',
+        'TEXT4',
+        'AIExt1',
+        'AIExt2',
+        'AIExt3',
+        'AIExt4',
+        'AIExt5',
+        'AIExt6',
+        'AIExt7',
+        'AIExt8',
+        'BATT',
+        'CI1',
+        'CI2',
+        'CI3',
+        'CI4',
+        'CI5',
+        'CI6',
+        'CI7',
+        'CI8',
+        'LAT',
+        'LNG',
+        'SIG',
+        'txFlag'
+    ];
     public type: string = this.config.type;
     public form: FormGroup = new FormGroup({
         key: new FormControl(this.config.io.key),
@@ -89,6 +120,8 @@ export class InputOutputDialog implements OnInit, OnDestroy {
     }
 
     ngOnInit(): void {
+        this.keys = this.keys.sort();
+
         switch (this.type) {
             case ('modbus'):
                 this.form.controls.register.setValidators([Validators.required]);

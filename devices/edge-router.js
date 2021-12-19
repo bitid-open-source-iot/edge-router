@@ -4,7 +4,7 @@ const EventEmitter = require('events').EventEmitter;
 
 module.exports = class extends EventEmitter {
 
-    constructor(config) {
+    constructor(args) {
         super();
         this.data = {
             'dataIn': {
@@ -41,10 +41,11 @@ module.exports = class extends EventEmitter {
         this.ip = '0.0.0.0';
         this.mqtt = null;
         this.status = 'disconnected';
-        this.server = config.server;
-        this.txtime = config.txtime;
-        this.barcode = config.barcode;
-        this.deviceId = config.deviceId;
+        this.server = args.server;
+        this.txtime = args.txtime;
+        this.pxtime = args.pxtime || 120;
+        this.barcode = args.barcode;
+        this.deviceId = args.deviceId;
 
         setInterval(() => {
             if (!this.mqtt?.connected) {
