@@ -15,6 +15,7 @@ const ProgrammableLogicController = require('./devices/programmable-logic-contro
 
 global.__base = __dirname + '/';
 global.__socket = null;
+global.__router = null;
 global.__logger = require('./lib/logger');
 global.__devices = [];
 global.__settings = require('./config.json');
@@ -184,9 +185,9 @@ try {
             var deferred = Q.defer();
 
             try {
-                var router = new EdgeRouter(__settings);
+                __router = new EdgeRouter(__settings);
 
-                router.on('control', event => {
+                __router.on('control', event => {
                     __devices.map(device => {
                         if (device.type == 'external' && device.deviceId == event.rtuId) {
                             var data = [];
@@ -205,7 +206,7 @@ try {
                                 };
                             });
                             if (found) {
-                                router.route(event.rtuId, data);
+                                __router.route(event.rtuId, data);
                             };
                         };
                     });
@@ -215,7 +216,7 @@ try {
                     switch (o.type) {
                         case ('modbus'):
                             var device = new Modbus(o);
-                            device.on('change', event => router.route(device.deviceId, event));
+                            device.on('change', event => __router.route(device.deviceId, event));
                             __devices.push(device);
                             break;
                         case ('external'):
@@ -224,7 +225,7 @@ try {
                             break;
                         case ('programmable-logic-controller'):
                             var device = new ProgrammableLogicController(o);
-                            device.on('change', event => router.route(device.deviceId, event));
+                            device.on('change', event => __router.route(device.deviceId, event));
                             __devices.push(device);
                             break;
                         default:
@@ -233,7 +234,7 @@ try {
                     };
                 });
 
-                router.on('connected', event => {
+                __router.on('connected', event => {
                     __settings.devices.filter(o => o.publish).map(device => {
                         __logger.info('Starting publish every ' + device.pxtime + ' seconds!');
 
@@ -299,7 +300,7 @@ try {
 
                     __logger.info('Publishing Data To Server: ' + device.deviceId);
 
-                    router.publish({
+                    __router.publish({
                         'rtuId': device.deviceId,
                         'dataIn': dataIn,
                         'barcode': device.barcode,
