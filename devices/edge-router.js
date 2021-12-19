@@ -184,7 +184,7 @@ module.exports = class extends EventEmitter {
 
     async publish(data) {
         if (this.mqtt?.connected) {
-            __logger.info('Edge Router - Transmitting data to socket!')
+            __logger.info(this.server.subscribe.data + ': ' + JSON.stringify(data))
             this.mqtt.publish(this.server.subscribe.data, JSON.stringify(data));
         } else {
             __logger.warn('Edge Router - Trying to transmit even though socket not connected!');
