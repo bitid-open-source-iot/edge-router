@@ -297,17 +297,18 @@ try {
                         'TEXT2': 0,
                         'TEXT3': 0,
                         'TEXT4': 0,
-                        'txFlag': 0
+                        'txFlag': 0,
+                        'digitalsIn': device.io.filter(o => o.value == 1 && o.key == 'digitalsIn' && o.moduleId == moduleId).map(o => Math.pow(2, o.bit)).reduce((a, b) => a + b, 0)
                     };
 
                     device.io.map(input => {
                         if (input.moduleId == moduleId) {
-                            if (dataIn.hasOwnProperty(input.key)) {
+                            if (dataIn.hasOwnProperty(input.key) && input.key != 'digitalsIn') {
                                 dataIn[input.key] = input.value;
                             };
                         };
                     });
-
+                    
                     __logger.info('Publishing Data To Server: ' + device.deviceId);
 
                     __router.publish({

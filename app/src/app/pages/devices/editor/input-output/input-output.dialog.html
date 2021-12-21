@@ -30,7 +30,7 @@
                     Module ID
                 </mat-label>
     
-                <input matInput type="text" placeholder="moduleId" formControlName="moduleId" [required]="type == 'external'">
+                <input matInput type="number" placeholder="moduleId" formControlName="moduleId" [required]="type == 'external'">
     
                 <mat-error *ngIf="errors.moduleId">
                     {{ errors.moduleId }}
@@ -50,6 +50,20 @@
     
                 <mat-error *ngIf="errors.key">
                     {{ errors.key }}
+                </mat-error>
+            </mat-form-field>
+        </section>
+
+        <section *ngIf="form.value.key == 'digitalsIn'">
+            <mat-form-field appearance="outline">
+                <mat-label>
+                    Bit
+                </mat-label>
+    
+                <input matInput type="number" min="0" placeholder="bit" formControlName="bit" [required]="type == 'external' || form.value.key == 'digitalsIn'">
+    
+                <mat-error *ngIf="errors.bit">
+                    {{ errors.bit }}
                 </mat-error>
             </mat-form-field>
         </section>

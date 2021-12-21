@@ -62,6 +62,7 @@ export class DevicesEditorPage implements OnInit, OnDestroy {
                 'ip',
                 'port',
                 'type',
+                'pxtime',
                 'txtime',
                 'barcode',
                 'publish',
@@ -78,6 +79,7 @@ export class DevicesEditorPage implements OnInit, OnDestroy {
             this.form.controls.ip.setValue(device.ip);
             this.form.controls.port.setValue(device.port);
             this.form.controls.type.setValue(device.type);
+            this.form.controls.pxtime.setValue(device.pxtime);
             this.form.controls.txtime.setValue(device.txtime);
             this.form.controls.barcode.setValue(device.barcode);
             this.form.controls.publish.setValue(device.publish);

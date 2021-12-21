@@ -318,6 +318,7 @@ var module = function () {
                             port: o.port,
                             type: o.type,
                             txtime: o.txtime,
+                            pxtime: o.pxtime,
                             barcode: o.barcode,
                             publish: o.publish,
                             enabled: o.enabled,

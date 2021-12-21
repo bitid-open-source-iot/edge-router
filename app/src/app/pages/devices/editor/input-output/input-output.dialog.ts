@@ -42,10 +42,12 @@ export class InputOutputDialog implements OnInit, OnDestroy {
         'LAT',
         'LNG',
         'SIG',
-        'txFlag'
+        'txFlag',
+        'digitalsIn'
     ];
     public type: string = this.config.type;
     public form: FormGroup = new FormGroup({
+        bit: new FormControl(this.config.io.bit),
         key: new FormControl(this.config.io.key),
         tagId: new FormControl(this.config.io.tagId),
         inputId: new FormControl(this.config.io.inputId, [Validators.required]),
@@ -57,6 +59,7 @@ export class InputOutputDialog implements OnInit, OnDestroy {
         description: new FormControl(this.config.io.description, [Validators.required])
     });
     public errors: any = {
+        bit: '',
         key: '',
         tagId: '',
         inputId: '',
@@ -145,13 +148,23 @@ export class InputOutputDialog implements OnInit, OnDestroy {
                 break;
         };
 
+        this.observers.key = this.form.controls.key.valueChanges.subscribe(key => {
+            if (key == 'digitalsIn') {
+                this.form.controls.bit.setValidators([Validators.required, Validators.min(0)]);
+            } else {
+                this.form.controls.bit.setValidators(null);
+            };
+            this.form.controls.bit.updateValueAndValidity();
+        });
+
         this.observers.form = this.form.valueChanges.subscribe(data => {
             this.errors = this.formerror.validateForm(this.form, this.errors, true);
         });
     }
 
     ngOnDestroy(): void {
-        this.observers.form.unsubscribe();
+        this.observers.key?.unsubscribe();
+        this.observers.form?.unsubscribe();
     }
 
 }
