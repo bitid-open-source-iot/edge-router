@@ -2,6 +2,7 @@ import { ObjectId } from './id';
 
 export class InputOutput {
 
+    public bit: number = 0;
     public key: string = '';
     public tagId: string = '';
     public value: number = 0;
@@ -15,6 +16,9 @@ export class InputOutput {
 
     constructor(args?: INPUT_OUTPUT) {
         if (typeof (args) != 'undefined' && args != null) {
+            if (typeof (args.bit) != 'undefined' && args.bit != null) {
+                this.bit = args.bit;
+            };
             if (typeof (args.key) != 'undefined' && args.key != null) {
                 this.key = args.key;
             };
@@ -48,6 +52,7 @@ export class InputOutput {
 }
 
 interface INPUT_OUTPUT {
+    bit: number;
     key: string;
     tagId: string;
     value: number;
