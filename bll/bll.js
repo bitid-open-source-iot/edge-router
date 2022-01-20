@@ -248,10 +248,10 @@ var module = function () {
                     };
                     for (let i = 0; i < __devices.length; i++) {
                         if (__devices[i].deviceId == args.req.body.deviceId) {
-                            for (let b = 0; b < __devices[i].io.length; b++) {
-                                args.result.io.map(input => {
-                                    if (input.inputId == __devices[i].values[b].inputId) {
-                                        input.value = __devices[i].values[b].value;
+                            for (let b = 0; b < __devices[i]?.io.length; b++) {
+                                args.result?.io.map(input => {
+                                    if (input?.inputId == __devices[i]?.values[b]?.inputId) {
+                                        input.value = __devices[i]?.values[b]?.value;
                                     };
                                 });
                             };
