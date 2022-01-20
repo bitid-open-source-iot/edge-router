@@ -7,16 +7,15 @@
 </mat-toolbar>
 
 <mat-content>
-    <mat-list>
-        <mat-list-item lines="full" *ngFor="let input of device.io">
-            <mat-label>
-                <h3>
-                    {{ input.description }}
-                </h3>
-                <p>
-                    {{ input.value }}
-                </p>
-            </mat-label>
-        </mat-list-item>
-    </mat-list>
+    <div class="inputs-container">
+        <div class="inputs" *ngFor="let input of device.io">
+            <div class="input-description">
+                {{ input.description }}     
+            </div>
+    
+            <div class="input-value">
+                {{ input.value }}
+            </div>
+        </div>
+    </div>
 </mat-content>
