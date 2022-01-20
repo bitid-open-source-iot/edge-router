@@ -87,7 +87,12 @@ module.exports = class extends EventEmitter {
                                 } else {
                                     maskDestinationValue = maskSourceValue;
                                 };
-                                __logger.info(item.destination.inputId + ': ' + maskDestinationValue);
+                                for (let i = 0; i < device.io.length; i++) {
+                                    if (device.io[i].inputId == item.destination.inputId) {
+                                        __logger.info(device.io[i].description + ': ' + maskDestinationValue);
+                                        break;
+                                    };
+                                };
                                 device.write(item.destination.inputId, maskDestinationValue);
                             };
                         });
@@ -119,7 +124,7 @@ module.exports = class extends EventEmitter {
 
         this.mqtt.on('connect', () => {
             this.emit('connected');
-            
+
             this.status = 'connected';
 
             __logger.info('Edge Router - Socket connected & subscribing to topics!');

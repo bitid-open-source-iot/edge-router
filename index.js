@@ -252,7 +252,7 @@ try {
             return deferred.promise;
         }
     };
-                        
+
     var send = (deviceId) => {
         __devices.map(device => {
             if (device.deviceId == deviceId) {
@@ -308,7 +308,7 @@ try {
                             };
                         };
                     });
-                    
+
                     __logger.info('Publishing Data To Server: ' + device.deviceId);
 
                     __router.publish({
