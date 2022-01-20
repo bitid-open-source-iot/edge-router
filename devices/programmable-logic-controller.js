@@ -24,15 +24,15 @@ module.exports = class extends EventEmitter {
         this.deviceId = args.deviceId;
         this.controller = new Controller();
 
-        setInterval(async () => {
-            if (this.status == 'connected') {
-                await this.read();
-            } else if (this.status == 'connecting') {
-                // do nothing
-            } else if (this.status == 'disconnected') {
-                await this.connect();
-            };
-        }, this.txtime * 1000);
+        // setInterval(async () => {
+        //     if (this.status == 'connected') {
+        //         await this.read();
+        //     } else if (this.status == 'connecting') {
+        //         // do nothing
+        //     } else if (this.status == 'disconnected') {
+        //         await this.connect();
+        //     };
+        // }, this.txtime * 1000);
 
         setInterval(async () => await this.connect(), 10000);
 
