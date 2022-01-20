@@ -23,6 +23,7 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatContentModule } from 'src/app/libs/mat-content/mat-content.module';
 import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatGridListModule } from '@angular/material/grid-list';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatMenuButtonModule } from 'src/app/libs/mat-menu-button/mat-menu-button.module';
 import { MatBackButtonModule } from 'src/app/libs/mat-back-button/mat-back-button.module';
@@ -63,6 +64,7 @@ const routes: Routes = [
         MatTooltipModule,
         MatToolbarModule,
         MatContentModule,
+        MatGridListModule,
         MatFormFieldModule,
         MatBackButtonModule,
         MatMenuButtonModule,
