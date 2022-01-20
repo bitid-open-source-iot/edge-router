@@ -25,6 +25,9 @@ export class InputOutput {
             if (typeof (args.tagId) != 'undefined' && args.tagId != null) {
                 this.tagId = args.tagId;
             };
+            if (typeof (args.value) != 'undefined' && args.value != null) {
+                this.value = args.value;
+            };
             if (typeof (args.inputId) != 'undefined' && args.inputId != null) {
                 this.inputId = args.inputId;
             };
