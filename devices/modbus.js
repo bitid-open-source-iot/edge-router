@@ -39,7 +39,7 @@ module.exports = class extends EventEmitter {
                     };
                 };
 
-                if (register) {
+                if (typeof(register) != 'undefined' && register !== null) {
                     try {
                         await this.wait(100);
                         if (typeof (o.value) != 'undefined' && o.value !== null) {
@@ -50,10 +50,10 @@ module.exports = class extends EventEmitter {
                         console.log(error);
                         console.error(`error writing to ${this.ip} register: ${['hr', register].join('')}`);
                         deferred.resolve();
-                    }
+                    };
                 } else {
                     deferred.resolve();
-                }
+                };
 
                 return deferred.promise;
             }), Promise.resolve());
