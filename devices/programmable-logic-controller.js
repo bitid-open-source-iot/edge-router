@@ -40,60 +40,58 @@ module.exports = class extends EventEmitter {
     async read() {
         var change = false;
 
-        if (this.status == 'connected') {
-            await this.io.reduce((promise, item) => {
-                return promise.then(async () => {
-                    var deferred = Q.defer();
-    
-                    try {
-                        if (item.readable) {
-                            await this.controller.readTag(item.tag);
-    
-                            if (this.values.map(o => o.inputId).includes(item.inputId)) {
-                                this.values.map(o => {
-                                    if (o.inputId == item.inputId && o.value != item.tag.value) {
-                                        change = true;
-                                        o.value = item.tag.value;
-                                    };
-                                });
-                            } else {
-                                change = true;
-                                this.values.push({
-                                    value: item.tag.value,
-                                    inputId: item.inputId
-                                });
-                            };
+        await this.io.reduce((promise, item) => {
+            return promise.then(async () => {
+                var deferred = Q.defer();
+
+                try {
+                    if (item.readable) {
+                        let a = await this.controller.readTag(item.tag);
+
+                        if (this.values.map(o => o.inputId).includes(item.inputId)) {
+                            this.values.map(o => {
+                                if (o.inputId == item.inputId && o.value != item.tag.value) {
+                                    change = true;
+                                    o.value = item.tag.value;
+                                };
+                            });
                         } else {
-                            if (this.values.map(o => o.inputId).includes(item.inputId)) {
-                                this.values.map(o => {
-                                    if (o.inputId == item.inputId) {
-                                        change = true;
-                                        o.value = 0;
-                                    };
-                                });
-                            } else {
-                                change = true;
-                                this.values.push({
-                                    value: 0,
-                                    inputId: item.inputId
-                                });
-                            };
+                            change = true;
+                            this.values.push({
+                                value: item.tag.value,
+                                inputId: item.inputId
+                            });
                         };
-                        deferred.resolve();
-                    } catch (error) {
-                        __logger.warn('Programmable Logic Controller - Issue Reading Tag!');
-                        deferred.resolve();
+                    } else {
+                        if (this.values.map(o => o.inputId).includes(item.inputId)) {
+                            this.values.map(o => {
+                                if (o.inputId == item.inputId) {
+                                    change = true;
+                                    o.value = 0;
+                                };
+                            });
+                        } else {
+                            change = true;
+                            this.values.push({
+                                value: 0,
+                                inputId: item.inputId
+                            });
+                        };
                     };
-    
-                    return deferred.promise;
-                });
-            }, Promise.resolve())
-                .then(() => {
-                    if (change) {
-                        this.emit('change', this.values);
-                    };
-                });
-        };
+                    deferred.resolve();
+                } catch (error) {
+                    __logger.warn('Programmable Logic Controller - Issue Reading Tag!');
+                    deferred.resolve();
+                };
+
+                return deferred.promise;
+            });
+        }, Promise.resolve())
+            .then(() => {
+                if (change) {
+                    this.emit('change', this.values);
+                };
+            });
     }
 
     async connect() {
