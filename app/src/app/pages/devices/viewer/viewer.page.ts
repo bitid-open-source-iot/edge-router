@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { interval } from 'rxjs';
 import { ActivatedRoute, Router } from '@angular/router';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 
 /* --- CLASSES --- */
 import { Device } from 'src/app/classes/device';
@@ -15,13 +16,14 @@ import { DevicesService } from 'src/app/services/devices/devices.service';
     templateUrl: './viewer.page.html'
 })
 
-export class ViewerPage implements OnInit {
+export class ViewerPage implements OnInit, OnDestroy {
 
     constructor(private service: DevicesService, private config: ConfigService, private route: ActivatedRoute, private router: Router, private toast: ToastService) { }
 
     public device: Device = new Device();
     public loading: boolean = false;
     public deviceId?: string;
+    private observers: any = {};
 
     private async get() {
         this.loading = true;
@@ -56,9 +58,13 @@ export class ViewerPage implements OnInit {
         this.deviceId = params.deviceId;
 
         this.get();
-        setInterval(() => {
-            this.get();
-        }, 2000)
-    }
 
+        this.observers.interval = interval(1000).subscribe(() => {
+            this.get();
+        })
+    }
+    
+    ngOnDestroy(): void {
+        this.observers.interval.unsubscribe()
+    }
 }
