@@ -2,6 +2,7 @@ const Q = require('q');
 const { Tag, Controller, EthernetIP } = require('ethernet-ip');
 const DATA_TYPES = EthernetIP.CIP.DataTypes.Types;
 const EventEmitter = require('events').EventEmitter;
+const { async } = require('q');
 
 module.exports = class extends EventEmitter {
 
@@ -33,6 +34,8 @@ module.exports = class extends EventEmitter {
                 await this.connect();
             };
         }, this.txtime * 1000);
+
+        setInterval(async () => await this.connect(), 10000);
 
         this.connect();
     }
