@@ -40,6 +40,10 @@ module.exports = class extends EventEmitter {
     async read() {
         var change = false;
 
+        if (!this.controller.state.connection.established) {
+            debugger
+        }
+
         if (this.status == 'connected') {
             await this.io.reduce((promise, item) => {
                 return promise.then(async () => {
