@@ -16,7 +16,33 @@ export class ImportExportPage implements OnInit, OnDestroy {
     public loading: boolean = false;
 
     public async import() {
-        this.toast.error("This feature is not available!");
+        const input = document.createElement('input');
+        input.type = 'file';
+        input.accept = 'application/json';
+        input.multiple = true;
+
+        input.onchange = async (event: any) => {
+            let reader = new FileReader();
+            reader.onload = async (data: any) => {
+                let params = JSON.parse(data.currentTarget.result);
+
+                this.loading = true;
+        
+                const response = await this.service.import(params);
+        
+                if (response.ok) {
+                    this.toast.success('Config was uploaded!');
+                } else {
+                    this.toast.error(response.result.message);
+                };
+        
+                this.loading = false;
+
+            };
+            reader.readAsText(event.target.files[0]);
+        };
+
+        input.click();
     }
 
     public async export() {
@@ -25,7 +51,7 @@ export class ImportExportPage implements OnInit, OnDestroy {
         const response = await this.service.export({});
 
         if (response.ok) {
-            saveAs(new Blob([JSON.stringify(response.result, null, 4)], {type: 'application/json;charset=utf-8'}), 'config.json');
+            saveAs(new Blob([JSON.stringify(response.result, null, 4)], { type: 'application/json;charset=utf-8' }), 'config.json');
         } else {
             this.toast.error(response.result.message);
         }
