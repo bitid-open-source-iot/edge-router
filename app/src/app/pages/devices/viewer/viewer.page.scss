@@ -3,7 +3,7 @@
     flex-wrap: wrap;
     flex-direction: row;
     .inputs {
-        flex: 0 14.56%;
+        flex: 0 calc(20% - 40px);
         margin: 10px;
         padding: 10px;
         text-align: center;
@@ -19,21 +19,21 @@
 
 @media screen and (max-width: 1200px) {
     .inputs {
-        flex: 0 14.56%;
+        flex: 0 calc(12% -20px);
     }
 }
 @media screen and (max-width: 900px) {
     .inputs {
-        flex: 0 10%;
+        flex: 0 calc(10% -20px);
     }
 } 
 @media screen and (max-width: 600px) {
     .inputs {
-        flex: 0 8%;
+        flex: 0 calc(8% -20px);
     }
 }
 @media screen and (max-width: 400px) {
     .inputs {
-        flex: 0 4%;
+        flex: 0 calc(6% -20px);
     }
 }
