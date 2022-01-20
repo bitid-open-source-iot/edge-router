@@ -2,7 +2,6 @@ const Q = require('q');
 const { Tag, Controller, EthernetIP } = require('ethernet-ip');
 const DATA_TYPES = EthernetIP.CIP.DataTypes.Types;
 const EventEmitter = require('events').EventEmitter;
-const { async } = require('q');
 
 module.exports = class extends EventEmitter {
 
