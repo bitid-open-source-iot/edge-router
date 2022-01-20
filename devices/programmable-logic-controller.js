@@ -46,7 +46,7 @@ module.exports = class extends EventEmitter {
 
                 try {
                     if (item.readable) {
-                        let a = await this.controller.readTag(item.tag);
+                        await this.controller.readTag(item.tag);
 
                         if (this.values.map(o => o.inputId).includes(item.inputId)) {
                             this.values.map(o => {
