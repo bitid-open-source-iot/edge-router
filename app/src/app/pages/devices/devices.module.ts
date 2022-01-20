@@ -1,4 +1,5 @@
 /* --- PAGES --- */
+import { ViewerPage } from './viewer/viewer.page';
 import { DevicesPage } from './devices.page';
 import { DevicesEditorPage } from './editor/editor.page';
 
@@ -11,6 +12,7 @@ import { CommonModule } from '@angular/common';
 import { OptionsModule } from 'src/app/libs/options/options.module';
 import { ConfirmModule } from 'src/app/libs/confirm/confirm.module';
 import { MatSortModule } from '@angular/material/sort';
+import { MatListModule } from '@angular/material/list';
 import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 import { MatTableModule } from '@angular/material/table';
@@ -36,6 +38,10 @@ const routes: Routes = [
     {
         path: 'editor',
         component: DevicesEditorPage
+    },
+    {
+        path: 'viewer',
+        component: ViewerPage
     }
 ];
 
@@ -43,6 +49,7 @@ const routes: Routes = [
     imports: [
         FormsModule,
         CommonModule,
+        MatListModule,
         OptionsModule,
         MatSortModule,
         MatIconModule,
@@ -64,9 +71,10 @@ const routes: Routes = [
         RouterModule.forChild(routes)
     ],
     declarations: [
+        ViewerPage,
         DevicesPage,
         InputOutputDialog,
-        DevicesEditorPage
+        DevicesEditorPage,
     ]
 })
 

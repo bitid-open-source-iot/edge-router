@@ -1,0 +1,22 @@
+<mat-toolbar>
+    <mat-back-button></mat-back-button>
+
+    <mat-label class="spacer">
+        {{ device.description }}
+    </mat-label>
+</mat-toolbar>
+
+<mat-content>
+    <mat-list>
+        <mat-list-item lines="full" *ngFor="let input of device.io">
+            <mat-label>
+                <h3>
+                    {{ input.description }}
+                </h3>
+                <p>
+                    {{ input.value }}
+                </p>
+            </mat-label>
+        </mat-list-item>
+    </mat-list>
+</mat-content>

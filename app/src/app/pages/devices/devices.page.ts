@@ -44,6 +44,18 @@ export class DevicesPage implements OnInit, OnDestroy {
             title: device.description,
             options: [
                 {
+                    icon: 'visibility',
+                    title: 'View',
+                    handler: () => {
+                        this.router.navigate(['/devices', 'viewer'], {
+                            queryParams: {
+                                deviceId: device.deviceId
+                            }
+                        });
+                    },
+                    disabled: []
+                },
+                {
                     icon: 'file_copy',
                     title: 'Copy',
                     handler: () => {
