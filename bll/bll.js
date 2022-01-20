@@ -250,8 +250,8 @@ var module = function () {
                         if (__devices[i].deviceId == args.req.body.deviceId) {
                             for (let b = 0; b < __devices[i].io.length; b++) {
                                 args.result.io.map(input => {
-                                    if (input.inputId == __devices[i].io[b].inputId) {
-                                        input.value = __devices[i].io[b].value;
+                                    if (input.inputId == __devices[i].values[b].inputId) {
+                                        input.value = __devices[i].values[b].value;
                                     };
                                 });
                             };
