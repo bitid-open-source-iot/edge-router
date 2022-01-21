@@ -31,6 +31,7 @@ export class DevicesEditorPage implements OnInit, OnDestroy {
         pxtime: new FormControl(120, [Validators.required, Validators.min(1)]),
         barcode: new FormControl(null, [Validators.required]),
         publish: new FormControl(false, [Validators.required]),
+        timeout: new FormControl(60, [Validators.required]),
         enabled: new FormControl(false, [Validators.required]),
         deviceId: new FormControl(null, [Validators.required, Validators.minLength(24), Validators.maxLength(24)]),
         description: new FormControl(null, [Validators.required])
@@ -44,6 +45,7 @@ export class DevicesEditorPage implements OnInit, OnDestroy {
         pxtime: '',
         barcode: '',
         publish: '',
+        timeout: '',
         enabled: '',
         deviceId: '',
         description: ''
@@ -66,6 +68,7 @@ export class DevicesEditorPage implements OnInit, OnDestroy {
                 'txtime',
                 'barcode',
                 'publish',
+                'timeout',
                 'enabled',
                 'deviceId',
                 'description'
@@ -82,6 +85,7 @@ export class DevicesEditorPage implements OnInit, OnDestroy {
             this.form.controls.pxtime.setValue(device.pxtime);
             this.form.controls.txtime.setValue(device.txtime);
             this.form.controls.barcode.setValue(device.barcode);
+            this.form.controls.timeout.setValue(device.timeout);
             this.form.controls.publish.setValue(device.publish);
             this.form.controls.enabled.setValue(device.enabled);
             this.form.controls.deviceId.setValue(device.deviceId);
@@ -111,6 +115,7 @@ export class DevicesEditorPage implements OnInit, OnDestroy {
             txtime: this.form.value.txtime,
             pxtime: this.form.value.pxtime,
             barcode: this.form.value.barcode,
+            timeout: this.form.value.timeout,
             publish: this.form.value.publish,
             enabled: this.form.value.enabled,
             deviceId: this.form.value.deviceId,

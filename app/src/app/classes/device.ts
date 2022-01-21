@@ -11,6 +11,7 @@ export class Device {
     public pxtime: number = 5;
     public barcode: string = '';
     public publish: boolean = false;
+    public timeout: number = 60;
     public enabled: boolean = false;
     public deviceId: string = ObjectId();
     public description: string = '';
@@ -41,6 +42,9 @@ export class Device {
             if (typeof (args.publish) != 'undefined' && args.publish != null) {
                 this.publish = args.publish;
             }
+            if (typeof (args.timeout) != 'undefined' && args.timeout != null) {
+                this.timeout = args.timeout;
+            }
             if (typeof (args.enabled) != 'undefined' && args.enabled != null) {
                 this.enabled = args.enabled;
             }
@@ -64,6 +68,7 @@ interface DEVICE {
     pxtime: number;
     barcode: string;
     publish: boolean;
+    timeout: number;
     enabled: boolean;
     deviceId: string;
     description: string;
