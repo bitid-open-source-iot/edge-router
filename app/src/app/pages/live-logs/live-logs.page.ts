@@ -17,25 +17,29 @@ export class LiveLogsPage implements OnInit, OnDestroy {
     public table: MatTableDataSource<any> = new MatTableDataSource<any>();
     public columns: string[] = ['message', 'type', 'date'];
     public loading: boolean = false;
+    public observers: any = {};
 
     ngOnInit(): void {
-        const socket = new Socket(environment.socket);
+        const socket = new Socket(environment.socket, 'logs');
 
-        socket.data.subscribe((event: any) => {
+        this.observers.data = socket.data.subscribe((event: any) => {
             if (this.table.data.length >= 1000) {
-                this.table.data.pop();    
+                this.table.data.pop();
             };
-            this.table.data.unshift(event);
+            this.table.data.unshift(event.result);
             this.table.data = this.table.data.map(o => new Log(o));
         });
 
-        socket.status.subscribe((status: any) => {
+        this.observers.status = socket.status.subscribe((status: any) => {
             if (status == 'disconnected') {
                 setTimeout(() => socket.reconnect(), 5000);
             };
         });
     }
 
-    ngOnDestroy(): void { }
+    ngOnDestroy(): void {
+        this.observers.data?.unsubscribe();
+        this.observers.status?.unsubscribe();
+    }
 
 }

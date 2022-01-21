@@ -44,6 +44,7 @@ module.exports = class extends EventEmitter {
         this.server = args.server;
         this.txtime = args.txtime;
         this.pxtime = args.pxtime || 120;
+        this.timeout = args.timeout;
         this.barcode = args.barcode;
         this.deviceId = args.deviceId;
 

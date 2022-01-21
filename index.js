@@ -3,9 +3,9 @@ const cors = require('cors');
 const http = require('http');
 const chalk = require('chalk');
 const express = require('express');
+const WebSocket = require('./lib/socket').WebSocket;
 const responder = require('./lib/responder');
 const ErrorResponse = require('./lib/error-response');
-const WebSocketServer = require('websocket').server;
 
 /* --- DEVICES --- */
 const Modbus = require('./devices/modbus');
@@ -117,10 +117,7 @@ try {
 
                 var server = http.createServer(app);
                 server.listen(__settings.port, () => {
-                    __socket = new WebSocketServer({
-                        httpServer: server,
-                        autoAcceptConnections: true
-                    });
+                    __socket = new WebSocket(server);
                     __logger.info('Webserver Running on port: ' + __settings.port);
                     deferred.resolve();
                 });
@@ -189,7 +186,8 @@ try {
 
                 __router.on('control', event => {
                     __devices.map(device => {
-                        if (device.type == 'external' && device.deviceId == event.rtuId) {
+                        if (device.type == 'external' && device.deviceId == event?.rtuId) {
+                            device.emit('data', {});
                             var data = [];
                             var found = false;
                             device.io.map(input => {
@@ -206,6 +204,10 @@ try {
                                 };
                             });
                             if (found) {
+                                __socket.send('devices:data', {
+                                    data: data,
+                                    deviceId: device.deviceId
+                                });
                                 __router.route(event.rtuId, data);
                             };
                         };

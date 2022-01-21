@@ -19,6 +19,7 @@ module.exports = class extends EventEmitter {
         this.txtime = args.txtime;
         this.pxtime = args.pxtime || 120;
         this.status = 'disconnected';
+        this.timeout = args.timeout;
         this.enabled = args.enabled;
         this.barcode = args.barcode;
         this.deviceId = args.deviceId;
