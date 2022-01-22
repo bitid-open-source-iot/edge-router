@@ -4,6 +4,14 @@
     <mat-label class="spacer">
         {{ device.description }}
     </mat-label>
+
+    <span class="last-connection">
+        {{ device.lastConnection ? (device.lastConnection | date : 'yyyy/MM/dd HH:mm:ss') : 'not connected!' }}
+    </span>
+
+    <mat-icon [class.isConnected]="device.isConnected">
+        wifi
+    </mat-icon>
 </mat-toolbar>
 
 <mat-content>

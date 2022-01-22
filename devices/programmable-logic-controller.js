@@ -1,5 +1,6 @@
 const Q = require('q');
 const { Tag, Controller, EthernetIP } = require('ethernet-ip');
+const interval = require('rxjs').interval;
 const DATA_TYPES = EthernetIP.CIP.DataTypes.Types;
 const EventEmitter = require('events').EventEmitter;
 
@@ -19,11 +20,31 @@ module.exports = class extends EventEmitter {
         this.txtime = args.txtime;
         this.pxtime = args.pxtime || 120;
         this.status = 'disconnected';
-        this.timeout = args.timeout;
+        this.timeout = args.timeout || 60;
         this.enabled = args.enabled;
         this.barcode = args.barcode;
         this.deviceId = args.deviceId;
         this.controller = new Controller();
+        this.lastConnection = new Date();
+
+        this.on('data', () => {
+            if (__socket) {
+                __socket.send('devices:data', {
+                    data: this.values,
+                    deviceId: this.deviceId
+                });
+            };
+            this.lastConnection = new Date();
+        });
+
+        this.on('timeout', (value) => {
+            if (__socket) {
+                __socket.send('devices:timeout', {
+                    timeout: value,
+                    deviceId: this.deviceId
+                });
+            };
+        });
 
         setInterval(async () => {
             if (this.status == 'connected') {
@@ -34,6 +55,16 @@ module.exports = class extends EventEmitter {
                 await this.connect();
             };
         }, this.txtime * 1000);
+
+        interval(1000).subscribe(count => {
+            const now = new Date().getTime();
+            const lastPlusTimeout = this.lastConnection?.getTime() + (this.timeout * 1000);
+            if (now > lastPlusTimeout) {
+                this.emit('timeout', true);
+            } else {
+                this.emit('timeout', false);
+            };
+        });
 
         this.connect();
     }
@@ -81,6 +112,12 @@ module.exports = class extends EventEmitter {
                     };
                     deferred.resolve();
                 } catch (error) {
+                    if (error.message.includes('TIMEOUT')) {
+                        if (this.status != 'disconnected') {
+                            __logger.error('Programmable Logic Controller - Disconnected!');
+                        };
+                        this.status = 'disconnected';
+                    };
                     __logger.warn('Programmable Logic Controller - Issue Reading Tag!');
                     deferred.resolve();
                 };
@@ -89,6 +126,7 @@ module.exports = class extends EventEmitter {
             });
         }, Promise.resolve())
             .then(() => {
+                this.emit('data', this.values);
                 if (change) {
                     this.emit('change', this.values);
                 };
@@ -100,12 +138,24 @@ module.exports = class extends EventEmitter {
 
         __logger.info('Programmable Logic Controller - Connecting!');
 
+        const timeout = setTimeout(() => {
+            __logger.error('Programmable Logic Controller - Disconnected!');
+            this.status = 'disconnected';
+        }, 5000);
+
+        this.controller.destroy();
+        delete this.controller;
+
+        this.controller = new Controller();
+
         this.controller.connect(this.ip, this.port)
             .then(() => {
+                clearTimeout(timeout);
                 __logger.info('Programmable Logic Controller - Connected!');
                 this.status = 'connected';
             })
             .catch(error => {
+                clearTimeout(timeout);
                 __logger.error('Programmable Logic Controller - Disconnected!');
                 this.status = 'disconnected';
             });
@@ -119,6 +169,7 @@ module.exports = class extends EventEmitter {
                     await this.controller.writeTag(item.tag);
                 };
             });
+            this.emit('data', this.values);
         } catch (error) {
             __logger.warn('Programmable Logic Controller - Issue Writing Tag!');
         };

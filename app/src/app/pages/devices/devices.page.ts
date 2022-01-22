@@ -7,6 +7,9 @@ import { OptionsService } from 'src/app/libs/options/options.service';
 import { MatTableDataSource } from '@angular/material/table';
 import { OnInit, Component, OnDestroy, ViewChild } from '@angular/core';
 import { MatSort } from '@angular/material/sort';
+import { Socket } from 'src/app/classes/socket';
+import { environment } from 'src/environments/environment';
+import { InputOutput } from 'src/app/classes/input-output';
 
 @Component({
     selector: 'devices-page',
@@ -21,8 +24,9 @@ export class DevicesPage implements OnInit, OnDestroy {
     constructor(private toast: ToastService, private sheet: OptionsService, private router: Router, private confirm: ConfirmService, private service: DevicesService) { }
 
     public table: MatTableDataSource<Device> = new MatTableDataSource<Device>();
-    public columns?: string[] = ['description', 'type', 'enabled'];
+    public columns?: string[] = ['description', 'type', 'lastConnection', 'isConnected', 'publish', 'enabled'];
     public loading?: boolean;
+    private observers: any = {};
 
     private async list() {
         this.loading = true;
@@ -120,9 +124,56 @@ export class DevicesPage implements OnInit, OnDestroy {
     ngOnInit(): void {
         this.table.sort = this.sort;
 
-        this.list();
+        (async () => {
+            await this.list();
+
+            const socket = new Socket(environment.socket, 'devices');
+
+            this.observers.data = socket.data.subscribe((event: any) => {
+                switch (event.process) {
+                    case ('data'):
+                        for (let i = 0; i < this.table.data.length; i++) {
+                            if (this.table.data[i].deviceId == event.result.deviceId) {
+                                this.table.data[i].lastConnection = new Date();
+                                this.table.data[i].isConnected = true;
+                                this.table.data[i].io.map((io: InputOutput) => {
+                                    event.result.data.map((data: { value: number; inputId: string }) => {
+                                        if (io.inputId == data.inputId) {
+                                            io.value = data.value;
+                                        };
+                                    });
+                                });
+                            };
+                        };
+                        this.table.data = this.table.data.map((o: Device) => new Device(o));
+                        break;
+                    case ('timeout'):
+                        for (let i = 0; i < this.table.data.length; i++) {
+                            if (this.table.data[i].deviceId == event.result.deviceId) {
+                                if (event.result.timeout) {
+                                    delete this.table.data[i].lastConnection;
+                                    this.table.data[i].isConnected = false;
+                                } else {
+                                    this.table.data[i].isConnected = true;
+                                };
+                            };
+                        };
+                        this.table.data = this.table.data.map((o: Device) => new Device(o));
+                        break;
+                };
+            });
+
+            this.observers.status = socket.status.subscribe((status: any) => {
+                if (status == 'disconnected') {
+                    setTimeout(() => socket.reconnect(), 5000);
+                };
+            });
+        })();
     }
 
-    ngOnDestroy(): void { }
+    ngOnDestroy(): void {
+        this.observers.data?.unsubscribe();
+        this.observers.status?.unsubscribe();
+    }
 
 }

@@ -14,7 +14,9 @@ export class Device {
     public timeout: number = 60;
     public enabled: boolean = false;
     public deviceId: string = ObjectId();
+    public isConnected: boolean = false;
     public description: string = '';
+    public lastConnection?: Date;
 
     constructor(args?: DEVICE) {
         if (typeof (args) != 'undefined' && args != null) {
@@ -51,8 +53,14 @@ export class Device {
             if (typeof (args.deviceId) != 'undefined' && args.deviceId != null) {
                 this.deviceId = args.deviceId;
             }
+            if (typeof (args.isConnected) != 'undefined' && args.isConnected != null) {
+                this.isConnected = args.isConnected;
+            }
             if (typeof (args.description) != 'undefined' && args.description != null) {
                 this.description = args.description;
+            }
+            if (typeof (args.lastConnection) != 'undefined' && args.lastConnection != null) {
+                this.lastConnection = new Date(args.lastConnection);
             }
         }
     }
@@ -71,5 +79,7 @@ interface DEVICE {
     timeout: number;
     enabled: boolean;
     deviceId: string;
+    isConnected: boolean;
     description: string;
+    lastConnection?: Date;
 }

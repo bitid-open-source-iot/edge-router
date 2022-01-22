@@ -15,7 +15,7 @@ module.exports = class extends EventEmitter {
         this.txtime = args.txtime;
         this.pxtime = args.pxtime || 120;
         this.status = 'disconnected';
-        this.timeout = args.timeout;
+        this.timeout = args.timeout || 60;
         this.barcode = args.barcode;
         this.enabled = args.enabled;
         this.deviceId = args.deviceId;
@@ -39,17 +39,17 @@ module.exports = class extends EventEmitter {
     async connect() {
         this.status = 'connecting';
 
-        __logger.info('ModBus - Connecting!');
+        // __logger.info('ModBus - Connecting!');
 
         this.controller = modbus(this.ip, this.port, 0);
 
         await this.wait(1000);
 
         if (this.controller.stream.online) {
-            __logger.info('ModBus - Connected!');
+            // __logger.info('ModBus - Connected!');
             this.status = 'connected';
         } else {
-            __logger.error('ModBus - Disconnected!');
+            // __logger.error('ModBus - Disconnected!');
             this.status = 'disconnected';
         };
     }
