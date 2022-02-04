@@ -1,7 +1,9 @@
-import { FormErrorService } from 'src/app/services/form-error/form-error.service';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Inject, OnInit, Component, OnDestroy } from '@angular/core';
+
+/* --- SERVICES --- */
+import { FormErrorService } from 'src/app/services/form-error/form-error.service';
 
 @Component({
     selector: 'input-output-dialog',

@@ -94,6 +94,24 @@
 
             <mat-form-field appearance="outline">
                 <mat-label>
+                    Publish Interval
+                </mat-label>
+
+                <input matInput min="120" type="number" placeholder="publish interval" formControlName="pxtime" required>
+
+                <span matSuffix>
+                    second{{ form.value.pxtime > 1 ? 's' : '' }}
+                </span>
+
+                <mat-error *ngIf="errors.pxtime">
+                    {{ errors.pxtime }}
+                </mat-error>
+            </mat-form-field>
+        </section>
+
+        <section>
+            <mat-form-field appearance="outline">
+                <mat-label>
                     Enabled
                 </mat-label>
     
@@ -110,15 +128,13 @@
                     {{ errors.enabled }}
                 </mat-error>
             </mat-form-field>
-        </section>
 
-        <section>
             <mat-form-field appearance="outline">
                 <mat-label>
                     Timeout Interval
                 </mat-label>
 
-                <input matInput type="number" placeholder="Timeout" formControlName="timeout" required>
+                <input matInput min="120" type="number" placeholder="Timeout" formControlName="timeout" required>
 
                 <span matSuffix>
                     second{{ form.value.timeout > 1 ? 's' : '' }}
@@ -126,22 +142,6 @@
 
                 <mat-error *ngIf="errors.timeout">
                     {{ errors.timeout }}
-                </mat-error>
-            </mat-form-field>
-
-            <mat-form-field appearance="outline">
-                <mat-label>
-                    Publish Interval
-                </mat-label>
-
-                <input matInput type="number" min="1" placeholder="publish interval" formControlName="pxtime" required>
-
-                <span matSuffix>
-                    second{{ form.value.pxtime > 1 ? 's' : '' }}
-                </span>
-
-                <mat-error *ngIf="errors.pxtime">
-                    {{ errors.pxtime }}
                 </mat-error>
             </mat-form-field>
         </section>
@@ -152,7 +152,7 @@
                     TX Time
                 </mat-label>
 
-                <input matInput type="number" min="1" placeholder="tx time" formControlName="txtime" required>
+                <input matInput min="1" type="number" placeholder="tx time" formControlName="txtime" required>
 
                 <mat-error *ngIf="errors.txtime">
                     {{ errors.txtime }}
@@ -202,9 +202,7 @@
     </table>
 
     <button class="add" mat-icon-button color="primary" (click)="editor('add')">
-        <mat-icon>
-            add
-        </mat-icon>
+        <mat-icon svgIcon="add"></mat-icon>
     </button>
 </mat-content>
 

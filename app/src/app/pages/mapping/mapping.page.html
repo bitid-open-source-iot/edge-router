@@ -82,19 +82,13 @@
 
         <ng-container matColumnDef="route">
             <th mat-header-cell *matHeaderCellDef>
-                <mat-icon>
-                    double_arrow
-                </mat-icon>
+                <mat-icon svgIcon="double_arrow"></mat-icon>
             </th>
             <td mat-cell *matCellDef="let element">
-                <mat-icon>
-                    double_arrow
-                </mat-icon>
+                <mat-icon svgIcon="double_arrow"></mat-icon>
             </td>
             <td mat-footer-cell *matFooterCellDef [formGroup]="map">
-                <mat-icon>
-                    double_arrow
-                </mat-icon>
+                <mat-icon svgIcon="double_arrow"></mat-icon>
             </td>
         </ng-container>
 
@@ -172,16 +166,12 @@
             <th mat-header-cell *matHeaderCellDef></th>
             <td mat-cell *matCellDef="let element">
                 <button mat-icon-button color="warn" (click)="!loading && delete(element)">
-                    <mat-icon>
-                        delete
-                    </mat-icon>
+                    <mat-icon svgIcon="delete"></mat-icon>
                 </button>
             </td>
             <td mat-footer-cell *matFooterCellDef [formGroup]="map">
                 <button type="button" mat-icon-button color="primary" (click)="!loading && !map.invalid && add()">
-                    <mat-icon>
-                        add
-                    </mat-icon>
+                    <mat-icon svgIcon="add"></mat-icon>
                 </button>
             </td>
         </ng-container>

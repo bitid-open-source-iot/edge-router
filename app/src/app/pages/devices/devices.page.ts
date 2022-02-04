@@ -60,7 +60,7 @@ export class DevicesPage implements OnInit, OnDestroy {
                     disabled: []
                 },
                 {
-                    icon: 'file_copy',
+                    icon: 'content_copy',
                     title: 'Copy',
                     handler: () => {
                         this.router.navigate(['/devices', 'editor'], {

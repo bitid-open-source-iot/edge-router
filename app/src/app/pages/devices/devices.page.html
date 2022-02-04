@@ -6,9 +6,7 @@
     </mat-label>
 
     <button mat-icon-button routerLink="editor" [queryParams]="{mode: 'add'}">
-        <mat-icon>
-            add
-        </mat-icon>
+        <mat-icon svgIcon="add"></mat-icon>
     </button>
 </mat-toolbar>
 
@@ -48,27 +46,21 @@
         <ng-container matColumnDef="isConnected">
             <th mat-header-cell *matHeaderCellDef mat-sort-header></th>
             <td mat-cell *matCellDef="let element">
-                <mat-icon [class.isConnected]="element.isConnected">
-                    wifi
-                </mat-icon>
+                <mat-icon svgIcon="wifi" [class.isConnected]="element.isConnected"></mat-icon>
             </td>
         </ng-container>
 
         <ng-container matColumnDef="publish">
             <th mat-header-cell *matHeaderCellDef></th>
             <td mat-cell *matCellDef="let element">
-                <mat-icon [class.enabled]="element.publish" [matTooltip]="element.publish ? 'Publishing is enabled' : 'Publishing is disabled'">
-                    file_upload
-                </mat-icon>
+                <mat-icon svgIcon="file_upload" [class.enabled]="element.publish" [matTooltip]="element.publish ? 'Publishing is enabled' : 'Publishing is disabled'"></mat-icon>
             </td>
         </ng-container>
 
         <ng-container matColumnDef="enabled">
             <th mat-header-cell *matHeaderCellDef></th>
             <td mat-cell *matCellDef="let element">
-                <mat-icon [class.enabled]="element.enabled" [matTooltip]="element.enabled ? 'Device is enabled' : 'Device is disabled'">
-                    file_download
-                </mat-icon>
+                <mat-icon svgIcon="file_download" [class.enabled]="element.enabled" [matTooltip]="element.enabled ? 'Device is enabled' : 'Device is disabled'"></mat-icon>
             </td>
         </ng-container>
 

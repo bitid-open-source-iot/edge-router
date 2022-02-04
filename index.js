@@ -237,12 +237,13 @@ try {
                 });
 
                 __router.on('connected', event => {
-                    __settings.devices.filter(o => o.publish).map(device => {
+                    __settings.devices.filter(o => o.publish).map(async (device) => {
+                        const pxtime = (device.pxtime ? device.pxtime : 120) * 1000;
                         __logger.info('Starting publish every ' + device.pxtime + ' seconds!');
 
-                        send(device.deviceId);
+                        await send(device.deviceId);
 
-                        setInterval(() => send(device.deviceId), (device.pxtime ? device.pxtime : 120) * 1000);
+                        setInterval(async () => await send(device.deviceId), pxtime);
                     });
                 });
 

@@ -1,16 +1,22 @@
-import { Device } from 'src/app/classes/device';
-import { ObjectId } from 'src/app/classes/id';
 import { MatDialog } from '@angular/material/dialog';
-import { InputOutput } from 'src/app/classes/input-output';
-import { ToastService } from 'src/app/services/toast/toast.service';
-import { OptionsService } from 'src/app/libs/options/options.service';
-import { DevicesService } from 'src/app/services/devices/devices.service';
-import { FormErrorService } from 'src/app/services/form-error/form-error.service';
-import { InputOutputDialog } from './input-output/input-output.dialog';
 import { MatTableDataSource } from '@angular/material/table';
 import { Router, ActivatedRoute } from '@angular/router';
 import { OnInit, Component, OnDestroy } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+
+/* --- DIALOGS --- */
+import { InputOutputDialog } from './input-output/input-output.dialog';
+
+/* --- CLASSES --- */
+import { Device } from 'src/app/classes/device';
+import { ObjectId } from 'src/app/classes/id';
+import { InputOutput } from 'src/app/classes/input-output';
+
+/* --- SERVICES --- */
+import { ToastService } from 'src/app/services/toast/toast.service';
+import { OptionsService } from 'src/app/libs/options/options.service';
+import { DevicesService } from 'src/app/services/devices/devices.service';
+import { FormErrorService } from 'src/app/services/form-error/form-error.service';
 
 @Component({
     selector: 'devices-editor-page',
@@ -28,7 +34,7 @@ export class DevicesEditorPage implements OnInit, OnDestroy {
         port: new FormControl(0, [Validators.required, Validators.min(0)]),
         type: new FormControl(null, [Validators.required]),
         txtime: new FormControl(5, [Validators.required, Validators.min(1)]),
-        pxtime: new FormControl(120, [Validators.required, Validators.min(1)]),
+        pxtime: new FormControl(120, [Validators.required, Validators.min(120)]),
         barcode: new FormControl(null, [Validators.required]),
         publish: new FormControl(false, [Validators.required]),
         timeout: new FormControl(60, [Validators.required]),
@@ -78,18 +84,18 @@ export class DevicesEditorPage implements OnInit, OnDestroy {
 
         if (response.ok) {
             const device = new Device(response.result);
-            this.table.data = device.io.map(o => new InputOutput(o));
-            this.form.controls.ip.setValue(device.ip);
-            this.form.controls.port.setValue(device.port);
-            this.form.controls.type.setValue(device.type);
-            this.form.controls.pxtime.setValue(device.pxtime);
-            this.form.controls.txtime.setValue(device.txtime);
-            this.form.controls.barcode.setValue(device.barcode);
-            this.form.controls.timeout.setValue(device.timeout);
-            this.form.controls.publish.setValue(device.publish);
-            this.form.controls.enabled.setValue(device.enabled);
-            this.form.controls.deviceId.setValue(device.deviceId);
-            this.form.controls.description.setValue(device.description);
+            this.table.data = device.io.map((o: InputOutput) => new InputOutput(o));
+            this.form.controls['ip'].setValue(device.ip);
+            this.form.controls['port'].setValue(device.port);
+            this.form.controls['type'].setValue(device.type);
+            this.form.controls['pxtime'].setValue(device.pxtime);
+            this.form.controls['txtime'].setValue(device.txtime);
+            this.form.controls['barcode'].setValue(device.barcode);
+            this.form.controls['timeout'].setValue(device.timeout);
+            this.form.controls['publish'].setValue(device.publish);
+            this.form.controls['enabled'].setValue(device.enabled);
+            this.form.controls['deviceId'].setValue(device.deviceId);
+            this.form.controls['description'].setValue(device.description);
         } else {
             this.toast.error(response.result.message);
             this.router.navigate(['/devices']);
@@ -137,7 +143,7 @@ export class DevicesEditorPage implements OnInit, OnDestroy {
             title: io.description,
             options: [
                 {
-                    icon: 'copy_all',
+                    icon: 'content_copy',
                     title: 'Copy',
                     handler: () => this.editor('copy', io),
                     disabled: []
@@ -194,7 +200,7 @@ export class DevicesEditorPage implements OnInit, OnDestroy {
                         });
                         break;
                 };
-                this.table.data = this.table.data.map(o => new InputOutput(o));
+                this.table.data = this.table.data.map((o: InputOutput) => new InputOutput(o));
             };
         });
     }
@@ -213,7 +219,7 @@ export class DevicesEditorPage implements OnInit, OnDestroy {
     }
 
     ngOnDestroy(): void {
-        this.observers.form.unsubscribe();
+        this.observers.form?.unsubscribe();
     }
 
 }
