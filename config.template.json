@@ -24,7 +24,7 @@
             "edge-router": {
                 "type": "file",
                 "backups": 10,
-                "filename": "./logs/edge-router.log",
+                "filename": "/var/www/node/edge-router/logs/edge-router.log",
                 "absolute": true,
                 "maxLogSize": 102400
             }
