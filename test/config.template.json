@@ -2,5 +2,5 @@
 	"token": {},
 	"email": "xxx@xxx.co.za",
 	"appId": "xxx",
-	"project": "http://127.0.0.1:8080"
+	"edge-router": "http://127.0.0.1:8080"
 }
