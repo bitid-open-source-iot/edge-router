@@ -8,8 +8,11 @@ const subset = require('chai-subset');
 
 chai.use(subset);
 
+var mapId = null;
 var deviceId = null;
-var mappingId = null;
+var email = config.email;
+var password = config.password;
+var authenticated = config.authenticated;
 
 describe('Admin', function () {
     it('/edge-router/admin/authenticate', function (done) {
@@ -18,6 +21,7 @@ describe('Admin', function () {
         tools.api.admin.authenticate()
             .then((result) => {
                 try {
+                    result.should.have.property('authenticated')
                     done();
                 } catch (e) {
                     done(e);
@@ -34,9 +38,11 @@ describe('Admin', function () {
     it('/edge-router/admin/change-email', function (done) {
         this.timeout(5000);
 
-        tools.api.admin.changeemail()
+        tools.api.admin.changeemail(config.email, 'aaa@xxx.co.za')
             .then((result) => {
                 try {
+                    result.should.have.property('updated');
+                    expect(result.updated).is.above(0)
                     done();
                 } catch (e) {
                     done(e);
@@ -53,9 +59,12 @@ describe('Admin', function () {
     it('/edge-router/admin/change-email', function (done) {
         this.timeout(5000);
 
-        tools.api.admin.changeemail()
+        tools.api.admin.changeemail('aaa@xxx.co.za', email)
             .then((result) => {
                 try {
+                    config.email = email;
+                    result.should.have.property('updated');
+                    expect(result.updated).is.above(0);
                     done();
                 } catch (e) {
                     done(e);
@@ -72,9 +81,11 @@ describe('Admin', function () {
     it('/edge-router/admin/change-password', function (done) {
         this.timeout(5000);
 
-        tools.api.admin.changepassword('updated')
+        tools.api.admin.changepassword(config.password, 'password')
             .then((result) => {
                 try {
+                    result.should.have.property('updated');
+                    expect(result.updated).is.above(0);
                     done();
                 } catch (e) {
                     done(e);
@@ -91,9 +102,12 @@ describe('Admin', function () {
     it('/edge-router/admin/change-password', function (done) {
         this.timeout(5000);
 
-        tools.api.admin.changepassword('admin')
+        tools.api.admin.changepassword('password', password)
             .then((result) => {
                 try {
+                    config.password = password;
+                    result.should.have.property('updated');
+                    expect(result.updated).is.above(0);
                     done();
                 } catch (e) {
                     done(e);
@@ -106,6 +120,72 @@ describe('Admin', function () {
                 };
             });
     });
+});
+
+describe('Config', function () {
+    it('/edge-router/config/get', function (done) {
+        this.timeout(5000);
+
+        tools.api.config.get()
+            .then((result) => {
+                try {
+                    result.should.have.property('icon');
+                    result.should.have.property('name');
+                    result.should.have.property('appId');
+                    result.should.have.property('theme');
+                    result.should.have.property('favicon');
+                    done();
+                } catch (e) {
+                    done(e);
+                };
+            }, (err) => {
+                try {
+                    done(err);
+                } catch (e) {
+                    done(e);
+                };
+            });
+    });
+
+    // it('/edge-router/config/import', function (done) {
+    //     this.timeout(5000);
+
+    //     tools.api.config.import()
+    //         .then((result) => {
+    //             try {
+    //                 result.should.have.property('');
+    //                 done();
+    //             } catch (e) {
+    //                 done(e);
+    //             };
+    //         }, (err) => {
+    //             try {
+    //                 done(err);
+    //             } catch (e) {
+    //                 done(e);
+    //             };
+    //         });
+    // });
+
+    // it('/edge-router/config/export', function (done) {
+    //     this.timeout(5000);
+
+    //     tools.api.config.export()
+    //         .then((result) => {
+    //             try {
+    //                 result.should.have.property('');
+    //                 done();
+    //             } catch (e) {
+    //                 done(e);
+    //             };
+    //         }, (err) => {
+    //             try {
+    //                 done(err);
+    //             } catch (e) {
+    //                 done(e);
+    //             };
+    //         });
+    // });
 });
 
 describe('Devices', function () {
@@ -168,18 +248,18 @@ describe('Devices', function () {
         tools.api.devices.list()
             .then((result) => {
                 try {
-                    resul[0].should.have.property('io');
-                    resul[0].should.have.property('ip');
-                    resul[0].should.have.property('port');
-                    resul[0].should.have.property('type');
-                    resul[0].should.have.property('pxtime');
-                    resul[0].should.have.property('txtime');
-                    resul[0].should.have.property('barcode');
-                    resul[0].should.have.property('publish');
-                    resul[0].should.have.property('timeout');
-                    resul[0].should.have.property('enabled');
-                    resul[0].should.have.property('deviceId');
-                    resul[0].should.have.property('description');
+                    result[0].should.have.property('io');
+                    result[0].should.have.property('ip');
+                    result[0].should.have.property('port');
+                    result[0].should.have.property('type');
+                    result[0].should.have.property('pxtime');
+                    result[0].should.have.property('txtime');
+                    result[0].should.have.property('barcode');
+                    result[0].should.have.property('publish');
+                    result[0].should.have.property('timeout');
+                    result[0].should.have.property('enabled');
+                    result[0].should.have.property('deviceId');
+                    result[0].should.have.property('description');
                     done();
                 } catch (e) {
                     done(e);
@@ -213,27 +293,6 @@ describe('Devices', function () {
                 };
             });
     });
-
-    it('/edge-router/devices/delete', function (done) {
-        this.timeout(5000);
-
-        tools.api.devices.delete()
-            .then((result) => {
-                try {
-                    result.should.have('deleted');
-                    expect(result.deleted).to.equal(1);
-                    done();
-                } catch (e) {
-                    done(e);
-                };
-            }, (err) => {
-                try {
-                    done(err);
-                } catch (e) {
-                    done(e);
-                };
-            });
-    });
 });
 
 describe('Mapping', function () {
@@ -243,6 +302,8 @@ describe('Mapping', function () {
         tools.api.devices.add()
             .then((result) => {
                 try {
+                    mapId = result.mapId;
+                    result.should.have.property('mapId');
                     done();
                 } catch (e) {
                     done(e);
@@ -262,6 +323,9 @@ describe('Mapping', function () {
         tools.api.mapping.get()
             .then((result) => {
                 try {
+                    result.should.have.property('mapId');
+                    result.should.have.property('source');
+                    result.should.have.property('destination');
                     done();
                 } catch (e) {
                     done(e);
@@ -281,6 +345,9 @@ describe('Mapping', function () {
         tools.api.mapping.list()
             .then((result) => {
                 try {
+                    result[0].should.have.property('mapId');
+                    result[0].should.have.property('source');
+                    result[0].should.have.property('destination');
                     done();
                 } catch (e) {
                     done(e);
@@ -300,6 +367,31 @@ describe('Mapping', function () {
         tools.api.mapping.update()
             .then((result) => {
                 try {
+                    result.should.have.property('updated');
+                    expect(result.updated).to.be.above(0);
+                    done();
+                } catch (e) {
+                    done(e);
+                };
+            }, (err) => {
+                try {
+                    done(err);
+                } catch (e) {
+                    done(e);
+                };
+            });
+    });
+});
+
+describe('Remove Added Items', function () {
+    it('/edge-router/devices/delete', function (done) {
+        this.timeout(5000);
+
+        tools.api.devices.delete()
+            .then((result) => {
+                try {
+                    result.should.have.property('deleted');
+                    expect(result.deleted).to.equal(1);
                     done();
                 } catch (e) {
                     done(e);
@@ -319,27 +411,6 @@ describe('Mapping', function () {
         tools.api.mapping.delete()
             .then((result) => {
                 try {
-                    done();
-                } catch (e) {
-                    done(e);
-                };
-            }, (err) => {
-                try {
-                    done(err);
-                } catch (e) {
-                    done(e);
-                };
-            });
-    });
-});
-
-describe('Remove Added Items', function () {
-    it('/edge-router/route/delete', function (done) {
-        this.timeout(5000);
-
-        tools.api.route.delete()
-            .then((result) => {
-                try {
                     result.should.have.property('deleted');
                     expect(result.deleted).to.equal(1);
                     done();
@@ -354,6 +425,27 @@ describe('Remove Added Items', function () {
                 };
             });
     });
+
+    // it('/edge-router/route/delete', function (done) {
+    //     this.timeout(5000);
+
+    //     tools.api.route.delete()
+    //         .then((result) => {
+    //             try {
+    //                 result.should.have.property('deleted');
+    //                 expect(result.deleted).to.equal(1);
+    //                 done();
+    //             } catch (e) {
+    //                 done(e);
+    //             };
+    //         }, (err) => {
+    //             try {
+    //                 done(err);
+    //             } catch (e) {
+    //                 done(e);
+    //             };
+    //         });
+    // });
 });
 
 describe('Health Check', function () {
@@ -382,10 +474,44 @@ describe('Health Check', function () {
 
 var tools = {
     api: {
+        admin: {
+            authenticate: () => {
+                return tools.put('/edge-router/admin/authenticate', {});
+            },
+            changeemail: (current, replacement) => {
+                config.email = current;
+
+                return tools.post('/edge-router/admin/change-email', {
+                    'email': replacement
+                });
+            },
+            changepassword: (oldpass, newpass) => {
+                return tools.post('/edge-router/admin/change-password', {
+                    'old': oldpass,
+                    'new': newpass,
+                    'confirm': newpass
+                });
+            }
+        },
+        config: {
+            get: () => {
+                return tools.post('/edge-router/config/get', {})
+            },
+            // import: () => {
+            //     return tools.post('/edge-router/config/import', {
+
+            //     });
+            // },
+            // export: () => {
+            //     return tools.post('/edge-router/config/export', {
+
+            //     })
+            // }
+        },
         devices: {
             add: () => {
                 return tools.post('/edge-router/devices/add', {
-                    'description': 'INPUTS'
+                    'deviceId': deviceId
                 });
             },
             get: () => {
@@ -422,6 +548,44 @@ var tools = {
                 });
             }
         },
+        mapping: {
+            add: () => {
+                return tools.post('/edge-router/mapping/add', {
+                    'mapid': mapId
+                });
+            },
+            get: () => {
+                return tools.post('/edge-router/mapping/get', {
+                    'filter': [
+                        'mapId',
+                        'source',
+                        'destination'
+                    ],
+                    'mapId': mapId
+                });
+            },
+            list: () => {
+                return tools.post('/edge-router/mapping/list', {
+                    'filter': [
+                        'mapId',
+                        'source',
+                        'destination'
+                    ],
+                    'mapId': mapId
+                });
+            },
+            update: () => {
+                return tools.post('/edge-router/mapping/update', {
+                    'mapId': mapId,
+                    'description': 'Udated'
+                });
+            },
+            delete: () => {
+                return tools.post('/edge-router/mapping/update', {
+                    'mapId': mapId
+                })
+            }
+        },
         healthcheck: () => {
             return tools.put('/health-check', {});
         }
@@ -431,7 +595,8 @@ var tools = {
 
         payload.header = {
             'email': config.email,
-            'appId': config.appId
+            'appId': config.appId,
+            'password': config.password
         };
 
         payload = JSON.stringify(payload);
@@ -458,7 +623,8 @@ var tools = {
 
         payload.header = {
             'email': config.email,
-            'appId': config.appId
+            'appId': config.appId,
+            'password': config.password
         };
 
         payload = JSON.stringify(payload);

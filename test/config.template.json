@@ -1,6 +1,7 @@
 {
 	"token": {},
-	"email": "xxx@xxx.co.za",
-	"appId": "xxx",
+	"email": "admin@bitid.co.za",
+	"appId": "000000000000000000000001",
+	"password": "admin",
 	"edge-router": "http://127.0.0.1:8080"
 }
