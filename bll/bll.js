@@ -12,6 +12,7 @@ var module = function () {
                 };
 
                 try {
+                    delete args.req.body.header;
                     __settings = args.req.body;
                     const saved = await SaveConfig(__settings);
                     if (!saved) {
@@ -185,6 +186,7 @@ var module = function () {
                             type: args.req.body.type,
                             txtime: args.req.body.txtime,
                             pxtime: args.req.body.pxtime,
+                            timeout: args.req.body.timeout,
                             barcode: args.req.body.barcode,
                             publish: args.req.body.publish,
                             enabled: args.req.body.enabled,
@@ -199,6 +201,7 @@ var module = function () {
                                 type: o.type,
                                 txtime: o.txtime,
                                 pxtime: o.pxtime,
+                                timeout: o.timeout,
                                 barcode: o.barcode,
                                 publish: o.publish,
                                 enabled: o.enabled,

@@ -1,15 +1,15 @@
 import { Device } from 'src/app/classes/device';
 import { Router } from '@angular/router';
+import { Socket } from 'src/app/classes/socket';
+import { MatSort } from '@angular/material/sort';
+import { environment } from 'src/environments/environment';
+import { InputOutput } from 'src/app/classes/input-output';
 import { ToastService } from 'src/app/services/toast/toast.service';
 import { ConfirmService } from 'src/app/libs/confirm/confirm.service';
 import { DevicesService } from 'src/app/services/devices/devices.service';
 import { OptionsService } from 'src/app/libs/options/options.service';
 import { MatTableDataSource } from '@angular/material/table';
 import { OnInit, Component, OnDestroy, ViewChild } from '@angular/core';
-import { MatSort } from '@angular/material/sort';
-import { Socket } from 'src/app/classes/socket';
-import { environment } from 'src/environments/environment';
-import { InputOutput } from 'src/app/classes/input-output';
 
 @Component({
     selector: 'devices-page',
