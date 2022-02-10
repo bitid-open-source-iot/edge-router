@@ -8,108 +8,10 @@ const subset = require('chai-subset');
 
 chai.use(subset);
 
-var endpointId = null;
+var deviceId = null;
+var mappingId = null;
 
-// describe('Route', function () {
-//     it('/edge-router/route/add', function (done) {
-//         this.timeout(5000);
-
-//         tools.api.route.add()
-//             .then((result) => {
-//                 try {
-//                     endpointId = result.endpointId;
-//                     result.should.have.property('endpointId');
-//                     done();
-//                 } catch (e) {
-//                     done(e);
-//                 };
-//             }, (err) => {
-//                 try {
-//                     done(err);
-//                 } catch (e) {
-//                     done(e);
-//                 };
-//             });
-//     });
-
-//     it('/edge-router/route/get', function (done) {
-//         this.timeout(5000);
-
-//         tools.api.route.get()
-//             .then((result) => {
-//                 try {
-//                     checks = result.checks;
-//                     result.should.have.property('role');
-//                     result.should.have.property('icon');
-//                     result.should.have.property('endpointId');
-//                     result.should.have.property('checks');
-//                     result.should.have.property('addons');
-//                     result.should.have.property('serverDate');
-//                     result.should.have.property('description');
-//                     result.should.have.property('organizationId');
-//                     done();
-//                 } catch (e) {
-//                     done(e);
-//                 };
-//             }, (err) => {
-//                 try {
-//                     done(err);
-//                 } catch (e) {
-//                     done(e);
-//                 };
-//             });
-//     });
-
-//     it('/edge-router/route/list', function (done) {
-//         this.timeout(5000);
-
-//         tools.api.route.list()
-//             .then((result) => {
-//                 try {
-//                     result[0].should.have.property('role');
-//                     result[0].should.have.property('icon');
-//                     result[0].should.have.property('endpointId');
-//                     result[0].should.have.property('checks');
-//                     result[0].should.have.property('addons');
-//                     result[0].should.have.property('serverDate');
-//                     result[0].should.have.property('description');
-//                     result[0].should.have.property('organizationId');
-//                     done();
-//                 } catch (e) {
-//                     done(e);
-//                 };
-//             }, (err) => {
-//                 try {
-//                     done(err);
-//                 } catch (e) {
-//                     done(e);
-//                 };
-//             });
-//     });
-
-//     it('/edge-router/route/update', function (done) {
-//         this.timeout(5000);
-
-//         tools.api.route.update()
-//             .then((result) => {
-//                 try {
-//                     result.should.have.property('updated');
-//                     expect(result.updated).to.equal(1);
-//                     done();
-//                 } catch (e) {
-//                     done(e);
-//                 };
-//             }, (err) => {
-//                 try {
-//                     done(err);
-//                 } catch (e) {
-//                     done(e);
-//                 };
-//             });
-//     });
-// });
-
-describe.only('admin', function () {
+describe('Admin', function () {
     it('/edge-router/admin/authenticate', function (done) {
         this.timeout(5000);
 
@@ -148,10 +50,48 @@ describe.only('admin', function () {
             });
     });
 
+    it('/edge-router/admin/change-email', function (done) {
+        this.timeout(5000);
+
+        tools.api.admin.changeemail()
+            .then((result) => {
+                try {
+                    done();
+                } catch (e) {
+                    done(e);
+                };
+            }, (err) => {
+                try {
+                    done(err);
+                } catch (e) {
+                    done(e);
+                };
+            });
+    });
+
     it('/edge-router/admin/change-password', function (done) {
         this.timeout(5000);
 
-        tools.api.admin.changepassword()
+        tools.api.admin.changepassword('updated')
+            .then((result) => {
+                try {
+                    done();
+                } catch (e) {
+                    done(e);
+                };
+            }, (err) => {
+                try {
+                    done(err);
+                } catch (e) {
+                    done(e);
+                };
+            });
+    });
+
+    it('/edge-router/admin/change-password', function (done) {
+        this.timeout(5000);
+
+        tools.api.admin.changepassword('admin')
             .then((result) => {
                 try {
                     done();
@@ -168,7 +108,7 @@ describe.only('admin', function () {
     });
 });
 
-describe('devices', function () {
+describe('Devices', function () {
     it('/edge-router/devices/add', function (done) {
         this.timeout(5000);
 
@@ -296,7 +236,7 @@ describe('devices', function () {
     });
 });
 
-describe('mapping', function () {
+describe('Mapping', function () {
     it('/edge-router/mapping/add', function (done) {
         this.timeout(5000);
 
@@ -442,43 +382,43 @@ describe('Health Check', function () {
 
 var tools = {
     api: {
-        route: {
+        devices: {
             add: () => {
-                return tools.post('/edge-router/route/add', {
+                return tools.post('/edge-router/devices/add', {
                     'description': 'INPUTS'
                 });
             },
             get: () => {
-                return tools.post('/edge-router/route/get', {
+                return tools.post('/edge-router/devices/get', {
                     'filter': [
                         'role',
-                        'endpointId',
+                        'deviceId',
                         'serverDate',
                         'description'
                     ],
-                    'endpointId': endpointId
+                    'deviceId': deviceId
                 });
             },
             list: () => {
-                return tools.post('/edge-router/route/list', {
+                return tools.post('/edge-router/devices/list', {
                     'filter': [
                         'role',
-                        'endpointId',
+                        'deviceId',
                         'serverDate',
                         'description'
                     ],
-                    'endpointId': endpointId
+                    'deviceId': deviceId
                 });
             },
             update: () => {
-                return tools.post('/edge-router/route/update', {
-                    'endpointId': endpointId,
+                return tools.post('/edge-router/devices/update', {
+                    'deviceId': deviceId,
                     'description': 'ALL INPUTS',
                 });
             },
             delete: () => {
-                return tools.post('/edge-router/route/delete', {
-                    'endpointId': endpointId
+                return tools.post('/edge-router/devices/delete', {
+                    'deviceId': deviceId
                 });
             }
         },
