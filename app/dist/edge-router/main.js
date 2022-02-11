@@ -7,7 +7,7 @@
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /home/connor/Documents/edge-router/app/src/main.ts */"zUnb");
+module.exports = __webpack_require__(/*! /home/claytoncc/Documents/edge-router/app/src/main.ts */"zUnb");
 
 
 /***/ }),
@@ -926,7 +926,7 @@ DevicesService.ɵprov = _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵdefineIn
 /*! exports provided: name, version, scripts, private, dependencies, devDependencies, default */
 /***/ (function(module) {
 
-module.exports = JSON.parse("{\"name\":\"edge-router\",\"version\":\"1.0.8\",\"scripts\":{\"ng\":\"ng\",\"start\":\"ng serve\",\"build\":\"ng build\",\"test\":\"ng test\",\"lint\":\"ng lint\",\"e2e\":\"ng e2e\"},\"private\":true,\"dependencies\":{\"@angular/animations\":\"~11.2.10\",\"@angular/cdk\":\"^11.2.13\",\"@angular/common\":\"~11.2.10\",\"@angular/compiler\":\"~11.2.10\",\"@angular/core\":\"~11.2.10\",\"@angular/forms\":\"~11.2.10\",\"@angular/material\":\"^11.2.13\",\"@angular/platform-browser\":\"~11.2.10\",\"@angular/platform-browser-dynamic\":\"~11.2.10\",\"@angular/router\":\"~11.2.10\",\"file-saver\":\"^2.0.5\",\"object-id\":\"0.0.1\",\"object-path\":\"^0.11.7\",\"rxjs\":\"~6.6.0\",\"tslib\":\"^2.0.0\",\"zone.js\":\"~0.11.3\"},\"devDependencies\":{\"@angular-devkit/build-angular\":\"~0.1102.9\",\"@angular/cli\":\"~11.2.9\",\"@angular/compiler-cli\":\"~11.2.10\",\"@types/file-saver\":\"^2.0.3\",\"@types/jasmine\":\"~3.6.0\",\"@types/node\":\"^12.20.43\",\"@types/object-path\":\"^0.11.1\",\"codelyzer\":\"^6.0.0\",\"jasmine-core\":\"~3.6.0\",\"jasmine-spec-reporter\":\"~5.0.0\",\"karma\":\"~6.1.0\",\"karma-chrome-launcher\":\"~3.1.0\",\"karma-coverage\":\"~2.0.3\",\"karma-jasmine\":\"~4.0.0\",\"karma-jasmine-html-reporter\":\"^1.5.0\",\"protractor\":\"~7.0.0\",\"ts-node\":\"~8.3.0\",\"tslint\":\"~6.1.0\",\"typescript\":\"~4.1.5\"}}");
+module.exports = JSON.parse("{\"name\":\"edge-router\",\"version\":\"1.0.9\",\"scripts\":{\"ng\":\"ng\",\"start\":\"ng serve\",\"build\":\"ng build\",\"test\":\"ng test\",\"lint\":\"ng lint\",\"e2e\":\"ng e2e\"},\"private\":true,\"dependencies\":{\"@angular/animations\":\"~11.2.10\",\"@angular/cdk\":\"^11.2.13\",\"@angular/common\":\"~11.2.10\",\"@angular/compiler\":\"~11.2.10\",\"@angular/core\":\"~11.2.10\",\"@angular/forms\":\"~11.2.10\",\"@angular/material\":\"^11.2.13\",\"@angular/platform-browser\":\"~11.2.10\",\"@angular/platform-browser-dynamic\":\"~11.2.10\",\"@angular/router\":\"~11.2.10\",\"file-saver\":\"^2.0.5\",\"object-id\":\"0.0.1\",\"object-path\":\"^0.11.7\",\"rxjs\":\"~6.6.0\",\"tslib\":\"^2.0.0\",\"zone.js\":\"~0.11.3\"},\"devDependencies\":{\"@angular-devkit/build-angular\":\"~0.1102.9\",\"@angular/cli\":\"~11.2.9\",\"@angular/compiler-cli\":\"~11.2.10\",\"@types/file-saver\":\"^2.0.3\",\"@types/jasmine\":\"~3.6.0\",\"@types/node\":\"^12.20.43\",\"@types/object-path\":\"^0.11.1\",\"codelyzer\":\"^6.0.0\",\"jasmine-core\":\"~3.6.0\",\"jasmine-spec-reporter\":\"~5.0.0\",\"karma\":\"~6.1.0\",\"karma-chrome-launcher\":\"~3.1.0\",\"karma-coverage\":\"~2.0.3\",\"karma-jasmine\":\"~4.0.0\",\"karma-jasmine-html-reporter\":\"^1.5.0\",\"protractor\":\"~7.0.0\",\"ts-node\":\"~8.3.0\",\"tslint\":\"~6.1.0\",\"typescript\":\"~4.1.5\"}}");
 
 /***/ }),
 
