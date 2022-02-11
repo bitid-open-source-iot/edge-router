@@ -199,6 +199,7 @@ try {
                                     };
                                     if (input.key.indexOf('TEXT') == -1 && typeof (event.dataIn[input.key]) != 'undefined' && event.dataIn[input.key] != null) {
                                         tmp.value = parseInt(event.dataIn[input.key]);
+                                        input.value = parseInt(event.dataIn[input.key]);
                                     };
                                     data.push(tmp);
                                 };

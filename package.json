@@ -1,10 +1,10 @@
 {
   "name": "edge-router",
-  "version": "1.0.8",
+  "version": "1.0.9",
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "mocha"
+    "test": "mocha test/test.js | tee test/report.txt"
   },
   "author": "",
   "license": "ISC",
@@ -16,6 +16,7 @@
     "express": "^4.17.1",
     "fs": "0.0.1-security",
     "log4js": "^6.3.0",
+    "moment": "^2.29.1",
     "mqtt": "^4.2.8",
     "node-fetch": "^2.6.0",
     "public-ip": "^4.0.4",
