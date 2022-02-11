@@ -165,6 +165,7 @@ module.exports = class extends EventEmitter {
         try {
             this.io.map(async item => {
                 if (item.inputId == inputId && item.tag.value != value && item.writeable) {
+                    item.value = parseInt(value);
                     item.tag.value = parseInt(value);
                     await this.controller.writeTag(item.tag);
                 };
