@@ -42,7 +42,7 @@ describe('Admin', function () {
             .then((result) => {
                 try {
                     result.should.have.property('updated');
-                    expect(result.updated).is.above(0)
+                    expect(result.updated).to.be.above(0)
                     done();
                 } catch (e) {
                     done(e);
@@ -64,7 +64,7 @@ describe('Admin', function () {
                 try {
                     config.email = email;
                     result.should.have.property('updated');
-                    expect(result.updated).is.above(0);
+                    expect(result.updated).to.be.above(0);
                     done();
                 } catch (e) {
                     done(e);
@@ -86,7 +86,7 @@ describe('Admin', function () {
                 try {
                     config.password = 'new-password';
                     result.should.have.property('updated');
-                    expect(result.updated).is.above(0);
+                    expect(result.updated).to.be.above(0);
                     done();
                 } catch (e) {
                     done(e);
@@ -108,7 +108,7 @@ describe('Admin', function () {
                 try {
                     config.password = 'admin';
                     result.should.have.property('updated');
-                    expect(result.updated).is.above(0);
+                    expect(result.updated).to.be.above(0);
                     done();
                 } catch (e) {
                     done(e);
@@ -291,6 +291,7 @@ describe('Mapping', function () {
             .then((result) => {
                 try {
                     mapId = result.mapId;
+                    result.should.have.property('mapId');
                     done();
                 } catch (e) {
                     done(e);
@@ -539,15 +540,15 @@ var tools = {
         mapping: {
             add: () => {
                 return tools.post('/edge-router/mapping/add', {
-                    "source": {
-                        "mask": -1,
-                        "inputId": "000000000000000000000001",
-                        "deviceId": deviceId
+                    'source': {
+                        'mask': -1,
+                        'inputId': '000000000000000000000001',
+                        'deviceId': deviceId
                     },
-                    "destination": {
-                        "mask": -1,
-                        "inputId": "000000000000000000000002",
-                        "deviceId": deviceId
+                    'destination': {
+                        'mask': -1,
+                        'inputId': '000000000000000000000002',
+                        'deviceId': deviceId
                     }
                 });
             },
@@ -558,30 +559,28 @@ var tools = {
             },
             list: () => {
                 return tools.post('/edge-router/mapping/list', {
-                    "mapId": mapId,
-                    "email": "admin@bitid.co.za",
-                    "password": "admin",
+                    'mapId': mapId
                 });
             },
             update: () => {
                 return tools.post('/edge-router/mapping/update', {
-                    "mapId": "6205ff68650ecec1cd5a54b8",
-                    "source": {
-                        "mask": 0,
-                        "inputId": "000000000000000000000001",
-                        "deviceId": deviceId
+                    'source': {
+                        'mask': -1,
+                        'inputId': '000000000000000000000001',
+                        'deviceId': deviceId
                     },
-                    "destination": {
-                        "mask": -1,
-                        "inputId": "000000000000000000000002",
-                        "deviceId": deviceId
-                    }
+                    'destination': {
+                        'mask': -1,
+                        'inputId': '000000000000000000000002',
+                        'deviceId': deviceId
+                    },
+                    'mapId': mapId
                 });
             },
             delete: () => {
                 return tools.post('/edge-router/mapping/delete', {
                     'mapId': mapId
-                })
+                });
             }
         }
     },
@@ -590,7 +589,6 @@ var tools = {
 
         payload.header = {
             'email': config.email,
-            'appId': config.appId,
             'password': config.password
         };
 
@@ -618,7 +616,6 @@ var tools = {
 
         payload.header = {
             'email': config.email,
-            'appId': config.appId,
             'password': config.password
         };
 
