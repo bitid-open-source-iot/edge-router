@@ -396,6 +396,7 @@ var module = function () {
                             type: o.type,
                             txtime: o.txtime,
                             pxtime: o.pxtime,
+                            timeout: o.timeout,
                             barcode: o.barcode,
                             publish: o.publish,
                             enabled: o.enabled,

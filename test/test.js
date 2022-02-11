@@ -5,14 +5,14 @@ const expect = require('chai').expect;
 const should = require('chai').should();
 const config = require('./config.json');
 const subset = require('chai-subset');
+const ObjectId = require('../lib/object-id');
 
 chai.use(subset);
 
-var mapId = null;
 var email = config.email;
+var mapId = null;
 var exported = require('../config.json');
 var deviceId = null;
-var mappingId = null;
 
 describe('Admin', function () {
     it('/edge-router/admin/authenticate', function (done) {
@@ -287,11 +287,10 @@ describe('Mapping', function () {
     it('/edge-router/mapping/add', function (done) {
         this.timeout(5000);
 
-        tools.api.devices.add()
+        tools.api.mapping.add()
             .then((result) => {
                 try {
                     mapId = result.mapId;
-                    result.should.have.property('mapId');
                     done();
                 } catch (e) {
                     done(e);
@@ -413,27 +412,6 @@ describe('Remove Added Items', function () {
                 };
             });
     });
-
-    // it('/edge-router/route/delete', function (done) {
-    //     this.timeout(5000);
-
-    //     tools.api.route.delete()
-    //         .then((result) => {
-    //             try {
-    //                 result.should.have.property('deleted');
-    //                 expect(result.deleted).to.equal(1);
-    //                 done();
-    //             } catch (e) {
-    //                 done(e);
-    //             };
-    //         }, (err) => {
-    //             try {
-    //                 done(err);
-    //             } catch (e) {
-    //                 done(e);
-    //             };
-    //         });
-    // });
 });
 
 var tools = {
@@ -473,13 +451,26 @@ var tools = {
                             'key': 'AI1',
                             'tagId': '',
                             'value': 0,
-                            'inputId': '6205048326f14a4b55b7b729',
+                            'inputId': '000000000000000000000001',
                             'register': 0,
                             'moduleId': 0,
                             'readable': false,
                             'interface': '',
                             'writeable': false,
-                            'description': 'MY TEST INPUT'
+                            'description': 'MY TEST INPUT 1'
+                        },
+                        {
+                            'bit': 0,
+                            'key': 'AI2',
+                            'tagId': '',
+                            'value': 0,
+                            'inputId': '000000000000000000000002',
+                            'register': 0,
+                            'moduleId': 0,
+                            'readable': false,
+                            'interface': '',
+                            'writeable': false,
+                            'description': 'MY TEST INPUT 2'
                         }
                     ],
                     'ip': '0.0.0.0',
@@ -487,11 +478,11 @@ var tools = {
                     'type': 'modbus',
                     'txtime': 5,
                     'pxtime': 120,
-                    'barcode': '123',
+                    'barcode': ObjectId(),
                     'timeout': 60,
                     'publish': false,
                     'enabled': false,
-                    'deviceId': '000000000000000000000123',
+                    'deviceId': ObjectId(),
                     'description': 'MY TEST DEVICE'
                 });
             },
@@ -548,19 +539,20 @@ var tools = {
         mapping: {
             add: () => {
                 return tools.post('/edge-router/mapping/add', {
-                    "mask": '0',
-                    "mapId": "0",
-                    "inputId": "0",
-                    "deviceId": "0",
+                    "source": {
+                        "mask": -1,
+                        "inputId": "000000000000000000000001",
+                        "deviceId": deviceId
+                    },
+                    "destination": {
+                        "mask": -1,
+                        "inputId": "000000000000000000000002",
+                        "deviceId": deviceId
+                    }
                 });
             },
             get: () => {
                 return tools.post('/edge-router/mapping/get', {
-                    'filter': [
-                        'mapId',
-                        'source',
-                        'destination'
-                    ],
                     'mapId': mapId
                 });
             },
@@ -573,13 +565,22 @@ var tools = {
             },
             update: () => {
                 return tools.post('/edge-router/mapping/update', {
-                    'mapId': mapId,
-                    'description': 'Udated'
+                    "mapId": "6205ff68650ecec1cd5a54b8",
+                    "source": {
+                        "mask": 0,
+                        "inputId": "000000000000000000000001",
+                        "deviceId": deviceId
+                    },
+                    "destination": {
+                        "mask": -1,
+                        "inputId": "000000000000000000000002",
+                        "deviceId": deviceId
+                    }
                 });
             },
             delete: () => {
-                return tools.post('/edge-router/mapping/update', {
-                    'mappingId': mappingId
+                return tools.post('/edge-router/mapping/delete', {
+                    'mapId': mapId
                 })
             }
         }
