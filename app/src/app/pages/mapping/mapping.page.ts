@@ -1,11 +1,12 @@
-import { Map } from 'src/app/classes/map';
-import { Device } from 'src/app/classes/device';
-import { ToastService } from 'src/app/services/toast/toast.service';
-import { MappingService } from 'src/app/services/mapping/mapping.service';
-import { DevicesService } from 'src/app/services/devices/devices.service';
 import { MatTableDataSource } from '@angular/material/table';
 import { OnInit, Component, OnDestroy } from '@angular/core';
 import { FormGroup, Validators, FormControl } from '@angular/forms';
+
+import { Map } from 'src/app/classes/map';
+import { Device } from 'src/app/classes/device';
+import { ToastService } from 'src/app/services/toast/toast.service';
+import { DevicesService } from 'src/app/services/devices/devices.service';
+import { MappingService } from 'src/app/services/mapping/mapping.service';
 
 @Component({
     selector: 'mapping-page',

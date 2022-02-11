@@ -5,9 +5,9 @@ import { MatSort } from '@angular/material/sort';
 import { environment } from 'src/environments/environment';
 import { InputOutput } from 'src/app/classes/input-output';
 import { ToastService } from 'src/app/services/toast/toast.service';
+import { OptionsService } from 'src/app/libs/options/options.service';
 import { ConfirmService } from 'src/app/libs/confirm/confirm.service';
 import { DevicesService } from 'src/app/services/devices/devices.service';
-import { OptionsService } from 'src/app/libs/options/options.service';
 import { MatTableDataSource } from '@angular/material/table';
 import { OnInit, Component, OnDestroy, ViewChild } from '@angular/core';
 

@@ -14,6 +14,7 @@ import { DevicesService } from 'src/app/services/devices/devices.service';
 /* --- ENVIRONMENT --- */
 import { environment } from 'src/environments/environment';
 
+
 @Component({
     selector: 'devices-viewer-page',
     styleUrls: ['./viewer.page.scss'],
@@ -61,7 +62,7 @@ export class ViewerPage implements OnInit, OnDestroy {
     ngOnInit(): void {
         (async () => {
             const params = this.route.snapshot.queryParams;
-            this.deviceId = params.deviceId;
+            this.deviceId = params['deviceId'];
 
             await this.get();
 

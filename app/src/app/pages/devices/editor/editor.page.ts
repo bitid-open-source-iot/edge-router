@@ -11,12 +11,12 @@ import { InputOutputDialog } from './input-output/input-output.dialog';
 import { Device } from 'src/app/classes/device';
 import { ObjectId } from 'src/app/classes/id';
 import { InputOutput } from 'src/app/classes/input-output';
-
-/* --- SERVICES --- */
-import { ToastService } from 'src/app/services/toast/toast.service';
 import { OptionsService } from 'src/app/libs/options/options.service';
+import { ToastService } from 'src/app/services/toast/toast.service';
 import { DevicesService } from 'src/app/services/devices/devices.service';
 import { FormErrorService } from 'src/app/services/form-error/form-error.service';
+
+/* --- SERVICES --- */
 
 @Component({
     selector: 'devices-editor-page',
@@ -211,8 +211,8 @@ export class DevicesEditorPage implements OnInit, OnDestroy {
         });
 
         const params = this.route.snapshot.queryParams;
-        this.mode = params.mode;
-        this.deviceId = params.deviceId;
+        this.mode = params['mode'];
+        this.deviceId = params['deviceId'];
         if (this.mode != 'add') {
             this.get();
         };
