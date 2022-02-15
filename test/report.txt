@@ -1,37 +1,37 @@
 
 
   Software & Testing Details
-    ✔ DATE: 11/02/2022 16:45:59
-    ✔ AUTHOR: connor
-    ✔ VERSION: 1.0.9
+    ✓ DATE: 15/02/2022 13:33:57
+    ✓ AUTHOR: claytoncc
+    ✓ VERSION: 1.1.0
 
   Admin
-    ✔ /edge-router/admin/authenticate
-    ✔ /edge-router/admin/change-email
-    ✔ /edge-router/admin/change-email
-    ✔ /edge-router/admin/change-password
-    ✔ /edge-router/admin/change-password
+    ✓ /edge-router/admin/authenticate (63ms)
+    ✓ /edge-router/admin/change-email
+    ✓ /edge-router/admin/change-email
+    ✓ /edge-router/admin/change-password
+    ✓ /edge-router/admin/change-password
 
   Config
-    ✔ /edge-router/config/export
-    ✔ /edge-router/config/import
+    ✓ /edge-router/config/export
+    ✓ /edge-router/config/import
 
   Devices
-    ✔ /edge-router/devices/add
-    ✔ /edge-router/devices/get
-    ✔ /edge-router/devices/list
-    ✔ /edge-router/devices/update
+    ✓ /edge-router/devices/add
+    ✓ /edge-router/devices/get
+    ✓ /edge-router/devices/list
+    ✓ /edge-router/devices/update
 
   Mapping
-    ✔ /edge-router/mapping/add
-    ✔ /edge-router/mapping/get
-    ✔ /edge-router/mapping/list
-    ✔ /edge-router/mapping/update
+    ✓ /edge-router/mapping/add
+    ✓ /edge-router/mapping/get
+    ✓ /edge-router/mapping/list
+    ✓ /edge-router/mapping/update
 
   Remove Added Items
-    ✔ /edge-router/devices/delete
-    ✔ /edge-router/mapping/delete
+    ✓ /edge-router/devices/delete
+    ✓ /edge-router/mapping/delete
 
 
-  20 passing (190ms)
+  20 passing (236ms)
 
