@@ -1,4 +1,4 @@
-const mqtt = require('mqtt');
+const MQTT = require('mqtt');
 const GetPublicIp = require('public-ip').v4;
 const EventEmitter = require('events').EventEmitter;
 
@@ -52,7 +52,7 @@ module.exports = class extends EventEmitter {
             if (!this.mqtt?.connected) {
                 this.connect();
             };
-        }, 5000);
+        }, 10000);
 
         this.connect();
     }
@@ -107,17 +107,35 @@ module.exports = class extends EventEmitter {
         this.status = 'connecting';
 
         __logger.info('Edge Router - Connecting to socket!');
+//__logger.info(this.server)
 
-        this.ip = await GetPublicIp();
+try{
+//this.ip = await GetPublicIp()
+}catch(e){
+__logger.error(e)
+}
+//        this.ip = await GetPublicIp();
 
-        this.mqtt = mqtt.connect([this.server.host, ':', this.server.port].join(''), {
-            'host': this.server.host,
-            'port': this.server.port,
-            'clean': true,
-            'username': this.server.username,
-            'password': this.server.password,
-            'keepalive': 60
-        });
+//__logger.info('here>>>>>>>>>>>>>>>>>>>>>>>>>>>>>')
+
+//        this.mqtt = mqtt.connect([this.server.host, ':', this.server.port].join(''), {
+//            'host': this.server.host,
+//            'port': this.server.port,
+//            'clean': true,
+//            'username': this.server.username,
+//            'password': this.server.password,
+//            'keepalive': 60
+//        });
+
+let options = {
+'port': this.server.port,
+'username': this.server.username,
+'password': Buffer.from(this.server.password)
+}
+this.mqtt = MQTT.connect(this.server.host, options)
+
+
+
 
         this.mqtt.on('error', error => {
             __logger.error(error);

@@ -182,6 +182,7 @@ try {
             var deferred = Q.defer();
 
             try {
+//__logger.info('__settings>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>' + JSON.stringify(__settings.server))
                 __router = new EdgeRouter(__settings);
 
                 __router.on('control', event => {
