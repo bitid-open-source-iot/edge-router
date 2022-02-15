@@ -1,8 +1,9 @@
+import { MatTableDataSource } from '@angular/material/table';
+import { OnInit, Component, OnDestroy } from '@angular/core';
+
 import { Log } from 'src/app/classes/log';
 import { Socket } from 'src/app/classes/socket';
 import { environment } from 'src/environments/environment';
-import { MatTableDataSource } from '@angular/material/table';
-import { OnInit, Component, OnDestroy } from '@angular/core';
 
 @Component({
     selector: 'live-logs-page',

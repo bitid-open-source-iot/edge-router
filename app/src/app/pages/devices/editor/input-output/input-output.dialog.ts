@@ -129,34 +129,34 @@ export class InputOutputDialog implements OnInit, OnDestroy {
 
         switch (this.type) {
             case ('modbus'):
-                this.form.controls.register.setValidators([Validators.required]);
-                this.form.controls.register.updateValueAndValidity();
+                this.form.controls['register'].setValidators([Validators.required]);
+                this.form.controls['register'].updateValueAndValidity();
                 break;
             case ('external'):
-                this.form.controls.key.setValidators([Validators.required]);
-                this.form.controls.key.updateValueAndValidity();
-                this.form.controls.moduleId.setValidators([Validators.required]);
-                this.form.controls.moduleId.updateValueAndValidity();
+                this.form.controls['key'].setValidators([Validators.required]);
+                this.form.controls['key'].updateValueAndValidity();
+                this.form.controls['moduleId'].setValidators([Validators.required]);
+                this.form.controls['moduleId'].updateValueAndValidity();
                 break;
             case ('programmable-logic-controller'):
-                this.form.controls.tagId.setValidators([Validators.required]);
-                this.form.controls.tagId.updateValueAndValidity();
-                this.form.controls.readable.setValidators([Validators.required]);
-                this.form.controls.readable.updateValueAndValidity();
-                this.form.controls.interface.setValidators([Validators.required]);
-                this.form.controls.interface.updateValueAndValidity();
-                this.form.controls.writeable.setValidators([Validators.required]);
-                this.form.controls.writeable.updateValueAndValidity();
+                this.form.controls['tagId'].setValidators([Validators.required]);
+                this.form.controls['tagId'].updateValueAndValidity();
+                this.form.controls['readable'].setValidators([Validators.required]);
+                this.form.controls['readable'].updateValueAndValidity();
+                this.form.controls['interface'].setValidators([Validators.required]);
+                this.form.controls['interface'].updateValueAndValidity();
+                this.form.controls['writeable'].setValidators([Validators.required]);
+                this.form.controls['writeable'].updateValueAndValidity();
                 break;
         };
 
-        this.observers.key = this.form.controls.key.valueChanges.subscribe(key => {
+        this.observers.key = this.form.controls['key'].valueChanges.subscribe(key => {
             if (key == 'digitalsIn') {
-                this.form.controls.bit.setValidators([Validators.required, Validators.min(0)]);
+                this.form.controls['bit'].setValidators([Validators.required, Validators.min(0)]);
             } else {
-                this.form.controls.bit.setValidators(null);
+                this.form.controls['bit'].setValidators(null);
             };
-            this.form.controls.bit.updateValueAndValidity();
+            this.form.controls['bit'].updateValueAndValidity();
         });
 
         this.observers.form = this.form.valueChanges.subscribe(data => {

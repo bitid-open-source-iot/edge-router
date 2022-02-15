@@ -1,5 +1,5 @@
 import { SwUpdate } from '@angular/service-worker';
-import { environment } from 'src/environments/environment';
+import { environment } from 'app/src/environments/environment';
 import { BehaviorSubject } from 'rxjs';
 import { OnInit, Component, OnDestroy, Renderer2, ElementRef, ViewEncapsulation } from '@angular/core';
 

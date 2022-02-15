@@ -1,9 +1,11 @@
 import { Router } from '@angular/router';
+import { OnInit, Component, OnDestroy } from '@angular/core';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
+
+/* --- SERVICES --- */
 import { ToastService } from 'src/app/services/toast/toast.service';
 import { AdminService } from 'src/app/services/admin/admin.service';
 import { FormErrorService } from 'src/app/services/form-error/form-error.service';
-import { OnInit, Component, OnDestroy } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Component({
     selector: 'change-email-page',
