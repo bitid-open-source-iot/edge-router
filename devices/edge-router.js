@@ -44,6 +44,7 @@ module.exports = class extends EventEmitter {
         this.server = args.server;
         this.txtime = args.txtime;
         this.pxtime = args.pxtime || 120;
+        this.enabled = args.enabled || false;
         this.timeout = args.timeout;
         this.barcode = args.barcode;
         this.deviceId = args.deviceId;
@@ -107,37 +108,20 @@ module.exports = class extends EventEmitter {
         this.status = 'connecting';
 
         __logger.info('Edge Router - Connecting to socket!');
-//__logger.info(this.server)
 
-try{
-//this.ip = await GetPublicIp()
-}catch(e){
-__logger.error(e)
-}
-//        this.ip = await GetPublicIp();
+        try {
+            this.ip = await GetPublicIp();
+        } catch (error) {
+            __logger.error(error);
+        };
 
-//__logger.info('here>>>>>>>>>>>>>>>>>>>>>>>>>>>>>')
+        this.mqtt = MQTT.connect(this.server.host, {
+            'port': this.server.port,
+            'username': this.server.username,
+            'password': Buffer.from(this.server.password)
+        });
 
-//        this.mqtt = mqtt.connect([this.server.host, ':', this.server.port].join(''), {
-//            'host': this.server.host,
-//            'port': this.server.port,
-//            'clean': true,
-//            'username': this.server.username,
-//            'password': this.server.password,
-//            'keepalive': 60
-//        });
-
-let options = {
-'port': this.server.port,
-'username': this.server.username,
-'password': Buffer.from(this.server.password)
-}
-this.mqtt = MQTT.connect(this.server.host, options)
-
-
-
-
-        this.mqtt.on('error', error => {
+        this.mqtt.on('error', (error) => {
             __logger.error(error);
         });
 
@@ -185,8 +169,9 @@ this.mqtt = MQTT.connect(this.server.host, options)
                     if (topic.includes('kbeacon/publish/')) {
                         this.emit('data', { topic, message })
                     } else {
-                        console.error('unhandled switch mqtt topic', topic)
-                    }
+                        console.error('unhandled switch mqtt topic', topic);
+                    };
+                    break;
             };
         });
 
@@ -197,15 +182,15 @@ this.mqtt = MQTT.connect(this.server.host, options)
     }
 
     async transmit() {
-        if (this.mqtt?.connected) {
+        if (this.mqtt?.connected && this.enabled) {
             __logger.info('Edge Router - Transmitting data to socket!')
             this.data.rtuId = this.deviceId;
             this.data.barcode = this.barcode;
             this.data.dataIn.IP = this.ip;
-            this.mqtt.publish(this.server.subscribe.data, JSON.stringify(this.data));
+            this.publish(this.data);
         } else {
             __logger.warn('Edge Router - Trying to transmit even though socket not connected!');
-        }
+        };
     }
 
     async publish(data) {
@@ -214,7 +199,7 @@ this.mqtt = MQTT.connect(this.server.host, options)
             this.mqtt.publish(this.server.subscribe.data, JSON.stringify(data));
         } else {
             __logger.warn('Edge Router - Trying to transmit even though socket not connected!');
-        }
+        };
     }
 
 }

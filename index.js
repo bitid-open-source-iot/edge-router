@@ -182,7 +182,6 @@ try {
             var deferred = Q.defer();
 
             try {
-//__logger.info('__settings>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>' + JSON.stringify(__settings.server))
                 __router = new EdgeRouter(__settings);
 
                 __router.on('control', event => {
@@ -239,7 +238,7 @@ try {
                 });
 
                 __router.on('connected', event => {
-                    __settings.devices.filter(o => o.publish).map(async (device) => {
+                    __settings.devices.filter(o => o.publish === true).map(async (device) => {
                         const pxtime = (device.pxtime ? device.pxtime : 120) * 1000;
                         __logger.info('Starting publish every ' + device.pxtime + ' seconds!');
 

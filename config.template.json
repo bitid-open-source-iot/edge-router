@@ -2,6 +2,7 @@
     "port": 8080,
     "txtime": 360,
     "barcode": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+    "enabled": true,
     "deviceId": "xxx",
     "production": true,
     "authentication": true,
