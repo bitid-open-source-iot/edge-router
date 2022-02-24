@@ -49,12 +49,6 @@ module.exports = class extends EventEmitter {
         this.barcode = args.barcode;
         this.deviceId = args.deviceId;
 
-        setInterval(() => {
-            if (!this.mqtt?.connected) {
-                this.connect();
-            };
-        }, 10000);
-
         this.connect();
     }
 
@@ -115,14 +109,23 @@ module.exports = class extends EventEmitter {
             __logger.error(error);
         };
 
-        this.mqtt = MQTT.connect(this.server.host, {
+        this.mqtt = MQTT.connect([this.server.host, ':', this.server.port].join(''), {
+            'host': this.server.host,
             'port': this.server.port,
+            'clean': true,
             'username': this.server.username,
-            'password': Buffer.from(this.server.password)
+            'password': this.server.password,
+            'keepalive': 5,
+            'reconnectPeriod': 5000
         });
 
         this.mqtt.on('error', (error) => {
             __logger.error(error);
+        });
+
+        this.mqtt.on('close', () => {
+            this.status = 'disconnected';
+            __logger.error('Edge Router - Socket closed!');
         });
 
         this.mqtt.on('connect', () => {
@@ -173,6 +176,11 @@ module.exports = class extends EventEmitter {
                     };
                     break;
             };
+        });
+
+        this.mqtt.on('reconnect', () => {
+            this.status = 'connecting';
+            __logger.error('Edge Router - Socket reconnecting!');
         });
 
         this.mqtt.on('disconnect', () => {
