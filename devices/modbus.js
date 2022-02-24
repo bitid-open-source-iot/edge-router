@@ -39,17 +39,17 @@ module.exports = class extends EventEmitter {
     async connect() {
         this.status = 'connecting';
 
-        // __logger.info('ModBus - Connecting!');
+        __logger.info('ModBus - Connecting!');
 
         this.controller = modbus(this.ip, this.port, 0);
 
         await this.wait(1000);
 
         if (this.controller.stream.online) {
-            // __logger.info('ModBus - Connected!');
+            __logger.info('ModBus - Connected!');
             this.status = 'connected';
         } else {
-            // __logger.error('ModBus - Disconnected!');
+            __logger.error('ModBus - Disconnected!');
             this.status = 'disconnected';
         };
     }
@@ -69,6 +69,7 @@ module.exports = class extends EventEmitter {
                 try {
                     await this.wait(100);
                     if (typeof (o.value) != 'undefined' && o.value !== null) {
+                        __logger.info(['hr', register].join('') + ' - ' + o.value);
                         await this.controller.write(['hr', register].join(''), o.value);
                     };
                     deferred.resolve();

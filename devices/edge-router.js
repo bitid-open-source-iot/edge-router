@@ -103,12 +103,6 @@ module.exports = class extends EventEmitter {
 
         __logger.info('Edge Router - Connecting to socket!');
 
-        try {
-            this.ip = await GetPublicIp();
-        } catch (error) {
-            __logger.error(error);
-        };
-
         this.mqtt = MQTT.connect([this.server.host, ':', this.server.port].join(''), {
             'host': this.server.host,
             'port': this.server.port,
