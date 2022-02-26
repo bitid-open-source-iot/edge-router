@@ -56,7 +56,7 @@ export class DevicesEditorPage implements OnInit, OnDestroy {
         deviceId: '',
         description: ''
     };
-    public columns: string[] = ['description'];
+    public columns: string[] = [];
     public loading: boolean = false;
     public deviceId?: string;
     private observers: any = {};
@@ -210,6 +210,20 @@ export class DevicesEditorPage implements OnInit, OnDestroy {
             this.errors = this.formerror.validateForm(this.form, this.errors, true);
         });
 
+        this.observers.type = this.form.controls['type'].valueChanges.subscribe((type: 'modbus' | 'external' | 'programmable-logic-controller') => {
+            switch (type) {
+                case('modbus'):
+                    this.columns = ['description', 'register', 'publish.enabled', 'publish.bit', 'publish.key', 'publish.moduleId'];
+                    break;
+                case('external'):
+                    this.columns = ['description', 'key', 'moduleId', 'publish.enabled', 'publish.bit', 'publish.key', 'publish.moduleId'];
+                    break;
+                case('programmable-logic-controller'):
+                    this.columns = ['description', 'tagId', 'interface', 'readable', 'writeable', 'publish.enabled', 'publish.bit', 'publish.key', 'publish.moduleId'];
+                    break;
+            };
+        });
+
         const params = this.route.snapshot.queryParams;
         this.mode = params['mode'];
         this.deviceId = params['deviceId'];
@@ -220,6 +234,7 @@ export class DevicesEditorPage implements OnInit, OnDestroy {
 
     ngOnDestroy(): void {
         this.observers.form?.unsubscribe();
+        this.observers.type?.unsubscribe();
     }
 
 }

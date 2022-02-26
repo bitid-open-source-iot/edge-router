@@ -198,10 +198,7 @@ try {
                                         value: 0,
                                         inputId: input.inputId
                                     };
-                                    if (input.key.indexOf('digitalsIn') > -1 && typeof (event.dataIn[input.key]) != 'undefined' && event.dataIn[input.key] != null) {
-                                        tmp.value = BitMask(input.bit, event.dataIn[input.key]);
-                                        input.value = BitMask(input.bit, event.dataIn[input.key]);
-                                    } else if (input.key.indexOf('TEXT') == -1 && typeof (event.dataIn[input.key]) != 'undefined' && event.dataIn[input.key] != null) {
+                                    if (input.key.indexOf('TEXT') == -1 && typeof (event.dataIn[input.key]) != 'undefined' && event.dataIn[input.key] != null) {
                                         tmp.value = parseInt(event.dataIn[input.key]);
                                         input.value = parseInt(event.dataIn[input.key]);
                                     };
@@ -274,7 +271,7 @@ try {
                     });
                 });
 
-                const modules = device.io.map(input => input.moduleId).filter(value => (typeof (value) != 'undefined' && value != null)).filter((value, index, self) => self.indexOf(value) === index);
+                const modules = device.io.filter(input => input.publish?.enabled).map(input => input.publish.moduleId).filter(value => (typeof (value) != 'undefined' && value != null)).filter((value, index, self) => self.indexOf(value) === index);
                 modules.map(async moduleId => {
                     var dataIn = {
                         'AI1': 0,
@@ -306,11 +303,11 @@ try {
                         'TEXT3': 0,
                         'TEXT4': 0,
                         'txFlag': 0,
-                        'digitalsIn': device.io.filter(o => o.value == 1 && o.key == 'digitalsIn' && o.moduleId == moduleId).map(o => Math.pow(2, o.bit)).reduce((a, b) => a + b, 0)
+                        'digitalsIn': device.io.filter(o => o.publish?.enabled && o.value == 1 && o.key == 'digitalsIn' && o.moduleId == moduleId).map(o => Math.pow(2, o.bit)).reduce((a, b) => a + b, 0)
                     };
 
                     device.io.map(input => {
-                        if (input.moduleId == moduleId) {
+                        if (input.publish?.enabled && input.moduleId == moduleId) {
                             if (dataIn.hasOwnProperty(input.key) && input.key != 'digitalsIn') {
                                 dataIn[input.key] = input.value;
                             };

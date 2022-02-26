@@ -4,6 +4,7 @@ import { Inject, OnInit, Component, OnDestroy } from '@angular/core';
 
 /* --- SERVICES --- */
 import { FormErrorService } from 'src/app/services/form-error/form-error.service';
+import { InputOutput } from 'src/app/classes/input-output';
 
 @Component({
     selector: 'input-output-dialog',
@@ -13,7 +14,7 @@ import { FormErrorService } from 'src/app/services/form-error/form-error.service
 
 export class InputOutputDialog implements OnInit, OnDestroy {
 
-    constructor(private dialog: MatDialogRef<InputOutputDialog>, @Inject(MAT_DIALOG_DATA) private config: any, private formerror: FormErrorService) { }
+    constructor(private dialog: MatDialogRef<InputOutputDialog>, @Inject(MAT_DIALOG_DATA) private config: { io: InputOutput, type: 'modbus' | 'external' | 'programmable-logic-controller' }, private formerror: FormErrorService) { }
 
     public keys: string[] = [
         'AI1',
@@ -49,19 +50,29 @@ export class InputOutputDialog implements OnInit, OnDestroy {
     ];
     public type: string = this.config.type;
     public form: FormGroup = new FormGroup({
-        bit: new FormControl(this.config.io.bit),
-        key: new FormControl(this.config.io.key),
-        tagId: new FormControl(this.config.io.tagId),
-        inputId: new FormControl(this.config.io.inputId, [Validators.required]),
-        register: new FormControl(this.config.io.register),
-        moduleId: new FormControl(this.config.io.moduleId),
-        readable: new FormControl(this.config.io.readable),
-        interface: new FormControl(this.config.io.interface),
-        writeable: new FormControl(this.config.io.writeable),
-        description: new FormControl(this.config.io.description, [Validators.required])
+        publish: new FormGroup({
+            bit: new FormControl(this.config.io?.publish?.bit),
+            key: new FormControl(this.config.io?.publish?.key),
+            enabled: new FormControl(this.config.io?.publish?.enabled, [Validators.required]),
+            moduleId: new FormControl(this.config.io?.publish?.moduleId)
+        }),
+        key: new FormControl(this.config.io?.key),
+        tagId: new FormControl(this.config.io?.tagId),
+        inputId: new FormControl(this.config.io?.inputId, [Validators.required]),
+        register: new FormControl(this.config.io?.register),
+        moduleId: new FormControl(this.config.io?.moduleId),
+        readable: new FormControl(this.config.io?.readable),
+        interface: new FormControl(this.config.io?.interface),
+        writeable: new FormControl(this.config.io?.writeable),
+        description: new FormControl(this.config.io?.description, [Validators.required])
     });
     public errors: any = {
-        bit: '',
+        publish: {
+            bit: '',
+            key: '',
+            enabled: '',
+            moduleId: ''
+        },
         key: '',
         tagId: '',
         inputId: '',
@@ -162,6 +173,29 @@ export class InputOutputDialog implements OnInit, OnDestroy {
         this.observers.form = this.form.valueChanges.subscribe(data => {
             this.errors = this.formerror.validateForm(this.form, this.errors, true);
         });
+
+        this.observers.publish = (this.form.controls['publish'] as FormGroup).controls['enabled'].valueChanges.subscribe((enabled: boolean) => {
+            if (enabled) {
+                (this.form.controls['publish'] as FormGroup).controls['bit'].enable();
+                (this.form.controls['publish'] as FormGroup).controls['key'].enable();
+                (this.form.controls['publish'] as FormGroup).controls['moduleId'].enable();
+                (this.form.controls['publish'] as FormGroup).controls['bit'].setValidators([Validators.required, Validators.min(0)]);
+                (this.form.controls['publish'] as FormGroup).controls['key'].setValidators([Validators.required]);
+                (this.form.controls['publish'] as FormGroup).controls['moduleId'].setValidators([Validators.required, Validators.min(0)]);
+            } else {
+                (this.form.controls['publish'] as FormGroup).controls['bit'].disable();
+                (this.form.controls['publish'] as FormGroup).controls['key'].disable();
+                (this.form.controls['publish'] as FormGroup).controls['moduleId'].disable();
+                (this.form.controls['publish'] as FormGroup).controls['bit'].setValidators(null);
+                (this.form.controls['publish'] as FormGroup).controls['key'].setValidators(null);
+                (this.form.controls['publish'] as FormGroup).controls['moduleId'].setValidators(null);
+            };
+            (this.form.controls['publish'] as FormGroup).controls['bit'].updateValueAndValidity();
+            (this.form.controls['publish'] as FormGroup).controls['key'].updateValueAndValidity();
+            (this.form.controls['publish'] as FormGroup).controls['moduleId'].updateValueAndValidity();
+        });
+
+        (this.form.controls['publish'] as FormGroup).controls['enabled'].setValue(this.config.io?.publish?.enabled);
     }
 
     ngOnDestroy(): void {

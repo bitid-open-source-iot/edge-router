@@ -2,7 +2,17 @@ import { ObjectId } from './id';
 
 export class InputOutput {
 
-    public bit: number = 0;
+    public publish = <{
+        bit: number;
+        key: string;
+        enabled: boolean;
+        moduleId: number;
+    }>{
+            bit: 0,
+            key: '',
+            enabled: false,
+            moduleId: 0
+        };
     public key: string = '';
     public tagId: string = '';
     public value: number = 0;
@@ -16,8 +26,19 @@ export class InputOutput {
 
     constructor(args?: INPUT_OUTPUT) {
         if (typeof (args) != 'undefined' && args != null) {
-            if (typeof (args.bit) != 'undefined' && args.bit != null) {
-                this.bit = args.bit;
+            if (typeof (args.publish) != 'undefined' && args.publish != null) {
+                if (typeof (args.publish.bit) != 'undefined' && args.publish.bit != null) {
+                    this.publish.bit = args.publish.bit;
+                };
+                if (typeof (args.publish.key) != 'undefined' && args.publish.key != null) {
+                    this.publish.key = args.publish.key;
+                };
+                if (typeof (args.publish.enabled) != 'undefined' && args.publish.enabled != null) {
+                    this.publish.enabled = args.publish.enabled;
+                };
+                if (typeof (args.publish.moduleId) != 'undefined' && args.publish.moduleId != null) {
+                    this.publish.moduleId = args.publish.moduleId;
+                };
             };
             if (typeof (args.key) != 'undefined' && args.key != null) {
                 this.key = args.key;
@@ -55,7 +76,12 @@ export class InputOutput {
 }
 
 interface INPUT_OUTPUT {
-    bit: number;
+    publish: {
+        bit: number;
+        key: string;
+        enabled: boolean;
+        moduleId: number;
+    };
     key: string;
     tagId: string;
     value: number;

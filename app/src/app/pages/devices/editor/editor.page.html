@@ -197,6 +197,105 @@
             </td>
         </ng-container>
 
+        <ng-container matColumnDef="key">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>
+                Key
+            </th>
+            <td mat-cell *matCellDef="let element">
+                {{ element.key }}
+            </td>
+        </ng-container>
+
+        <ng-container matColumnDef="tagId">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>
+                Tag ID
+            </th>
+            <td mat-cell *matCellDef="let element">
+                {{ element.tagId }}
+            </td>
+        </ng-container>
+
+        <ng-container matColumnDef="register">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>
+                Register
+            </th>
+            <td mat-cell *matCellDef="let element">
+                {{ element.register }}
+            </td>
+        </ng-container>
+
+        <ng-container matColumnDef="moduleId">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>
+                Module ID
+            </th>
+            <td mat-cell *matCellDef="let element">
+                {{ element.moduleId }}
+            </td>
+        </ng-container>
+
+        <ng-container matColumnDef="interface">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>
+                Interface
+            </th>
+            <td mat-cell *matCellDef="let element">
+                {{ element.interface }}
+            </td>
+        </ng-container>
+
+        <ng-container matColumnDef="readable">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>
+                Readable
+            </th>
+            <td mat-cell *matCellDef="let element">
+                <mat-icon [color]="element.readable ? 'primary' : 'warn'" [svgIcon]="element.readable ? 'check' : 'close'"></mat-icon>
+            </td>
+        </ng-container>
+
+        <ng-container matColumnDef="writeable">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>
+                Writeable
+            </th>
+            <td mat-cell *matCellDef="let element">
+                <mat-icon [color]="element.writeable ? 'primary' : 'warn'" [svgIcon]="element.writeable ? 'check' : 'close'"></mat-icon>
+            </td>
+        </ng-container>
+
+        <ng-container matColumnDef="publish.enabled">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>
+                Publish
+            </th>
+            <td mat-cell *matCellDef="let element">
+                <mat-icon [color]="element.publish.enabled ? 'primary' : 'warn'" [svgIcon]="element.publish.enabled ? 'check' : 'close'"></mat-icon>
+            </td>
+        </ng-container>
+
+        <ng-container matColumnDef="publish.bit">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>
+                Bit
+            </th>
+            <td mat-cell *matCellDef="let element">
+                {{ element.publish.bit || element.publish.bit == 0 ? element.publish.bit : '-' }}
+            </td>
+        </ng-container>
+
+        <ng-container matColumnDef="publish.key">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>
+                Key
+            </th>
+            <td mat-cell *matCellDef="let element">
+                {{ element.publish.key ? element.publish.key : '-' }}
+            </td>
+        </ng-container>
+
+        <ng-container matColumnDef="publish.moduleId">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>
+                Module ID
+            </th>
+            <td mat-cell *matCellDef="let element">
+                {{ element.publish.moduleId || element.publish.moduleId == 0 ? element.publish.moduleId : '-' }}
+            </td>
+        </ng-container>
+
         <tr mat-header-row *matHeaderRowDef="columns; sticky: true;"></tr>
         <tr mat-row *matRowDef="let row; columns: columns;" (click)="options(row)"></tr>
     </table>

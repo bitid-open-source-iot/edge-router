@@ -10,6 +10,91 @@
 
 <mat-content>
     <form [formGroup]="form" (ngSubmit)="!form.invalid && submit()">
+        <mat-form-field appearance="outline">
+            <mat-label>
+                Description
+            </mat-label>
+
+            <input matInput type="text" placeholder="description" formControlName="description" required>
+
+            <mat-error *ngIf="errors.description">
+                {{ errors.description }}
+            </mat-error>
+        </mat-form-field>
+
+        <h2>
+            Publish
+        </h2>
+
+        <section formGroupName="publish">
+            <mat-form-field appearance="outline">
+                <mat-label>
+                    Enabled
+                </mat-label>
+    
+                <mat-select placeholder="enabled" formControlName="enabled" required>
+                    <mat-option [value]="true">
+                        Yes
+                    </mat-option>
+                    <mat-option [value]="false">
+                        No
+                    </mat-option>
+                </mat-select>
+    
+                <mat-error *ngIf="errors.publish.enabled">
+                    {{ errors.publish.enabled }}
+                </mat-error>
+            </mat-form-field>
+        </section>
+
+        <section formGroupName="publish">
+            <mat-form-field appearance="outline">
+                <mat-label>
+                    Module ID
+                </mat-label>
+    
+                <input matInput type="number" min="0" placeholder="moduleId" formControlName="moduleId" [required]="type == 'external'">
+    
+                <mat-error *ngIf="errors.publish.moduleId">
+                    {{ errors.publish.moduleId }}
+                </mat-error>
+            </mat-form-field>
+    
+            <mat-form-field appearance="outline">
+                <mat-label>
+                    Key
+                </mat-label>
+    
+                <mat-select placeholder="key" formControlName="key" [required]="type == 'external'">
+                    <mat-option *ngFor="let key of keys" [value]="key">
+                        {{ key }}
+                    </mat-option>
+                </mat-select>
+    
+                <mat-error *ngIf="errors.publish.key">
+                    {{ errors.publish.key }}
+                </mat-error>
+            </mat-form-field>
+        </section>
+
+        <section formGroupName="publish" *ngIf="form.value.publish.key == 'digitalsIn'">
+            <mat-form-field appearance="outline">
+                <mat-label>
+                    Bit
+                </mat-label>
+    
+                <input matInput type="number" min="0" placeholder="bit" formControlName="bit" [required]="type == 'external' || form.value.publish.key == 'digitalsIn'">
+    
+                <mat-error *ngIf="errors.publish.bit">
+                    {{ errors.publish.bit }}
+                </mat-error>
+            </mat-form-field>
+        </section>
+
+        <h2 *ngIf="type == 'modbus'">
+            Modbus
+        </h2>
+
         <mat-form-field appearance="outline" *ngIf="type == 'modbus'">
             <mat-label>
                 Register
@@ -21,14 +106,18 @@
                 {{ errors.register }}
             </mat-error>
         </mat-form-field>
+
+        <h2 *ngIf="type == 'external'">
+            External
+        </h2>
         
-        <section>
+        <section *ngIf="type == 'external'">
             <mat-form-field appearance="outline">
                 <mat-label>
                     Module ID
                 </mat-label>
     
-                <input matInput type="number" placeholder="moduleId" formControlName="moduleId" [required]="type == 'external'">
+                <input matInput type="number" min="0" placeholder="moduleId" formControlName="moduleId" [required]="type == 'external'">
     
                 <mat-error *ngIf="errors.moduleId">
                     {{ errors.moduleId }}
@@ -52,19 +141,9 @@
             </mat-form-field>
         </section>
 
-        <section *ngIf="form.value.key == 'digitalsIn'">
-            <mat-form-field appearance="outline">
-                <mat-label>
-                    Bit
-                </mat-label>
-    
-                <input matInput type="number" min="0" placeholder="bit" formControlName="bit" [required]="type == 'external' || form.value.key == 'digitalsIn'">
-    
-                <mat-error *ngIf="errors.bit">
-                    {{ errors.bit }}
-                </mat-error>
-            </mat-form-field>
-        </section>
+        <h2 *ngIf="type == 'programmable-logic-controller'">
+            Programmable Logic Controller
+        </h2>
 
         <section *ngIf="type == 'programmable-logic-controller'">
             <mat-form-field appearance="outline">
@@ -131,18 +210,6 @@
 
             <mat-error *ngIf="errors.interface">
                 {{ errors.interface }}
-            </mat-error>
-        </mat-form-field>
-
-        <mat-form-field appearance="outline">
-            <mat-label>
-                Description
-            </mat-label>
-
-            <input matInput type="text" placeholder="description" formControlName="description" required>
-
-            <mat-error *ngIf="errors.description">
-                {{ errors.description }}
             </mat-error>
         </mat-form-field>
 

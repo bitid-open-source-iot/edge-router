@@ -6,7 +6,7 @@ export class Device {
     public io: InputOutput[] = [];
     public ip: string = '';
     public port: number = 0;
-    public type: string = '';
+    public type: 'modbus' | 'external' | 'programmable-logic-controller' = 'modbus';
     public txtime: number = 5;
     public pxtime: number = 5;
     public barcode: string = '';
@@ -71,7 +71,7 @@ interface DEVICE {
     io: InputOutput[];
     ip: string;
     port: number;
-    type: string;
+    type: 'modbus' | 'external' | 'programmable-logic-controller';
     txtime: number;
     pxtime: number;
     barcode: string;

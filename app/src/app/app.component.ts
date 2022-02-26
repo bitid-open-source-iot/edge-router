@@ -23,6 +23,7 @@ export class AppComponent implements OnInit {
 		this.iconRegistry.addSvgIcon('close', this.sanitizer.bypassSecurityTrustResourceUrl('./assets/close.svg'));
 		this.iconRegistry.addSvgIcon('route', this.sanitizer.bypassSecurityTrustResourceUrl('./assets/route.svg'));
 		this.iconRegistry.addSvgIcon('email', this.sanitizer.bypassSecurityTrustResourceUrl('./assets/email.svg'));
+		this.iconRegistry.addSvgIcon('check', this.sanitizer.bypassSecurityTrustResourceUrl('./assets/check.svg'));
 		this.iconRegistry.addSvgIcon('delete', this.sanitizer.bypassSecurityTrustResourceUrl('./assets/delete.svg'));
 		this.iconRegistry.addSvgIcon('logout', this.sanitizer.bypassSecurityTrustResourceUrl('./assets/logout.svg'));
 		this.iconRegistry.addSvgIcon('router', this.sanitizer.bypassSecurityTrustResourceUrl('./assets/router.svg'));
