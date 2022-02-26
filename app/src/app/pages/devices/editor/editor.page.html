@@ -260,6 +260,24 @@
             </td>
         </ng-container>
 
+        <ng-container matColumnDef="masking.enabled">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>
+                Masking
+            </th>
+            <td mat-cell *matCellDef="let element">
+                <mat-icon [color]="element.masking.enabled ? 'primary' : 'warn'" [svgIcon]="element.masking.enabled ? 'check' : 'close'"></mat-icon>
+            </td>
+        </ng-container>
+
+        <ng-container matColumnDef="masking.bit">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>
+                Bit
+            </th>
+            <td mat-cell *matCellDef="let element">
+                {{ element.masking.bit || element.masking.bit == 0 ? element.masking.bit : '-' }}
+            </td>
+        </ng-container>
+
         <ng-container matColumnDef="publish.enabled">
             <th mat-header-cell *matHeaderCellDef mat-sort-header>
                 Publish

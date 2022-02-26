@@ -216,7 +216,7 @@ export class DevicesEditorPage implements OnInit, OnDestroy {
                     this.columns = ['description', 'register', 'publish.enabled', 'publish.bit', 'publish.key', 'publish.moduleId'];
                     break;
                 case('external'):
-                    this.columns = ['description', 'key', 'moduleId', 'publish.enabled', 'publish.bit', 'publish.key', 'publish.moduleId'];
+                    this.columns = ['description', 'key', 'moduleId', 'masking.enabled', 'masking.bit', 'publish.enabled', 'publish.bit', 'publish.key', 'publish.moduleId'];
                     break;
                 case('programmable-logic-controller'):
                     this.columns = ['description', 'tagId', 'interface', 'readable', 'writeable', 'publish.enabled', 'publish.bit', 'publish.key', 'publish.moduleId'];

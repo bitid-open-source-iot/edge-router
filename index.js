@@ -198,7 +198,10 @@ try {
                                         value: 0,
                                         inputId: input.inputId
                                     };
-                                    if (input.key.indexOf('TEXT') == -1 && typeof (event.dataIn[input.key]) != 'undefined' && event.dataIn[input.key] != null) {
+                                    if (input.masking?.enabled && input.key.indexOf('digitalsIn') > -1 && typeof (event.dataIn[input.key]) != 'undefined' && event.dataIn[input.key] != null) {
+                                        tmp.value = BitMask(input.masking.bit, event.dataIn[input.key]);
+                                        input.value = BitMask(input.masking.bit, event.dataIn[input.key]);
+                                    } else if (input.key.indexOf('TEXT') == -1 && typeof (event.dataIn[input.key]) != 'undefined' && event.dataIn[input.key] != null) {
                                         tmp.value = parseInt(event.dataIn[input.key]);
                                         input.value = parseInt(event.dataIn[input.key]);
                                     };

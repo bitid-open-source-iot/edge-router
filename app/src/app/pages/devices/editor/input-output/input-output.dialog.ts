@@ -56,6 +56,10 @@ export class InputOutputDialog implements OnInit, OnDestroy {
             enabled: new FormControl(this.config.io?.publish?.enabled, [Validators.required]),
             moduleId: new FormControl(this.config.io?.publish?.moduleId)
         }),
+        masking: new FormGroup({
+            bit: new FormControl(this.config.io?.masking?.bit, [Validators.required]),
+            enabled: new FormControl(this.config.io?.masking?.enabled, [Validators.required])
+        }),
         key: new FormControl(this.config.io?.key),
         tagId: new FormControl(this.config.io?.tagId),
         inputId: new FormControl(this.config.io?.inputId, [Validators.required]),
@@ -72,6 +76,10 @@ export class InputOutputDialog implements OnInit, OnDestroy {
             key: '',
             enabled: '',
             moduleId: ''
+        },
+        masking: {
+            bit: '',
+            enabled: ''
         },
         key: '',
         tagId: '',
@@ -196,11 +204,26 @@ export class InputOutputDialog implements OnInit, OnDestroy {
         });
 
         (this.form.controls['publish'] as FormGroup).controls['enabled'].setValue(this.config.io?.publish?.enabled);
+
+        this.observers.masking = (this.form.controls['masking'] as FormGroup).controls['enabled'].valueChanges.subscribe((enabled: boolean) => {
+            if (enabled) {
+                (this.form.controls['masking'] as FormGroup).controls['bit'].enable();
+                (this.form.controls['masking'] as FormGroup).controls['bit'].setValidators([Validators.required, Validators.min(0)]);
+            } else {
+                (this.form.controls['masking'] as FormGroup).controls['bit'].disable();
+                (this.form.controls['masking'] as FormGroup).controls['bit'].setValidators(null);
+            };
+            (this.form.controls['masking'] as FormGroup).controls['bit'].updateValueAndValidity();
+        });
+
+        (this.form.controls['masking'] as FormGroup).controls['enabled'].setValue(this.config.io?.masking?.enabled);
     }
 
     ngOnDestroy(): void {
         this.observers.key?.unsubscribe();
         this.observers.form?.unsubscribe();
+        this.observers.publish?.unsubscribe();
+        this.observers.masking?.unsubscribe();
     }
 
 }

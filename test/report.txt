@@ -1,12 +1,12 @@
 
 
   Software & Testing Details
-    ✓ DATE: 26/02/2022 07:41:50
+    ✓ DATE: 26/02/2022 09:09:46
     ✓ AUTHOR: claytoncc
-    ✓ VERSION: 1.1.3
+    ✓ VERSION: 1.1.4
 
   Admin
-    ✓ /edge-router/admin/authenticate (42ms)
+    ✓ /edge-router/admin/authenticate
     ✓ /edge-router/admin/change-email
     ✓ /edge-router/admin/change-email
     ✓ /edge-router/admin/change-password
@@ -33,5 +33,5 @@
     ✓ /edge-router/mapping/delete
 
 
-  20 passing (207ms)
+  20 passing (183ms)
 

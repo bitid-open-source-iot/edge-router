@@ -13,6 +13,13 @@ export class InputOutput {
             enabled: false,
             moduleId: 0
         };
+    public masking = <{
+        bit: number;
+        enabled: boolean;
+    }>{
+            bit: 0,
+            enabled: false
+        };
     public key: string = '';
     public tagId: string = '';
     public value: number = 0;
@@ -38,6 +45,14 @@ export class InputOutput {
                 };
                 if (typeof (args.publish.moduleId) != 'undefined' && args.publish.moduleId != null) {
                     this.publish.moduleId = args.publish.moduleId;
+                };
+            };
+            if (typeof (args.masking) != 'undefined' && args.masking != null) {
+                if (typeof (args.masking.bit) != 'undefined' && args.masking.bit != null) {
+                    this.masking.bit = args.masking.bit;
+                };
+                if (typeof (args.masking.enabled) != 'undefined' && args.masking.enabled != null) {
+                    this.masking.enabled = args.masking.enabled;
                 };
             };
             if (typeof (args.key) != 'undefined' && args.key != null) {
@@ -81,6 +96,10 @@ interface INPUT_OUTPUT {
         key: string;
         enabled: boolean;
         moduleId: number;
+    };
+    masking: {
+        bit: number;
+        enabled: boolean;
     };
     key: string;
     tagId: string;

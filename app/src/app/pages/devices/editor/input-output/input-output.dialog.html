@@ -140,6 +140,39 @@
                 </mat-error>
             </mat-form-field>
         </section>
+        
+        <section formGroupName="masking" *ngIf="type == 'external'">
+            <mat-form-field appearance="outline">
+                <mat-label>
+                    Enable Mask
+                </mat-label>
+    
+                <mat-select placeholder="enabled" formControlName="enabled" required>
+                    <mat-option [value]="true">
+                        Yes
+                    </mat-option>
+                    <mat-option [value]="false">
+                        No
+                    </mat-option>
+                </mat-select>
+    
+                <mat-error *ngIf="errors.masking.enabled">
+                    {{ errors.masking.enabled }}
+                </mat-error>
+            </mat-form-field>
+    
+            <mat-form-field appearance="outline">
+                <mat-label>
+                    Mask Bit
+                </mat-label>
+    
+                <input matInput type="number" min="0" placeholder="bit" formControlName="bit" [required]="form.value.masking.enabled && type == 'external'">
+    
+                <mat-error *ngIf="errors.masking.bit">
+                    {{ errors.masking.bit }}
+                </mat-error>
+            </mat-form-field>
+        </section>
 
         <h2 *ngIf="type == 'programmable-logic-controller'">
             Programmable Logic Controller
