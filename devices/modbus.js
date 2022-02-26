@@ -20,6 +20,7 @@ module.exports = class extends EventEmitter {
         this.enabled = args.enabled;
         this.deviceId = args.deviceId;
         this.controller = null;
+        this.description = args.description;
 
         // this.update();
 
@@ -69,7 +70,7 @@ module.exports = class extends EventEmitter {
                 try {
                     await this.wait(100);
                     if (typeof (o.value) != 'undefined' && o.value !== null) {
-                        __logger.info(['hr', register].join('') + ' - ' + o.value);
+                        __logger.info([this.description, ' - HR', register].join('') + ' - ' + o.value);
                         await this.controller.write(['hr', register].join(''), o.value);
                     };
                     deferred.resolve();
