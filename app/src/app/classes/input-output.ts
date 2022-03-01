@@ -23,6 +23,7 @@ export class InputOutput {
     public key: string = '';
     public tagId: string = '';
     public value: number = 0;
+    public shift: number = -1;
     public inputId: string = ObjectId();
     public register: number = 0;
     public moduleId: number = 0;
@@ -64,6 +65,9 @@ export class InputOutput {
             if (typeof (args.value) != 'undefined' && args.value != null) {
                 this.value = args.value;
             };
+            if (typeof (args.shift) != 'undefined' && args.shift != null) {
+                this.shift = args.shift;
+            };
             if (typeof (args.inputId) != 'undefined' && args.inputId != null) {
                 this.inputId = args.inputId;
             };
@@ -104,6 +108,7 @@ interface INPUT_OUTPUT {
     key: string;
     tagId: string;
     value: number;
+    shift: number;
     inputId: string;
     register: number;
     moduleId: number;

@@ -62,6 +62,7 @@ export class InputOutputDialog implements OnInit, OnDestroy {
         }),
         key: new FormControl(this.config.io?.key),
         tagId: new FormControl(this.config.io?.tagId),
+        shift: new FormControl(this.config.io?.shift),
         inputId: new FormControl(this.config.io?.inputId, [Validators.required]),
         register: new FormControl(this.config.io?.register),
         moduleId: new FormControl(this.config.io?.moduleId),
@@ -83,6 +84,7 @@ export class InputOutputDialog implements OnInit, OnDestroy {
         },
         key: '',
         tagId: '',
+        shift: '',
         inputId: '',
         register: '',
         moduleId: '',
@@ -154,6 +156,8 @@ export class InputOutputDialog implements OnInit, OnDestroy {
             case ('external'):
                 this.form.controls['key'].setValidators([Validators.required]);
                 this.form.controls['key'].updateValueAndValidity();
+                this.form.controls['shift'].setValidators([Validators.required]);
+                this.form.controls['shift'].updateValueAndValidity();
                 this.form.controls['moduleId'].setValidators([Validators.required]);
                 this.form.controls['moduleId'].updateValueAndValidity();
                 break;
