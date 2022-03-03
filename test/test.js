@@ -466,6 +466,27 @@ var tools = {
                 return tools.post('/edge-router/devices/add', {
                     'io': [
                         {
+                            'scaling': {
+                                'raw': {
+                                    'low': 0,
+                                    'high': 0
+                                },
+                                'scaled': {
+                                    'low': 0,
+                                    'high': 0
+                                },
+                                'type': 'none'
+                            },
+                            'publish': {
+                                'bit': 0,
+                                'key': '',
+                                'enabled': false,
+                                'moduleId': 0
+                            },
+                            'masking': {
+                                'bit': 0,
+                                'enabled': false
+                            },
                             'bit': 0,
                             'key': 'AI1',
                             'tagId': '',
@@ -479,6 +500,27 @@ var tools = {
                             'description': 'MY TEST INPUT 1'
                         },
                         {
+                            'scaling': {
+                                'raw': {
+                                    'low': 0,
+                                    'high': 0
+                                },
+                                'scaled': {
+                                    'low': 0,
+                                    'high': 0
+                                },
+                                'type': 'none'
+                            },
+                            'publish': {
+                                'bit': 0,
+                                'key': '',
+                                'enabled': false,
+                                'moduleId': 0
+                            },
+                            'masking': {
+                                'bit': 0,
+                                'enabled': false
+                            },
                             'bit': 0,
                             'key': 'AI2',
                             'tagId': '',

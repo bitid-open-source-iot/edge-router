@@ -3,6 +3,7 @@ const cors = require('cors');
 const http = require('http');
 const chalk = require('chalk');
 const express = require('express');
+const scaling = require('./lib/scaling');
 const WebSocket = require('./lib/socket').WebSocket;
 const responder = require('./lib/responder');
 const ErrorResponse = require('./lib/error-response');
@@ -205,8 +206,28 @@ try {
                                         tmp.value = BitMask(input.masking.bit, event.dataIn[input.key]);
                                         input.value = BitMask(input.masking.bit, event.dataIn[input.key]);
                                     } else if (input.key.indexOf('TEXT') == -1 && typeof (event.dataIn[input.key]) != 'undefined' && event.dataIn[input.key] != null) {
-                                        tmp.value = parseInt(event.dataIn[input.key]);
-                                        input.value = parseInt(event.dataIn[input.key]);
+                                        switch (input.scaling?.type) {
+                                            case ('ntc'):
+                                                tmp.value = new scaling.module().scaleNTC(parseInt(event.dataIn[input.key]));
+                                                input.value = new scaling.module().scaleNTC(parseInt(event.dataIn[input.key]));
+                                                break;
+                                            case ('none'):
+                                                tmp.value = parseInt(event.dataIn[input.key]);
+                                                input.value = parseInt(event.dataIn[input.key]);
+                                                break;
+                                            case ('linear'):
+                                                tmp.value = new scaling.module().scaleAnalog(parseInt(event.dataIn[input.key]), input.scaling?.raw?.low, input.scaling?.raw?.high, input.scaling?.scaled?.low, input.scaling?.scaled?.high);
+                                                input.value = new scaling.module().scaleAnalog(parseInt(event.dataIn[input.key]), input.scaling?.raw?.low, input.scaling?.raw?.high, input.scaling?.scaled?.low, input.scaling?.scaled?.high);
+                                                break;
+                                            case ('invert'):
+                                                tmp.value = new scaling.module().scaleAnalog(parseInt(event.dataIn[input.key]), input.scaling.raw.low, input.scaling.raw.high, input.scaling.scaled.low, input.scaling.scaled.high, true);
+                                                input.value = new scaling.module().scaleAnalog(parseInt(event.dataIn[input.key]), input.scaling.raw.low, input.scaling.raw.high, input.scaling.scaled.low, input.scaling.scaled.high, true);
+                                                break;
+                                            default:
+                                                tmp.value = parseInt(event.dataIn[input.key]);
+                                                input.value = parseInt(event.dataIn[input.key]);
+                                                break;
+                                        };
                                     };
                                     data.push(tmp);
                                 };

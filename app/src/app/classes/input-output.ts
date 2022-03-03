@@ -2,6 +2,27 @@ import { ObjectId } from './id';
 
 export class InputOutput {
 
+    public scaling = <{
+        raw: {
+            low: number;
+            high: number;
+        };
+        scaled: {
+            low: number;
+            high: number;
+        };
+        type: 'ntc' | 'none' | 'linear' | 'invert';
+    }>{
+            raw: {
+                low: 0,
+                high: 0
+            },
+            scaled: {
+                low: 0,
+                high: 0
+            },
+            type: 'none'
+        };
     public publish = <{
         bit: number;
         key: string;
@@ -34,6 +55,27 @@ export class InputOutput {
 
     constructor(args?: INPUT_OUTPUT) {
         if (typeof (args) != 'undefined' && args != null) {
+            if (typeof (args.scaling) != 'undefined' && args.scaling != null) {
+                if (typeof (args.scaling.raw) != 'undefined' && args.scaling.raw != null) {
+                    if (typeof (args.scaling.raw.low) != 'undefined' && args.scaling.raw.low != null) {
+                        this.scaling.raw.low = args.scaling.raw.low;
+                    };
+                    if (typeof (args.scaling.raw.high) != 'undefined' && args.scaling.raw.high != null) {
+                        this.scaling.raw.high = args.scaling.raw.high;
+                    };
+                };
+                if (typeof (args.scaling.scaled) != 'undefined' && args.scaling.scaled != null) {
+                    if (typeof (args.scaling.scaled.low) != 'undefined' && args.scaling.scaled.low != null) {
+                        this.scaling.scaled.low = args.scaling.scaled.low;
+                    };
+                    if (typeof (args.scaling.scaled.high) != 'undefined' && args.scaling.scaled.high != null) {
+                        this.scaling.scaled.high = args.scaling.scaled.high;
+                    };
+                };
+                if (typeof (args.scaling.type) != 'undefined' && args.scaling.type != null) {
+                    this.scaling.type = args.scaling.type;
+                };
+            };
             if (typeof (args.publish) != 'undefined' && args.publish != null) {
                 if (typeof (args.publish.bit) != 'undefined' && args.publish.bit != null) {
                     this.publish.bit = args.publish.bit;
@@ -95,6 +137,17 @@ export class InputOutput {
 }
 
 interface INPUT_OUTPUT {
+    scaling: {
+        raw: {
+            low: number;
+            high: number;
+        };
+        scaled: {
+            low: number;
+            high: number;
+        };
+        type: 'ntc' | 'none' | 'linear' | 'invert';
+    };
     publish: {
         bit: number;
         key: string;

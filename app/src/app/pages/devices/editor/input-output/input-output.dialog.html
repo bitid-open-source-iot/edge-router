@@ -188,6 +188,107 @@
             </mat-form-field>
         </section>
 
+        <h2 *ngIf="type == 'external'">
+            Scaling
+        </h2>
+
+        <section *ngIf="type == 'external'">
+            <mat-form-field appearance="outline" formGroupName="scaling">
+                <mat-label text-uppercase>
+                    Type
+                </mat-label>
+
+                <mat-select name="type" placeholder="scaling type" formControlName="type"
+                    [required]="form.value.type == 'analog'">
+                    <mat-option value="ntc">
+                        NTC
+                    </mat-option>
+
+                    <mat-option value="none">
+                        None
+                    </mat-option>
+
+                    <mat-option value="linear">
+                        Linear
+                    </mat-option>
+
+                    <mat-option value="invert">
+                        Invert
+                    </mat-option>
+                </mat-select>
+
+                <mat-error *ngIf="errors.scaling.type">
+                    {{ errors.scaling.type }}
+                </mat-error>
+            </mat-form-field>
+        </section>
+
+        <div *ngIf="type == 'external'" formGroupName="scaling">
+            <h2 *ngIf="form.value.scaling.type != 'ntc' && form.value.scaling.type != 'none'">
+                Raw
+            </h2>
+
+            <section formGroupName="raw" *ngIf="form.value.scaling.type != 'ntc' && form.value.scaling.type != 'none'">
+                <mat-form-field appearance="outline">
+                    <mat-label text-uppercase>
+                        Low
+                    </mat-label>
+
+                    <input matInput type="number" name="low" placeholder="low" formControlName="low"
+                        [required]="form.value.type == 'analog' && form.value.scaling.type != 'ntc' && form.value.scaling.type != 'none'">
+
+                    <mat-error *ngIf="errors.scaling.raw.low">
+                        {{ errors.scaling.raw.low }}
+                    </mat-error>
+                </mat-form-field>
+
+                <mat-form-field appearance="outline">
+                    <mat-label text-uppercase>
+                        High
+                    </mat-label>
+
+                    <input matInput type="number" name="high" placeholder="high" formControlName="high"
+                        [required]="form.value.type == 'analog' && form.value.scaling.type != 'ntc' && form.value.scaling.type != 'none'">
+
+                    <mat-error *ngIf="errors.scaling.raw.high">
+                        {{ errors.scaling.raw.high }}
+                    </mat-error>
+                </mat-form-field>
+            </section>
+
+            <h2 *ngIf="form.value.scaling.type != 'ntc' && form.value.scaling.type != 'none'">
+                Scaled
+            </h2>
+
+            <section formGroupName="scaled" *ngIf="form.value.scaling.type != 'ntc' && form.value.scaling.type != 'none'">
+                <mat-form-field appearance="outline">
+                    <mat-label text-uppercase>
+                        Low
+                    </mat-label>
+
+                    <input matInput type="number" name="low" placeholder="low" formControlName="low"
+                        [required]="form.value.type == 'analog' && form.value.scaling.type != 'ntc' && form.value.scaling.type != 'none'">
+
+                    <mat-error *ngIf="errors.scaling.scaled.low">
+                        {{ errors.scaling.scaled.low }}
+                    </mat-error>
+                </mat-form-field>
+
+                <mat-form-field appearance="outline">
+                    <mat-label text-uppercase>
+                        High
+                    </mat-label>
+
+                    <input matInput type="number" name="high" placeholder="high" formControlName="high"
+                        [required]="form.value.type == 'analog' && form.value.scaling.type != 'ntc' && form.value.scaling.type != 'none'">
+
+                    <mat-error *ngIf="errors.scaling.scaled.high">
+                        {{ errors.scaling.scaled.high }}
+                    </mat-error>
+                </mat-form-field>
+            </section>
+        </div>
+
         <h2 *ngIf="type == 'programmable-logic-controller'">
             Programmable Logic Controller
         </h2>

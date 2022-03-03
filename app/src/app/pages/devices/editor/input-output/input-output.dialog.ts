@@ -50,6 +50,17 @@ export class InputOutputDialog implements OnInit, OnDestroy {
     ];
     public type: string = this.config.type;
     public form: FormGroup = new FormGroup({
+        scaling: new FormGroup({
+            raw: new FormGroup({
+                low: new FormControl(this.config.io?.scaling.raw.low),
+                high: new FormControl(this.config.io?.scaling.raw.high)
+            }),
+            scaled: new FormGroup({
+                low: new FormControl(this.config.io?.scaling.scaled.low),
+                high: new FormControl(this.config.io?.scaling.scaled.high)
+            }),
+            type: new FormControl(this.config.io?.scaling.type, [Validators.required])
+        }),
         publish: new FormGroup({
             bit: new FormControl(this.config.io?.publish?.bit),
             key: new FormControl(this.config.io?.publish?.key),
@@ -72,6 +83,17 @@ export class InputOutputDialog implements OnInit, OnDestroy {
         description: new FormControl(this.config.io?.description, [Validators.required])
     });
     public errors: any = {
+        scaling: {
+            raw: {
+                low: '',
+                high: ''
+            },
+            scaled: {
+                low: '',
+                high: ''
+            },
+            type: ''
+        },
         publish: {
             bit: '',
             key: '',
@@ -221,6 +243,31 @@ export class InputOutputDialog implements OnInit, OnDestroy {
         });
 
         (this.form.controls['masking'] as FormGroup).controls['enabled'].setValue(this.config.io?.masking?.enabled);
+
+        this.observers.scaling = (this.form.controls['scaling'] as FormGroup).controls['type'].valueChanges.subscribe((type: 'ntc' | 'none' | 'linear' | 'invert') => {
+            switch(type) {
+                case('linear'):
+                case('invert'):
+                ((this.form.controls['scaling'] as FormGroup).controls['raw'] as FormGroup).controls['low'].setValidators([Validators.required]);
+                ((this.form.controls['scaling'] as FormGroup).controls['raw'] as FormGroup).controls['high'].setValidators([Validators.required]);
+                ((this.form.controls['scaling'] as FormGroup).controls['scaled'] as FormGroup).controls['low'].setValidators([Validators.required]);
+                ((this.form.controls['scaling'] as FormGroup).controls['scaled'] as FormGroup).controls['high'].setValidators([Validators.required]);
+                break;
+                case('ntc'):
+                case('none'):
+                    ((this.form.controls['scaling'] as FormGroup).controls['raw'] as FormGroup).controls['low'].setValidators(null);
+                    ((this.form.controls['scaling'] as FormGroup).controls['raw'] as FormGroup).controls['high'].setValidators(null);
+                    ((this.form.controls['scaling'] as FormGroup).controls['scaled'] as FormGroup).controls['low'].setValidators(null);
+                    ((this.form.controls['scaling'] as FormGroup).controls['scaled'] as FormGroup).controls['high'].setValidators(null);
+                    break;
+            };
+            ((this.form.controls['scaling'] as FormGroup).controls['raw'] as FormGroup).controls['low'].updateValueAndValidity();
+            ((this.form.controls['scaling'] as FormGroup).controls['raw'] as FormGroup).controls['high'].updateValueAndValidity();
+            ((this.form.controls['scaling'] as FormGroup).controls['scaled'] as FormGroup).controls['low'].updateValueAndValidity();
+            ((this.form.controls['scaling'] as FormGroup).controls['scaled'] as FormGroup).controls['high'].updateValueAndValidity();
+        });
+     
+        (this.form.controls['scaling'] as FormGroup).controls['type'].setValue(this.config.io?.scaling?.type);
     }
 
     ngOnDestroy(): void {
@@ -228,6 +275,7 @@ export class InputOutputDialog implements OnInit, OnDestroy {
         this.observers.form?.unsubscribe();
         this.observers.publish?.unsubscribe();
         this.observers.masking?.unsubscribe();
+        this.observers.scaling?.unsubscribe();
     }
 
 }
