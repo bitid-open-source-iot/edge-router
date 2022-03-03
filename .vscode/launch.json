@@ -21,6 +21,21 @@
             "port": 9221,
             "localRoot": "${workspaceFolder}",
             "remoteRoot": "/var/www/node/edge-router"
-        }
+        },
+        {
+            "type": "node",
+            "request": "launch",
+            "name": "Mocha test Modbus Masking",
+            "program": "${workspaceFolder}/node_modules/mocha/bin/_mocha",
+            // "runtimeVersion": "14.16.1",
+            "args": [
+                "--timeout",
+                "999999",
+                "--colors",
+                "${workspaceFolder}/test/testModbusMasking.js"
+            ],
+            "internalConsoleOptions": "openOnSessionStart"
+        },
+
     ]
 }

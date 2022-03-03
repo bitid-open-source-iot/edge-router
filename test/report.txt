@@ -1,37 +1,11 @@
 
 
   Software & Testing Details
-    ✓ DATE: 03/03/2022 06:32:32
-    ✓ AUTHOR: claytoncc
-    ✓ VERSION: 1.1.6
+    ✔ DATE: 03/03/2022 17:49:19
+    ✔ AUTHOR: shane
+    ✔ VERSION: 1.1.6
 
   Admin
-    ✓ /edge-router/admin/authenticate (106ms)
-    ✓ /edge-router/admin/change-email
-    ✓ /edge-router/admin/change-email
-    ✓ /edge-router/admin/change-password
-    ✓ /edge-router/admin/change-password
-
-  Config
-    ✓ /edge-router/config/export
-    ✓ /edge-router/config/import
-
-  Devices
-    ✓ /edge-router/devices/add
-    ✓ /edge-router/devices/get
-    ✓ /edge-router/devices/list
-    ✓ /edge-router/devices/update
-
-  Mapping
-    ✓ /edge-router/mapping/add
-    ✓ /edge-router/mapping/get
-    ✓ /edge-router/mapping/list
-    ✓ /edge-router/mapping/update
-
-  Remove Added Items
-    ✓ /edge-router/devices/delete
-    ✓ /edge-router/mapping/delete
-
-
-  20 passing (315ms)
-
+ModBus - Connecting!
+ModBus - Connecting!
+Procon DO-1 - HR10 - 255

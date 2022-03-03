@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "mocha test/test.js | tee test/report.txt"
+    "test": "mocha test/test.js | tee test/report.txt",
+    "testShane": "mocha test/testModbusMasking.js | tee test/report.txt"
   },
   "author": "",
   "license": "ISC",
@@ -28,6 +29,7 @@
   "devDependencies": {
     "chai": "^4.2.0",
     "chai-subset": "^1.6.0",
+    "mocha": "^9.2.1",
     "should": "^13.2.3"
   }
 }
