@@ -89,11 +89,11 @@ module.exports = class extends EventEmitter {
                 try {
                     await this.wait(100);
                     if (typeof (o.value) != 'undefined' && o.value !== null) {
-                        __logger.info([this.description, ' - HR', register].join('') + ' - ' + o.value);
+                        __logger.info([io.description, ' - HR', register].join('') + ' - ' + o.value);
                         let regValue
                         try{
-                            regValue = await this.controller.read(['hr', register].join(''))
-                            // regValue = 1
+                            // regValue = await this.controller.read(['hr', register].join(''))
+                            regValue = 1
                         }catch(e){
                             console.error(e)
                         }

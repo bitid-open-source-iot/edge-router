@@ -1,11 +1,11 @@
 
 
   Software & Testing Details
-    ✔ DATE: 03/03/2022 17:49:19
+    ✔ DATE: 04/03/2022 13:10:51
     ✔ AUTHOR: shane
     ✔ VERSION: 1.1.6
 
   Admin
 ModBus - Connecting!
 ModBus - Connecting!
-Procon DO-1 - HR10 - 255
+Procon DO-1 - HR10 - 1
