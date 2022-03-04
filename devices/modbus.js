@@ -93,7 +93,7 @@ module.exports = class extends EventEmitter {
                         let regValue
                         try{
                             regValue = await this.controller.read(['hr', register].join(''))
-                            __logger.info('regValue', regValue)
+                            __logger.info('regValue ' + regValue)
                             // regValue = 1
                         }catch(e){
                             console.error(e)
@@ -113,7 +113,7 @@ module.exports = class extends EventEmitter {
                         }else{
                             finalValueToWrite = maskedWriteValue
                         }
-                        __logger.info('finalValueToWrite', finalValueToWrite)
+                        __logger.info('finalValueToWrite ' + finalValueToWrite)
                         await this.controller.write(['hr', register].join(''), finalValueToWrite);
                     };
                     deferred.resolve();
