@@ -93,7 +93,7 @@ module.exports = class extends EventEmitter {
                         let regValue
                         try{
                             regValue = await this.controller.read(['hr', register].join(''))
-                            // regValue = 1
+                            // regValue = 0
                         }catch(e){
                             console.error(e)
                         }
