@@ -1,4 +1,5 @@
 const { fin } = require('q');
+const { async } = require('q');
 const Q = require('q');
 const modbus = require('../lib/modbus');
 const EventEmitter = require('events').EventEmitter;
@@ -24,9 +25,20 @@ module.exports = class extends EventEmitter {
             this.deviceId = args.deviceId;
             this.controller = null;
             this.description = args.description;
+            this.unitId = args.unitId || 0
     
             // this.update();
-    
+
+            this.io.map((o)=> {
+                if(o.readable == true){
+                    this.values.push({
+                        value: 0,
+                        inputId: o.inputId
+                    });
+                }
+            })
+
+
             setInterval(async () => {
                 if (this.status == 'connected') {
                     await this.update();
@@ -49,12 +61,18 @@ module.exports = class extends EventEmitter {
 
         __logger.info('ModBus - Connecting!');
 
-        this.controller = modbus(this.ip, this.port, 0);
+        // this.controller = modbus(this.ip, this.port, 0);
+        this.controller = modbus(this.ip, this.port, this.unitId);
 
         await this.wait(1000);
 
         if (this.controller.stream.online) {
             __logger.info('ModBus - Connected!');
+            // setInterval(async()=>{
+            //     // let regValue = await this.controller.read(['hr', 2].join(''))
+            //     // console.log('regValue', regValue)
+            //     // await this.controller.write(['hr', 3].join(''), 1);
+            // },1000)
             this.status = 'connected';
         } else {
             __logger.error('ModBus - Disconnected!');
@@ -93,6 +111,7 @@ module.exports = class extends EventEmitter {
                         let regValue
                         try{
                             regValue = await this.controller.read(['hr', register].join(''))
+                            o.value = regValue
                             // regValue = 0
                         }catch(e){
                             console.error(e)
@@ -112,7 +131,8 @@ module.exports = class extends EventEmitter {
                         }else{
                             finalValueToWrite = maskedWriteValue
                         }
-                        await this.controller.write(['hr', register].join(''), finalValueToWrite);
+                        // await this.controller.write(['hr', register].join(''), finalValueToWrite);
+                        await this.controller.write(['hr', mappingItem.destination.destinationRegister].join(''), finalValueToWrite);
                     };
                     deferred.resolve();
                 } catch (error) {

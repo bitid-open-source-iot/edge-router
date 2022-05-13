@@ -186,6 +186,18 @@ try {
             try {
                 __router = new EdgeRouter(__settings);
 
+
+                __settings.mapping.map(m=>{
+                    let did = m.destination.deviceId
+                    let iid = m.destination.inputId
+                    let d = __settings.devices.find(d=> d.deviceId == did)
+                    let io = d.io.find(o=>o.inputId == iid)
+                    console.log(io.register)
+                    m.destination.destinationRegister = io.register
+                })
+
+
+
                 __router.on('control', event => {
                     __devices.map(device => {
                         if (device.type == 'external' && device.deviceId == event?.rtuId) {
