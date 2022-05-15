@@ -13,6 +13,7 @@ const Modbus = require('./devices/modbus');
 const External = require('./devices/external');
 const EdgeRouter = require('./devices/edge-router');
 const ProgrammableLogicController = require('./devices/programmable-logic-controller');
+const KGATEWAY = require('./devices/kGateway')
 const BitMask = require('./lib/bit-mask');
 
 global.__base = __dirname + '/';
@@ -187,11 +188,11 @@ try {
                 __router = new EdgeRouter(__settings);
 
 
-                __settings.mapping.map(m=>{
+                __settings.mapping.map(m => {
                     let did = m.destination.deviceId
                     let iid = m.destination.inputId
-                    let d = __settings.devices.find(d=> d.deviceId == did)
-                    let io = d.io.find(o=>o.inputId == iid)
+                    let d = __settings.devices.find(d => d.deviceId == did)
+                    let io = d.io.find(o => o.inputId == iid)
                     console.log(io.register)
                     m.destination.destinationRegister = io.register
                 })
@@ -261,6 +262,11 @@ try {
                             var device = new Modbus(o);
                             device.on('change', event => __router.route(device.deviceId, event));
                             __devices.push(device);
+                            break;
+                        case ('kGateway'):
+                            var device = new KGATEWAY(o);
+                            // device.on('change', event => __router.route(device.deviceId, event));
+                            // __devices.push(device);
                             break;
                         case ('external'):
                             var device = new External(o);

@@ -1,5 +1,9 @@
 import { ObjectId } from './id';
 
+/* --- INTERFACES --- */
+import { INPUT_OUTPUT } from '../interfaces/input-output'
+
+
 export class InputOutput {
 
     public scaling = <{
@@ -41,6 +45,24 @@ export class InputOutput {
             bit: 0,
             enabled: false
         };
+    public mqtt = <{
+        userName: string;
+        password: string;
+        subscribe: {
+            data: string,
+            control: string
+        }
+        enabled: boolean;
+    }>{
+            userName: '',
+            password: '',
+            subscribe: {
+                data: '',
+                control: ''
+            },
+            enabled: false
+        };
+
     public key: string = '';
     public tagId: string = '';
     public value: number = 0;
@@ -98,6 +120,25 @@ export class InputOutput {
                     this.masking.enabled = args.masking.enabled;
                 };
             };
+            if (typeof (args.mqtt) != 'undefined' && args.mqtt != null) {
+                if (typeof (args.mqtt.userName) != 'undefined' && args.mqtt.userName != null) {
+                    this.mqtt.userName = args.mqtt.userName;
+                };
+                if (typeof (args.mqtt.password) != 'undefined' && args.mqtt.password != null) {
+                    this.mqtt.password = args.mqtt.password;
+                };
+                if (typeof (args.mqtt.subscribe) != 'undefined' && args.mqtt.subscribe != null) {
+                    if (typeof (args.mqtt.subscribe.data) != 'undefined' && args.mqtt.subscribe.data != null) {
+                        this.mqtt.subscribe.data = args.mqtt.subscribe.data;
+                    };
+                    if (typeof (args.mqtt.subscribe.control) != 'undefined' && args.mqtt.subscribe.control != null) {
+                        this.mqtt.subscribe.control = args.mqtt.subscribe.control;
+                    };
+                };
+                if (typeof (args.mqtt.enabled) != 'undefined' && args.mqtt.enabled != null) {
+                    this.mqtt.enabled = args.mqtt.enabled;
+                };
+            };
             if (typeof (args.key) != 'undefined' && args.key != null) {
                 this.key = args.key;
             };
@@ -136,37 +177,46 @@ export class InputOutput {
 
 }
 
-interface INPUT_OUTPUT {
-    scaling: {
-        raw: {
-            low: number;
-            high: number;
-        };
-        scaled: {
-            low: number;
-            high: number;
-        };
-        type: 'ntc' | 'none' | 'linear' | 'invert';
-    };
-    publish: {
-        bit: number;
-        key: string;
-        enabled: boolean;
-        moduleId: number;
-    };
-    masking: {
-        bit: number;
-        enabled: boolean;
-    };
-    key: string;
-    tagId: string;
-    value: number;
-    shift: number;
-    inputId: string;
-    register: number;
-    moduleId: number;
-    readable: boolean;
-    interface: string;
-    writeable: boolean;
-    description: string;
-}
+// interface INPUT_OUTPUT {
+//     scaling: {
+//         raw: {
+//             low: number;
+//             high: number;
+//         };
+//         scaled: {
+//             low: number;
+//             high: number;
+//         };
+//         type: 'ntc' | 'none' | 'linear' | 'invert';
+//     };
+//     publish: {
+//         bit: number;
+//         key: string;
+//         enabled: boolean;
+//         moduleId: number;
+//     };
+//     masking: {
+//         bit: number;
+//         enabled: boolean;
+//     };
+//     mqtt: {
+//         userName: string;
+//         password: string;
+//         subscribe: {
+//             data: string,
+//             control: string
+//         }
+//         enabled: boolean;
+//     };
+//     key: string;
+//     tagId: string;
+//     value: number;
+//     shift: number;
+//     inputId: string;
+//     register: number;
+//     moduleId: number;
+//     readable: boolean;
+//     interface: string;
+//     writeable: boolean;
+//     description: string;
+// }

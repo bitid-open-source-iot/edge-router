@@ -190,8 +190,11 @@ var module = function () {
                             barcode: args.req.body.barcode,
                             publish: args.req.body.publish,
                             enabled: args.req.body.enabled,
+                            unitId: args.req.body.unitId,
                             deviceId: args.req.body.deviceId,
-                            description: args.req.body.description
+                            description: args.req.body.description,
+                            userName: args.req.body.userName,
+                            password: args.req.body.password,
                         });
                         __settings.devices = __settings.devices.map(o => {
                             return {
@@ -205,8 +208,11 @@ var module = function () {
                                 barcode: o.barcode,
                                 publish: o.publish,
                                 enabled: o.enabled,
+                                unitId: o.unitId,
                                 deviceId: o.deviceId,
-                                description: o.description
+                                description: o.description,
+                                userName: o.userName,
+                                password: o.password,
                             };
                         });
                         const saved = await SaveConfig(__settings);
@@ -340,8 +346,11 @@ var module = function () {
                             barcode: o.barcode,
                             publish: o.publish,
                             enabled: o.enabled,
+                            unitId: o.unitId,
                             deviceId: o.deviceId,
-                            description: o.description
+                            description: o.description,
+                            userName: o.userName,
+                            password: o.password,
                         };
                     });
                     if (args.result.n > 0) {
@@ -400,8 +409,11 @@ var module = function () {
                             barcode: o.barcode,
                             publish: o.publish,
                             enabled: o.enabled,
+                            unitId: o.unitId,
                             deviceId: o.deviceId,
-                            description: o.description
+                            description: o.description,
+                            userName: o.userName,
+                            password: o.password,
                         };
                     });
                     if (args.result.n > 0) {

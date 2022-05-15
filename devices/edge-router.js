@@ -160,15 +160,15 @@ module.exports = class extends EventEmitter {
                 case ('/rock/v1.1/control'):
                     this.emit('control', JSON.parse(message.toString()));
                     break;
-                case ('/kGateway/edge/data'):
-                    break;
+                // case ('/kGateway/edge/data'):
+                //     break;
                 default:
-                    if (topic.includes('kbeacon/publish/')) {
-                        this.emit('data', { topic, message })
-                    } else {
+                    // if (topic.includes('kbeacon/publish/')) {
+                    //     this.emit('data', { topic, message })
+                    // } else {
                         console.error('unhandled switch mqtt topic', topic);
-                    };
-                    break;
+                    // };
+                    // break;
             };
         });
 
@@ -199,6 +199,16 @@ module.exports = class extends EventEmitter {
         if (this.mqtt?.connected) {
             __logger.info(this.server.subscribe.data + ': ' + JSON.stringify(data))
             this.mqtt.publish(this.server.subscribe.data, JSON.stringify(data));
+        } else {
+            __logger.warn('Edge Router - Trying to transmit even though socket not connected!');
+        };
+    }
+
+
+    async publishToTopic(topic, data) {
+        if (this.mqtt?.connected) {
+            __logger.info(topic + ': ' + JSON.stringify(data))
+            this.mqtt.publish(topic, JSON.stringify(data));
         } else {
             __logger.warn('Edge Router - Trying to transmit even though socket not connected!');
         };

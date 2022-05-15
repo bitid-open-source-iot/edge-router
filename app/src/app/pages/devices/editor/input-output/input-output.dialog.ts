@@ -14,7 +14,7 @@ import { InputOutput } from 'src/app/classes/input-output';
 
 export class InputOutputDialog implements OnInit, OnDestroy {
 
-    constructor(private dialog: MatDialogRef<InputOutputDialog>, @Inject(MAT_DIALOG_DATA) private config: { io: InputOutput, type: 'modbus' | 'external' | 'programmable-logic-controller' }, private formerror: FormErrorService) { }
+    constructor(private dialog: MatDialogRef<InputOutputDialog>, @Inject(MAT_DIALOG_DATA) private config: { io: InputOutput, type: 'modbus' | 'external' | 'programmable-logic-controller' | 'kGateway' }, private formerror: FormErrorService) { }
 
     public keys: string[] = [
         'AI1',
@@ -69,7 +69,16 @@ export class InputOutputDialog implements OnInit, OnDestroy {
         }),
         masking: new FormGroup({
             bit: new FormControl(this.config.io?.masking?.bit, [Validators.required]),
-            enabled: new FormControl(this.config.io?.masking?.enabled, [Validators.required])
+            enabled: new FormControl(this.config.io?.masking?.enabled, [Validators.required]),
+        }),
+        mqtt: new FormGroup({
+            userName: new FormControl(this.config.io?.mqtt?.userName, [Validators.required]),
+            password: new FormControl(this.config.io?.mqtt?.password, [Validators.required]),
+            subscribe: new FormGroup({
+                data: new FormControl(this.config.io?.mqtt?.subscribe?.data, [Validators.required]),
+                control: new FormControl(this.config.io?.mqtt?.subscribe?.control, [Validators.required])
+            }),
+            enabled: new FormControl(this.config.io?.mqtt?.enabled, [Validators.required]),
         }),
         key: new FormControl(this.config.io?.key),
         tagId: new FormControl(this.config.io?.tagId),
@@ -103,6 +112,14 @@ export class InputOutputDialog implements OnInit, OnDestroy {
         masking: {
             bit: '',
             enabled: ''
+        },
+        mqtt: {
+            userName: '',
+            password: '',
+            subscribe: {
+                data: '',
+                control: ''
+            }
         },
         key: '',
         tagId: '',
@@ -231,6 +248,42 @@ export class InputOutputDialog implements OnInit, OnDestroy {
 
         (this.form.controls['publish'] as FormGroup).controls['enabled'].setValue(this.config.io?.publish?.enabled);
 
+        this.observers.mqtt = (this.form.controls['mqtt'] as FormGroup).controls['enabled'].valueChanges.subscribe((enabled: boolean) => {
+            // let subscribe = (this.form.controls['mqtt'] as FormGroup).controls['subscribe'] as FormGroup;
+            if (enabled) {
+                (this.form.controls['mqtt'] as FormGroup).controls['userName'].enable();
+                (this.form.controls['mqtt'] as FormGroup).controls['password'].enable();
+                (this.form.controls['mqtt'] as FormGroup).controls['subscribe'].enable();
+                ((this.form.controls['mqtt'] as FormGroup).controls['subscribe'] as FormGroup).controls['data'].enable();
+                ((this.form.controls['mqtt'] as FormGroup).controls['subscribe'] as FormGroup).controls['control'].enable();
+
+            } else {
+                (this.form.controls['mqtt'] as FormGroup).controls['userName'].disable();
+                (this.form.controls['mqtt'] as FormGroup).controls['password'].disable();
+                
+                ((this.form.controls['mqtt'] as FormGroup).controls['subscribe'] as FormGroup).controls['data'].disable();
+                ((this.form.controls['mqtt'] as FormGroup).controls['subscribe'] as FormGroup).controls['control'].disable();
+
+
+                (this.form.controls['mqtt'] as FormGroup).controls['userName'].setValidators(null);
+                (this.form.controls['mqtt'] as FormGroup).controls['password'].setValidators(null);
+
+                ((this.form.controls['mqtt'] as FormGroup).controls['subscribe'] as FormGroup).controls['data'].setValidators(null);
+                ((this.form.controls['mqtt'] as FormGroup).controls['subscribe'] as FormGroup).controls['control'].setValidators(null);
+            };
+            (this.form.controls['mqtt'] as FormGroup).controls['userName'].updateValueAndValidity();
+            (this.form.controls['mqtt'] as FormGroup).controls['password'].updateValueAndValidity();
+
+            
+            ((this.form.controls['mqtt'] as FormGroup).controls['subscribe'] as FormGroup).controls['data'].updateValueAndValidity();
+            ((this.form.controls['mqtt'] as FormGroup).controls['subscribe'] as FormGroup).controls['control'].updateValueAndValidity();
+        });
+
+        (this.form.controls['mqtt'] as FormGroup).controls['enabled'].setValue(this.config.io?.mqtt?.enabled);
+
+
+
+
         this.observers.masking = (this.form.controls['masking'] as FormGroup).controls['enabled'].valueChanges.subscribe((enabled: boolean) => {
             if (enabled) {
                 (this.form.controls['masking'] as FormGroup).controls['bit'].enable();
@@ -244,17 +297,21 @@ export class InputOutputDialog implements OnInit, OnDestroy {
 
         (this.form.controls['masking'] as FormGroup).controls['enabled'].setValue(this.config.io?.masking?.enabled);
 
+
+
+
+
         this.observers.scaling = (this.form.controls['scaling'] as FormGroup).controls['type'].valueChanges.subscribe((type: 'ntc' | 'none' | 'linear' | 'invert') => {
-            switch(type) {
-                case('linear'):
-                case('invert'):
-                ((this.form.controls['scaling'] as FormGroup).controls['raw'] as FormGroup).controls['low'].setValidators([Validators.required]);
-                ((this.form.controls['scaling'] as FormGroup).controls['raw'] as FormGroup).controls['high'].setValidators([Validators.required]);
-                ((this.form.controls['scaling'] as FormGroup).controls['scaled'] as FormGroup).controls['low'].setValidators([Validators.required]);
-                ((this.form.controls['scaling'] as FormGroup).controls['scaled'] as FormGroup).controls['high'].setValidators([Validators.required]);
-                break;
-                case('ntc'):
-                case('none'):
+            switch (type) {
+                case ('linear'):
+                case ('invert'):
+                    ((this.form.controls['scaling'] as FormGroup).controls['raw'] as FormGroup).controls['low'].setValidators([Validators.required]);
+                    ((this.form.controls['scaling'] as FormGroup).controls['raw'] as FormGroup).controls['high'].setValidators([Validators.required]);
+                    ((this.form.controls['scaling'] as FormGroup).controls['scaled'] as FormGroup).controls['low'].setValidators([Validators.required]);
+                    ((this.form.controls['scaling'] as FormGroup).controls['scaled'] as FormGroup).controls['high'].setValidators([Validators.required]);
+                    break;
+                case ('ntc'):
+                case ('none'):
                     ((this.form.controls['scaling'] as FormGroup).controls['raw'] as FormGroup).controls['low'].setValidators(null);
                     ((this.form.controls['scaling'] as FormGroup).controls['raw'] as FormGroup).controls['high'].setValidators(null);
                     ((this.form.controls['scaling'] as FormGroup).controls['scaled'] as FormGroup).controls['low'].setValidators(null);
@@ -266,7 +323,7 @@ export class InputOutputDialog implements OnInit, OnDestroy {
             ((this.form.controls['scaling'] as FormGroup).controls['scaled'] as FormGroup).controls['low'].updateValueAndValidity();
             ((this.form.controls['scaling'] as FormGroup).controls['scaled'] as FormGroup).controls['high'].updateValueAndValidity();
         });
-     
+
         (this.form.controls['scaling'] as FormGroup).controls['type'].setValue(this.config.io?.scaling?.type);
     }
 
@@ -274,6 +331,7 @@ export class InputOutputDialog implements OnInit, OnDestroy {
         this.observers.key?.unsubscribe();
         this.observers.form?.unsubscribe();
         this.observers.publish?.unsubscribe();
+        this.observers.mqtt?.unsubscribe();
         this.observers.masking?.unsubscribe();
         this.observers.scaling?.unsubscribe();
     }

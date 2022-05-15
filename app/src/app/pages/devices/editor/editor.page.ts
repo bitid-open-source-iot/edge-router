@@ -16,6 +16,10 @@ import { ToastService } from 'src/app/services/toast/toast.service';
 import { DevicesService } from 'src/app/services/devices/devices.service';
 import { FormErrorService } from 'src/app/services/form-error/form-error.service';
 
+/* --- INTERFACES --- */
+import { INPUT_OUTPUT } from 'src/app/interfaces/input-output'
+
+
 /* --- SERVICES --- */
 
 @Component({
@@ -39,8 +43,19 @@ export class DevicesEditorPage implements OnInit, OnDestroy {
         publish: new FormControl(false, [Validators.required]),
         timeout: new FormControl(60, [Validators.required]),
         enabled: new FormControl(false, [Validators.required]),
+        unitId: new FormControl(false, [Validators.required]),
         deviceId: new FormControl(null, [Validators.required, Validators.minLength(24), Validators.maxLength(24)]),
-        description: new FormControl(null, [Validators.required])
+        description: new FormControl(null, [Validators.required]),
+        userName: new FormControl(null),
+        password: new FormControl(null),
+        mqtt: new FormGroup({
+            enabled: new FormControl(false),
+            subscribe: new FormGroup({
+                data: new FormControl(''),
+                control: new FormControl(''),
+            })
+        })
+
     });
     public table: MatTableDataSource<InputOutput> = new MatTableDataSource<InputOutput>();
     public errors: any = {
@@ -53,8 +68,11 @@ export class DevicesEditorPage implements OnInit, OnDestroy {
         publish: '',
         timeout: '',
         enabled: '',
+        unitId: '',
         deviceId: '',
-        description: ''
+        description: '',
+        userName: '',
+        password: '',
     };
     public columns: string[] = [];
     public loading: boolean = false;
@@ -76,6 +94,7 @@ export class DevicesEditorPage implements OnInit, OnDestroy {
                 'publish',
                 'timeout',
                 'enabled',
+                'unitId',
                 'deviceId',
                 'description'
             ],
@@ -84,6 +103,7 @@ export class DevicesEditorPage implements OnInit, OnDestroy {
 
         if (response.ok) {
             const device = new Device(response.result);
+            let io: INPUT_OUTPUT[] = device.io.map((o: InputOutput) => new InputOutput(o));
             this.table.data = device.io.map((o: InputOutput) => new InputOutput(o));
             this.form.controls['ip'].setValue(device.ip);
             this.form.controls['port'].setValue(device.port);
@@ -94,8 +114,15 @@ export class DevicesEditorPage implements OnInit, OnDestroy {
             this.form.controls['timeout'].setValue(device.timeout);
             this.form.controls['publish'].setValue(device.publish);
             this.form.controls['enabled'].setValue(device.enabled);
+            this.form.controls['unitId'].setValue(device.unitId || 0);
             this.form.controls['deviceId'].setValue(device.deviceId);
             this.form.controls['description'].setValue(device.description);
+            this.form.controls['userName'].setValue(device.userName);
+            this.form.controls['password'].setValue(device.password);
+            (this.form.controls['mqtt'] as FormGroup).controls['enabled'].setValue(io[0].mqtt?.enabled);
+            ((this.form.controls['mqtt'] as FormGroup).controls['subscribe'] as FormGroup).controls['data'].setValue(io[0].mqtt?.subscribe?.data || '');
+            ((this.form.controls['mqtt'] as FormGroup).controls['subscribe'] as FormGroup).controls['control'].setValue(io[0].mqtt?.subscribe?.control || '');
+
         } else {
             this.toast.error(response.result.message);
             this.router.navigate(['/devices']);
@@ -124,8 +151,11 @@ export class DevicesEditorPage implements OnInit, OnDestroy {
             timeout: this.form.value.timeout,
             publish: this.form.value.publish,
             enabled: this.form.value.enabled,
+            unitId: this.form.value.unitId,
             deviceId: this.form.value.deviceId,
-            description: this.form.value.description
+            description: this.form.value.description,
+            userName: this.form.value.userName,
+            password: this.form.value.password,
         });
 
         if (response.ok) {
@@ -210,16 +240,19 @@ export class DevicesEditorPage implements OnInit, OnDestroy {
             this.errors = this.formerror.validateForm(this.form, this.errors, true);
         });
 
-        this.observers.type = this.form.controls['type'].valueChanges.subscribe((type: 'modbus' | 'external' | 'programmable-logic-controller') => {
+        this.observers.type = this.form.controls['type'].valueChanges.subscribe((type: 'modbus' | 'external' | 'programmable-logic-controller' | 'kGateway') => {
             switch (type) {
-                case('modbus'):
+                case ('modbus'):
                     this.columns = ['description', 'register', 'publish.enabled', 'publish.bit', 'publish.key', 'publish.moduleId'];
                     break;
-                case('external'):
+                case ('external'):
                     this.columns = ['description', 'key', 'moduleId', 'masking.enabled', 'masking.bit', 'publish.enabled', 'publish.bit', 'publish.key', 'publish.moduleId'];
                     break;
-                case('programmable-logic-controller'):
+                case ('programmable-logic-controller'):
                     this.columns = ['description', 'tagId', 'interface', 'readable', 'writeable', 'publish.enabled', 'publish.bit', 'publish.key', 'publish.moduleId'];
+                    break;
+                case ('kGateway'):
+                    this.columns = ['description', 'mqtt.enabled', 'mqtt.subscribe.data', 'mqtt.subscribe.control'];
                     break;
             };
         });

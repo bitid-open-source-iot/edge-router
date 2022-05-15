@@ -15,7 +15,7 @@
                 <mat-label>
                     Type
                 </mat-label>
-    
+
                 <mat-select placeholder="type" formControlName="type" required>
                     <mat-option value="modbus">
                         Modbus
@@ -26,24 +26,41 @@
                     <mat-option value="programmable-logic-controller">
                         Programmable Logic Controller
                     </mat-option>
+                    <mat-option value="kGateway">
+                        KGateway Bluetooth Reader
+                    </mat-option>
                 </mat-select>
-    
+
                 <mat-error *ngIf="errors.type">
                     {{ errors.type }}
                 </mat-error>
             </mat-form-field>
-    
+
             <mat-form-field appearance="outline">
                 <mat-label>
                     Device ID
                 </mat-label>
-    
-                <input matInput type="text" minlength="24" maxlength="24" placeholder="device id" formControlName="deviceId" required>
-    
+
+                <input matInput type="text" minlength="24" maxlength="24" placeholder="device id"
+                    formControlName="deviceId" required>
+
                 <mat-error *ngIf="errors.deviceId">
                     {{ errors.deviceId }}
                 </mat-error>
             </mat-form-field>
+
+            <mat-form-field appearance="outline">
+                <mat-label>
+                    Unit ID
+                </mat-label>
+
+                <input matInput type="number" placeholder="unit Id" formControlName="unitId" required>
+
+                <mat-error *ngIf="errors.unitId">
+                    {{ errors.unitId }}
+                </mat-error>
+            </mat-form-field>
+
         </section>
 
         <section>
@@ -72,12 +89,40 @@
             </mat-form-field>
         </section>
 
+        <section *ngIf="form.value.type == 'kGateway'">
+            <mat-form-field appearance="outline">
+                <mat-label>
+                    User Name
+                </mat-label>
+
+                <input matInput type="url" placeholder="userName" formControlName="userName">
+
+                <mat-error *ngIf="errors.userName">
+                    {{ errors.ip }}
+                </mat-error>
+            </mat-form-field>
+
+            <mat-form-field appearance="outline">
+                <mat-label>
+                    Password
+                </mat-label>
+
+                <input matInput type="password" placeholder="password" formControlName="password">
+
+                <mat-error *ngIf="errors.password">
+                    {{ errors.password }}
+                </mat-error>
+            </mat-form-field>
+        </section>
+
+
+
         <section>
             <mat-form-field appearance="outline">
                 <mat-label>
                     Publish
                 </mat-label>
-    
+
                 <mat-select placeholder="publish" formControlName="publish" required>
                     <mat-option [value]="true">
                         Enabled
@@ -86,7 +131,7 @@
                         Disabled
                     </mat-option>
                 </mat-select>
-    
+
                 <mat-error *ngIf="errors.publish">
                     {{ errors.publish }}
                 </mat-error>
@@ -97,7 +142,8 @@
                     Publish Interval
                 </mat-label>
 
-                <input matInput min="120" type="number" placeholder="publish interval" formControlName="pxtime" required>
+                <input matInput min="120" type="number" placeholder="publish interval" formControlName="pxtime"
+                    required>
 
                 <span matSuffix>
                     second{{ form.value.pxtime > 1 ? 's' : '' }}
@@ -114,7 +160,7 @@
                 <mat-label>
                     Enabled
                 </mat-label>
-    
+
                 <mat-select placeholder="enabled" formControlName="enabled" required>
                     <mat-option [value]="true">
                         Enabled
@@ -123,7 +169,7 @@
                         Disabled
                     </mat-option>
                 </mat-select>
-    
+
                 <mat-error *ngIf="errors.enabled">
                     {{ errors.enabled }}
                 </mat-error>
@@ -247,7 +293,8 @@
                 Readable
             </th>
             <td mat-cell *matCellDef="let element">
-                <mat-icon [color]="element.readable ? 'primary' : 'warn'" [svgIcon]="element.readable ? 'check' : 'close'"></mat-icon>
+                <mat-icon [color]="element.readable ? 'primary' : 'warn'"
+                    [svgIcon]="element.readable ? 'check' : 'close'"></mat-icon>
             </td>
         </ng-container>
 
@@ -256,7 +303,8 @@
                 Writeable
             </th>
             <td mat-cell *matCellDef="let element">
-                <mat-icon [color]="element.writeable ? 'primary' : 'warn'" [svgIcon]="element.writeable ? 'check' : 'close'"></mat-icon>
+                <mat-icon [color]="element.writeable ? 'primary' : 'warn'"
+                    [svgIcon]="element.writeable ? 'check' : 'close'"></mat-icon>
             </td>
         </ng-container>
 
@@ -265,7 +313,8 @@
                 Masking
             </th>
             <td mat-cell *matCellDef="let element">
-                <mat-icon [color]="element.masking.enabled ? 'primary' : 'warn'" [svgIcon]="element.masking.enabled ? 'check' : 'close'"></mat-icon>
+                <mat-icon [color]="element.masking.enabled ? 'primary' : 'warn'"
+                    [svgIcon]="element.masking.enabled ? 'check' : 'close'"></mat-icon>
             </td>
         </ng-container>
 
@@ -283,7 +332,8 @@
                 Publish
             </th>
             <td mat-cell *matCellDef="let element">
-                <mat-icon [color]="element.publish.enabled ? 'primary' : 'warn'" [svgIcon]="element.publish.enabled ? 'check' : 'close'"></mat-icon>
+                <mat-icon [color]="element.publish.enabled ? 'primary' : 'warn'"
+                    [svgIcon]="element.publish.enabled ? 'check' : 'close'"></mat-icon>
             </td>
         </ng-container>
 
@@ -307,10 +357,39 @@
 
         <ng-container matColumnDef="publish.moduleId">
             <th mat-header-cell *matHeaderCellDef mat-sort-header>
-                Module ID
+                Enabled
             </th>
             <td mat-cell *matCellDef="let element">
                 {{ element.publish.moduleId || element.publish.moduleId == 0 ? element.publish.moduleId : '-' }}
+            </td>
+        </ng-container>
+
+
+        <ng-container matColumnDef="mqtt.enabled">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>
+                Enabled
+            </th>
+            <td mat-cell *matCellDef="let element">
+                {{ element.mqtt.enabled || element.mqtt.enabled == 0 ? element.mqtt.enabled : '-' }}
+            </td>
+        </ng-container>
+
+
+        <ng-container matColumnDef="mqtt.subscribe.data">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>
+                Subscribe - Data
+            </th>
+            <td mat-cell *matCellDef="let element">
+                {{ element.mqtt.subscribe.data }}
+            </td>
+        </ng-container>
+
+        <ng-container matColumnDef="mqtt.subscribe.control">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>
+                Subscribe - Control
+            </th>
+            <td mat-cell *matCellDef="let element">
+                {{ element.mqtt.subscribe.control }}
             </td>
         </ng-container>
 
