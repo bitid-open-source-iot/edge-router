@@ -1,6 +1,6 @@
 {
   "name": "edge-router",
-  "version": "1.1.7",
+  "version": "1.1.8",
   "description": "edge-router",
   "main": "index.js",
   "scripts": {
@@ -23,7 +23,6 @@
     "public-ip": "^4.0.4",
     "q": "^1.5.1",
     "rxjs": "^7.5.2",
-    "serialport": "^9.2.8",
     "websocket": "^1.0.34"
   },
   "devDependencies": {
