@@ -2,7 +2,7 @@ name: Publish Docker Image
 
 on:
   push:
-    branches: [ feature/newmodmuxdevice ]
+    branches: [ docker ]
   release:
     types:
       - published
