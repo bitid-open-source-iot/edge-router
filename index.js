@@ -197,6 +197,17 @@ try {
                     m.destination.destinationRegister = io.register
                 })
 
+                __router.on('edge-router-control', event => {
+                    __devices.map(device => {
+                        if (device.deviceId == event?.rtuId || device.deviceId == event?.deviceId) {
+                            device.io.map(input => {
+                                if (input.moduleId == event.moduleId) {
+                                    device.write(input.inputId, event.value)
+                                }
+                            })
+                        }
+                    })
+                })
 
 
                 __router.on('control', event => {

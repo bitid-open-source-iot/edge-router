@@ -9,7 +9,7 @@ module.exports = class extends EventEmitter {
     constructor(args) {
         super();
 
-        if(args !== null){
+        if (args !== null) {
             this.io = args.io;
             this.mapping = __settings.mapping
             this.ip = args.ip;
@@ -26,11 +26,10 @@ module.exports = class extends EventEmitter {
             this.controller = null;
             this.description = args.description;
             this.unitId = args.unitId || 0
-    
-            // this.update();
 
-            this.io.map((o)=> {
-                if(o.readable == true){
+
+            this.io.map((o) => {
+                if (o.readable == true) {
                     this.values.push({
                         value: 0,
                         inputId: o.inputId
@@ -41,16 +40,16 @@ module.exports = class extends EventEmitter {
 
             setInterval(async () => {
                 if (this.status == 'connected') {
-                    await this.update();
+                    await this.read();
                 } else if (this.status == 'connecting') {
                     // do nothing
                 } else if (this.status == 'disconnected') {
                     await this.connect();
                 };
             }, this.txtime * 1000);
-    
+
             this.connect();
-        }else{
+        } else {
             console.log('Args is Null')
         }
 
@@ -61,18 +60,12 @@ module.exports = class extends EventEmitter {
 
         __logger.info('ModBus - Connecting!');
 
-        // this.controller = modbus(this.ip, this.port, 0);
         this.controller = modbus(this.ip, this.port, this.unitId);
 
         await this.wait(1000);
 
         if (this.controller.stream.online) {
             __logger.info('ModBus - Connected!');
-            // setInterval(async()=>{
-            //     // let regValue = await this.controller.read(['hr', 2].join(''))
-            //     // console.log('regValue', regValue)
-            //     // await this.controller.write(['hr', 3].join(''), 1);
-            // },1000)
             this.status = 'connected';
         } else {
             __logger.error('ModBus - Disconnected!');
@@ -80,64 +73,91 @@ module.exports = class extends EventEmitter {
         };
     }
 
-    async update() {
-        this.values.reduce((promise, o) => promise.then(async () => {
-            var deferred = Q.defer();
 
-            var register = null;
-            var io = null
-            for (let i = 0; i < this.io.length; i++) {
-                if (this.io[i].inputId == o.inputId) {
-                    register = this.io[i].register;
-                    io = this.io[i]
-                    break
-                };
-            };
+    async read() {
+        var change = false;
 
-            var mappingItem = null
-            for (let i = 0; i < this.mapping.length; i++) {
-                if (this.mapping[i].destination.inputId == o.inputId) {
-                    mappingItem = this.mapping[i]
-                    break
-                };
-            };
+        await this.io.reduce((promise, item) => {
+            return promise.then(async () => {
+                var deferred = Q.defer();
 
-
-            if (typeof (register) != 'undefined' && register !== null) {
                 try {
-                    await this.wait(100);
-                    if (typeof (o.value) != 'undefined' && o.value !== null) {
-                        __logger.info([io.description, ' - HR', register].join('') + ' - ' + o.value);
-                        let regValue
-                        try{
-                            regValue = await this.controller.read(['hr', register].join(''))
-                            o.value = regValue
-                            // regValue = 0
-                        }catch(e){
-                            console.error(e)
-                        }
+                    if (item.readable) {
+                        let regValue = await this.controller.read(['hr', item.register].join(''))
 
-                        let maskedWriteValue
-                        if(mappingItem.source.mask != -1){
-                            maskedWriteValue = o.value & mappingItem.source.mask
-                        }else{
-                            maskedWriteValue = o.value
-                        }
-
-                        let finalValueToWrite
-                        if(mappingItem.destination.mask != -1){
-                            regValue = regValue - (regValue & mappingItem.destination.mask)
-                            finalValueToWrite = regValue + (mappingItem.destination.mask & maskedWriteValue)
-                        }else{
-                            finalValueToWrite = maskedWriteValue
-                        }
-                        // await this.controller.write(['hr', register].join(''), finalValueToWrite);
-                        await this.controller.write(['hr', mappingItem.destination.destinationRegister].join(''), finalValueToWrite);
+                        if (this.values.map(o => o.inputId).includes(item.inputId)) {
+                            this.values.map(o => {
+                                if (o.inputId == item.inputId && o.value != regValue) {
+                                    change = true;
+                                    o.value = regValue;
+                                };
+                            });
+                        } else {
+                            change = true;
+                            this.values.push({
+                                value: regValue,
+                                inputId: item.inputId
+                            });
+                        };
+                    } else {
+                        if (this.values.map(o => o.inputId).includes(item.inputId)) {
+                            this.values.map(o => {
+                                if (o.inputId == item.inputId) {
+                                    change = true;
+                                    o.value = 0;
+                                };
+                            });
+                        } else {
+                            change = true;
+                            this.values.push({
+                                value: 0,
+                                inputId: item.inputId
+                            });
+                        };
                     };
                     deferred.resolve();
                 } catch (error) {
+                    __logger.error('Modbus - Issue Reading Register!');
+                    deferred.resolve();
+                };
+
+                return deferred.promise;
+            });
+        }, Promise.resolve())
+            .then(() => {
+                this.emit('data', this.values);
+                if (change) {
+                    this.emit('change', this.values);
+                };
+            });
+    }
+
+
+    async readOld() {
+        let change = false
+        this.io.reduce((promise, o) => promise.then(async () => {
+            var deferred = Q.defer();
+
+            if (typeof (o.register) != 'undefined' && o.register !== null) {
+                try {
+                    await this.wait(100);
+                    try {
+                        let regValue = await this.controller.read(['hr', o.register].join(''))
+                        if (o.register == 2) {
+                            console.log('register', JSON.stringify(this.values))
+                        }
+                        if (regValue != o.value) {
+                            change = true
+                            o.value = regValue
+                        }
+                    } catch (e) {
+                        console.error(e)
+                    }
+
+                    deferred.resolve();
+                } catch (error) {
                     console.log(error);
-                    console.error(`error writing to ${this.ip} register: ${['hr', register].join('')}`);
+                    console.error(`error writing to ${this.ip} register: ${['hr', o.register].join('')}`);
                     deferred.resolve();
                 };
             } else {
@@ -145,7 +165,14 @@ module.exports = class extends EventEmitter {
             };
 
             return deferred.promise;
-        }), Promise.resolve());
+        }), Promise.resolve())
+            .then(() => {
+                this.emit('data', this.values);
+                if (change) {
+                    this.emit('change', this.values);
+                };
+            });
+
     }
 
     async wait(args) {
@@ -159,20 +186,12 @@ module.exports = class extends EventEmitter {
     }
 
     async write(inputId, value) {
-        if (this.io.map(o => o.inputId).includes(inputId)) {
-            if (this.values.map(o => o.inputId).includes(inputId)) {
-                this.values.map(o => {
-                    if (o.inputId == inputId) {
-                        o.value = value;
-                    };
-                });
-            } else {
-                this.values.push({
-                    value: value,
-                    inputId: inputId
-                });
-            };
-        };
+        let io = this.io.find(o => o.inputId == inputId)
+        if (io) {
+            await this.controller.write(['hr', io.register].join(''), value);
+        } else {
+            console.error('error writing to modbus')
+        }
     }
 
 }

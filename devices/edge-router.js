@@ -129,21 +129,31 @@ module.exports = class extends EventEmitter {
 
             __logger.info('Edge Router - Socket connected & subscribing to topics!');
 
-            this.mqtt.subscribe(this.server.subscribe.data, (error) => {
+
+            // this.mqtt.subscribe(this.server.subscribe.data, (error) => {
+            //     if (error) {
+            //         __logger.error(error);
+            //     } else {
+            //         __logger.info('Edge Router - Subscribed to data');
+            //     };
+            // });
+
+            // this.mqtt.subscribe(this.server.subscribe.control, (error) => {
+            //     if (error) {
+            //         __logger.error(error);
+            //     } else {
+            //         __logger.info('Edge Router - Subscribed to control');
+            //     };
+            // });
+
+            this.mqtt.subscribe('/edgerouter/control', (error) => {
                 if (error) {
                     __logger.error(error);
                 } else {
-                    __logger.info('Edge Router - Subscribed to data');
+                    __logger.info('Edge Router - Subscribed to /edgerouter/control');
                 };
             });
 
-            this.mqtt.subscribe(this.server.subscribe.control, (error) => {
-                if (error) {
-                    __logger.error(error);
-                } else {
-                    __logger.info('Edge Router - Subscribed to control');
-                };
-            });
 
             __logger.info('Edge Router - Starting transmit loop!');
 
@@ -153,6 +163,7 @@ module.exports = class extends EventEmitter {
         });
 
         this.mqtt.on('message', (topic, message) => {
+            console.log('topic', topic)
             switch (topic) {
                 case ('/rock/v1.1/data'):
                     this.emit('data', JSON.parse(message.toString()));
@@ -160,6 +171,9 @@ module.exports = class extends EventEmitter {
                 case ('/rock/v1.1/control'):
                     this.emit('control', JSON.parse(message.toString()));
                     break;
+                case ('/edgerouter/control'):
+                    this.emit('edge-router-control', JSON.parse(message.toString()))
+                    break
                 // case ('/kGateway/edge/data'):
                 //     break;
                 default:
