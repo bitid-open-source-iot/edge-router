@@ -1,0 +1,80 @@
+<mat-toolbar>
+    <mat-back-button></mat-back-button>
+
+    <mat-label class="spacer">
+        Devices Editor
+    </mat-label>
+</mat-toolbar>
+
+<mat-progress-bar mode="indeterminate" *ngIf="loading"></mat-progress-bar>
+
+
+<mat-content>
+    <form [formGroup]="form" (ngSubmit)="!loading && !form.invalid && submit()">
+        <section>
+            <mat-form-field appearance="outline">
+                <mat-label>
+                    APN
+                </mat-label>
+
+                <mat-select placeholder="apn" formControlName="apn" required>
+                    <mat-option value="internet">
+                        Internet
+                    </mat-option>
+                    <mat-option value="tech5">
+                        Tech5
+                    </mat-option>
+                </mat-select>
+
+                <mat-error *ngIf="errors.apn">
+                    {{ errors.apn }}
+                </mat-error>
+            </mat-form-field>
+        </section>
+
+        <section>
+            <mat-form-field appearance="outline">
+                <mat-label>
+                    Barcode
+                </mat-label>
+
+                <input matInput type="text" minlength="1" maxlength="24" placeholder="Barcode"
+                    formControlName="barcode" required>
+
+                <mat-error *ngIf="errors.barcode">
+                    {{ errors.barcode }}
+                </mat-error>
+            </mat-form-field>
+
+        </section>
+
+        <section>
+            <mat-form-field appearance="outline">
+                <mat-label>
+                    Device Id
+                </mat-label>
+
+                <input matInput type="text" minlength="24" maxlength="24" placeholder="Device Id"
+                    formControlName="deviceId" required>
+
+                <mat-error *ngIf="errors.deviceId">
+                    {{ errors.deviceId }}
+                </mat-error>
+            </mat-form-field>
+
+        </section>
+
+        <button #button type="submit" style="display: none;"></button>
+    </form>
+</mat-content>
+
+
+<mat-footer>
+    <button type="button" color="primary" mat-flat-button (click)="button.click()">
+        submit
+    </button>
+    <button type="button" color="primary" mat-flat-button (click)="command()">
+        command
+    </button>
+
+</mat-footer>

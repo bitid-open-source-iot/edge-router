@@ -1,9 +1,133 @@
 const ObjectId = require('../lib/object-id');
 const SaveConfig = require('../lib/save-config');
 const ErrorResponse = require('../lib/error-response');
+const { exec } = require('child_process');
+const Q = require('q')
 
 var module = function () {
     return {
+        settings: {
+
+            command: async (req, res) => {
+                var args = {
+                    req: req,
+                    res: res
+                };
+
+                try {
+
+
+                    function myExec() {
+                        var deferred = Q.defer()
+
+                        exec('ifconfig', (error, stdout, stderr) => {
+                            if (error) {
+                                console.error(`exec error: ${error}`);
+                                deferred.reject(error)
+                            }
+                            console.log(`stdout: ${stdout}`);
+                            console.error(`stderr: ${stderr}`);
+                            deferred.resolve(stdout)
+                        });
+
+                        return deferred.promise
+                    }
+
+                    let response = await myExec()
+
+                    args.result = [{
+                        commandResponse: response
+                    }]
+                    if (args.result.length > 0) {
+                        __responder.success(req, res, args.result);
+                    } else {
+                        var err = new ErrorResponse();
+                        err.error.errors[0].code = 69;
+                        err.error.errors[0].reason = 'Command error!';
+                        err.error.errors[0].message = 'Command error!';
+                        __responder.error(req, res, err);
+                    };
+                } catch (error) {
+                    var err = new ErrorResponse();
+                    err.error.errors[0].code = 503;
+                    err.error.errors[0].reason = error.message;
+                    err.error.errors[0].message = 'Command error!!';
+                    __responder.error(req, res, err);
+                };
+            },
+
+            list: async (req, res) => {
+                var args = {
+                    req: req,
+                    res: res
+                };
+
+                try {
+                    args.result = [{
+                        barcode: __settings.barcode,
+                        deviceId: __settings.deviceId
+                    }]
+                    if (args.result.length > 0) {
+                        __responder.success(req, res, args.result);
+                    } else {
+                        var err = new ErrorResponse();
+                        err.error.errors[0].code = 69;
+                        err.error.errors[0].reason = 'Settings not found!';
+                        err.error.errors[0].message = 'Settings not found!';
+                        __responder.error(req, res, err);
+                    };
+                } catch (error) {
+                    var err = new ErrorResponse();
+                    err.error.errors[0].code = 503;
+                    err.error.errors[0].reason = error.message;
+                    err.error.errors[0].message = 'Issue listing Settings!';
+                    __responder.error(req, res, err);
+                };
+            },
+
+            update: async (req, res) => {
+                var args = {
+                    req: req,
+                    res: res
+                };
+
+                try {
+                    args.result = {
+                        n: 0
+                    };
+                    __settings.barcode = args.req.body.barcode || '0'
+                    __settings.deviceId = args.req.body.deviceId || '0'
+                    __settings.apn = args.req.body.apn || ''
+                    args.result.n++
+                    if (args.result.n > 0) {
+                        const saved = await SaveConfig(__settings);
+                        if (!saved) {
+                            var err = new ErrorResponse();
+                            err.error.errors[0].code = 503;
+                            err.error.errors[0].reason = error.message;
+                            err.error.errors[0].message = 'Issue loading devices!';
+                            __responder.error(req, res, err);
+                        } else {
+                            __responder.success(req, res, args.result);
+                        };
+                    } else {
+                        var err = new ErrorResponse();
+                        err.error.errors[0].code = 69;
+                        err.error.errors[0].reason = 'No fields were updated!';
+                        err.error.errors[0].message = 'No fields were updated!';
+                        __responder.error(req, res, err);
+                    };
+                } catch (error) {
+                    var err = new ErrorResponse();
+                    err.error.errors[0].code = 503;
+                    err.error.errors[0].reason = error.message;
+                    err.error.errors[0].message = 'Issue updating device!';
+                    __responder.error(req, res, err);
+                };
+            },
+
+        },
+
         config: {
             import: async (req, res) => {
                 var args = {

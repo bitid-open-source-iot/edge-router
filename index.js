@@ -110,6 +110,9 @@ try {
                 app.use('/edge-router/mapping', require('./api/mapping'));
                 __logger.info('Loaded: ./edge-router/mapping');
 
+                app.use('/edge-router/settings', require('./api/settings'));
+                __logger.info('Loaded: ./edge-router/settings');
+
                 app.use((error, req, res, next) => {
                     var err = new ErrorResponse();
                     err.error.errors[0].code = 500;

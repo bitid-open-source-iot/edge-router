@@ -57,6 +57,14 @@
                 </mat-label>
             </mat-list-item>
 
+            <mat-list-item type="button" lines="full" routerLink="/settings" routerLinkActive="active" matRipple (click)="menu.close()">
+                <mat-icon svgIcon="settings"></mat-icon>
+
+                <mat-label>
+                    Settings
+                </mat-label>
+            </mat-list-item>
+
             <mat-list-item type="button" matRipple (click)="logout()">
                 <mat-icon svgIcon="logout"></mat-icon>
 
