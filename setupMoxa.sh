@@ -10,9 +10,9 @@ echo "INSTALLING DOCKER"
 
 sudo apt-get update
 
-sudo apt install apt-transport-https ca-certificates curl gnupg2 software-properties-common
+sudo apt install -y apt-transport-https ca-certificates curl gnupg2 software-properties-common
 
-sudo apt-get install \
+sudo apt-get install -y \
     ca-certificates \
     curl \
     gnupg \
@@ -20,7 +20,7 @@ sudo apt-get install \
 
 
 sudo mkdir -p /etc/apt/keyrings
-curl -fsSL https://download.docker.com/linux/debian/gpg | sudo gpg --dearmor -o /etc/apt/keyrings/docker.gpg
+curl -fsSL https://download.docker.com/linux/debian/gpg | sudo gpg --batch --yes --dearmor -o /etc/apt/keyrings/docker.gpg
 
 echo \
   "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/debian \
@@ -29,7 +29,7 @@ echo \
 sudo apt-get update
 
 # sudo apt-get install docker-ce docker-ce-cli containerd.io docker-compose-plugin
-sudo apt-get install docker-ce docker-ce-cli containerd.io
+sudo apt-get install -y docker-ce docker-ce-cli containerd.io
 
 
 echo "INSTALLING DOCKER COMPLETED"
@@ -46,7 +46,7 @@ sudo gpasswd -a $USER docker
 echo "INSTALLING MOSQUITTO"
 
 
-sudo mkdir /rockwell
+sudo mkdir -p /rockwell
 
 sudo rm /rockwell/mosquitto.conf
 
@@ -69,11 +69,29 @@ echo "DOWNLOADING FILES"
 sudo wget "https://docs.google.com/uc?export=download&id=1LekZrj9igeA5klyyuCzl77aevxotBKNP" -O /rockwell/config.json
 
 
-sudo docker run -d --restart always -p 8080:8080 -v /rockwell/config.json:/usr/src/app/config.json \
+echo "SETTING UP PIPE FOR COMMANDS"
+sudo mkdir -p /pipe
+
+if ! [ -p "/pipe/mypipe" ]; then
+	sudo mkfifo /pipe/mypipe
+fi
+
+sudo docker pull --platform linux/arm/v7 shanebowyer/edge-router:master
+
+sudo docker run -d --restart always -p 8080:8080 \
+-v /rockwell/config.json:/usr/src/app/config.json \
+-v /rockwell:/usr/src/app/ \
 --network="host" \
 --platform linux/arm/v7 shanebowyer/edge-router:master
 
-#sudo docker pull --platform linux/arm/v7 shanebowyer/edge-router:master
+
+
+echo 'ALL DONE'
+while true; do eval "$(cat /pipe/mypipe)"; done
+
+
+
+
 
 # sudo docker run -it -p 8080:8080 -v /rockwell/config.json:/usr/src/app/config.json \
 # --network="host" \
@@ -85,7 +103,3 @@ sudo docker run -d --restart always -p 8080:8080 -v /rockwell/config.json:/usr/s
 
 
 
-sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 04EE7237B7D453EC 648ACFD622F3D138
-echo 'deb http://httpredir.debian.org/debian stretch-backports main contrib non-free' | sudo tee -a /etc/apt/sources.list.d/debian-backports.list
-sudo apt update
-sudo apt install libseccomp2 -t stretch-backports

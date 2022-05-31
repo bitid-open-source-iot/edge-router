@@ -28,6 +28,11 @@ export class SettingsComponent implements OnInit {
     apn: new FormControl(null),
   });
 
+  public formCommand: FormGroup = new FormGroup({
+    command: new FormControl(null),
+    password: new FormControl(null),
+  });
+
   public errors: any = {
     barcode: '',
     deviceId: '',
@@ -84,11 +89,12 @@ export class SettingsComponent implements OnInit {
     this.loading = false;
   }
 
-  public async command() {
+  public async submit_command() {
     this.loading = true;
 
     const response = await this.settingsService.command({
-      command: 'blah',
+      command: this.formCommand.value.command,
+      password: this.formCommand.value.password
     });
 
     if (response.ok) {

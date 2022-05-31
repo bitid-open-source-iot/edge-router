@@ -10,7 +10,7 @@ echo "INSTALLING DOCKER"
 
 sudo apt-get update
 
-sudo apt-get install \
+sudo apt-get install -y \
     ca-certificates \
     curl \
     gnupg \
@@ -18,7 +18,7 @@ sudo apt-get install \
 
 
 sudo mkdir -p /etc/apt/keyrings
-curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /etc/apt/keyrings/docker.gpg
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --batch --yes --dearmor -o /etc/apt/keyrings/docker.gpg
 
 echo \
   "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/ubuntu \
@@ -27,7 +27,7 @@ echo \
 
 sudo apt-get update
 
-sudo apt-get install docker-ce docker-ce-cli containerd.io docker-compose-plugin
+sudo apt-get install -y docker-ce docker-ce-cli containerd.io docker-compose-plugin
 
 
 echo "INSTALLING DOCKER COMPLETED"
@@ -44,7 +44,7 @@ sudo gpasswd -a $USER docker
 echo "INSTALLING MOSQUITTO"
 
 
-sudo mkdir /rockwell
+sudo -p mkdir /rockwell
 
 sudo rm /rockwell/mosquitto.conf
 
@@ -67,10 +67,33 @@ echo "DOWNLOADING FILES"
 sudo wget "https://docs.google.com/uc?export=download&id=1LekZrj9igeA5klyyuCzl77aevxotBKNP" -O /rockwell/config.json
 
 
-sudo docker run -d --restart always -p 8080:8080 -v /rockwell/config.json:/usr/src/app/config.json \
---network="host" \
-shanebowyer/edge-router:latest
+echo "SETTING UP PIPE FOR COMMANDS"
+sudo mkdir -p /pipe
 
+if ! [ -p "/pipe/mypipe" ]; then
+	sudo mkfifo /pipe/mypipe
+fi
+
+
+sudo docker pull --platform linux/amd64 shanebowyer/edge-router:master
+
+sudo docker run -d --restart always -p 8080:8080 \
+-v /rockwell/config.json:/usr/src/app/config.json \
+-v /pipe:/hostpipe \
+--network="host" \
+shanebowyer/edge-router:master
+
+
+echo 'while true; do eval "$(cat /pipe/mypipe)" &> output.txt; done' | sudo tee  /execpipe.sh
+
+sudo chmod +x execpipe.sh
+
+echo '@reboot /execpipe.sh' | sudo tee  cron-file.txt
+crontab cron-file.txt
+
+echo 'ALL DONE'
+# while true; do eval "$(cat /pipe/mypipe)"; done
+./execpipe.sh
 
 # sudo docker run -it -p 8080:8080 -v /rockwell/config.json:/usr/src/app/config.json \
 # --network="host" \
@@ -79,3 +102,6 @@ shanebowyer/edge-router:latest
 # -e BITID_LOCALROUTERS_MOSQUITTO_USERNAME="xxx" \
 # -e BITID_LOCALROUTERS_MOSQUITTO_PASSWORD="xxx" \
 # shanebowyer/edge-router:latest
+
+
+#echo `echo whoami | sudo -S ifconfig` > /hostpipe/mypipe

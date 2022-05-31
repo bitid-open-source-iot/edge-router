@@ -66,6 +66,47 @@
 
         <button #button type="submit" style="display: none;"></button>
     </form>
+
+
+    <section>
+
+        <form [formGroup]="formCommand" (ngSubmit)="!loading && submit_command()">
+   
+            <section>
+                <mat-form-field appearance="outline">
+                    <mat-label>
+                        Command
+                    </mat-label>
+    
+                    <input matInput type="text" minlength="1" maxlength="24000" placeholder="Command"
+                        formControlName="command">
+  
+                </mat-form-field>
+    
+            </section>
+    
+            <section>
+                <mat-form-field appearance="outline">
+                    <mat-label>
+                        Password
+                    </mat-label>
+    
+                    <input matInput type="password" minlength="1" maxlength="24" placeholder="Password"
+                        formControlName="password">
+    
+                </mat-form-field>
+    
+            </section>
+    
+            <button #button_command type="submit" style="display: none;"></button>
+        </form>
+    
+
+        <button type="button" color="primary" mat-flat-button (click)="button_command.click()">
+            command
+        </button>
+    </section>
+
 </mat-content>
 
 
@@ -73,8 +114,4 @@
     <button type="button" color="primary" mat-flat-button (click)="button.click()">
         submit
     </button>
-    <button type="button" color="primary" mat-flat-button (click)="command()">
-        command
-    </button>
-
 </mat-footer>

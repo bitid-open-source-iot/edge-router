@@ -20,7 +20,8 @@ var module = function () {
                     function myExec() {
                         var deferred = Q.defer()
 
-                        exec('ifconfig', (error, stdout, stderr) => {
+                        // exec(`echo '${args.req.body.password}' | sudo -S ${args.req.body.command}`, (error, stdout, stderr) => {
+                        exec(`${args.req.body.command}`, (error, stdout, stderr) => {
                             if (error) {
                                 console.error(`exec error: ${error}`);
                                 deferred.reject(error)
