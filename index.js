@@ -299,7 +299,7 @@ try {
 
                 __router.on('connected', event => {
                     __settings.devices.filter(o => o.publish === true).map(async (device) => {
-                        const pxtime = (device.pxtime ? device.pxtime : 120) * 1000;
+                        const pxtime = (device.pxtime ? device.pxtime : 120) * 60000;
                         __logger.info('Starting publish every ' + device.pxtime + ' seconds!');
 
                         await send(device.deviceId);
