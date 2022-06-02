@@ -86,7 +86,7 @@
                     Bit
                 </mat-label>
 
-                <input matInput type="number" min="0" placeholder="bit" formControlName="bit"
+                <input matInput type="number" min="-1" placeholder="bit" formControlName="bit"
                     [required]="type == 'external' || form.value.publish.key == 'digitalsIn'">
 
                 <mat-error *ngIf="errors.publish.bit">
@@ -187,7 +187,7 @@
                     Shift
                 </mat-label>
 
-                <input matInput type="number" min="-1" placeholder="shift" formControlName="shift"
+                <input matInput type="number" min="0" placeholder="shift" formControlName="shift"
                     [required]="form.value.enabled && type == 'external'">
 
                 <mat-error *ngIf="errors.shift">

@@ -66,7 +66,9 @@ var module = function () {
                 try {
                     args.result = [{
                         barcode: __settings.barcode,
-                        deviceId: __settings.deviceId
+                        deviceId: __settings.deviceId,
+                        apn: __settings.apn,
+                        txtime: __settings.txtime,
                     }]
                     if (args.result.length > 0) {
                         __responder.success(req, res, args.result);
@@ -99,6 +101,7 @@ var module = function () {
                     __settings.barcode = args.req.body.barcode || '0'
                     __settings.deviceId = args.req.body.deviceId || '0'
                     __settings.apn = args.req.body.apn || ''
+                    __settings.txtime = args.req.body.txtime || 900
                     args.result.n++
                     if (args.result.n > 0) {
                         const saved = await SaveConfig(__settings);

@@ -43,8 +43,8 @@ module.exports = class extends EventEmitter {
         this.status = 'disconnected';
         this.server = args.server;
         this.txtime = args.txtime;
-        this.pxtime = args.pxtime || 120;
-        this.enabled = args.enabled || false;
+        this.pxTime = args.pxTime || 120;
+        this.publishEnabled = args.publishEnabled || false;
         this.timeout = args.timeout;
         this.barcode = args.barcode;
         this.deviceId = args.deviceId;
@@ -157,9 +157,9 @@ module.exports = class extends EventEmitter {
 
             __logger.info('Edge Router - Starting transmit loop!');
 
-            this.transmit();
+            // this.transmit();
 
-            setInterval(() => this.transmit(), this.txtime * 1000);
+            setInterval(() => this.transmit(), this.txtime * 100);
         });
 
         this.mqtt.on('message', (topic, message) => {
@@ -198,14 +198,14 @@ module.exports = class extends EventEmitter {
     }
 
     async transmit() {
-        if (this.mqtt?.connected && this.enabled) {
+        if (this.mqtt?.connected && this.publishEnabled) {
             __logger.info('Edge Router - Transmitting data to socket!')
             this.data.rtuId = this.deviceId;
             this.data.barcode = this.barcode;
             this.data.dataIn.IP = this.ip;
             this.publish(this.data);
         } else {
-            __logger.warn('Edge Router - Trying to transmit even though socket not connected!');
+            // __logger.warn('Edge Router - Trying to transmit even though socket not connected!');
         };
     }
 

@@ -299,7 +299,7 @@ try {
 
                 __router.on('connected', event => {
                     __settings.devices.filter(o => o.publish === true).map(async (device) => {
-                        const pxtime = (device.pxtime ? device.pxtime : 120) * 1000;
+                        const pxtime = (device.pxtime ? device.pxtime : 120) * 100;
                         __logger.info('Starting publish every ' + device.pxtime + ' seconds!');
 
                         await send(device.deviceId);
@@ -331,6 +331,7 @@ try {
                 });
 
                 const modules = device.io.filter(input => input.publish?.enabled).map(input => input.publish.moduleId).filter(value => (typeof (value) != 'undefined' && value != null)).filter((value, index, self) => self.indexOf(value) === index);
+
                 modules.map(async moduleId => {
                     var dataIn = {
                         'AI1': 0,
@@ -365,16 +366,22 @@ try {
                         'digitalsIn': device.io.filter(o => o.publish?.enabled && o.value == 1 && o.key == 'digitalsIn' && o.moduleId == moduleId).map(o => Math.pow(2, o.bit)).reduce((a, b) => a + b, 0)
                     };
 
+                    let a = device.io.filter(o => o.publish?.enabled && o.publish.key == 'digitalsIn' && o.moduleId == moduleId && o.publish.bit == -1)
+                    if(a.length > 0){
+                        dataIn.digitalsIn = a[0].value
+                    }
+
                     device.io.map(input => {
                         if (input.publish?.enabled && input.moduleId == moduleId) {
-                            if (dataIn.hasOwnProperty(input.key) && input.key != 'digitalsIn') {
-                                dataIn[input.key] = input.value;
+                            if (dataIn.hasOwnProperty(input.publish.key) && input.publish.key != 'digitalsIn') {
+                                dataIn[input.publish.key] = input.value;
                             };
                         };
                     });
 
                     __logger.info('Publishing Data To Server: ' + device.deviceId);
 
+                    console.log('shane', dataIn.digitalsIn)
                     __router.publish({
                         'rtuId': device.deviceId,
                         'dataIn': dataIn,

@@ -64,6 +64,23 @@
 
         </section>
 
+        <section>
+            <mat-form-field appearance="outline">
+                <mat-label>
+                    Tx Time
+                </mat-label>
+
+                <input matInput type="number"  placeholder="Tx Time"
+                    formControlName="txtime" required>
+
+                <mat-error *ngIf="errors.txtime">
+                    {{ errors.txtime }}
+                </mat-error>
+            </mat-form-field>
+
+        </section>
+
+
         <button #button type="submit" style="display: none;"></button>
     </form>
 

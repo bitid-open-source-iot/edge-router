@@ -8,7 +8,7 @@ sudo apt-get remove docker docker-engine docker.io containerd runc
 
 echo "INSTALLING DOCKER"
 
-sudo apt-get update -y && sudo apt-get upgrade -y
+sudo apt-get update && sudo apt-get upgrade
 
 sudo apt-get install -y \
     ca-certificates \
@@ -40,7 +40,6 @@ sudo gpasswd -a $USER docker
 # exec su -l $USER
 
 
-
 echo "INSTALLING MOSQUITTO"
 
 
@@ -67,41 +66,9 @@ echo "DOWNLOADING FILES"
 sudo wget "https://docs.google.com/uc?export=download&id=1LekZrj9igeA5klyyuCzl77aevxotBKNP" -O /rockwell/config.json
 
 
-echo "SETTING UP PIPE FOR COMMANDS"
-sudo mkdir -p /pipe
-
-if ! [ -p "/pipe/mypipe" ]; then
-	sudo mkfifo /pipe/mypipe
-fi
-
-
-sudo docker pull --platform linux/amd64 shanebowyer/edge-router:master
+sudo docker pull --platform linux/arm/v7 shanebowyer/edge-router:master
 
 sudo docker run -d --restart always -p 8080:8080 \
 -v /rockwell/config.json:/usr/src/app/config.json \
--v /pipe:/hostpipe \
 --network="host" \
-shanebowyer/edge-router:master
-
-
-echo 'while true; do eval "$(cat /pipe/mypipe)" &> output.txt; done' | sudo tee  /execpipe.sh
-
-sudo chmod +x /execpipe.sh
-
-echo '@reboot /execpipe.sh' | sudo tee  cron-file.txt
-crontab cron-file.txt
-
-echo 'ALL DONE'
-# while true; do eval "$(cat /pipe/mypipe)"; done
-./execpipe.sh
-
-# sudo docker run -it -p 8080:8080 -v /rockwell/config.json:/usr/src/app/config.json \
-# --network="host" \
-# -e BITID_SERVER_MOSQUITTO_USERNAME="xxx" \
-# -e BITID_SERVER_MOSQUITTO_PASSWORD="xxx" \
-# -e BITID_LOCALROUTERS_MOSQUITTO_USERNAME="xxx" \
-# -e BITID_LOCALROUTERS_MOSQUITTO_PASSWORD="xxx" \
-# shanebowyer/edge-router:latest
-
-
-#echo `echo whoami | sudo -S ifconfig` > /hostpipe/mypipe
+--platform linux/arm/v7 shanebowyer/edge-router:master

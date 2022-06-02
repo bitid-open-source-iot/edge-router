@@ -69,25 +69,24 @@ echo "DOWNLOADING FILES"
 sudo wget "https://docs.google.com/uc?export=download&id=1LekZrj9igeA5klyyuCzl77aevxotBKNP" -O /rockwell/config.json
 
 
-echo "SETTING UP PIPE FOR COMMANDS"
-sudo mkdir -p /pipe
+# echo "SETTING UP PIPE FOR COMMANDS"
+# sudo mkdir -p /pipe
 
-if ! [ -p "/pipe/mypipe" ]; then
-	sudo mkfifo /pipe/mypipe
-fi
+# if ! [ -p "/pipe/mypipe" ]; then
+# 	sudo mkfifo /pipe/mypipe
+# fi
 
 sudo docker pull --platform linux/arm/v7 shanebowyer/edge-router:master
 
 sudo docker run -d --restart always -p 8080:8080 \
 -v /rockwell/config.json:/usr/src/app/config.json \
--v /rockwell:/usr/src/app/ \
 --network="host" \
 --platform linux/arm/v7 shanebowyer/edge-router:master
 
 
 
-echo 'ALL DONE'
-while true; do eval "$(cat /pipe/mypipe)"; done
+# echo 'ALL DONE'
+# while true; do eval "$(cat /pipe/mypipe)"; done
 
 
 

@@ -214,7 +214,7 @@ export class InputOutputDialog implements OnInit, OnDestroy {
 
         this.observers.key = this.form.controls['key'].valueChanges.subscribe(key => {
             if (key == 'digitalsIn') {
-                this.form.controls['bit'].setValidators([Validators.required, Validators.min(0)]);
+                this.form.controls['bit'].setValidators([Validators.required, Validators.min(-1)]);
             } else {
                 this.form.controls['bit'].setValidators(null);
             };
@@ -230,7 +230,7 @@ export class InputOutputDialog implements OnInit, OnDestroy {
                 (this.form.controls['publish'] as FormGroup).controls['bit'].enable();
                 (this.form.controls['publish'] as FormGroup).controls['key'].enable();
                 (this.form.controls['publish'] as FormGroup).controls['moduleId'].enable();
-                (this.form.controls['publish'] as FormGroup).controls['bit'].setValidators([Validators.required, Validators.min(0)]);
+                (this.form.controls['publish'] as FormGroup).controls['bit'].setValidators([Validators.required, Validators.min(-1)]);
                 (this.form.controls['publish'] as FormGroup).controls['key'].setValidators([Validators.required]);
                 (this.form.controls['publish'] as FormGroup).controls['moduleId'].setValidators([Validators.required, Validators.min(0)]);
             } else {
@@ -287,7 +287,7 @@ export class InputOutputDialog implements OnInit, OnDestroy {
         this.observers.masking = (this.form.controls['masking'] as FormGroup).controls['enabled'].valueChanges.subscribe((enabled: boolean) => {
             if (enabled) {
                 (this.form.controls['masking'] as FormGroup).controls['bit'].enable();
-                (this.form.controls['masking'] as FormGroup).controls['bit'].setValidators([Validators.required, Validators.min(0)]);
+                (this.form.controls['masking'] as FormGroup).controls['bit'].setValidators([Validators.required, Validators.min(-1)]);
             } else {
                 (this.form.controls['masking'] as FormGroup).controls['bit'].disable();
                 (this.form.controls['masking'] as FormGroup).controls['bit'].setValidators(null);

@@ -26,6 +26,7 @@ export class SettingsComponent implements OnInit {
     barcode: new FormControl('', [Validators.required]),
     deviceId: new FormControl('', [Validators.required]),
     apn: new FormControl(null),
+    txtime: new FormControl(null),
   });
 
   public formCommand: FormGroup = new FormGroup({
@@ -37,6 +38,7 @@ export class SettingsComponent implements OnInit {
     barcode: '',
     deviceId: '',
     apn: '',
+    txtime: '',
   };
 
   public loading: boolean = false;
@@ -60,6 +62,7 @@ export class SettingsComponent implements OnInit {
       this.form.controls['barcode'].setValue(response.result[0].barcode);
       this.form.controls['deviceId'].setValue(response.result[0].deviceId);
       this.form.controls['apn'].setValue(response.result[0].apn);
+      this.form.controls['txtime'].setValue(response.result[0].txtime);
 
     } else {
       this.toast.error(response.result.message);
@@ -75,6 +78,7 @@ export class SettingsComponent implements OnInit {
       barcode: this.form.value.barcode,
       deviceId: this.form.value.deviceId,
       apn: this.form.value.apn,
+      txtime: this.form.value.txtime,
     });
 
     if (response.ok) {
