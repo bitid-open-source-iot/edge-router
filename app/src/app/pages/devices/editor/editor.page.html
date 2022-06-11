@@ -36,7 +36,7 @@
                 </mat-error>
             </mat-form-field>
 
-            <mat-form-field appearance="outline">
+            <mat-form-field appearance="outline" *ngIf="form.value.type != 'kGateway'">
                 <mat-label>
                     Device ID
                 </mat-label>
@@ -49,7 +49,7 @@
                 </mat-error>
             </mat-form-field>
 
-            <mat-form-field appearance="outline">
+            <mat-form-field appearance="outline" *ngIf="form.value.type != 'kGateway'">
                 <mat-label>
                     Unit ID
                 </mat-label>
@@ -175,7 +175,7 @@
                 </mat-error>
             </mat-form-field>
 
-            <mat-form-field appearance="outline">
+            <mat-form-field appearance="outline" *ngIf="form.value.type != 'kGateway' && form.value.type != 'modbus'">
                 <mat-label>
                     Timeout Interval
                 </mat-label>
@@ -192,13 +192,13 @@
             </mat-form-field>
         </section>
 
-        <section>
+        <section *ngIf="form.value.type != 'kGateway'">
             <mat-form-field appearance="outline">
                 <mat-label>
                     TX Time
                 </mat-label>
 
-                <input matInput min="1" type="number" placeholder="tx time" formControlName="txtime" required>
+                <input matInput min="1" type="number" placeholder="tx time" formControlName="txtime" >
 
                 <mat-error *ngIf="errors.txtime">
                     {{ errors.txtime }}
@@ -210,7 +210,7 @@
                     Barcode
                 </mat-label>
 
-                <input matInput type="text" placeholder="barcode" formControlName="barcode" required>
+                <input matInput type="text" placeholder="barcode" formControlName="barcode" >
 
                 <mat-error *ngIf="errors.barcode">
                     {{ errors.barcode }}

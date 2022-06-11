@@ -159,7 +159,7 @@ module.exports = class extends EventEmitter {
 
             // this.transmit();
 
-            setInterval(() => this.transmit(), this.txtime * 100);
+            setInterval(() => this.transmit(), this.txtime * 1000);
         });
 
         this.mqtt.on('message', (topic, message) => {

@@ -1,6 +1,5 @@
 const Q = require('q')
 const Mqtt = require('../lib/mqtt')
-const MqttSocket = require('../lib/mqtt');
 
 
 //{"msg":"advData","gmac":"68B9D3DFE78C","obj":[{"type":2,"dmac":"DD3304130897","refPwr":-14,"nid":"6B6B6D636E2E636F6D01","sid":"000000000001","rssi":-60,"time":"2021-05-20 18:12:48"},{"type":16,"dmac":"DD3304130897","refPwr":-14,"url":"00696F742D6770732E636F2E7A61","rssi":-64,"time":"2021-05-20 18:12:49"}]}
@@ -11,14 +10,9 @@ const MqttSocket = require('../lib/mqtt');
 class kGateway {
     constructor(options) {
         this.options = options
-        // this.mqtt_biTidServer = new MqttSocket();
         this.mqtt_Routers = new Mqtt()
-
         this.arrTags = []
-        this.tagFixedTxTime = parseFloat(options.txtime)
-       
-        // this.mqtt_biTidServer.connect(options);
-
+        this.tagFixedTxTime = parseFloat(options.pxtime) || 120
         this.init()
     }
 
@@ -26,13 +20,6 @@ class kGateway {
         let self = this
 
         self.mqtt_Routers.connect(self.options)
-
-
-        // self.mqtt_biTidServer.on('data', (topic, message) => {
-        //     if (__settings.debug == true) {
-        //         console.log(`mqtt_biTidServer in kGateway. topic: ${topic} message:${message}`)
-        //     }
-        // })
 
         self.mqtt_Routers.on('data', (payload) => {
             if (__settings.debug == true) {
@@ -158,7 +145,9 @@ class kGateway {
                         console.log('sending tag to server', item)
                     }
                     // self.mqtt_biTidServer.send('/kGateway/edge/data', { "marker": "shane", topic: args.topic, deviceStatus: item })
-                    __router.publishToTopic('/kGateway/edge/data', { "marker": "shane", topic: args.topic, deviceStatus: item })
+                    if(self.options.publish == true){
+                        __router.publishToTopic('/kGateway/edge/data', { "marker": "shane", topic: args.topic, deviceStatus: item })
+                    }
                 } else {
                     if (__settings.debug == true) {
                         console.log('Skipped send to server')

@@ -29,6 +29,10 @@ export interface INPUT_OUTPUT {
         }
         enabled: boolean;
     };
+    modbus?: {
+        isCoil: boolean;
+        isHoldingRegister: boolean;
+    };
     key?: string;
     tagId?: string;
     value?: number;

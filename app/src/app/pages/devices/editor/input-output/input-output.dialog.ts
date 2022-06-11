@@ -72,14 +72,19 @@ export class InputOutputDialog implements OnInit, OnDestroy {
             enabled: new FormControl(this.config.io?.masking?.enabled, [Validators.required]),
         }),
         mqtt: new FormGroup({
-            userName: new FormControl(this.config.io?.mqtt?.userName, [Validators.required]),
-            password: new FormControl(this.config.io?.mqtt?.password, [Validators.required]),
+            // userName: new FormControl(this.config.io?.mqtt?.userName, [Validators.required]),
+            // password: new FormControl(this.config.io?.mqtt?.password, [Validators.required]),
             subscribe: new FormGroup({
                 data: new FormControl(this.config.io?.mqtt?.subscribe?.data, [Validators.required]),
                 control: new FormControl(this.config.io?.mqtt?.subscribe?.control, [Validators.required])
             }),
             enabled: new FormControl(this.config.io?.mqtt?.enabled, [Validators.required]),
         }),
+        modbus: new FormGroup({
+            isCoil: new FormControl(this.config.io?.modbus?.isCoil),
+            isHoldingRegister: new FormControl(this.config.io?.modbus?.isHoldingRegister),
+        }),
+
         key: new FormControl(this.config.io?.key),
         tagId: new FormControl(this.config.io?.tagId),
         shift: new FormControl(this.config.io?.shift),
@@ -114,12 +119,16 @@ export class InputOutputDialog implements OnInit, OnDestroy {
             enabled: ''
         },
         mqtt: {
-            userName: '',
-            password: '',
+            // userName: '',
+            // password: '',
             subscribe: {
                 data: '',
                 control: ''
             }
+        },
+        modbus: {
+            isCoil: '',
+            isHoldingRegister: ''
         },
         key: '',
         tagId: '',
@@ -251,28 +260,28 @@ export class InputOutputDialog implements OnInit, OnDestroy {
         this.observers.mqtt = (this.form.controls['mqtt'] as FormGroup).controls['enabled'].valueChanges.subscribe((enabled: boolean) => {
             // let subscribe = (this.form.controls['mqtt'] as FormGroup).controls['subscribe'] as FormGroup;
             if (enabled) {
-                (this.form.controls['mqtt'] as FormGroup).controls['userName'].enable();
-                (this.form.controls['mqtt'] as FormGroup).controls['password'].enable();
+                // (this.form.controls['mqtt'] as FormGroup).controls['userName'].enable();
+                // (this.form.controls['mqtt'] as FormGroup).controls['password'].enable();
                 (this.form.controls['mqtt'] as FormGroup).controls['subscribe'].enable();
                 ((this.form.controls['mqtt'] as FormGroup).controls['subscribe'] as FormGroup).controls['data'].enable();
                 ((this.form.controls['mqtt'] as FormGroup).controls['subscribe'] as FormGroup).controls['control'].enable();
 
             } else {
-                (this.form.controls['mqtt'] as FormGroup).controls['userName'].disable();
-                (this.form.controls['mqtt'] as FormGroup).controls['password'].disable();
+                // (this.form.controls['mqtt'] as FormGroup).controls['userName'].disable();
+                // (this.form.controls['mqtt'] as FormGroup).controls['password'].disable();
                 
                 ((this.form.controls['mqtt'] as FormGroup).controls['subscribe'] as FormGroup).controls['data'].disable();
                 ((this.form.controls['mqtt'] as FormGroup).controls['subscribe'] as FormGroup).controls['control'].disable();
 
 
-                (this.form.controls['mqtt'] as FormGroup).controls['userName'].setValidators(null);
-                (this.form.controls['mqtt'] as FormGroup).controls['password'].setValidators(null);
+                // (this.form.controls['mqtt'] as FormGroup).controls['userName'].setValidators(null);
+                // (this.form.controls['mqtt'] as FormGroup).controls['password'].setValidators(null);
 
                 ((this.form.controls['mqtt'] as FormGroup).controls['subscribe'] as FormGroup).controls['data'].setValidators(null);
                 ((this.form.controls['mqtt'] as FormGroup).controls['subscribe'] as FormGroup).controls['control'].setValidators(null);
             };
-            (this.form.controls['mqtt'] as FormGroup).controls['userName'].updateValueAndValidity();
-            (this.form.controls['mqtt'] as FormGroup).controls['password'].updateValueAndValidity();
+            // (this.form.controls['mqtt'] as FormGroup).controls['userName'].updateValueAndValidity();
+            // (this.form.controls['mqtt'] as FormGroup).controls['password'].updateValueAndValidity();
 
             
             ((this.form.controls['mqtt'] as FormGroup).controls['subscribe'] as FormGroup).controls['data'].updateValueAndValidity();
@@ -325,6 +334,11 @@ export class InputOutputDialog implements OnInit, OnDestroy {
         });
 
         (this.form.controls['scaling'] as FormGroup).controls['type'].setValue(this.config.io?.scaling?.type);
+
+
+        (this.form.controls['modbus'] as FormGroup).controls['isCoil'].setValue(this.config.io?.modbus?.isCoil);
+        (this.form.controls['modbus'] as FormGroup).controls['isHoldingRegister'].setValue(this.config.io?.modbus?.isHoldingRegister);
+
     }
 
     ngOnDestroy(): void {

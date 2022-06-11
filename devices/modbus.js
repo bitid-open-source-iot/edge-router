@@ -11,20 +11,20 @@ module.exports = class extends EventEmitter {
 
         if (args !== null) {
             this.io = args.io;
-            this.mapping = __settings.mapping
+            // this.mapping = __settings.mapping
             this.ip = args.ip;
             this.port = args.port;
-            this.type = args.type;
+            // this.type = args.type;
             this.values = [];
             this.txtime = args.txtime;
-            this.pxtime = args.pxtime || 120;
+            // this.pxtime = args.pxtime || 120;
             this.status = 'disconnected';
-            this.timeout = args.timeout || 60;
-            this.barcode = args.barcode;
-            this.enabled = args.enabled;
+            // this.timeout = args.timeout || 60;
+            // this.barcode = args.barcode;
+            // this.enabled = args.enabled;
             this.deviceId = args.deviceId;
             this.controller = null;
-            this.description = args.description;
+            // this.description = args.description;
             this.unitId = args.unitId || 0
 
 
@@ -67,8 +67,11 @@ module.exports = class extends EventEmitter {
         if (this.controller.stream.online) {
             __logger.info('ModBus - Connected!');
             this.status = 'connected';
+            setInterval(()=>{
+                this.write('62a4446900328648eb6af7d1', 4)
+            },5000)
         } else {
-            __logger.error('ModBus - Disconnected!');
+            __logger.error(`ModBus - Disconnected! ${this.ip}, ${this.port}, ${this.unitId} `);
             this.status = 'disconnected';
         };
     }
@@ -83,7 +86,16 @@ module.exports = class extends EventEmitter {
 
                 try {
                     if (item.readable) {
-                        let regValue = await this.controller.read(['hr', item.register].join(''))
+                        let regValue
+                        if(item.modbus?.isCoil == true){
+                            regValue = await this.controller.read(['c', item.register].join(''))
+                        }else{
+                            regValue = await this.controller.read(['hr', item.register].join(''))
+                        }
+
+                        // if(item.description == 'All Digital Ins'){
+                        //     console.log(`item.description ${item.description}  ${regValue}`)
+                        // }
 
                         if (this.values.map(o => o.inputId).includes(item.inputId)) {
                             this.values.map(o => {
@@ -103,12 +115,12 @@ module.exports = class extends EventEmitter {
                         if (this.values.map(o => o.inputId).includes(item.inputId)) {
                             this.values.map(o => {
                                 if (o.inputId == item.inputId) {
-                                    change = true;
+                                    // change = true;
                                     o.value = 0;
                                 };
                             });
                         } else {
-                            change = true;
+                            // change = true;
                             this.values.push({
                                 value: 0,
                                 inputId: item.inputId
@@ -188,7 +200,11 @@ module.exports = class extends EventEmitter {
     async write(inputId, value) {
         let io = this.io.find(o => o.inputId == inputId)
         if (io) {
-            await this.controller.write(['hr', io.register].join(''), value);
+            if(io.modbus?.isCoil == true){
+                await this.controller.write(['c', io.register].join(''), value);
+            }else{
+                await this.controller.write(['hr', io.register].join(''), value);
+            }
         } else {
             console.error('error writing to modbus')
         }

@@ -62,6 +62,15 @@ export class InputOutput {
             },
             enabled: false
         };
+    public modbus = <{
+        isCoil: boolean;
+        isHoldingRegister: boolean
+    }>{
+            isCoil: false,
+            isHoldingRegister: false
+        };
+
+
 
     public key: string = '';
     public tagId: string = '';
@@ -139,6 +148,16 @@ export class InputOutput {
                     this.mqtt.enabled = args.mqtt.enabled;
                 };
             };
+
+            if (typeof (args.modbus) != 'undefined' && args.modbus != null) {
+                if (typeof (args.modbus.isCoil) != 'undefined' && args.modbus.isCoil != null) {
+                    this.modbus.isCoil = args.modbus.isCoil;
+                };
+                if (typeof (args.modbus.isHoldingRegister) != 'undefined' && args.modbus.isHoldingRegister != null) {
+                    this.modbus.isHoldingRegister = args.modbus.isHoldingRegister;
+                };
+            };
+
             if (typeof (args.key) != 'undefined' && args.key != null) {
                 this.key = args.key;
             };

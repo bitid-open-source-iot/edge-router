@@ -67,33 +67,40 @@ echo "DOWNLOADING FILES"
 sudo wget "https://docs.google.com/uc?export=download&id=1LekZrj9igeA5klyyuCzl77aevxotBKNP" -O /rockwell/config.json
 
 
-echo "SETTING UP PIPE FOR COMMANDS"
-sudo mkdir -p /pipe
+# echo "SETTING UP PIPE FOR COMMANDS"
+# sudo mkdir -p /pipe
 
-if ! [ -p "/pipe/mypipe" ]; then
-	sudo mkfifo /pipe/mypipe
-fi
+# if ! [ -p "/pipe/mypipe" ]; then
+# 	sudo mkfifo /pipe/mypipe
+# fi
 
 
 sudo docker pull --platform linux/amd64 shanebowyer/edge-router:master
 
 sudo docker run -d --restart always -p 8080:8080 \
 -v /rockwell/config.json:/usr/src/app/config.json \
--v /pipe:/hostpipe \
 --network="host" \
 shanebowyer/edge-router:master
+
+# sudo docker run -d --restart always -p 8080:8080 \
+# -v /rockwell/config.json:/usr/src/app/config.json \
+# -v /pipe:/hostpipe \
+# --network="host" \
+# shanebowyer/edge-router:master
+
+
 
 
 echo 'while true; do eval "$(cat /pipe/mypipe)" &> output.txt; done' | sudo tee  /execpipe.sh
 
-sudo chmod +x /execpipe.sh
+# sudo chmod +x /execpipe.sh
 
-echo '@reboot /execpipe.sh' | sudo tee  cron-file.txt
-crontab cron-file.txt
+# echo '@reboot /execpipe.sh' | sudo tee  cron-file.txt
+# crontab cron-file.txt
 
 echo 'ALL DONE'
 # while true; do eval "$(cat /pipe/mypipe)"; done
-./execpipe.sh
+# ./execpipe.sh
 
 # sudo docker run -it -p 8080:8080 -v /rockwell/config.json:/usr/src/app/config.json \
 # --network="host" \

@@ -112,6 +112,46 @@
             </mat-error>
         </mat-form-field>
 
+        <!-- <mat-form-field appearance="outline" *ngIf="type == 'modbus'"> -->
+        <div formGroupName='modbus'>
+            <mat-label>
+                isCoil
+            </mat-label>
+
+            <mat-radio-group class="radio-group" aria-label="Select an option" formControlName="isCoil">
+                <mat-radio-button class="radio-button" [value]="true">Enable</mat-radio-button>
+                <mat-radio-button class="radio-button" [value]="false">Disabled</mat-radio-button>
+            </mat-radio-group>
+
+            <mat-error *ngIf="errors.modbus.isCoil">
+                {{ errors.modbus.isCoil }}
+            </mat-error>
+
+        </div>
+
+        <div formGroupName='modbus'>
+
+            <div>
+                <mat-label>
+                    isHoldingRegister
+                </mat-label>
+
+                <mat-radio-group class="radio-group" aria-label="Select an option" formControlName="isHoldingRegister">
+                    <mat-radio-button class="radio-button" [value]="true">Enable</mat-radio-button>
+                    <mat-radio-button class="radio-button" [value]="false">Disabled</mat-radio-button>
+                </mat-radio-group>
+
+
+                <mat-error *ngIf="errors.modbus.isHoldingRegister">
+                    {{ errors.modbus.isHoldingRegister }}
+                </mat-error>
+            </div>
+
+        </div>
+        <!-- </mat-form-field> -->
+
+
+
         <h2 *ngIf="type == 'external'">
             External
         </h2>
@@ -304,7 +344,7 @@
             Programmable Logic Controller
         </h2>
 
-        <section  *ngIf="type != 'kGateway'">
+        <section *ngIf="type != 'kGateway'">
             <mat-form-field appearance="outline">
                 <mat-label>
                     Readable
@@ -401,7 +441,7 @@
             </mat-form-field>
         </section>
 
-        <section formGroupName="mqtt" *ngIf="type == 'kGateway'">
+        <!-- <section formGroupName="mqtt" *ngIf="type == 'kGateway'">
             <mat-form-field appearance="outline" *ngIf="type == 'kGateway'">
                 <mat-label>
                     User Name
@@ -428,7 +468,7 @@
                 </mat-error>
             </mat-form-field>
 
-        </section>
+        </section> -->
 
         <section formGroupName="mqtt" *ngIf="type == 'kGateway'">
             <section formGroupName="subscribe" *ngIf="type == 'kGateway'">
@@ -436,30 +476,30 @@
                     <mat-label>
                         Data
                     </mat-label>
-    
+
                     <input matInput type="text" placeholder="/kGateway/edge/data" formControlName="data"
                         [required]="type == 'kGateway'">
-    
+
                     <mat-error *ngIf="errors.mqtt.subscribe.data">
                         {{ errors.mqtt.subscribe.data }}
                     </mat-error>
                 </mat-form-field>
-    
+
                 <mat-form-field appearance="outline" *ngIf="type == 'kGateway'">
                     <mat-label>
                         Control
                     </mat-label>
-    
+
                     <input matInput type="text" placeholder="kGatewayRouter/control" formControlName="control"
                         [required]="type == 'kGateway'">
-    
+
                     <mat-error *ngIf="errors.mqtt.subscribe.control">
                         {{ errors.mqtt.subscribe.control }}
                     </mat-error>
                 </mat-form-field>
-    
+
             </section>
-        </section>        
+        </section>
 
         <button #button type="submit" style="display: none;"></button>
     </form>
