@@ -15,6 +15,9 @@ const EdgeRouter = require('./devices/edge-router');
 const ProgrammableLogicController = require('./devices/programmable-logic-controller');
 const KGATEWAY = require('./devices/kGateway')
 const BitMask = require('./lib/bit-mask');
+const { async } = require('q');
+const { resolve } = require('path');
+
 
 global.__base = __dirname + '/';
 global.__socket = null;
@@ -23,6 +26,48 @@ global.__logger = require('./lib/logger');
 global.__devices = [];
 global.__settings = require('./config.json');
 global.__responder = responder.module();
+
+var testBusy = false
+
+var dataIn = {
+    'AI1': 0,
+    'AI2': 0,
+    'AI3': 0,
+    'AI4': 0,
+    'AIExt1': 0,
+    'AIExt2': 0,
+    'AIExt3': 0,
+    'AIExt4': 0,
+    'AIExt5': 0,
+    'AIExt6': 0,
+    'AIExt7': 0,
+    'AIExt8': 0,
+    'BATT': 0,
+    'CI1': 0,
+    'CI2': 0,
+    'CI3': 0,
+    'CI4': 0,
+    'CI5': 0,
+    'CI6': 0,
+    'CI7': 0,
+    'CI8': 0,
+    'LAT': 0,
+    'LNG': 0,
+    'SIG': 0,
+    'TEXT1': 0,
+    'TEXT2': 0,
+    'TEXT3': 0,
+    'TEXT4': 0,
+    'txFlag': 0,
+    'digitalsIn': 0
+}
+
+global.__routerStatus = [
+    {
+        'moduleId': 0,
+        'dataIn': { ...dataIn }
+    }
+];
 
 try {
     var portal = {
@@ -184,7 +229,7 @@ try {
             return deferred.promise;
         },
 
-        router: () => {
+        router: async () => {
             var deferred = Q.defer();
 
             try {
@@ -212,69 +257,172 @@ try {
                     })
                 })
 
+                // setTimeout(() => {
+                //     __router.emit('control',
+                //         {
+                //             "rtuId": "000000000000000000000250",
+                //             "moduleId": 0,
+                //             "rtuDate": "2022-06-13T11:25:20.000Z",
+                //             "raw": "%1 0210.035 250 9 1503319636 8 1536 1 0 0 0 0 0 0 0 0 0 0 0 0 21 4 0 3 0 5 0 0 125 68 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 > 43439 *",
+                //             "dataIn": {
+                //                 "digitalsIn": "1024",
+                //                 "AI1": "0",
+                //                 "AI2": "0",
+                //                 "AI3": "0",
+                //                 "AI4": "0",
+                //                 "AIExt1": "0",
+                //                 "AIExt2": "0",
+                //                 "AIExt3": "0",
+                //                 "AIExt4": "0",
+                //                 "AIExt5": "0",
+                //                 "AIExt6": "0",
+                //                 "AIExt7": "0",
+                //                 "AIExt8": "0",
+                //                 "CI1": "21",
+                //                 "CI2": "4",
+                //                 "CI3": "0",
+                //                 "CI4": "3",
+                //                 "CI5": "0",
+                //                 "CI6": "5",
+                //                 "CI7": "0",
+                //                 "CI8": "0",
+                //                 "BATT": "125",
+                //                 "SIG": "68",
+                //                 "TEXT1": "0",
+                //                 "TEXT2": "0",
+                //                 "TEXT3": "0",
+                //                 "TEXT4": "0"
+                //             },
+                //             "localId": "250"
+                //         }
+                //     )
+                // }, 5000)
 
-                __router.on('control', event => {
-                    __devices.map(device => {
-                        if (device.type == 'external' && device.deviceId == event?.rtuId) {
-                            device.emit('data', {});
-                            var data = [];
-                            var found = false;
-                            device.io.map(input => {
-                                if (input.moduleId == event.moduleId) {
-                                    found = true;
-                                    var tmp = {
-                                        value: 0,
-                                        inputId: input.inputId
-                                    };
-                                    if (input.shift > 0 && input.key.indexOf('digitalsIn') > -1 && typeof (event.dataIn[input.key]) != 'undefined' && event.dataIn[input.key] != null) {
-                                        tmp.value = event.dataIn[input.key] >> input.shift;
-                                        input.value = event.dataIn[input.key] >> input.shift;
-                                    } else if (input.masking?.enabled && input.key.indexOf('digitalsIn') > -1 && typeof (event.dataIn[input.key]) != 'undefined' && event.dataIn[input.key] != null) {
-                                        tmp.value = BitMask(input.masking.bit, event.dataIn[input.key]);
-                                        input.value = BitMask(input.masking.bit, event.dataIn[input.key]);
-                                    } else if (input.key.indexOf('TEXT') == -1 && typeof (event.dataIn[input.key]) != 'undefined' && event.dataIn[input.key] != null) {
-                                        switch (input.scaling?.type) {
-                                            case ('ntc'):
-                                                tmp.value = new scaling.module().scaleNTC(parseInt(event.dataIn[input.key]));
-                                                input.value = new scaling.module().scaleNTC(parseInt(event.dataIn[input.key]));
-                                                break;
-                                            case ('none'):
-                                                tmp.value = parseInt(event.dataIn[input.key]);
-                                                input.value = parseInt(event.dataIn[input.key]);
-                                                break;
-                                            case ('linear'):
-                                                tmp.value = new scaling.module().scaleAnalog(parseInt(event.dataIn[input.key]), input.scaling?.raw?.low, input.scaling?.raw?.high, input.scaling?.scaled?.low, input.scaling?.scaled?.high);
-                                                input.value = new scaling.module().scaleAnalog(parseInt(event.dataIn[input.key]), input.scaling?.raw?.low, input.scaling?.raw?.high, input.scaling?.scaled?.low, input.scaling?.scaled?.high);
-                                                break;
-                                            case ('invert'):
-                                                tmp.value = new scaling.module().scaleAnalog(parseInt(event.dataIn[input.key]), input.scaling.raw.low, input.scaling.raw.high, input.scaling.scaled.low, input.scaling.scaled.high, true);
-                                                input.value = new scaling.module().scaleAnalog(parseInt(event.dataIn[input.key]), input.scaling.raw.low, input.scaling.raw.high, input.scaling.scaled.low, input.scaling.scaled.high, true);
-                                                break;
-                                            default:
-                                                tmp.value = parseInt(event.dataIn[input.key]);
-                                                input.value = parseInt(event.dataIn[input.key]);
-                                                break;
+                __router.on('control', async event => {
+                    var deferred = Q.defer()
+
+                    // if(testBusy == true){
+                    //     deferred.resolve({})
+                    //     return
+                    // }
+
+                    if (event?.rtuId == '000000000000000000000250') {
+                        console.log('')
+                        // testBusy = true
+   
+                    }
+                    let validDevice = __devices.find(o => o.deviceId == event?.rtuId)
+                    if (validDevice) {
+                        __logger.info(`external data: ${JSON.stringify(event)}`)
+
+                        __devices.reduce((promise, device) => {
+                            return promise.then(async () => {
+                                var deferred = Q.defer()
+                                if (device.type == 'external' && device.deviceId == event?.rtuId) {
+                                    device.emit('data', {});
+                                    var data = [];
+                                    var found = false;
+
+
+                                    await device.io.reduce((promise, input) => {
+                                        return promise.then(async () => {
+                                            var deferred = Q.defer()
+                                            if (input.moduleId == event.moduleId) {
+                                                console.log(input.key)
+                                                found = true;
+                                                var tmp = {
+                                                    value: 0,
+                                                    inputId: input.inputId
+                                                };
+                                                if (input.shift > 0 && input.key.indexOf('digitalsIn') > -1 && typeof (event.dataIn[input.key]) != 'undefined' && event.dataIn[input.key] != null) {
+                                                    let shiftedValue = event.dataIn[input.key] >> input.shift;
+                                                    if (input.masking?.enabled == true) {
+                                                        tmp.value = BitMask(input.masking.bit, shiftedValue);
+                                                        input.value = BitMask(input.masking.bit, shiftedValue);
+                                                    } else {
+                                                        tmp.value = shiftedValue;
+                                                        input.value = shiftedValue;
+                                                    }
+                                                } else if (input.masking?.enabled && input.key.indexOf('digitalsIn') > -1 && typeof (event.dataIn[input.key]) != 'undefined' && event.dataIn[input.key] != null) {
+                                                    tmp.value = BitMask(input.masking.bit, event.dataIn[input.key]);
+                                                    input.value = BitMask(input.masking.bit, event.dataIn[input.key]);
+                                                } else if (input.key.indexOf('TEXT') == -1 && typeof (event.dataIn[input.key]) != 'undefined' && event.dataIn[input.key] != null) {
+                                                    switch (input.scaling?.type) {
+                                                        case ('ntc'):
+                                                            tmp.value = new scaling.module().scaleNTC(parseInt(event.dataIn[input.key]));
+                                                            input.value = new scaling.module().scaleNTC(parseInt(event.dataIn[input.key]));
+                                                            break;
+                                                        case ('none'):
+                                                            tmp.value = parseInt(event.dataIn[input.key]);
+                                                            input.value = parseInt(event.dataIn[input.key]);
+                                                            break;
+                                                        case ('linear'):
+                                                            tmp.value = new scaling.module().scaleAnalog(parseInt(event.dataIn[input.key]), input.scaling?.raw?.low, input.scaling?.raw?.high, input.scaling?.scaled?.low, input.scaling?.scaled?.high);
+                                                            input.value = new scaling.module().scaleAnalog(parseInt(event.dataIn[input.key]), input.scaling?.raw?.low, input.scaling?.raw?.high, input.scaling?.scaled?.low, input.scaling?.scaled?.high);
+                                                            break;
+                                                        case ('invert'):
+                                                            tmp.value = new scaling.module().scaleAnalog(parseInt(event.dataIn[input.key]), input.scaling.raw.low, input.scaling.raw.high, input.scaling.scaled.low, input.scaling.scaled.high, true);
+                                                            input.value = new scaling.module().scaleAnalog(parseInt(event.dataIn[input.key]), input.scaling.raw.low, input.scaling.raw.high, input.scaling.scaled.low, input.scaling.scaled.high, true);
+                                                            break;
+                                                        default:
+                                                            tmp.value = parseInt(event.dataIn[input.key]);
+                                                            input.value = parseInt(event.dataIn[input.key]);
+                                                            break;
+                                                    };
+                                                }else{
+                                                    console.log('here')
+                                                }
+                                                data.push(tmp);
+                                                deferred.resolve(data)
+                                            }else{
+                                                deferred.resolve()
+                                            }
+
+                                            return deferred.promise
+    
+                                        })
+
+                                    }, Promise.resolve())
+                                    .then(async(data)=>{
+                                        if (data) {
+                                            __socket.send('devices:data', {
+                                                data: data,
+                                                deviceId: device.deviceId
+                                            });
+                                            await __router.mapping(event.rtuId, data);
                                         };
-                                    };
-                                    data.push(tmp);
+    
+                                        deferred.resolve({})
+                                    })
+                
                                 };
-                            });
-                            if (found) {
-                                __socket.send('devices:data', {
-                                    data: data,
-                                    deviceId: device.deviceId
-                                });
-                                __router.route(event.rtuId, data);
-                            };
-                        };
-                    });
+
+                                deferred.resolve()
+                                return deferred.promise
+                            })
+                        }, Promise.resolve())
+                            .then(async () => {
+                                await portal.applyCOFS()
+                                await portal.send()
+                                deferred.resolve({})
+                            })
+                    } else {
+                        deferred.resolve({})
+                    }
+
+                    return deferred.promise
+
+
+
+
                 });
 
                 __settings.devices.filter(o => o.enabled).map(o => {
                     switch (o.type) {
                         case ('modbus'):
                             var device = new Modbus(o);
-                            device.on('change', event => __router.route(device.deviceId, event));
+                            // device.on('change', event => __router.route(device.deviceId, event));
+                            device.on('change', event => __router.updateDeviceInputsThenActionMapping(device.deviceId, event));
                             __devices.push(device);
                             break;
                         case ('kGateway'):
@@ -288,7 +436,8 @@ try {
                             break;
                         case ('programmable-logic-controller'):
                             var device = new ProgrammableLogicController(o);
-                            device.on('change', event => __router.route(device.deviceId, event));
+                            // device.on('change', event => __router.route(device.deviceId, event));
+                            device.on('change', event => __router.updateDeviceInputsThenActionMapping(device.deviceId, event));
                             __devices.push(device);
                             break;
                         default:
@@ -305,6 +454,7 @@ try {
                         await send(device.deviceId);
 
                         setInterval(async () => await send(device.deviceId), pxtime);
+                        // setInterval(async () => await send(device.deviceId), 10000);
                     });
                 });
 
@@ -314,10 +464,90 @@ try {
             };
 
             return deferred.promise;
-        }
+        },
+
+        applyCOFS: async () => {
+            var deferred = Q.defer()
+            let index = 0
+    
+    
+            // await __devices.map((promise,device)=>{
+            //     return promise.then(()=>{
+                    
+            //     })
+            // }, Promise.resolve())
+    
+            console.log('__routerStatus', JSON.stringify(__routerStatus))
+            __devices.map(device => {
+                index++
+                if (device.enabled == true && device.publish == true) {
+                    device.io.map(io => {
+                        if (io.publish.enabled == true) {
+                            let moduleFound = __routerStatus.find(o => o.moduleId == io.publish.moduleId)
+                            if (!moduleFound) {
+                                __routerStatus.push({ moduleId: __routerStatus.length, dataIn: { ...dataIn } })
+                            }
+                            if (io.publish.key == 'digitalsIn' && (parseFloat(io.publish.bit) != -1)) {
+                                let digitalsIn = __routerStatus[io.publish.moduleId].dataIn[io.publish.key]
+                                if (digitalsIn & Math.pow(2, io.publish.bit) > 0) {
+                                    digitalsIn = digitalsIn - Math.pow(2, io.publish.bit)
+                                }
+                                if (io.value == 1) {
+                                    digitalsIn = digitalsIn + Math.pow(2, io.publish.bit)
+                                }
+    
+                                __routerStatus[io.publish.moduleId].dataIn[io.publish.key] = digitalsIn
+                            } else {
+                                __routerStatus[io.publish.moduleId].dataIn[io.publish.key] = io.value
+                            }
+                        }
+                    })
+                }
+                if (__devices.length == index) {
+                    deferred.resolve({})
+                }
+            })
+    
+            if (index == 0) {
+                deferred.resolve({})
+            }
+    
+            return deferred.promise
+        },
+
+
+        send: () => {
+            __routerStatus.map(o => {
+                __router.publish({
+                    'rtuId': __settings.deviceId,
+                    'dataIn': o.dataIn,
+                    'barcode': __settings.barcode,
+                    'rtuDate': new Date().getTime(),
+                    'moduleId': o.moduleId
+                });
+            })
+        }        
+
     };
 
-    var send = (deviceId) => {
+
+
+
+    var send = () => {
+        __routerStatus.map(o => {
+            __router.publish({
+                'rtuId': __settings.deviceId,
+                'dataIn': o.dataIn,
+                'barcode': __settings.barcode,
+                'rtuDate': new Date().getTime(),
+                'moduleId': o.moduleId
+            });
+        })
+    }
+
+
+
+    var sendOLD = (deviceId) => {
         __devices.map(device => {
             if (device.deviceId == deviceId) {
                 __logger.info('DATA =================== ' + device.io.map(o => o.value).join(', '));
@@ -367,7 +597,7 @@ try {
                     };
 
                     let a = device.io.filter(o => o.publish?.enabled && o.publish.key == 'digitalsIn' && o.moduleId == moduleId && o.publish.bit == -1)
-                    if(a.length > 0){
+                    if (a.length > 0) {
                         dataIn.digitalsIn = a[0].value
                     }
 

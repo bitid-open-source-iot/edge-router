@@ -1,4 +1,6 @@
+const Q = require('q');
 const MQTT = require('mqtt');
+const { async } = require('q');
 const GetPublicIp = require('public-ip').v4;
 const EventEmitter = require('events').EventEmitter;
 
@@ -52,50 +54,207 @@ module.exports = class extends EventEmitter {
         this.connect();
     }
 
-    async route(deviceId, inputs) {
-        __settings.mapping.map(item => {
-            if (item.source.deviceId == deviceId) {
-                inputs.map(input => {
-                    if (item.source.inputId == input.inputId) {
-                        var maskSourceValue = null;
-                        if (item.source.mask != -1) {
-                            maskSourceValue = input.value & item.source.mask;
-                        } else {
-                            maskSourceValue = input.value;
-                        };
+    send = () => {
+        var deferred = Q.defer()
+        let index = 0
+        __routerStatus.map(o => {
+            index++
+            __router.publish({
+                'rtuId': __settings.deviceId,
+                'dataIn': o.dataIn,
+                'barcode': __settings.barcode,
+                'rtuDate': new Date().getTime(),
+                'moduleId': o.moduleId
+            });
+            if (index == __routerStatus.length) {
+                deferred.resolve({})
+            }
+        })
 
-                        __devices.map(device => {
-                            if (item.destination.deviceId == device.deviceId) {
-                                let deviceCurrentState = null;
-                                let maskDestinationValue = null;
-                                if (item.destination.mask != -1) {
-                                    device.values.map(dv => {
-                                        if (dv.inputId == item.destination.inputId) {
-                                            deviceCurrentState = dv.value;
-                                        };
-                                    });
-                                    let dontTouchVal = 0
-                                    maskDestinationValue = maskSourceValue & item.destination.mask;
-                                    if ((deviceCurrentState & item.destination.mask > 0) && deviceCurrentState != -1) {
-                                        dontTouchVal = deviceCurrentState - (deviceCurrentState & item.destination.mask)
-                                    };
-                                    maskDestinationValue = dontTouchVal + maskDestinationValue;
+        if (index == 0) {
+            deferred.resolve({})
+        }
+
+        return deferred.promise
+    }
+
+    updateDeviceInputsThenActionMapping(deviceId, inputs) {
+        __devices.reduce((promise,device)=>{
+            return promise.then(()=>{
+                if(device.deviceId == deviceId){
+                    device.io.reduce((promise,io)=>{
+                        return promise.then(()=>{
+                            inputs.map(ip=>{
+                                if (io.inputId == ip.inputId) {
+                                    io.value = ip.value
+                                }
+                            })
+                        })
+                    }, Promise.resolve())
+                }
+            })
+        }, Promise.resolve())
+        .then(()=>{
+            __router.mapping(deviceId, inputs)
+        })
+
+    }
+
+    applyCOFSServer() {
+        var deferred = Q.defer()
+        let index = 0
+
+        __devices.map(device => {
+            index++
+            if (device.enabled == true && device.publish == true) {
+                device.io.map(io => {
+                    if (io.publish.enabled == true) {
+                        let moduleFound = __routerStatus.find(o => o.moduleId == io.publish.moduleId)
+                        if (!moduleFound) {
+                            __routerStatus.push({ moduleId: __routerStatus.length, dataIn: { ...dataIn } })
+                        }
+                        if (io.publish.key == 'digitalsIn' && (parseFloat(io.publish.bit) != -1)) {
+                            let digitalsIn = __routerStatus[io.publish.moduleId].dataIn[io.publish.key]
+                            if (digitalsIn & Math.pow(2, io.publish.bit) > 0) {
+                                digitalsIn = digitalsIn - Math.pow(2, io.publish.bit)
+                            }
+                            if (io.value == 1) {
+                                digitalsIn = digitalsIn + Math.pow(2, io.publish.bit)
+                            }
+
+                            __routerStatus[io.publish.moduleId].dataIn[io.publish.key] = digitalsIn
+                        } else {
+                            __routerStatus[io.publish.moduleId].dataIn[io.publish.key] = io.value
+                        }
+                    }
+                })
+            }
+            if (__devices.length == index) {
+                deferred.resolve({})
+            }
+        })
+
+        if (index == 0) {
+            deferred.resolve({})
+        }
+
+        return deferred.promise
+    }
+
+    async mapping(deviceId, inputs) {
+        var deferred = Q.defer()
+        let index = 0
+
+        await __settings.mapping.reduce((promise, item) => {
+            return promise.then(async () => {
+                var deferred = Q.defer()
+
+                index++
+                if (item.source.deviceId == deviceId) {
+
+                    await inputs.reduce((promise, input) => {
+                        return promise.then(async () => {
+                            var deferred = Q.defer()
+                            if (item.source.inputId == input.inputId) {
+                                var maskSourceValue = null;
+                                if (item.source.mask != -1) {
+                                    maskSourceValue = input.value & item.source.mask;
                                 } else {
-                                    maskDestinationValue = maskSourceValue;
+                                    maskSourceValue = input.value;
                                 };
-                                for (let i = 0; i < device.io.length; i++) {
-                                    if (device.io[i].inputId == item.destination.inputId) {
-                                        __logger.info(device.io[i].description + ': ' + maskDestinationValue);
-                                        break;
-                                    };
-                                };
-                                device.write(item.destination.inputId, maskDestinationValue);
-                            };
-                        });
-                    };
-                });
-            };
-        });
+
+
+                                await __devices.reduce((promise,device) => {
+                                    return promise.then(async()=>{
+                                        var deferred = Q.defer()
+                                        if (item.destination.deviceId == device.deviceId) {
+                                            let deviceCurrentState = null;
+                                            let maskDestinationValue = null;
+                                            if (item.destination.mask != -1) {
+
+
+                                                await device.values.reduce((promise, dv) => {
+                                                    return promise.then(async() => {
+                                                        var deferred = Q.defer()
+                                                        if (dv.inputId == item.destination.inputId) {
+                                                            deviceCurrentState = dv.value;
+                                                        };
+                                                        deferred.resolve({})
+                                                        return deferred.promise
+    
+                                                    })
+                                                }, Promise.resolve())
+                                                .then(()=>{
+                                                    deferred.resolve({})
+                                                })
+                            
+                                                let dontTouchVal = 0
+                                                maskDestinationValue = maskSourceValue & item.destination.mask;
+                                                if ((deviceCurrentState & item.destination.mask > 0) && deviceCurrentState != -1) {
+                                                    dontTouchVal = deviceCurrentState - (deviceCurrentState & item.destination.mask)
+                                                };
+                                                maskDestinationValue = dontTouchVal + maskDestinationValue;
+                                            } else {
+                                                // __settings.mapping
+                                                maskDestinationValue = maskSourceValue;
+                                            };
+                                            for (let i = 0; i < device.io.length; i++) {
+                                                if (device.io[i].inputId == item.destination.inputId) {
+                                                    __logger.info(device.io[i].description + ': ' + maskDestinationValue);
+                                                    break;
+                                                };
+                                            };
+                                            // await this.wait(100)
+                                            await device.write(item.destination.inputId, maskDestinationValue);
+                                            deferred.resolve({})
+                                        }else{
+                                            deferred.resolve({})
+                                        }
+                                        return deferred.promise
+                                    })
+                                }, Promise.resolve())
+                                .then(()=>{
+                                    deferred.resolve({})
+                                })
+
+                            }else{
+                                deferred.resolve({})
+                            }
+
+                            return deferred.promise
+
+                        }, Promise.resolve())
+                        .then(()=>{
+                            deferred.resolve({})
+                        })
+    
+                    }, Promise.resolve())
+                    .then(()=>{
+                        deferred.resolve({})
+                    })
+
+
+                };
+                deferred.resolve({})
+
+                return deferred.promise
+            })
+        }, Promise.resolve())
+        .then(async ()=>{
+            await this.applyCOFSServer()
+            await this.send()
+            deferred.resolve({})
+        })
+
+        return deferred.promise
+    }
+
+    async wait(args) {
+        var deferred = Q.defer();
+        setTimeout(() => {
+            deferred.resolve({});
+        }, args);
+        return deferred.promise;
     }
 
     async connect() {
@@ -130,21 +289,21 @@ module.exports = class extends EventEmitter {
             __logger.info('Edge Router - Socket connected & subscribing to topics!');
 
 
-            // this.mqtt.subscribe(this.server.subscribe.data, (error) => {
-            //     if (error) {
-            //         __logger.error(error);
-            //     } else {
-            //         __logger.info('Edge Router - Subscribed to data');
-            //     };
-            // });
+            this.mqtt.subscribe(this.server.subscribe.data, (error) => {
+                if (error) {
+                    __logger.error(error);
+                } else {
+                    __logger.info('Edge Router - Subscribed to data');
+                };
+            });
 
-            // this.mqtt.subscribe(this.server.subscribe.control, (error) => {
-            //     if (error) {
-            //         __logger.error(error);
-            //     } else {
-            //         __logger.info('Edge Router - Subscribed to control');
-            //     };
-            // });
+            this.mqtt.subscribe(this.server.subscribe.control, (error) => {
+                if (error) {
+                    __logger.error(error);
+                } else {
+                    __logger.info('Edge Router - Subscribed to control');
+                };
+            });
 
             this.mqtt.subscribe('/edgerouter/control', (error) => {
                 if (error) {
@@ -162,14 +321,14 @@ module.exports = class extends EventEmitter {
             setInterval(() => this.transmit(), this.txtime * 1000);
         });
 
-        this.mqtt.on('message', (topic, message) => {
+        this.mqtt.on('message', async (topic, message) => {
             console.log('topic', topic)
             switch (topic) {
                 case ('/rock/v1.1/data'):
                     this.emit('data', JSON.parse(message.toString()));
                     break;
                 case ('/rock/v1.1/control'):
-                    this.emit('control', JSON.parse(message.toString()));
+                    await this.emit('control', JSON.parse(message.toString()));
                     break;
                 case ('/edgerouter/control'):
                     this.emit('edge-router-control', JSON.parse(message.toString()))
@@ -180,9 +339,9 @@ module.exports = class extends EventEmitter {
                     // if (topic.includes('kbeacon/publish/')) {
                     //     this.emit('data', { topic, message })
                     // } else {
-                        console.error('unhandled switch mqtt topic', topic);
-                    // };
-                    // break;
+                    console.error('unhandled switch mqtt topic', topic);
+                // };
+                // break;
             };
         });
 
@@ -211,7 +370,7 @@ module.exports = class extends EventEmitter {
 
     async publish(data) {
         if (this.mqtt?.connected) {
-            __logger.info(this.server.subscribe.data + ': ' + JSON.stringify(data))
+            __logger.info(`publish ${this.server.subscribe.data} : ${JSON.stringify(data)}`)
             this.mqtt.publish(this.server.subscribe.data, JSON.stringify(data));
         } else {
             __logger.warn('Edge Router - Trying to transmit even though socket not connected!');
@@ -221,7 +380,7 @@ module.exports = class extends EventEmitter {
 
     async publishToTopic(topic, data) {
         if (this.mqtt?.connected) {
-            __logger.info(topic + ': ' + JSON.stringify(data))
+            __logger.info(`publishToTopic ${topic} : ${JSON.stringify(data)}`)
             this.mqtt.publish(topic, JSON.stringify(data));
         } else {
             __logger.warn('Edge Router - Trying to transmit even though socket not connected!');

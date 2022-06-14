@@ -180,7 +180,7 @@ export class DevicesEditorPage implements OnInit, OnDestroy {
                 },
                 {
                     icon: 'edit',
-                    title: 'Update',
+                    title: 'Edit',
                     handler: () => this.editor('update', io),
                     disabled: []
                 },

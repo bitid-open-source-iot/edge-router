@@ -23,7 +23,7 @@ class kGateway {
 
         self.mqtt_Routers.on('data', (payload) => {
             if (__settings.debug == true) {
-                console.log(`mqtt from router in kGateway. topic: ${payload.topic} message:${payload.message}`)
+                __logger.info(`mqtt from router in kGateway. topic: ${payload.topic} message:${payload.message}`)
             }
             try {
                 let message = JSON.parse(payload.message)
@@ -36,7 +36,7 @@ class kGateway {
                         console.log('kGateway unhanled message switch', message)
                 }
             } catch (e) {
-                console.error('kGateway error in mqtt_Routers', e)
+                __logger.error(`kGateway error in mqtt_Routers ${e}`)
             }
         })
 
@@ -74,7 +74,7 @@ class kGateway {
 
             let lastTag
             if (item.type != 4) {
-                console.error('unhandled tag type')
+                __logger.error(`unhandled tag type ${item.type}`)
             }
             if (item.type == 4) {
             // if (item.type > 0) {
@@ -108,7 +108,7 @@ class kGateway {
                     // }
 
                     self.arrTags.map((item) => {
-                        console.log('Tags', item.tagId)
+                        __logger.info(`Tags: ${item.tagId}`)
                     })
                 }
             }
@@ -126,24 +126,24 @@ class kGateway {
         let time = new Date().getTime()
         await self.arrTags.reduce(async (promise, item) => promise.then(async () => {
             return new Promise((resolve, reject) => {
-                if ((time - item.time > (self.tagFixedTxTime * 1000 * 60)) || item.bitidDeviceId != args.bitidDeviceId || item.forceTxToServer == true) {
+                if ((time - item.time > (self.tagFixedTxTime * 1000)) || item.bitidDeviceId != args.bitidDeviceId || item.forceTxToServer == true) {
                     item.forceTxToServer = false
-                    if (time - item.time > (self.tagFixedTxTime * 1000 * 60)) {
+                    if (time - item.time > (self.tagFixedTxTime * 1000)) {
                         if (__settings.debug == true) {
-                            console.log('Time Based Update to Server', args.tagId)
+                            __logger.info(`Time Based Update to Server ${args.tagId}`)
                         }
                     }
                     if (item.status != args.status) {
                         if (__settings.debug == true) {
-                            console.log('Status Changed Update to Server', args.tagId)
+                            __logger.info(`Status Changed Update to Server ${args.tagId}`)
                         }
                     }
                     item.time = time
                     item.status = 0
                     item.txCount++
-                    if (__settings.debug == true) {
-                        console.log('sending tag to server', item)
-                    }
+                    // if (__settings.debug == true) {
+                        __logger.info(`sending tag to server ${JSON.stringify(item)}`)
+                    // }
                     // self.mqtt_biTidServer.send('/kGateway/edge/data', { "marker": "shane", topic: args.topic, deviceStatus: item })
                     if(self.options.publish == true){
                         __router.publishToTopic('/kGateway/edge/data', { "marker": "shane", topic: args.topic, deviceStatus: item })
