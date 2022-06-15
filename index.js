@@ -3,6 +3,7 @@ const cors = require('cors');
 const http = require('http');
 const chalk = require('chalk');
 const express = require('express');
+const COFS = require('./lib/cofs');
 const scaling = require('./lib/scaling');
 const WebSocket = require('./lib/socket').WebSocket;
 const responder = require('./lib/responder');
@@ -27,7 +28,7 @@ global.__devices = [];
 global.__settings = require('./config.json');
 global.__responder = responder.module();
 
-var testBusy = false
+const cofs = new COFS()
 
 var dataIn = {
     'AI1': 0,
@@ -301,15 +302,9 @@ try {
                 __router.on('control', async event => {
                     var deferred = Q.defer()
 
-                    // if(testBusy == true){
-                    //     deferred.resolve({})
-                    //     return
-                    // }
 
                     if (event?.rtuId == '000000000000000000000250') {
                         console.log('')
-                        // testBusy = true
-   
                     }
                     let validDevice = __devices.find(o => o.deviceId == event?.rtuId)
                     if (validDevice) {
@@ -402,8 +397,8 @@ try {
                             })
                         }, Promise.resolve())
                             .then(async () => {
-                                await portal.applyCOFS()
-                                await portal.send()
+                                // await cofs.applyCOFSServer()
+                                // await cofs.send()
                                 deferred.resolve({})
                             })
                     } else {
@@ -421,14 +416,12 @@ try {
                     switch (o.type) {
                         case ('modbus'):
                             var device = new Modbus(o);
-                            // device.on('change', event => __router.route(device.deviceId, event));
                             device.on('change', event => __router.updateDeviceInputsThenActionMapping(device.deviceId, event));
                             __devices.push(device);
                             break;
                         case ('kGateway'):
                             var device = new KGATEWAY(o);
-                            // device.on('change', event => __router.route(device.deviceId, event));
-                            // __devices.push(device);
+                            __devices.push(device);
                             break;
                         case ('external'):
                             var device = new External(o);
@@ -436,7 +429,6 @@ try {
                             break;
                         case ('programmable-logic-controller'):
                             var device = new ProgrammableLogicController(o);
-                            // device.on('change', event => __router.route(device.deviceId, event));
                             device.on('change', event => __router.updateDeviceInputsThenActionMapping(device.deviceId, event));
                             __devices.push(device);
                             break;
@@ -451,9 +443,9 @@ try {
                         const pxtime = (device.pxtime ? device.pxtime : 120) * 1000;
                         __logger.info('Starting publish every ' + device.pxtime + ' seconds!');
 
-                        await send(device.deviceId);
+                        await cofs.send(device.deviceId);
 
-                        setInterval(async () => await send(device.deviceId), pxtime);
+                        // setInterval(async () => await cofs.send(device.deviceId), pxtime); Fred
                         // setInterval(async () => await send(device.deviceId), 10000);
                     });
                 });
@@ -465,164 +457,8 @@ try {
 
             return deferred.promise;
         },
-
-        applyCOFS: async () => {
-            var deferred = Q.defer()
-            let index = 0
-    
-    
-            // await __devices.map((promise,device)=>{
-            //     return promise.then(()=>{
-                    
-            //     })
-            // }, Promise.resolve())
-    
-            console.log('__routerStatus', JSON.stringify(__routerStatus))
-            __devices.map(device => {
-                index++
-                if (device.enabled == true && device.publish == true) {
-                    device.io.map(io => {
-                        if (io.publish.enabled == true) {
-                            let moduleFound = __routerStatus.find(o => o.moduleId == io.publish.moduleId)
-                            if (!moduleFound) {
-                                __routerStatus.push({ moduleId: __routerStatus.length, dataIn: { ...dataIn } })
-                            }
-                            if (io.publish.key == 'digitalsIn' && (parseFloat(io.publish.bit) != -1)) {
-                                let digitalsIn = __routerStatus[io.publish.moduleId].dataIn[io.publish.key]
-                                if (digitalsIn & Math.pow(2, io.publish.bit) > 0) {
-                                    digitalsIn = digitalsIn - Math.pow(2, io.publish.bit)
-                                }
-                                if (io.value == 1) {
-                                    digitalsIn = digitalsIn + Math.pow(2, io.publish.bit)
-                                }
-    
-                                __routerStatus[io.publish.moduleId].dataIn[io.publish.key] = digitalsIn
-                            } else {
-                                __routerStatus[io.publish.moduleId].dataIn[io.publish.key] = io.value
-                            }
-                        }
-                    })
-                }
-                if (__devices.length == index) {
-                    deferred.resolve({})
-                }
-            })
-    
-            if (index == 0) {
-                deferred.resolve({})
-            }
-    
-            return deferred.promise
-        },
-
-
-        send: () => {
-            __routerStatus.map(o => {
-                __router.publish({
-                    'rtuId': __settings.deviceId,
-                    'dataIn': o.dataIn,
-                    'barcode': __settings.barcode,
-                    'rtuDate': new Date().getTime(),
-                    'moduleId': o.moduleId
-                });
-            })
-        }        
-
     };
 
-
-
-
-    var send = () => {
-        __routerStatus.map(o => {
-            __router.publish({
-                'rtuId': __settings.deviceId,
-                'dataIn': o.dataIn,
-                'barcode': __settings.barcode,
-                'rtuDate': new Date().getTime(),
-                'moduleId': o.moduleId
-            });
-        })
-    }
-
-
-
-    var sendOLD = (deviceId) => {
-        __devices.map(device => {
-            if (device.deviceId == deviceId) {
-                __logger.info('DATA =================== ' + device.io.map(o => o.value).join(', '));
-
-                device.io.map(a => {
-                    device.values.map(b => {
-                        if (a.inputId == b.inputId) {
-                            a.value = b.value;
-                        };
-                    });
-                });
-
-                const modules = device.io.filter(input => input.publish?.enabled).map(input => input.publish.moduleId).filter(value => (typeof (value) != 'undefined' && value != null)).filter((value, index, self) => self.indexOf(value) === index);
-
-                modules.map(async moduleId => {
-                    var dataIn = {
-                        'AI1': 0,
-                        'AI2': 0,
-                        'AI3': 0,
-                        'AI4': 0,
-                        'AIExt1': 0,
-                        'AIExt2': 0,
-                        'AIExt3': 0,
-                        'AIExt4': 0,
-                        'AIExt5': 0,
-                        'AIExt6': 0,
-                        'AIExt7': 0,
-                        'AIExt8': 0,
-                        'BATT': 0,
-                        'CI1': 0,
-                        'CI2': 0,
-                        'CI3': 0,
-                        'CI4': 0,
-                        'CI5': 0,
-                        'CI6': 0,
-                        'CI7': 0,
-                        'CI8': 0,
-                        'LAT': 0,
-                        'LNG': 0,
-                        'SIG': 0,
-                        'TEXT1': 0,
-                        'TEXT2': 0,
-                        'TEXT3': 0,
-                        'TEXT4': 0,
-                        'txFlag': 0,
-                        'digitalsIn': device.io.filter(o => o.publish?.enabled && o.value == 1 && o.key == 'digitalsIn' && o.moduleId == moduleId).map(o => Math.pow(2, o.bit)).reduce((a, b) => a + b, 0)
-                    };
-
-                    let a = device.io.filter(o => o.publish?.enabled && o.publish.key == 'digitalsIn' && o.moduleId == moduleId && o.publish.bit == -1)
-                    if (a.length > 0) {
-                        dataIn.digitalsIn = a[0].value
-                    }
-
-                    device.io.map(input => {
-                        if (input.publish?.enabled && input.moduleId == moduleId) {
-                            if (dataIn.hasOwnProperty(input.publish.key) && input.publish.key != 'digitalsIn') {
-                                dataIn[input.publish.key] = input.value;
-                            };
-                        };
-                    });
-
-                    __logger.info('Publishing Data To Server: ' + device.deviceId);
-
-                    console.log('shane', dataIn.digitalsIn)
-                    __router.publish({
-                        'rtuId': device.deviceId,
-                        'dataIn': dataIn,
-                        'barcode': device.barcode,
-                        'rtuDate': new Date().getTime(),
-                        'moduleId': moduleId
-                    });
-                });
-            };
-        });
-    };
 
     portal.init();
 } catch (error) {

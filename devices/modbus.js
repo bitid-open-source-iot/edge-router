@@ -216,11 +216,6 @@ module.exports = class extends EventEmitter {
     async waitForBusyFalse(){
         var deferred = Q.defer()
 
-        // setTimeout(()=>{
-        //     deferred.reject({})
-        //     return
-        // },30000)
-
         do {
             await this.wait(50)
         } while (this.busy == true);
