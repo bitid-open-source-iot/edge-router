@@ -53,8 +53,19 @@ echo 'password_file /mosquitto/config/passwd'  | sudo tee -a /rockwell/mosquitto
 
 
 
-echo 'unittest:$6$9/dfMuN9hX4hYDV0$RhF8R4eX5FDAqQ+9L3D5qyHG9P9NXzxLIHUyfi4oXSJIk5/RndeQUZzrZyZ1/NgE57e9/SiofqTS9ICEqzeDUw=='  | sudo tee /rockwell/passwd
+sudo apt update -y && sudo apt install mosquitto-clients -y
 
+
+read -p 'Username: ' uservar
+read -p 'Password: ' passvar
+
+rm /rockwell/passwdtest
+touch /rockwell/passwdtest
+mosquitto_passwd -b /rockwell/passwdtest $uservar $passvar
+
+
+# echo 'unittest:$6$9/dfMuN9hX4hYDV0$RhF8R4eX5FDAqQ+9L3D5qyHG9P9NXzxLIHUyfi4oXSJIk5/RndeQUZzrZyZ1/NgE57e9/SiofqTS9ICEqzeDUw=='  | sudo tee /rockwell/passwd
+# echo 'unittest:$6$Ca1t1YVAfTy18Fbs$Z58ZRH+gtW3W9ymM4n/ubMlAnaFFl0st51J68b9lMekHzd6rwRAg8Q5EB3kk2w1AiWtwjZti71Z/R5utwosL+w=='  | sudo tee /rockwell/passwd
 
 echo "STARTING MOSQUITTO DOCKER IMAGE"
 sudo docker run -d --restart always -p 1888:1888 -v /rockwell/mosquitto.conf:/mosquitto/config/mosquitto.conf -v /rockwell/passwd:/mosquitto/config/passwd eclipse-mosquitto
