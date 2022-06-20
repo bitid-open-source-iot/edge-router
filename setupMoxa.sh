@@ -1,9 +1,9 @@
 #!/bin/bash
 
 
-echo "REMOVING DOCKER"
+# echo "REMOVING DOCKER"
 
-sudo apt-get remove docker docker-engine docker.io containerd runc
+# sudo apt-get remove docker docker-engine docker.io containerd runc
 
 
 echo "INSTALLING DOCKER"
@@ -46,27 +46,27 @@ sudo gpasswd -a $USER docker
 echo "INSTALLING MOSQUITTO"
 
 
-sudo mkdir -p /rockwell
+sudo mkdir -p /edge-router
 
-sudo rm /rockwell/mosquitto.conf
+sudo rm /edge-router/mosquitto.conf
 
-echo 'port 1888'  | sudo tee -a /rockwell/mosquitto.conf
-echo 'allow_anonymous false'  | sudo tee -a /rockwell/mosquitto.conf
-echo 'password_file /mosquitto/config/passwd'  | sudo tee -a /rockwell/mosquitto.conf
+echo 'port 1888'  | sudo tee -a /edge-router/mosquitto.conf
+echo 'allow_anonymous false'  | sudo tee -a /edge-router/mosquitto.conf
+echo 'password_file /mosquitto/config/passwd'  | sudo tee -a /edge-router/mosquitto.conf
 
 
 
-echo 'unittest:$6$9/dfMuN9hX4hYDV0$RhF8R4eX5FDAqQ+9L3D5qyHG9P9NXzxLIHUyfi4oXSJIk5/RndeQUZzrZyZ1/NgE57e9/SiofqTS9ICEqzeDUw=='  | sudo tee /rockwell/passwd
+echo 'unittest:$6$9/dfMuN9hX4hYDV0$RhF8R4eX5FDAqQ+9L3D5qyHG9P9NXzxLIHUyfi4oXSJIk5/RndeQUZzrZyZ1/NgE57e9/SiofqTS9ICEqzeDUw=='  | sudo tee /edge-router/passwd
 
 
 echo "STARTING MOSQUITTO DOCKER IMAGE"
-sudo docker run -d --restart always -p 1888:1888 -v /rockwell/mosquitto.conf:/mosquitto/config/mosquitto.conf -v /rockwell/passwd:/mosquitto/config/passwd eclipse-mosquitto
+sudo docker run -d --restart always -p 1888:1888 -v /edge-router/mosquitto.conf:/mosquitto/config/mosquitto.conf -v /edge-router/passwd:/mosquitto/config/passwd eclipse-mosquitto
 
 
 
 echo "DOWNLOADING FILES"
 
-sudo wget "https://docs.google.com/uc?export=download&id=1LekZrj9igeA5klyyuCzl77aevxotBKNP" -O /rockwell/config.json
+sudo wget "https://docs.google.com/uc?export=download&id=1LekZrj9igeA5klyyuCzl77aevxotBKNP" -O /edge-router/config.json
 
 
 # echo "SETTING UP PIPE FOR COMMANDS"
@@ -79,7 +79,7 @@ sudo wget "https://docs.google.com/uc?export=download&id=1LekZrj9igeA5klyyuCzl77
 sudo docker pull --platform linux/arm/v7 shanebowyer/edge-router:master
 
 sudo docker run -d --restart always -p 8080:8080 \
--v /rockwell/config.json:/usr/src/app/config.json \
+-v /edge-router/config.json:/usr/src/app/config.json \
 --network="host" \
 --platform linux/arm/v7 shanebowyer/edge-router:master
 
@@ -92,7 +92,7 @@ sudo docker run -d --restart always -p 8080:8080 \
 
 
 
-# sudo docker run -it -p 8080:8080 -v /rockwell/config.json:/usr/src/app/config.json \
+# sudo docker run -it -p 8080:8080 -v /edge-router/config.json:/usr/src/app/config.json \
 # --network="host" \
 # -e BITID_SERVER_MOSQUITTO_USERNAME="xxx" \
 # -e BITID_SERVER_MOSQUITTO_PASSWORD="xxx" \

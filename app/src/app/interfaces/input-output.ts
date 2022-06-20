@@ -44,4 +44,5 @@ export interface INPUT_OUTPUT {
     interface?: string;
     writeable?: boolean;
     description?: string;
+    cofs?: number;
 }

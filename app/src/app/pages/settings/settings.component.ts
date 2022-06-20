@@ -27,6 +27,12 @@ export class SettingsComponent implements OnInit {
     deviceId: new FormControl('', [Validators.required]),
     apn: new FormControl(null),
     txtime: new FormControl(null),
+    server: new FormGroup({
+      host: new FormControl('', [Validators.required]),
+      port: new FormControl('', [Validators.required]),
+      username: new FormControl('', [Validators.required]),
+      password: new FormControl('', [Validators.required]),
+    })
   });
 
   public formCommand: FormGroup = new FormGroup({
@@ -39,6 +45,12 @@ export class SettingsComponent implements OnInit {
     deviceId: '',
     apn: '',
     txtime: '',
+    server:{
+      host: '',
+      port: '',
+      userName: '',
+      password: '',
+    }
   };
 
   public loading: boolean = false;
@@ -64,6 +76,11 @@ export class SettingsComponent implements OnInit {
       this.form.controls['apn'].setValue(response.result[0].apn);
       this.form.controls['txtime'].setValue(response.result[0].txtime);
 
+      (this.form.controls['server'] as FormGroup).controls['host'].setValue(response.result[0].host);
+      (this.form.controls['server'] as FormGroup).controls['port'].setValue(response.result[0].port);
+      (this.form.controls['server'] as FormGroup).controls['username'].setValue(response.result[0].username);
+      (this.form.controls['server'] as FormGroup).controls['password'].setValue(response.result[0].password);
+
     } else {
       this.toast.error(response.result.message);
     };
@@ -79,6 +96,10 @@ export class SettingsComponent implements OnInit {
       deviceId: this.form.value.deviceId,
       apn: this.form.value.apn,
       txtime: this.form.value.txtime,
+      host: this.form.controls['server'].value.host,
+      port: this.form.controls['server'].value.port,
+      username: this.form.controls['server'].value.username,
+      password: this.form.controls['server'].value.password,
     });
 
     if (response.ok) {
@@ -94,24 +115,25 @@ export class SettingsComponent implements OnInit {
   }
 
   public async submit_command() {
-    this.loading = true;
+    console.log('story',this.form.controls['server'].value.host)
+    // this.loading = true;
 
-    const response = await this.settingsService.command({
-      command: this.formCommand.value.command,
-      password: this.formCommand.value.password
-    });
+    // const response = await this.settingsService.command({
+    //   command: this.formCommand.value.command,
+    //   password: this.formCommand.value.password
+    // });
 
-    if (response.ok) {
-      console.log(response)
-      this.toast.success('Updated')
-    } else {
-      this.toast.error(response.result.message);
-    };
+    // if (response.ok) {
+    //   console.log(response)
+    //   this.toast.success('Updated')
+    // } else {
+    //   this.toast.error(response.result.message);
+    // };
 
-    this.loading = false;
+    // this.loading = false;
 
 
-    this.loading = false;
+    // this.loading = false;
   }
 
 

@@ -59,9 +59,9 @@ sudo apt update -y && sudo apt install mosquitto-clients -y
 read -p 'Username: ' uservar
 read -p 'Password: ' passvar
 
-rm /rockwell/passwdtest
-touch /rockwell/passwdtest
-mosquitto_passwd -b /rockwell/passwdtest $uservar $passvar
+rm /rockwell/passwd
+touch /rockwell/passwd
+mosquitto_passwd -b /rockwell/passwd $uservar $passvar
 
 
 # echo 'unittest:$6$9/dfMuN9hX4hYDV0$RhF8R4eX5FDAqQ+9L3D5qyHG9P9NXzxLIHUyfi4oXSJIk5/RndeQUZzrZyZ1/NgE57e9/SiofqTS9ICEqzeDUw=='  | sudo tee /rockwell/passwd

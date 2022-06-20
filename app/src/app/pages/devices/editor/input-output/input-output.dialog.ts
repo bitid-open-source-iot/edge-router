@@ -94,7 +94,8 @@ export class InputOutputDialog implements OnInit, OnDestroy {
         readable: new FormControl(this.config.io?.readable),
         interface: new FormControl(this.config.io?.interface),
         writeable: new FormControl(this.config.io?.writeable),
-        description: new FormControl(this.config.io?.description, [Validators.required])
+        description: new FormControl(this.config.io?.description, [Validators.required]),
+        cofs: new FormControl(this.config.io?.cofs)
     });
     public errors: any = {
         scaling: {
@@ -139,7 +140,8 @@ export class InputOutputDialog implements OnInit, OnDestroy {
         readable: '',
         interface: '',
         writeable: '',
-        description: ''
+        description: '',
+        cofs: ''
     };
     public registers: string[] = [
         'hr2',

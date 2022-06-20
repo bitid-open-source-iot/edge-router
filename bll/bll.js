@@ -69,6 +69,10 @@ var module = function () {
                         deviceId: __settings.deviceId,
                         apn: __settings.apn,
                         txtime: __settings.txtime,
+                        host: __settings.server.host,
+                        port: __settings.server.port,
+                        username: __settings.server.username,
+                        password: __settings.server.password,
                     }]
                     if (args.result.length > 0) {
                         __responder.success(req, res, args.result);
@@ -102,6 +106,11 @@ var module = function () {
                     __settings.deviceId = args.req.body.deviceId || '0'
                     __settings.apn = args.req.body.apn || ''
                     __settings.txtime = args.req.body.txtime || 900
+                    __settings.server.host = args.req.body.host || ''
+                    __settings.server.port = args.req.body.port || 1888
+                    __settings.server.username = args.req.body.username || ''
+                    __settings.server.password = args.req.body.password || ''
+
                     args.result.n++
                     if (args.result.n > 0) {
                         const saved = await SaveConfig(__settings);

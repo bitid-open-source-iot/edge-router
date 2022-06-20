@@ -38,8 +38,8 @@
                     Barcode
                 </mat-label>
 
-                <input matInput type="text" minlength="1" maxlength="24" placeholder="Barcode"
-                    formControlName="barcode" required>
+                <input matInput type="text" minlength="1" maxlength="24" placeholder="Barcode" formControlName="barcode"
+                    required>
 
                 <mat-error *ngIf="errors.barcode">
                     {{ errors.barcode }}
@@ -70,8 +70,7 @@
                     Tx Time
                 </mat-label>
 
-                <input matInput type="number"  placeholder="Tx Time"
-                    formControlName="txtime" required>
+                <input matInput type="number" placeholder="Tx Time" formControlName="txtime" required>
 
                 <mat-error *ngIf="errors.txtime">
                     {{ errors.txtime }}
@@ -80,49 +79,111 @@
 
         </section>
 
+        <div formGroupName="server">
+            <section>
+                <mat-form-field appearance="outline">
+                    <mat-label>
+                        host
+                    </mat-label>
+
+                    <input matInput type="text" placeholder="host" formControlName="host" required>
+
+                    <mat-error *ngIf="errors.server.host">
+                        {{ errors.server.host }}
+                    </mat-error>
+                </mat-form-field>
+            </section>
+            <section>
+                <mat-form-field appearance="outline">
+                    <mat-label>
+                        port
+                    </mat-label>
+
+                    <input matInput type="number" placeholder="port" formControlName="port" required>
+
+                    <mat-error *ngIf="errors.server.port">
+                        {{ errors.server.port }}
+                    </mat-error>
+                </mat-form-field>
+            </section>
+
+            <section>
+                <mat-form-field appearance="outline">
+                    <mat-label>
+                        username
+                    </mat-label>
+
+                    <input matInput type="text" placeholder="username" formControlName="username" required>
+
+                    <mat-error *ngIf="errors.server.username">
+                        {{ errors.server.username }}
+                    </mat-error>
+                </mat-form-field>
+            </section>
+
+            <section>
+                <mat-form-field appearance="outline">
+                    <mat-label>
+                        password
+                    </mat-label>
+
+                    <input matInput type="text" placeholder="password" formControlName="password" required>
+
+                    <mat-error *ngIf="errors.server.password">
+                        {{ errors.server.password }}
+                    </mat-error>
+                </mat-form-field>
+            </section>
+
+
+        </div>
+
+
+
 
         <button #button type="submit" style="display: none;"></button>
     </form>
 
 
-    <section>
+    <!-- <section>
 
         <form [formGroup]="formCommand" (ngSubmit)="!loading && submit_command()">
-   
+
             <section>
                 <mat-form-field appearance="outline">
                     <mat-label>
                         Command
                     </mat-label>
-    
+
                     <input matInput type="text" minlength="1" maxlength="24000" placeholder="Command"
                         formControlName="command">
-  
+
                 </mat-form-field>
-    
+
             </section>
-    
+
             <section>
                 <mat-form-field appearance="outline">
                     <mat-label>
                         Password
                     </mat-label>
-    
+
                     <input matInput type="password" minlength="1" maxlength="24" placeholder="Password"
                         formControlName="password">
-    
+
                 </mat-form-field>
-    
+
             </section>
-    
+
             <button #button_command type="submit" style="display: none;"></button>
         </form>
-    
+
 
         <button type="button" color="primary" mat-flat-button (click)="button_command.click()">
             command
         </button>
-    </section>
+    </section> -->
+
 
 </mat-content>
 

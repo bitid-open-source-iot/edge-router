@@ -119,7 +119,7 @@ module.exports = class extends EventEmitter {
 
                         if (this.values.map(o => o.inputId).includes(item.inputId)) {
                             this.values.map(o => {
-                                if (o.inputId == item.inputId && o.value != regValue) {
+                                if (o.inputId == item.inputId && o.value != regValue && (Math.abs(parseFloat(o.value - regValue)) >= parseFloat(item.cofs) || parseFloat(item.cofs) == -1)) {
                                     change = true;
                                     o.value = regValue;
                                 };
