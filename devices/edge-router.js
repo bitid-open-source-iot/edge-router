@@ -53,11 +53,21 @@ module.exports = class extends EventEmitter {
         this.deviceId = args.deviceId;
 
         this.cofs = new COFS()
+        this.arrInterval = []
 
-        this.fixedTransmit = setInterval(() => this.transmit(), this.txtime * 1000);
-        clearInterval(this.fixedTransmit)
+        this.fixedTransmit = 
+            setInterval(()=>{
+                this.transmit()
+            }, this.txtime * 60000)
 
         this.connect();
+    }
+
+    removeIntervals(){
+        this.arrInterval.map(o=>{
+            clearInterval(o)
+        })
+        this.arrInterval = []
     }
 
     updateDeviceInputsThenActionMapping(deviceId, inputs) {
@@ -199,6 +209,7 @@ module.exports = class extends EventEmitter {
     }
 
     async connect() {
+        let self = this
         this.status = 'connecting';
 
         __logger.info('Edge Router - Connecting to socket!');
@@ -218,7 +229,7 @@ module.exports = class extends EventEmitter {
         });
 
         this.mqtt.on('close', () => {
-            clearInterval(this.fixedTransmit)
+            this.removeIntervals()
             this.status = 'disconnected';
             __logger.error('Edge Router - Socket closed!');
         });
@@ -261,9 +272,9 @@ module.exports = class extends EventEmitter {
             setTimeout(()=>{
                 this.transmit();
             },10000)
-
-            clearInterval(this.fixedTransmit)
-            this.fixedTransmit
+            
+            this.removeIntervals()
+            this.arrInterval.push(this.fixedTransmit)
         });
 
         this.mqtt.on('message', async (topic, message) => {
