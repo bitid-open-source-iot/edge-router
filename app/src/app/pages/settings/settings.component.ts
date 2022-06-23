@@ -27,6 +27,7 @@ export class SettingsComponent implements OnInit {
     deviceId: new FormControl('', [Validators.required]),
     apn: new FormControl(null),
     txtime: new FormControl(null),
+    publishEnabled: new FormControl(true),
     server: new FormGroup({
       host: new FormControl('', [Validators.required]),
       port: new FormControl('', [Validators.required]),
@@ -45,6 +46,7 @@ export class SettingsComponent implements OnInit {
     deviceId: '',
     apn: '',
     txtime: '',
+    publishEnabled: '',
     server:{
       host: '',
       port: '',
@@ -75,6 +77,7 @@ export class SettingsComponent implements OnInit {
       this.form.controls['deviceId'].setValue(response.result[0].deviceId);
       this.form.controls['apn'].setValue(response.result[0].apn);
       this.form.controls['txtime'].setValue(response.result[0].txtime);
+      this.form.controls['publishEnabled'].setValue(response.result[0].publishEnabled);
 
       (this.form.controls['server'] as FormGroup).controls['host'].setValue(response.result[0].host);
       (this.form.controls['server'] as FormGroup).controls['port'].setValue(response.result[0].port);
@@ -96,6 +99,7 @@ export class SettingsComponent implements OnInit {
       deviceId: this.form.value.deviceId,
       apn: this.form.value.apn,
       txtime: this.form.value.txtime,
+      publishEnabled: this.form.value.publishEnabled,
       host: this.form.controls['server'].value.host,
       port: this.form.controls['server'].value.port,
       username: this.form.controls['server'].value.username,

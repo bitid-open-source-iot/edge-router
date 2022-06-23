@@ -69,6 +69,7 @@ var module = function () {
                         deviceId: __settings.deviceId,
                         apn: __settings.apn,
                         txtime: __settings.txtime,
+                        publishEnabled: __settings.publishEnabled,
                         host: __settings.server.host,
                         port: __settings.server.port,
                         username: __settings.server.username,
@@ -106,6 +107,7 @@ var module = function () {
                     __settings.deviceId = args.req.body.deviceId || '0'
                     __settings.apn = args.req.body.apn || ''
                     __settings.txtime = args.req.body.txtime || 900
+                    __settings.publishEnabled = args.req.body.publishEnabled
                     __settings.server.host = args.req.body.host || ''
                     __settings.server.port = args.req.body.port || 1888
                     __settings.server.username = args.req.body.username || ''

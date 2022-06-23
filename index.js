@@ -416,7 +416,7 @@ try {
                     switch (o.type) {
                         case ('modbus'):
                             var device = new Modbus(o);
-                            device.on('change', event => __router.updateDeviceInputsThenActionMapping(device.deviceId, event));
+                            device.on('change', async event => await __router.updateDeviceInputsThenActionMapping(device.deviceId, event));
                             __devices.push(device);
                             break;
                         case ('kGateway'):

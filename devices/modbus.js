@@ -12,6 +12,7 @@ module.exports = class extends EventEmitter {
 
         if (args !== null) {
             this.io = args.io;
+            this.commsStatus = 1
             // this.mapping = __settings.mapping
             this.ip = args.ip;
             this.port = args.port;
@@ -91,12 +92,14 @@ module.exports = class extends EventEmitter {
         if (this.controller.stream.online) {
             __logger.info(`ModBus - Connected! ${this.description} - ${this.ip}`);
             this.status = 'connected';
+            this.commsStatus = 1
             // setInterval(()=>{
             //     this.write('62a70e5e66fda18220294fd2', 1)
             // },5000)
         } else {
             __logger.error(`ModBus - Disconnected! ${this.ip}, ${this.port}, ${this.unitId} `);
             this.status = 'disconnected';
+            this.commsStatus = 0
         };
     }
 
@@ -109,12 +112,17 @@ module.exports = class extends EventEmitter {
                 var deferred = Q.defer();
 
                 try {
-                    if (item.readable) {
+                    if (item.readable || (item.description == 'comms')) {
                         let regValue
-                        if(item.modbus?.isCoil == true){
-                            regValue = await this.controller.read(['c', item.register].join(''))
+                        if(item.description != 'comms'){
+                            if(item.modbus?.isCoil == true){
+                                regValue = await this.controller.read(['c', item.register].join(''))
+                            }else{
+                                regValue = await this.controller.read(['hr', item.register].join(''))
+                            }
                         }else{
-                            regValue = await this.controller.read(['hr', item.register].join(''))
+                            await this.wait(200);
+                            regValue = this.commsStatus
                         }
 
                         if (this.values.map(o => o.inputId).includes(item.inputId)) {
@@ -135,12 +143,10 @@ module.exports = class extends EventEmitter {
                         if (this.values.map(o => o.inputId).includes(item.inputId)) {
                             this.values.map(o => {
                                 if (o.inputId == item.inputId) {
-                                    // change = true;
                                     o.value = 0;
                                 };
                             });
                         } else {
-                            // change = true;
                             this.values.push({
                                 value: 0,
                                 inputId: item.inputId
@@ -243,17 +249,14 @@ module.exports = class extends EventEmitter {
                     await this.controller.write(['hr', io.register].join(''), value);
                 }
                 this.busy = false
-                console.log('resolved1')
                 await this.safeRead()
                 deferred.resolve({})
             } else {
-                console.log('resolved2')
                 console.error('error writing to modbus')
                 __logger.error(`Modbus - write Error! ${this.description} - ${this.ip}`);
                 deferred.resolve({})
             }
         }catch(e){
-            console.log('resolved3')
             __logger.error(`modbus error ${this.description}`)
             deferred.resolve({})
         }

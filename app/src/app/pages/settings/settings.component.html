@@ -79,6 +79,28 @@
 
         </section>
 
+        <section>
+            <mat-form-field appearance="outline">
+                <mat-label>
+                    Publish
+                </mat-label>
+
+                <mat-select placeholder="publish" formControlName="publishEnabled" required>
+                    <mat-option [value]="true">
+                        Enabled
+                    </mat-option>
+                    <mat-option [value]="false">
+                        Disabled
+                    </mat-option>
+                </mat-select>
+
+                <mat-error *ngIf="errors.publishEnabled">
+                    {{ errors.publishEnabled }}
+                </mat-error>
+            </mat-form-field>
+
+        </section>
+
         <div formGroupName="server">
             <section>
                 <mat-form-field appearance="outline">

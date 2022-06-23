@@ -54,43 +54,61 @@ module.exports = class extends EventEmitter {
 
         this.cofs = new COFS()
         this.arrInterval = []
+        this.arrTimeouts = []
 
-        this.fixedTransmit = 
-            setInterval(()=>{
+        this.fixedTransmit =
+            setInterval(() => {
                 this.transmit()
-            }, this.txtime * 60000)
+            }, this.txtime * 6000, 500)
 
+        this.sendOnce = setTimeout(this.tmrSendOnce, 5000)
+
+        this.clearArrTimeouts()
+
+        this.test = setInterval(() => {
+            console.log(this.arrTimeouts.length)
+        }, 1000);
         this.connect();
     }
 
-    removeIntervals(){
-        this.arrInterval.map(o=>{
+    async tmrSendOnce(){
+        if(this.arrTimeouts.length > 0){
+            this.cofs.send()
+        }
+    }
+
+    removeIntervals() {
+        this.arrInterval.map(o => {
             clearInterval(o)
         })
         this.arrInterval = []
     }
 
     updateDeviceInputsThenActionMapping(deviceId, inputs) {
-        __devices.reduce((promise,device)=>{
-            return promise.then(()=>{
-                if(device.deviceId == deviceId){
-                    device.io.reduce((promise,io)=>{
-                        return promise.then(()=>{
-                            inputs.map(ip=>{
-                                if (io.inputId == ip.inputId) {
-                                    io.value = ip.value
-                                }
-                            })
+        __devices.reduce((promise, device) => {
+            return promise.then(() => {
+                if (device.deviceId == deviceId) {
+                    device.io.reduce((promise, io) => {
+                        return promise.then(() => {
+                            inputs.reduce((promise, ip) => {
+                                return promise.then(() => {
+                                    if (io.inputId == ip.inputId) {
+                                        io.value = ip.value
+                                    }
+
+                                })
+                            }, Promise.resolve())
                         })
                     }, Promise.resolve())
                 }
             })
         }, Promise.resolve())
-        .then(()=>{
-            __router.mapping(deviceId, inputs)
-        })
+            .then(() => {
+                __router.mapping(deviceId, inputs)
+            })
 
     }
+
 
     async mapping(deviceId, inputs) {
         var deferred = Q.defer()
@@ -115,8 +133,8 @@ module.exports = class extends EventEmitter {
                                 };
 
 
-                                await __devices.reduce((promise,device) => {
-                                    return promise.then(async()=>{
+                                await __devices.reduce((promise, device) => {
+                                    return promise.then(async () => {
                                         var deferred = Q.defer()
                                         if (item.destination.deviceId == device.deviceId) {
                                             let deviceCurrentState = null;
@@ -125,20 +143,20 @@ module.exports = class extends EventEmitter {
 
 
                                                 await device.values.reduce((promise, dv) => {
-                                                    return promise.then(async() => {
+                                                    return promise.then(async () => {
                                                         var deferred = Q.defer()
                                                         if (dv.inputId == item.destination.inputId) {
                                                             deviceCurrentState = dv.value;
                                                         };
                                                         deferred.resolve({})
                                                         return deferred.promise
-    
+
                                                     })
                                                 }, Promise.resolve())
-                                                .then(()=>{
-                                                    deferred.resolve({})
-                                                })
-                            
+                                                    .then(() => {
+                                                        deferred.resolve({})
+                                                    })
+
                                                 let dontTouchVal = 0
                                                 maskDestinationValue = maskSourceValue & item.destination.mask;
                                                 if ((deviceCurrentState & item.destination.mask > 0) && deviceCurrentState != -1) {
@@ -158,31 +176,31 @@ module.exports = class extends EventEmitter {
                                             // await this.wait(100)
                                             await device.write(item.destination.inputId, maskDestinationValue);
                                             deferred.resolve({})
-                                        }else{
+                                        } else {
                                             deferred.resolve({})
                                         }
                                         return deferred.promise
                                     })
                                 }, Promise.resolve())
-                                .then(()=>{
-                                    deferred.resolve({})
-                                })
+                                    .then(() => {
+                                        deferred.resolve({})
+                                    })
 
-                            }else{
+                            } else {
                                 deferred.resolve({})
                             }
 
                             return deferred.promise
 
                         }, Promise.resolve())
-                        .then(()=>{
+                            .then(() => {
+                                deferred.resolve({})
+                            })
+
+                    }, Promise.resolve())
+                        .then(() => {
                             deferred.resolve({})
                         })
-    
-                    }, Promise.resolve())
-                    .then(()=>{
-                        deferred.resolve({})
-                    })
 
 
                 };
@@ -191,14 +209,32 @@ module.exports = class extends EventEmitter {
                 return deferred.promise
             })
         }, Promise.resolve())
-        .then(async ()=>{
-            await this.cofs.applyCOFSServer()
-            await this.cofs.send()
-            deferred.resolve({})
-        })
+            .then(async () => {
+                await this.cofs.applyCOFSServer()
+                // await this.cofs.send()
+                await this.clearArrTimeouts()
+                this.arrTimeouts.push(this.sendOnce)
+                deferred.resolve({})
+            })
 
         return deferred.promise
     }
+
+    clearArrTimeouts() {
+        var deferred = Q.defer()
+        this.arrTimeouts.reduce((promise, o) => {
+            return promise.then(() => {
+                clearTimeout(o)
+            })
+        }, Promise.resolve())
+            .then(() => {
+                this.arrTimeouts = []
+                deferred.resolve()
+            })
+        return deferred.promise
+    }
+
+
 
     async wait(args) {
         var deferred = Q.defer();
@@ -269,10 +305,10 @@ module.exports = class extends EventEmitter {
 
             __logger.info('Edge Router - Starting transmit loop!');
 
-            setTimeout(()=>{
+            setTimeout(() => {
                 this.transmit();
-            },10000)
-            
+            }, 10000)
+
             this.removeIntervals()
             this.arrInterval.push(this.fixedTransmit)
         });
