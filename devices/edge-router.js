@@ -59,23 +59,18 @@ module.exports = class extends EventEmitter {
         this.fixedTransmit =
             setInterval(() => {
                 this.transmit()
-            }, this.txtime * 6000, 500)
+            }, this.txtime * 60000)
 
-        this.sendOnce = setTimeout(this.tmrSendOnce, 5000)
+        this.sendOnce // = setTimeout(()=>this.cofs.send(), 5000)
 
-        this.clearArrTimeouts()
+        // this.clearArrTimeouts()
 
-        this.test = setInterval(() => {
-            console.log(this.arrTimeouts.length)
-        }, 1000);
         this.connect();
     }
 
-    async tmrSendOnce(){
-        if(this.arrTimeouts.length > 0){
-            this.cofs.send()
-        }
-    }
+    // async tmrSendOnce(self){
+    //             return null
+    // }
 
     removeIntervals() {
         this.arrInterval.map(o => {
@@ -212,27 +207,32 @@ module.exports = class extends EventEmitter {
             .then(async () => {
                 await this.cofs.applyCOFSServer()
                 // await this.cofs.send()
-                await this.clearArrTimeouts()
-                this.arrTimeouts.push(this.sendOnce)
+                // await this.clearArrTimeouts()
+                // this.arrTimeouts.push(this.sendOnce())
+                if(this.sendOnce){
+                    clearTimeout(this.sendOnce)
+                    this.sendOnce = null
+                }
+                this.sendOnce = setTimeout(()=>this.cofs.send(), 5000)
                 deferred.resolve({})
             })
 
         return deferred.promise
     }
 
-    clearArrTimeouts() {
-        var deferred = Q.defer()
-        this.arrTimeouts.reduce((promise, o) => {
-            return promise.then(() => {
-                clearTimeout(o)
-            })
-        }, Promise.resolve())
-            .then(() => {
-                this.arrTimeouts = []
-                deferred.resolve()
-            })
-        return deferred.promise
-    }
+    // clearArrTimeouts() {
+    //     var deferred = Q.defer()
+    //     this.arrTimeouts.reduce((promise, o) => {
+    //         return promise.then(() => {
+    //             clearTimeout(o)
+    //         })
+    //     }, Promise.resolve())
+    //         .then(() => {
+    //             this.arrTimeouts = []
+    //             deferred.resolve()
+    //         })
+    //     return deferred.promise
+    // }
 
 
 
@@ -305,9 +305,9 @@ module.exports = class extends EventEmitter {
 
             __logger.info('Edge Router - Starting transmit loop!');
 
-            setTimeout(() => {
-                this.transmit();
-            }, 10000)
+            // setTimeout(() => {
+            //     this.transmit();
+            // }, 10000)
 
             this.removeIntervals()
             this.arrInterval.push(this.fixedTransmit)
@@ -351,10 +351,11 @@ module.exports = class extends EventEmitter {
     async transmit() {
         if (this.mqtt?.connected && this.publishEnabled) {
             __logger.info('Edge Router - Transmitting data to socket!')
-            this.data.rtuId = this.deviceId;
-            this.data.barcode = this.barcode;
-            this.data.dataIn.IP = this.ip;
-            this.publish(this.data);
+            // this.data.rtuId = this.deviceId;
+            // this.data.barcode = this.barcode;
+            // this.data.dataIn.IP = this.ip;
+            this.cofs.send()
+            // this.publish(this.data);
         } else {
             // __logger.warn('Edge Router - Trying to transmit even though socket not connected!');
         };

@@ -443,10 +443,7 @@ try {
                         const pxtime = (device.pxtime ? device.pxtime : 120) * 1000;
                         __logger.info('Starting publish every ' + device.pxtime + ' seconds!');
 
-                        await cofs.send(device.deviceId);
-
-                        // setInterval(async () => await cofs.send(device.deviceId), pxtime); Fred
-                        // setInterval(async () => await send(device.deviceId), 10000);
+                        // await cofs.send(device.deviceId);
                     });
                 });
 
