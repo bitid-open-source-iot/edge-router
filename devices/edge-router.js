@@ -56,27 +56,11 @@ module.exports = class extends EventEmitter {
         this.arrInterval = []
         this.arrTimeouts = []
 
-        this.fixedTransmit =
-            setInterval(() => {
-                this.transmit()
-            }, this.txtime * 60000)
+        this.fixedTransmit
 
-        this.sendOnce // = setTimeout(()=>this.cofs.send(), 5000)
-
-        // this.clearArrTimeouts()
+        this.sendOnce
 
         this.connect();
-    }
-
-    // async tmrSendOnce(self){
-    //             return null
-    // }
-
-    removeIntervals() {
-        this.arrInterval.map(o => {
-            clearInterval(o)
-        })
-        this.arrInterval = []
     }
 
     updateDeviceInputsThenActionMapping(deviceId, inputs) {
@@ -206,9 +190,6 @@ module.exports = class extends EventEmitter {
         }, Promise.resolve())
             .then(async () => {
                 await this.cofs.applyCOFSServer()
-                // await this.cofs.send()
-                // await this.clearArrTimeouts()
-                // this.arrTimeouts.push(this.sendOnce())
                 if(this.sendOnce){
                     clearTimeout(this.sendOnce)
                     this.sendOnce = null
@@ -219,22 +200,6 @@ module.exports = class extends EventEmitter {
 
         return deferred.promise
     }
-
-    // clearArrTimeouts() {
-    //     var deferred = Q.defer()
-    //     this.arrTimeouts.reduce((promise, o) => {
-    //         return promise.then(() => {
-    //             clearTimeout(o)
-    //         })
-    //     }, Promise.resolve())
-    //         .then(() => {
-    //             this.arrTimeouts = []
-    //             deferred.resolve()
-    //         })
-    //     return deferred.promise
-    // }
-
-
 
     async wait(args) {
         var deferred = Q.defer();
@@ -265,12 +230,12 @@ module.exports = class extends EventEmitter {
         });
 
         this.mqtt.on('close', () => {
-            this.removeIntervals()
+            // this.removeIntervals()
             this.status = 'disconnected';
             __logger.error('Edge Router - Socket closed!');
         });
 
-        this.mqtt.on('connect', () => {
+        this.mqtt.on('connect', async () => {
             this.emit('connected');
 
             this.status = 'connected';
@@ -305,12 +270,13 @@ module.exports = class extends EventEmitter {
 
             __logger.info('Edge Router - Starting transmit loop!');
 
-            // setTimeout(() => {
-            //     this.transmit();
-            // }, 10000)
-
-            this.removeIntervals()
-            this.arrInterval.push(this.fixedTransmit)
+            if(this.fixedTransmit){
+                clearInterval(this.fixedTransmit)
+                this.fixedTransmit = null
+            }
+            this.fixedTransmit = setInterval(() => {
+                this.transmit()
+            }, this.txtime * 60000)
         });
 
         this.mqtt.on('message', async (topic, message) => {
@@ -351,11 +317,7 @@ module.exports = class extends EventEmitter {
     async transmit() {
         if (this.mqtt?.connected && this.publishEnabled) {
             __logger.info('Edge Router - Transmitting data to socket!')
-            // this.data.rtuId = this.deviceId;
-            // this.data.barcode = this.barcode;
-            // this.data.dataIn.IP = this.ip;
             this.cofs.send()
-            // this.publish(this.data);
         } else {
             // __logger.warn('Edge Router - Trying to transmit even though socket not connected!');
         };
