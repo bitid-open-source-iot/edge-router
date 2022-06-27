@@ -194,7 +194,7 @@ module.exports = class extends EventEmitter {
                     clearTimeout(this.sendOnce)
                     this.sendOnce = null
                 }
-                this.sendOnce = setTimeout(()=>this.cofs.send(), 5000)
+                this.sendOnce = setTimeout(()=>this.cofs.send(), 10000)
                 deferred.resolve({})
             })
 
