@@ -163,6 +163,12 @@ class kGateway {
         return deferred.promise
     }
 
+    async forceCOFS(){
+        /**
+         * All devices need to have this function to conform. Not used for this device.
+         */
+    }
+
     async processData(args) {
         let deferred = Q.defer()
         let self = this

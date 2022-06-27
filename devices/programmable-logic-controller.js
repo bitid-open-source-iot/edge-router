@@ -133,6 +133,13 @@ module.exports = class extends EventEmitter {
             });
     }
 
+    async forceCOFS(){
+        /**
+         * All devices need to have this function to conform. Not used for this device.
+         */
+    }
+
+
     async connect() {
         this.status = 'connecting';
 

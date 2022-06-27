@@ -171,6 +171,9 @@ module.exports = class extends EventEmitter {
             });
     }
 
+    async forceCOFS(){
+        this.forceChange = true
+    }
 
     async readOld() {
         let change = false

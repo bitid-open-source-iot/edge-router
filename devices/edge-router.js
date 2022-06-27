@@ -275,7 +275,8 @@ module.exports = class extends EventEmitter {
                 this.fixedTransmit = null
             }
             this.fixedTransmit = setInterval(() => {
-                this.transmit()
+                // this.transmit()
+                __devices.map(d=> d.forceCOFS())
             }, this.txtime * 60000)
         });
 
