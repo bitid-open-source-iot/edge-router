@@ -62,7 +62,7 @@ module.exports = class extends EventEmitter {
 
         this.connect();
 
-        this.init
+        this.init()
     }
 
     init(){
