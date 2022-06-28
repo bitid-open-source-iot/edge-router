@@ -12,7 +12,7 @@ module.exports = class extends EventEmitter {
 
         if (args !== null) {
             this.io = args.io;
-            this.commsStatus = 1
+            this.commsStatus = 0
             // this.mapping = __settings.mapping
             this.ip = args.ip;
             this.port = args.port;

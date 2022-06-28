@@ -61,6 +61,14 @@ module.exports = class extends EventEmitter {
         this.sendOnce
 
         this.connect();
+
+        this.init
+    }
+
+    init(){
+        this.fixedTransmit = setInterval(() => {
+            __devices.map(d=> d.forceCOFS())
+        }, this.txtime * 60000)
     }
 
     updateDeviceInputsThenActionMapping(deviceId, inputs) {
@@ -270,14 +278,15 @@ module.exports = class extends EventEmitter {
 
             __logger.info('Edge Router - Starting transmit loop!');
 
-            if(this.fixedTransmit){
-                clearInterval(this.fixedTransmit)
-                this.fixedTransmit = null
-            }
-            this.fixedTransmit = setInterval(() => {
-                // this.transmit()
-                __devices.map(d=> d.forceCOFS())
-            }, this.txtime * 60000)
+
+            // if(this.fixedTransmit){
+            //     clearInterval(this.fixedTransmit)
+            //     this.fixedTransmit = null
+            // }
+            // this.fixedTransmit = setInterval(() => {
+            //     // this.transmit()
+            //     __devices.map(d=> d.forceCOFS())
+            // }, this.txtime * 60000)
         });
 
         this.mqtt.on('message', async (topic, message) => {
