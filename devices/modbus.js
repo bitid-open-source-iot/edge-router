@@ -32,6 +32,8 @@ module.exports = class extends EventEmitter {
 
             this.forceChange = true
             this.busy = false
+            this.busyCountSP = 3
+            this.busyCount = this.busyCountSP
   
 
 
@@ -66,17 +68,20 @@ module.exports = class extends EventEmitter {
     async safeRead(){
         var deferred = Q.defer()
         try{
-            if(this.busy == false){
+            this.busyCount--
+            if(this.busy == false || this.busyCount <= 0){
                 this.busy = true
+                this.busyCount = this.busyCountSP
                 await this.read();
                 this.busy = false
+                deferred.resolve({})
+            }else{
+                deferred.resolve({})
             }
-            deferred.resolve({})
         }catch(e){
             this.busy = false
             deferred.resolve({})
         }
-
         return deferred.promise
     }
 

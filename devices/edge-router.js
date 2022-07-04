@@ -67,7 +67,11 @@ module.exports = class extends EventEmitter {
 
     init(){
         this.fixedTransmit = setInterval(() => {
-            __devices.map(d=> d.forceCOFS())
+            try{
+                __devices.map(d=> d.forceCOFS())
+            }catch(e){
+                console.error('fixedTransmit Error', e)
+            }
         }, this.txtime * 60000)
     }
 
