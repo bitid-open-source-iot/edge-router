@@ -32,8 +32,6 @@ module.exports = class extends EventEmitter {
 
             this.forceChange = true
             this.busy = false
-            this.busyCountSP = 3
-            this.busyCount = this.busyCountSP
   
 
 
@@ -52,7 +50,9 @@ module.exports = class extends EventEmitter {
                     await this.safeRead()
                 } else if (this.status == 'connecting') {
                     // do nothing
+                    this.busy = false
                 } else if (this.status == 'disconnected') {
+                    this.busy = false
                     await this.connect();
                 };
             }, this.txtime * 1000);
@@ -68,10 +68,8 @@ module.exports = class extends EventEmitter {
     async safeRead(){
         var deferred = Q.defer()
         try{
-            this.busyCount--
-            if(this.busy == false || this.busyCount <= 0){
+            if(this.busy == false){
                 this.busy = true
-                this.busyCount = this.busyCountSP
                 await this.read();
                 this.busy = false
                 deferred.resolve({})
@@ -180,44 +178,6 @@ module.exports = class extends EventEmitter {
         this.forceChange = true
     }
 
-    async readOld() {
-        let change = false
-        this.io.reduce((promise, o) => promise.then(async () => {
-            var deferred = Q.defer();
-
-            if (typeof (o.register) != 'undefined' && o.register !== null) {
-                try {
-                    await this.wait(100);
-                    try {
-                        let regValue = await this.controller.read(['hr', o.register].join(''))
-                        if (regValue != o.value) {
-                            change = true
-                            o.value = regValue
-                        }
-                    } catch (e) {
-                        console.error(e)
-                    }
-
-                    deferred.resolve();
-                } catch (error) {
-                    console.error(error);
-                    console.error(`error writing to ${this.ip} register: ${['hr', o.register].join('')}`);
-                    deferred.resolve();
-                };
-            } else {
-                deferred.resolve();
-            };
-
-            return deferred.promise;
-        }), Promise.resolve())
-            .then(() => {
-                this.emit('data', this.values);
-                if (change) {
-                    this.emit('change', this.values);
-                };
-            });
-
-    }
 
     async wait(args) {
         var deferred = Q.defer();
@@ -246,25 +206,31 @@ module.exports = class extends EventEmitter {
 
 
         try{
-            let io = this.io.find(o => o.inputId == inputId)
-            if (io) {
-                await this.waitForBusyFalse()
-                await this.wait(50)
-                console.log(inputId, value)
-                if(io.modbus?.isCoil == true){
-                    await this.controller.write(['c', io.register].join(''), value);
-                }else{
-                    await this.controller.write(['hr', io.register].join(''), value);
+            if (this.status == 'connected') {
+                let io = this.io.find(o => o.inputId == inputId)
+                if (io) {
+                    await this.waitForBusyFalse()
+                    await this.wait(50)
+                    console.log(inputId, value)
+                    if(io.modbus?.isCoil == true){
+                        await this.controller.write(['c', io.register].join(''), value);
+                    }else{
+                        await this.controller.write(['hr', io.register].join(''), value);
+                    }
+                    this.busy = false
+                    await this.safeRead()
+                    deferred.resolve({})
+                } else {
+                    console.error('error writing to modbus')
+                    __logger.error(`Modbus - write Error! ${this.description} - ${this.ip}`);
+                    deferred.resolve({})
                 }
-                this.busy = false
-                await this.safeRead()
-                deferred.resolve({})
-            } else {
-                console.error('error writing to modbus')
-                __logger.error(`Modbus - write Error! ${this.description} - ${this.ip}`);
+            }else{
+                __logger.error(`Modbus - write Error. Device not connected! ${this.description} - ${this.ip}`);
                 deferred.resolve({})
             }
         }catch(e){
+            this.busy = false
             __logger.error(`modbus error ${this.description}`)
             deferred.resolve({})
         }
