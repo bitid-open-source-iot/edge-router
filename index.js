@@ -251,7 +251,7 @@ try {
                         if (device.deviceId == event?.rtuId || device.deviceId == event?.deviceId) {
                             device.io.map(input => {
                                 if (input.moduleId == event.moduleId) {
-                                    device.write(input.inputId, event.value)
+                                    // device.write(input.inputId, event.value)
                                 }
                             })
                         }

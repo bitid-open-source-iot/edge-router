@@ -46,6 +46,10 @@ module.exports = class extends EventEmitter {
 
 
             setInterval(async () => {
+                if(this.controller.stream.online == false){
+                    console.error('caught offline')
+                    this.status = 'disconnected'
+                }
                 if (this.status == 'connected') {
                     await this.safeRead()
                 } else if (this.status == 'connecting') {
@@ -108,7 +112,7 @@ module.exports = class extends EventEmitter {
 
 
     async read() {
-        var change = this.forceChange;
+        var change = false;
 
         await this.io.reduce((promise, item) => {
             return promise.then(async () => {
@@ -128,9 +132,15 @@ module.exports = class extends EventEmitter {
                             regValue = this.commsStatus
                         }
 
+
                         if (this.values.map(o => o.inputId).includes(item.inputId)) {
                             this.values.map(o => {
-                                if ((o.inputId == item.inputId && o.value != regValue && (Math.abs(parseFloat(o.value - regValue)) >= parseFloat(item.cofs) || parseFloat(item.cofs) == -1)) || this.forceChange == true) {
+                                if(this.forceChange == true){
+                                    if (o.inputId == item.inputId){
+                                        change = true;
+                                        o.value = regValue;
+                                    }
+                                }else if (o.inputId == item.inputId && o.value != regValue && (Math.abs(parseFloat(o.value - regValue)) >= parseFloat(item.cofs) || parseFloat(item.cofs) == -1)) {
                                     change = true;
                                     o.value = regValue;
                                 };
