@@ -81,8 +81,25 @@ class kGateway {
 
                 for (let i = 0; i < self.arrTags.length; i++) {
                     if (self.arrTags[i].tagId == item.dmac) {
-                        lastTag = self.arrTags[i]
-                        break
+                        if(self.arrTags[i].routerId != item.routerId){
+                            let time = new Date().getTime()
+                            if((time - self.arrTags[i].time) < (self.tagFixedTxTime * 1000)){
+                                /**
+                                 * If there are tags bouncing between 2 readers due to overlap dont move the tag
+                                 * to the latest reader. Just keep it on the same one as they are so close together
+                                 * Without this we spam the server. 
+                                 *
+                                 */
+                                self.arrTags[i].routerId = item.routerId
+                            }
+                            lastTag = self.arrTags[i]
+                            break
+                        }else{
+                            lastTag = self.arrTags[i]
+                            break
+                        }
+                        
+                        
                     }
                 }
 
@@ -90,6 +107,7 @@ class kGateway {
                     // if(item.type == 8){
                     self.arrTags.push({
                         tagId: item.dmac,
+                        routerId: args.bitidDeviceId,
                         type: item.type,
                         temp: item.temp || 0,
                         vBatt: item.vbatt || 0,
@@ -126,7 +144,7 @@ class kGateway {
         let time = new Date().getTime()
         await self.arrTags.reduce(async (promise, item) => promise.then(async () => {
             return new Promise((resolve, reject) => {
-                if ((time - item.time > (self.tagFixedTxTime * 1000)) || item.bitidDeviceId != args.bitidDeviceId || item.forceTxToServer == true) {
+                if ((time - item.time > (self.tagFixedTxTime * 1000)) || item.routerId != args.routerId || item.forceTxToServer == true) {
                     item.forceTxToServer = false
                     if (time - item.time > (self.tagFixedTxTime * 1000)) {
                         if (__settings.debug == true) {
