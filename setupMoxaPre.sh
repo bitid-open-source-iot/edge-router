@@ -1,4 +1,8 @@
 #!/bin/bash
+
+sudo apt update
+sudo apt install curl -y
+
 set -e
 trap 'echo "[ERROR] Error in line $LINENO when executing: $BASH_COMMAND". Please fix the issue and run the script again.' ERR
 #

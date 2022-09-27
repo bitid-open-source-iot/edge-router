@@ -3,8 +3,11 @@
 
 echo "REMOVING DOCKER"
 
-sudo apt-get remove docker docker-engine docker.io containerd runc
+# sudo apt-get remove docker docker-engine docker.io containerd runc
 
+echo 'INSTALLING CURL'
+sudo apt update
+sudo apt install curl
 
 echo "INSTALLING DOCKER"
 
@@ -91,7 +94,7 @@ shanebowyer/edge-router:master
 
 
 
-echo 'while true; do eval "$(cat /pipe/mypipe)" &> output.txt; done' | sudo tee  /execpipe.sh
+# echo 'while true; do eval "$(cat /pipe/mypipe)" &> output.txt; done' | sudo tee  /execpipe.sh
 
 # sudo chmod +x /execpipe.sh
 

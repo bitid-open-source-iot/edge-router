@@ -10,8 +10,6 @@ echo "INSTALLING DOCKER"
 
 sudo apt-get update
 
-sudo apt install curl -y
-
 sudo apt install -y apt-transport-https ca-certificates curl gnupg2 software-properties-common
 
 sudo apt-get install -y \
@@ -22,16 +20,14 @@ sudo apt-get install -y \
 
 
 sudo mkdir -p /etc/apt/keyrings
-curl -fsSL https://download.docker.com/linux/debian/gpg | sudo gpg --batch --yes --dearmor -o /etc/apt/keyrings/docker.gpg
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /etc/apt/keyrings/docker.gpg
 
 echo \
-  "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/debian \
+  "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/ubuntu \
   $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
 
 
 sudo apt-get update
-
-sudo apt install curl
 
 # sudo apt-get install docker-ce docker-ce-cli containerd.io docker-compose-plugin
 sudo apt-get install -y docker-ce docker-ce-cli containerd.io
@@ -46,9 +42,7 @@ sudo gpasswd -a $USER docker
 #sudo su $USER
 # exec su -l $USER
 
-sudo mkdir /media/sd-mmcblk0p1/docker
-echo '{"data-root": "/media/sd-mmcblk0p1/docker", "experimental": true}' | sudo tee /etc/docker/daemon.json
-sudo systemctl restart docker.service
+
 
 echo "INSTALLING MOSQUITTO"
 
@@ -83,16 +77,16 @@ sudo wget "https://docs.google.com/uc?export=download&id=1LekZrj9igeA5klyyuCzl77
 # 	sudo mkfifo /pipe/mypipe
 # fi
 
-sudo docker pull --platform linux/arm/v7 shanebowyer/edge-router:master
+sudo docker pull --platform linux/arm64 shanebowyer/edge-router:master
 
 sudo docker run -d --restart always -p 8080:8080 \
 -v /edge-router/config.json:/usr/src/app/config.json \
 --network="host" \
---platform linux/arm/v7 shanebowyer/edge-router:master
+--platform linux/arm64 shanebowyer/edge-router:master
 
 
-echo 'ALL DONE'
 
+# echo 'ALL DONE'
 # while true; do eval "$(cat /pipe/mypipe)"; done
 
 

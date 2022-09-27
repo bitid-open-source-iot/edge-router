@@ -1,4 +1,8 @@
 #!/bin/bash
+echo 'installing git'
+sudo apt update
+sudo apt install git
+
 echo 'cloning cellular-keepalive from git'
 git clone https://github.com/Moxa-Linux/cellular-keepalive.git\
 && sudo mv cellular-keepalive/cellular-keepalive /usr/sbin/cellular-keepalive\
@@ -10,7 +14,7 @@ git clone https://github.com/Moxa-Linux/cellular-keepalive.git\
 
 echo 'setting apn to mobile.tech5.co.za and dialing up'
 sudo cell_mgmt set_apn mobile.tech5.co.za\
-&& sudo cell_mgmt start mobile.tech5.co.za
+&& sudo cell_mgmt start APN=mobile.tech5.co.za
 
 
 
