@@ -258,6 +258,43 @@ try {
                     })
                 })
 
+                __settings.devices.filter(o => o.enabled).map(o => {
+                    switch (o.type) {
+                        case ('modbus'):
+                            var device = new Modbus(o);
+                            device.on('change', async event => await __router.updateDeviceInputsThenActionMapping(device.deviceId, event));
+                            __devices.push(device);
+                            break;
+                        case ('kGateway'):
+                            var device = new KGATEWAY(o);
+                            __devices.push(device);
+                            break;
+                        case ('external'):
+                            var device = new External(o);
+                            __devices.push(device);
+                            break;
+                        case ('programmable-logic-controller'):
+                            var device = new ProgrammableLogicController(o);
+                            device.on('change', event => __router.updateDeviceInputsThenActionMapping(device.deviceId, event));
+                            __devices.push(device);
+                            break;
+                        default:
+                            __logger.warn('Device Type Not Found!')
+                            break;
+                    };
+                });
+
+                __router.on('connected', event => {
+                    __settings.devices.filter(o => o.publish === true).map(async (device) => {
+                        const pxtime = (device.pxtime ? device.pxtime : 120) * 1000;
+                        __logger.info('Starting publish every ' + device.pxtime + ' seconds!');
+
+                        // await cofs.send(device.deviceId);
+                    });
+                });
+
+
+
                 // setTimeout(() => {
                 //     __router.emit('control',
                 //         {
@@ -298,6 +335,9 @@ try {
                 //         }
                 //     )
                 // }, 5000)
+
+
+
 
                 __router.on('control', async event => {
                     var deferred = Q.defer()
@@ -410,41 +450,6 @@ try {
 
 
 
-                });
-
-                __settings.devices.filter(o => o.enabled).map(o => {
-                    switch (o.type) {
-                        case ('modbus'):
-                            var device = new Modbus(o);
-                            device.on('change', async event => await __router.updateDeviceInputsThenActionMapping(device.deviceId, event));
-                            __devices.push(device);
-                            break;
-                        case ('kGateway'):
-                            var device = new KGATEWAY(o);
-                            __devices.push(device);
-                            break;
-                        case ('external'):
-                            var device = new External(o);
-                            __devices.push(device);
-                            break;
-                        case ('programmable-logic-controller'):
-                            var device = new ProgrammableLogicController(o);
-                            device.on('change', event => __router.updateDeviceInputsThenActionMapping(device.deviceId, event));
-                            __devices.push(device);
-                            break;
-                        default:
-                            __logger.warn('Device Type Not Found!')
-                            break;
-                    };
-                });
-
-                __router.on('connected', event => {
-                    __settings.devices.filter(o => o.publish === true).map(async (device) => {
-                        const pxtime = (device.pxtime ? device.pxtime : 120) * 1000;
-                        __logger.info('Starting publish every ' + device.pxtime + ' seconds!');
-
-                        // await cofs.send(device.deviceId);
-                    });
                 });
 
                 deferred.resolve();
