@@ -88,7 +88,14 @@ sudo docker pull --platform linux/arm/v7 shanebowyer/edge-router:master
 sudo docker run -d --restart always -p 8080:8080 \
 -v /edge-router/config.json:/usr/src/app/config.json \
 --network="host" \
+--name edge-router \
 --platform linux/arm/v7 shanebowyer/edge-router:master
+
+
+sudo docker run -d --restart always -p 5002:5002 \
+--network="host" \
+--name modbus-blackbox \
+--platform linux/arm/v7 shanebowyer/modbus-blackbox:main
 
 
 echo 'ALL DONE'

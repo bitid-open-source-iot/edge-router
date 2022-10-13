@@ -58,18 +58,18 @@ module.exports = class extends EventEmitter {
 
         this.fixedTransmit
 
-        this.sendOnce
+        this.sendOnce = true
 
         this.connect();
 
         this.init()
     }
 
-    init(){
+    init() {
         this.fixedTransmit = setInterval(() => {
-            try{
-                __devices.map(d=> d.forceCOFS())
-            }catch(e){
+            try {
+                __devices.map(d => d.forceCOFS())
+            } catch (e) {
                 console.error('fixedTransmit Error', e)
             }
         }, this.txtime * 60000)
@@ -86,11 +86,18 @@ module.exports = class extends EventEmitter {
                                     if (io.inputId == ip.inputId) {
                                         io.value = ip.value
                                     }
-
                                 })
                             }, Promise.resolve())
                         })
-                    }, Promise.resolve())
+                    }, Promise.resolve()
+                        .then(() => {
+                            __socket.send('devices:data', {
+                                data: device.io,
+                                deviceId: device.deviceId
+                            });
+
+                        })
+                    )
                 }
             })
         }, Promise.resolve())
@@ -115,6 +122,7 @@ module.exports = class extends EventEmitter {
                     await inputs.reduce((promise, input) => {
                         return promise.then(async () => {
                             var deferred = Q.defer()
+
                             if (item.source.inputId == input.inputId) {
                                 var maskSourceValue = null;
                                 if (item.source.mask != -1) {
@@ -164,7 +172,6 @@ module.exports = class extends EventEmitter {
                                                     break;
                                                 };
                                             };
-                                            // await this.wait(100)
                                             await device.write(item.destination.inputId, maskDestinationValue);
                                             deferred.resolve({})
                                         } else {
@@ -202,11 +209,13 @@ module.exports = class extends EventEmitter {
         }, Promise.resolve())
             .then(async () => {
                 await this.cofs.applyCOFSServer()
-                if(this.sendOnce){
-                    clearTimeout(this.sendOnce)
-                    this.sendOnce = null
+                if (this.sendOnce) {
+                    this.sendOnce = setTimeout(() => {
+                        this.cofs.send()
+                        clearTimeout(this.sendOnce)
+                        this.sendOnce = null
+                    }, 200)
                 }
-                this.sendOnce = setTimeout(()=>this.cofs.send(), 10000)
                 deferred.resolve({})
             })
 
@@ -295,6 +304,8 @@ module.exports = class extends EventEmitter {
 
         this.mqtt.on('message', async (topic, message) => {
             console.log('topic', topic)
+            __byteLen += message.byteLength
+            console.log('__byteLen', __byteLen)
             switch (topic) {
                 case ('/rock/v1.1/data'):
                     this.emit('data', JSON.parse(message.toString()));
