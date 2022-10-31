@@ -286,96 +286,96 @@ try {
                     };
                 });
 
- 
 
-                let test = 0
-                setInterval(() => {
-                    test++
-                    console.log('test', test)
-                    __router.emit('control',
-                        {
-                            "rtuId": "632d78448a0f5177d6b60410",
-                            "moduleId": 0,
-                            "rtuDate": "2022-06-13T11:25:20.000Z",
-                            "raw": "%1 0210.035 250 9 1503319636 8 1536 1 0 0 0 0 0 0 0 0 0 0 0 0 21 4 0 3 0 5 0 0 125 68 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 > 43439 *",
-                            "dataIn": {
-                                "digitalsIn": "1024",
-                                "AI1": "0",
-                                "AI2": "0",
-                                "AI3": "0",
-                                "AI4": "0",
-                                "AIExt1": "0",
-                                "AIExt2": "0",
-                                "AIExt3": "0",
-                                "AIExt4": `${test}`,
-                                "AIExt5": "0",
-                                "AIExt6": "0",
-                                "AIExt7": "0",
-                                "AIExt8": "0",
-                                "CI1": "21",
-                                "CI2": "4",
-                                "CI3": "0",
-                                "CI4": "3",
-                                "CI5": "0",
-                                "CI6": "5",
-                                "CI7": "0",
-                                "CI8": "0",
-                                "BATT": "125",
-                                "SIG": "68",
-                                "TEXT1": "0",
-                                "TEXT2": "0",
-                                "TEXT3": "0",
-                                "TEXT4": "0"
-                            },
-                            "localId": "0"
-                        }
-                    )
-                }, 12000)
 
-                let test1 = 0
-                setInterval(() => {
-                    test1 += 10
-                    __router.emit('control',
-                        {
-                            "rtuId": "632d79d88a0f5177d6b60488",
-                            "moduleId": 0,
-                            "rtuDate": "2022-06-13T11:25:20.000Z",
-                            "raw": "%1 0210.035 250 9 1503319636 8 1536 1 0 0 0 0 0 0 0 0 0 0 0 0 21 4 0 3 0 5 0 0 125 68 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 > 43439 *",
-                            "dataIn": {
-                                "digitalsIn": "1024",
-                                "AI1": `${test1}`,
-                                "AI2": "0",
-                                "AI3": "0",
-                                "AI4": "0",
-                                "AIExt1": "0",
-                                "AIExt2": "0",
-                                "AIExt3": "0",
-                                "AIExt4": `${test1}`,
-                                "AIExt5": "0",
-                                "AIExt6": "0",
-                                "AIExt7": "0",
-                                "AIExt8": "0",
-                                "CI1": "21",
-                                "CI2": "4",
-                                "CI3": "0",
-                                "CI4": "3",
-                                "CI5": "0",
-                                "CI6": "5",
-                                "CI7": "0",
-                                "CI8": "0",
-                                "BATT": "125",
-                                "SIG": "68",
-                                "TEXT1": "0",
-                                "TEXT2": "0",
-                                "TEXT3": "0",
-                                "TEXT4": "0"
-                            },
-                            "localId": "0"
-                        }
-                    )
-                }, 30000)
+                // let test = 0
+                // setInterval(() => {
+                //     test++
+                //     console.log('test', test)
+                //     __router.emit('control',
+                //         {
+                //             "rtuId": "632d78448a0f5177d6b60410",
+                //             "moduleId": 0,
+                //             "rtuDate": "2022-06-13T11:25:20.000Z",
+                //             "raw": "%1 0210.035 250 9 1503319636 8 1536 1 0 0 0 0 0 0 0 0 0 0 0 0 21 4 0 3 0 5 0 0 125 68 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 > 43439 *",
+                //             "dataIn": {
+                //                 "digitalsIn": "1024",
+                //                 "AI1": "0",
+                //                 "AI2": "0",
+                //                 "AI3": "0",
+                //                 "AI4": "0",
+                //                 "AIExt1": "0",
+                //                 "AIExt2": "0",
+                //                 "AIExt3": "0",
+                //                 "AIExt4": `${test}`,
+                //                 "AIExt5": "0",
+                //                 "AIExt6": "0",
+                //                 "AIExt7": "0",
+                //                 "AIExt8": "0",
+                //                 "CI1": "21",
+                //                 "CI2": "4",
+                //                 "CI3": "0",
+                //                 "CI4": "3",
+                //                 "CI5": "0",
+                //                 "CI6": "5",
+                //                 "CI7": "0",
+                //                 "CI8": "0",
+                //                 "BATT": "125",
+                //                 "SIG": "68",
+                //                 "TEXT1": "0",
+                //                 "TEXT2": "0",
+                //                 "TEXT3": "0",
+                //                 "TEXT4": "0"
+                //             },
+                //             "localId": "0"
+                //         }
+                //     )
+                // }, 12000)
 
-                
+                // let test1 = 0
+                // setInterval(() => {
+                //     test1 += 10
+                //     __router.emit('control',
+                //         {
+                //             "rtuId": "632d79d88a0f5177d6b60488",
+                //             "moduleId": 0,
+                //             "rtuDate": "2022-06-13T11:25:20.000Z",
+                //             "raw": "%1 0210.035 250 9 1503319636 8 1536 1 0 0 0 0 0 0 0 0 0 0 0 0 21 4 0 3 0 5 0 0 125 68 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 > 43439 *",
+                //             "dataIn": {
+                //                 "digitalsIn": "1024",
+                //                 "AI1": `${test1}`,
+                //                 "AI2": "0",
+                //                 "AI3": "0",
+                //                 "AI4": "0",
+                //                 "AIExt1": "0",
+                //                 "AIExt2": "0",
+                //                 "AIExt3": "0",
+                //                 "AIExt4": `${test1}`,
+                //                 "AIExt5": "0",
+                //                 "AIExt6": "0",
+                //                 "AIExt7": "0",
+                //                 "AIExt8": "0",
+                //                 "CI1": "21",
+                //                 "CI2": "4",
+                //                 "CI3": "0",
+                //                 "CI4": "3",
+                //                 "CI5": "0",
+                //                 "CI6": "5",
+                //                 "CI7": "0",
+                //                 "CI8": "0",
+                //                 "BATT": "125",
+                //                 "SIG": "68",
+                //                 "TEXT1": "0",
+                //                 "TEXT2": "0",
+                //                 "TEXT3": "0",
+                //                 "TEXT4": "0"
+                //             },
+                //             "localId": "0"
+                //         }
+                //     )
+                // }, 30000)
+
+
 
 
 
@@ -444,28 +444,30 @@ try {
                                                 }
                                                 data.push(tmp);
                                                 deferred.resolve(data)
-                                            }else{
+                                            } else {
                                                 deferred.resolve()
                                             }
 
                                             return deferred.promise
-    
+
                                         })
 
                                     }, Promise.resolve())
-                                    .then(async(data)=>{
-                                        if (data) {
-                                            __socket.send('devices:data', {
-                                                data: data,
-                                                deviceId: device.deviceId
-                                            });
-                                            // await __router.updateDeviceInputsThenActionMapping(device.deviceId, device.io)
+                                        .then(async (data) => {
+                                            if (data) {
+                                                __socket.send('devices:data', {
+                                                    data: data,
+                                                    deviceId: device.deviceId
+                                                });
+                                                // await __router.mapping(event.rtuId, data)
+                                            };
+
+                                            deferred.resolve({})
+                                        })
+                                        .then(async ()=>{
                                             await __router.mapping(event.rtuId, data)
-                                        };
-    
-                                        deferred.resolve({})
-                                    })
-                
+                                        })
+
                                 };
 
                                 deferred.resolve()

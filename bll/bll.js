@@ -74,6 +74,8 @@ var module = function () {
                         port: __settings.server.port,
                         username: __settings.server.username,
                         password: __settings.server.password,
+                        dataTopic: __settings.server.subscribe.data,
+                        controlTopic: __settings.server.subscribe.control,
                     }]
                     if (args.result.length > 0) {
                         __responder.success(req, res, args.result);
@@ -112,6 +114,8 @@ var module = function () {
                     __settings.server.port = args.req.body.port || 1888
                     __settings.server.username = args.req.body.username || ''
                     __settings.server.password = args.req.body.password || ''
+                    __settings.server.subscribe.data = args.req.body.dataTopic || ''
+                    __settings.server.subscribe.control = args.req.body.controlTopic || ''
 
                     args.result.n++
                     if (args.result.n > 0) {

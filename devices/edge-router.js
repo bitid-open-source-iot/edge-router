@@ -208,15 +208,18 @@ module.exports = class extends EventEmitter {
             })
         }, Promise.resolve())
             .then(async () => {
-                await this.cofs.applyCOFSServer()
-                if (this.sendOnce) {
-                    this.sendOnce = setTimeout(() => {
-                        this.cofs.send()
-                        clearTimeout(this.sendOnce)
-                        this.sendOnce = null
-                    }, 200)
-                }
+                // await this.cofs.applyCOFSServer()
+                // if (this.sendOnce) {
+                //     this.sendOnce = setTimeout(() => {
+                //         this.cofs.send()
+                //         clearTimeout(this.sendOnce)
+                //         this.sendOnce = null
+                //     }, 200)
+                // }
                 deferred.resolve({})
+            })
+            .then(async ()=>{
+                await this.cofs.applyCOFSServer()
             })
 
         return deferred.promise
@@ -307,11 +310,13 @@ module.exports = class extends EventEmitter {
             __byteLen += message.byteLength
             console.log('__byteLen', __byteLen)
             switch (topic) {
-                case ('/rock/v1.1/data'):
+                // case ('/rock/v1.1/data'):
+                case (__settings.server.subscribe.data):                    
                     this.emit('data', JSON.parse(message.toString()));
                     break;
-                case ('/rock/v1.1/control'):
-                    await this.emit('control', JSON.parse(message.toString()));
+                // case ('/rock/v1.1/control'):
+                case (__settings.server.subscribe.control):
+                        await this.emit('control', JSON.parse(message.toString()));
                     break;
                 case ('/edgerouter/control'):
                     this.emit('edge-router-control', JSON.parse(message.toString()))
