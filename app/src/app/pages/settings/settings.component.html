@@ -158,6 +158,36 @@
             </section>
 
 
+            <div formGroupName="subscribe">
+                <section>
+                    <mat-form-field appearance="outline">
+                        <mat-label>
+                            dataTopic
+                        </mat-label>
+    
+                        <input matInput type="text" placeholder="dataTopic" formControlName="dataTopic" required>
+    
+                        <mat-error *ngIf="errors.server.subscribe.dataTopic">
+                            {{ errors.server.subscribe.dataTopic }}
+                        </mat-error>
+                    </mat-form-field>
+                </section>
+                <section>
+                    <mat-form-field appearance="outline">
+                        <mat-label>
+                            controlTopic
+                        </mat-label>
+    
+                        <input matInput type="text" placeholder="controlTopic" formControlName="controlTopic" required>
+    
+                        <mat-error *ngIf="errors.server.subscribe.controlTopic">
+                            {{ errors.server.subscribe.controlTopic }}
+                        </mat-error>
+                    </mat-form-field>
+                </section>
+                
+            </div>
+    
         </div>
 
 

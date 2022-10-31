@@ -33,6 +33,10 @@ export class SettingsComponent implements OnInit {
       port: new FormControl('', [Validators.required]),
       username: new FormControl('', [Validators.required]),
       password: new FormControl('', [Validators.required]),
+      subscribe: new FormGroup({
+        dataTopic: new FormControl('', [Validators.required]),
+        controlTopic: new FormControl('', [Validators.required]),
+      })  
     })
   });
 
@@ -52,6 +56,10 @@ export class SettingsComponent implements OnInit {
       port: '',
       userName: '',
       password: '',
+      subscribe: {
+        data: '',
+        control: ''
+      }
     }
   };
 
@@ -84,6 +92,9 @@ export class SettingsComponent implements OnInit {
       (this.form.controls['server'] as FormGroup).controls['username'].setValue(response.result[0].username);
       (this.form.controls['server'] as FormGroup).controls['password'].setValue(response.result[0].password);
 
+      ((this.form.controls['server'] as FormGroup).controls['subscribe'] as FormGroup).controls['dataTopic'].setValue(response.result[0].dataTopic);
+      ((this.form.controls['server'] as FormGroup).controls['subscribe'] as FormGroup).controls['controlTopic'].setValue(response.result[0].controlTopic);
+
     } else {
       this.toast.error(response.result.message);
     };
@@ -104,6 +115,8 @@ export class SettingsComponent implements OnInit {
       port: this.form.controls['server'].value.port,
       username: this.form.controls['server'].value.username,
       password: this.form.controls['server'].value.password,
+      dataTopic: ((this.form.controls['server'] as FormGroup).controls['subscribe'] as FormGroup).controls['dataTopic'].value,
+      controlTopic: ((this.form.controls['server'] as FormGroup).controls['subscribe'] as FormGroup).controls['controlTopic'].value
     });
 
     if (response.ok) {
