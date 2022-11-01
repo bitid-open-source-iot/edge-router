@@ -191,6 +191,42 @@
         </div>
 
 
+        <div formGroupName="rateLimits">
+            <section>
+                <mat-form-field appearance="outline">
+                    <mat-label>
+                        rateLimit Timer Setpoin (seconds)
+                    </mat-label>
+
+                    <input matInput type="number" placeholder="rateLimitTmrSP" formControlName="rateLimitTmrSP" required>
+
+                    <mat-error *ngIf="errors.rateLimits.rateLimitTmrSP">
+                        {{ errors.rateLimits.rateLimitTmrSP }}
+                    </mat-error>
+                </mat-form-field>
+            </section>
+
+            <section>
+                <mat-form-field appearance="outline">
+                    <mat-label>
+                        rateLimit Transmit Count Setpoint
+                    </mat-label>
+
+                    <input matInput type="number" placeholder="rateLimitTxCountSP" formControlName="rateLimitTxCountSP" required>
+
+                    <mat-error *ngIf="errors.rateLimits.rateLimitTxCountSP">
+                        {{ errors.rateLimits.rateLimitTxCountSP }}
+                    </mat-error>
+                </mat-form-field>
+            </section>
+
+            <section>
+                <mat-label>
+                    As an example, if rateLimitTmrSP = 10 seconds and rateLimitTxCountSP = 2, only 2 publish/transmits are allowed every 10 seconds
+                </mat-label>
+            </section>
+
+        </div>
 
 
         <button #button type="submit" style="display: none;"></button>

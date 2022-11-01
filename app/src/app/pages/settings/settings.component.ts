@@ -36,8 +36,12 @@ export class SettingsComponent implements OnInit {
       subscribe: new FormGroup({
         dataTopic: new FormControl('', [Validators.required]),
         controlTopic: new FormControl('', [Validators.required]),
-      })  
-    })
+      })
+    }),
+    rateLimits: new FormGroup({
+      rateLimitTmrSP: new FormControl('60', [Validators.required]),
+      rateLimitTxCountSP: new FormControl('4', [Validators.required]),
+    })  
   });
 
   public formCommand: FormGroup = new FormGroup({
@@ -60,6 +64,10 @@ export class SettingsComponent implements OnInit {
         data: '',
         control: ''
       }
+    },
+    rateLimits: {
+      rateLimitTmrSP: '',
+      rateLimitTxCountSP: ''
     }
   };
 
@@ -95,6 +103,9 @@ export class SettingsComponent implements OnInit {
       ((this.form.controls['server'] as FormGroup).controls['subscribe'] as FormGroup).controls['dataTopic'].setValue(response.result[0].dataTopic);
       ((this.form.controls['server'] as FormGroup).controls['subscribe'] as FormGroup).controls['controlTopic'].setValue(response.result[0].controlTopic);
 
+      (this.form.controls['rateLimits'] as FormGroup).controls['rateLimitTmrSP'].setValue(response.result[0].rateLimitTmrSP);
+      (this.form.controls['rateLimits'] as FormGroup).controls['rateLimitTxCountSP'].setValue(response.result[0].rateLimitTxCountSP);
+
     } else {
       this.toast.error(response.result.message);
     };
@@ -116,7 +127,9 @@ export class SettingsComponent implements OnInit {
       username: this.form.controls['server'].value.username,
       password: this.form.controls['server'].value.password,
       dataTopic: ((this.form.controls['server'] as FormGroup).controls['subscribe'] as FormGroup).controls['dataTopic'].value,
-      controlTopic: ((this.form.controls['server'] as FormGroup).controls['subscribe'] as FormGroup).controls['controlTopic'].value
+      controlTopic: ((this.form.controls['server'] as FormGroup).controls['subscribe'] as FormGroup).controls['controlTopic'].value,
+      rateLimitTmrSP: this.form.controls['rateLimits'].value.rateLimitTmrSP,
+      rateLimitTxCountSP: this.form.controls['rateLimits'].value.rateLimitTxCountSP
     });
 
     if (response.ok) {

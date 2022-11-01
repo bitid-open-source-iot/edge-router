@@ -76,6 +76,8 @@ var module = function () {
                         password: __settings.server.password,
                         dataTopic: __settings.server.subscribe.data,
                         controlTopic: __settings.server.subscribe.control,
+                        rateLimitTmrSP: __settings.rateLimits.rateLimitTmrSP,
+                        rateLimitTxCountSP: __settings.rateLimits.rateLimitTxCountSP
                     }]
                     if (args.result.length > 0) {
                         __responder.success(req, res, args.result);
@@ -116,6 +118,8 @@ var module = function () {
                     __settings.server.password = args.req.body.password || ''
                     __settings.server.subscribe.data = args.req.body.dataTopic || ''
                     __settings.server.subscribe.control = args.req.body.controlTopic || ''
+                    __settings.rateLimits.rateLimitTmrSP = args.req.body.rateLimitTmrSP || 60
+                    __settings.rateLimits.rateLimitTxCountSP = args.req.body.rateLimitTxCountSP || 4
 
                     args.result.n++
                     if (args.result.n > 0) {
