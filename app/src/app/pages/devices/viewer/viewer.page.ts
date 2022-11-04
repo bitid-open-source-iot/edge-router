@@ -78,6 +78,9 @@ export class ViewerPage implements OnInit, OnDestroy {
                                 event.result.data.map((data: { value: number; inputId: string }) => {
                                     if (io.inputId == data.inputId) {
                                         io.value = data.value;
+                                        if(io.key == 'rtuDate'){
+                                            io.description = `${new Date(data.value).toUTCString()}`
+                                        }
                                     };
                                 });
                             });

@@ -46,7 +46,9 @@ export class InputOutputDialog implements OnInit, OnDestroy {
         'LNG',
         'SIG',
         'txFlag',
-        'digitalsIn'
+        'digitalsIn',
+        'rtuDate',
+        'commsStatus'
     ];
     public type: string = this.config.type;
     public form: FormGroup = new FormGroup({

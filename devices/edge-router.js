@@ -75,6 +75,54 @@ module.exports = class extends EventEmitter {
         }, this.txtime * 60000)
     }
 
+    // updateExternalCommsStatus(deviceId, inputs) {
+    //     let allInputs = []
+    //     allInputs.push(inputs[0])
+    //     __devices.reduce((promise, device) => {
+    //         return promise.then(() => {
+    //             if (device.deviceId == deviceId) {
+    //                 device.io.reduce((promise, io) => {
+    //                     return promise.then(() => {
+    //                         //     var deferred = Q.defer()
+
+    //                         //     if(io.key == 'commsStatus'){
+    //                         //         io.value = inputs[0].value
+    //                         //     }
+
+    //                         //     allInputs.push({inputId: io.inputId, value: io.value})
+
+    //                         //     deferred.resolve()
+    //                         //     return deferred.promise
+    //                         if (io.inputId != inputs[0].inputId) {
+    //                             allInputs.push({ inputId: io.inputId, value: io.value })
+    //                         } else {
+    //                             inputs.reduce((promise, ip) => {
+    //                                 return promise.then(() => {
+    //                                     if (io.inputId == ip.inputId) {
+    //                                         io.value = ip.value
+    //                                     }
+    //                                 })
+    //                             }, Promise.resolve())
+    //                         }
+
+    //                     })
+    //                 }, Promise.resolve()
+    //                     .then(() => {
+    //                         __socket.send('devices:data', {
+    //                             data: device.io,
+    //                             deviceId: device.deviceId
+    //                         });
+
+    //                     })
+    //                 )
+    //             }
+    //         })
+    //     }, Promise.resolve())
+    //         .then(() => {
+    //             __router.mapping(deviceId, allInputs)
+    //         })
+    // }
+
     updateDeviceInputsThenActionMapping(deviceId, inputs) {
         __devices.reduce((promise, device) => {
             return promise.then(() => {
@@ -218,7 +266,7 @@ module.exports = class extends EventEmitter {
                 // }
                 deferred.resolve({})
             })
-            .then(async ()=>{
+            .then(async () => {
                 await this.cofs.applyCOFSServer()
             })
 
@@ -311,12 +359,12 @@ module.exports = class extends EventEmitter {
             console.log('__byteLen', __byteLen)
             switch (topic) {
                 // case ('/rock/v1.1/data'):
-                case (__settings.server.subscribe.data):                    
+                case (__settings.server.subscribe.data):
                     this.emit('data', JSON.parse(message.toString()));
                     break;
                 // case ('/rock/v1.1/control'):
                 case (__settings.server.subscribe.control):
-                        await this.emit('control', JSON.parse(message.toString()));
+                    await this.emit('control', JSON.parse(message.toString()));
                     break;
                 case ('/edgerouter/control'):
                     this.emit('edge-router-control', JSON.parse(message.toString()))

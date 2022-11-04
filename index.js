@@ -272,7 +272,8 @@ try {
                             break;
                         case ('external'):
                             var device = new External(o);
-                            // device.on('change', event => __router.updateDeviceInputsThenActionMapping(device.deviceId, event));
+                            // device.on('commsStatus', event => __router.updateExternalCommsStatus(device.deviceId, event));
+                            device.on('commsStatus', event => __router.updateDeviceInputsThenActionMapping(device.deviceId, event));
                             __devices.push(device);
                             break;
                         case ('programmable-logic-controller'):
@@ -402,46 +403,65 @@ try {
                                             if (input.moduleId == event.moduleId) {
                                                 // console.log(input.key)
                                                 found = true;
-                                                var tmp = {
-                                                    value: 0,
-                                                    inputId: input.inputId
-                                                };
-                                                if (input.shift > 0 && input.key.indexOf('digitalsIn') > -1 && typeof (event.dataIn[input.key]) != 'undefined' && event.dataIn[input.key] != null) {
-                                                    let shiftedValue = event.dataIn[input.key] >> input.shift;
-                                                    if (input.masking?.enabled == true) {
-                                                        tmp.value = BitMask(input.masking.bit, shiftedValue);
-                                                        input.value = BitMask(input.masking.bit, shiftedValue);
-                                                    } else {
-                                                        tmp.value = shiftedValue;
-                                                        input.value = shiftedValue;
+                                                var tmp
+                                                
+                                                if(input.key != 'rtuDate'){
+                                                    tmp = {
+                                                        value: 0,
+                                                        inputId: input.inputId
                                                     }
-                                                } else if (input.masking?.enabled && input.key.indexOf('digitalsIn') > -1 && typeof (event.dataIn[input.key]) != 'undefined' && event.dataIn[input.key] != null) {
-                                                    tmp.value = BitMask(input.masking.bit, event.dataIn[input.key]);
-                                                    input.value = BitMask(input.masking.bit, event.dataIn[input.key]);
-                                                } else if (input.key.indexOf('TEXT') == -1 && typeof (event.dataIn[input.key]) != 'undefined' && event.dataIn[input.key] != null) {
-                                                    switch (input.scaling?.type) {
-                                                        case ('ntc'):
-                                                            tmp.value = new scaling.module().scaleNTC(parseInt(event.dataIn[input.key]));
-                                                            input.value = new scaling.module().scaleNTC(parseInt(event.dataIn[input.key]));
-                                                            break;
-                                                        case ('none'):
-                                                            tmp.value = parseInt(event.dataIn[input.key]);
-                                                            input.value = parseInt(event.dataIn[input.key]);
-                                                            break;
-                                                        case ('linear'):
-                                                            tmp.value = new scaling.module().scaleAnalog(parseInt(event.dataIn[input.key]), input.scaling?.raw?.low, input.scaling?.raw?.high, input.scaling?.scaled?.low, input.scaling?.scaled?.high);
-                                                            input.value = new scaling.module().scaleAnalog(parseInt(event.dataIn[input.key]), input.scaling?.raw?.low, input.scaling?.raw?.high, input.scaling?.scaled?.low, input.scaling?.scaled?.high);
-                                                            break;
-                                                        case ('invert'):
-                                                            tmp.value = new scaling.module().scaleAnalog(parseInt(event.dataIn[input.key]), input.scaling.raw.low, input.scaling.raw.high, input.scaling.scaled.low, input.scaling.scaled.high, true);
-                                                            input.value = new scaling.module().scaleAnalog(parseInt(event.dataIn[input.key]), input.scaling.raw.low, input.scaling.raw.high, input.scaling.scaled.low, input.scaling.scaled.high, true);
-                                                            break;
-                                                        default:
-                                                            tmp.value = parseInt(event.dataIn[input.key]);
-                                                            input.value = parseInt(event.dataIn[input.key]);
-                                                            break;
-                                                    };
+                                                }else{
+                                                    tmp = {
+                                                        value: new Date(event.rtuDate).getTime(),
+                                                        inputId: input.inputId
+                                                    }
+                                                    input.value = tmp.value
                                                 }
+
+                                                if(input.key != 'rtuDate'){
+                                                    if (input.shift > 0 && input.key.indexOf('digitalsIn') > -1 && typeof (event.dataIn[input.key]) != 'undefined' && event.dataIn[input.key] != null) {
+                                                        let shiftedValue = event.dataIn[input.key] >> input.shift;
+                                                        if (input.masking?.enabled == true) {
+                                                            tmp.value = BitMask(input.masking.bit, shiftedValue);
+                                                            input.value = BitMask(input.masking.bit, shiftedValue);
+                                                        } else {
+                                                            tmp.value = shiftedValue;
+                                                            input.value = shiftedValue;
+                                                        }
+                                                    } else if (input.masking?.enabled && input.key.indexOf('digitalsIn') > -1 && typeof (event.dataIn[input.key]) != 'undefined' && event.dataIn[input.key] != null) {
+                                                        tmp.value = BitMask(input.masking.bit, event.dataIn[input.key]);
+                                                        input.value = BitMask(input.masking.bit, event.dataIn[input.key]);
+                                                    } else if (input.key.indexOf('TEXT') == -1 && typeof (event.dataIn[input.key]) != 'undefined' && event.dataIn[input.key] != null) {
+                                                        switch (input.scaling?.type) {
+                                                            case ('ntc'):
+                                                                tmp.value = new scaling.module().scaleNTC(parseInt(event.dataIn[input.key]));
+                                                                input.value = new scaling.module().scaleNTC(parseInt(event.dataIn[input.key]));
+                                                                break;
+                                                            case ('none'):
+                                                                tmp.value = parseInt(event.dataIn[input.key]);
+                                                                input.value = parseInt(event.dataIn[input.key]);
+                                                                break;
+                                                            case ('linear'):
+                                                                tmp.value = new scaling.module().scaleAnalog(parseInt(event.dataIn[input.key]), input.scaling?.raw?.low, input.scaling?.raw?.high, input.scaling?.scaled?.low, input.scaling?.scaled?.high);
+                                                                input.value = new scaling.module().scaleAnalog(parseInt(event.dataIn[input.key]), input.scaling?.raw?.low, input.scaling?.raw?.high, input.scaling?.scaled?.low, input.scaling?.scaled?.high);
+                                                                break;
+                                                            case ('invert'):
+                                                                tmp.value = new scaling.module().scaleAnalog(parseInt(event.dataIn[input.key]), input.scaling.raw.low, input.scaling.raw.high, input.scaling.scaled.low, input.scaling.scaled.high, true);
+                                                                input.value = new scaling.module().scaleAnalog(parseInt(event.dataIn[input.key]), input.scaling.raw.low, input.scaling.raw.high, input.scaling.scaled.low, input.scaling.scaled.high, true);
+                                                                break;
+                                                            default:
+                                                                tmp.value = parseInt(event.dataIn[input.key]);
+                                                                input.value = parseInt(event.dataIn[input.key]);
+                                                                break;
+                                                        };
+                                                    }else if (input.key == 'commsStatus'){
+                                                        tmp.value = parseInt(input.value)
+                                                    }else{
+                                                        console.log('wtf')
+                                                    }
+                                                }
+
+
                                                 data.push(tmp);
                                                 deferred.resolve(data)
                                             } else {
@@ -459,7 +479,6 @@ try {
                                                     data: data,
                                                     deviceId: device.deviceId
                                                 });
-                                                // await __router.mapping(event.rtuId, data)
                                             };
 
                                             deferred.resolve({})
@@ -475,8 +494,6 @@ try {
                             })
                         }, Promise.resolve())
                             .then(async () => {
-                                // await cofs.applyCOFSServer()
-                                // await cofs.send()
                                 deferred.resolve({})
                             })
                     } else {
