@@ -250,6 +250,21 @@
             </mat-form-field>
         </section>
 
+        <section *ngIf="type == 'hostAgent'">
+            <mat-form-field appearance="outline">
+                <mat-label>
+                    Command
+                </mat-label>
+
+                <input matInput type="text" placeholder="command" formControlName="command"
+                    [required]="form.value.enabled && type == 'hostAgent'">
+
+                <mat-error *ngIf="errors.command">
+                    {{ errors.shift }}
+                </mat-error>
+            </mat-form-field>
+        </section>
+
         <h2 *ngIf="type == 'external'">
             Scaling
         </h2>

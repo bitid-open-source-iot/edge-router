@@ -240,7 +240,7 @@ export class DevicesEditorPage implements OnInit, OnDestroy {
             this.errors = this.formerror.validateForm(this.form, this.errors, true);
         });
 
-        this.observers.type = this.form.controls['type'].valueChanges.subscribe((type: 'modbus' | 'external' | 'programmable-logic-controller' | 'kGateway') => {
+        this.observers.type = this.form.controls['type'].valueChanges.subscribe((type: 'modbus' | 'external' | 'programmable-logic-controller' | 'kGateway' | 'hostAgent') => {
             switch (type) {
                 case ('modbus'):
                     this.columns = ['description', 'register', 'publish.enabled', 'publish.bit', 'publish.key', 'publish.moduleId'];
@@ -254,7 +254,10 @@ export class DevicesEditorPage implements OnInit, OnDestroy {
                 case ('kGateway'):
                     this.columns = ['description', 'mqtt.enabled', 'mqtt.subscribe.data', 'mqtt.subscribe.control'];
                     break;
-            };
+                case ('hostAgent'):
+                    this.columns = ['description', 'register', 'publish.enabled', 'publish.bit', 'publish.key', 'publish.moduleId'];
+                    break;
+                };
         });
 
         const params = this.route.snapshot.queryParams;

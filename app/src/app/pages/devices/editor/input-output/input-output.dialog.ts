@@ -14,7 +14,7 @@ import { InputOutput } from 'src/app/classes/input-output';
 
 export class InputOutputDialog implements OnInit, OnDestroy {
 
-    constructor(private dialog: MatDialogRef<InputOutputDialog>, @Inject(MAT_DIALOG_DATA) private config: { io: InputOutput, type: 'modbus' | 'external' | 'programmable-logic-controller' | 'kGateway' }, private formerror: FormErrorService) { }
+    constructor(private dialog: MatDialogRef<InputOutputDialog>, @Inject(MAT_DIALOG_DATA) private config: { io: InputOutput, type: 'modbus' | 'external' | 'programmable-logic-controller' | 'kGateway' | 'hostAgent' }, private formerror: FormErrorService) { }
 
     public keys: string[] = [
         'AI1',
@@ -86,7 +86,7 @@ export class InputOutputDialog implements OnInit, OnDestroy {
             isCoil: new FormControl(this.config.io?.modbus?.isCoil),
             isHoldingRegister: new FormControl(this.config.io?.modbus?.isHoldingRegister),
         }),
-
+        command: new FormControl(this.config.io?.command),
         key: new FormControl(this.config.io?.key),
         tagId: new FormControl(this.config.io?.tagId),
         shift: new FormControl(this.config.io?.shift),
@@ -143,7 +143,8 @@ export class InputOutputDialog implements OnInit, OnDestroy {
         interface: '',
         writeable: '',
         description: '',
-        cofs: ''
+        cofs: '',
+        command: ''
     };
     public registers: string[] = [
         'hr2',
@@ -204,6 +205,10 @@ export class InputOutputDialog implements OnInit, OnDestroy {
             case ('modbus'):
                 this.form.controls['register'].setValidators([Validators.required]);
                 this.form.controls['register'].updateValueAndValidity();
+                break;
+            case ('hostAgent'):
+                this.form.controls['command'].setValidators([Validators.required]);
+                this.form.controls['command'].updateValueAndValidity();
                 break;
             case ('external'):
                 this.form.controls['key'].setValidators([Validators.required]);
@@ -273,7 +278,7 @@ export class InputOutputDialog implements OnInit, OnDestroy {
             } else {
                 // (this.form.controls['mqtt'] as FormGroup).controls['userName'].disable();
                 // (this.form.controls['mqtt'] as FormGroup).controls['password'].disable();
-                
+
                 ((this.form.controls['mqtt'] as FormGroup).controls['subscribe'] as FormGroup).controls['data'].disable();
                 ((this.form.controls['mqtt'] as FormGroup).controls['subscribe'] as FormGroup).controls['control'].disable();
 
@@ -287,7 +292,7 @@ export class InputOutputDialog implements OnInit, OnDestroy {
             // (this.form.controls['mqtt'] as FormGroup).controls['userName'].updateValueAndValidity();
             // (this.form.controls['mqtt'] as FormGroup).controls['password'].updateValueAndValidity();
 
-            
+
             ((this.form.controls['mqtt'] as FormGroup).controls['subscribe'] as FormGroup).controls['data'].updateValueAndValidity();
             ((this.form.controls['mqtt'] as FormGroup).controls['subscribe'] as FormGroup).controls['control'].updateValueAndValidity();
         });

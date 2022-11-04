@@ -84,6 +84,7 @@ export class InputOutput {
     public writeable: boolean = false;
     public description: string = '';
     public cofs: number = -1;
+    public command: string = '';
 
     constructor(args?: INPUT_OUTPUT) {
         if (typeof (args) != 'undefined' && args != null) {
@@ -194,6 +195,9 @@ export class InputOutput {
             };
             if (typeof (args.cofs) != 'undefined' && args.cofs != null) {
                 this.cofs = args.cofs;
+            };
+            if (typeof (args.command) != 'undefined' && args.command != null) {
+                this.command = args.command;
             };
         }
     }

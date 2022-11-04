@@ -45,4 +45,5 @@ export interface INPUT_OUTPUT {
     writeable?: boolean;
     description?: string;
     cofs?: number;
+    command?: string;
 }

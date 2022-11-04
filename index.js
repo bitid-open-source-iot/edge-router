@@ -12,6 +12,7 @@ const ErrorResponse = require('./lib/error-response');
 /* --- DEVICES --- */
 const Modbus = require('./devices/modbus');
 const External = require('./devices/external');
+const HOSTAGENT = require('./devices/hostAgent');
 const EdgeRouter = require('./devices/edge-router');
 const ProgrammableLogicController = require('./devices/programmable-logic-controller');
 const KGATEWAY = require('./devices/kGateway')
@@ -266,14 +267,19 @@ try {
                             device.on('change', async event => await __router.updateDeviceInputsThenActionMapping(device.deviceId, event));
                             __devices.push(device);
                             break;
+                        case ('hostAgent'):
+                            var device = new HOSTAGENT(o);
+                            device.on('change', async event => await __router.updateDeviceInputsThenActionMapping(device.deviceId, event));
+                            __devices.push(device);
+                            break;
                         case ('kGateway'):
                             var device = new KGATEWAY(o);
                             __devices.push(device);
                             break;
                         case ('external'):
                             var device = new External(o);
-                            // device.on('commsStatus', event => __router.updateExternalCommsStatus(device.deviceId, event));
-                            device.on('commsStatus', event => __router.updateDeviceInputsThenActionMapping(device.deviceId, event));
+                            device.on('commsStatus', event => __router.updateDeviceInputsThenActionMapping(device.                            // device.on('commsStatus', event => __router.updateExternalCommsStatus(device.deviceId, event));
+                                deviceId, event));
                             __devices.push(device);
                             break;
                         case ('programmable-logic-controller'):
@@ -404,13 +410,13 @@ try {
                                                 // console.log(input.key)
                                                 found = true;
                                                 var tmp
-                                                
-                                                if(input.key != 'rtuDate'){
+
+                                                if (input.key != 'rtuDate') {
                                                     tmp = {
                                                         value: 0,
                                                         inputId: input.inputId
                                                     }
-                                                }else{
+                                                } else {
                                                     tmp = {
                                                         value: new Date(event.rtuDate).getTime(),
                                                         inputId: input.inputId
@@ -418,7 +424,7 @@ try {
                                                     input.value = tmp.value
                                                 }
 
-                                                if(input.key != 'rtuDate'){
+                                                if (input.key != 'rtuDate') {
                                                     if (input.shift > 0 && input.key.indexOf('digitalsIn') > -1 && typeof (event.dataIn[input.key]) != 'undefined' && event.dataIn[input.key] != null) {
                                                         let shiftedValue = event.dataIn[input.key] >> input.shift;
                                                         if (input.masking?.enabled == true) {
@@ -454,9 +460,9 @@ try {
                                                                 input.value = parseInt(event.dataIn[input.key]);
                                                                 break;
                                                         };
-                                                    }else if (input.key == 'commsStatus'){
+                                                    } else if (input.key == 'commsStatus') {
                                                         tmp.value = parseInt(input.value)
-                                                    }else{
+                                                    } else {
                                                         console.log('wtf')
                                                     }
                                                 }
@@ -483,7 +489,7 @@ try {
 
                                             deferred.resolve({})
                                         })
-                                        .then(async ()=>{
+                                        .then(async () => {
                                             await __router.mapping(event.rtuId, data)
                                         })
 
