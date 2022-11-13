@@ -63,10 +63,10 @@ module.exports = class extends EventEmitter {
         interval(10000).subscribe(count => {
             const now = new Date().getTime();
             let lastConnection = this.lastConnection?.getTime()
-            if (now - lastConnection > (this.timeout * 60000)) {
+            if (now - lastConnection > (this.timeout * 60000) && this.status != 'disconnected') {
                 this.status = 'disconnected';
                 this.emit('timeout', true);
-            } else {
+            } else if(this.status != 'connected') {
                 this.status = 'connected';
                 this.emit('timeout', false);
             };

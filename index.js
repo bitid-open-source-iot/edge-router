@@ -278,8 +278,7 @@ try {
                             break;
                         case ('external'):
                             var device = new External(o);
-                            device.on('commsStatus', event => __router.updateDeviceInputsThenActionMapping(device.                            // device.on('commsStatus', event => __router.updateExternalCommsStatus(device.deviceId, event));
-                                deviceId, event));
+                            device.on('commsStatus', event => __router.updateDeviceInputsThenActionMapping(device.deviceId, event));                            // device.on('commsStatus', event => __router.updateExternalCommsStatus(device.deviceId, event));
                             __devices.push(device);
                             break;
                         case ('programmable-logic-controller'):
