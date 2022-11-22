@@ -83,6 +83,7 @@ sudo docker pull --platform linux/amd64 shanebowyer/edge-router:master
 sudo docker run -d --restart always -p 8080:8080 \
 -v /rockwell/config.json:/usr/src/app/config.json \
 --network="host" \
+--name edge-router \
 shanebowyer/edge-router:master
 
 # sudo docker run -d --restart always -p 8080:8080 \
