@@ -26,6 +26,7 @@ module.exports = class extends EventEmitter {
             this.enabled = args.enabled;
             this.publish = args.publish || false
             this.deviceId = args.deviceId;
+            this.id = args.id;
             this.controller = null;
             this.description = args.description;
             this.unitId = args.unitId || 0

@@ -65,8 +65,10 @@ var module = function () {
 
                 try {
                     args.result = [{
+                        overideDeviceBarcode: __settings.overideDeviceBarcode || "true",
                         barcode: __settings.barcode,
                         deviceId: __settings.deviceId,
+                        id: __settings.id,
                         apn: __settings.apn,
                         txtime: __settings.txtime,
                         publishEnabled: __settings.publishEnabled,
@@ -107,8 +109,10 @@ var module = function () {
                     args.result = {
                         n: 0
                     };
+                    __settings.overideDeviceBarcode = args.req.body.overideDeviceBarcode || 'true'
                     __settings.barcode = args.req.body.barcode || '0'
                     __settings.deviceId = args.req.body.deviceId || '0'
+                    __settings.id = args.req.body.id
                     __settings.apn = args.req.body.apn || ''
                     __settings.txtime = args.req.body.txtime || 900
                     __settings.publishEnabled = args.req.body.publishEnabled
@@ -161,6 +165,13 @@ var module = function () {
                 try {
                     delete args.req.body.header;
                     __settings = args.req.body;
+                    for (let i = 0; i < __settings.devices.length; i++) {
+                        const device = __settings.devices[i];
+                        if(!device.id) {
+                            device.id = i;
+                        }
+                        
+                    }
                     const saved = await SaveConfig(__settings);
                     if (!saved) {
                         var err = new ErrorResponse();
@@ -320,13 +331,16 @@ var module = function () {
 
                 try {
                     var found = false;
+                    let newId = 0;
                     __settings.devices.map(device => {
-                        if (device.deviceId == args.req.body.deviceId) {
+                        newId++
+                        if (device.description == args.req.body.description) {
                             found = true;
                         };
                     });
                     if (!found) {
                         __settings.devices.push({
+                            id: newId,
                             io: args.req.body.io,
                             ip: args.req.body.ip,
                             port: args.req.body.port,
@@ -345,6 +359,7 @@ var module = function () {
                         });
                         __settings.devices = __settings.devices.map(o => {
                             return {
+                                id: o.id,
                                 io: o.io,
                                 ip: o.ip,
                                 port: o.port,
@@ -371,15 +386,15 @@ var module = function () {
                             __responder.error(req, res, err);
                         } else {
                             args.result = {
-                                _id: args.req.body.deviceId
+                                _id: args.req.body.id
                             };
                             __responder.success(req, res, args.result);
                         };
                     } else {
                         var err = new ErrorResponse();
                         err.error.errors[0].code = 70;
-                        err.error.errors[0].reason = 'Device already exists!';
-                        err.error.errors[0].message = 'Device already exists!';
+                        err.error.errors[0].reason = 'Device with that description already exists!';
+                        err.error.errors[0].message = 'Device with that description already exists!';
                         __responder.error(req, res, err);
                     };
                 } catch (error) {
@@ -399,13 +414,13 @@ var module = function () {
 
                 try {
                     for (let i = 0; i < __settings.devices.length; i++) {
-                        if (__settings.devices[i].deviceId == args.req.body.deviceId) {
+                        if (__settings.devices[i].id == args.req.body.id) {
                             args.result = __settings.devices[i];
                             break;
                         };
                     };
                     for (let i = 0; i < __devices.length; i++) {
-                        if (__devices[i].deviceId == args.req.body.deviceId) {
+                        if (__devices[i].id == args.req.body.id) {
                             for (let b = 0; b < __devices[i]?.io.length; b++) {
                                 args.result?.io.map(input => {
                                     if (input?.inputId == __devices[i]?.values[b]?.inputId) {
@@ -471,7 +486,7 @@ var module = function () {
                         n: 0
                     };
                     for (let i = 0; i < __settings.devices.length; i++) {
-                        if (__settings.devices[i].deviceId == args.req.body.deviceId) {
+                        if (__settings.devices[i].id == args.req.body.id) {
                             Object.keys(args.req.body).map(key => {
                                 if (__settings.devices[i].hasOwnProperty(key)) {
                                     __settings.devices[i][key] = args.req.body[key];
@@ -483,6 +498,7 @@ var module = function () {
                     };
                     __settings.devices = __settings.devices.map(o => {
                         return {
+                            id: o.id,
                             io: o.io,
                             ip: o.ip,
                             port: o.port,
@@ -538,7 +554,7 @@ var module = function () {
                         n: 0
                     };
                     for (let i = 0; i < __settings.devices.length; i++) {
-                        if (__settings.devices[i].deviceId == args.req.body.deviceId) {
+                        if (__settings.devices[i].id == args.req.body.id) {
                             __settings.devices.splice(i, 1);
                             args.result.n++;
                             break;
@@ -546,6 +562,7 @@ var module = function () {
                     };
                     __settings.devices = __settings.devices.map(o => {
                         return {
+                            id: o.id,
                             io: o.io,
                             ip: o.ip,
                             port: o.port,

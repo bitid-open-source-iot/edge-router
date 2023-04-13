@@ -27,7 +27,7 @@ export class ViewerPage implements OnInit, OnDestroy {
 
     public device: Device = new Device();
     public loading: boolean = false;
-    public deviceId?: string;
+    public id?: number;
     private observers: any = {};
 
     private async get() {
@@ -35,6 +35,7 @@ export class ViewerPage implements OnInit, OnDestroy {
 
         const response = await this.service.get({
             filter: [
+                'id',
                 'io',
                 'ip',
                 'port',
@@ -48,7 +49,7 @@ export class ViewerPage implements OnInit, OnDestroy {
                 'isConnected',
                 'description'
             ],
-            deviceId: this.deviceId
+            id: this.id
         });
         if (response.ok) {
             this.device = new Device(response.result);
@@ -62,7 +63,7 @@ export class ViewerPage implements OnInit, OnDestroy {
     ngOnInit(): void {
         (async () => {
             const params = this.route.snapshot.queryParams;
-            this.deviceId = params['deviceId'];
+            this.id = params['id'];
 
             await this.get();
 
@@ -71,7 +72,7 @@ export class ViewerPage implements OnInit, OnDestroy {
             this.observers.data = socket.data.subscribe((event: any) => {
                 switch (event.process) {
                     case ('data'):
-                        if (this.deviceId == event.result.deviceId) {
+                        if (this.id == event.result.id) {
                             this.device.lastConnection = new Date();
                             this.device.isConnected = true;
                             this.device.io.map((io: InputOutput) => {
@@ -87,7 +88,7 @@ export class ViewerPage implements OnInit, OnDestroy {
                         };
                         break;
                     case ('timeout'):
-                        if (this.deviceId == event.result.deviceId) {
+                        if (this.id == event.result.id) {
                             if (event.result.timeout) {
                                 delete this.device.lastConnection;
                                 this.device.isConnected = false;

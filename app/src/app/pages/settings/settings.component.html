@@ -14,6 +14,27 @@
         <section>
             <mat-form-field appearance="outline">
                 <mat-label>
+                    Overide DeviceId and Barcode
+                </mat-label>
+
+                <mat-select placeholder="overideDeviceBarcode" formControlName="overideDeviceBarcode" required>
+                    <mat-option value="true">
+                        true
+                    </mat-option>
+                    <mat-option value="false">
+                        false
+                    </mat-option>
+                </mat-select>
+
+                <mat-error *ngIf="errors.overideDeviceBarcode">
+                    {{ errors.overideDeviceBarcode }}
+                </mat-error>
+            </mat-form-field>
+        </section>
+
+        <section>
+            <mat-form-field appearance="outline">
+                <mat-label>
                     APN
                 </mat-label>
 

@@ -19,6 +19,7 @@ module.exports = class extends EventEmitter {
         this.barcode = args.barcode;
         this.enabled = args.enabled;
         this.deviceId = args.deviceId;
+        this.id = args.id;
         this.lastConnection = new Date();
 
         this.io.map(item=>{

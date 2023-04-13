@@ -34,6 +34,7 @@ export class DevicesEditorPage implements OnInit, OnDestroy {
 
     public mode: string = 'add';
     public form: FormGroup = new FormGroup({
+        id: new FormControl(0, [Validators.required, Validators.min(0)]),
         ip: new FormControl('0.0.0.0', [Validators.required]),
         port: new FormControl(0, [Validators.required, Validators.min(0)]),
         type: new FormControl(null, [Validators.required]),
@@ -59,6 +60,7 @@ export class DevicesEditorPage implements OnInit, OnDestroy {
     });
     public table: MatTableDataSource<InputOutput> = new MatTableDataSource<InputOutput>();
     public errors: any = {
+        id: '',
         ip: '',
         port: '',
         type: '',
@@ -77,6 +79,7 @@ export class DevicesEditorPage implements OnInit, OnDestroy {
     public columns: string[] = [];
     public loading: boolean = false;
     public deviceId?: string;
+    public id?: number;
     private observers: any = {};
 
     private async get() {
@@ -84,6 +87,7 @@ export class DevicesEditorPage implements OnInit, OnDestroy {
 
         const response = await this.service.get({
             filter: [
+                'id',
                 'io',
                 'ip',
                 'port',
@@ -98,13 +102,14 @@ export class DevicesEditorPage implements OnInit, OnDestroy {
                 'deviceId',
                 'description'
             ],
-            deviceId: this.deviceId
+            id: this.id
         });
 
         if (response.ok) {
             const device = new Device(response.result);
             let io: INPUT_OUTPUT[] = device.io.map((o: InputOutput) => new InputOutput(o));
             this.table.data = device.io.map((o: InputOutput) => new InputOutput(o));
+            this.form.controls['id'].setValue(device.id);
             this.form.controls['ip'].setValue(device.ip);
             this.form.controls['port'].setValue(device.port);
             this.form.controls['type'].setValue(device.type);
@@ -137,10 +142,11 @@ export class DevicesEditorPage implements OnInit, OnDestroy {
         let mode = this.mode;
         if (mode == 'copy') {
             mode = 'add';
-            delete this.deviceId;
+            delete this.id;
         };
 
         const response = await (this.service as any)[mode]({
+            id: this.form.value.id,
             io: this.table.data,
             ip: this.form.value.ip,
             port: this.form.value.port,
@@ -262,7 +268,7 @@ export class DevicesEditorPage implements OnInit, OnDestroy {
 
         const params = this.route.snapshot.queryParams;
         this.mode = params['mode'];
-        this.deviceId = params['deviceId'];
+        this.id = params['id'];
         if (this.mode != 'add') {
             this.get();
         };

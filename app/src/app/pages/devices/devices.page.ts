@@ -53,7 +53,7 @@ export class DevicesPage implements OnInit, OnDestroy {
                     handler: () => {
                         this.router.navigate(['/devices', 'viewer'], {
                             queryParams: {
-                                deviceId: device.deviceId
+                                id: device.id
                             }
                         });
                     },
@@ -66,7 +66,7 @@ export class DevicesPage implements OnInit, OnDestroy {
                         this.router.navigate(['/devices', 'editor'], {
                             queryParams: {
                                 mode: 'copy',
-                                deviceId: device.deviceId
+                                id: device.id
                             }
                         });
                     },
@@ -79,7 +79,7 @@ export class DevicesPage implements OnInit, OnDestroy {
                         this.router.navigate(['/devices', 'editor'], {
                             queryParams: {
                                 mode: 'update',
-                                deviceId: device.deviceId
+                                id: device.id
                             }
                         });
                     },
@@ -96,12 +96,12 @@ export class DevicesPage implements OnInit, OnDestroy {
                                 this.loading = true;
 
                                 const response = await this.service.delete({
-                                    deviceId: device.deviceId
+                                    id: device.id
                                 });
 
                                 if (response.ok) {
                                     for (let i = 0; i < this.table.data.length; i++) {
-                                        if (this.table.data[i].deviceId == device.deviceId) {
+                                        if (this.table.data[i].id == device.id) {
                                             this.table.data.splice(i, 1);
                                             break;
                                         };
@@ -133,7 +133,7 @@ export class DevicesPage implements OnInit, OnDestroy {
                 switch (event.process) {
                     case ('data'):
                         for (let i = 0; i < this.table.data.length; i++) {
-                            if (this.table.data[i].deviceId == event.result.deviceId) {
+                            if (this.table.data[i].id == event.result.id) {
                                 this.table.data[i].lastConnection = new Date();
                                 this.table.data[i].isConnected = true;
                                 this.table.data[i].io.map((io: InputOutput) => {
@@ -149,7 +149,7 @@ export class DevicesPage implements OnInit, OnDestroy {
                         break;
                     case ('timeout'):
                         for (let i = 0; i < this.table.data.length; i++) {
-                            if (this.table.data[i].deviceId == event.result.deviceId) {
+                            if (this.table.data[i].id == event.result.id) {
                                 if (event.result.timeout) {
                                     delete this.table.data[i].lastConnection;
                                     this.table.data[i].isConnected = false;

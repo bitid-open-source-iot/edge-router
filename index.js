@@ -67,6 +67,7 @@ var dataIn = {
 
 global.__routerStatus = [
     {
+        'device': {},
         'moduleId': 0,
         'dataIn': { ...dataIn }
     }
@@ -264,12 +265,12 @@ try {
                     switch (o.type) {
                         case ('modbus'):
                             var device = new Modbus(o);
-                            device.on('change', async event => await __router.updateDeviceInputsThenActionMapping(device.deviceId, event));
+                            device.on('change', async event => await __router.updateDeviceInputsThenActionMapping(device.id, event));
                             __devices.push(device);
                             break;
                         case ('hostAgent'):
                             var device = new HOSTAGENT(o);
-                            device.on('change', async event => await __router.updateDeviceInputsThenActionMapping(device.deviceId, event));
+                            device.on('change', async event => await __router.updateDeviceInputsThenActionMapping(device.id, event));
                             __devices.push(device);
                             break;
                         case ('kGateway'):
@@ -278,12 +279,12 @@ try {
                             break;
                         case ('external'):
                             var device = new External(o);
-                            device.on('commsStatus', event => __router.updateDeviceInputsThenActionMapping(device.deviceId, event));                            // device.on('commsStatus', event => __router.updateExternalCommsStatus(device.deviceId, event));
+                            device.on('commsStatus', event => __router.updateDeviceInputsThenActionMapping(device.id, event));                            // device.on('commsStatus', event => __router.updateExternalCommsStatus(device.deviceId, event));
                             __devices.push(device);
                             break;
                         case ('programmable-logic-controller'):
                             var device = new ProgrammableLogicController(o);
-                            device.on('change', event => __router.updateDeviceInputsThenActionMapping(device.deviceId, event));
+                            device.on('change', event => __router.updateDeviceInputsThenActionMapping(device.id, event));
                             __devices.push(device);
                             break;
                         default:
@@ -391,7 +392,7 @@ try {
 
                     let validDevice = __devices.find(o => o.deviceId == event?.rtuId)
                     if (validDevice) {
-                        __logger.info(`external data: ${JSON.stringify(event)}`)
+                        // __logger.info(`external data: ${JSON.stringify(event)}`)
 
                         __devices.reduce((promise, device) => {
                             return promise.then(async () => {

@@ -52,6 +52,7 @@ module.exports = class extends EventEmitter {
         this.barcode = args.barcode;
         this.deviceId = args.deviceId;
 
+
         this.cofs = new COFS()
         this.arrInterval = []
         this.arrTimeouts = []
@@ -123,10 +124,12 @@ module.exports = class extends EventEmitter {
     //         })
     // }
 
-    updateDeviceInputsThenActionMapping(deviceId, inputs) {
+    updateDeviceInputsThenActionMapping(id, inputs) {
+        let deviceItem = null
         __devices.reduce((promise, device) => {
+            deviceItem = device
             return promise.then(() => {
-                if (device.deviceId == deviceId) {
+                if (device.id == id) {
                     device.io.reduce((promise, io) => {
                         return promise.then(() => {
                             inputs.reduce((promise, ip) => {
@@ -140,8 +143,8 @@ module.exports = class extends EventEmitter {
                     }, Promise.resolve()
                         .then(() => {
                             __socket.send('devices:data', {
-                                data: device.io,
-                                deviceId: device.deviceId
+                                data: deviceItem.io,
+                                deviceId: deviceItem.deviceId
                             });
 
                         })
@@ -150,7 +153,7 @@ module.exports = class extends EventEmitter {
             })
         }, Promise.resolve())
             .then(() => {
-                __router.mapping(deviceId, inputs)
+                __router.mapping(deviceItem.deviceId, inputs)
             })
 
     }
@@ -354,9 +357,9 @@ module.exports = class extends EventEmitter {
         });
 
         this.mqtt.on('message', async (topic, message) => {
-            console.log('topic', topic)
+            // console.log('topic', topic)
             __byteLen += message.byteLength
-            console.log('__byteLen', __byteLen)
+            // console.log('__byteLen', __byteLen)
             switch (topic) {
                 // case ('/rock/v1.1/data'):
                 case (__settings.server.subscribe.data):
@@ -402,12 +405,18 @@ module.exports = class extends EventEmitter {
     }
 
     async publish(data) {
-        if (this.mqtt?.connected) {
-            __logger.info(`publish ${this.server.subscribe.data} : ${JSON.stringify(data)}`)
-            this.mqtt.publish(this.server.subscribe.data, JSON.stringify(data));
-        } else {
-            __logger.warn('Edge Router - Trying to transmit even though socket not connected!');
-        };
+        return new Promise(async (resolve, reject) => {
+            if (this.mqtt?.connected) {
+                __logger.info(`publish ${this.server.subscribe.data} : ${JSON.stringify(data)}`)
+                this.mqtt.publish(this.server.subscribe.data, JSON.stringify(data));
+            } else {
+                __logger.warn('Edge Router - Trying to transmit even though socket not connected!');
+            };            
+            resolve()
+        })
+
+
+
     }
 
 

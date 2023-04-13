@@ -23,6 +23,7 @@ export class SettingsComponent implements OnInit {
   constructor(private settingsService: SettingsService, private toast: ToastService, private formerror: FormErrorService) { }
 
   public form: FormGroup = new FormGroup({
+    overideDeviceBarcode: new FormControl('', [Validators.required]),
     barcode: new FormControl('', [Validators.required]),
     deviceId: new FormControl('', [Validators.required]),
     apn: new FormControl(null),
@@ -50,6 +51,7 @@ export class SettingsComponent implements OnInit {
   });
 
   public errors: any = {
+    overideDeviceBarcode: '',
     barcode: '',
     deviceId: '',
     apn: '',
@@ -89,6 +91,7 @@ export class SettingsComponent implements OnInit {
     });
 
     if (response.ok) {
+      this.form.controls['overideDeviceBarcode'].setValue(response.result[0].overideDeviceBarcode);
       this.form.controls['barcode'].setValue(response.result[0].barcode);
       this.form.controls['deviceId'].setValue(response.result[0].deviceId);
       this.form.controls['apn'].setValue(response.result[0].apn);
@@ -117,6 +120,7 @@ export class SettingsComponent implements OnInit {
     this.loading = true;
 
     const response = await this.settingsService.update({
+      overideDeviceBarcode: this.form.value.overideDeviceBarcode,
       barcode: this.form.value.barcode,
       deviceId: this.form.value.deviceId,
       apn: this.form.value.apn,

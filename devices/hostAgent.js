@@ -6,6 +6,7 @@ class HOST {
         this.io = args.io;
         this.type = args.type;
         this.deviceId = args.deviceId;
+        this.id = args.id;
 
         this.commands = __settings.hostAgentCommands || []
         if(this.commands.length > 0){

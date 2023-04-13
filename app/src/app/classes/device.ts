@@ -15,6 +15,7 @@ export class Device {
     public enabled: boolean = false;
     public unitId: number = 0;
     public deviceId: string = ObjectId();
+    public id?: number;
     public isConnected: boolean = false;
     public description: string = '';
     public lastConnection?: Date;
@@ -23,6 +24,9 @@ export class Device {
 
     constructor(args?: DEVICE) {
         if (typeof (args) != 'undefined' && args != null) {
+            if (typeof (args.id) != 'undefined' && args.id != null) {
+                this.id = args.id;
+            }
             if (typeof (args.io) != 'undefined' && args.io != null) {
                 this.io = args.io.map(o => new InputOutput(o));
             }
@@ -92,6 +96,7 @@ interface DEVICE {
     enabled: boolean;
     unitId: number;
     deviceId: string;
+    id?: number;
     isConnected: boolean;
     description: string;
     lastConnection?: Date;

@@ -39,6 +39,19 @@
                 </mat-error>
             </mat-form-field>
 
+            <mat-form-field appearance="outline" >
+                <mat-label>
+                    Unique ID
+                </mat-label>
+
+                <input matInput type="number" placeholder="unique id" 
+                    formControlName="id" required>
+
+                <mat-error *ngIf="errors.id">
+                    {{ errors.id }}
+                </mat-error>
+            </mat-form-field>
+
             <mat-form-field appearance="outline" *ngIf="form.value.type != 'kGateway'">
                 <mat-label>
                     Device ID

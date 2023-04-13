@@ -24,6 +24,7 @@ module.exports = class extends EventEmitter {
         this.enabled = args.enabled;
         this.barcode = args.barcode;
         this.deviceId = args.deviceId;
+        this.id = args.id;
         this.controller = new Controller();
         this.lastConnection = new Date();
 
