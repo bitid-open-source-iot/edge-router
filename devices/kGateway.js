@@ -90,7 +90,7 @@ class kGateway {
                                  * Without this we spam the server. 
                                  *
                                  */
-                                self.arrTags[i].routerId = item.routerId
+                                self.arrTags[i].routerId = item.routerId || args.bitidDeviceId
                             }
                             lastTag = self.arrTags[i]
                             break
@@ -157,6 +157,12 @@ class kGateway {
                         }
                     }
                     item.time = time
+                    self.arrTags.find((tag) => {
+                        if (tag.tagId == item.tagId) {
+                            tag = item
+                            tag.routerId = args.routerId
+                        }
+                    })
                     item.status = 0
                     item.txCount++
                     // if (__settings.debug == true) {
@@ -168,7 +174,7 @@ class kGateway {
                     }
                 } else {
                     if (__settings.debug == true) {
-                        console.log('Skipped send to server')
+                        console.log(`Skipped send to server timing down ${((self.tagFixedTxTime * 1000) -  (time - item.time)) / 60} seconds`)
                     }
                 }
                 resolve({})
@@ -216,7 +222,12 @@ class kGateway {
                 item.temp = message.temp
                 item.advDevices = message.advDevices
             } else if (message.msg == 'advData') {
+                message.obj.map((item) => {
+                    item.routerId = args.bitidDeviceId
+                })
                 args.tagObj = message.obj
+                // args.tagObj[0].routerId = args.bitidDeviceId
+                args.routerId = args.bitidDeviceId
                 args = await self.processTagsFromRouter(args)
                 args = await self.processTagsToSendToServer(args)
             } else {
