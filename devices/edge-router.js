@@ -58,6 +58,7 @@ module.exports = class extends EventEmitter {
         this.arrTimeouts = []
 
         this.fixedTransmit
+        this.tmrPublish
 
         this.sendOnce = true
 
@@ -74,6 +75,16 @@ module.exports = class extends EventEmitter {
                 console.error('fixedTransmit Error', e)
             }
         }, this.txtime * 60000)
+
+        this.tmrPublish = setInterval(() => {
+            try {
+                this.publishOnInterval()
+            } catch (e) {
+                console.error('tmrPublish Error', e)
+            }
+        }, 500)
+
+
     }
 
     // updateExternalCommsStatus(deviceId, inputs) {
@@ -126,13 +137,15 @@ module.exports = class extends EventEmitter {
 
     updateDeviceInputsThenActionMapping(id, inputs) {
         let deviceItem = null
-        __devices.reduce((promise, device) => {
+        return __devices.reduce((promise, device) => { // add return here
             deviceItem = device
             return promise.then(() => {
                 if (device.id == id) {
-                    device.io.reduce((promise, io) => {
+                    // add return here
+                    return device.io.reduce((promise, io) => {
                         return promise.then(() => {
-                            inputs.reduce((promise, ip) => {
+                            // add return here
+                            return inputs.reduce((promise, ip) => {
                                 return promise.then(() => {
                                     if (io.inputId == ip.inputId) {
                                         io.value = ip.value
@@ -140,148 +153,112 @@ module.exports = class extends EventEmitter {
                                 })
                             }, Promise.resolve())
                         })
-                    }, Promise.resolve()
+                    }, Promise.resolve())
                         .then(() => {
                             __socket.send('devices:data', {
                                 data: deviceItem.io,
                                 deviceId: deviceItem.deviceId
                             });
-
                         })
-                    )
                 }
             })
         }, Promise.resolve())
-            .then(() => {
-                __router.mapping(deviceItem.deviceId, inputs)
+            .then(async () => {
+                await __router.mapping(deviceItem.deviceId, inputs)
             })
-
     }
 
 
     async mapping(deviceId, inputs) {
-        var deferred = Q.defer()
-        let index = 0
+        return new Promise(async (resolve, reject) => {
+            let index = 0;
 
-        await __settings.mapping.reduce((promise, item) => {
-            return promise.then(async () => {
-                var deferred = Q.defer()
+            // Use a for..of loop to iterate through the array and simplify the code
+            for (const item of __settings.mapping) {
+                index++;
 
-                index++
-                if (item.source.deviceId == deviceId) {
+                // Use continue to skip to the next iteration if the deviceId doesn't match
+                if (item.source.deviceId != deviceId) {
+                    continue;
+                }
 
-                    await inputs.reduce((promise, input) => {
-                        return promise.then(async () => {
-                            var deferred = Q.defer()
+                // Use try..catch to handle errors and simplify the code
+                try {
+                    for (const input of inputs) {
+                        if (item.source.inputId != input.inputId) {
+                            continue;
+                        }
 
-                            if (item.source.inputId == input.inputId) {
-                                var maskSourceValue = null;
-                                if (item.source.mask != -1) {
-                                    maskSourceValue = input.value & item.source.mask;
-                                } else {
-                                    maskSourceValue = input.value;
-                                };
+                        let maskSourceValue = null;
 
+                        if (item.source.mask != -1) {
+                            maskSourceValue = input.value & item.source.mask;
+                        } else {
+                            maskSourceValue = input.value;
+                        }
 
-                                await __devices.reduce((promise, device) => {
-                                    return promise.then(async () => {
-                                        var deferred = Q.defer()
-                                        if (item.destination.deviceId == device.deviceId) {
-                                            let deviceCurrentState = null;
-                                            let maskDestinationValue = null;
-                                            if (item.destination.mask != -1) {
+                        // Use find() to simplify the code and avoid unnecessary iterations
+                        const device = __devices.find(d => d.deviceId === item.destination.deviceId);
 
+                        if (!device) {
+                            continue;
+                        }
 
-                                                await device.values.reduce((promise, dv) => {
-                                                    return promise.then(async () => {
-                                                        var deferred = Q.defer()
-                                                        if (dv.inputId == item.destination.inputId) {
-                                                            deviceCurrentState = dv.value;
-                                                        };
-                                                        deferred.resolve({})
-                                                        return deferred.promise
+                        let deviceCurrentState = null;
+                        let maskDestinationValue = null;
 
-                                                    })
-                                                }, Promise.resolve())
-                                                    .then(() => {
-                                                        deferred.resolve({})
-                                                    })
-
-                                                let dontTouchVal = 0
-                                                maskDestinationValue = maskSourceValue & item.destination.mask;
-                                                if ((deviceCurrentState & item.destination.mask > 0) && deviceCurrentState != -1) {
-                                                    dontTouchVal = deviceCurrentState - (deviceCurrentState & item.destination.mask)
-                                                };
-                                                maskDestinationValue = dontTouchVal + maskDestinationValue;
-                                            } else {
-                                                // __settings.mapping
-                                                maskDestinationValue = maskSourceValue;
-                                            };
-                                            for (let i = 0; i < device.io.length; i++) {
-                                                if (device.io[i].inputId == item.destination.inputId) {
-                                                    __logger.info(device.io[i].description + ': ' + maskDestinationValue);
-                                                    break;
-                                                };
-                                            };
-                                            await device.write(item.destination.inputId, maskDestinationValue);
-                                            deferred.resolve({})
-                                        } else {
-                                            deferred.resolve({})
-                                        }
-                                        return deferred.promise
-                                    })
-                                }, Promise.resolve())
-                                    .then(() => {
-                                        deferred.resolve({})
-                                    })
-
-                            } else {
-                                deferred.resolve({})
+                        if (item.destination.mask != -1) {
+                            for (const dv of device.values) {
+                                if (dv.inputId == item.destination.inputId) {
+                                    deviceCurrentState = dv.value;
+                                }
                             }
 
-                            return deferred.promise
+                            let dontTouchVal = 0;
+                            maskDestinationValue = maskSourceValue & item.destination.mask;
 
-                        }, Promise.resolve())
-                            .then(() => {
-                                deferred.resolve({})
-                            })
+                            if (deviceCurrentState & item.destination.mask > 0 && deviceCurrentState != -1) {
+                                dontTouchVal = deviceCurrentState - (deviceCurrentState & item.destination.mask);
+                            }
 
-                    }, Promise.resolve())
-                        .then(() => {
-                            deferred.resolve({})
-                        })
+                            maskDestinationValue = dontTouchVal + maskDestinationValue;
+                        } else {
+                            maskDestinationValue = maskSourceValue;
+                        }
 
+                        // Use find() to simplify the code and avoid unnecessary iterations
+                        const io = device.io.find(io => io.inputId === item.destination.inputId);
 
-                };
-                deferred.resolve({})
+                        if (!io) {
+                            continue;
+                        }
 
-                return deferred.promise
-            })
-        }, Promise.resolve())
-            .then(async () => {
-                // await this.cofs.applyCOFSServer()
-                // if (this.sendOnce) {
-                //     this.sendOnce = setTimeout(() => {
-                //         this.cofs.send()
-                //         clearTimeout(this.sendOnce)
-                //         this.sendOnce = null
-                //     }, 200)
-                // }
-                deferred.resolve({})
-            })
-            .then(async () => {
-                await this.cofs.applyCOFSServer()
-            })
+                        __logger.info(io.description + ': ' + maskDestinationValue);
+                        await device.write(item.destination.inputId, maskDestinationValue);
+                    }
+                } catch (err) {
+                    // Handle errors
+                    console.error(err);
+                    reject(err);
+                }
+            }
 
-        return deferred.promise
+            // Use await to wait for the COFS server to apply
+            try{
+                await this.cofs.applyCOFSServer();
+                resolve();
+            }catch(err){
+                reject(err);
+            }
+        });
     }
 
     async wait(args) {
-        var deferred = Q.defer();
-        setTimeout(() => {
-            deferred.resolve({});
-        }, args);
-        return deferred.promise;
+        return new Promise(resolve => {
+            setTimeout(() => {
+                resolve({});
+            }, args);
+        });
     }
 
     async connect() {
@@ -404,20 +381,33 @@ module.exports = class extends EventEmitter {
         };
     }
 
-    async publish(data) {
-        return new Promise(async (resolve, reject) => {
+
+
+    publish(data){
+        __arrPublisher.push(data)
+    }
+
+    publishOnInterval(){
+        if(__arrPublisher.length > 0){
+            this.publishArrFromTimer(__arrPublisher.shift())
+        }
+    }
+
+    async publishArrFromTimer(data) {
+        try {
             if (this.mqtt?.connected) {
-                __logger.info(`publish ${this.server.subscribe.data} : ${JSON.stringify(data)}`)
-                this.mqtt.publish(this.server.subscribe.data, JSON.stringify(data));
+                __logger.info(`publish ${this.server.subscribe.data} : ${JSON.stringify(data)}`);
+                __logger.info(`keeping an eye on the arrPublisher ${__arrPublisher.length}`)
+                await this.mqtt.publish(this.server.subscribe.data, JSON.stringify(data));
             } else {
                 __logger.warn('Edge Router - Trying to transmit even though socket not connected!');
-            };            
-            resolve()
-        })
-
-
-
+            }
+        } catch (err) {
+            // Handle errors
+            console.error(err);
+        }
     }
+    
 
 
     async publishToTopic(topic, data) {

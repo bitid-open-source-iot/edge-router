@@ -29,6 +29,7 @@ global.__devices = [];
 global.__settings = require('./config.json');
 global.__responder = responder.module();
 global.__byteLen = 0
+global.__arrPublisher = []
 
 // const cofs = new COFS('story1')
 
