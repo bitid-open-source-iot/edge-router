@@ -1,6 +1,6 @@
 {
     "port": 8080,
-    "txtime": 5,
+    "txtime": 50,
     "barcode": "PROL00003",
     "deviceId": "6299c2eb36730c4d361c2062",
     "production": true,
@@ -40,6 +40,7 @@
     },
     "devices": [
         {
+            "id": 0,
             "io": [
                 {
                     "scaling": {
@@ -55,7 +56,7 @@
                     },
                     "publish": {
                         "bit": 0,
-                        "key": "AI1",
+                        "key": "AIExt1",
                         "enabled": true,
                         "moduleId": 0,
                         "lastCOFSValue": 0
@@ -104,57 +105,8 @@
                         "type": "none"
                     },
                     "publish": {
-                        "bit": 6,
-                        "key": "digitalsIn",
-                        "enabled": true,
-                        "moduleId": 0
-                    },
-                    "masking": {
                         "bit": 0,
-                        "enabled": false
-                    },
-                    "mqtt": {
-                        "userName": "",
-                        "password": "",
-                        "subscribe": {
-                            "data": "",
-                            "control": ""
-                        },
-                        "enabled": false
-                    },
-                    "modbus": {
-                        "isCoil": false,
-                        "isHoldingRegister": false
-                    },
-                    "key": "",
-                    "tagId": "",
-                    "value": 1,
-                    "shift": -1,
-                    "inputId": "62b43d51afda0ff981c3abf3",
-                    "register": 0,
-                    "moduleId": 0,
-                    "readable": false,
-                    "interface": "",
-                    "writeable": false,
-                    "description": "comms",
-                    "cofs": -1,
-                    "command": ""
-                },
-                {
-                    "scaling": {
-                        "raw": {
-                            "low": 0,
-                            "high": 0
-                        },
-                        "scaled": {
-                            "low": 0,
-                            "high": 0
-                        },
-                        "type": "none"
-                    },
-                    "publish": {
-                        "bit": 0,
-                        "key": "AI2",
+                        "key": "AIExt2",
                         "enabled": true,
                         "moduleId": 0,
                         "lastCOFSValue": 0
@@ -204,7 +156,7 @@
                     },
                     "publish": {
                         "bit": 0,
-                        "key": "AI3",
+                        "key": "AIExt3",
                         "enabled": true,
                         "moduleId": 0,
                         "lastCOFSValue": 0
@@ -254,7 +206,7 @@
                     },
                     "publish": {
                         "bit": 0,
-                        "key": "AI4",
+                        "key": "AIExt4",
                         "enabled": true,
                         "moduleId": 0,
                         "lastCOFSValue": 0
@@ -304,10 +256,10 @@
                     },
                     "publish": {
                         "bit": 0,
-                        "key": "AIExt1",
+                        "key": "AIExt5",
                         "enabled": true,
                         "moduleId": 0,
-                        "lastCOFSValue": 0
+                        "lastCOFSValue": 9
                     },
                     "masking": {
                         "bit": 0,
@@ -328,7 +280,7 @@
                     },
                     "key": "",
                     "tagId": "",
-                    "value": 0,
+                    "value": 9,
                     "shift": -1,
                     "inputId": "642ec51f6f2ba937f3991c29",
                     "register": 6,
@@ -354,7 +306,7 @@
                     },
                     "publish": {
                         "bit": 0,
-                        "key": "AIExt2",
+                        "key": "AIExt6",
                         "enabled": true,
                         "moduleId": 0,
                         "lastCOFSValue": 0
@@ -404,7 +356,7 @@
                     },
                     "publish": {
                         "bit": 0,
-                        "key": "AIExt3",
+                        "key": "AIExt7",
                         "enabled": true,
                         "moduleId": 0,
                         "lastCOFSValue": 0
@@ -454,7 +406,7 @@
                     },
                     "publish": {
                         "bit": 0,
-                        "key": "AIExt4",
+                        "key": "AIExt8",
                         "enabled": true,
                         "moduleId": 0,
                         "lastCOFSValue": 0
@@ -494,19 +446,20 @@
             "ip": "192.168.10.44",
             "port": 502,
             "type": "modbus",
-            "txtime": 10,
+            "txtime": 1,
             "pxtime": 1800,
             "timeout": 600,
-            "barcode": "PROL00011",
+            "barcode": "PROL00NG1",
             "publish": true,
             "enabled": true,
             "unitId": 1,
-            "deviceId": "6298a12d5237ef222a570bdf",
+            "deviceId": "6401f20779849d06c811bf71",
             "description": "NG1  Prologics 8AII Card 1",
             "userName": "",
             "password": ""
         },
         {
+            "id": 2,
             "io": [
                 {
                     "scaling": {
@@ -522,9 +475,10 @@
                     },
                     "publish": {
                         "bit": 0,
-                        "key": "digitalsIn",
+                        "key": "AIExt1",
                         "enabled": true,
-                        "moduleId": 0
+                        "moduleId": 1,
+                        "lastCOFSValue": 0
                     },
                     "masking": {
                         "bit": 0,
@@ -553,10 +507,379 @@
                     "readable": true,
                     "interface": "",
                     "writeable": false,
-                    "description": "Digitals In 1 Pump 1 Status",
-                    "cofs": -1,
+                    "description": "Analog Input 1",
+                    "cofs": "50",
                     "command": ""
                 },
+                {
+                    "scaling": {
+                        "raw": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "scaled": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "type": "none"
+                    },
+                    "publish": {
+                        "bit": 0,
+                        "key": "AIExt2",
+                        "enabled": true,
+                        "moduleId": 1,
+                        "lastCOFSValue": 0
+                    },
+                    "masking": {
+                        "bit": 0,
+                        "enabled": false
+                    },
+                    "mqtt": {
+                        "userName": "",
+                        "password": "",
+                        "subscribe": {
+                            "data": "",
+                            "control": ""
+                        },
+                        "enabled": false
+                    },
+                    "modbus": {
+                        "isCoil": false,
+                        "isHoldingRegister": false
+                    },
+                    "key": "",
+                    "tagId": "",
+                    "value": 0,
+                    "shift": -1,
+                    "inputId": "642ec26493d4b366ecf06dfe",
+                    "register": 3,
+                    "moduleId": 0,
+                    "readable": true,
+                    "interface": "",
+                    "writeable": false,
+                    "description": "Analog Input 2",
+                    "cofs": "50",
+                    "command": ""
+                },
+                {
+                    "scaling": {
+                        "raw": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "scaled": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "type": "none"
+                    },
+                    "publish": {
+                        "bit": 0,
+                        "key": "AIExt3",
+                        "enabled": true,
+                        "moduleId": 1,
+                        "lastCOFSValue": 0
+                    },
+                    "masking": {
+                        "bit": 0,
+                        "enabled": false
+                    },
+                    "mqtt": {
+                        "userName": "",
+                        "password": "",
+                        "subscribe": {
+                            "data": "",
+                            "control": ""
+                        },
+                        "enabled": false
+                    },
+                    "modbus": {
+                        "isCoil": false,
+                        "isHoldingRegister": false
+                    },
+                    "key": "",
+                    "tagId": "",
+                    "value": 0,
+                    "shift": -1,
+                    "inputId": "642ec2706578bd69c744a06c",
+                    "register": 4,
+                    "moduleId": 0,
+                    "readable": true,
+                    "interface": "",
+                    "writeable": false,
+                    "description": "Analog Input 3",
+                    "cofs": "50",
+                    "command": ""
+                },
+                {
+                    "scaling": {
+                        "raw": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "scaled": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "type": "none"
+                    },
+                    "publish": {
+                        "bit": 0,
+                        "key": "AIExt4",
+                        "enabled": true,
+                        "moduleId": 1,
+                        "lastCOFSValue": 2
+                    },
+                    "masking": {
+                        "bit": 0,
+                        "enabled": false
+                    },
+                    "mqtt": {
+                        "userName": "",
+                        "password": "",
+                        "subscribe": {
+                            "data": "",
+                            "control": ""
+                        },
+                        "enabled": false
+                    },
+                    "modbus": {
+                        "isCoil": false,
+                        "isHoldingRegister": false
+                    },
+                    "key": "",
+                    "tagId": "",
+                    "value": 2,
+                    "shift": -1,
+                    "inputId": "642ec29fe7ab9cbe5b142b25",
+                    "register": 5,
+                    "moduleId": 0,
+                    "readable": true,
+                    "interface": "",
+                    "writeable": false,
+                    "description": "Analog Input 4",
+                    "cofs": "50",
+                    "command": ""
+                },
+                {
+                    "scaling": {
+                        "raw": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "scaled": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "type": "none"
+                    },
+                    "publish": {
+                        "bit": 0,
+                        "key": "AIExt5",
+                        "enabled": true,
+                        "moduleId": 1,
+                        "lastCOFSValue": 0
+                    },
+                    "masking": {
+                        "bit": 0,
+                        "enabled": false
+                    },
+                    "mqtt": {
+                        "userName": "",
+                        "password": "",
+                        "subscribe": {
+                            "data": "",
+                            "control": ""
+                        },
+                        "enabled": false
+                    },
+                    "modbus": {
+                        "isCoil": false,
+                        "isHoldingRegister": false
+                    },
+                    "key": "",
+                    "tagId": "",
+                    "value": 0,
+                    "shift": -1,
+                    "inputId": "642ec51f6f2ba937f3991c29",
+                    "register": 6,
+                    "moduleId": 0,
+                    "readable": true,
+                    "interface": "",
+                    "writeable": false,
+                    "description": "Analog Input 5",
+                    "cofs": "50",
+                    "command": ""
+                },
+                {
+                    "scaling": {
+                        "raw": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "scaled": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "type": "none"
+                    },
+                    "publish": {
+                        "bit": 0,
+                        "key": "AIExt6",
+                        "enabled": true,
+                        "moduleId": 1,
+                        "lastCOFSValue": 0
+                    },
+                    "masking": {
+                        "bit": 0,
+                        "enabled": false
+                    },
+                    "mqtt": {
+                        "userName": "",
+                        "password": "",
+                        "subscribe": {
+                            "data": "",
+                            "control": ""
+                        },
+                        "enabled": false
+                    },
+                    "modbus": {
+                        "isCoil": false,
+                        "isHoldingRegister": false
+                    },
+                    "key": "",
+                    "tagId": "",
+                    "value": 0,
+                    "shift": -1,
+                    "inputId": "642ec537f10407b0be625006",
+                    "register": 7,
+                    "moduleId": 0,
+                    "readable": true,
+                    "interface": "",
+                    "writeable": false,
+                    "description": "Analog Input 6",
+                    "cofs": "50",
+                    "command": ""
+                },
+                {
+                    "scaling": {
+                        "raw": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "scaled": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "type": "none"
+                    },
+                    "publish": {
+                        "bit": 0,
+                        "key": "AIExt7",
+                        "enabled": true,
+                        "moduleId": 1,
+                        "lastCOFSValue": 0
+                    },
+                    "masking": {
+                        "bit": 0,
+                        "enabled": false
+                    },
+                    "mqtt": {
+                        "userName": "",
+                        "password": "",
+                        "subscribe": {
+                            "data": "",
+                            "control": ""
+                        },
+                        "enabled": false
+                    },
+                    "modbus": {
+                        "isCoil": false,
+                        "isHoldingRegister": false
+                    },
+                    "key": "",
+                    "tagId": "",
+                    "value": 0,
+                    "shift": -1,
+                    "inputId": "642ec545f15cb5701c21372e",
+                    "register": 8,
+                    "moduleId": 0,
+                    "readable": true,
+                    "interface": "",
+                    "writeable": false,
+                    "description": "Analog Input 7",
+                    "cofs": "50",
+                    "command": ""
+                },
+                {
+                    "scaling": {
+                        "raw": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "scaled": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "type": "none"
+                    },
+                    "publish": {
+                        "bit": 0,
+                        "key": "AIExt8",
+                        "enabled": true,
+                        "moduleId": 1,
+                        "lastCOFSValue": 0
+                    },
+                    "masking": {
+                        "bit": 0,
+                        "enabled": false
+                    },
+                    "mqtt": {
+                        "userName": "",
+                        "password": "",
+                        "subscribe": {
+                            "data": "",
+                            "control": ""
+                        },
+                        "enabled": false
+                    },
+                    "modbus": {
+                        "isCoil": false,
+                        "isHoldingRegister": false
+                    },
+                    "key": "",
+                    "tagId": "",
+                    "value": 0,
+                    "shift": -1,
+                    "inputId": "642ec553ebb23d9d74b5af7f",
+                    "register": 9,
+                    "moduleId": 0,
+                    "readable": true,
+                    "interface": "",
+                    "writeable": false,
+                    "description": "Analog Input 8",
+                    "cofs": "50",
+                    "command": ""
+                }
+            ],
+            "ip": "192.168.10.44",
+            "port": 502,
+            "type": "modbus",
+            "txtime": 1,
+            "pxtime": 1800,
+            "timeout": 600,
+            "barcode": "PROL00NG1",
+            "publish": true,
+            "enabled": true,
+            "unitId": 2,
+            "deviceId": "6401f20779849d06c811bf71",
+            "description": "NG1  Prologics 8AII Card 2",
+            "userName": "",
+            "password": ""
+        },
+        {
+            "id": 3,
+            "io": [
                 {
                     "scaling": {
                         "raw": {
@@ -571,9 +894,9 @@
                     },
                     "publish": {
                         "bit": -1,
-                        "key": "CI1",
+                        "key": "digitalsIn",
                         "enabled": true,
-                        "moduleId": 0,
+                        "moduleId": 2,
                         "lastCOFSValue": 0
                     },
                     "masking": {
@@ -596,172 +919,6 @@
                     "key": "",
                     "tagId": "",
                     "value": 0,
-                    "shift": -1,
-                    "inputId": "6299c356aae0bb2dc6eb35c4",
-                    "register": 3,
-                    "moduleId": 0,
-                    "readable": true,
-                    "interface": "",
-                    "writeable": true,
-                    "description": "Digitals Out",
-                    "cofs": -1,
-                    "command": ""
-                },
-                {
-                    "scaling": {
-                        "raw": {
-                            "low": 0,
-                            "high": 0
-                        },
-                        "scaled": {
-                            "low": 0,
-                            "high": 0
-                        },
-                        "type": "none"
-                    },
-                    "publish": {
-                        "bit": 1,
-                        "key": "digitalsIn",
-                        "enabled": true,
-                        "moduleId": 0
-                    },
-                    "masking": {
-                        "bit": 0,
-                        "enabled": false
-                    },
-                    "mqtt": {
-                        "userName": "",
-                        "password": "",
-                        "subscribe": {
-                            "data": "",
-                            "control": ""
-                        },
-                        "enabled": false
-                    },
-                    "modbus": {
-                        "isCoil": false,
-                        "isHoldingRegister": false
-                    },
-                    "key": "",
-                    "tagId": "",
-                    "value": 0,
-                    "shift": -1,
-                    "inputId": "62a9d6f9c224629618574851",
-                    "register": 2,
-                    "moduleId": 0,
-                    "readable": true,
-                    "interface": "",
-                    "writeable": false,
-                    "description": "Digitals In 2 Pump 1 Status",
-                    "cofs": -1,
-                    "command": ""
-                },
-                {
-                    "scaling": {
-                        "raw": {
-                            "low": 0,
-                            "high": 0
-                        },
-                        "scaled": {
-                            "low": 0,
-                            "high": 0
-                        },
-                        "type": "none"
-                    },
-                    "publish": {
-                        "bit": 7,
-                        "key": "digitalsIn",
-                        "enabled": true,
-                        "moduleId": 0
-                    },
-                    "masking": {
-                        "bit": 0,
-                        "enabled": false
-                    },
-                    "mqtt": {
-                        "userName": "",
-                        "password": "",
-                        "subscribe": {
-                            "data": "",
-                            "control": ""
-                        },
-                        "enabled": false
-                    },
-                    "modbus": {
-                        "isCoil": false,
-                        "isHoldingRegister": false
-                    },
-                    "key": "",
-                    "tagId": "",
-                    "value": 1,
-                    "shift": 0,
-                    "inputId": "62b4237aa59492d3ec5ba83b",
-                    "register": 0,
-                    "moduleId": 0,
-                    "readable": false,
-                    "interface": "",
-                    "writeable": false,
-                    "description": "comms",
-                    "cofs": -1,
-                    "command": ""
-                }
-            ],
-            "ip": "192.168.10.43",
-            "port": 502,
-            "type": "modbus",
-            "txtime": 10,
-            "pxtime": 1800,
-            "timeout": 600,
-            "barcode": "PROL00003",
-            "publish": true,
-            "enabled": true,
-            "unitId": 1,
-            "deviceId": "6299c2ebaaaaaaaa361c2062",
-            "description": "Pumpstation",
-            "userName": "",
-            "password": ""
-        },
-        {
-            "io": [
-                {
-                    "scaling": {
-                        "raw": {
-                            "low": 0,
-                            "high": 0
-                        },
-                        "scaled": {
-                            "low": 0,
-                            "high": 0
-                        },
-                        "type": "none"
-                    },
-                    "publish": {
-                        "bit": 0,
-                        "key": "AI1",
-                        "enabled": true,
-                        "moduleId": 1,
-                        "lastCOFSValue": 2132
-                    },
-                    "masking": {
-                        "bit": 0,
-                        "enabled": false
-                    },
-                    "mqtt": {
-                        "userName": "",
-                        "password": "",
-                        "subscribe": {
-                            "data": "",
-                            "control": ""
-                        },
-                        "enabled": false
-                    },
-                    "modbus": {
-                        "isCoil": false,
-                        "isHoldingRegister": false
-                    },
-                    "key": "",
-                    "tagId": "",
-                    "value": 2132,
                     "shift": -1,
                     "inputId": "627e2c8f76405f0672fd7f84",
                     "register": 2,
@@ -769,426 +926,28 @@
                     "readable": true,
                     "interface": "",
                     "writeable": false,
-                    "description": "Analog Input 1",
-                    "cofs": "50",
-                    "command": ""
-                },
-                {
-                    "scaling": {
-                        "raw": {
-                            "low": 0,
-                            "high": 0
-                        },
-                        "scaled": {
-                            "low": 0,
-                            "high": 0
-                        },
-                        "type": "none"
-                    },
-                    "publish": {
-                        "bit": 6,
-                        "key": "digitalsIn",
-                        "enabled": true,
-                        "moduleId": 0
-                    },
-                    "masking": {
-                        "bit": 0,
-                        "enabled": false
-                    },
-                    "mqtt": {
-                        "userName": "",
-                        "password": "",
-                        "subscribe": {
-                            "data": "",
-                            "control": ""
-                        },
-                        "enabled": false
-                    },
-                    "modbus": {
-                        "isCoil": false,
-                        "isHoldingRegister": false
-                    },
-                    "key": "",
-                    "tagId": "",
-                    "value": 1,
-                    "shift": -1,
-                    "inputId": "62b43d51afda0ff981c3abf3",
-                    "register": 0,
-                    "moduleId": 0,
-                    "readable": false,
-                    "interface": "",
-                    "writeable": false,
-                    "description": "comms",
-                    "cofs": -1,
-                    "command": ""
-                },
-                {
-                    "scaling": {
-                        "raw": {
-                            "low": 0,
-                            "high": 0
-                        },
-                        "scaled": {
-                            "low": 0,
-                            "high": 0
-                        },
-                        "type": "none"
-                    },
-                    "publish": {
-                        "bit": 0,
-                        "key": "AI2",
-                        "enabled": true,
-                        "moduleId": 1,
-                        "lastCOFSValue": 2849
-                    },
-                    "masking": {
-                        "bit": 0,
-                        "enabled": false
-                    },
-                    "mqtt": {
-                        "userName": "",
-                        "password": "",
-                        "subscribe": {
-                            "data": "",
-                            "control": ""
-                        },
-                        "enabled": false
-                    },
-                    "modbus": {
-                        "isCoil": false,
-                        "isHoldingRegister": false
-                    },
-                    "key": "",
-                    "tagId": "",
-                    "value": 2849,
-                    "shift": -1,
-                    "inputId": "642ec26493d4b366ecf06dfe",
-                    "register": 3,
-                    "moduleId": 0,
-                    "readable": true,
-                    "interface": "",
-                    "writeable": false,
-                    "description": "Analog Input 2",
-                    "cofs": "50",
-                    "command": ""
-                },
-                {
-                    "scaling": {
-                        "raw": {
-                            "low": 0,
-                            "high": 0
-                        },
-                        "scaled": {
-                            "low": 0,
-                            "high": 0
-                        },
-                        "type": "none"
-                    },
-                    "publish": {
-                        "bit": 0,
-                        "key": "AI3",
-                        "enabled": true,
-                        "moduleId": 1,
-                        "lastCOFSValue": 0
-                    },
-                    "masking": {
-                        "bit": 0,
-                        "enabled": false
-                    },
-                    "mqtt": {
-                        "userName": "",
-                        "password": "",
-                        "subscribe": {
-                            "data": "",
-                            "control": ""
-                        },
-                        "enabled": false
-                    },
-                    "modbus": {
-                        "isCoil": false,
-                        "isHoldingRegister": false
-                    },
-                    "key": "",
-                    "tagId": "",
-                    "value": 0,
-                    "shift": -1,
-                    "inputId": "642ec2706578bd69c744a06c",
-                    "register": 4,
-                    "moduleId": 0,
-                    "readable": true,
-                    "interface": "",
-                    "writeable": false,
-                    "description": "Analog Input 3",
-                    "cofs": "50",
-                    "command": ""
-                },
-                {
-                    "scaling": {
-                        "raw": {
-                            "low": 0,
-                            "high": 0
-                        },
-                        "scaled": {
-                            "low": 0,
-                            "high": 0
-                        },
-                        "type": "none"
-                    },
-                    "publish": {
-                        "bit": 0,
-                        "key": "AI4",
-                        "enabled": true,
-                        "moduleId": 1,
-                        "lastCOFSValue": 0
-                    },
-                    "masking": {
-                        "bit": 0,
-                        "enabled": false
-                    },
-                    "mqtt": {
-                        "userName": "",
-                        "password": "",
-                        "subscribe": {
-                            "data": "",
-                            "control": ""
-                        },
-                        "enabled": false
-                    },
-                    "modbus": {
-                        "isCoil": false,
-                        "isHoldingRegister": false
-                    },
-                    "key": "",
-                    "tagId": "",
-                    "value": 0,
-                    "shift": -1,
-                    "inputId": "642ec29fe7ab9cbe5b142b25",
-                    "register": 5,
-                    "moduleId": 0,
-                    "readable": true,
-                    "interface": "",
-                    "writeable": false,
-                    "description": "Analog Input 4",
-                    "cofs": "50",
-                    "command": ""
-                },
-                {
-                    "scaling": {
-                        "raw": {
-                            "low": 0,
-                            "high": 0
-                        },
-                        "scaled": {
-                            "low": 0,
-                            "high": 0
-                        },
-                        "type": "none"
-                    },
-                    "publish": {
-                        "bit": 0,
-                        "key": "AIExt1",
-                        "enabled": true,
-                        "moduleId": 1,
-                        "lastCOFSValue": 0
-                    },
-                    "masking": {
-                        "bit": 0,
-                        "enabled": false
-                    },
-                    "mqtt": {
-                        "userName": "",
-                        "password": "",
-                        "subscribe": {
-                            "data": "",
-                            "control": ""
-                        },
-                        "enabled": false
-                    },
-                    "modbus": {
-                        "isCoil": false,
-                        "isHoldingRegister": false
-                    },
-                    "key": "",
-                    "tagId": "",
-                    "value": 0,
-                    "shift": -1,
-                    "inputId": "642ec51f6f2ba937f3991c29",
-                    "register": 6,
-                    "moduleId": 0,
-                    "readable": true,
-                    "interface": "",
-                    "writeable": false,
-                    "description": "Analog Input 5",
-                    "cofs": "50",
-                    "command": ""
-                },
-                {
-                    "scaling": {
-                        "raw": {
-                            "low": 0,
-                            "high": 0
-                        },
-                        "scaled": {
-                            "low": 0,
-                            "high": 0
-                        },
-                        "type": "none"
-                    },
-                    "publish": {
-                        "bit": 0,
-                        "key": "AIExt2",
-                        "enabled": true,
-                        "moduleId": 1,
-                        "lastCOFSValue": 0
-                    },
-                    "masking": {
-                        "bit": 0,
-                        "enabled": false
-                    },
-                    "mqtt": {
-                        "userName": "",
-                        "password": "",
-                        "subscribe": {
-                            "data": "",
-                            "control": ""
-                        },
-                        "enabled": false
-                    },
-                    "modbus": {
-                        "isCoil": false,
-                        "isHoldingRegister": false
-                    },
-                    "key": "",
-                    "tagId": "",
-                    "value": 0,
-                    "shift": -1,
-                    "inputId": "642ec537f10407b0be625006",
-                    "register": 7,
-                    "moduleId": 0,
-                    "readable": true,
-                    "interface": "",
-                    "writeable": false,
-                    "description": "Analog Input 6",
-                    "cofs": "50",
-                    "command": ""
-                },
-                {
-                    "scaling": {
-                        "raw": {
-                            "low": 0,
-                            "high": 0
-                        },
-                        "scaled": {
-                            "low": 0,
-                            "high": 0
-                        },
-                        "type": "none"
-                    },
-                    "publish": {
-                        "bit": 0,
-                        "key": "AIExt3",
-                        "enabled": true,
-                        "moduleId": 1,
-                        "lastCOFSValue": 0
-                    },
-                    "masking": {
-                        "bit": 0,
-                        "enabled": false
-                    },
-                    "mqtt": {
-                        "userName": "",
-                        "password": "",
-                        "subscribe": {
-                            "data": "",
-                            "control": ""
-                        },
-                        "enabled": false
-                    },
-                    "modbus": {
-                        "isCoil": false,
-                        "isHoldingRegister": false
-                    },
-                    "key": "",
-                    "tagId": "",
-                    "value": 0,
-                    "shift": -1,
-                    "inputId": "642ec545f15cb5701c21372e",
-                    "register": 8,
-                    "moduleId": 0,
-                    "readable": true,
-                    "interface": "",
-                    "writeable": false,
-                    "description": "Analog Input 7",
-                    "cofs": "50",
-                    "command": ""
-                },
-                {
-                    "scaling": {
-                        "raw": {
-                            "low": 0,
-                            "high": 0
-                        },
-                        "scaled": {
-                            "low": 0,
-                            "high": 0
-                        },
-                        "type": "none"
-                    },
-                    "publish": {
-                        "bit": 0,
-                        "key": "AIExt4",
-                        "enabled": true,
-                        "moduleId": 1,
-                        "lastCOFSValue": 0
-                    },
-                    "masking": {
-                        "bit": 0,
-                        "enabled": false
-                    },
-                    "mqtt": {
-                        "userName": "",
-                        "password": "",
-                        "subscribe": {
-                            "data": "",
-                            "control": ""
-                        },
-                        "enabled": false
-                    },
-                    "modbus": {
-                        "isCoil": false,
-                        "isHoldingRegister": false
-                    },
-                    "key": "",
-                    "tagId": "",
-                    "value": 0,
-                    "shift": -1,
-                    "inputId": "642ec553ebb23d9d74b5af7f",
-                    "register": 9,
-                    "moduleId": 0,
-                    "readable": true,
-                    "interface": "",
-                    "writeable": false,
-                    "description": "Analog Input 8",
-                    "cofs": "50",
+                    "description": "Digital Inputs blah",
+                    "cofs": "-1",
                     "command": ""
                 }
             ],
             "ip": "192.168.10.44",
             "port": 502,
             "type": "modbus",
-            "txtime": 10,
+            "txtime": 1,
             "pxtime": 1800,
             "timeout": 600,
-            "barcode": "PROL00001",
+            "barcode": "PROL00NG1",
             "publish": true,
             "enabled": true,
-            "unitId": 2,
-            "deviceId": "6298a12d5237ef222a570bd1",
-            "description": "NG1  Prologics 8AII Card 2",
+            "unitId": 3,
+            "deviceId": "6401f20779849d06c811bf71",
+            "description": "NG1  Prologics DI16 Card 3",
             "userName": "",
             "password": ""
         },
         {
+            "id": 4,
             "io": [
                 {
                     "scaling": {
@@ -1237,186 +996,21 @@
                     "interface": "",
                     "writeable": false,
                     "description": "Digital Inputs",
-                    "cofs": "50",
-                    "command": ""
-                },
-                {
-                    "scaling": {
-                        "raw": {
-                            "low": 0,
-                            "high": 0
-                        },
-                        "scaled": {
-                            "low": 0,
-                            "high": 0
-                        },
-                        "type": "none"
-                    },
-                    "publish": {
-                        "bit": 6,
-                        "key": "digitalsIn",
-                        "enabled": true,
-                        "moduleId": 0
-                    },
-                    "masking": {
-                        "bit": 0,
-                        "enabled": false
-                    },
-                    "mqtt": {
-                        "userName": "",
-                        "password": "",
-                        "subscribe": {
-                            "data": "",
-                            "control": ""
-                        },
-                        "enabled": false
-                    },
-                    "modbus": {
-                        "isCoil": false,
-                        "isHoldingRegister": false
-                    },
-                    "key": "",
-                    "tagId": "",
-                    "value": 1,
-                    "shift": -1,
-                    "inputId": "62b43d51afda0ff981c3abf3",
-                    "register": 0,
-                    "moduleId": 0,
-                    "readable": false,
-                    "interface": "",
-                    "writeable": false,
-                    "description": "comms",
-                    "cofs": -1,
+                    "cofs": "-1",
                     "command": ""
                 }
             ],
             "ip": "192.168.10.44",
             "port": 502,
             "type": "modbus",
-            "txtime": 10,
+            "txtime": 1,
             "pxtime": 1800,
             "timeout": 600,
-            "barcode": "PROL00001",
-            "publish": true,
-            "enabled": true,
-            "unitId": 3,
-            "deviceId": "6298a12d5237ef222a570bd2",
-            "description": "NG1  Prologics DI16 Card 3",
-            "userName": "",
-            "password": ""
-        },
-        {
-            "io": [
-                {
-                    "scaling": {
-                        "raw": {
-                            "low": 0,
-                            "high": 0
-                        },
-                        "scaled": {
-                            "low": 0,
-                            "high": 0
-                        },
-                        "type": "none"
-                    },
-                    "publish": {
-                        "bit": -1,
-                        "key": "digitalsIn",
-                        "enabled": true,
-                        "moduleId": 3
-                    },
-                    "masking": {
-                        "bit": 0,
-                        "enabled": false
-                    },
-                    "mqtt": {
-                        "userName": "",
-                        "password": "",
-                        "subscribe": {
-                            "data": "",
-                            "control": ""
-                        },
-                        "enabled": false
-                    },
-                    "modbus": {
-                        "isCoil": false,
-                        "isHoldingRegister": false
-                    },
-                    "key": "",
-                    "tagId": "",
-                    "value": 0,
-                    "shift": -1,
-                    "inputId": "627e2c8f76405f0672fd7f84",
-                    "register": 2,
-                    "moduleId": 0,
-                    "readable": true,
-                    "interface": "",
-                    "writeable": false,
-                    "description": "Digital Inputs",
-                    "cofs": "50",
-                    "command": ""
-                },
-                {
-                    "scaling": {
-                        "raw": {
-                            "low": 0,
-                            "high": 0
-                        },
-                        "scaled": {
-                            "low": 0,
-                            "high": 0
-                        },
-                        "type": "none"
-                    },
-                    "publish": {
-                        "bit": 6,
-                        "key": "digitalsIn",
-                        "enabled": true,
-                        "moduleId": 0
-                    },
-                    "masking": {
-                        "bit": 0,
-                        "enabled": false
-                    },
-                    "mqtt": {
-                        "userName": "",
-                        "password": "",
-                        "subscribe": {
-                            "data": "",
-                            "control": ""
-                        },
-                        "enabled": false
-                    },
-                    "modbus": {
-                        "isCoil": false,
-                        "isHoldingRegister": false
-                    },
-                    "key": "",
-                    "tagId": "",
-                    "value": 1,
-                    "shift": -1,
-                    "inputId": "62b43d51afda0ff981c3abf3",
-                    "register": 0,
-                    "moduleId": 0,
-                    "readable": false,
-                    "interface": "",
-                    "writeable": false,
-                    "description": "comms",
-                    "cofs": -1,
-                    "command": ""
-                }
-            ],
-            "ip": "192.168.10.44",
-            "port": 502,
-            "type": "modbus",
-            "txtime": 10,
-            "pxtime": 1800,
-            "timeout": 600,
-            "barcode": "PROL00001",
+            "barcode": "PROL00NG1",
             "publish": true,
             "enabled": true,
             "unitId": 4,
-            "deviceId": "6298a12d5237ef222a570bd4",
+            "deviceId": "6401f20779849d06c811bf71",
             "description": "NG1  Prologics DI16 Card 4",
             "userName": "",
             "password": ""
@@ -1427,6 +1021,7 @@
     "publishEnabled": true,
     "rateLimits": {
         "rateLimitTmrSP": 60,
-        "rateLimitTxCountSP": 4
-    }
+        "rateLimitTxCountSP": 60
+    },
+    "overideDeviceBarcode": "false"
 }
