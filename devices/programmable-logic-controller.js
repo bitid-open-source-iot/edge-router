@@ -175,7 +175,12 @@ module.exports = class extends EventEmitter {
                 if (item.inputId == inputId && item.tag.value != value && item.writeable) {
                     item.tag.value = parseInt(value);
                     __logger.info('Writing a value of ' + item.tag.value + ' to ' + item.tagId);
-                    await this.controller.writeTag(item.tag);
+                    try{
+                        await this.controller.writeTag(item.tag);
+                    }catch(e){
+                        console.error(e)
+                    }
+                    
                 };
             });
             this.emit('data', this.values);

@@ -164,7 +164,12 @@ module.exports = class extends EventEmitter {
             })
         }, Promise.resolve())
             .then(async () => {
-                await __router.mapping(deviceItem.deviceId, inputs)
+                try {
+                    await __router.mapping(deviceItem.deviceId, inputs)
+                } catch (e) {
+                    console.error(e)
+                }
+
             })
     }
 
@@ -172,84 +177,94 @@ module.exports = class extends EventEmitter {
     async mapping(deviceId, inputs) {
         return new Promise(async (resolve, reject) => {
             let index = 0;
+            try {
+                // Use a for..of loop to iterate through the array and simplify the code
+                for (const item of __settings.mapping) {
+                    index++;
 
-            // Use a for..of loop to iterate through the array and simplify the code
-            for (const item of __settings.mapping) {
-                index++;
+                    // Use continue to skip to the next iteration if the deviceId doesn't match
+                    if (item.source.deviceId != deviceId) {
+                        continue;
+                    }
 
-                // Use continue to skip to the next iteration if the deviceId doesn't match
-                if (item.source.deviceId != deviceId) {
-                    continue;
+                    // Use try..catch to handle errors and simplify the code
+                    try {
+                        for (const input of inputs) {
+                            if (item.source.inputId != input.inputId) {
+                                continue;
+                            }
+
+                            let maskSourceValue = null;
+
+                            if (item.source.mask != -1) {
+                                maskSourceValue = input.value & item.source.mask;
+                            } else {
+                                maskSourceValue = input.value;
+                            }
+
+                            // Use find() to simplify the code and avoid unnecessary iterations
+                            const device = __devices.find(d => d.deviceId === item.destination.deviceId);
+
+                            if (!device) {
+                                continue;
+                            }
+
+                            let deviceCurrentState = null;
+                            let maskDestinationValue = null;
+
+                            if (item.destination.mask != -1) {
+                                for (const dv of device.values) {
+                                    if (dv.inputId == item.destination.inputId) {
+                                        deviceCurrentState = dv.value;
+                                    }
+                                }
+
+                                let dontTouchVal = 0;
+                                maskDestinationValue = maskSourceValue & item.destination.mask;
+
+                                if (deviceCurrentState & item.destination.mask > 0 && deviceCurrentState != -1) {
+                                    dontTouchVal = deviceCurrentState - (deviceCurrentState & item.destination.mask);
+                                }
+
+                                maskDestinationValue = dontTouchVal + maskDestinationValue;
+                            } else {
+                                maskDestinationValue = maskSourceValue;
+                            }
+
+                            // Use find() to simplify the code and avoid unnecessary iterations
+                            const io = device.io.find(io => io.inputId === item.destination.inputId);
+
+                            if (!io) {
+                                continue;
+                            }
+
+                            __logger.info(io.description + ': ' + maskDestinationValue);
+                            try {
+                                await device.write(item.destination.inputId, maskDestinationValue);
+                            } catch (e) {
+                                console.error(e)
+                            }
+
+                        }
+                    } catch (err) {
+                        // Handle errors
+                        console.error(err);
+                        reject(err);
+                    }
                 }
 
-                // Use try..catch to handle errors and simplify the code
+                // Use await to wait for the COFS server to apply
                 try {
-                    for (const input of inputs) {
-                        if (item.source.inputId != input.inputId) {
-                            continue;
-                        }
-
-                        let maskSourceValue = null;
-
-                        if (item.source.mask != -1) {
-                            maskSourceValue = input.value & item.source.mask;
-                        } else {
-                            maskSourceValue = input.value;
-                        }
-
-                        // Use find() to simplify the code and avoid unnecessary iterations
-                        const device = __devices.find(d => d.deviceId === item.destination.deviceId);
-
-                        if (!device) {
-                            continue;
-                        }
-
-                        let deviceCurrentState = null;
-                        let maskDestinationValue = null;
-
-                        if (item.destination.mask != -1) {
-                            for (const dv of device.values) {
-                                if (dv.inputId == item.destination.inputId) {
-                                    deviceCurrentState = dv.value;
-                                }
-                            }
-
-                            let dontTouchVal = 0;
-                            maskDestinationValue = maskSourceValue & item.destination.mask;
-
-                            if (deviceCurrentState & item.destination.mask > 0 && deviceCurrentState != -1) {
-                                dontTouchVal = deviceCurrentState - (deviceCurrentState & item.destination.mask);
-                            }
-
-                            maskDestinationValue = dontTouchVal + maskDestinationValue;
-                        } else {
-                            maskDestinationValue = maskSourceValue;
-                        }
-
-                        // Use find() to simplify the code and avoid unnecessary iterations
-                        const io = device.io.find(io => io.inputId === item.destination.inputId);
-
-                        if (!io) {
-                            continue;
-                        }
-
-                        __logger.info(io.description + ': ' + maskDestinationValue);
-                        await device.write(item.destination.inputId, maskDestinationValue);
-                    }
+                    await this.cofs.applyCOFSServer();
+                    resolve();
                 } catch (err) {
-                    // Handle errors
-                    console.error(err);
                     reject(err);
                 }
+            } catch (e) {
+                reject(e)
             }
 
-            // Use await to wait for the COFS server to apply
-            try{
-                await this.cofs.applyCOFSServer();
-                resolve();
-            }catch(err){
-                reject(err);
-            }
+
         });
     }
 
@@ -383,12 +398,12 @@ module.exports = class extends EventEmitter {
 
 
 
-    publish(data){
+    publish(data) {
         __arrPublisher.push(data)
     }
 
-    publishOnInterval(){
-        if(__arrPublisher.length > 0){
+    publishOnInterval() {
+        if (__arrPublisher.length > 0) {
             this.publishArrFromTimer(__arrPublisher.shift())
         }
     }
@@ -407,7 +422,7 @@ module.exports = class extends EventEmitter {
             console.error(err);
         }
     }
-    
+
 
 
     async publishToTopic(topic, data) {
