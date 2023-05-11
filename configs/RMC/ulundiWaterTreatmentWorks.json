@@ -2,7 +2,7 @@
     "port": 8080,
     "txtime": 10,
     "barcode": "777",
-    "deviceId": "000000000000000000000777",
+    "deviceId": "61bf28b82789da0ea7b5f197",
     "production": true,
     "authentication": true,
     "admin": {
@@ -40,6 +40,7 @@
     },
     "devices": [
         {
+            "id": 0,
             "io": [
                 {
                     "scaling": {
@@ -74,7 +75,7 @@
                     },
                     "modbus": {
                         "isCoil": false,
-                        "isHoldingRegister": false
+                        "isHoldingRegister": true
                     },
                     "key": "",
                     "tagId": "",
@@ -123,11 +124,11 @@
                     },
                     "modbus": {
                         "isCoil": false,
-                        "isHoldingRegister": false
+                        "isHoldingRegister": true
                     },
                     "key": "",
                     "tagId": "",
-                    "value": -80,
+                    "value": 0,
                     "shift": -1,
                     "inputId": "619e28da5ec5f6977ee6ea29",
                     "register": 103,
@@ -172,7 +173,7 @@
                     },
                     "modbus": {
                         "isCoil": false,
-                        "isHoldingRegister": false
+                        "isHoldingRegister": true
                     },
                     "key": "",
                     "tagId": "",
@@ -221,7 +222,7 @@
                     },
                     "modbus": {
                         "isCoil": false,
-                        "isHoldingRegister": false
+                        "isHoldingRegister": true
                     },
                     "key": "",
                     "tagId": "",
@@ -270,7 +271,7 @@
                     },
                     "modbus": {
                         "isCoil": false,
-                        "isHoldingRegister": false
+                        "isHoldingRegister": true
                     },
                     "key": "",
                     "tagId": "",
@@ -319,7 +320,7 @@
                     },
                     "modbus": {
                         "isCoil": false,
-                        "isHoldingRegister": false
+                        "isHoldingRegister": true
                     },
                     "key": "",
                     "tagId": "",
@@ -368,7 +369,7 @@
                     },
                     "modbus": {
                         "isCoil": false,
-                        "isHoldingRegister": false
+                        "isHoldingRegister": true
                     },
                     "key": "",
                     "tagId": "",
@@ -417,7 +418,7 @@
                     },
                     "modbus": {
                         "isCoil": false,
-                        "isHoldingRegister": false
+                        "isHoldingRegister": true
                     },
                     "key": "",
                     "tagId": "",
@@ -466,7 +467,7 @@
                     },
                     "modbus": {
                         "isCoil": false,
-                        "isHoldingRegister": false
+                        "isHoldingRegister": true
                     },
                     "key": "",
                     "tagId": "",
@@ -515,7 +516,7 @@
                     },
                     "modbus": {
                         "isCoil": false,
-                        "isHoldingRegister": false
+                        "isHoldingRegister": true
                     },
                     "key": "",
                     "tagId": "",
@@ -564,7 +565,7 @@
                     },
                     "modbus": {
                         "isCoil": false,
-                        "isHoldingRegister": false
+                        "isHoldingRegister": true
                     },
                     "key": "",
                     "tagId": "",
@@ -613,7 +614,7 @@
                     },
                     "modbus": {
                         "isCoil": false,
-                        "isHoldingRegister": false
+                        "isHoldingRegister": true
                     },
                     "key": "",
                     "tagId": "",
@@ -662,7 +663,7 @@
                     },
                     "modbus": {
                         "isCoil": false,
-                        "isHoldingRegister": false
+                        "isHoldingRegister": true
                     },
                     "key": "",
                     "tagId": "",
@@ -711,7 +712,7 @@
                     },
                     "modbus": {
                         "isCoil": false,
-                        "isHoldingRegister": false
+                        "isHoldingRegister": true
                     },
                     "key": "",
                     "tagId": "",
@@ -760,7 +761,7 @@
                     },
                     "modbus": {
                         "isCoil": false,
-                        "isHoldingRegister": false
+                        "isHoldingRegister": true
                     },
                     "key": "",
                     "tagId": "",
@@ -809,7 +810,7 @@
                     },
                     "modbus": {
                         "isCoil": false,
-                        "isHoldingRegister": false
+                        "isHoldingRegister": true
                     },
                     "key": "",
                     "tagId": "",
@@ -858,7 +859,7 @@
                     },
                     "modbus": {
                         "isCoil": false,
-                        "isHoldingRegister": false
+                        "isHoldingRegister": true
                     },
                     "key": "",
                     "tagId": "",
@@ -907,7 +908,7 @@
                     },
                     "modbus": {
                         "isCoil": false,
-                        "isHoldingRegister": false
+                        "isHoldingRegister": true
                     },
                     "key": "",
                     "tagId": "",
@@ -956,7 +957,7 @@
                     },
                     "modbus": {
                         "isCoil": false,
-                        "isHoldingRegister": false
+                        "isHoldingRegister": true
                     },
                     "key": "",
                     "tagId": "",
@@ -1005,7 +1006,7 @@
                     },
                     "modbus": {
                         "isCoil": false,
-                        "isHoldingRegister": false
+                        "isHoldingRegister": true
                     },
                     "key": "",
                     "tagId": "",
@@ -1054,7 +1055,7 @@
                     },
                     "modbus": {
                         "isCoil": false,
-                        "isHoldingRegister": false
+                        "isHoldingRegister": true
                     },
                     "key": "",
                     "tagId": "",
@@ -1083,6 +1084,7 @@
             "description": "ADROIT SCADA"
         },
         {
+            "id": 1,
             "io": [
                 {
                     "scaling": {
@@ -1121,7 +1123,7 @@
                     },
                     "key": "AI1",
                     "tagId": "WTW_SCADA_INT_TX[0]",
-                    "value": 2,
+                    "value": 5,
                     "shift": -1,
                     "inputId": "619dff5457c1563cd740c57b",
                     "register": 0,
@@ -1131,7 +1133,55 @@
                     "writeable": false,
                     "description": "Raw Water Sump Inlet Level",
                     "cofs": -1,
-                    "command": ""
+                    "command": "",
+                    "tag": {
+                        "_events": {},
+                        "_eventsCount": 0,
+                        "state": {
+                            "tag": {
+                                "name": "WTW_SCADA_INT_TX[0]",
+                                "type": 195,
+                                "bitIndex": null,
+                                "value": 5,
+                                "controllerValue": 5,
+                                "path": {
+                                    "type": "Buffer",
+                                    "data": [
+                                        145,
+                                        16,
+                                        87,
+                                        84,
+                                        87,
+                                        95,
+                                        83,
+                                        67,
+                                        65,
+                                        68,
+                                        65,
+                                        95,
+                                        73,
+                                        78,
+                                        84,
+                                        95,
+                                        84,
+                                        88,
+                                        40,
+                                        0
+                                    ]
+                                },
+                                "program": null,
+                                "stage_write": false
+                            },
+                            "read_size": 1,
+                            "error": {
+                                "code": null,
+                                "status": null
+                            },
+                            "timestamp": "2023-05-11T21:31:13.078Z",
+                            "instance": "021b1866a478d32268c794514c636626",
+                            "keepAlive": 0
+                        }
+                    }
                 },
                 {
                     "scaling": {
@@ -1180,7 +1230,55 @@
                     "writeable": false,
                     "description": "Raw Water Delivery Pressure",
                     "cofs": -1,
-                    "command": ""
+                    "command": "",
+                    "tag": {
+                        "_events": {},
+                        "_eventsCount": 0,
+                        "state": {
+                            "tag": {
+                                "name": "WTW_SCADA_INT_TX[3]",
+                                "type": 195,
+                                "bitIndex": null,
+                                "value": -80,
+                                "controllerValue": -80,
+                                "path": {
+                                    "type": "Buffer",
+                                    "data": [
+                                        145,
+                                        16,
+                                        87,
+                                        84,
+                                        87,
+                                        95,
+                                        83,
+                                        67,
+                                        65,
+                                        68,
+                                        65,
+                                        95,
+                                        73,
+                                        78,
+                                        84,
+                                        95,
+                                        84,
+                                        88,
+                                        40,
+                                        3
+                                    ]
+                                },
+                                "program": null,
+                                "stage_write": false
+                            },
+                            "read_size": 1,
+                            "error": {
+                                "code": null,
+                                "status": null
+                            },
+                            "timestamp": "2023-05-11T21:31:13.119Z",
+                            "instance": "79b32b6fc4b5173fa9587670b1e1a517",
+                            "keepAlive": 0
+                        }
+                    }
                 },
                 {
                     "scaling": {
@@ -1229,7 +1327,55 @@
                     "writeable": false,
                     "description": "Raw Water Pump 1 Status",
                     "cofs": -1,
-                    "command": ""
+                    "command": "",
+                    "tag": {
+                        "_events": {},
+                        "_eventsCount": 0,
+                        "state": {
+                            "tag": {
+                                "name": "WTW_SCADA_INT_TX[18]",
+                                "type": 195,
+                                "bitIndex": null,
+                                "value": 1,
+                                "controllerValue": 1,
+                                "path": {
+                                    "type": "Buffer",
+                                    "data": [
+                                        145,
+                                        16,
+                                        87,
+                                        84,
+                                        87,
+                                        95,
+                                        83,
+                                        67,
+                                        65,
+                                        68,
+                                        65,
+                                        95,
+                                        73,
+                                        78,
+                                        84,
+                                        95,
+                                        84,
+                                        88,
+                                        40,
+                                        18
+                                    ]
+                                },
+                                "program": null,
+                                "stage_write": false
+                            },
+                            "read_size": 1,
+                            "error": {
+                                "code": null,
+                                "status": null
+                            },
+                            "timestamp": "2023-05-11T21:31:13.157Z",
+                            "instance": "ddf15af675fd2b8492db35c9249306af",
+                            "keepAlive": 0
+                        }
+                    }
                 },
                 {
                     "scaling": {
@@ -1268,7 +1414,7 @@
                     },
                     "key": "",
                     "tagId": "WTW_SCADA_INT_TX[19]",
-                    "value": 4,
+                    "value": 1,
                     "shift": -1,
                     "inputId": "619dff9c74e6fb19ae56a62a",
                     "register": 0,
@@ -1278,7 +1424,55 @@
                     "writeable": false,
                     "description": "Raw Water Pump 2 Status",
                     "cofs": -1,
-                    "command": ""
+                    "command": "",
+                    "tag": {
+                        "_events": {},
+                        "_eventsCount": 0,
+                        "state": {
+                            "tag": {
+                                "name": "WTW_SCADA_INT_TX[19]",
+                                "type": 195,
+                                "bitIndex": null,
+                                "value": 1,
+                                "controllerValue": 1,
+                                "path": {
+                                    "type": "Buffer",
+                                    "data": [
+                                        145,
+                                        16,
+                                        87,
+                                        84,
+                                        87,
+                                        95,
+                                        83,
+                                        67,
+                                        65,
+                                        68,
+                                        65,
+                                        95,
+                                        73,
+                                        78,
+                                        84,
+                                        95,
+                                        84,
+                                        88,
+                                        40,
+                                        19
+                                    ]
+                                },
+                                "program": null,
+                                "stage_write": false
+                            },
+                            "read_size": 1,
+                            "error": {
+                                "code": null,
+                                "status": null
+                            },
+                            "timestamp": "2023-05-11T21:31:13.166Z",
+                            "instance": "948eacc9d3130e157f154c02443dc6d2",
+                            "keepAlive": 0
+                        }
+                    }
                 },
                 {
                     "scaling": {
@@ -1317,7 +1511,7 @@
                     },
                     "key": "",
                     "tagId": "WTW_SCADA_INT_TX[20]",
-                    "value": 16,
+                    "value": 8,
                     "shift": -1,
                     "inputId": "619dffab9915e5f1c6722792",
                     "register": 0,
@@ -1327,7 +1521,55 @@
                     "writeable": false,
                     "description": "Raw Water Pump 3 Status",
                     "cofs": -1,
-                    "command": ""
+                    "command": "",
+                    "tag": {
+                        "_events": {},
+                        "_eventsCount": 0,
+                        "state": {
+                            "tag": {
+                                "name": "WTW_SCADA_INT_TX[20]",
+                                "type": 195,
+                                "bitIndex": null,
+                                "value": 8,
+                                "controllerValue": 8,
+                                "path": {
+                                    "type": "Buffer",
+                                    "data": [
+                                        145,
+                                        16,
+                                        87,
+                                        84,
+                                        87,
+                                        95,
+                                        83,
+                                        67,
+                                        65,
+                                        68,
+                                        65,
+                                        95,
+                                        73,
+                                        78,
+                                        84,
+                                        95,
+                                        84,
+                                        88,
+                                        40,
+                                        20
+                                    ]
+                                },
+                                "program": null,
+                                "stage_write": false
+                            },
+                            "read_size": 1,
+                            "error": {
+                                "code": null,
+                                "status": null
+                            },
+                            "timestamp": "2023-05-11T21:31:13.174Z",
+                            "instance": "281008bdc0654582d1c54f88ee1b15d7",
+                            "keepAlive": 0
+                        }
+                    }
                 },
                 {
                     "scaling": {
@@ -1366,7 +1608,7 @@
                     },
                     "key": "",
                     "tagId": "WTW_SCADA_INT_TX[21]",
-                    "value": 1,
+                    "value": 4,
                     "shift": -1,
                     "inputId": "619dffb70ede98bd351f8946",
                     "register": 0,
@@ -1376,7 +1618,55 @@
                     "writeable": false,
                     "description": "Raw Water Pump 4 Status",
                     "cofs": -1,
-                    "command": ""
+                    "command": "",
+                    "tag": {
+                        "_events": {},
+                        "_eventsCount": 0,
+                        "state": {
+                            "tag": {
+                                "name": "WTW_SCADA_INT_TX[21]",
+                                "type": 195,
+                                "bitIndex": null,
+                                "value": 4,
+                                "controllerValue": 4,
+                                "path": {
+                                    "type": "Buffer",
+                                    "data": [
+                                        145,
+                                        16,
+                                        87,
+                                        84,
+                                        87,
+                                        95,
+                                        83,
+                                        67,
+                                        65,
+                                        68,
+                                        65,
+                                        95,
+                                        73,
+                                        78,
+                                        84,
+                                        95,
+                                        84,
+                                        88,
+                                        40,
+                                        21
+                                    ]
+                                },
+                                "program": null,
+                                "stage_write": false
+                            },
+                            "read_size": 1,
+                            "error": {
+                                "code": null,
+                                "status": null
+                            },
+                            "timestamp": "2023-05-11T21:31:13.186Z",
+                            "instance": "936e1ccf5ac0f3252552d129d7e7631a",
+                            "keepAlive": 0
+                        }
+                    }
                 },
                 {
                     "scaling": {
@@ -1425,7 +1715,55 @@
                     "writeable": false,
                     "description": "Raw Water Pump 5 Status",
                     "cofs": -1,
-                    "command": ""
+                    "command": "",
+                    "tag": {
+                        "_events": {},
+                        "_eventsCount": 0,
+                        "state": {
+                            "tag": {
+                                "name": "WTW_SCADA_INT_TX[22]",
+                                "type": 195,
+                                "bitIndex": null,
+                                "value": 4,
+                                "controllerValue": 4,
+                                "path": {
+                                    "type": "Buffer",
+                                    "data": [
+                                        145,
+                                        16,
+                                        87,
+                                        84,
+                                        87,
+                                        95,
+                                        83,
+                                        67,
+                                        65,
+                                        68,
+                                        65,
+                                        95,
+                                        73,
+                                        78,
+                                        84,
+                                        95,
+                                        84,
+                                        88,
+                                        40,
+                                        22
+                                    ]
+                                },
+                                "program": null,
+                                "stage_write": false
+                            },
+                            "read_size": 1,
+                            "error": {
+                                "code": null,
+                                "status": null
+                            },
+                            "timestamp": "2023-05-11T21:31:13.194Z",
+                            "instance": "a4ad975cd11fad2509e017e27a370698",
+                            "keepAlive": 0
+                        }
+                    }
                 },
                 {
                     "scaling": {
@@ -1474,7 +1812,55 @@
                     "writeable": false,
                     "description": "Raw Water Holding Tank Level",
                     "cofs": -1,
-                    "command": ""
+                    "command": "",
+                    "tag": {
+                        "_events": {},
+                        "_eventsCount": 0,
+                        "state": {
+                            "tag": {
+                                "name": "WTW_SCADA_INT_TX[58]",
+                                "type": 195,
+                                "bitIndex": null,
+                                "value": 0,
+                                "controllerValue": 0,
+                                "path": {
+                                    "type": "Buffer",
+                                    "data": [
+                                        145,
+                                        16,
+                                        87,
+                                        84,
+                                        87,
+                                        95,
+                                        83,
+                                        67,
+                                        65,
+                                        68,
+                                        65,
+                                        95,
+                                        73,
+                                        78,
+                                        84,
+                                        95,
+                                        84,
+                                        88,
+                                        40,
+                                        58
+                                    ]
+                                },
+                                "program": null,
+                                "stage_write": false
+                            },
+                            "read_size": 1,
+                            "error": {
+                                "code": null,
+                                "status": null
+                            },
+                            "timestamp": "2023-05-11T21:31:13.200Z",
+                            "instance": "d5499167ef41ac17166ca805420efd7f",
+                            "keepAlive": 0
+                        }
+                    }
                 },
                 {
                     "scaling": {
@@ -1523,7 +1909,55 @@
                     "writeable": false,
                     "description": "Raw Water Inlet Flowmeter",
                     "cofs": -1,
-                    "command": ""
+                    "command": "",
+                    "tag": {
+                        "_events": {},
+                        "_eventsCount": 0,
+                        "state": {
+                            "tag": {
+                                "name": "WTW_SCADA_INT_TX[59]",
+                                "type": 195,
+                                "bitIndex": null,
+                                "value": 0,
+                                "controllerValue": 0,
+                                "path": {
+                                    "type": "Buffer",
+                                    "data": [
+                                        145,
+                                        16,
+                                        87,
+                                        84,
+                                        87,
+                                        95,
+                                        83,
+                                        67,
+                                        65,
+                                        68,
+                                        65,
+                                        95,
+                                        73,
+                                        78,
+                                        84,
+                                        95,
+                                        84,
+                                        88,
+                                        40,
+                                        59
+                                    ]
+                                },
+                                "program": null,
+                                "stage_write": false
+                            },
+                            "read_size": 1,
+                            "error": {
+                                "code": null,
+                                "status": null
+                            },
+                            "timestamp": "2023-05-11T21:31:13.206Z",
+                            "instance": "681be3d77c21b760f0cad29848ef08d6",
+                            "keepAlive": 0
+                        }
+                    }
                 },
                 {
                     "scaling": {
@@ -1562,7 +1996,7 @@
                     },
                     "key": "AIExt1",
                     "tagId": "WTW_SCADA_INT_TX[69]",
-                    "value": 37,
+                    "value": 39,
                     "shift": -1,
                     "inputId": "619e004b1efe02db413c80c3",
                     "register": 0,
@@ -1572,7 +2006,55 @@
                     "writeable": false,
                     "description": "WTW Clear Water Res Level",
                     "cofs": -1,
-                    "command": ""
+                    "command": "",
+                    "tag": {
+                        "_events": {},
+                        "_eventsCount": 0,
+                        "state": {
+                            "tag": {
+                                "name": "WTW_SCADA_INT_TX[69]",
+                                "type": 195,
+                                "bitIndex": null,
+                                "value": 39,
+                                "controllerValue": 39,
+                                "path": {
+                                    "type": "Buffer",
+                                    "data": [
+                                        145,
+                                        16,
+                                        87,
+                                        84,
+                                        87,
+                                        95,
+                                        83,
+                                        67,
+                                        65,
+                                        68,
+                                        65,
+                                        95,
+                                        73,
+                                        78,
+                                        84,
+                                        95,
+                                        84,
+                                        88,
+                                        40,
+                                        69
+                                    ]
+                                },
+                                "program": null,
+                                "stage_write": false
+                            },
+                            "read_size": 1,
+                            "error": {
+                                "code": null,
+                                "status": null
+                            },
+                            "timestamp": "2023-05-11T21:31:43.118Z",
+                            "instance": "1c4204ec705b0c14c88b0f6b77f49c89",
+                            "keepAlive": 0
+                        }
+                    }
                 },
                 {
                     "scaling": {
@@ -1621,7 +2103,55 @@
                     "writeable": false,
                     "description": "WTW Inlet Flowmeter Flowrate",
                     "cofs": -1,
-                    "command": ""
+                    "command": "",
+                    "tag": {
+                        "_events": {},
+                        "_eventsCount": 0,
+                        "state": {
+                            "tag": {
+                                "name": "WTW_SCADA_INT_TX[72]",
+                                "type": 195,
+                                "bitIndex": null,
+                                "value": 0,
+                                "controllerValue": 0,
+                                "path": {
+                                    "type": "Buffer",
+                                    "data": [
+                                        145,
+                                        16,
+                                        87,
+                                        84,
+                                        87,
+                                        95,
+                                        83,
+                                        67,
+                                        65,
+                                        68,
+                                        65,
+                                        95,
+                                        73,
+                                        78,
+                                        84,
+                                        95,
+                                        84,
+                                        88,
+                                        40,
+                                        72
+                                    ]
+                                },
+                                "program": null,
+                                "stage_write": false
+                            },
+                            "read_size": 1,
+                            "error": {
+                                "code": null,
+                                "status": null
+                            },
+                            "timestamp": "2023-05-11T21:31:13.227Z",
+                            "instance": "f383e1c290303f3c4cb71071427abcf4",
+                            "keepAlive": 0
+                        }
+                    }
                 },
                 {
                     "scaling": {
@@ -1660,7 +2190,7 @@
                     },
                     "key": "AIExt3",
                     "tagId": "WTW_SCADA_INT_TX[73]",
-                    "value": 0,
+                    "value": 556,
                     "shift": -1,
                     "inputId": "619e040ec39d240c072789e8",
                     "register": 0,
@@ -1670,7 +2200,55 @@
                     "writeable": false,
                     "description": "WTW Outlet Flowmeter Flowrate",
                     "cofs": -1,
-                    "command": ""
+                    "command": "",
+                    "tag": {
+                        "_events": {},
+                        "_eventsCount": 0,
+                        "state": {
+                            "tag": {
+                                "name": "WTW_SCADA_INT_TX[73]",
+                                "type": 195,
+                                "bitIndex": null,
+                                "value": 556,
+                                "controllerValue": 556,
+                                "path": {
+                                    "type": "Buffer",
+                                    "data": [
+                                        145,
+                                        16,
+                                        87,
+                                        84,
+                                        87,
+                                        95,
+                                        83,
+                                        67,
+                                        65,
+                                        68,
+                                        65,
+                                        95,
+                                        73,
+                                        78,
+                                        84,
+                                        95,
+                                        84,
+                                        88,
+                                        40,
+                                        73
+                                    ]
+                                },
+                                "program": null,
+                                "stage_write": false
+                            },
+                            "read_size": 1,
+                            "error": {
+                                "code": null,
+                                "status": null
+                            },
+                            "timestamp": "2023-05-11T21:31:58.146Z",
+                            "instance": "10f8a8ffbd03646a44d74ae89638e3d5",
+                            "keepAlive": 0
+                        }
+                    }
                 },
                 {
                     "scaling": {
@@ -1719,7 +2297,55 @@
                     "writeable": false,
                     "description": "WTW Backwash Pump 1 Status",
                     "cofs": -1,
-                    "command": ""
+                    "command": "",
+                    "tag": {
+                        "_events": {},
+                        "_eventsCount": 0,
+                        "state": {
+                            "tag": {
+                                "name": "WTW_SCADA_INT_TX[90]",
+                                "type": 195,
+                                "bitIndex": null,
+                                "value": 0,
+                                "controllerValue": 0,
+                                "path": {
+                                    "type": "Buffer",
+                                    "data": [
+                                        145,
+                                        16,
+                                        87,
+                                        84,
+                                        87,
+                                        95,
+                                        83,
+                                        67,
+                                        65,
+                                        68,
+                                        65,
+                                        95,
+                                        73,
+                                        78,
+                                        84,
+                                        95,
+                                        84,
+                                        88,
+                                        40,
+                                        90
+                                    ]
+                                },
+                                "program": null,
+                                "stage_write": false
+                            },
+                            "read_size": 1,
+                            "error": {
+                                "code": null,
+                                "status": null
+                            },
+                            "timestamp": "2023-05-11T21:31:13.240Z",
+                            "instance": "32242d06e4c557fad1c72b9eb8784f38",
+                            "keepAlive": 0
+                        }
+                    }
                 },
                 {
                     "scaling": {
@@ -1768,7 +2394,55 @@
                     "writeable": false,
                     "description": "WTW Backwash Pump 2 Status",
                     "cofs": -1,
-                    "command": ""
+                    "command": "",
+                    "tag": {
+                        "_events": {},
+                        "_eventsCount": 0,
+                        "state": {
+                            "tag": {
+                                "name": "WTW_SCADA_INT_TX[91]",
+                                "type": 195,
+                                "bitIndex": null,
+                                "value": 0,
+                                "controllerValue": 0,
+                                "path": {
+                                    "type": "Buffer",
+                                    "data": [
+                                        145,
+                                        16,
+                                        87,
+                                        84,
+                                        87,
+                                        95,
+                                        83,
+                                        67,
+                                        65,
+                                        68,
+                                        65,
+                                        95,
+                                        73,
+                                        78,
+                                        84,
+                                        95,
+                                        84,
+                                        88,
+                                        40,
+                                        91
+                                    ]
+                                },
+                                "program": null,
+                                "stage_write": false
+                            },
+                            "read_size": 1,
+                            "error": {
+                                "code": null,
+                                "status": null
+                            },
+                            "timestamp": "2023-05-11T21:31:13.247Z",
+                            "instance": "fffcdde518373e5ee2ac68f547cf5691",
+                            "keepAlive": 0
+                        }
+                    }
                 },
                 {
                     "scaling": {
@@ -1817,7 +2491,55 @@
                     "writeable": false,
                     "description": "WTW Backwash Pump 3 Status",
                     "cofs": -1,
-                    "command": ""
+                    "command": "",
+                    "tag": {
+                        "_events": {},
+                        "_eventsCount": 0,
+                        "state": {
+                            "tag": {
+                                "name": "WTW_SCADA_INT_TX[92]",
+                                "type": 195,
+                                "bitIndex": null,
+                                "value": 0,
+                                "controllerValue": 0,
+                                "path": {
+                                    "type": "Buffer",
+                                    "data": [
+                                        145,
+                                        16,
+                                        87,
+                                        84,
+                                        87,
+                                        95,
+                                        83,
+                                        67,
+                                        65,
+                                        68,
+                                        65,
+                                        95,
+                                        73,
+                                        78,
+                                        84,
+                                        95,
+                                        84,
+                                        88,
+                                        40,
+                                        92
+                                    ]
+                                },
+                                "program": null,
+                                "stage_write": false
+                            },
+                            "read_size": 1,
+                            "error": {
+                                "code": null,
+                                "status": null
+                            },
+                            "timestamp": "2023-05-11T21:31:13.255Z",
+                            "instance": "00fe27036a78a0bbf8d9fad043b26c42",
+                            "keepAlive": 0
+                        }
+                    }
                 },
                 {
                     "scaling": {
@@ -1866,7 +2588,55 @@
                     "writeable": false,
                     "description": "WTW Backwash Blower 1 Status",
                     "cofs": -1,
-                    "command": ""
+                    "command": "",
+                    "tag": {
+                        "_events": {},
+                        "_eventsCount": 0,
+                        "state": {
+                            "tag": {
+                                "name": "WTW_SCADA_INT_TX[93]",
+                                "type": 195,
+                                "bitIndex": null,
+                                "value": 0,
+                                "controllerValue": 0,
+                                "path": {
+                                    "type": "Buffer",
+                                    "data": [
+                                        145,
+                                        16,
+                                        87,
+                                        84,
+                                        87,
+                                        95,
+                                        83,
+                                        67,
+                                        65,
+                                        68,
+                                        65,
+                                        95,
+                                        73,
+                                        78,
+                                        84,
+                                        95,
+                                        84,
+                                        88,
+                                        40,
+                                        93
+                                    ]
+                                },
+                                "program": null,
+                                "stage_write": false
+                            },
+                            "read_size": 1,
+                            "error": {
+                                "code": null,
+                                "status": null
+                            },
+                            "timestamp": "2023-05-11T21:31:13.269Z",
+                            "instance": "7c35cc4516a13f96907b6f95225ffda9",
+                            "keepAlive": 0
+                        }
+                    }
                 },
                 {
                     "scaling": {
@@ -1915,7 +2685,55 @@
                     "writeable": false,
                     "description": "WTW Backwash Blower 2 Status",
                     "cofs": -1,
-                    "command": ""
+                    "command": "",
+                    "tag": {
+                        "_events": {},
+                        "_eventsCount": 0,
+                        "state": {
+                            "tag": {
+                                "name": "WTW_SCADA_INT_TX[94]",
+                                "type": 195,
+                                "bitIndex": null,
+                                "value": 0,
+                                "controllerValue": 0,
+                                "path": {
+                                    "type": "Buffer",
+                                    "data": [
+                                        145,
+                                        16,
+                                        87,
+                                        84,
+                                        87,
+                                        95,
+                                        83,
+                                        67,
+                                        65,
+                                        68,
+                                        65,
+                                        95,
+                                        73,
+                                        78,
+                                        84,
+                                        95,
+                                        84,
+                                        88,
+                                        40,
+                                        94
+                                    ]
+                                },
+                                "program": null,
+                                "stage_write": false
+                            },
+                            "read_size": 1,
+                            "error": {
+                                "code": null,
+                                "status": null
+                            },
+                            "timestamp": "2023-05-11T21:31:13.280Z",
+                            "instance": "adc81a0e79da5548908a7b0f29581403",
+                            "keepAlive": 0
+                        }
+                    }
                 },
                 {
                     "scaling": {
@@ -1954,7 +2772,7 @@
                     },
                     "key": "",
                     "tagId": "WTW_SCADA_INT_TX[95]",
-                    "value": 8,
+                    "value": 1,
                     "shift": -1,
                     "inputId": "619e04a6672372bb2cc9ce3b",
                     "register": 0,
@@ -1964,7 +2782,55 @@
                     "writeable": false,
                     "description": "WTW High Lift Pump 1 Status",
                     "cofs": -1,
-                    "command": ""
+                    "command": "",
+                    "tag": {
+                        "_events": {},
+                        "_eventsCount": 0,
+                        "state": {
+                            "tag": {
+                                "name": "WTW_SCADA_INT_TX[95]",
+                                "type": 195,
+                                "bitIndex": null,
+                                "value": 1,
+                                "controllerValue": 1,
+                                "path": {
+                                    "type": "Buffer",
+                                    "data": [
+                                        145,
+                                        16,
+                                        87,
+                                        84,
+                                        87,
+                                        95,
+                                        83,
+                                        67,
+                                        65,
+                                        68,
+                                        65,
+                                        95,
+                                        73,
+                                        78,
+                                        84,
+                                        95,
+                                        84,
+                                        88,
+                                        40,
+                                        95
+                                    ]
+                                },
+                                "program": null,
+                                "stage_write": false
+                            },
+                            "read_size": 1,
+                            "error": {
+                                "code": null,
+                                "status": null
+                            },
+                            "timestamp": "2023-05-11T21:31:13.287Z",
+                            "instance": "2cc60ad538efa65a215b58280f4adcc1",
+                            "keepAlive": 0
+                        }
+                    }
                 },
                 {
                     "scaling": {
@@ -2013,7 +2879,55 @@
                     "writeable": false,
                     "description": "WTW High Lift Pump 2 Status",
                     "cofs": -1,
-                    "command": ""
+                    "command": "",
+                    "tag": {
+                        "_events": {},
+                        "_eventsCount": 0,
+                        "state": {
+                            "tag": {
+                                "name": "WTW_SCADA_INT_TX[96]",
+                                "type": 195,
+                                "bitIndex": null,
+                                "value": 0,
+                                "controllerValue": 0,
+                                "path": {
+                                    "type": "Buffer",
+                                    "data": [
+                                        145,
+                                        16,
+                                        87,
+                                        84,
+                                        87,
+                                        95,
+                                        83,
+                                        67,
+                                        65,
+                                        68,
+                                        65,
+                                        95,
+                                        73,
+                                        78,
+                                        84,
+                                        95,
+                                        84,
+                                        88,
+                                        40,
+                                        96
+                                    ]
+                                },
+                                "program": null,
+                                "stage_write": false
+                            },
+                            "read_size": 1,
+                            "error": {
+                                "code": null,
+                                "status": null
+                            },
+                            "timestamp": "2023-05-11T21:31:13.294Z",
+                            "instance": "ff933855e8fa6d36bedd5a81419f1561",
+                            "keepAlive": 0
+                        }
+                    }
                 },
                 {
                     "scaling": {
@@ -2062,7 +2976,55 @@
                     "writeable": false,
                     "description": "WTW High Lift Pump 3 Status",
                     "cofs": -1,
-                    "command": ""
+                    "command": "",
+                    "tag": {
+                        "_events": {},
+                        "_eventsCount": 0,
+                        "state": {
+                            "tag": {
+                                "name": "WTW_SCADA_INT_TX[97]",
+                                "type": 195,
+                                "bitIndex": null,
+                                "value": 0,
+                                "controllerValue": 0,
+                                "path": {
+                                    "type": "Buffer",
+                                    "data": [
+                                        145,
+                                        16,
+                                        87,
+                                        84,
+                                        87,
+                                        95,
+                                        83,
+                                        67,
+                                        65,
+                                        68,
+                                        65,
+                                        95,
+                                        73,
+                                        78,
+                                        84,
+                                        95,
+                                        84,
+                                        88,
+                                        40,
+                                        97
+                                    ]
+                                },
+                                "program": null,
+                                "stage_write": false
+                            },
+                            "read_size": 1,
+                            "error": {
+                                "code": null,
+                                "status": null
+                            },
+                            "timestamp": "2023-05-11T21:31:13.300Z",
+                            "instance": "c5e740ba37cc7667b409af22df9530cc",
+                            "keepAlive": 0
+                        }
+                    }
                 },
                 {
                     "scaling": {
@@ -2101,7 +3063,7 @@
                     },
                     "key": "",
                     "tagId": "WTW_SCADA_INT_TX[98]",
-                    "value": 8,
+                    "value": 1,
                     "shift": -1,
                     "inputId": "619e04d7a5ee23b66e826777",
                     "register": 0,
@@ -2111,7 +3073,55 @@
                     "writeable": false,
                     "description": "WTW High Lift Pump 4 Status",
                     "cofs": -1,
-                    "command": ""
+                    "command": "",
+                    "tag": {
+                        "_events": {},
+                        "_eventsCount": 0,
+                        "state": {
+                            "tag": {
+                                "name": "WTW_SCADA_INT_TX[98]",
+                                "type": 195,
+                                "bitIndex": null,
+                                "value": 1,
+                                "controllerValue": 1,
+                                "path": {
+                                    "type": "Buffer",
+                                    "data": [
+                                        145,
+                                        16,
+                                        87,
+                                        84,
+                                        87,
+                                        95,
+                                        83,
+                                        67,
+                                        65,
+                                        68,
+                                        65,
+                                        95,
+                                        73,
+                                        78,
+                                        84,
+                                        95,
+                                        84,
+                                        88,
+                                        40,
+                                        98
+                                    ]
+                                },
+                                "program": null,
+                                "stage_write": false
+                            },
+                            "read_size": 1,
+                            "error": {
+                                "code": null,
+                                "status": null
+                            },
+                            "timestamp": "2023-05-11T21:31:13.307Z",
+                            "instance": "3fd21b99514e01ebcef89c2c05e17ec7",
+                            "keepAlive": 0
+                        }
+                    }
                 },
                 {
                     "scaling": {
@@ -2160,7 +3170,55 @@
                     "writeable": true,
                     "description": "Res_01 Terminal Res 1 Level",
                     "cofs": -1,
-                    "command": ""
+                    "command": "",
+                    "tag": {
+                        "_events": {},
+                        "_eventsCount": 0,
+                        "state": {
+                            "tag": {
+                                "name": "WTW_SCADA_INT_RX[80]",
+                                "type": 195,
+                                "bitIndex": null,
+                                "value": 419,
+                                "controllerValue": null,
+                                "path": {
+                                    "type": "Buffer",
+                                    "data": [
+                                        145,
+                                        16,
+                                        87,
+                                        84,
+                                        87,
+                                        95,
+                                        83,
+                                        67,
+                                        65,
+                                        68,
+                                        65,
+                                        95,
+                                        73,
+                                        78,
+                                        84,
+                                        95,
+                                        82,
+                                        88,
+                                        40,
+                                        80
+                                    ]
+                                },
+                                "program": null,
+                                "stage_write": true
+                            },
+                            "read_size": 1,
+                            "error": {
+                                "code": null,
+                                "status": null
+                            },
+                            "timestamp": "2023-05-11T21:31:07.972Z",
+                            "instance": "a0e29831ed995f299d72e3576a585f79",
+                            "keepAlive": 0
+                        }
+                    }
                 },
                 {
                     "scaling": {
@@ -2209,7 +3267,55 @@
                     "writeable": true,
                     "description": "Res_02 Terminal Res 2 Level",
                     "cofs": -1,
-                    "command": ""
+                    "command": "",
+                    "tag": {
+                        "_events": {},
+                        "_eventsCount": 0,
+                        "state": {
+                            "tag": {
+                                "name": "WTW_SCADA_INT_RX[81]",
+                                "type": 195,
+                                "bitIndex": null,
+                                "value": 420,
+                                "controllerValue": null,
+                                "path": {
+                                    "type": "Buffer",
+                                    "data": [
+                                        145,
+                                        16,
+                                        87,
+                                        84,
+                                        87,
+                                        95,
+                                        83,
+                                        67,
+                                        65,
+                                        68,
+                                        65,
+                                        95,
+                                        73,
+                                        78,
+                                        84,
+                                        95,
+                                        82,
+                                        88,
+                                        40,
+                                        81
+                                    ]
+                                },
+                                "program": null,
+                                "stage_write": true
+                            },
+                            "read_size": 1,
+                            "error": {
+                                "code": null,
+                                "status": null
+                            },
+                            "timestamp": "2023-05-11T21:31:07.973Z",
+                            "instance": "766568324d02d5393533c67d2958fcf9",
+                            "keepAlive": 0
+                        }
+                    }
                 },
                 {
                     "scaling": {
@@ -2258,7 +3364,55 @@
                     "writeable": true,
                     "description": "Res_03 Intermediate Res Level",
                     "cofs": -1,
-                    "command": ""
+                    "command": "",
+                    "tag": {
+                        "_events": {},
+                        "_eventsCount": 0,
+                        "state": {
+                            "tag": {
+                                "name": "WTW_SCADA_INT_RX[82]",
+                                "type": 195,
+                                "bitIndex": null,
+                                "value": null,
+                                "controllerValue": null,
+                                "path": {
+                                    "type": "Buffer",
+                                    "data": [
+                                        145,
+                                        16,
+                                        87,
+                                        84,
+                                        87,
+                                        95,
+                                        83,
+                                        67,
+                                        65,
+                                        68,
+                                        65,
+                                        95,
+                                        73,
+                                        78,
+                                        84,
+                                        95,
+                                        82,
+                                        88,
+                                        40,
+                                        82
+                                    ]
+                                },
+                                "program": null,
+                                "stage_write": false
+                            },
+                            "read_size": 1,
+                            "error": {
+                                "code": null,
+                                "status": null
+                            },
+                            "timestamp": "2023-05-11T21:31:07.974Z",
+                            "instance": "abd7cb6fcc86939027a62314f9bd538a",
+                            "keepAlive": 0
+                        }
+                    }
                 },
                 {
                     "scaling": {
@@ -2307,7 +3461,55 @@
                     "writeable": true,
                     "description": "Res_04 4.2Ml Res Level",
                     "cofs": -1,
-                    "command": ""
+                    "command": "",
+                    "tag": {
+                        "_events": {},
+                        "_eventsCount": 0,
+                        "state": {
+                            "tag": {
+                                "name": "WTW_SCADA_INT_RX[83]",
+                                "type": 195,
+                                "bitIndex": null,
+                                "value": null,
+                                "controllerValue": null,
+                                "path": {
+                                    "type": "Buffer",
+                                    "data": [
+                                        145,
+                                        16,
+                                        87,
+                                        84,
+                                        87,
+                                        95,
+                                        83,
+                                        67,
+                                        65,
+                                        68,
+                                        65,
+                                        95,
+                                        73,
+                                        78,
+                                        84,
+                                        95,
+                                        82,
+                                        88,
+                                        40,
+                                        83
+                                    ]
+                                },
+                                "program": null,
+                                "stage_write": false
+                            },
+                            "read_size": 1,
+                            "error": {
+                                "code": null,
+                                "status": null
+                            },
+                            "timestamp": "2023-05-11T21:31:07.974Z",
+                            "instance": "0b4cb57c730fb933a945130423f2f6e5",
+                            "keepAlive": 0
+                        }
+                    }
                 },
                 {
                     "scaling": {
@@ -2346,7 +3548,7 @@
                     },
                     "key": "AIExt4",
                     "tagId": "WTW_SCADA_INT_TX[43]",
-                    "value": 6808,
+                    "value": 7957,
                     "shift": -1,
                     "inputId": "61b87b2c1f0f7a64b5fd14ce",
                     "register": 0,
@@ -2356,7 +3558,55 @@
                     "writeable": false,
                     "description": "WTW Outlet Flowmeter Totalised Flow",
                     "cofs": -1,
-                    "command": ""
+                    "command": "",
+                    "tag": {
+                        "_events": {},
+                        "_eventsCount": 0,
+                        "state": {
+                            "tag": {
+                                "name": "WTW_SCADA_INT_TX[43]",
+                                "type": 195,
+                                "bitIndex": null,
+                                "value": 7957,
+                                "controllerValue": 7957,
+                                "path": {
+                                    "type": "Buffer",
+                                    "data": [
+                                        145,
+                                        16,
+                                        87,
+                                        84,
+                                        87,
+                                        95,
+                                        83,
+                                        67,
+                                        65,
+                                        68,
+                                        65,
+                                        95,
+                                        73,
+                                        78,
+                                        84,
+                                        95,
+                                        84,
+                                        88,
+                                        40,
+                                        43
+                                    ]
+                                },
+                                "program": null,
+                                "stage_write": false
+                            },
+                            "read_size": 1,
+                            "error": {
+                                "code": null,
+                                "status": null
+                            },
+                            "timestamp": "2023-05-11T21:31:13.320Z",
+                            "instance": "62378caa7224341c26d4b8b751c75f07",
+                            "keepAlive": 0
+                        }
+                    }
                 },
                 {
                     "scaling": {
@@ -2405,7 +3655,39 @@
                     "writeable": false,
                     "description": "RW P1 Run (0)",
                     "cofs": -1,
-                    "command": ""
+                    "command": "",
+                    "tag": {
+                        "_events": {},
+                        "_eventsCount": 0,
+                        "state": {
+                            "tag": {
+                                "name": "NA",
+                                "type": 195,
+                                "bitIndex": null,
+                                "value": null,
+                                "controllerValue": null,
+                                "path": {
+                                    "type": "Buffer",
+                                    "data": [
+                                        145,
+                                        2,
+                                        78,
+                                        65
+                                    ]
+                                },
+                                "program": null,
+                                "stage_write": false
+                            },
+                            "read_size": 1,
+                            "error": {
+                                "code": null,
+                                "status": null
+                            },
+                            "timestamp": "2023-05-11T21:31:07.976Z",
+                            "instance": "4a864f66324e0ab244c8fd7fd5d8ee3a",
+                            "keepAlive": 0
+                        }
+                    }
                 },
                 {
                     "scaling": {
@@ -2454,7 +3736,39 @@
                     "writeable": false,
                     "description": "RW P1 Auto (1)",
                     "cofs": -1,
-                    "command": ""
+                    "command": "",
+                    "tag": {
+                        "_events": {},
+                        "_eventsCount": 0,
+                        "state": {
+                            "tag": {
+                                "name": "NA",
+                                "type": 195,
+                                "bitIndex": null,
+                                "value": null,
+                                "controllerValue": null,
+                                "path": {
+                                    "type": "Buffer",
+                                    "data": [
+                                        145,
+                                        2,
+                                        78,
+                                        65
+                                    ]
+                                },
+                                "program": null,
+                                "stage_write": false
+                            },
+                            "read_size": 1,
+                            "error": {
+                                "code": null,
+                                "status": null
+                            },
+                            "timestamp": "2023-05-11T21:31:07.976Z",
+                            "instance": "4a864f66324e0ab244c8fd7fd5d8ee3a",
+                            "keepAlive": 0
+                        }
+                    }
                 },
                 {
                     "scaling": {
@@ -2503,7 +3817,39 @@
                     "writeable": false,
                     "description": "RW P1 Fault (2)",
                     "cofs": -1,
-                    "command": ""
+                    "command": "",
+                    "tag": {
+                        "_events": {},
+                        "_eventsCount": 0,
+                        "state": {
+                            "tag": {
+                                "name": "NA",
+                                "type": 195,
+                                "bitIndex": null,
+                                "value": null,
+                                "controllerValue": null,
+                                "path": {
+                                    "type": "Buffer",
+                                    "data": [
+                                        145,
+                                        2,
+                                        78,
+                                        65
+                                    ]
+                                },
+                                "program": null,
+                                "stage_write": false
+                            },
+                            "read_size": 1,
+                            "error": {
+                                "code": null,
+                                "status": null
+                            },
+                            "timestamp": "2023-05-11T21:31:07.977Z",
+                            "instance": "4a864f66324e0ab244c8fd7fd5d8ee3a",
+                            "keepAlive": 0
+                        }
+                    }
                 },
                 {
                     "scaling": {
@@ -2552,7 +3898,39 @@
                     "writeable": false,
                     "description": "RW P2 Run (3)",
                     "cofs": -1,
-                    "command": ""
+                    "command": "",
+                    "tag": {
+                        "_events": {},
+                        "_eventsCount": 0,
+                        "state": {
+                            "tag": {
+                                "name": "NA",
+                                "type": 195,
+                                "bitIndex": null,
+                                "value": null,
+                                "controllerValue": null,
+                                "path": {
+                                    "type": "Buffer",
+                                    "data": [
+                                        145,
+                                        2,
+                                        78,
+                                        65
+                                    ]
+                                },
+                                "program": null,
+                                "stage_write": false
+                            },
+                            "read_size": 1,
+                            "error": {
+                                "code": null,
+                                "status": null
+                            },
+                            "timestamp": "2023-05-11T21:31:07.977Z",
+                            "instance": "4a864f66324e0ab244c8fd7fd5d8ee3a",
+                            "keepAlive": 0
+                        }
+                    }
                 },
                 {
                     "scaling": {
@@ -2601,7 +3979,39 @@
                     "writeable": false,
                     "description": "RW P2 Auto (4)",
                     "cofs": -1,
-                    "command": ""
+                    "command": "",
+                    "tag": {
+                        "_events": {},
+                        "_eventsCount": 0,
+                        "state": {
+                            "tag": {
+                                "name": "NA",
+                                "type": 195,
+                                "bitIndex": null,
+                                "value": null,
+                                "controllerValue": null,
+                                "path": {
+                                    "type": "Buffer",
+                                    "data": [
+                                        145,
+                                        2,
+                                        78,
+                                        65
+                                    ]
+                                },
+                                "program": null,
+                                "stage_write": false
+                            },
+                            "read_size": 1,
+                            "error": {
+                                "code": null,
+                                "status": null
+                            },
+                            "timestamp": "2023-05-11T21:31:07.978Z",
+                            "instance": "4a864f66324e0ab244c8fd7fd5d8ee3a",
+                            "keepAlive": 0
+                        }
+                    }
                 },
                 {
                     "scaling": {
@@ -2650,7 +4060,39 @@
                     "writeable": false,
                     "description": "RW P2 Fault (5)",
                     "cofs": -1,
-                    "command": ""
+                    "command": "",
+                    "tag": {
+                        "_events": {},
+                        "_eventsCount": 0,
+                        "state": {
+                            "tag": {
+                                "name": "NA",
+                                "type": 195,
+                                "bitIndex": null,
+                                "value": null,
+                                "controllerValue": null,
+                                "path": {
+                                    "type": "Buffer",
+                                    "data": [
+                                        145,
+                                        2,
+                                        78,
+                                        65
+                                    ]
+                                },
+                                "program": null,
+                                "stage_write": false
+                            },
+                            "read_size": 1,
+                            "error": {
+                                "code": null,
+                                "status": null
+                            },
+                            "timestamp": "2023-05-11T21:31:07.978Z",
+                            "instance": "4a864f66324e0ab244c8fd7fd5d8ee3a",
+                            "keepAlive": 0
+                        }
+                    }
                 },
                 {
                     "scaling": {
@@ -2699,7 +4141,39 @@
                     "writeable": false,
                     "description": "RW P3 Run (6)",
                     "cofs": -1,
-                    "command": ""
+                    "command": "",
+                    "tag": {
+                        "_events": {},
+                        "_eventsCount": 0,
+                        "state": {
+                            "tag": {
+                                "name": "NA",
+                                "type": 195,
+                                "bitIndex": null,
+                                "value": null,
+                                "controllerValue": null,
+                                "path": {
+                                    "type": "Buffer",
+                                    "data": [
+                                        145,
+                                        2,
+                                        78,
+                                        65
+                                    ]
+                                },
+                                "program": null,
+                                "stage_write": false
+                            },
+                            "read_size": 1,
+                            "error": {
+                                "code": null,
+                                "status": null
+                            },
+                            "timestamp": "2023-05-11T21:31:07.979Z",
+                            "instance": "4a864f66324e0ab244c8fd7fd5d8ee3a",
+                            "keepAlive": 0
+                        }
+                    }
                 },
                 {
                     "scaling": {
@@ -2748,7 +4222,39 @@
                     "writeable": false,
                     "description": "RW P3 Auto (7)",
                     "cofs": -1,
-                    "command": ""
+                    "command": "",
+                    "tag": {
+                        "_events": {},
+                        "_eventsCount": 0,
+                        "state": {
+                            "tag": {
+                                "name": "NA",
+                                "type": 195,
+                                "bitIndex": null,
+                                "value": null,
+                                "controllerValue": null,
+                                "path": {
+                                    "type": "Buffer",
+                                    "data": [
+                                        145,
+                                        2,
+                                        78,
+                                        65
+                                    ]
+                                },
+                                "program": null,
+                                "stage_write": false
+                            },
+                            "read_size": 1,
+                            "error": {
+                                "code": null,
+                                "status": null
+                            },
+                            "timestamp": "2023-05-11T21:31:07.979Z",
+                            "instance": "4a864f66324e0ab244c8fd7fd5d8ee3a",
+                            "keepAlive": 0
+                        }
+                    }
                 },
                 {
                     "scaling": {
@@ -2797,7 +4303,39 @@
                     "writeable": false,
                     "description": "RW P3 Fault (8)",
                     "cofs": -1,
-                    "command": ""
+                    "command": "",
+                    "tag": {
+                        "_events": {},
+                        "_eventsCount": 0,
+                        "state": {
+                            "tag": {
+                                "name": "NA",
+                                "type": 195,
+                                "bitIndex": null,
+                                "value": null,
+                                "controllerValue": null,
+                                "path": {
+                                    "type": "Buffer",
+                                    "data": [
+                                        145,
+                                        2,
+                                        78,
+                                        65
+                                    ]
+                                },
+                                "program": null,
+                                "stage_write": false
+                            },
+                            "read_size": 1,
+                            "error": {
+                                "code": null,
+                                "status": null
+                            },
+                            "timestamp": "2023-05-11T21:31:07.980Z",
+                            "instance": "4a864f66324e0ab244c8fd7fd5d8ee3a",
+                            "keepAlive": 0
+                        }
+                    }
                 },
                 {
                     "scaling": {
@@ -2846,7 +4384,39 @@
                     "writeable": false,
                     "description": "RW P4 Run (9)",
                     "cofs": -1,
-                    "command": ""
+                    "command": "",
+                    "tag": {
+                        "_events": {},
+                        "_eventsCount": 0,
+                        "state": {
+                            "tag": {
+                                "name": "NA",
+                                "type": 195,
+                                "bitIndex": null,
+                                "value": null,
+                                "controllerValue": null,
+                                "path": {
+                                    "type": "Buffer",
+                                    "data": [
+                                        145,
+                                        2,
+                                        78,
+                                        65
+                                    ]
+                                },
+                                "program": null,
+                                "stage_write": false
+                            },
+                            "read_size": 1,
+                            "error": {
+                                "code": null,
+                                "status": null
+                            },
+                            "timestamp": "2023-05-11T21:31:07.980Z",
+                            "instance": "4a864f66324e0ab244c8fd7fd5d8ee3a",
+                            "keepAlive": 0
+                        }
+                    }
                 },
                 {
                     "scaling": {
@@ -2895,7 +4465,39 @@
                     "writeable": false,
                     "description": "RW P4 Auto (10)",
                     "cofs": -1,
-                    "command": ""
+                    "command": "",
+                    "tag": {
+                        "_events": {},
+                        "_eventsCount": 0,
+                        "state": {
+                            "tag": {
+                                "name": "NA",
+                                "type": 195,
+                                "bitIndex": null,
+                                "value": null,
+                                "controllerValue": null,
+                                "path": {
+                                    "type": "Buffer",
+                                    "data": [
+                                        145,
+                                        2,
+                                        78,
+                                        65
+                                    ]
+                                },
+                                "program": null,
+                                "stage_write": false
+                            },
+                            "read_size": 1,
+                            "error": {
+                                "code": null,
+                                "status": null
+                            },
+                            "timestamp": "2023-05-11T21:31:07.981Z",
+                            "instance": "4a864f66324e0ab244c8fd7fd5d8ee3a",
+                            "keepAlive": 0
+                        }
+                    }
                 },
                 {
                     "scaling": {
@@ -2944,7 +4546,39 @@
                     "writeable": false,
                     "description": "RW P4 Fault (11)",
                     "cofs": -1,
-                    "command": ""
+                    "command": "",
+                    "tag": {
+                        "_events": {},
+                        "_eventsCount": 0,
+                        "state": {
+                            "tag": {
+                                "name": "NA",
+                                "type": 195,
+                                "bitIndex": null,
+                                "value": null,
+                                "controllerValue": null,
+                                "path": {
+                                    "type": "Buffer",
+                                    "data": [
+                                        145,
+                                        2,
+                                        78,
+                                        65
+                                    ]
+                                },
+                                "program": null,
+                                "stage_write": false
+                            },
+                            "read_size": 1,
+                            "error": {
+                                "code": null,
+                                "status": null
+                            },
+                            "timestamp": "2023-05-11T21:31:07.981Z",
+                            "instance": "4a864f66324e0ab244c8fd7fd5d8ee3a",
+                            "keepAlive": 0
+                        }
+                    }
                 },
                 {
                     "scaling": {
@@ -2993,7 +4627,39 @@
                     "writeable": false,
                     "description": "RW P5 Run (12)",
                     "cofs": -1,
-                    "command": ""
+                    "command": "",
+                    "tag": {
+                        "_events": {},
+                        "_eventsCount": 0,
+                        "state": {
+                            "tag": {
+                                "name": "NA",
+                                "type": 195,
+                                "bitIndex": null,
+                                "value": null,
+                                "controllerValue": null,
+                                "path": {
+                                    "type": "Buffer",
+                                    "data": [
+                                        145,
+                                        2,
+                                        78,
+                                        65
+                                    ]
+                                },
+                                "program": null,
+                                "stage_write": false
+                            },
+                            "read_size": 1,
+                            "error": {
+                                "code": null,
+                                "status": null
+                            },
+                            "timestamp": "2023-05-11T21:31:07.982Z",
+                            "instance": "4a864f66324e0ab244c8fd7fd5d8ee3a",
+                            "keepAlive": 0
+                        }
+                    }
                 },
                 {
                     "scaling": {
@@ -3042,7 +4708,39 @@
                     "writeable": false,
                     "description": "RW P5 Auto (13)",
                     "cofs": -1,
-                    "command": ""
+                    "command": "",
+                    "tag": {
+                        "_events": {},
+                        "_eventsCount": 0,
+                        "state": {
+                            "tag": {
+                                "name": "NA",
+                                "type": 195,
+                                "bitIndex": null,
+                                "value": null,
+                                "controllerValue": null,
+                                "path": {
+                                    "type": "Buffer",
+                                    "data": [
+                                        145,
+                                        2,
+                                        78,
+                                        65
+                                    ]
+                                },
+                                "program": null,
+                                "stage_write": false
+                            },
+                            "read_size": 1,
+                            "error": {
+                                "code": null,
+                                "status": null
+                            },
+                            "timestamp": "2023-05-11T21:31:07.983Z",
+                            "instance": "4a864f66324e0ab244c8fd7fd5d8ee3a",
+                            "keepAlive": 0
+                        }
+                    }
                 },
                 {
                     "scaling": {
@@ -3091,7 +4789,39 @@
                     "writeable": false,
                     "description": "RW P5 Fault (14)",
                     "cofs": -1,
-                    "command": ""
+                    "command": "",
+                    "tag": {
+                        "_events": {},
+                        "_eventsCount": 0,
+                        "state": {
+                            "tag": {
+                                "name": "NA",
+                                "type": 195,
+                                "bitIndex": null,
+                                "value": null,
+                                "controllerValue": null,
+                                "path": {
+                                    "type": "Buffer",
+                                    "data": [
+                                        145,
+                                        2,
+                                        78,
+                                        65
+                                    ]
+                                },
+                                "program": null,
+                                "stage_write": false
+                            },
+                            "read_size": 1,
+                            "error": {
+                                "code": null,
+                                "status": null
+                            },
+                            "timestamp": "2023-05-11T21:31:07.983Z",
+                            "instance": "4a864f66324e0ab244c8fd7fd5d8ee3a",
+                            "keepAlive": 0
+                        }
+                    }
                 },
                 {
                     "scaling": {
@@ -3140,7 +4870,39 @@
                     "writeable": false,
                     "description": "WTW Backwash P1 Run (15)",
                     "cofs": -1,
-                    "command": ""
+                    "command": "",
+                    "tag": {
+                        "_events": {},
+                        "_eventsCount": 0,
+                        "state": {
+                            "tag": {
+                                "name": "NA",
+                                "type": 195,
+                                "bitIndex": null,
+                                "value": null,
+                                "controllerValue": null,
+                                "path": {
+                                    "type": "Buffer",
+                                    "data": [
+                                        145,
+                                        2,
+                                        78,
+                                        65
+                                    ]
+                                },
+                                "program": null,
+                                "stage_write": false
+                            },
+                            "read_size": 1,
+                            "error": {
+                                "code": null,
+                                "status": null
+                            },
+                            "timestamp": "2023-05-11T21:31:07.984Z",
+                            "instance": "4a864f66324e0ab244c8fd7fd5d8ee3a",
+                            "keepAlive": 0
+                        }
+                    }
                 },
                 {
                     "scaling": {
@@ -3189,7 +4951,39 @@
                     "writeable": false,
                     "description": "WTW Backwash P1 Fault (16)",
                     "cofs": -1,
-                    "command": ""
+                    "command": "",
+                    "tag": {
+                        "_events": {},
+                        "_eventsCount": 0,
+                        "state": {
+                            "tag": {
+                                "name": "NA",
+                                "type": 195,
+                                "bitIndex": null,
+                                "value": null,
+                                "controllerValue": null,
+                                "path": {
+                                    "type": "Buffer",
+                                    "data": [
+                                        145,
+                                        2,
+                                        78,
+                                        65
+                                    ]
+                                },
+                                "program": null,
+                                "stage_write": false
+                            },
+                            "read_size": 1,
+                            "error": {
+                                "code": null,
+                                "status": null
+                            },
+                            "timestamp": "2023-05-11T21:31:07.984Z",
+                            "instance": "4a864f66324e0ab244c8fd7fd5d8ee3a",
+                            "keepAlive": 0
+                        }
+                    }
                 },
                 {
                     "scaling": {
@@ -3238,7 +5032,39 @@
                     "writeable": false,
                     "description": "WTW Backwash P2 Run (17)",
                     "cofs": -1,
-                    "command": ""
+                    "command": "",
+                    "tag": {
+                        "_events": {},
+                        "_eventsCount": 0,
+                        "state": {
+                            "tag": {
+                                "name": "NA",
+                                "type": 195,
+                                "bitIndex": null,
+                                "value": null,
+                                "controllerValue": null,
+                                "path": {
+                                    "type": "Buffer",
+                                    "data": [
+                                        145,
+                                        2,
+                                        78,
+                                        65
+                                    ]
+                                },
+                                "program": null,
+                                "stage_write": false
+                            },
+                            "read_size": 1,
+                            "error": {
+                                "code": null,
+                                "status": null
+                            },
+                            "timestamp": "2023-05-11T21:31:07.985Z",
+                            "instance": "4a864f66324e0ab244c8fd7fd5d8ee3a",
+                            "keepAlive": 0
+                        }
+                    }
                 },
                 {
                     "scaling": {
@@ -3287,7 +5113,39 @@
                     "writeable": false,
                     "description": "WTW Backwash P2 Fault (18)",
                     "cofs": -1,
-                    "command": ""
+                    "command": "",
+                    "tag": {
+                        "_events": {},
+                        "_eventsCount": 0,
+                        "state": {
+                            "tag": {
+                                "name": "NA",
+                                "type": 195,
+                                "bitIndex": null,
+                                "value": null,
+                                "controllerValue": null,
+                                "path": {
+                                    "type": "Buffer",
+                                    "data": [
+                                        145,
+                                        2,
+                                        78,
+                                        65
+                                    ]
+                                },
+                                "program": null,
+                                "stage_write": false
+                            },
+                            "read_size": 1,
+                            "error": {
+                                "code": null,
+                                "status": null
+                            },
+                            "timestamp": "2023-05-11T21:31:07.985Z",
+                            "instance": "4a864f66324e0ab244c8fd7fd5d8ee3a",
+                            "keepAlive": 0
+                        }
+                    }
                 },
                 {
                     "scaling": {
@@ -3336,7 +5194,39 @@
                     "writeable": false,
                     "description": "WTW Backwash P3 Run (19)",
                     "cofs": -1,
-                    "command": ""
+                    "command": "",
+                    "tag": {
+                        "_events": {},
+                        "_eventsCount": 0,
+                        "state": {
+                            "tag": {
+                                "name": "NA",
+                                "type": 195,
+                                "bitIndex": null,
+                                "value": null,
+                                "controllerValue": null,
+                                "path": {
+                                    "type": "Buffer",
+                                    "data": [
+                                        145,
+                                        2,
+                                        78,
+                                        65
+                                    ]
+                                },
+                                "program": null,
+                                "stage_write": false
+                            },
+                            "read_size": 1,
+                            "error": {
+                                "code": null,
+                                "status": null
+                            },
+                            "timestamp": "2023-05-11T21:31:07.986Z",
+                            "instance": "4a864f66324e0ab244c8fd7fd5d8ee3a",
+                            "keepAlive": 0
+                        }
+                    }
                 },
                 {
                     "scaling": {
@@ -3385,7 +5275,39 @@
                     "writeable": false,
                     "description": "WTW Backwash P3 Fault (20)",
                     "cofs": -1,
-                    "command": ""
+                    "command": "",
+                    "tag": {
+                        "_events": {},
+                        "_eventsCount": 0,
+                        "state": {
+                            "tag": {
+                                "name": "NA",
+                                "type": 195,
+                                "bitIndex": null,
+                                "value": null,
+                                "controllerValue": null,
+                                "path": {
+                                    "type": "Buffer",
+                                    "data": [
+                                        145,
+                                        2,
+                                        78,
+                                        65
+                                    ]
+                                },
+                                "program": null,
+                                "stage_write": false
+                            },
+                            "read_size": 1,
+                            "error": {
+                                "code": null,
+                                "status": null
+                            },
+                            "timestamp": "2023-05-11T21:31:07.986Z",
+                            "instance": "4a864f66324e0ab244c8fd7fd5d8ee3a",
+                            "keepAlive": 0
+                        }
+                    }
                 },
                 {
                     "scaling": {
@@ -3434,7 +5356,39 @@
                     "writeable": false,
                     "description": "WTW Backwash B1 Run (21)",
                     "cofs": -1,
-                    "command": ""
+                    "command": "",
+                    "tag": {
+                        "_events": {},
+                        "_eventsCount": 0,
+                        "state": {
+                            "tag": {
+                                "name": "NA",
+                                "type": 195,
+                                "bitIndex": null,
+                                "value": null,
+                                "controllerValue": null,
+                                "path": {
+                                    "type": "Buffer",
+                                    "data": [
+                                        145,
+                                        2,
+                                        78,
+                                        65
+                                    ]
+                                },
+                                "program": null,
+                                "stage_write": false
+                            },
+                            "read_size": 1,
+                            "error": {
+                                "code": null,
+                                "status": null
+                            },
+                            "timestamp": "2023-05-11T21:31:07.987Z",
+                            "instance": "4a864f66324e0ab244c8fd7fd5d8ee3a",
+                            "keepAlive": 0
+                        }
+                    }
                 },
                 {
                     "scaling": {
@@ -3483,7 +5437,39 @@
                     "writeable": false,
                     "description": "WTW Backwash B1 Fault (22)",
                     "cofs": -1,
-                    "command": ""
+                    "command": "",
+                    "tag": {
+                        "_events": {},
+                        "_eventsCount": 0,
+                        "state": {
+                            "tag": {
+                                "name": "NA",
+                                "type": 195,
+                                "bitIndex": null,
+                                "value": null,
+                                "controllerValue": null,
+                                "path": {
+                                    "type": "Buffer",
+                                    "data": [
+                                        145,
+                                        2,
+                                        78,
+                                        65
+                                    ]
+                                },
+                                "program": null,
+                                "stage_write": false
+                            },
+                            "read_size": 1,
+                            "error": {
+                                "code": null,
+                                "status": null
+                            },
+                            "timestamp": "2023-05-11T21:31:07.987Z",
+                            "instance": "4a864f66324e0ab244c8fd7fd5d8ee3a",
+                            "keepAlive": 0
+                        }
+                    }
                 },
                 {
                     "scaling": {
@@ -3532,7 +5518,39 @@
                     "writeable": false,
                     "description": "WTW Backwash B2 Run (23)",
                     "cofs": -1,
-                    "command": ""
+                    "command": "",
+                    "tag": {
+                        "_events": {},
+                        "_eventsCount": 0,
+                        "state": {
+                            "tag": {
+                                "name": "NA",
+                                "type": 195,
+                                "bitIndex": null,
+                                "value": null,
+                                "controllerValue": null,
+                                "path": {
+                                    "type": "Buffer",
+                                    "data": [
+                                        145,
+                                        2,
+                                        78,
+                                        65
+                                    ]
+                                },
+                                "program": null,
+                                "stage_write": false
+                            },
+                            "read_size": 1,
+                            "error": {
+                                "code": null,
+                                "status": null
+                            },
+                            "timestamp": "2023-05-11T21:31:07.988Z",
+                            "instance": "4a864f66324e0ab244c8fd7fd5d8ee3a",
+                            "keepAlive": 0
+                        }
+                    }
                 },
                 {
                     "scaling": {
@@ -3581,7 +5599,39 @@
                     "writeable": false,
                     "description": "WTW Backwash B2 Fault (24)",
                     "cofs": -1,
-                    "command": ""
+                    "command": "",
+                    "tag": {
+                        "_events": {},
+                        "_eventsCount": 0,
+                        "state": {
+                            "tag": {
+                                "name": "NA",
+                                "type": 195,
+                                "bitIndex": null,
+                                "value": null,
+                                "controllerValue": null,
+                                "path": {
+                                    "type": "Buffer",
+                                    "data": [
+                                        145,
+                                        2,
+                                        78,
+                                        65
+                                    ]
+                                },
+                                "program": null,
+                                "stage_write": false
+                            },
+                            "read_size": 1,
+                            "error": {
+                                "code": null,
+                                "status": null
+                            },
+                            "timestamp": "2023-05-11T21:31:07.988Z",
+                            "instance": "4a864f66324e0ab244c8fd7fd5d8ee3a",
+                            "keepAlive": 0
+                        }
+                    }
                 },
                 {
                     "scaling": {
@@ -3630,7 +5680,39 @@
                     "writeable": false,
                     "description": "WTW Highlift P1 Run (25)",
                     "cofs": -1,
-                    "command": ""
+                    "command": "",
+                    "tag": {
+                        "_events": {},
+                        "_eventsCount": 0,
+                        "state": {
+                            "tag": {
+                                "name": "NA",
+                                "type": 195,
+                                "bitIndex": null,
+                                "value": null,
+                                "controllerValue": null,
+                                "path": {
+                                    "type": "Buffer",
+                                    "data": [
+                                        145,
+                                        2,
+                                        78,
+                                        65
+                                    ]
+                                },
+                                "program": null,
+                                "stage_write": false
+                            },
+                            "read_size": 1,
+                            "error": {
+                                "code": null,
+                                "status": null
+                            },
+                            "timestamp": "2023-05-11T21:31:07.988Z",
+                            "instance": "4a864f66324e0ab244c8fd7fd5d8ee3a",
+                            "keepAlive": 0
+                        }
+                    }
                 },
                 {
                     "scaling": {
@@ -3679,7 +5761,39 @@
                     "writeable": false,
                     "description": "WTW Highlift P1 Auto (26)",
                     "cofs": -1,
-                    "command": ""
+                    "command": "",
+                    "tag": {
+                        "_events": {},
+                        "_eventsCount": 0,
+                        "state": {
+                            "tag": {
+                                "name": "NA",
+                                "type": 195,
+                                "bitIndex": null,
+                                "value": null,
+                                "controllerValue": null,
+                                "path": {
+                                    "type": "Buffer",
+                                    "data": [
+                                        145,
+                                        2,
+                                        78,
+                                        65
+                                    ]
+                                },
+                                "program": null,
+                                "stage_write": false
+                            },
+                            "read_size": 1,
+                            "error": {
+                                "code": null,
+                                "status": null
+                            },
+                            "timestamp": "2023-05-11T21:31:07.989Z",
+                            "instance": "4a864f66324e0ab244c8fd7fd5d8ee3a",
+                            "keepAlive": 0
+                        }
+                    }
                 },
                 {
                     "scaling": {
@@ -3728,7 +5842,39 @@
                     "writeable": false,
                     "description": "WTW Highlift P1 Fault (27)",
                     "cofs": -1,
-                    "command": ""
+                    "command": "",
+                    "tag": {
+                        "_events": {},
+                        "_eventsCount": 0,
+                        "state": {
+                            "tag": {
+                                "name": "NA",
+                                "type": 195,
+                                "bitIndex": null,
+                                "value": null,
+                                "controllerValue": null,
+                                "path": {
+                                    "type": "Buffer",
+                                    "data": [
+                                        145,
+                                        2,
+                                        78,
+                                        65
+                                    ]
+                                },
+                                "program": null,
+                                "stage_write": false
+                            },
+                            "read_size": 1,
+                            "error": {
+                                "code": null,
+                                "status": null
+                            },
+                            "timestamp": "2023-05-11T21:31:07.989Z",
+                            "instance": "4a864f66324e0ab244c8fd7fd5d8ee3a",
+                            "keepAlive": 0
+                        }
+                    }
                 },
                 {
                     "scaling": {
@@ -3777,7 +5923,39 @@
                     "writeable": false,
                     "description": "WTW Highlift P2 Run (28)",
                     "cofs": -1,
-                    "command": ""
+                    "command": "",
+                    "tag": {
+                        "_events": {},
+                        "_eventsCount": 0,
+                        "state": {
+                            "tag": {
+                                "name": "NA",
+                                "type": 195,
+                                "bitIndex": null,
+                                "value": null,
+                                "controllerValue": null,
+                                "path": {
+                                    "type": "Buffer",
+                                    "data": [
+                                        145,
+                                        2,
+                                        78,
+                                        65
+                                    ]
+                                },
+                                "program": null,
+                                "stage_write": false
+                            },
+                            "read_size": 1,
+                            "error": {
+                                "code": null,
+                                "status": null
+                            },
+                            "timestamp": "2023-05-11T21:31:07.990Z",
+                            "instance": "4a864f66324e0ab244c8fd7fd5d8ee3a",
+                            "keepAlive": 0
+                        }
+                    }
                 },
                 {
                     "scaling": {
@@ -3826,7 +6004,39 @@
                     "writeable": false,
                     "description": "WTW Highlift P2 Auto (29)",
                     "cofs": -1,
-                    "command": ""
+                    "command": "",
+                    "tag": {
+                        "_events": {},
+                        "_eventsCount": 0,
+                        "state": {
+                            "tag": {
+                                "name": "NA",
+                                "type": 195,
+                                "bitIndex": null,
+                                "value": null,
+                                "controllerValue": null,
+                                "path": {
+                                    "type": "Buffer",
+                                    "data": [
+                                        145,
+                                        2,
+                                        78,
+                                        65
+                                    ]
+                                },
+                                "program": null,
+                                "stage_write": false
+                            },
+                            "read_size": 1,
+                            "error": {
+                                "code": null,
+                                "status": null
+                            },
+                            "timestamp": "2023-05-11T21:31:07.990Z",
+                            "instance": "4a864f66324e0ab244c8fd7fd5d8ee3a",
+                            "keepAlive": 0
+                        }
+                    }
                 },
                 {
                     "scaling": {
@@ -3875,7 +6085,39 @@
                     "writeable": false,
                     "description": "WTW Highlift P2 Fault (30)",
                     "cofs": -1,
-                    "command": ""
+                    "command": "",
+                    "tag": {
+                        "_events": {},
+                        "_eventsCount": 0,
+                        "state": {
+                            "tag": {
+                                "name": "NA",
+                                "type": 195,
+                                "bitIndex": null,
+                                "value": null,
+                                "controllerValue": null,
+                                "path": {
+                                    "type": "Buffer",
+                                    "data": [
+                                        145,
+                                        2,
+                                        78,
+                                        65
+                                    ]
+                                },
+                                "program": null,
+                                "stage_write": false
+                            },
+                            "read_size": 1,
+                            "error": {
+                                "code": null,
+                                "status": null
+                            },
+                            "timestamp": "2023-05-11T21:31:07.991Z",
+                            "instance": "4a864f66324e0ab244c8fd7fd5d8ee3a",
+                            "keepAlive": 0
+                        }
+                    }
                 },
                 {
                     "scaling": {
@@ -3924,7 +6166,39 @@
                     "writeable": false,
                     "description": "WTW Highlift P3 Run (31)",
                     "cofs": -1,
-                    "command": ""
+                    "command": "",
+                    "tag": {
+                        "_events": {},
+                        "_eventsCount": 0,
+                        "state": {
+                            "tag": {
+                                "name": "NA",
+                                "type": 195,
+                                "bitIndex": null,
+                                "value": null,
+                                "controllerValue": null,
+                                "path": {
+                                    "type": "Buffer",
+                                    "data": [
+                                        145,
+                                        2,
+                                        78,
+                                        65
+                                    ]
+                                },
+                                "program": null,
+                                "stage_write": false
+                            },
+                            "read_size": 1,
+                            "error": {
+                                "code": null,
+                                "status": null
+                            },
+                            "timestamp": "2023-05-11T21:31:07.991Z",
+                            "instance": "4a864f66324e0ab244c8fd7fd5d8ee3a",
+                            "keepAlive": 0
+                        }
+                    }
                 },
                 {
                     "scaling": {
@@ -3973,7 +6247,39 @@
                     "writeable": false,
                     "description": "WTW Highlift P3 Auto (32)",
                     "cofs": -1,
-                    "command": ""
+                    "command": "",
+                    "tag": {
+                        "_events": {},
+                        "_eventsCount": 0,
+                        "state": {
+                            "tag": {
+                                "name": "NA",
+                                "type": 195,
+                                "bitIndex": null,
+                                "value": null,
+                                "controllerValue": null,
+                                "path": {
+                                    "type": "Buffer",
+                                    "data": [
+                                        145,
+                                        2,
+                                        78,
+                                        65
+                                    ]
+                                },
+                                "program": null,
+                                "stage_write": false
+                            },
+                            "read_size": 1,
+                            "error": {
+                                "code": null,
+                                "status": null
+                            },
+                            "timestamp": "2023-05-11T21:31:07.992Z",
+                            "instance": "4a864f66324e0ab244c8fd7fd5d8ee3a",
+                            "keepAlive": 0
+                        }
+                    }
                 },
                 {
                     "scaling": {
@@ -4022,7 +6328,39 @@
                     "writeable": false,
                     "description": "WTW Highlift P3 Fault (33)",
                     "cofs": -1,
-                    "command": ""
+                    "command": "",
+                    "tag": {
+                        "_events": {},
+                        "_eventsCount": 0,
+                        "state": {
+                            "tag": {
+                                "name": "NA",
+                                "type": 195,
+                                "bitIndex": null,
+                                "value": null,
+                                "controllerValue": null,
+                                "path": {
+                                    "type": "Buffer",
+                                    "data": [
+                                        145,
+                                        2,
+                                        78,
+                                        65
+                                    ]
+                                },
+                                "program": null,
+                                "stage_write": false
+                            },
+                            "read_size": 1,
+                            "error": {
+                                "code": null,
+                                "status": null
+                            },
+                            "timestamp": "2023-05-11T21:31:07.992Z",
+                            "instance": "4a864f66324e0ab244c8fd7fd5d8ee3a",
+                            "keepAlive": 0
+                        }
+                    }
                 },
                 {
                     "scaling": {
@@ -4071,7 +6409,39 @@
                     "writeable": false,
                     "description": "WTW Highlift P4 Run (34)",
                     "cofs": -1,
-                    "command": ""
+                    "command": "",
+                    "tag": {
+                        "_events": {},
+                        "_eventsCount": 0,
+                        "state": {
+                            "tag": {
+                                "name": "NA",
+                                "type": 195,
+                                "bitIndex": null,
+                                "value": null,
+                                "controllerValue": null,
+                                "path": {
+                                    "type": "Buffer",
+                                    "data": [
+                                        145,
+                                        2,
+                                        78,
+                                        65
+                                    ]
+                                },
+                                "program": null,
+                                "stage_write": false
+                            },
+                            "read_size": 1,
+                            "error": {
+                                "code": null,
+                                "status": null
+                            },
+                            "timestamp": "2023-05-11T21:31:07.993Z",
+                            "instance": "4a864f66324e0ab244c8fd7fd5d8ee3a",
+                            "keepAlive": 0
+                        }
+                    }
                 },
                 {
                     "scaling": {
@@ -4120,7 +6490,39 @@
                     "writeable": false,
                     "description": "WTW Highlift P4 Auto (35)",
                     "cofs": -1,
-                    "command": ""
+                    "command": "",
+                    "tag": {
+                        "_events": {},
+                        "_eventsCount": 0,
+                        "state": {
+                            "tag": {
+                                "name": "NA",
+                                "type": 195,
+                                "bitIndex": null,
+                                "value": null,
+                                "controllerValue": null,
+                                "path": {
+                                    "type": "Buffer",
+                                    "data": [
+                                        145,
+                                        2,
+                                        78,
+                                        65
+                                    ]
+                                },
+                                "program": null,
+                                "stage_write": false
+                            },
+                            "read_size": 1,
+                            "error": {
+                                "code": null,
+                                "status": null
+                            },
+                            "timestamp": "2023-05-11T21:31:07.993Z",
+                            "instance": "4a864f66324e0ab244c8fd7fd5d8ee3a",
+                            "keepAlive": 0
+                        }
+                    }
                 },
                 {
                     "scaling": {
@@ -4169,7 +6571,39 @@
                     "writeable": false,
                     "description": "WTW Highlift P4 Fault (36)",
                     "cofs": -1,
-                    "command": ""
+                    "command": "",
+                    "tag": {
+                        "_events": {},
+                        "_eventsCount": 0,
+                        "state": {
+                            "tag": {
+                                "name": "NA",
+                                "type": 195,
+                                "bitIndex": null,
+                                "value": null,
+                                "controllerValue": null,
+                                "path": {
+                                    "type": "Buffer",
+                                    "data": [
+                                        145,
+                                        2,
+                                        78,
+                                        65
+                                    ]
+                                },
+                                "program": null,
+                                "stage_write": false
+                            },
+                            "read_size": 1,
+                            "error": {
+                                "code": null,
+                                "status": null
+                            },
+                            "timestamp": "2023-05-11T21:31:07.994Z",
+                            "instance": "4a864f66324e0ab244c8fd7fd5d8ee3a",
+                            "keepAlive": 0
+                        }
+                    }
                 }
             ],
             "ip": "192.168.0.150",
@@ -4188,12 +6622,13 @@
             "password": ""
         },
         {
+            "id": 2,
             "io": [
                 {
                     "bit": 0,
                     "key": "AI1",
                     "tagId": "",
-                    "value": 955,
+                    "value": 2500,
                     "inputId": "61b070001957b5c0a0bbd915",
                     "register": 0,
                     "moduleId": "0",
@@ -4216,6 +6651,7 @@
             "description": "4.2Ml Res "
         },
         {
+            "id": 3,
             "io": [
                 {
                     "bit": 0,
@@ -4244,6 +6680,7 @@
             "description": "Intermediate Res"
         },
         {
+            "id": 4,
             "io": [
                 {
                     "bit": 0,
@@ -5160,5 +7597,6 @@
         "rateLimitTxCountSP": 4
     },
     "apn": "tech5",
-    "publishEnabled": true
+    "publishEnabled": true,
+    "overideDeviceBarcode": "true"
 }
