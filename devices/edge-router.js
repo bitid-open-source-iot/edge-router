@@ -217,7 +217,6 @@ module.exports = class extends EventEmitter {
                             let deviceCurrentState = null;
                             let maskDestinationValue = null;
 
-                            console.log('mask', item.destination.mask)
                             if (item.destination.mask != -1) {
                                 for (const dv of device.values) {
                                     if (dv.inputId == item.destination.inputId) {
