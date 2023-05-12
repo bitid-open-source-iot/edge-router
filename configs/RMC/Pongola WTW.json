@@ -15,8 +15,8 @@
         "username": "telemetry",
         "password": "telemetry1!",
         "subscribe": {
-            "data": "/rock/v1.1/data",
-            "control": "/rock/v1.1/control"
+            "data": "/rock/v1.1.zdm/data",
+            "control": "/rock/v1.1.zdm/control"
         }
     },
     "logger": {
@@ -40,6 +40,7 @@
     },
     "devices": [
         {
+            "id": 0,
             "io": [
                 {
                     "scaling": {
@@ -78,7 +79,7 @@
                     },
                     "key": "AI1",
                     "tagId": "",
-                    "value": 3837.9013157894738,
+                    "value": 4085,
                     "shift": 0,
                     "inputId": "621336f7319eee089a296555",
                     "register": 0,
@@ -87,7 +88,8 @@
                     "interface": "",
                     "writeable": false,
                     "description": "PS1 Res Level",
-                    "cofs": -1
+                    "cofs": -1,
+                    "command": ""
                 },
                 {
                     "scaling": {
@@ -126,7 +128,7 @@
                     },
                     "key": "digitalsIn",
                     "tagId": "",
-                    "value": 85,
+                    "value": 100,
                     "shift": 10,
                     "inputId": "6359483422bff222b870438b",
                     "register": 0,
@@ -135,7 +137,8 @@
                     "interface": "",
                     "writeable": true,
                     "description": "PS1 External PM16DI",
-                    "cofs": -1
+                    "cofs": -1,
+                    "command": ""
                 },
                 {
                     "scaling": {
@@ -174,8 +177,8 @@
                     },
                     "key": "digitalsIn",
                     "tagId": "",
-                    "value": 87040,
-                    "shift": 0,
+                    "value": 801,
+                    "shift": 4,
                     "inputId": "63594aa96bf8ad50502823f6",
                     "register": 0,
                     "moduleId": 0,
@@ -183,7 +186,8 @@
                     "interface": "",
                     "writeable": true,
                     "description": "PS1 External RealLog Inputs",
-                    "cofs": -1
+                    "cofs": -1,
+                    "command": ""
                 }
             ],
             "ip": "0.0.0.0",
@@ -202,6 +206,7 @@
             "password": ""
         },
         {
+            "id": 1,
             "io": [
                 {
                     "scaling": {
@@ -219,7 +224,8 @@
                         "bit": -1,
                         "key": "digitalsIn",
                         "enabled": true,
-                        "moduleId": 0
+                        "moduleId": 0,
+                        "lastCOFSValue": 0
                     },
                     "masking": {
                         "bit": 0,
@@ -288,7 +294,7 @@
                     },
                     "key": "",
                     "tagId": "",
-                    "value": 0,
+                    "value": 801,
                     "shift": -1,
                     "inputId": "63594b485e4d9dc5ff83dcbb",
                     "register": 3,
@@ -316,6 +322,7 @@
             "password": ""
         },
         {
+            "id": 2,
             "io": [
                 {
                     "scaling": {
@@ -333,7 +340,8 @@
                         "bit": 0,
                         "key": "AI1",
                         "enabled": true,
-                        "moduleId": 0
+                        "moduleId": 0,
+                        "lastCOFSValue": 4085
                     },
                     "masking": {
                         "bit": 0,
@@ -354,7 +362,7 @@
                     },
                     "key": "",
                     "tagId": "",
-                    "value": 3837,
+                    "value": 4085,
                     "shift": -1,
                     "inputId": "62a4446900328648eb6af7d1",
                     "register": 2,
@@ -430,6 +438,7 @@
             "password": ""
         },
         {
+            "id": 3,
             "io": [
                 {
                     "scaling": {
@@ -468,7 +477,7 @@
                     },
                     "key": "",
                     "tagId": "",
-                    "value": 85,
+                    "value": 100,
                     "shift": -1,
                     "inputId": "62a4446900328648eb6af7d1",
                     "register": 2,
@@ -516,7 +525,7 @@
                     },
                     "key": "",
                     "tagId": "",
-                    "value": 1,
+                    "value": 0,
                     "shift": -1,
                     "inputId": "62a59dbd908dca34fde57bb1",
                     "register": 1,
@@ -708,7 +717,7 @@
                     },
                     "key": "",
                     "tagId": "",
-                    "value": 1,
+                    "value": 0,
                     "shift": -1,
                     "inputId": "62a6fda707a4f9ab59c65109",
                     "register": 5,
@@ -756,7 +765,7 @@
                     },
                     "key": "",
                     "tagId": "",
-                    "value": 0,
+                    "value": 1,
                     "shift": -1,
                     "inputId": "62a6fdc48039ce197d7946f6",
                     "register": 6,
@@ -1301,12 +1310,18 @@
                 "deviceId": "000000000000000000000250"
             },
             "destination": {
-                "mask": 1023,
+                "mask": -1,
                 "inputId": "63594b485e4d9dc5ff83dcbb",
                 "deviceId": "62a5a54f30000c9ebe201fc8",
                 "destinationRegister": 3
             }
         }
     ],
-    "apn": "internet"
+    "apn": "internet",
+    "rateLimits": {
+        "rateLimitTmrSP": 60,
+        "rateLimitTxCountSP": 4
+    },
+    "overideDeviceBarcode": "true",
+    "publishEnabled": true
 }
