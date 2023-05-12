@@ -148,7 +148,12 @@ module.exports = class extends EventEmitter {
                             return inputs.reduce((promise, ip) => {
                                 return promise.then(() => {
                                     if (io.inputId == ip.inputId) {
-                                        io.value = ip.value
+                                        if(io?.masking?.enabled == true){
+                                            io.value = (ip.value & Math.pow(2, io.masking.bit)) >> io.masking.bit
+                                        }else{
+                                            io.value = ip.value
+                                        }
+                                        
                                     }
                                 })
                             }, Promise.resolve())
@@ -183,9 +188,9 @@ module.exports = class extends EventEmitter {
                     index++;
 
                     // Use continue to skip to the next iteration if the deviceId doesn't match
-                    if (item.source.deviceId != deviceId) {
-                        continue;
-                    }
+                    // if (item.source.deviceId != deviceId) {
+                    //     continue;
+                    // }
 
                     // Use try..catch to handle errors and simplify the code
                     try {
@@ -212,10 +217,11 @@ module.exports = class extends EventEmitter {
                             let deviceCurrentState = null;
                             let maskDestinationValue = null;
 
+                            console.log('mask', item.destination.mask)
                             if (item.destination.mask != -1) {
                                 for (const dv of device.values) {
                                     if (dv.inputId == item.destination.inputId) {
-                                        deviceCurrentState = dv.value;
+                                        deviceCurrentState = (dv.value & Math.pow(2,item.destination.mask))>> item.destination.mask
                                     }
                                 }
 
@@ -225,6 +231,8 @@ module.exports = class extends EventEmitter {
                                 if (deviceCurrentState & item.destination.mask > 0 && deviceCurrentState != -1) {
                                     dontTouchVal = deviceCurrentState - (deviceCurrentState & item.destination.mask);
                                 }
+
+                                
 
                                 maskDestinationValue = dontTouchVal + maskDestinationValue;
                             } else {
