@@ -70,7 +70,8 @@ module.exports = class extends EventEmitter {
     init() {
         this.fixedTransmit = setInterval(() => {
             try {
-                __devices.map(d => d.forceCOFS())
+                // __devices.map(d => d.forceCOFS())
+                this.cofs.applyCOFSServer()
             } catch (e) {
                 console.error('fixedTransmit Error', e)
             }

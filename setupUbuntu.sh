@@ -80,11 +80,10 @@ sudo wget "https://docs.google.com/uc?export=download&id=1LekZrj9igeA5klyyuCzl77
 
 sudo docker pull --platform linux/amd64 shanebowyer/edge-router:master
 
-sudo docker run -d --restart always -p 8080:8080 \
--v /rockwell/config.json:/usr/src/app/config.json \
---network="host" \
---name edge-router \
-shanebowyer/edge-router:master
+docker volume create myvolume
+
+docker run -d --restart always -p 8080:8080 -v myvolume:/usr/src/app --network="host" --name edge-router shanebowyer/edge-router:master
+
 
 # sudo docker run -d --restart always -p 8080:8080 \
 # -v /rockwell/config.json:/usr/src/app/config.json \

@@ -59,7 +59,7 @@
                         "key": "AIExt1",
                         "enabled": true,
                         "moduleId": 0,
-                        "lastCOFSValue": 0
+                        "lastCOFSValue": 2076
                     },
                     "masking": {
                         "bit": 0,
@@ -80,7 +80,7 @@
                     },
                     "key": "",
                     "tagId": "",
-                    "value": 0,
+                    "value": 2076,
                     "shift": -1,
                     "inputId": "627e2c8f76405f0672fd7f84",
                     "register": 2,
