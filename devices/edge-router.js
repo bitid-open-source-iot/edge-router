@@ -83,7 +83,7 @@ module.exports = class extends EventEmitter {
             } catch (e) {
                 console.error('tmrPublish Error', e)
             }
-        }, 500)
+        }, this.txtime * 60000)
 
 
     }
