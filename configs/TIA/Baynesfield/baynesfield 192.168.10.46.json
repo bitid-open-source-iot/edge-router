@@ -59,7 +59,7 @@
                         "key": "AIExt1",
                         "enabled": true,
                         "moduleId": 0,
-                        "lastCOFSValue": 2153
+                        "lastCOFSValue": 2119
                     },
                     "masking": {
                         "bit": 0,
@@ -80,7 +80,7 @@
                     },
                     "key": "",
                     "tagId": "",
-                    "value": 2153,
+                    "value": 2119,
                     "shift": -1,
                     "inputId": "627e2c8f76405f0672fd7f84",
                     "register": 2,
@@ -2010,7 +2010,7 @@
                         "key": "AIExt1",
                         "enabled": true,
                         "moduleId": 0,
-                        "lastCOFSValue": 2150
+                        "lastCOFSValue": 2141
                     },
                     "masking": {
                         "bit": 0,
@@ -2031,7 +2031,7 @@
                     },
                     "key": "",
                     "tagId": "",
-                    "value": 2162,
+                    "value": 2141,
                     "shift": -1,
                     "inputId": "627e2c8f76405f0672fd7f84",
                     "register": 2,
@@ -2040,7 +2040,7 @@
                     "interface": "",
                     "writeable": false,
                     "description": "Analog Input 1",
-                    "cofs": "50",
+                    "cofs": "10",
                     "command": ""
                 },
                 {
@@ -2060,7 +2060,7 @@
                         "key": "AIExt2",
                         "enabled": true,
                         "moduleId": 0,
-                        "lastCOFSValue": 2576
+                        "lastCOFSValue": 2626
                     },
                     "masking": {
                         "bit": 0,
@@ -2081,7 +2081,7 @@
                     },
                     "key": "",
                     "tagId": "",
-                    "value": 2576,
+                    "value": 2637,
                     "shift": -1,
                     "inputId": "642ec26493d4b366ecf06dfe",
                     "register": 3,
@@ -2110,7 +2110,7 @@
                         "key": "AIExt3",
                         "enabled": true,
                         "moduleId": 0,
-                        "lastCOFSValue": 1943
+                        "lastCOFSValue": 1980
                     },
                     "masking": {
                         "bit": 0,
@@ -2131,7 +2131,7 @@
                     },
                     "key": "",
                     "tagId": "",
-                    "value": 1943,
+                    "value": 1980,
                     "shift": -1,
                     "inputId": "642ec2706578bd69c744a06c",
                     "register": 4,
@@ -2140,7 +2140,7 @@
                     "interface": "",
                     "writeable": false,
                     "description": "Analog Input 3",
-                    "cofs": "50",
+                    "cofs": "10",
                     "command": ""
                 },
                 {
@@ -2160,7 +2160,7 @@
                         "key": "AIExt4",
                         "enabled": true,
                         "moduleId": 0,
-                        "lastCOFSValue": 3000
+                        "lastCOFSValue": 3053
                     },
                     "masking": {
                         "bit": 0,
@@ -2181,7 +2181,7 @@
                     },
                     "key": "",
                     "tagId": "",
-                    "value": 3000,
+                    "value": 3080,
                     "shift": -1,
                     "inputId": "642ec29fe7ab9cbe5b142b25",
                     "register": 5,
@@ -2210,7 +2210,7 @@
                         "key": "AIExt5",
                         "enabled": true,
                         "moduleId": 0,
-                        "lastCOFSValue": 2092
+                        "lastCOFSValue": 2100
                     },
                     "masking": {
                         "bit": 0,
@@ -2231,7 +2231,7 @@
                     },
                     "key": "",
                     "tagId": "",
-                    "value": 2079,
+                    "value": 2100,
                     "shift": -1,
                     "inputId": "642ec51f6f2ba937f3991c29",
                     "register": 6,
@@ -2240,7 +2240,7 @@
                     "interface": "",
                     "writeable": false,
                     "description": "Analog Input 5",
-                    "cofs": "50",
+                    "cofs": "10",
                     "command": ""
                 },
                 {
@@ -2260,7 +2260,7 @@
                         "key": "AIExt6",
                         "enabled": true,
                         "moduleId": 0,
-                        "lastCOFSValue": 2835
+                        "lastCOFSValue": 2677
                     },
                     "masking": {
                         "bit": 0,
@@ -2281,7 +2281,7 @@
                     },
                     "key": "",
                     "tagId": "",
-                    "value": 2833,
+                    "value": 2665,
                     "shift": -1,
                     "inputId": "642ec537f10407b0be625006",
                     "register": 7,
@@ -2310,7 +2310,7 @@
                         "key": "AIExt7",
                         "enabled": true,
                         "moduleId": 0,
-                        "lastCOFSValue": 2134
+                        "lastCOFSValue": 2129
                     },
                     "masking": {
                         "bit": 0,
@@ -2331,7 +2331,7 @@
                     },
                     "key": "",
                     "tagId": "",
-                    "value": 2113,
+                    "value": 2129,
                     "shift": -1,
                     "inputId": "642ec545f15cb5701c21372e",
                     "register": 8,
@@ -2340,7 +2340,7 @@
                     "interface": "",
                     "writeable": false,
                     "description": "Analog Input 7",
-                    "cofs": "50",
+                    "cofs": "10",
                     "command": ""
                 },
                 {
@@ -2360,7 +2360,7 @@
                         "key": "AIExt8",
                         "enabled": true,
                         "moduleId": 0,
-                        "lastCOFSValue": 2999
+                        "lastCOFSValue": 2479
                     },
                     "masking": {
                         "bit": 0,
@@ -2381,7 +2381,7 @@
                     },
                     "key": "",
                     "tagId": "",
-                    "value": 2999,
+                    "value": 2483,
                     "shift": -1,
                     "inputId": "642ec553ebb23d9d74b5af7f",
                     "register": 9,
