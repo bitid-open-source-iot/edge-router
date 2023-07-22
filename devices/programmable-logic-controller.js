@@ -53,7 +53,7 @@ module.exports = class extends EventEmitter {
             } else if (this.status == 'connecting') {
                 // do nothing
             } else if (this.status == 'disconnected') {
-                await this.connect();
+                // await this.connect();
             };
         }, this.txtime * 1000);
 
@@ -67,7 +67,7 @@ module.exports = class extends EventEmitter {
             };
         });
 
-        this.connect();
+            this.connect();
     }
 
     async read() {
@@ -134,7 +134,7 @@ module.exports = class extends EventEmitter {
             });
     }
 
-    async forceCOFS(){
+    async forceCOFS() {
         /**
          * All devices need to have this function to conform. Not used for this device.
          */
@@ -142,31 +142,40 @@ module.exports = class extends EventEmitter {
 
 
     async connect() {
-        this.status = 'connecting';
+        try {
+            this.status = 'connecting';
 
-        __logger.info('Programmable Logic Controller - Connecting!');
-
-        const timeout = setTimeout(() => {
-            __logger.error('Programmable Logic Controller - Disconnected!');
-            this.status = 'disconnected';
-        }, 5000);
-
-        this.controller.destroy();
-        delete this.controller;
-
-        this.controller = new Controller();
-
-        this.controller.connect(this.ip, this.port)
-            .then(() => {
-                clearTimeout(timeout);
-                __logger.info('Programmable Logic Controller - Connected!');
-                this.status = 'connected';
-            })
-            .catch(error => {
-                clearTimeout(timeout);
+            __logger.info('Programmable Logic Controller - Connecting!');
+    
+            const timeout = setTimeout(() => {
                 __logger.error('Programmable Logic Controller - Disconnected!');
                 this.status = 'disconnected';
-            });
+            }, 5000);
+    
+            this.controller.destroy();
+            delete this.controller;
+    
+            try{
+                this.controller = new Controller();
+            }catch(e){
+                console.error(e)
+            }
+    
+            this.controller.connect(this.ip, this.port)
+                .then(() => {
+                    clearTimeout(timeout);
+                    __logger.info('Programmable Logic Controller - Connected!');
+                    this.status = 'connected';
+                })
+                .catch(error => {
+                    clearTimeout(timeout);
+                    __logger.error('Programmable Logic Controller - Disconnected!');
+                    this.status = 'disconnected';
+                });
+        } catch (e) {
+            console.error(e)
+        }
+
     }
 
     async write(inputId, value) {
@@ -175,12 +184,12 @@ module.exports = class extends EventEmitter {
                 if (item.inputId == inputId && item.tag.value != value && item.writeable) {
                     item.tag.value = parseInt(value);
                     __logger.info('Writing a value of ' + item.tag.value + ' to ' + item.tagId);
-                    try{
+                    try {
                         await this.controller.writeTag(item.tag);
-                    }catch(e){
+                    } catch (e) {
                         console.error(e)
                     }
-                    
+
                 };
             });
             this.emit('data', this.values);

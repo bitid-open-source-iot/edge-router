@@ -13,15 +13,12 @@ module.exports = class extends EventEmitter {
         if (args !== null) {
             this.io = args.io;
             this.commsStatus = 0
-            // this.mapping = __settings.mapping
             this.ip = args.ip;
             this.port = args.port;
             this.type = args.type;
             this.values = [];
             this.txtime = args.txtime;
-            // this.pxtime = args.pxtime || 120;
             this.status = 'disconnected';
-            // this.timeout = args.timeout || 60;
             this.barcode = args.barcode;
             this.enabled = args.enabled;
             this.publish = args.publish || false
@@ -75,24 +72,6 @@ module.exports = class extends EventEmitter {
 
     }
 
-    // async safeRead(){
-    //     var deferred = Q.defer()
-    //     try{
-    //         if(this.busy == false){
-    //             this.busy = true
-    //             await this.read();
-    //             this.busy = false
-    //             deferred.resolve({})
-    //         }else{
-    //             deferred.resolve({})
-    //         }
-    //     }catch(e){
-    //         this.busy = false
-    //         deferred.resolve({})
-    //     }
-    //     return deferred.promise
-    // }
-
     async connect() {
         this.status = 'connecting';
 
@@ -106,9 +85,6 @@ module.exports = class extends EventEmitter {
             __logger.info(`ModBus - Connected! ${this.description} - ${this.ip}`);
             this.status = 'connected';
             this.commsStatus = 1
-            // setInterval(()=>{
-            //     this.write('62a70e5e66fda18220294fd2', 1)
-            // },5000)
         } else {
             __logger.error(`ModBus - Disconnected! ${this.ip}, ${this.port}, ${this.unitId} `);
             this.status = 'disconnected';
@@ -263,8 +239,6 @@ module.exports = class extends EventEmitter {
             __logger.error(`modbus error ${this.description}`)
             deferred.resolve({})
         }
-
         return deferred.promise
     }
-
 }

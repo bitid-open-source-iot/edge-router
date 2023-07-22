@@ -22,7 +22,9 @@ export class SettingsComponent implements OnInit {
 
   constructor(private settingsService: SettingsService, private toast: ToastService, private formerror: FormErrorService) { }
 
+  public commsOptionSelected: string = '0';
   public form: FormGroup = new FormGroup({
+    commsOption: new FormControl('0'),
     overideDeviceBarcode: new FormControl('', [Validators.required]),
     barcode: new FormControl('', [Validators.required]),
     deviceId: new FormControl('', [Validators.required]),
@@ -39,6 +41,10 @@ export class SettingsComponent implements OnInit {
         controlTopic: new FormControl('', [Validators.required]),
       })
     }),
+    tcpClient: new FormGroup({
+      host: new FormControl('', [Validators.required]),
+      port: new FormControl('', [Validators.required]),
+    }),
     rateLimits: new FormGroup({
       rateLimitTmrSP: new FormControl('60', [Validators.required]),
       rateLimitTxCountSP: new FormControl('4', [Validators.required]),
@@ -51,6 +57,7 @@ export class SettingsComponent implements OnInit {
   });
 
   public errors: any = {
+    commsOptions: '',
     overideDeviceBarcode: '',
     barcode: '',
     deviceId: '',
@@ -67,6 +74,10 @@ export class SettingsComponent implements OnInit {
         control: ''
       }
     },
+    tcpClient: {
+      host: '',
+      port: ''
+    },
     rateLimits: {
       rateLimitTmrSP: '',
       rateLimitTxCountSP: ''
@@ -79,6 +90,7 @@ export class SettingsComponent implements OnInit {
 
   ngOnInit(): void {
     this.observers.form = this.form.valueChanges.subscribe(data => {
+      this.commsOptionSelected = this.form.value.commsOption;
       this.errors = this.formerror.validateForm(this.form, this.errors, true);
   });
 
@@ -91,6 +103,8 @@ export class SettingsComponent implements OnInit {
     });
 
     if (response.ok) {
+      this.commsOptionSelected = response.result[0]?.commsOption || '0'; 
+      this.form.controls['commsOption'].setValue(response.result[0]?.commsOption || '0');
       this.form.controls['overideDeviceBarcode'].setValue(response.result[0].overideDeviceBarcode);
       this.form.controls['barcode'].setValue(response.result[0].barcode);
       this.form.controls['deviceId'].setValue(response.result[0].deviceId);
@@ -109,6 +123,9 @@ export class SettingsComponent implements OnInit {
       (this.form.controls['rateLimits'] as FormGroup).controls['rateLimitTmrSP'].setValue(response.result[0].rateLimitTmrSP);
       (this.form.controls['rateLimits'] as FormGroup).controls['rateLimitTxCountSP'].setValue(response.result[0].rateLimitTxCountSP);
 
+      (this.form.controls['tcpClient'] as FormGroup).controls['host'].setValue(response.result[0]?.tcpClientHost);
+      (this.form.controls['tcpClient'] as FormGroup).controls['port'].setValue(response.result[0]?.tcpClientPort);
+
     } else {
       this.toast.error(response.result.message);
     };
@@ -120,6 +137,7 @@ export class SettingsComponent implements OnInit {
     this.loading = true;
 
     const response = await this.settingsService.update({
+      commsOption: this.form.value.commsOption,
       overideDeviceBarcode: this.form.value.overideDeviceBarcode,
       barcode: this.form.value.barcode,
       deviceId: this.form.value.deviceId,
@@ -128,6 +146,10 @@ export class SettingsComponent implements OnInit {
       publishEnabled: this.form.value.publishEnabled,
       host: this.form.controls['server'].value.host,
       port: this.form.controls['server'].value.port,
+
+      tcpClientHost: this.form.controls['tcpClient'].value.host,
+      tcpClientPort: this.form.controls['tcpClient'].value.port,
+
       username: this.form.controls['server'].value.username,
       password: this.form.controls['server'].value.password,
       dataTopic: ((this.form.controls['server'] as FormGroup).controls['subscribe'] as FormGroup).controls['dataTopic'].value,
@@ -141,34 +163,6 @@ export class SettingsComponent implements OnInit {
     } else {
       this.toast.error(response.result.message);
     };
-
-    this.loading = false;
-
-
     this.loading = false;
   }
-
-  public async submit_command() {
-    console.log('story',this.form.controls['server'].value.host)
-    // this.loading = true;
-
-    // const response = await this.settingsService.command({
-    //   command: this.formCommand.value.command,
-    //   password: this.formCommand.value.password
-    // });
-
-    // if (response.ok) {
-    //   console.log(response)
-    //   this.toast.success('Updated')
-    // } else {
-    //   this.toast.error(response.result.message);
-    // };
-
-    // this.loading = false;
-
-
-    // this.loading = false;
-  }
-
-
 }

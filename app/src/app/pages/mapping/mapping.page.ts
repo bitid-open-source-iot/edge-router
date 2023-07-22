@@ -96,9 +96,9 @@ export class MappingPage implements OnInit, OnDestroy {
             mapId: map.mapId
         });
 
-        if (response.ok) {
+        if (response.ok == true) {
             for (let i = 0; i < this.table.data.length; i++) {
-                if (this.table.data[i]) {
+                if (this.table.data[i].mapId == map.mapId) {
                     this.table.data.splice(i, 1);
                     break;
                 };

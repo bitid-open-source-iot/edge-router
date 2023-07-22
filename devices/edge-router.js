@@ -1,9 +1,8 @@
-const Q = require('q');
 const MQTT = require('mqtt');
-const { async } = require('q');
+const TCPCLIENT = require('../lib/tcpClient')
 const COFS = require('../lib/cofs')
-const GetPublicIp = require('public-ip').v4;
 const EventEmitter = require('events').EventEmitter;
+const dates = require('../lib/dates');
 
 module.exports = class extends EventEmitter {
 
@@ -62,7 +61,11 @@ module.exports = class extends EventEmitter {
 
         this.sendOnce = true
 
-        this.connect();
+        if(__settings.commsOption == '0'){
+            this.connectMQTT();
+        }else{
+            this.connectTCPClient();
+        }
 
         this.init()
     }
@@ -70,82 +73,35 @@ module.exports = class extends EventEmitter {
     init() {
         this.fixedTransmit = setInterval(() => {
             try {
-                // __devices.map(d => d.forceCOFS())
                 this.cofs.applyCOFSServer()
             } catch (e) {
                 console.error('fixedTransmit Error', e)
             }
         }, this.txtime * 60000)
 
+        /**
+         * This timer keeps the __arrPublisher empty
+         */
         this.tmrPublish = setInterval(() => {
             try {
                 this.publishOnInterval()
             } catch (e) {
                 console.error('tmrPublish Error', e)
             }
-        }, this.txtime * 60000)
+        }, 5000)
 
 
     }
 
-    // updateExternalCommsStatus(deviceId, inputs) {
-    //     let allInputs = []
-    //     allInputs.push(inputs[0])
-    //     __devices.reduce((promise, device) => {
-    //         return promise.then(() => {
-    //             if (device.deviceId == deviceId) {
-    //                 device.io.reduce((promise, io) => {
-    //                     return promise.then(() => {
-    //                         //     var deferred = Q.defer()
-
-    //                         //     if(io.key == 'commsStatus'){
-    //                         //         io.value = inputs[0].value
-    //                         //     }
-
-    //                         //     allInputs.push({inputId: io.inputId, value: io.value})
-
-    //                         //     deferred.resolve()
-    //                         //     return deferred.promise
-    //                         if (io.inputId != inputs[0].inputId) {
-    //                             allInputs.push({ inputId: io.inputId, value: io.value })
-    //                         } else {
-    //                             inputs.reduce((promise, ip) => {
-    //                                 return promise.then(() => {
-    //                                     if (io.inputId == ip.inputId) {
-    //                                         io.value = ip.value
-    //                                     }
-    //                                 })
-    //                             }, Promise.resolve())
-    //                         }
-
-    //                     })
-    //                 }, Promise.resolve()
-    //                     .then(() => {
-    //                         __socket.send('devices:data', {
-    //                             data: device.io,
-    //                             deviceId: device.deviceId
-    //                         });
-
-    //                     })
-    //                 )
-    //             }
-    //         })
-    //     }, Promise.resolve())
-    //         .then(() => {
-    //             __router.mapping(deviceId, allInputs)
-    //         })
-    // }
 
     updateDeviceInputsThenActionMapping(id, inputs) {
         let deviceItem = null
-        return __devices.reduce((promise, device) => { // add return here
+        return __devices.reduce((promise, device) => {
             deviceItem = device
             return promise.then(() => {
                 if (device.id == id) {
-                    // add return here
                     return device.io.reduce((promise, io) => {
                         return promise.then(() => {
-                            // add return here
                             return inputs.reduce((promise, ip) => {
                                 return promise.then(() => {
                                     if (io.inputId == ip.inputId) {
@@ -184,16 +140,9 @@ module.exports = class extends EventEmitter {
         return new Promise(async (resolve, reject) => {
             let index = 0;
             try {
-                // Use a for..of loop to iterate through the array and simplify the code
                 for (const item of __settings.mapping) {
                     index++;
 
-                    // Use continue to skip to the next iteration if the deviceId doesn't match
-                    // if (item.source.deviceId != deviceId) {
-                    //     continue;
-                    // }
-
-                    // Use try..catch to handle errors and simplify the code
                     try {
                         for (const input of inputs) {
                             if (item.source.inputId != input.inputId) {
@@ -208,7 +157,6 @@ module.exports = class extends EventEmitter {
                                 maskSourceValue = input.value;
                             }
 
-                            // Use find() to simplify the code and avoid unnecessary iterations
                             const device = __devices.find(d => d.deviceId === item.destination.deviceId);
 
                             if (!device) {
@@ -239,7 +187,6 @@ module.exports = class extends EventEmitter {
                                 maskDestinationValue = maskSourceValue;
                             }
 
-                            // Use find() to simplify the code and avoid unnecessary iterations
                             const io = device.io.find(io => io.inputId === item.destination.inputId);
 
                             if (!io) {
@@ -255,13 +202,11 @@ module.exports = class extends EventEmitter {
 
                         }
                     } catch (err) {
-                        // Handle errors
                         console.error(err);
                         reject(err);
                     }
                 }
 
-                // Use await to wait for the COFS server to apply
                 try {
                     await this.cofs.applyCOFSServer();
                     resolve();
@@ -284,7 +229,43 @@ module.exports = class extends EventEmitter {
         });
     }
 
-    async connect() {
+    async connectTCPClient() {    
+        console.log('connectTCPClient')
+        try{
+            this.status = 'connecting';
+            this.tcpClient = new TCPCLIENT()
+            this.tcpClient.init(__settings.tcpClient.host, __settings.tcpClient.port, 1)
+
+            this.tcpClient.on('data', async (data) => {
+                try {
+                    console.log('tcpClient data', data.toString())
+                } catch (e) {
+                    console.error(e)
+                }
+            })
+
+            this.tcpClient.on('connection', async (data) => {
+                try {
+                    console.log('tcpClient connection', data)
+                    if(data == 'CONNECTED'){
+                        this.status = 'connected';
+                        setTimeout(() => {
+                            console.log('tcpClient sending Device Logon', `%S ${__settings.barcode} *`)
+                            this.tcpClient.SendData(`%S ${__settings.barcode} *`)
+                        }, 2000)
+
+                    }
+                } catch (e) {
+                    console.error(e)
+                }
+            })
+
+        }catch(e){
+            console.error(e)
+        }
+    }
+
+    async connectMQTT() {
         let self = this
         this.status = 'connecting';
 
@@ -305,7 +286,6 @@ module.exports = class extends EventEmitter {
         });
 
         this.mqtt.on('close', () => {
-            // this.removeIntervals()
             this.status = 'disconnected';
             __logger.error('Edge Router - Socket closed!');
         });
@@ -345,21 +325,10 @@ module.exports = class extends EventEmitter {
 
             __logger.info('Edge Router - Starting transmit loop!');
 
-
-            // if(this.fixedTransmit){
-            //     clearInterval(this.fixedTransmit)
-            //     this.fixedTransmit = null
-            // }
-            // this.fixedTransmit = setInterval(() => {
-            //     // this.transmit()
-            //     __devices.map(d=> d.forceCOFS())
-            // }, this.txtime * 60000)
         });
 
         this.mqtt.on('message', async (topic, message) => {
-            // console.log('topic', topic)
             __byteLen += message.byteLength
-            // console.log('__byteLen', __byteLen)
             switch (topic) {
                 // case ('/rock/v1.1/data'):
                 case (__settings.server.subscribe.data):
@@ -375,12 +344,7 @@ module.exports = class extends EventEmitter {
                 // case ('/kGateway/edge/data'):
                 //     break;
                 default:
-                    // if (topic.includes('kbeacon/publish/')) {
-                    //     this.emit('data', { topic, message })
-                    // } else {
                     console.error('unhandled switch mqtt topic', topic);
-                // };
-                // break;
             };
         });
 
@@ -412,7 +376,18 @@ module.exports = class extends EventEmitter {
 
     publishOnInterval() {
         if (__arrPublisher.length > 0) {
-            this.publishArrFromTimer(__arrPublisher.shift())
+            let arrToSend = __arrPublisher
+
+            return arrToSend.reduce((promise, message) => {
+                return promise.then(async () => {
+                    this.publishArrFromTimer(message)
+                    await this.wait(200)
+                    return
+                })
+            }, Promise.resolve())
+                .then(() => {
+                    __arrPublisher = []
+                })
         }
     }
 
@@ -423,15 +398,33 @@ module.exports = class extends EventEmitter {
                 __logger.info(`keeping an eye on the arrPublisher ${__arrPublisher.length}`)
                 await this.mqtt.publish(this.server.subscribe.data, JSON.stringify(data));
             } else {
-                __logger.warn('Edge Router - Trying to transmit even though socket not connected!');
+                // __logger.warn('Edge Router - Trying to transmit even though socket not connected!');
             }
+
+            if(this.tcpClient?.RMCSocket.Status == 'CONNECTED'){
+                data.dataIn.time = dates.compressDateGlog(new Date(data.rtuDate), 2)
+                if(data.moduleId == 0){
+                    data.dataIn.AI1 = 10
+                }else if(data.moduleId == 1){
+                    data.dataIn.AI2 = 20
+                }
+                if(data.barcode){
+                    let strData = '%1 0210.069 ' + data.barcode + '.'+data.moduleId.toString() + ' 69 ' + data.dataIn.time + ' '+data.dataIn.txFlag+' '+data.dataIn.digitalsIn+' 0 '+data.dataIn.AI1+' '+data.dataIn.AI2+' '+data.dataIn.AI3+' '+data.dataIn.AI4+' '+data.dataIn.AIExt1+' '+data.dataIn.AIExt2+' '+data.dataIn.AIExt3+' '+data.dataIn.AIExt4+' '+data.dataIn.AIExt5+' '+data.dataIn.AIExt6+' '+data.dataIn.AIExt7+' '+data.dataIn.AIExt8+' '+data.dataIn.CI1+' '+data.dataIn.CI2+' '+data.dataIn.CI3+' '+data.dataIn.CI4+' '+data.dataIn.CI5+' '+data.dataIn.CI6+' '+data.dataIn.CI7+' '+data.dataIn.CI8+' '+data.dataIn.BATT+' '+data.dataIn.SIG+' 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 > 8220 *';
+                    __logger.info(`publish tcpClient data to ${__settings.tcpClient.host}:${__settings.tcpClient.port} > ${strData}`);
+                    console.log(`publish tcpClient data to ${__settings.tcpClient.host}:${__settings.tcpClient.port} > ${strData}`)
+                    this.tcpClient.SendData(strData)
+                }else{
+                    console.error('no barcode for sending tcpClient data', JSON.stringify(data))
+                }
+            }
+
         } catch (err) {
-            // Handle errors
             console.error(err);
         }
+
+        return
+
     }
-
-
 
     async publishToTopic(topic, data) {
         if (this.mqtt?.connected) {
