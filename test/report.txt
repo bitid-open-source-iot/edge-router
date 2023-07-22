@@ -1,11 +1,227 @@
 
 
   Software & Testing Details
-    ✔ DATE: 04/03/2022 13:10:51
+    ✔ DATE: 12/10/2022 19:46:06
     ✔ AUTHOR: shane
-    ✔ VERSION: 1.1.6
+    ✔ VERSION: 1.1.24
 
   Admin
-ModBus - Connecting!
-ModBus - Connecting!
-Procon DO-1 - HR10 - 1
+    1) /edge-router/admin/authenticate
+    2) /edge-router/admin/change-email
+    3) /edge-router/admin/change-email
+    4) /edge-router/admin/change-password
+    5) /edge-router/admin/change-password
+
+  Config
+    6) /edge-router/config/export
+    7) /edge-router/config/import
+
+  Devices
+    8) /edge-router/devices/add
+    9) /edge-router/devices/get
+    10) /edge-router/devices/list
+    11) /edge-router/devices/update
+
+  Mapping
+    12) /edge-router/mapping/add
+    13) /edge-router/mapping/get
+    14) /edge-router/mapping/list
+    15) /edge-router/mapping/update
+
+  Remove Added Items
+    16) /edge-router/devices/delete
+    17) /edge-router/mapping/delete
+
+
+  3 passing (73ms)
+  17 failing
+
+  1) Admin
+       /edge-router/admin/authenticate:
+     FetchError: request to http://127.0.0.1:8080/edge-router/admin/authenticate failed, reason: connect ECONNREFUSED 127.0.0.1:8080
+      at ClientRequest.<anonymous> (node_modules/node-fetch/lib/index.js:1491:11)
+      at ClientRequest.emit (node:events:527:28)
+      at Socket.socketErrorListener (node:_http_client:454:9)
+      at Socket.emit (node:events:527:28)
+      at emitErrorNT (node:internal/streams/destroy:157:8)
+      at emitErrorCloseNT (node:internal/streams/destroy:122:3)
+      at processTicksAndRejections (node:internal/process/task_queues:83:21)
+
+  2) Admin
+       /edge-router/admin/change-email:
+     FetchError: request to http://127.0.0.1:8080/edge-router/admin/change-email failed, reason: connect ECONNREFUSED 127.0.0.1:8080
+      at ClientRequest.<anonymous> (node_modules/node-fetch/lib/index.js:1491:11)
+      at ClientRequest.emit (node:events:527:28)
+      at Socket.socketErrorListener (node:_http_client:454:9)
+      at Socket.emit (node:events:527:28)
+      at emitErrorNT (node:internal/streams/destroy:157:8)
+      at emitErrorCloseNT (node:internal/streams/destroy:122:3)
+      at processTicksAndRejections (node:internal/process/task_queues:83:21)
+
+  3) Admin
+       /edge-router/admin/change-email:
+     FetchError: request to http://127.0.0.1:8080/edge-router/admin/change-email failed, reason: connect ECONNREFUSED 127.0.0.1:8080
+      at ClientRequest.<anonymous> (node_modules/node-fetch/lib/index.js:1491:11)
+      at ClientRequest.emit (node:events:527:28)
+      at Socket.socketErrorListener (node:_http_client:454:9)
+      at Socket.emit (node:events:527:28)
+      at emitErrorNT (node:internal/streams/destroy:157:8)
+      at emitErrorCloseNT (node:internal/streams/destroy:122:3)
+      at processTicksAndRejections (node:internal/process/task_queues:83:21)
+
+  4) Admin
+       /edge-router/admin/change-password:
+     FetchError: request to http://127.0.0.1:8080/edge-router/admin/change-password failed, reason: connect ECONNREFUSED 127.0.0.1:8080
+      at ClientRequest.<anonymous> (node_modules/node-fetch/lib/index.js:1491:11)
+      at ClientRequest.emit (node:events:527:28)
+      at Socket.socketErrorListener (node:_http_client:454:9)
+      at Socket.emit (node:events:527:28)
+      at emitErrorNT (node:internal/streams/destroy:157:8)
+      at emitErrorCloseNT (node:internal/streams/destroy:122:3)
+      at processTicksAndRejections (node:internal/process/task_queues:83:21)
+
+  5) Admin
+       /edge-router/admin/change-password:
+     FetchError: request to http://127.0.0.1:8080/edge-router/admin/change-password failed, reason: connect ECONNREFUSED 127.0.0.1:8080
+      at ClientRequest.<anonymous> (node_modules/node-fetch/lib/index.js:1491:11)
+      at ClientRequest.emit (node:events:527:28)
+      at Socket.socketErrorListener (node:_http_client:454:9)
+      at Socket.emit (node:events:527:28)
+      at emitErrorNT (node:internal/streams/destroy:157:8)
+      at emitErrorCloseNT (node:internal/streams/destroy:122:3)
+      at processTicksAndRejections (node:internal/process/task_queues:83:21)
+
+  6) Config
+       /edge-router/config/export:
+     FetchError: request to http://127.0.0.1:8080/edge-router/config/export failed, reason: connect ECONNREFUSED 127.0.0.1:8080
+      at ClientRequest.<anonymous> (node_modules/node-fetch/lib/index.js:1491:11)
+      at ClientRequest.emit (node:events:527:28)
+      at Socket.socketErrorListener (node:_http_client:454:9)
+      at Socket.emit (node:events:527:28)
+      at emitErrorNT (node:internal/streams/destroy:157:8)
+      at emitErrorCloseNT (node:internal/streams/destroy:122:3)
+      at processTicksAndRejections (node:internal/process/task_queues:83:21)
+
+  7) Config
+       /edge-router/config/import:
+     FetchError: request to http://127.0.0.1:8080/edge-router/config/import failed, reason: connect ECONNREFUSED 127.0.0.1:8080
+      at ClientRequest.<anonymous> (node_modules/node-fetch/lib/index.js:1491:11)
+      at ClientRequest.emit (node:events:527:28)
+      at Socket.socketErrorListener (node:_http_client:454:9)
+      at Socket.emit (node:events:527:28)
+      at emitErrorNT (node:internal/streams/destroy:157:8)
+      at emitErrorCloseNT (node:internal/streams/destroy:122:3)
+      at processTicksAndRejections (node:internal/process/task_queues:83:21)
+
+  8) Devices
+       /edge-router/devices/add:
+     FetchError: request to http://127.0.0.1:8080/edge-router/devices/add failed, reason: connect ECONNREFUSED 127.0.0.1:8080
+      at ClientRequest.<anonymous> (node_modules/node-fetch/lib/index.js:1491:11)
+      at ClientRequest.emit (node:events:527:28)
+      at Socket.socketErrorListener (node:_http_client:454:9)
+      at Socket.emit (node:events:527:28)
+      at emitErrorNT (node:internal/streams/destroy:157:8)
+      at emitErrorCloseNT (node:internal/streams/destroy:122:3)
+      at processTicksAndRejections (node:internal/process/task_queues:83:21)
+
+  9) Devices
+       /edge-router/devices/get:
+     FetchError: request to http://127.0.0.1:8080/edge-router/devices/get failed, reason: connect ECONNREFUSED 127.0.0.1:8080
+      at ClientRequest.<anonymous> (node_modules/node-fetch/lib/index.js:1491:11)
+      at ClientRequest.emit (node:events:527:28)
+      at Socket.socketErrorListener (node:_http_client:454:9)
+      at Socket.emit (node:events:527:28)
+      at emitErrorNT (node:internal/streams/destroy:157:8)
+      at emitErrorCloseNT (node:internal/streams/destroy:122:3)
+      at processTicksAndRejections (node:internal/process/task_queues:83:21)
+
+  10) Devices
+       /edge-router/devices/list:
+     FetchError: request to http://127.0.0.1:8080/edge-router/devices/list failed, reason: connect ECONNREFUSED 127.0.0.1:8080
+      at ClientRequest.<anonymous> (node_modules/node-fetch/lib/index.js:1491:11)
+      at ClientRequest.emit (node:events:527:28)
+      at Socket.socketErrorListener (node:_http_client:454:9)
+      at Socket.emit (node:events:527:28)
+      at emitErrorNT (node:internal/streams/destroy:157:8)
+      at emitErrorCloseNT (node:internal/streams/destroy:122:3)
+      at processTicksAndRejections (node:internal/process/task_queues:83:21)
+
+  11) Devices
+       /edge-router/devices/update:
+     FetchError: request to http://127.0.0.1:8080/edge-router/devices/update failed, reason: connect ECONNREFUSED 127.0.0.1:8080
+      at ClientRequest.<anonymous> (node_modules/node-fetch/lib/index.js:1491:11)
+      at ClientRequest.emit (node:events:527:28)
+      at Socket.socketErrorListener (node:_http_client:454:9)
+      at Socket.emit (node:events:527:28)
+      at emitErrorNT (node:internal/streams/destroy:157:8)
+      at emitErrorCloseNT (node:internal/streams/destroy:122:3)
+      at processTicksAndRejections (node:internal/process/task_queues:83:21)
+
+  12) Mapping
+       /edge-router/mapping/add:
+     FetchError: request to http://127.0.0.1:8080/edge-router/mapping/add failed, reason: connect ECONNREFUSED 127.0.0.1:8080
+      at ClientRequest.<anonymous> (node_modules/node-fetch/lib/index.js:1491:11)
+      at ClientRequest.emit (node:events:527:28)
+      at Socket.socketErrorListener (node:_http_client:454:9)
+      at Socket.emit (node:events:527:28)
+      at emitErrorNT (node:internal/streams/destroy:157:8)
+      at emitErrorCloseNT (node:internal/streams/destroy:122:3)
+      at processTicksAndRejections (node:internal/process/task_queues:83:21)
+
+  13) Mapping
+       /edge-router/mapping/get:
+     FetchError: request to http://127.0.0.1:8080/edge-router/mapping/get failed, reason: connect ECONNREFUSED 127.0.0.1:8080
+      at ClientRequest.<anonymous> (node_modules/node-fetch/lib/index.js:1491:11)
+      at ClientRequest.emit (node:events:527:28)
+      at Socket.socketErrorListener (node:_http_client:454:9)
+      at Socket.emit (node:events:527:28)
+      at emitErrorNT (node:internal/streams/destroy:157:8)
+      at emitErrorCloseNT (node:internal/streams/destroy:122:3)
+      at processTicksAndRejections (node:internal/process/task_queues:83:21)
+
+  14) Mapping
+       /edge-router/mapping/list:
+     FetchError: request to http://127.0.0.1:8080/edge-router/mapping/list failed, reason: connect ECONNREFUSED 127.0.0.1:8080
+      at ClientRequest.<anonymous> (node_modules/node-fetch/lib/index.js:1491:11)
+      at ClientRequest.emit (node:events:527:28)
+      at Socket.socketErrorListener (node:_http_client:454:9)
+      at Socket.emit (node:events:527:28)
+      at emitErrorNT (node:internal/streams/destroy:157:8)
+      at emitErrorCloseNT (node:internal/streams/destroy:122:3)
+      at processTicksAndRejections (node:internal/process/task_queues:83:21)
+
+  15) Mapping
+       /edge-router/mapping/update:
+     FetchError: request to http://127.0.0.1:8080/edge-router/mapping/update failed, reason: connect ECONNREFUSED 127.0.0.1:8080
+      at ClientRequest.<anonymous> (node_modules/node-fetch/lib/index.js:1491:11)
+      at ClientRequest.emit (node:events:527:28)
+      at Socket.socketErrorListener (node:_http_client:454:9)
+      at Socket.emit (node:events:527:28)
+      at emitErrorNT (node:internal/streams/destroy:157:8)
+      at emitErrorCloseNT (node:internal/streams/destroy:122:3)
+      at processTicksAndRejections (node:internal/process/task_queues:83:21)
+
+  16) Remove Added Items
+       /edge-router/devices/delete:
+     FetchError: request to http://127.0.0.1:8080/edge-router/devices/delete failed, reason: connect ECONNREFUSED 127.0.0.1:8080
+      at ClientRequest.<anonymous> (node_modules/node-fetch/lib/index.js:1491:11)
+      at ClientRequest.emit (node:events:527:28)
+      at Socket.socketErrorListener (node:_http_client:454:9)
+      at Socket.emit (node:events:527:28)
+      at emitErrorNT (node:internal/streams/destroy:157:8)
+      at emitErrorCloseNT (node:internal/streams/destroy:122:3)
+      at processTicksAndRejections (node:internal/process/task_queues:83:21)
+
+  17) Remove Added Items
+       /edge-router/mapping/delete:
+     FetchError: request to http://127.0.0.1:8080/edge-router/mapping/delete failed, reason: connect ECONNREFUSED 127.0.0.1:8080
+      at ClientRequest.<anonymous> (node_modules/node-fetch/lib/index.js:1491:11)
+      at ClientRequest.emit (node:events:527:28)
+      at Socket.socketErrorListener (node:_http_client:454:9)
+      at Socket.emit (node:events:527:28)
+      at emitErrorNT (node:internal/streams/destroy:157:8)
+      at emitErrorCloseNT (node:internal/streams/destroy:122:3)
+      at processTicksAndRejections (node:internal/process/task_queues:83:21)
+
+
+

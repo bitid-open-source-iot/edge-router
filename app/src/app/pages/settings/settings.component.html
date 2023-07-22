@@ -1,0 +1,304 @@
+<mat-toolbar>
+    <mat-back-button></mat-back-button>
+
+    <mat-label class="spacer">
+        Devices Editor
+    </mat-label>
+</mat-toolbar>
+
+<mat-progress-bar mode="indeterminate" *ngIf="loading"></mat-progress-bar>
+
+
+<mat-content>
+    <form [formGroup]="form" (ngSubmit)="!loading && !form.invalid && submit()">
+        <section>
+            <mat-form-field appearance="outline">
+                <mat-label>
+                    Overide DeviceId and Barcode
+                </mat-label>
+
+                <mat-select placeholder="overideDeviceBarcode" formControlName="overideDeviceBarcode" required>
+                    <mat-option value="true">
+                        true
+                    </mat-option>
+                    <mat-option value="false">
+                        false
+                    </mat-option>
+                </mat-select>
+
+                <mat-error *ngIf="errors.overideDeviceBarcode">
+                    {{ errors.overideDeviceBarcode }}
+                </mat-error>
+            </mat-form-field>
+        </section>
+
+        <section>
+            <mat-form-field appearance="outline">
+                <mat-label>
+                    APN
+                </mat-label>
+
+                <mat-select placeholder="apn" formControlName="apn" required>
+                    <mat-option value="internet">
+                        Internet
+                    </mat-option>
+                    <mat-option value="tech5">
+                        Tech5
+                    </mat-option>
+                </mat-select>
+
+                <mat-error *ngIf="errors.apn">
+                    {{ errors.apn }}
+                </mat-error>
+            </mat-form-field>
+        </section>
+
+        <section>
+            <mat-form-field appearance="outline">
+                <mat-label>
+                    Barcode
+                </mat-label>
+
+                <input matInput type="text" minlength="1" maxlength="24" placeholder="Barcode" formControlName="barcode"
+                    required>
+
+                <mat-error *ngIf="errors.barcode">
+                    {{ errors.barcode }}
+                </mat-error>
+            </mat-form-field>
+
+        </section>
+
+        <section>
+            <mat-form-field appearance="outline">
+                <mat-label>
+                    Device Id
+                </mat-label>
+
+                <input matInput type="text" minlength="24" maxlength="24" placeholder="Device Id"
+                    formControlName="deviceId" required>
+
+                <mat-error *ngIf="errors.deviceId">
+                    {{ errors.deviceId }}
+                </mat-error>
+            </mat-form-field>
+
+        </section>
+
+        <section>
+            <mat-form-field appearance="outline">
+                <mat-label>
+                    Tx Time (minutes)
+                </mat-label>
+
+                <input matInput type="number" placeholder="Tx Time" formControlName="txtime" required>
+
+                <mat-error *ngIf="errors.txtime">
+                    {{ errors.txtime }}
+                </mat-error>
+            </mat-form-field>
+
+        </section>
+
+        <section>
+            <mat-form-field appearance="outline">
+                <mat-label>
+                    Publish
+                </mat-label>
+
+                <mat-select placeholder="publish" formControlName="publishEnabled" required>
+                    <mat-option [value]="true">
+                        Enabled
+                    </mat-option>
+                    <mat-option [value]="false">
+                        Disabled
+                    </mat-option>
+                </mat-select>
+
+                <mat-error *ngIf="errors.publishEnabled">
+                    {{ errors.publishEnabled }}
+                </mat-error>
+            </mat-form-field>
+
+        </section>
+
+        <div formGroupName="server">
+            <section>
+                <mat-form-field appearance="outline">
+                    <mat-label>
+                        host
+                    </mat-label>
+
+                    <input matInput type="text" placeholder="host" formControlName="host" required>
+
+                    <mat-error *ngIf="errors.server.host">
+                        {{ errors.server.host }}
+                    </mat-error>
+                </mat-form-field>
+            </section>
+            <section>
+                <mat-form-field appearance="outline">
+                    <mat-label>
+                        port
+                    </mat-label>
+
+                    <input matInput type="number" placeholder="port" formControlName="port" required>
+
+                    <mat-error *ngIf="errors.server.port">
+                        {{ errors.server.port }}
+                    </mat-error>
+                </mat-form-field>
+            </section>
+
+            <section>
+                <mat-form-field appearance="outline">
+                    <mat-label>
+                        username
+                    </mat-label>
+
+                    <input matInput type="text" placeholder="username" formControlName="username" required>
+
+                    <mat-error *ngIf="errors.server.username">
+                        {{ errors.server.username }}
+                    </mat-error>
+                </mat-form-field>
+            </section>
+
+            <section>
+                <mat-form-field appearance="outline">
+                    <mat-label>
+                        password
+                    </mat-label>
+
+                    <input matInput type="text" placeholder="password" formControlName="password" required>
+
+                    <mat-error *ngIf="errors.server.password">
+                        {{ errors.server.password }}
+                    </mat-error>
+                </mat-form-field>
+            </section>
+
+
+            <div formGroupName="subscribe">
+                <section>
+                    <mat-form-field appearance="outline">
+                        <mat-label>
+                            dataTopic
+                        </mat-label>
+    
+                        <input matInput type="text" placeholder="dataTopic" formControlName="dataTopic" required>
+    
+                        <mat-error *ngIf="errors.server.subscribe.dataTopic">
+                            {{ errors.server.subscribe.dataTopic }}
+                        </mat-error>
+                    </mat-form-field>
+                </section>
+                <section>
+                    <mat-form-field appearance="outline">
+                        <mat-label>
+                            controlTopic
+                        </mat-label>
+    
+                        <input matInput type="text" placeholder="controlTopic" formControlName="controlTopic" required>
+    
+                        <mat-error *ngIf="errors.server.subscribe.controlTopic">
+                            {{ errors.server.subscribe.controlTopic }}
+                        </mat-error>
+                    </mat-form-field>
+                </section>
+                
+            </div>
+    
+        </div>
+
+
+        <div formGroupName="rateLimits">
+            <section>
+                <mat-form-field appearance="outline">
+                    <mat-label>
+                        rateLimit Timer Setpoin (seconds)
+                    </mat-label>
+
+                    <input matInput type="number" placeholder="rateLimitTmrSP" formControlName="rateLimitTmrSP" required>
+
+                    <mat-error *ngIf="errors.rateLimits.rateLimitTmrSP">
+                        {{ errors.rateLimits.rateLimitTmrSP }}
+                    </mat-error>
+                </mat-form-field>
+            </section>
+
+            <section>
+                <mat-form-field appearance="outline">
+                    <mat-label>
+                        rateLimit Transmit Count Setpoint
+                    </mat-label>
+
+                    <input matInput type="number" placeholder="rateLimitTxCountSP" formControlName="rateLimitTxCountSP" required>
+
+                    <mat-error *ngIf="errors.rateLimits.rateLimitTxCountSP">
+                        {{ errors.rateLimits.rateLimitTxCountSP }}
+                    </mat-error>
+                </mat-form-field>
+            </section>
+
+            <section>
+                <mat-label>
+                    As an example, if rateLimitTmrSP = 10 seconds and rateLimitTxCountSP = 2, only 2 publish/transmits are allowed every 10 seconds
+                </mat-label>
+            </section>
+
+        </div>
+
+
+        <button #button type="submit" style="display: none;"></button>
+    </form>
+
+
+    <!-- <section>
+
+        <form [formGroup]="formCommand" (ngSubmit)="!loading && submit_command()">
+
+            <section>
+                <mat-form-field appearance="outline">
+                    <mat-label>
+                        Command
+                    </mat-label>
+
+                    <input matInput type="text" minlength="1" maxlength="24000" placeholder="Command"
+                        formControlName="command">
+
+                </mat-form-field>
+
+            </section>
+
+            <section>
+                <mat-form-field appearance="outline">
+                    <mat-label>
+                        Password
+                    </mat-label>
+
+                    <input matInput type="password" minlength="1" maxlength="24" placeholder="Password"
+                        formControlName="password">
+
+                </mat-form-field>
+
+            </section>
+
+            <button #button_command type="submit" style="display: none;"></button>
+        </form>
+
+
+        <button type="button" color="primary" mat-flat-button (click)="button_command.click()">
+            command
+        </button>
+    </section> -->
+
+
+</mat-content>
+
+
+<mat-footer>
+    <button type="button" color="primary" mat-flat-button (click)="button.click()">
+        submit
+    </button>
+</mat-footer>

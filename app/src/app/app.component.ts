@@ -36,6 +36,7 @@ export class AppComponent implements OnInit {
 		this.iconRegistry.addSvgIcon('content_copy', this.sanitizer.bypassSecurityTrustResourceUrl('./assets/content_copy.svg'));
 		this.iconRegistry.addSvgIcon('file_download', this.sanitizer.bypassSecurityTrustResourceUrl('./assets/file_download.svg'));
 		this.iconRegistry.addSvgIcon('import_export', this.sanitizer.bypassSecurityTrustResourceUrl('./assets/import_export.svg'));
+		this.iconRegistry.addSvgIcon('settings', this.sanitizer.bypassSecurityTrustResourceUrl('./assets/settings.svg'));
 	}
 
 	public title: any[] = [];

@@ -38,6 +38,11 @@ const routes: Routes = [
         loadChildren: () => import('./pages/change-password/change-password.module').then(m => m.ChangePasswordPageModule)
     },
     {
+        path: 'settings',
+        canActivate: [AuthManager],
+        loadChildren: () => import('./pages/settings/settings.module').then(m => m.SettingsComponentModule)
+    },
+    {
         path: '**',
         redirectTo: 'devices'
     }

@@ -59,7 +59,7 @@ import { AppComponent } from './app.component';
         AppComponent
     ],
     declarations: [
-        AppComponent
+        AppComponent,
     ]
 })
 

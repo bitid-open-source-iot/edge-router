@@ -30,6 +30,7 @@ import { MatMenuButtonModule } from 'src/app/libs/mat-menu-button/mat-menu-butto
 import { Routes, RouterModule } from '@angular/router';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MatRadioModule } from '@angular/material/radio';
 
 const routes: Routes = [
     {
@@ -57,6 +58,7 @@ const routes: Routes = [
         ConfirmModule,
         MatTableModule,
         MatInputModule,
+        MatRadioModule,
         MatDialogModule,
         MatFooterModule,
         MatSelectModule,

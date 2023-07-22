@@ -1,9 +1,160 @@
 const ObjectId = require('../lib/object-id');
 const SaveConfig = require('../lib/save-config');
 const ErrorResponse = require('../lib/error-response');
+const { exec } = require('child_process');
+const Q = require('q')
 
 var module = function () {
     return {
+        settings: {
+
+            command: async (req, res) => {
+                var args = {
+                    req: req,
+                    res: res
+                };
+
+                try {
+
+
+                    function myExec() {
+                        var deferred = Q.defer()
+
+                        // exec(`echo '${args.req.body.password}' | sudo -S ${args.req.body.command}`, (error, stdout, stderr) => {
+                        exec(`${args.req.body.command}`, (error, stdout, stderr) => {
+                            if (error) {
+                                console.error(`exec error: ${error}`);
+                                deferred.reject(error)
+                            }
+                            console.log(`stdout: ${stdout}`);
+                            console.error(`stderr: ${stderr}`);
+                            deferred.resolve(stdout)
+                        });
+
+                        return deferred.promise
+                    }
+
+                    let response = await myExec()
+
+                    args.result = [{
+                        commandResponse: response
+                    }]
+                    if (args.result.length > 0) {
+                        __responder.success(req, res, args.result);
+                    } else {
+                        var err = new ErrorResponse();
+                        err.error.errors[0].code = 69;
+                        err.error.errors[0].reason = 'Command error!';
+                        err.error.errors[0].message = 'Command error!';
+                        __responder.error(req, res, err);
+                    };
+                } catch (error) {
+                    var err = new ErrorResponse();
+                    err.error.errors[0].code = 503;
+                    err.error.errors[0].reason = error.message;
+                    err.error.errors[0].message = 'Command error!!';
+                    __responder.error(req, res, err);
+                };
+            },
+
+            list: async (req, res) => {
+                var args = {
+                    req: req,
+                    res: res
+                };
+
+                try {
+                    args.result = [{
+                        overideDeviceBarcode: __settings.overideDeviceBarcode || "true",
+                        barcode: __settings.barcode,
+                        deviceId: __settings.deviceId,
+                        id: __settings.id,
+                        apn: __settings.apn,
+                        txtime: __settings.txtime,
+                        publishEnabled: __settings.publishEnabled,
+                        host: __settings.server.host,
+                        port: __settings.server.port,
+                        username: __settings.server.username,
+                        password: __settings.server.password,
+                        dataTopic: __settings.server.subscribe.data,
+                        controlTopic: __settings.server.subscribe.control,
+                        rateLimitTmrSP: __settings.rateLimits.rateLimitTmrSP,
+                        rateLimitTxCountSP: __settings.rateLimits.rateLimitTxCountSP
+                    }]
+                    if (args.result.length > 0) {
+                        __responder.success(req, res, args.result);
+                    } else {
+                        var err = new ErrorResponse();
+                        err.error.errors[0].code = 69;
+                        err.error.errors[0].reason = 'Settings not found!';
+                        err.error.errors[0].message = 'Settings not found!';
+                        __responder.error(req, res, err);
+                    };
+                } catch (error) {
+                    var err = new ErrorResponse();
+                    err.error.errors[0].code = 503;
+                    err.error.errors[0].reason = error.message;
+                    err.error.errors[0].message = 'Issue listing Settings!';
+                    __responder.error(req, res, err);
+                };
+            },
+
+            update: async (req, res) => {
+                var args = {
+                    req: req,
+                    res: res
+                };
+
+                try {
+                    args.result = {
+                        n: 0
+                    };
+                    __settings.overideDeviceBarcode = args.req.body.overideDeviceBarcode || 'true'
+                    __settings.barcode = args.req.body.barcode || '0'
+                    __settings.deviceId = args.req.body.deviceId || '0'
+                    __settings.id = args.req.body.id
+                    __settings.apn = args.req.body.apn || ''
+                    __settings.txtime = args.req.body.txtime || 900
+                    __settings.publishEnabled = args.req.body.publishEnabled
+                    __settings.server.host = args.req.body.host || ''
+                    __settings.server.port = args.req.body.port || 1888
+                    __settings.server.username = args.req.body.username || ''
+                    __settings.server.password = args.req.body.password || ''
+                    __settings.server.subscribe.data = args.req.body.dataTopic || ''
+                    __settings.server.subscribe.control = args.req.body.controlTopic || ''
+                    __settings.rateLimits.rateLimitTmrSP = args.req.body.rateLimitTmrSP || 60
+                    __settings.rateLimits.rateLimitTxCountSP = args.req.body.rateLimitTxCountSP || 4
+
+                    args.result.n++
+                    if (args.result.n > 0) {
+                        const saved = await SaveConfig(__settings);
+                        if (!saved) {
+                            var err = new ErrorResponse();
+                            err.error.errors[0].code = 503;
+                            err.error.errors[0].reason = error.message;
+                            err.error.errors[0].message = 'Issue loading devices!';
+                            __responder.error(req, res, err);
+                        } else {
+                            __responder.success(req, res, args.result);
+                        };
+                    } else {
+                        var err = new ErrorResponse();
+                        err.error.errors[0].code = 69;
+                        err.error.errors[0].reason = 'No fields were updated!';
+                        err.error.errors[0].message = 'No fields were updated!';
+                        __responder.error(req, res, err);
+                    };
+                } catch (error) {
+                    var err = new ErrorResponse();
+                    err.error.errors[0].code = 503;
+                    err.error.errors[0].reason = error.message;
+                    err.error.errors[0].message = 'Issue updating device!';
+                    __responder.error(req, res, err);
+                };
+            },
+
+        },
+
         config: {
             import: async (req, res) => {
                 var args = {
@@ -14,6 +165,13 @@ var module = function () {
                 try {
                     delete args.req.body.header;
                     __settings = args.req.body;
+                    for (let i = 0; i < __settings.devices.length; i++) {
+                        const device = __settings.devices[i];
+                        if(!device.id) {
+                            device.id = i;
+                        }
+                        
+                    }
                     const saved = await SaveConfig(__settings);
                     if (!saved) {
                         var err = new ErrorResponse();
@@ -173,13 +331,16 @@ var module = function () {
 
                 try {
                     var found = false;
+                    let newId = 0;
                     __settings.devices.map(device => {
-                        if (device.deviceId == args.req.body.deviceId) {
+                        newId++
+                        if (device.description == args.req.body.description) {
                             found = true;
                         };
                     });
                     if (!found) {
                         __settings.devices.push({
+                            id: newId,
                             io: args.req.body.io,
                             ip: args.req.body.ip,
                             port: args.req.body.port,
@@ -190,11 +351,15 @@ var module = function () {
                             barcode: args.req.body.barcode,
                             publish: args.req.body.publish,
                             enabled: args.req.body.enabled,
+                            unitId: args.req.body.unitId,
                             deviceId: args.req.body.deviceId,
-                            description: args.req.body.description
+                            description: args.req.body.description,
+                            userName: args.req.body.userName,
+                            password: args.req.body.password,
                         });
                         __settings.devices = __settings.devices.map(o => {
                             return {
+                                id: o.id,
                                 io: o.io,
                                 ip: o.ip,
                                 port: o.port,
@@ -205,8 +370,11 @@ var module = function () {
                                 barcode: o.barcode,
                                 publish: o.publish,
                                 enabled: o.enabled,
+                                unitId: o.unitId,
                                 deviceId: o.deviceId,
-                                description: o.description
+                                description: o.description,
+                                userName: o.userName,
+                                password: o.password,
                             };
                         });
                         const saved = await SaveConfig(__settings);
@@ -218,15 +386,15 @@ var module = function () {
                             __responder.error(req, res, err);
                         } else {
                             args.result = {
-                                _id: args.req.body.deviceId
+                                _id: args.req.body.id
                             };
                             __responder.success(req, res, args.result);
                         };
                     } else {
                         var err = new ErrorResponse();
                         err.error.errors[0].code = 70;
-                        err.error.errors[0].reason = 'Device already exists!';
-                        err.error.errors[0].message = 'Device already exists!';
+                        err.error.errors[0].reason = 'Device with that description already exists!';
+                        err.error.errors[0].message = 'Device with that description already exists!';
                         __responder.error(req, res, err);
                     };
                 } catch (error) {
@@ -246,13 +414,13 @@ var module = function () {
 
                 try {
                     for (let i = 0; i < __settings.devices.length; i++) {
-                        if (__settings.devices[i].deviceId == args.req.body.deviceId) {
+                        if (__settings.devices[i].id == args.req.body.id) {
                             args.result = __settings.devices[i];
                             break;
                         };
                     };
                     for (let i = 0; i < __devices.length; i++) {
-                        if (__devices[i].deviceId == args.req.body.deviceId) {
+                        if (__devices[i].id == args.req.body.id) {
                             for (let b = 0; b < __devices[i]?.io.length; b++) {
                                 args.result?.io.map(input => {
                                     if (input?.inputId == __devices[i]?.values[b]?.inputId) {
@@ -318,7 +486,7 @@ var module = function () {
                         n: 0
                     };
                     for (let i = 0; i < __settings.devices.length; i++) {
-                        if (__settings.devices[i].deviceId == args.req.body.deviceId) {
+                        if (__settings.devices[i].id == args.req.body.id) {
                             Object.keys(args.req.body).map(key => {
                                 if (__settings.devices[i].hasOwnProperty(key)) {
                                     __settings.devices[i][key] = args.req.body[key];
@@ -330,6 +498,7 @@ var module = function () {
                     };
                     __settings.devices = __settings.devices.map(o => {
                         return {
+                            id: o.id,
                             io: o.io,
                             ip: o.ip,
                             port: o.port,
@@ -340,8 +509,11 @@ var module = function () {
                             barcode: o.barcode,
                             publish: o.publish,
                             enabled: o.enabled,
+                            unitId: o.unitId,
                             deviceId: o.deviceId,
-                            description: o.description
+                            description: o.description,
+                            userName: o.userName,
+                            password: o.password,
                         };
                     });
                     if (args.result.n > 0) {
@@ -382,7 +554,7 @@ var module = function () {
                         n: 0
                     };
                     for (let i = 0; i < __settings.devices.length; i++) {
-                        if (__settings.devices[i].deviceId == args.req.body.deviceId) {
+                        if (__settings.devices[i].id == args.req.body.id) {
                             __settings.devices.splice(i, 1);
                             args.result.n++;
                             break;
@@ -390,6 +562,7 @@ var module = function () {
                     };
                     __settings.devices = __settings.devices.map(o => {
                         return {
+                            id: o.id,
                             io: o.io,
                             ip: o.ip,
                             port: o.port,
@@ -400,8 +573,11 @@ var module = function () {
                             barcode: o.barcode,
                             publish: o.publish,
                             enabled: o.enabled,
+                            unitId: o.unitId,
                             deviceId: o.deviceId,
-                            description: o.description
+                            description: o.description,
+                            userName: o.userName,
+                            password: o.password,
                         };
                     });
                     if (args.result.n > 0) {

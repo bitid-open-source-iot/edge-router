@@ -24,6 +24,7 @@ module.exports = class extends EventEmitter {
         this.enabled = args.enabled;
         this.barcode = args.barcode;
         this.deviceId = args.deviceId;
+        this.id = args.id;
         this.controller = new Controller();
         this.lastConnection = new Date();
 
@@ -133,6 +134,13 @@ module.exports = class extends EventEmitter {
             });
     }
 
+    async forceCOFS(){
+        /**
+         * All devices need to have this function to conform. Not used for this device.
+         */
+    }
+
+
     async connect() {
         this.status = 'connecting';
 
@@ -167,7 +175,12 @@ module.exports = class extends EventEmitter {
                 if (item.inputId == inputId && item.tag.value != value && item.writeable) {
                     item.tag.value = parseInt(value);
                     __logger.info('Writing a value of ' + item.tag.value + ' to ' + item.tagId);
-                    await this.controller.writeTag(item.tag);
+                    try{
+                        await this.controller.writeTag(item.tag);
+                    }catch(e){
+                        console.error(e)
+                    }
+                    
                 };
             });
             this.emit('data', this.values);
