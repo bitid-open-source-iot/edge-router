@@ -61,9 +61,9 @@ module.exports = class extends EventEmitter {
 
         this.sendOnce = true
 
-        if(__settings.commsOption == '0'){
+        if (__settings.commsOption == '0') {
             this.connectMQTT();
-        }else{
+        } else {
             this.connectTCPClient();
         }
 
@@ -95,44 +95,49 @@ module.exports = class extends EventEmitter {
 
 
     updateDeviceInputsThenActionMapping(id, inputs) {
-        let deviceItem = null
-        return __devices.reduce((promise, device) => {
-            deviceItem = device
-            return promise.then(() => {
-                if (device.id == id) {
-                    return device.io.reduce((promise, io) => {
-                        return promise.then(() => {
-                            return inputs.reduce((promise, ip) => {
-                                return promise.then(() => {
-                                    if (io.inputId == ip.inputId) {
-                                        if(io?.masking?.enabled == true){
-                                            io.value = (ip.value & Math.pow(2, io.masking.bit)) >> io.masking.bit
-                                        }else{
-                                            io.value = ip.value
-                                        }
-                                        
-                                    }
-                                })
-                            }, Promise.resolve())
-                        })
-                    }, Promise.resolve())
-                        .then(() => {
-                            __socket.send('devices:data', {
-                                data: deviceItem.io,
-                                deviceId: deviceItem.deviceId
-                            });
-                        })
-                }
-            })
-        }, Promise.resolve())
-            .then(async () => {
-                try {
-                    await __router.mapping(deviceItem.deviceId, inputs)
-                } catch (e) {
-                    console.error(e)
-                }
+        try {
+            let deviceItem = null
+            return __devices.reduce((promise, device) => {
+                deviceItem = device
+                return promise.then(() => {
+                    if (device.id == id) {
+                        return device.io.reduce((promise, io) => {
+                            return promise.then(() => {
+                                return inputs.reduce((promise, ip) => {
+                                    return promise.then(() => {
+                                        if (io.inputId == ip.inputId) {
+                                            if (io?.masking?.enabled == true) {
+                                                io.value = (ip.value & Math.pow(2, io.masking.bit)) >> io.masking.bit
+                                            } else {
+                                                io.value = ip.value
+                                            }
 
-            })
+                                        }
+                                    })
+                                }, Promise.resolve())
+                            })
+                        }, Promise.resolve())
+                            .then(() => {
+                                __socket.send('devices:data', {
+                                    data: deviceItem.io,
+                                    deviceId: deviceItem.deviceId
+                                });
+                            })
+                    }
+                })
+            }, Promise.resolve())
+                .then(async () => {
+                    try {
+                        await __router.mapping(deviceItem.deviceId, inputs)
+                    } catch (e) {
+                        console.error(e)
+                    }
+
+                })
+        } catch (e) {
+            console.error(e)
+        }
+
     }
 
 
@@ -169,7 +174,7 @@ module.exports = class extends EventEmitter {
                             if (item.destination.mask != -1) {
                                 for (const dv of device.values) {
                                     if (dv.inputId == item.destination.inputId) {
-                                        deviceCurrentState = (dv.value & Math.pow(2,item.destination.mask))>> item.destination.mask
+                                        deviceCurrentState = (dv.value & Math.pow(2, item.destination.mask)) >> item.destination.mask
                                     }
                                 }
 
@@ -180,7 +185,7 @@ module.exports = class extends EventEmitter {
                                     dontTouchVal = deviceCurrentState - (deviceCurrentState & item.destination.mask);
                                 }
 
-                                
+
 
                                 maskDestinationValue = dontTouchVal + maskDestinationValue;
                             } else {
@@ -229,9 +234,9 @@ module.exports = class extends EventEmitter {
         });
     }
 
-    async connectTCPClient() {    
+    async connectTCPClient() {
         console.log('connectTCPClient')
-        try{
+        try {
             this.status = 'connecting';
             this.tcpClient = new TCPCLIENT()
             this.tcpClient.init(__settings.tcpClient.host, __settings.tcpClient.port, 1)
@@ -247,7 +252,7 @@ module.exports = class extends EventEmitter {
             this.tcpClient.on('connection', async (data) => {
                 try {
                     console.log('tcpClient connection', data)
-                    if(data == 'CONNECTED'){
+                    if (data == 'CONNECTED') {
                         this.status = 'connected';
                         setTimeout(() => {
                             console.log('tcpClient sending Device Logon', `%S ${__settings.barcode} *`)
@@ -260,7 +265,7 @@ module.exports = class extends EventEmitter {
                 }
             })
 
-        }catch(e){
+        } catch (e) {
             console.error(e)
         }
     }
@@ -401,19 +406,19 @@ module.exports = class extends EventEmitter {
                 // __logger.warn('Edge Router - Trying to transmit even though socket not connected!');
             }
 
-            if(this.tcpClient?.RMCSocket.Status == 'CONNECTED'){
+            if (this.tcpClient?.RMCSocket.Status == 'CONNECTED') {
                 data.dataIn.time = dates.compressDateGlog(new Date(data.rtuDate), 2)
-                if(data.moduleId == 0){
+                if (data.moduleId == 0) {
                     data.dataIn.AI1 = 10
-                }else if(data.moduleId == 1){
+                } else if (data.moduleId == 1) {
                     data.dataIn.AI2 = 20
                 }
-                if(data.barcode){
-                    let strData = '%1 0210.069 ' + data.barcode + '.'+data.moduleId.toString() + ' 69 ' + data.dataIn.time + ' '+data.dataIn.txFlag+' '+data.dataIn.digitalsIn+' 0 '+data.dataIn.AI1+' '+data.dataIn.AI2+' '+data.dataIn.AI3+' '+data.dataIn.AI4+' '+data.dataIn.AIExt1+' '+data.dataIn.AIExt2+' '+data.dataIn.AIExt3+' '+data.dataIn.AIExt4+' '+data.dataIn.AIExt5+' '+data.dataIn.AIExt6+' '+data.dataIn.AIExt7+' '+data.dataIn.AIExt8+' '+data.dataIn.CI1+' '+data.dataIn.CI2+' '+data.dataIn.CI3+' '+data.dataIn.CI4+' '+data.dataIn.CI5+' '+data.dataIn.CI6+' '+data.dataIn.CI7+' '+data.dataIn.CI8+' '+data.dataIn.BATT+' '+data.dataIn.SIG+' 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 > 8220 *';
+                if (data.barcode) {
+                    let strData = '%1 0210.069 ' + data.barcode + '.' + data.moduleId.toString() + ' 69 ' + data.dataIn.time + ' ' + data.dataIn.txFlag + ' ' + data.dataIn.digitalsIn + ' 0 ' + data.dataIn.AI1 + ' ' + data.dataIn.AI2 + ' ' + data.dataIn.AI3 + ' ' + data.dataIn.AI4 + ' ' + data.dataIn.AIExt1 + ' ' + data.dataIn.AIExt2 + ' ' + data.dataIn.AIExt3 + ' ' + data.dataIn.AIExt4 + ' ' + data.dataIn.AIExt5 + ' ' + data.dataIn.AIExt6 + ' ' + data.dataIn.AIExt7 + ' ' + data.dataIn.AIExt8 + ' ' + data.dataIn.CI1 + ' ' + data.dataIn.CI2 + ' ' + data.dataIn.CI3 + ' ' + data.dataIn.CI4 + ' ' + data.dataIn.CI5 + ' ' + data.dataIn.CI6 + ' ' + data.dataIn.CI7 + ' ' + data.dataIn.CI8 + ' ' + data.dataIn.BATT + ' ' + data.dataIn.SIG + ' 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 > 8220 *';
                     __logger.info(`publish tcpClient data to ${__settings.tcpClient.host}:${__settings.tcpClient.port} > ${strData}`);
                     console.log(`publish tcpClient data to ${__settings.tcpClient.host}:${__settings.tcpClient.port} > ${strData}`)
                     this.tcpClient.SendData(strData)
-                }else{
+                } else {
                     console.error('no barcode for sending tcpClient data', JSON.stringify(data))
                 }
             }

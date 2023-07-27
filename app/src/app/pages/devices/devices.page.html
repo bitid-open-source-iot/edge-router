@@ -28,6 +28,8 @@
                 Type
             </th>
             <td mat-cell *matCellDef="let element">
+                {{ element.type == 'tcpClient' ? 'TCP Client' : '' }}
+                {{ element.type == 'tcpServer' ? 'TCP Server' : '' }}
                 {{ element.type == 'modbus' ? 'Modbus' : '' }}
                 {{ element.type == 'external' ? 'External' : '' }}
                 {{ element.type == 'programmable-logic-controller' ? 'Programmable Logic Controller' : '' }}

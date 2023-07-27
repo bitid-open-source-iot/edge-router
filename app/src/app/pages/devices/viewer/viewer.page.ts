@@ -39,6 +39,8 @@ export class ViewerPage implements OnInit, OnDestroy {
                 'io',
                 'ip',
                 'port',
+                'softwareIp',
+                'softwarePort',
                 'type',
                 'pxtime',
                 'txtime',

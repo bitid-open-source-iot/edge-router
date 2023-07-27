@@ -15,6 +15,9 @@ const HOSTAGENT = require('./devices/hostAgent');
 const EdgeRouter = require('./devices/edge-router');
 const ProgrammableLogicController = require('./devices/programmable-logic-controller');
 const KGATEWAY = require('./devices/kGateway')
+const TcpServerDevice = require('./devices/tcpSvrDevice');
+const TcpClientDevice = require('./devices/tcpClientDevice');
+
 const BitMask = require('./lib/bit-mask');
 
 
@@ -260,6 +263,22 @@ try {
                 __settings.devices.filter(o => o.enabled).map(o => {
                     try{
                         switch (o.type) {
+                            case ('tcpClient'):
+                                var device = new TcpClientDevice(o);
+                                device.on('change', async event => await __router.updateDeviceInputsThenActionMapping(device.id, event));
+                                device.on('data', async (event) => {
+                                    __socket.send('devices:data', {
+                                        data: event,
+                                        deviceId: device.id
+                                    });
+                                });
+                                __devices.push(device);
+                                break;
+                            case ('tcpServer'):
+                                var device = new TcpServerDevice(o);
+                                // device.on('change', async event => await __router.updateDeviceInputsThenActionMapping(device.id, event));
+                                // __devices.push(device);
+                                break;
                             case ('modbus'):
                                 var device = new Modbus(o);
                                 device.on('change', async event => await __router.updateDeviceInputsThenActionMapping(device.id, event));

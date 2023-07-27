@@ -35,6 +35,17 @@
             </mat-error>
         </mat-form-field>
 
+        <mat-form-field appearance="outline" *ngIf="type == 'tcpClient'">
+            <mat-label>
+                RTU ID
+            </mat-label>
+
+            <input matInput type="number" placeholder="rtuId" formControlName="rtuId" required>
+
+            <mat-error *ngIf="errors.rtuId">
+                {{ errors.rtuId }}
+            </mat-error>
+        </mat-form-field>
 
         <section *ngIf="type != 'kGateway'">
             <h2>
@@ -126,7 +137,6 @@
             </mat-error>
         </mat-form-field>
 
-        <!-- <mat-form-field appearance="outline" *ngIf="type == 'modbus'"> -->
         <div formGroupName='modbus' *ngIf="type == 'modbus'">
             <mat-label>
                 isCoil
@@ -162,7 +172,6 @@
             </div>
 
         </div>
-        <!-- </mat-form-field> -->
 
 
 
@@ -470,34 +479,6 @@
             </mat-form-field>
         </section>
 
-        <!-- <section formGroupName="mqtt" *ngIf="type == 'kGateway'">
-            <mat-form-field appearance="outline" *ngIf="type == 'kGateway'">
-                <mat-label>
-                    User Name
-                </mat-label>
-
-                <input matInput type="text" placeholder="userName" formControlName="userName"
-                    [required]="type == 'kGateway'">
-
-                <mat-error *ngIf="errors.mqtt.userName">
-                    {{ errors.mqtt.userName }}
-                </mat-error>
-            </mat-form-field>
-
-            <mat-form-field appearance="outline" *ngIf="type == 'kGateway'">
-                <mat-label>
-                    Password
-                </mat-label>
-
-                <input matInput type="password" placeholder="password" formControlName="password"
-                    [required]="type == 'kGateway'">
-
-                <mat-error *ngIf="errors.mqtt.password">
-                    {{ errors.mqtt.password }}
-                </mat-error>
-            </mat-form-field>
-
-        </section> -->
 
         <section formGroupName="mqtt" *ngIf="type == 'kGateway'">
             <section formGroupName="subscribe" *ngIf="type == 'kGateway'">
@@ -529,6 +510,28 @@
 
             </section>
         </section>
+
+        <section *ngIf="type == 'tcpClient'">
+            <mat-form-field appearance="outline">
+                <mat-label>
+                    Register
+                </mat-label>
+
+                <mat-select placeholder="register" formControlName="register" required>
+                    <mat-option [value]="6">
+                        digitals
+                    </mat-option>
+                    <mat-option [value]="8">
+                        AI1
+                    </mat-option>
+                </mat-select>
+
+                <mat-error *ngIf="errors.register">
+                    {{ errors.register }}
+                </mat-error>
+            </mat-form-field>
+        </section>
+
 
         <button #button type="submit" style="display: none;"></button>
     </form>

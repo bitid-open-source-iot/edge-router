@@ -32,17 +32,20 @@ export class DevicesEditorPage implements OnInit, OnDestroy {
 
     constructor(private sheet: OptionsService, private dialog: MatDialog, private toast: ToastService, private route: ActivatedRoute, private router: Router, private service: DevicesService, private formerror: FormErrorService) { }
 
+    public type: string = '';
     public mode: string = 'add';
     public form: FormGroup = new FormGroup({
         id: new FormControl(0, [Validators.required, Validators.min(0)]),
         ip: new FormControl('0.0.0.0', [Validators.required]),
         port: new FormControl(0, [Validators.required, Validators.min(0)]),
+        softwareIp: new FormControl('0.0.0.0'),
+        softwarePort: new FormControl(0, [Validators.min(0)]),
         type: new FormControl(null, [Validators.required]),
         txtime: new FormControl(5, [Validators.required, Validators.min(1)]),
         pxtime: new FormControl(120, [Validators.required, Validators.min(120)]),
         barcode: new FormControl(null, [Validators.required]),
         publish: new FormControl(false, [Validators.required]),
-        timeout: new FormControl(60, [Validators.required]),
+        timeout: new FormControl(120, [Validators.required]),
         enabled: new FormControl(false, [Validators.required]),
         unitId: new FormControl(false, [Validators.required]),
         deviceId: new FormControl(null, [Validators.required, Validators.minLength(24), Validators.maxLength(24)]),
@@ -63,6 +66,8 @@ export class DevicesEditorPage implements OnInit, OnDestroy {
         id: '',
         ip: '',
         port: '',
+        softwareIp: '',
+        softwarePort: '',
         type: '',
         txtime: '',
         pxtime: '',
@@ -91,6 +96,8 @@ export class DevicesEditorPage implements OnInit, OnDestroy {
                 'io',
                 'ip',
                 'port',
+                'softwareIp',
+                'softwarePort',
                 'type',
                 'pxtime',
                 'txtime',
@@ -112,6 +119,8 @@ export class DevicesEditorPage implements OnInit, OnDestroy {
             this.form.controls['id'].setValue(device.id);
             this.form.controls['ip'].setValue(device.ip);
             this.form.controls['port'].setValue(device.port);
+            this.form.controls['softwareIp'].setValue(device.softwareIp);
+            this.form.controls['softwarePort'].setValue(device.softwarePort);
             this.form.controls['type'].setValue(device.type);
             this.form.controls['pxtime'].setValue(device.pxtime);
             this.form.controls['txtime'].setValue(device.txtime);
@@ -124,9 +133,9 @@ export class DevicesEditorPage implements OnInit, OnDestroy {
             this.form.controls['description'].setValue(device.description);
             this.form.controls['userName'].setValue(device.userName);
             this.form.controls['password'].setValue(device.password);
-            (this.form.controls['mqtt'] as FormGroup).controls['enabled'].setValue(io[0].mqtt?.enabled);
-            ((this.form.controls['mqtt'] as FormGroup).controls['subscribe'] as FormGroup).controls['data'].setValue(io[0].mqtt?.subscribe?.data || '');
-            ((this.form.controls['mqtt'] as FormGroup).controls['subscribe'] as FormGroup).controls['control'].setValue(io[0].mqtt?.subscribe?.control || '');
+            (this.form.controls['mqtt'] as FormGroup).controls['enabled'].setValue(io[0]?.mqtt?.enabled);
+            ((this.form.controls['mqtt'] as FormGroup).controls['subscribe'] as FormGroup).controls['data'].setValue(io[0]?.mqtt?.subscribe?.data || '');
+            ((this.form.controls['mqtt'] as FormGroup).controls['subscribe'] as FormGroup).controls['control'].setValue(io[0]?.mqtt?.subscribe?.control || '');
 
         } else {
             this.toast.error(response.result.message);
@@ -150,6 +159,8 @@ export class DevicesEditorPage implements OnInit, OnDestroy {
             io: this.table.data,
             ip: this.form.value.ip,
             port: this.form.value.port,
+            softwareIp: this.form.value.softwareIp,
+            softwarePort: this.form.value.softwarePort,
             type: this.form.value.type,
             txtime: this.form.value.txtime,
             pxtime: this.form.value.pxtime,
@@ -246,8 +257,15 @@ export class DevicesEditorPage implements OnInit, OnDestroy {
             this.errors = this.formerror.validateForm(this.form, this.errors, true);
         });
 
-        this.observers.type = this.form.controls['type'].valueChanges.subscribe((type: 'modbus' | 'external' | 'programmable-logic-controller' | 'kGateway' | 'hostAgent') => {
+        this.observers.type = this.form.controls['type'].valueChanges.subscribe((type: 'tcpClient' | 'tcpServer' | 'modbus' | 'external' | 'programmable-logic-controller' | 'kGateway' | 'hostAgent') => {
+            this.type = type;
             switch (type) {
+                case ('tcpClient'):
+                    this.columns = ['description', 'register', 'publish.enabled', 'publish.bit', 'publish.key', 'publish.moduleId'];
+                    break
+                case ('tcpServer'):
+                    this.columns = []
+                    break
                 case ('modbus'):
                     this.columns = ['description', 'register', 'publish.enabled', 'publish.bit', 'publish.key', 'publish.moduleId'];
                     break;
