@@ -268,8 +268,8 @@ try {
                                 device.on('change', async event => await __router.updateDeviceInputsThenActionMapping(device.id, event));
                                 device.on('data', async (event) => {
                                     __socket.send('devices:data', {
-                                        data: event,
-                                        deviceId: device.id
+                                        data: device.values,
+                                        id: device.id
                                     });
                                 });
                                 __devices.push(device);

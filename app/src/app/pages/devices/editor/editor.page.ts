@@ -32,6 +32,8 @@ export class DevicesEditorPage implements OnInit, OnDestroy {
 
     constructor(private sheet: OptionsService, private dialog: MatDialog, private toast: ToastService, private route: ActivatedRoute, private router: Router, private service: DevicesService, private formerror: FormErrorService) { }
 
+    public isTrue: boolean = true;
+
     public type: string = '';
     public mode: string = 'add';
     public form: FormGroup = new FormGroup({
@@ -253,6 +255,7 @@ export class DevicesEditorPage implements OnInit, OnDestroy {
     }
 
     ngOnInit(): void {
+        
         this.observers.form = this.form.valueChanges.subscribe(data => {
             this.errors = this.formerror.validateForm(this.form, this.errors, true);
         });
