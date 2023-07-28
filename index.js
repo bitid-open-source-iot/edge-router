@@ -65,11 +65,11 @@ var dataIn = {
 }
 
 global.__routerStatus = [
-    {
-        'device': {},
-        'moduleId': 0,
-        'dataIn': { ...dataIn }
-    }
+    // {
+    //     'device': {},
+    //     'moduleId': 0,
+    //     'dataIn': { ...dataIn }
+    // }
 ];
 
 try {
@@ -301,6 +301,12 @@ try {
                             case ('programmable-logic-controller'):
                                 var device = new ProgrammableLogicController(o);
                                 device.on('change', event => __router.updateDeviceInputsThenActionMapping(device.id, event));
+                                device.on('data', async (event) => {
+                                    __socket.send('devices:data', {
+                                        data: device.values,
+                                        id: device.id
+                                    });
+                                });
                                 __devices.push(device);
                                 break;
                             default:

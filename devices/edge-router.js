@@ -255,8 +255,17 @@ module.exports = class extends EventEmitter {
                     if (data == 'CONNECTED') {
                         this.status = 'connected';
                         setTimeout(() => {
-                            console.log('tcpClient sending Device Logon', `%S ${__settings.barcode} *`)
-                            this.tcpClient.SendData(`%S ${__settings.barcode} *`)
+                            if(__settings.overideDeviceBarcode == 'false' || __settings.overideDeviceBarcode == false){
+                                __devices.forEach(device => {
+                                    if(device.enabled == true && device.publish == true){
+                                        console.log('tcpClient sending Device Logon', `%S ${device.barcode} *`)
+                                        this.tcpClient.SendData(`%S ${device.barcode} *`)
+                                    }
+                                })
+                            }else{
+                                console.log('tcpClient sending Device Logon', `%S ${__settings.barcode} *`)
+                                this.tcpClient.SendData(`%S ${__settings.barcode} *`)
+                            }
                         }, 2000)
 
                     }
@@ -408,11 +417,11 @@ module.exports = class extends EventEmitter {
 
             if (this.tcpClient?.RMCSocket.Status == 'CONNECTED') {
                 data.dataIn.time = dates.compressDateGlog(new Date(data.rtuDate), 2)
-                if (data.moduleId == 0) {
-                    data.dataIn.AI1 = 10
-                } else if (data.moduleId == 1) {
-                    data.dataIn.AI2 = 20
-                }
+                // if (data.moduleId == 0) {
+                //     data.dataIn.AI1 = 10
+                // } else if (data.moduleId == 1) {
+                //     data.dataIn.AI2 = 20
+                // }
                 if (data.barcode) {
                     let strData = '%1 0210.069 ' + data.barcode + '.' + data.moduleId.toString() + ' 69 ' + data.dataIn.time + ' ' + data.dataIn.txFlag + ' ' + data.dataIn.digitalsIn + ' 0 ' + data.dataIn.AI1 + ' ' + data.dataIn.AI2 + ' ' + data.dataIn.AI3 + ' ' + data.dataIn.AI4 + ' ' + data.dataIn.AIExt1 + ' ' + data.dataIn.AIExt2 + ' ' + data.dataIn.AIExt3 + ' ' + data.dataIn.AIExt4 + ' ' + data.dataIn.AIExt5 + ' ' + data.dataIn.AIExt6 + ' ' + data.dataIn.AIExt7 + ' ' + data.dataIn.AIExt8 + ' ' + data.dataIn.CI1 + ' ' + data.dataIn.CI2 + ' ' + data.dataIn.CI3 + ' ' + data.dataIn.CI4 + ' ' + data.dataIn.CI5 + ' ' + data.dataIn.CI6 + ' ' + data.dataIn.CI7 + ' ' + data.dataIn.CI8 + ' ' + data.dataIn.BATT + ' ' + data.dataIn.SIG + ' 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 > 8220 *';
                     __logger.info(`publish tcpClient data to ${__settings.tcpClient.host}:${__settings.tcpClient.port} > ${strData}`);

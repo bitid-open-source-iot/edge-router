@@ -27,6 +27,7 @@ module.exports = class extends EventEmitter {
         this.id = args.id;
         this.controller = new Controller();
         this.lastConnection = new Date();
+        this.publish = args.publish || false;
 
         this.on('data', () => {
             if (__socket) {
@@ -50,6 +51,7 @@ module.exports = class extends EventEmitter {
         setInterval(async () => {
             if (this.status == 'connected') {
                 await this.read();
+                await this.write();
             } else if (this.status == 'connecting') {
                 // do nothing
             } else if (this.status == 'disconnected') {
@@ -79,6 +81,7 @@ module.exports = class extends EventEmitter {
 
                 try {
                     if (item.readable) {
+                        // console.log('read', item.tag);
                         await this.controller.readTag(item.tag);
 
                         if (this.values.map(o => o.inputId).includes(item.inputId)) {
@@ -113,12 +116,14 @@ module.exports = class extends EventEmitter {
                     };
                     deferred.resolve();
                 } catch (error) {
-                    if (error.message.includes('TIMEOUT')) {
+                    // console.error(error)
+                    if (error?.message?.includes('TIMEOUT')) {
                         if (this.status != 'disconnected') {
                             __logger.error('Programmable Logic Controller - Disconnected!');
                         };
                         this.status = 'disconnected';
                     };
+                    // console.error(error)
                     __logger.warn('Programmable Logic Controller - Issue Reading Tag!');
                     deferred.resolve();
                 };
@@ -178,11 +183,12 @@ module.exports = class extends EventEmitter {
 
     }
 
-    async write(inputId, value) {
+    async write() {
         try {
             this.io.map(async item => {
-                if (item.inputId == inputId && item.tag.value != value && item.writeable) {
-                    item.tag.value = parseInt(value);
+                if (item.tag.value != item.tag.newValue && item.writeable) {
+                    item.tag.value = parseInt(item.tag.newValue || 0);
+                    // console.log('Writing a value of ' + item.tag.value + ' to ' + item.tagId)
                     __logger.info('Writing a value of ' + item.tag.value + ' to ' + item.tagId);
                     try {
                         await this.controller.writeTag(item.tag);
