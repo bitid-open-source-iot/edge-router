@@ -1165,8 +1165,8 @@
                                 "name": "N3H_Tele_TX[0]",
                                 "type": 195,
                                 "bitIndex": null,
-                                "value": 55,
-                                "controllerValue": 55,
+                                "value": null,
+                                "controllerValue": null,
                                 "path": {
                                     "type": "Buffer",
                                     "data": [
@@ -1196,7 +1196,7 @@
                                 "code": null,
                                 "status": null
                             },
-                            "timestamp": "2023-07-28T09:45:29.585Z",
+                            "timestamp": "2023-07-31T05:28:54.500Z",
                             "instance": "eb90f57016ecce7e4b50dda22bdbf952",
                             "keepAlive": 0
                         }
@@ -1260,8 +1260,8 @@
                                 "name": "N3H_Tele_TX[1]",
                                 "type": 195,
                                 "bitIndex": null,
-                                "value": 554,
-                                "controllerValue": 554,
+                                "value": null,
+                                "controllerValue": null,
                                 "path": {
                                     "type": "Buffer",
                                     "data": [
@@ -1291,7 +1291,7 @@
                                 "code": null,
                                 "status": null
                             },
-                            "timestamp": "2023-07-28T09:45:29.594Z",
+                            "timestamp": "2023-07-31T05:28:54.500Z",
                             "instance": "c0915f429a517f2e800361a9c43c6f0d",
                             "keepAlive": 0
                         }
@@ -1355,8 +1355,8 @@
                                 "name": "N3H_Tele_TX[2]",
                                 "type": 195,
                                 "bitIndex": null,
-                                "value": 44,
-                                "controllerValue": 44,
+                                "value": null,
+                                "controllerValue": null,
                                 "path": {
                                     "type": "Buffer",
                                     "data": [
@@ -1386,7 +1386,7 @@
                                 "code": null,
                                 "status": null
                             },
-                            "timestamp": "2023-07-28T09:45:29.600Z",
+                            "timestamp": "2023-07-31T05:28:54.500Z",
                             "instance": "a2c7ed996fce5799b4cdc0d87d5e6ff9",
                             "keepAlive": 0
                         }
@@ -1450,8 +1450,8 @@
                                 "name": "N3H_Tele_TX[3]",
                                 "type": 195,
                                 "bitIndex": null,
-                                "value": 47,
-                                "controllerValue": 47,
+                                "value": null,
+                                "controllerValue": null,
                                 "path": {
                                     "type": "Buffer",
                                     "data": [
@@ -1481,7 +1481,7 @@
                                 "code": null,
                                 "status": null
                             },
-                            "timestamp": "2023-07-28T09:45:29.611Z",
+                            "timestamp": "2023-07-31T05:28:54.500Z",
                             "instance": "cbf2f31bf5ce8ffc50c984628653231f",
                             "keepAlive": 0
                         }
@@ -1545,8 +1545,8 @@
                                 "name": "N3H_Tele_TX[4]",
                                 "type": 195,
                                 "bitIndex": null,
-                                "value": 1,
-                                "controllerValue": 1,
+                                "value": null,
+                                "controllerValue": null,
                                 "path": {
                                     "type": "Buffer",
                                     "data": [
@@ -1576,7 +1576,7 @@
                                 "code": null,
                                 "status": null
                             },
-                            "timestamp": "2023-07-28T09:45:29.621Z",
+                            "timestamp": "2023-07-31T05:28:54.501Z",
                             "instance": "18e806ccabc8eff5fcb1ddc603094afb",
                             "keepAlive": 0
                         }
@@ -1752,8 +1752,8 @@
                                 "name": "N3H_Tele_TX[10]",
                                 "type": 195,
                                 "bitIndex": null,
-                                "value": 18,
-                                "controllerValue": 18,
+                                "value": null,
+                                "controllerValue": null,
                                 "path": {
                                     "type": "Buffer",
                                     "data": [
@@ -1783,7 +1783,7 @@
                                 "code": null,
                                 "status": null
                             },
-                            "timestamp": "2023-07-28T09:45:29.588Z",
+                            "timestamp": "2023-07-31T05:28:54.507Z",
                             "instance": "7417c4e80f1d54fdc58a7bfc3bc93ff1",
                             "keepAlive": 0
                         }
@@ -1847,8 +1847,8 @@
                                 "name": "N3H_Tele_TX[11]",
                                 "type": 195,
                                 "bitIndex": null,
-                                "value": 44,
-                                "controllerValue": 44,
+                                "value": null,
+                                "controllerValue": null,
                                 "path": {
                                     "type": "Buffer",
                                     "data": [
@@ -1878,7 +1878,7 @@
                                 "code": null,
                                 "status": null
                             },
-                            "timestamp": "2023-07-28T09:45:29.596Z",
+                            "timestamp": "2023-07-31T05:28:54.507Z",
                             "instance": "cfac93438440b144fe16661ef200a3c4",
                             "keepAlive": 0
                         }
@@ -1942,8 +1942,8 @@
                                 "name": "N3H_Tele_TX[12]",
                                 "type": 195,
                                 "bitIndex": null,
-                                "value": 0,
-                                "controllerValue": 0,
+                                "value": null,
+                                "controllerValue": null,
                                 "path": {
                                     "type": "Buffer",
                                     "data": [
@@ -1973,7 +1973,7 @@
                                 "code": null,
                                 "status": null
                             },
-                            "timestamp": "2023-07-28T09:45:29.601Z",
+                            "timestamp": "2023-07-31T05:28:54.507Z",
                             "instance": "f73afafb6298601314a01ec7cb8efbf9",
                             "keepAlive": 0
                         }
@@ -2037,8 +2037,8 @@
                                 "name": "N3H_Tele_TX[13]",
                                 "type": 195,
                                 "bitIndex": null,
-                                "value": 0,
-                                "controllerValue": 0,
+                                "value": null,
+                                "controllerValue": null,
                                 "path": {
                                     "type": "Buffer",
                                     "data": [
@@ -2068,7 +2068,7 @@
                                 "code": null,
                                 "status": null
                             },
-                            "timestamp": "2023-07-28T09:45:29.612Z",
+                            "timestamp": "2023-07-31T05:28:54.507Z",
                             "instance": "5c2fa3ba9267fa2444c60e496a86aec5",
                             "keepAlive": 0
                         }
@@ -2132,8 +2132,8 @@
                                 "name": "N3H_Tele_TX[14]",
                                 "type": 195,
                                 "bitIndex": null,
-                                "value": 0,
-                                "controllerValue": 0,
+                                "value": null,
+                                "controllerValue": null,
                                 "path": {
                                     "type": "Buffer",
                                     "data": [
@@ -2163,7 +2163,7 @@
                                 "code": null,
                                 "status": null
                             },
-                            "timestamp": "2023-07-28T09:45:29.629Z",
+                            "timestamp": "2023-07-31T05:28:54.507Z",
                             "instance": "64e3474290d605d91b11b2c8a86599e6",
                             "keepAlive": 0
                         }
@@ -2248,8 +2248,8 @@
                                 "name": "N3H_Tele_TX[20]",
                                 "type": 195,
                                 "bitIndex": null,
-                                "value": 0,
-                                "controllerValue": 0,
+                                "value": null,
+                                "controllerValue": null,
                                 "path": {
                                     "type": "Buffer",
                                     "data": [
@@ -2279,7 +2279,7 @@
                                 "code": null,
                                 "status": null
                             },
-                            "timestamp": "2023-07-28T09:45:29.593Z",
+                            "timestamp": "2023-07-31T05:28:54.508Z",
                             "instance": "71cacf89b31fcba8a26bc445f7e1a668",
                             "keepAlive": 0
                         }
@@ -2343,8 +2343,8 @@
                                 "name": "N3H_Tele_TX[21]",
                                 "type": 195,
                                 "bitIndex": null,
-                                "value": 0,
-                                "controllerValue": 0,
+                                "value": null,
+                                "controllerValue": null,
                                 "path": {
                                     "type": "Buffer",
                                     "data": [
@@ -2374,7 +2374,7 @@
                                 "code": null,
                                 "status": null
                             },
-                            "timestamp": "2023-07-28T09:45:29.599Z",
+                            "timestamp": "2023-07-31T05:28:54.508Z",
                             "instance": "8e861dcd388260d57347585f0e2b8c08",
                             "keepAlive": 0
                         }
@@ -2438,8 +2438,8 @@
                                 "name": "N3H_Tele_TX[22]",
                                 "type": 195,
                                 "bitIndex": null,
-                                "value": 0,
-                                "controllerValue": 0,
+                                "value": null,
+                                "controllerValue": null,
                                 "path": {
                                     "type": "Buffer",
                                     "data": [
@@ -2469,7 +2469,7 @@
                                 "code": null,
                                 "status": null
                             },
-                            "timestamp": "2023-07-28T09:45:29.610Z",
+                            "timestamp": "2023-07-31T05:28:54.508Z",
                             "instance": "3d4a552df10c99b09cc68c427cce5355",
                             "keepAlive": 0
                         }
@@ -2533,8 +2533,8 @@
                                 "name": "N3H_Tele_TX[23]",
                                 "type": 195,
                                 "bitIndex": null,
-                                "value": 0,
-                                "controllerValue": 0,
+                                "value": null,
+                                "controllerValue": null,
                                 "path": {
                                     "type": "Buffer",
                                     "data": [
@@ -2564,7 +2564,7 @@
                                 "code": null,
                                 "status": null
                             },
-                            "timestamp": "2023-07-28T09:45:29.620Z",
+                            "timestamp": "2023-07-31T05:28:54.508Z",
                             "instance": "49356146f2a9bf3f419a1f728622bcc9",
                             "keepAlive": 0
                         }
@@ -2628,8 +2628,8 @@
                                 "name": "N3H_Tele_TX[24]",
                                 "type": 195,
                                 "bitIndex": null,
-                                "value": 0,
-                                "controllerValue": 0,
+                                "value": null,
+                                "controllerValue": null,
                                 "path": {
                                     "type": "Buffer",
                                     "data": [
@@ -2659,7 +2659,7 @@
                                 "code": null,
                                 "status": null
                             },
-                            "timestamp": "2023-07-28T09:45:29.635Z",
+                            "timestamp": "2023-07-31T05:28:54.508Z",
                             "instance": "eb921cf8e356e694f0b83ef52c43e634",
                             "keepAlive": 0
                         }
@@ -2744,8 +2744,8 @@
                                 "name": "N3H_Tele_TX[30]",
                                 "type": 195,
                                 "bitIndex": null,
-                                "value": 555,
-                                "controllerValue": 555,
+                                "value": null,
+                                "controllerValue": null,
                                 "path": {
                                     "type": "Buffer",
                                     "data": [
@@ -2775,7 +2775,7 @@
                                 "code": null,
                                 "status": null
                             },
-                            "timestamp": "2023-07-28T09:45:29.598Z",
+                            "timestamp": "2023-07-31T05:28:54.510Z",
                             "instance": "93e716f38f138590ff78353f941cb9ef",
                             "keepAlive": 0
                         }
@@ -2839,8 +2839,8 @@
                                 "name": "N3H_Tele_TX[31]",
                                 "type": 195,
                                 "bitIndex": null,
-                                "value": 0,
-                                "controllerValue": 0,
+                                "value": null,
+                                "controllerValue": null,
                                 "path": {
                                     "type": "Buffer",
                                     "data": [
@@ -2870,7 +2870,7 @@
                                 "code": null,
                                 "status": null
                             },
-                            "timestamp": "2023-07-28T09:45:29.611Z",
+                            "timestamp": "2023-07-31T05:28:54.510Z",
                             "instance": "95d2154e823e8208daf3ceb139202e72",
                             "keepAlive": 0
                         }
@@ -2934,8 +2934,8 @@
                                 "name": "N3H_Tele_TX[32]",
                                 "type": 195,
                                 "bitIndex": null,
-                                "value": 0,
-                                "controllerValue": 0,
+                                "value": null,
+                                "controllerValue": null,
                                 "path": {
                                     "type": "Buffer",
                                     "data": [
@@ -2965,7 +2965,7 @@
                                 "code": null,
                                 "status": null
                             },
-                            "timestamp": "2023-07-28T09:45:29.629Z",
+                            "timestamp": "2023-07-31T05:28:54.510Z",
                             "instance": "e84039e406cbcb9353303c6aafc2549b",
                             "keepAlive": 0
                         }
@@ -3029,8 +3029,8 @@
                                 "name": "N3H_Tele_TX[33]",
                                 "type": 195,
                                 "bitIndex": null,
-                                "value": 0,
-                                "controllerValue": 0,
+                                "value": null,
+                                "controllerValue": null,
                                 "path": {
                                     "type": "Buffer",
                                     "data": [
@@ -3060,7 +3060,7 @@
                                 "code": null,
                                 "status": null
                             },
-                            "timestamp": "2023-07-28T09:45:29.640Z",
+                            "timestamp": "2023-07-31T05:28:54.510Z",
                             "instance": "78440b66d2cebd1b645bded78bf01f88",
                             "keepAlive": 0
                         }
@@ -3124,8 +3124,8 @@
                                 "name": "N3H_Tele_TX[35]",
                                 "type": 195,
                                 "bitIndex": null,
-                                "value": 2048,
-                                "controllerValue": 2048,
+                                "value": null,
+                                "controllerValue": null,
                                 "path": {
                                     "type": "Buffer",
                                     "data": [
@@ -3155,7 +3155,7 @@
                                 "code": null,
                                 "status": null
                             },
-                            "timestamp": "2023-07-28T09:45:29.643Z",
+                            "timestamp": "2023-07-31T05:28:54.510Z",
                             "instance": "01f18d3fdecfd193be79c2b9dbe6d2c3",
                             "keepAlive": 0
                         }
@@ -3219,8 +3219,8 @@
                                 "name": "N3H_Tele_TX[36]",
                                 "type": 195,
                                 "bitIndex": null,
-                                "value": 1283,
-                                "controllerValue": 1283,
+                                "value": null,
+                                "controllerValue": null,
                                 "path": {
                                     "type": "Buffer",
                                     "data": [
@@ -3250,7 +3250,7 @@
                                 "code": null,
                                 "status": null
                             },
-                            "timestamp": "2023-07-28T09:45:29.648Z",
+                            "timestamp": "2023-07-31T05:28:54.510Z",
                             "instance": "0b8f686b169130b8c71574f1b11c50be",
                             "keepAlive": 0
                         }
@@ -3314,8 +3314,8 @@
                                 "name": "N3H_Tele_TX[37]",
                                 "type": 195,
                                 "bitIndex": null,
-                                "value": 0,
-                                "controllerValue": 0,
+                                "value": null,
+                                "controllerValue": null,
                                 "path": {
                                     "type": "Buffer",
                                     "data": [
@@ -3345,7 +3345,7 @@
                                 "code": null,
                                 "status": null
                             },
-                            "timestamp": "2023-07-28T09:45:29.654Z",
+                            "timestamp": "2023-07-31T05:28:54.510Z",
                             "instance": "2a06ff69b6c55e4a9a0c5fe515bcdee7",
                             "keepAlive": 0
                         }
@@ -3409,8 +3409,8 @@
                                 "name": "N3H_Tele_TX[38]",
                                 "type": 195,
                                 "bitIndex": null,
-                                "value": 0,
-                                "controllerValue": 0,
+                                "value": null,
+                                "controllerValue": null,
                                 "path": {
                                     "type": "Buffer",
                                     "data": [
@@ -3440,7 +3440,7 @@
                                 "code": null,
                                 "status": null
                             },
-                            "timestamp": "2023-07-28T09:45:29.659Z",
+                            "timestamp": "2023-07-31T05:28:54.510Z",
                             "instance": "024b23b61fa72f38a703ba31f5f9705d",
                             "keepAlive": 0
                         }
