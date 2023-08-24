@@ -15,8 +15,8 @@
         "username": "telemetry",
         "password": "telemetry1!",
         "subscribe": {
-            "data": "/rock/v1.1/data",
-            "control": "/rock/v1.1/control"
+            "data": "/rock/v1.1.umgenicoastal/data",
+            "control": "/rock/v1.1.umgenicoastal/control"
         }
     },
     "logger": {
@@ -535,7 +535,8 @@
             "deviceId": "632d78448a0f5177d6b60410",
             "description": "Abstraction - External",
             "userName": "",
-            "password": ""
+            "password": "",
+            "id": 0
         },
         {
             "io": [
@@ -555,7 +556,8 @@
                         "bit": -1,
                         "key": "digitalsIn",
                         "enabled": true,
-                        "moduleId": 0
+                        "moduleId": 0,
+                        "lastCOFSValue": 0
                     },
                     "masking": {
                         "bit": 0,
@@ -603,7 +605,8 @@
                         "bit": 0,
                         "key": "CI8",
                         "enabled": true,
-                        "moduleId": 0
+                        "moduleId": 0,
+                        "lastCOFSValue": 0
                     },
                     "masking": {
                         "bit": 0,
@@ -672,7 +675,7 @@
                     },
                     "key": "",
                     "tagId": "",
-                    "value": 0,
+                    "value": 1024,
                     "shift": -1,
                     "inputId": "733ac664de0aa29185a07cd6",
                     "register": 10,
@@ -768,7 +771,7 @@
                     },
                     "key": "",
                     "tagId": "",
-                    "value": 0,
+                    "value": 1024,
                     "shift": -1,
                     "inputId": "633ac845bd8e0b4a95b3b1d5",
                     "register": 60,
@@ -1200,7 +1203,7 @@
                     },
                     "key": "",
                     "tagId": "",
-                    "value": 0,
+                    "value": 105,
                     "shift": -1,
                     "inputId": "733acc32e985eb53d66e944b",
                     "register": 23,
@@ -1248,7 +1251,7 @@
                     },
                     "key": "",
                     "tagId": "",
-                    "value": 0,
+                    "value": 70,
                     "shift": -1,
                     "inputId": "633acc70aa269dbda24cf4cc",
                     "register": 65,
@@ -1323,7 +1326,8 @@
                         "bit": 0,
                         "key": "AI3",
                         "enabled": true,
-                        "moduleId": 0
+                        "moduleId": 0,
+                        "lastCOFSValue": 0
                     },
                     "masking": {
                         "bit": 0,
@@ -1584,7 +1588,7 @@
                     },
                     "key": "",
                     "tagId": "",
-                    "value": 0,
+                    "value": 70,
                     "shift": -1,
                     "inputId": "633accf8176fec9227934836",
                     "register": 72,
@@ -1657,7 +1661,8 @@
             "deviceId": "000000000000000000876877",
             "description": "WTW BLACKBOX",
             "userName": "",
-            "password": ""
+            "password": "",
+            "id": 1
         },
         {
             "io": [
@@ -2203,7 +2208,8 @@
             "deviceId": "632d79d88a0f5177d6b60488",
             "description": "High Lift - External",
             "userName": "",
-            "password": ""
+            "password": "",
+            "id": 2
         }
     ],
     "mapping": [
@@ -2503,5 +2509,15 @@
         }
     ],
     "apn": "tech5",
-    "publishEnabled": true
+    "publishEnabled": true,
+    "rateLimits": {
+        "rateLimitTmrSP": 60,
+        "rateLimitTxCountSP": 4
+    },
+    "commsOption": "0",
+    "overideDeviceBarcode": "true",
+    "tcpClient": {
+        "host": "",
+        "port": 0
+    }
 }
