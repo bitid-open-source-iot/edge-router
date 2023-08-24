@@ -122,7 +122,58 @@
 
         </section>
 
-        <div formGroupName="server">
+        <section>
+            <mat-form-field appearance="outline">
+                <mat-label>
+                    COMMUNICATIONS OPTION
+                </mat-label>
+
+                <mat-select placeholder="commsOption" formControlName="commsOption">
+                    <mat-option value="0">
+                        MQTT
+                    </mat-option>
+                    <mat-option value="1">
+                        TCPCLIENT
+                    </mat-option>
+                </mat-select>
+
+                <mat-error *ngIf="errors.commsOption">
+                    {{ errors.commsOption }}
+                </mat-error>
+            </mat-form-field>
+        </section>
+
+        <div formGroupName="tcpClient" *ngIf="commsOptionSelected == '1'">
+            <section>
+                <mat-form-field appearance="outline">
+                    <mat-label>
+                        host
+                    </mat-label>
+
+                    <input matInput type="text" placeholder="host" formControlName="host" required>
+
+                    <mat-error *ngIf="errors.tcpClient.host">
+                        {{ errors.tcpClient.host }}
+                    </mat-error>
+                </mat-form-field>
+            </section>
+            <section>
+                <mat-form-field appearance="outline">
+                    <mat-label>
+                        port
+                    </mat-label>
+
+                    <input matInput type="number" placeholder="port" formControlName="port" required>
+
+                    <mat-error *ngIf="errors.tcpClient.port">
+                        {{ errors.tcpClient.port }}
+                    </mat-error>
+                </mat-form-field>
+            </section>
+        </div>
+
+
+        <div formGroupName="server" *ngIf="commsOptionSelected == '0'">
             <section>
                 <mat-form-field appearance="outline">
                     <mat-label>

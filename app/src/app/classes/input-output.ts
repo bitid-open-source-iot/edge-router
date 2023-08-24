@@ -85,6 +85,7 @@ export class InputOutput {
     public description: string = '';
     public cofs: number = -1;
     public command: string = '';
+    public rtuId: number = 0;
 
     constructor(args?: INPUT_OUTPUT) {
         if (typeof (args) != 'undefined' && args != null) {
@@ -178,6 +179,11 @@ export class InputOutput {
             if (typeof (args.register) != 'undefined' && args.register != null) {
                 this.register = args.register;
             };
+
+            if (typeof (args.rtuId) != 'undefined' && args.rtuId != null) {
+                this.rtuId = args.rtuId;
+            };
+
             if (typeof (args.moduleId) != 'undefined' && args.moduleId != null) {
                 this.moduleId = args.moduleId;
             };

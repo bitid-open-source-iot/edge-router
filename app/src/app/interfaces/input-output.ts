@@ -46,4 +46,5 @@ export interface INPUT_OUTPUT {
     description?: string;
     cofs?: number;
     command?: string;
+    rtuId?: number;
 }

@@ -97,7 +97,8 @@ export class InputOutputDialog implements OnInit, OnDestroy {
         interface: new FormControl(this.config.io?.interface),
         writeable: new FormControl(this.config.io?.writeable),
         description: new FormControl(this.config.io?.description, [Validators.required]),
-        cofs: new FormControl(this.config.io?.cofs)
+        cofs: new FormControl(this.config.io?.cofs),
+        rtuId: new FormControl(this.config.io?.rtuId)
     });
     public errors: any = {
         scaling: {
@@ -144,7 +145,8 @@ export class InputOutputDialog implements OnInit, OnDestroy {
         writeable: '',
         description: '',
         cofs: '',
-        command: ''
+        command: '',
+        rtuId: ''
     };
     public registers: string[] = [
         'hr2',
@@ -202,6 +204,7 @@ export class InputOutputDialog implements OnInit, OnDestroy {
         this.keys = this.keys.sort();
 
         switch (this.type) {
+            case ('tcpClient'):
             case ('modbus'):
                 this.form.controls['register'].setValidators([Validators.required]);
                 this.form.controls['register'].updateValueAndValidity();

@@ -65,6 +65,7 @@ var module = function () {
 
                 try {
                     args.result = [{
+                        commsOption: __settings.commsOption || "0",
                         overideDeviceBarcode: __settings.overideDeviceBarcode || "true",
                         barcode: __settings.barcode,
                         deviceId: __settings.deviceId,
@@ -74,6 +75,8 @@ var module = function () {
                         publishEnabled: __settings.publishEnabled,
                         host: __settings.server.host,
                         port: __settings.server.port,
+                        tcpClientHost: __settings?.tcpClient?.host,
+                        tcpClientPort: __settings?.tcpClient?.port,
                         username: __settings.server.username,
                         password: __settings.server.password,
                         dataTopic: __settings.server.subscribe.data,
@@ -109,6 +112,7 @@ var module = function () {
                     args.result = {
                         n: 0
                     };
+                    __settings.commsOption = args.req.body.commsOption || '0'
                     __settings.overideDeviceBarcode = args.req.body.overideDeviceBarcode || 'true'
                     __settings.barcode = args.req.body.barcode || '0'
                     __settings.deviceId = args.req.body.deviceId || '0'
@@ -118,6 +122,16 @@ var module = function () {
                     __settings.publishEnabled = args.req.body.publishEnabled
                     __settings.server.host = args.req.body.host || ''
                     __settings.server.port = args.req.body.port || 1888
+
+                    if(!__settings.tcpClient){
+                        __settings.tcpClient = {
+                            host: '',
+                            port: 0
+                        }    
+                    }
+                    __settings.tcpClient.host = args.req.body.tcpClientHost || ''
+                    __settings.tcpClient.port = args.req.body.tcpClientPort || 0
+
                     __settings.server.username = args.req.body.username || ''
                     __settings.server.password = args.req.body.password || ''
                     __settings.server.subscribe.data = args.req.body.dataTopic || ''
@@ -344,6 +358,8 @@ var module = function () {
                             io: args.req.body.io,
                             ip: args.req.body.ip,
                             port: args.req.body.port,
+                            softwareIp: args.req.body.softwareIp,
+                            softwarePort: args.req.body.softwarePort,
                             type: args.req.body.type,
                             txtime: args.req.body.txtime,
                             pxtime: args.req.body.pxtime,
@@ -363,6 +379,8 @@ var module = function () {
                                 io: o.io,
                                 ip: o.ip,
                                 port: o.port,
+                                softwareIp: o.softwareIp,
+                                softwarePort: o.softwarePort,
                                 type: o.type,
                                 txtime: o.txtime,
                                 pxtime: o.pxtime,
@@ -502,6 +520,8 @@ var module = function () {
                             io: o.io,
                             ip: o.ip,
                             port: o.port,
+                            softwareIp: o.softwareIp,
+                            softwarePort: o.softwarePort,
                             type: o.type,
                             txtime: o.txtime,
                             pxtime: o.pxtime,

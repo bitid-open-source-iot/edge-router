@@ -21,6 +21,7 @@ module.exports = class extends EventEmitter {
         this.deviceId = args.deviceId;
         this.id = args.id;
         this.lastConnection = new Date();
+        this.publish = args.publish || false;
 
         this.io.map(item=>{
             if(item.key == 'commsStatus'){

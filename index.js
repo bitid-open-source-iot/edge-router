@@ -3,7 +3,6 @@ const cors = require('cors');
 const http = require('http');
 const chalk = require('chalk');
 const express = require('express');
-// const COFS = require('./lib/cofs');
 const scaling = require('./lib/scaling');
 const WebSocket = require('./lib/socket').WebSocket;
 const responder = require('./lib/responder');
@@ -16,9 +15,10 @@ const HOSTAGENT = require('./devices/hostAgent');
 const EdgeRouter = require('./devices/edge-router');
 const ProgrammableLogicController = require('./devices/programmable-logic-controller');
 const KGATEWAY = require('./devices/kGateway')
+const TcpServerDevice = require('./devices/tcpSvrDevice');
+const TcpClientDevice = require('./devices/tcpClientDevice');
+
 const BitMask = require('./lib/bit-mask');
-const { async } = require('q');
-const { resolve } = require('path');
 
 
 global.__base = __dirname + '/';
@@ -30,8 +30,6 @@ global.__settings = require('./config.json');
 global.__responder = responder.module();
 global.__byteLen = 0
 global.__arrPublisher = []
-
-// const cofs = new COFS('story1')
 
 var dataIn = {
     'AI1': 0,
@@ -67,11 +65,11 @@ var dataIn = {
 }
 
 global.__routerStatus = [
-    {
-        'device': {},
-        'moduleId': 0,
-        'dataIn': { ...dataIn }
-    }
+    // {
+    //     'device': {},
+    //     'moduleId': 0,
+    //     'dataIn': { ...dataIn }
+    // }
 ];
 
 try {
@@ -263,35 +261,61 @@ try {
                 })
 
                 __settings.devices.filter(o => o.enabled).map(o => {
-                    switch (o.type) {
-                        case ('modbus'):
-                            var device = new Modbus(o);
-                            device.on('change', async event => await __router.updateDeviceInputsThenActionMapping(device.id, event));
-                            __devices.push(device);
-                            break;
-                        case ('hostAgent'):
-                            var device = new HOSTAGENT(o);
-                            device.on('change', async event => await __router.updateDeviceInputsThenActionMapping(device.id, event));
-                            __devices.push(device);
-                            break;
-                        case ('kGateway'):
-                            var device = new KGATEWAY(o);
-                            __devices.push(device);
-                            break;
-                        case ('external'):
-                            var device = new External(o);
-                            device.on('commsStatus', event => __router.updateDeviceInputsThenActionMapping(device.id, event));                            // device.on('commsStatus', event => __router.updateExternalCommsStatus(device.deviceId, event));
-                            __devices.push(device);
-                            break;
-                        case ('programmable-logic-controller'):
-                            var device = new ProgrammableLogicController(o);
-                            device.on('change', event => __router.updateDeviceInputsThenActionMapping(device.id, event));
-                            __devices.push(device);
-                            break;
-                        default:
-                            __logger.warn('Device Type Not Found!')
-                            break;
-                    };
+                    try{
+                        switch (o.type) {
+                            case ('tcpClient'):
+                                var device = new TcpClientDevice(o);
+                                device.on('change', async event => await __router.updateDeviceInputsThenActionMapping(device.id, event));
+                                device.on('data', async (event) => {
+                                    __socket.send('devices:data', {
+                                        data: device.values,
+                                        id: device.id
+                                    });
+                                });
+                                __devices.push(device);
+                                break;
+                            case ('tcpServer'):
+                                var device = new TcpServerDevice(o);
+                                // device.on('change', async event => await __router.updateDeviceInputsThenActionMapping(device.id, event));
+                                // __devices.push(device);
+                                break;
+                            case ('modbus'):
+                                var device = new Modbus(o);
+                                device.on('change', async event => await __router.updateDeviceInputsThenActionMapping(device.id, event));
+                                __devices.push(device);
+                                break;
+                            case ('hostAgent'):
+                                var device = new HOSTAGENT(o);
+                                device.on('change', async event => await __router.updateDeviceInputsThenActionMapping(device.id, event));
+                                __devices.push(device);
+                                break;
+                            case ('kGateway'):
+                                var device = new KGATEWAY(o);
+                                __devices.push(device);
+                                break;
+                            case ('external'):
+                                var device = new External(o);
+                                device.on('commsStatus', event => __router.updateDeviceInputsThenActionMapping(device.id, event));                            // device.on('commsStatus', event => __router.updateExternalCommsStatus(device.deviceId, event));
+                                __devices.push(device);
+                                break;
+                            case ('programmable-logic-controller'):
+                                var device = new ProgrammableLogicController(o);
+                                device.on('change', event => __router.updateDeviceInputsThenActionMapping(device.id, event));
+                                device.on('data', async (event) => {
+                                    __socket.send('devices:data', {
+                                        data: device.values,
+                                        id: device.id
+                                    });
+                                });
+                                __devices.push(device);
+                                break;
+                            default:
+                                __logger.warn('Device Type Not Found!')
+                                break;
+                        };
+                    }catch(e){
+                        console.log(e)
+                    }
                 });
 
 
@@ -383,18 +407,12 @@ try {
                 //     )
                 // }, 30000)
 
-
-
-
-
                 __router.on('control', async event => {
                     var deferred = Q.defer()
 
 
                     let validDevice = __devices.find(o => o.deviceId == event?.rtuId)
                     if (validDevice) {
-                        // __logger.info(`external data: ${JSON.stringify(event)}`)
-
                         __devices.reduce((promise, device) => {
                             return promise.then(async () => {
                                 var deferred = Q.defer()
@@ -403,12 +421,10 @@ try {
                                     var data = [];
                                     var found = false;
 
-
                                     await device.io.reduce((promise, input) => {
                                         return promise.then(async () => {
                                             var deferred = Q.defer()
                                             if (input.moduleId == event.moduleId) {
-                                                // console.log(input.key)
                                                 found = true;
                                                 var tmp
 
@@ -468,7 +484,6 @@ try {
                                                     }
                                                 }
 
-
                                                 data.push(tmp);
                                                 deferred.resolve(data)
                                             } else {
@@ -476,7 +491,6 @@ try {
                                             }
 
                                             return deferred.promise
-
                                         })
 
                                     }, Promise.resolve())
@@ -487,13 +501,11 @@ try {
                                                     deviceId: device.deviceId
                                                 });
                                             };
-
                                             deferred.resolve({})
                                         })
                                         .then(async () => {
                                             await __router.mapping(event.rtuId, data)
                                         })
-
                                 };
 
                                 deferred.resolve()
@@ -508,22 +520,15 @@ try {
                     }
 
                     return deferred.promise
-
-
-
-
                 });
 
                 deferred.resolve();
             } catch (error) {
                 deferred.reject(error);
             };
-
             return deferred.promise;
         },
     };
-
-
     portal.init();
 } catch (error) {
     console.log('The following error has occurred: ', error.message);

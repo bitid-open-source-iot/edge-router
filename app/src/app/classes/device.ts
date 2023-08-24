@@ -6,6 +6,8 @@ export class Device {
     public io: InputOutput[] = [];
     public ip: string = '';
     public port: number = 0;
+    public softwareIp: string = '';
+    public softwarePort: number = 0;
     public type: 'modbus' | 'external' | 'programmable-logic-controller' | 'hostAgent' = 'modbus';
     public txtime: number = 5;
     public pxtime: number = 5;
@@ -36,6 +38,14 @@ export class Device {
             if (typeof (args.port) != 'undefined' && args.port != null) {
                 this.port = args.port;
             }
+
+            if (typeof (args.softwareIp) != 'undefined' && args.softwareIp != null) {
+                this.softwareIp = args.softwareIp;
+            }
+            if (typeof (args.softwarePort) != 'undefined' && args.softwarePort != null) {
+                this.softwarePort = args.softwarePort;
+            }
+
             if (typeof (args.type) != 'undefined' && args.type != null) {
                 this.type = args.type;
             }
@@ -87,6 +97,8 @@ interface DEVICE {
     io: InputOutput[];
     ip: string;
     port: number;
+    softwareIp: string;
+    softwarePort: number;
     type: 'modbus' | 'external' | 'programmable-logic-controller' | 'hostAgent';
     txtime: number;
     pxtime: number;
