@@ -61,11 +61,11 @@ module.exports = class extends EventEmitter {
 
         this.sendOnce = true
 
-        if (__settings.commsOption == '0') {
+        // if (__settings.commsOption == '0') {
             this.connectMQTT();
-        } else {
-            this.connectTCPClient();
-        }
+        // } else {
+        //     this.connectTCPClient();
+        // }
 
         this.init()
     }
@@ -150,7 +150,7 @@ module.exports = class extends EventEmitter {
 
                     try {
                         for (const input of inputs) {
-                            if (item.source.inputId != input.inputId) {
+                            if (item.source.inputId != input.inputId && item.source.deviceId != deviceId) {
                                 continue;
                             }
 
@@ -162,7 +162,7 @@ module.exports = class extends EventEmitter {
                                 maskSourceValue = input.value;
                             }
 
-                            const device = __devices.find(d => d.deviceId === item.destination.deviceId);
+                            const device = __devices.find(d => d.deviceId === item.destination.deviceId && deviceId == item.source.deviceId);
 
                             if (!device) {
                                 continue;
