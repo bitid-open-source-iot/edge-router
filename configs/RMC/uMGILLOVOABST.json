@@ -1,6 +1,6 @@
 {
     "port": 8080,
-    "txtime": 10,
+    "txtime": 3,
     "barcode": "uMGILLOVOABST",
     "deviceId": "632d78448a0f5177d6b60410",
     "production": true,
@@ -15,8 +15,8 @@
         "username": "telemetry",
         "password": "telemetry1!",
         "subscribe": {
-            "data": "/rock/v1.1/data",
-            "control": "/rock/v1.1/control"
+            "data": "/rock/v1.1.umgenicoastal/data",
+            "control": "/rock/v1.1.umgenicoastal/control"
         }
     },
     "logger": {
@@ -40,6 +40,7 @@
     },
     "devices": [
         {
+            "id": 0,
             "io": [
                 {
                     "scaling": {
@@ -87,7 +88,57 @@
                     "interface": "",
                     "writeable": true,
                     "description": "DigitalsIn from WTW HMI",
-                    "cofs": -1
+                    "cofs": -1,
+                    "command": ""
+                },
+                {
+                    "scaling": {
+                        "raw": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "scaled": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "type": "none"
+                    },
+                    "publish": {
+                        "bit": 0,
+                        "key": "",
+                        "enabled": false,
+                        "moduleId": 0
+                    },
+                    "masking": {
+                        "bit": 0,
+                        "enabled": false
+                    },
+                    "mqtt": {
+                        "userName": "",
+                        "password": "",
+                        "subscribe": {
+                            "data": "",
+                            "control": ""
+                        },
+                        "enabled": false
+                    },
+                    "modbus": {
+                        "isCoil": false,
+                        "isHoldingRegister": false
+                    },
+                    "key": "commsStatus",
+                    "tagId": "",
+                    "value": 1,
+                    "shift": 0,
+                    "inputId": "6371064edf464f59695b7d45",
+                    "register": 0,
+                    "moduleId": 0,
+                    "readable": false,
+                    "interface": "",
+                    "writeable": false,
+                    "description": "WTW Comms Status New",
+                    "cofs": "21",
+                    "command": ""
                 }
             ],
             "ip": "0.0.0.0",
@@ -106,6 +157,7 @@
             "password": ""
         },
         {
+            "id": 1,
             "io": [
                 {
                     "scaling": {
@@ -120,9 +172,9 @@
                         "type": "none"
                     },
                     "publish": {
-                        "bit": -1,
-                        "key": "digitalsIn",
-                        "enabled": true,
+                        "bit": 0,
+                        "key": "",
+                        "enabled": false,
                         "moduleId": 0
                     },
                     "masking": {
@@ -153,7 +205,9 @@
                     "interface": "",
                     "writeable": true,
                     "description": "DO ALL",
-                    "cofs": -1
+                    "cofs": -1,
+                    "command": "",
+                    "rtuId": 0
                 },
                 {
                     "scaling": {
@@ -171,7 +225,8 @@
                         "bit": -1,
                         "key": "digitalsIn",
                         "enabled": true,
-                        "moduleId": 0
+                        "moduleId": 0,
+                        "lastCOFSValue": 29335
                     },
                     "masking": {
                         "bit": 0,
@@ -192,7 +247,7 @@
                     },
                     "key": "",
                     "tagId": "",
-                    "value": 0,
+                    "value": 29399,
                     "shift": -1,
                     "inputId": "633aac49f12d5d0ed4eebb88",
                     "register": 10,
@@ -200,8 +255,10 @@
                     "readable": true,
                     "interface": "",
                     "writeable": false,
-                    "description": "Digitals All From PLC Reg 16",
-                    "cofs": -1
+                    "description": "Digital Inputs Reg10",
+                    "cofs": -1,
+                    "command": "",
+                    "rtuId": 0
                 },
                 {
                     "scaling": {
@@ -216,10 +273,11 @@
                         "type": "none"
                     },
                     "publish": {
-                        "bit": 16,
-                        "key": "digitalsIn",
+                        "bit": -1,
+                        "key": "CI7",
                         "enabled": true,
-                        "moduleId": 0
+                        "moduleId": 0,
+                        "lastCOFSValue": 0
                     },
                     "masking": {
                         "bit": 0,
@@ -248,56 +306,10 @@
                     "readable": true,
                     "interface": "",
                     "writeable": false,
-                    "description": "Telemetry Pump 1 Active",
-                    "cofs": -1
-                },
-                {
-                    "scaling": {
-                        "raw": {
-                            "low": 0,
-                            "high": 0
-                        },
-                        "scaled": {
-                            "low": 0,
-                            "high": 0
-                        },
-                        "type": "none"
-                    },
-                    "publish": {
-                        "bit": 17,
-                        "key": "digitalsIn",
-                        "enabled": true,
-                        "moduleId": 0
-                    },
-                    "masking": {
-                        "bit": 0,
-                        "enabled": false
-                    },
-                    "mqtt": {
-                        "userName": "",
-                        "password": "",
-                        "subscribe": {
-                            "data": "",
-                            "control": ""
-                        },
-                        "enabled": false
-                    },
-                    "modbus": {
-                        "isCoil": false,
-                        "isHoldingRegister": true
-                    },
-                    "key": "",
-                    "tagId": "",
-                    "value": 0,
-                    "shift": -1,
-                    "inputId": "633aad9353f9f62bf929dbc2",
-                    "register": 11,
-                    "moduleId": 0,
-                    "readable": true,
-                    "interface": "",
-                    "writeable": false,
-                    "description": "Telemetry Pump 2 Active",
-                    "cofs": -1
+                    "description": "Digital Inputs Reg11",
+                    "cofs": -1,
+                    "command": "",
+                    "rtuId": 0
                 },
                 {
                     "scaling": {
@@ -315,7 +327,8 @@
                         "bit": 1,
                         "key": "AI1",
                         "enabled": true,
-                        "moduleId": 0
+                        "moduleId": 0,
+                        "lastCOFSValue": 62
                     },
                     "masking": {
                         "bit": 0,
@@ -336,7 +349,7 @@
                     },
                     "key": "",
                     "tagId": "",
-                    "value": 0,
+                    "value": 62,
                     "shift": -1,
                     "inputId": "633aae28a7c68d96ead0ab5a",
                     "register": 16,
@@ -345,7 +358,9 @@
                     "interface": "",
                     "writeable": false,
                     "description": "Delivery Pressure PV",
-                    "cofs": -1
+                    "cofs": "100",
+                    "command": "",
+                    "rtuId": 0
                 },
                 {
                     "scaling": {
@@ -363,7 +378,8 @@
                         "bit": 1,
                         "key": "AI2",
                         "enabled": true,
-                        "moduleId": 0
+                        "moduleId": 0,
+                        "lastCOFSValue": 40
                     },
                     "masking": {
                         "bit": 0,
@@ -384,7 +400,7 @@
                     },
                     "key": "",
                     "tagId": "",
-                    "value": 0,
+                    "value": 40,
                     "shift": -1,
                     "inputId": "633aae3d6dfb63ca57dd6b4a",
                     "register": 17,
@@ -393,7 +409,9 @@
                     "interface": "",
                     "writeable": false,
                     "description": "Delivery Flowmeter PV",
-                    "cofs": -1
+                    "cofs": "100",
+                    "command": "",
+                    "rtuId": 0
                 },
                 {
                     "scaling": {
@@ -411,7 +429,8 @@
                         "bit": 1,
                         "key": "AI3",
                         "enabled": true,
-                        "moduleId": 0
+                        "moduleId": 0,
+                        "lastCOFSValue": 395
                     },
                     "masking": {
                         "bit": 0,
@@ -432,7 +451,7 @@
                     },
                     "key": "",
                     "tagId": "",
-                    "value": 0,
+                    "value": 397,
                     "shift": -1,
                     "inputId": "633aae4dfca991015bd508c6",
                     "register": 18,
@@ -441,7 +460,9 @@
                     "interface": "",
                     "writeable": false,
                     "description": "Pump 1 Runhour Meter",
-                    "cofs": -1
+                    "cofs": -1,
+                    "command": "",
+                    "rtuId": 0
                 },
                 {
                     "scaling": {
@@ -459,7 +480,8 @@
                         "bit": 1,
                         "key": "AI4",
                         "enabled": true,
-                        "moduleId": 0
+                        "moduleId": 0,
+                        "lastCOFSValue": 352
                     },
                     "masking": {
                         "bit": 0,
@@ -480,7 +502,7 @@
                     },
                     "key": "",
                     "tagId": "",
-                    "value": 0,
+                    "value": 356,
                     "shift": -1,
                     "inputId": "633aae5dc1faf016df36f1ee",
                     "register": 19,
@@ -489,7 +511,9 @@
                     "interface": "",
                     "writeable": false,
                     "description": "Pump 2 Runhour Meter",
-                    "cofs": -1
+                    "cofs": -1,
+                    "command": "",
+                    "rtuId": 0
                 },
                 {
                     "scaling": {
@@ -507,7 +531,8 @@
                         "bit": 1,
                         "key": "AIExt1",
                         "enabled": true,
-                        "moduleId": 0
+                        "moduleId": 0,
+                        "lastCOFSValue": 4
                     },
                     "masking": {
                         "bit": 0,
@@ -528,7 +553,7 @@
                     },
                     "key": "",
                     "tagId": "",
-                    "value": 0,
+                    "value": 4,
                     "shift": -1,
                     "inputId": "633aae6c4071c8b02413b770",
                     "register": 20,
@@ -537,7 +562,9 @@
                     "interface": "",
                     "writeable": false,
                     "description": "Pump 1 Start Counts",
-                    "cofs": -1
+                    "cofs": -1,
+                    "command": "",
+                    "rtuId": 0
                 },
                 {
                     "scaling": {
@@ -555,7 +582,8 @@
                         "bit": 1,
                         "key": "AIExt2",
                         "enabled": true,
-                        "moduleId": 0
+                        "moduleId": 0,
+                        "lastCOFSValue": 5
                     },
                     "masking": {
                         "bit": 0,
@@ -576,7 +604,7 @@
                     },
                     "key": "",
                     "tagId": "",
-                    "value": 0,
+                    "value": 5,
                     "shift": -1,
                     "inputId": "633aae7ba05daad03661f152",
                     "register": 21,
@@ -585,7 +613,9 @@
                     "interface": "",
                     "writeable": false,
                     "description": "Pump 2 Start Counts",
-                    "cofs": -1
+                    "cofs": -1,
+                    "command": "",
+                    "rtuId": 0
                 },
                 {
                     "scaling": {
@@ -603,7 +633,8 @@
                         "bit": 1,
                         "key": "AIExt3",
                         "enabled": true,
-                        "moduleId": 0
+                        "moduleId": 0,
+                        "lastCOFSValue": 0
                     },
                     "masking": {
                         "bit": 0,
@@ -624,7 +655,7 @@
                     },
                     "key": "",
                     "tagId": "",
-                    "value": 0,
+                    "value": 2,
                     "shift": -1,
                     "inputId": "633aae8a9492537981c797bd",
                     "register": 22,
@@ -633,7 +664,9 @@
                     "interface": "",
                     "writeable": false,
                     "description": "Pump 1 Status",
-                    "cofs": -1
+                    "cofs": -1,
+                    "command": "",
+                    "rtuId": 0
                 },
                 {
                     "scaling": {
@@ -651,7 +684,8 @@
                         "bit": 1,
                         "key": "AIExt4",
                         "enabled": true,
-                        "moduleId": 0
+                        "moduleId": 0,
+                        "lastCOFSValue": 0
                     },
                     "masking": {
                         "bit": 0,
@@ -672,7 +706,7 @@
                     },
                     "key": "",
                     "tagId": "",
-                    "value": 0,
+                    "value": 2,
                     "shift": -1,
                     "inputId": "633aaea6166323695a14977c",
                     "register": 23,
@@ -681,7 +715,9 @@
                     "interface": "",
                     "writeable": false,
                     "description": "Pump 2 Status",
-                    "cofs": -1
+                    "cofs": -1,
+                    "command": "",
+                    "rtuId": 0
                 },
                 {
                     "scaling": {
@@ -729,21 +765,440 @@
                     "interface": "",
                     "writeable": true,
                     "description": "Telemetry Signals - Local from WTW",
-                    "cofs": -1
+                    "cofs": -1,
+                    "command": "",
+                    "rtuId": 0
+                },
+                {
+                    "scaling": {
+                        "raw": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "scaled": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "type": "none"
+                    },
+                    "publish": {
+                        "bit": 0,
+                        "key": "",
+                        "enabled": false,
+                        "moduleId": 0
+                    },
+                    "masking": {
+                        "bit": 0,
+                        "enabled": false
+                    },
+                    "mqtt": {
+                        "userName": "",
+                        "password": "",
+                        "subscribe": {
+                            "data": "",
+                            "control": ""
+                        },
+                        "enabled": false
+                    },
+                    "modbus": {
+                        "isCoil": false,
+                        "isHoldingRegister": true
+                    },
+                    "key": "",
+                    "tagId": "",
+                    "value": 0,
+                    "shift": -1,
+                    "inputId": "634a9c65df55171c08be26ca",
+                    "register": 110,
+                    "moduleId": 0,
+                    "readable": true,
+                    "interface": "",
+                    "writeable": true,
+                    "description": "Telemetry Signals - Local from High Lift",
+                    "cofs": -1,
+                    "command": "",
+                    "rtuId": 0
+                },
+                {
+                    "scaling": {
+                        "raw": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "scaled": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "type": "none"
+                    },
+                    "publish": {
+                        "bit": 0,
+                        "key": "",
+                        "enabled": false,
+                        "moduleId": 0
+                    },
+                    "masking": {
+                        "bit": 0,
+                        "enabled": false
+                    },
+                    "mqtt": {
+                        "userName": "",
+                        "password": "",
+                        "subscribe": {
+                            "data": "",
+                            "control": ""
+                        },
+                        "enabled": false
+                    },
+                    "modbus": {
+                        "isCoil": false,
+                        "isHoldingRegister": true
+                    },
+                    "key": "",
+                    "tagId": "",
+                    "value": 93,
+                    "shift": -1,
+                    "inputId": "636e219924caf2553673467c",
+                    "register": 100,
+                    "moduleId": 0,
+                    "readable": true,
+                    "interface": "",
+                    "writeable": true,
+                    "description": "Telemetry Signals - Local Res Level AI1 from High Lift",
+                    "cofs": -1,
+                    "command": "",
+                    "rtuId": 0
+                },
+                {
+                    "scaling": {
+                        "raw": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "scaled": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "type": "none"
+                    },
+                    "publish": {
+                        "bit": 0,
+                        "key": "",
+                        "enabled": false,
+                        "moduleId": 0
+                    },
+                    "masking": {
+                        "bit": 0,
+                        "enabled": false
+                    },
+                    "mqtt": {
+                        "userName": "",
+                        "password": "",
+                        "subscribe": {
+                            "data": "",
+                            "control": ""
+                        },
+                        "enabled": false
+                    },
+                    "modbus": {
+                        "isCoil": false,
+                        "isHoldingRegister": true
+                    },
+                    "key": "",
+                    "tagId": "",
+                    "value": 0,
+                    "shift": -1,
+                    "inputId": "637106a53fd2acf917f0f76a",
+                    "register": 33,
+                    "moduleId": 0,
+                    "readable": true,
+                    "interface": "",
+                    "writeable": true,
+                    "description": "WTW Comms Status New",
+                    "cofs": -1,
+                    "command": "",
+                    "rtuId": 0
+                },
+                {
+                    "scaling": {
+                        "raw": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "scaled": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "type": "none"
+                    },
+                    "publish": {
+                        "bit": 0,
+                        "key": "",
+                        "enabled": false,
+                        "moduleId": 0
+                    },
+                    "masking": {
+                        "bit": 0,
+                        "enabled": false
+                    },
+                    "mqtt": {
+                        "userName": "",
+                        "password": "",
+                        "subscribe": {
+                            "data": "",
+                            "control": ""
+                        },
+                        "enabled": false
+                    },
+                    "modbus": {
+                        "isCoil": false,
+                        "isHoldingRegister": true
+                    },
+                    "key": "",
+                    "tagId": "",
+                    "value": 1,
+                    "shift": -1,
+                    "inputId": "637106c2be1172d8d300b495",
+                    "register": 32,
+                    "moduleId": 0,
+                    "readable": true,
+                    "interface": "",
+                    "writeable": true,
+                    "description": "High Lift Comms Status New",
+                    "cofs": -1,
+                    "command": "",
+                    "rtuId": 0
+                },
+                {
+                    "scaling": {
+                        "raw": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "scaled": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "type": "none"
+                    },
+                    "publish": {
+                        "bit": 1,
+                        "key": "AIExt5",
+                        "enabled": true,
+                        "moduleId": 0,
+                        "lastCOFSValue": 95
+                    },
+                    "masking": {
+                        "bit": 0,
+                        "enabled": false
+                    },
+                    "mqtt": {
+                        "userName": "",
+                        "password": "",
+                        "subscribe": {
+                            "data": "",
+                            "control": ""
+                        },
+                        "enabled": false
+                    },
+                    "modbus": {
+                        "isCoil": false,
+                        "isHoldingRegister": true
+                    },
+                    "key": "",
+                    "tagId": "",
+                    "value": 95,
+                    "shift": -1,
+                    "inputId": "64ef70ab1dcbf48dd44aceac",
+                    "register": 24,
+                    "moduleId": 0,
+                    "readable": true,
+                    "interface": "",
+                    "writeable": false,
+                    "description": "Totalized Flow",
+                    "cofs": -1,
+                    "command": "",
+                    "rtuId": 0
                 }
             ],
-            "ip": "192.168.1.127",
-            "port": 5002,
+            "ip": "192.168.1.11",
+            "port": 502,
             "type": "modbus",
             "txtime": 1,
             "pxtime": 120,
             "timeout": 900,
-            "barcode": "0",
+            "barcode": "uMGILLOVOABST",
             "publish": true,
             "enabled": true,
             "unitId": 0,
-            "deviceId": "000000000000000000876877",
+            "deviceId": "632d78448a0f5177d6b60410",
             "description": "ABSTRACTION MODBUS PLC",
+            "userName": "",
+            "password": ""
+        },
+        {
+            "id": 2,
+            "io": [
+                {
+                    "scaling": {
+                        "raw": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "scaled": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "type": "none"
+                    },
+                    "publish": {
+                        "bit": 0,
+                        "key": "",
+                        "enabled": false,
+                        "moduleId": 0
+                    },
+                    "masking": {
+                        "bit": 0,
+                        "enabled": false
+                    },
+                    "mqtt": {
+                        "userName": "",
+                        "password": "",
+                        "subscribe": {
+                            "data": "",
+                            "control": ""
+                        },
+                        "enabled": false
+                    },
+                    "modbus": {
+                        "isCoil": false,
+                        "isHoldingRegister": false
+                    },
+                    "key": "digitalsIn",
+                    "tagId": "",
+                    "value": 20503,
+                    "shift": 0,
+                    "inputId": "621f4416b997f5a6c4d68107",
+                    "register": 0,
+                    "moduleId": 0,
+                    "readable": true,
+                    "interface": "",
+                    "writeable": true,
+                    "description": "DigitalsIn from High-Lift PLC",
+                    "cofs": -1,
+                    "command": ""
+                },
+                {
+                    "scaling": {
+                        "raw": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "scaled": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "type": "none"
+                    },
+                    "publish": {
+                        "bit": 0,
+                        "key": "",
+                        "enabled": false,
+                        "moduleId": 0
+                    },
+                    "masking": {
+                        "bit": 0,
+                        "enabled": false
+                    },
+                    "mqtt": {
+                        "userName": "",
+                        "password": "",
+                        "subscribe": {
+                            "data": "",
+                            "control": ""
+                        },
+                        "enabled": false
+                    },
+                    "modbus": {
+                        "isCoil": false,
+                        "isHoldingRegister": false
+                    },
+                    "key": "AI1",
+                    "tagId": "",
+                    "value": 93,
+                    "shift": 0,
+                    "inputId": "636e2115e96fa3ab27a676a3",
+                    "register": 0,
+                    "moduleId": 0,
+                    "readable": true,
+                    "interface": "",
+                    "writeable": true,
+                    "description": "HLPS Reservoir Level AI1",
+                    "cofs": -1,
+                    "command": ""
+                },
+                {
+                    "scaling": {
+                        "raw": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "scaled": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "type": "none"
+                    },
+                    "publish": {
+                        "bit": 0,
+                        "key": "",
+                        "enabled": false,
+                        "moduleId": 0
+                    },
+                    "masking": {
+                        "bit": 0,
+                        "enabled": false
+                    },
+                    "mqtt": {
+                        "userName": "",
+                        "password": "",
+                        "subscribe": {
+                            "data": "",
+                            "control": ""
+                        },
+                        "enabled": false
+                    },
+                    "modbus": {
+                        "isCoil": false,
+                        "isHoldingRegister": false
+                    },
+                    "key": "commsStatus",
+                    "tagId": "",
+                    "value": 1,
+                    "shift": 0,
+                    "inputId": "6371067214638d00b9248048",
+                    "register": 0,
+                    "moduleId": 0,
+                    "readable": false,
+                    "interface": "",
+                    "writeable": false,
+                    "description": "High Lift Comms Status New",
+                    "cofs": "21",
+                    "command": ""
+                }
+            ],
+            "ip": "0.0.0.0",
+            "port": 0,
+            "type": "external",
+            "txtime": 5,
+            "pxtime": 120,
+            "timeout": 900,
+            "barcode": "uMGILLOVOHLPS",
+            "publish": false,
+            "enabled": true,
+            "unitId": 1,
+            "deviceId": "632d79d88a0f5177d6b60488",
+            "description": "External - High Lift",
             "userName": "",
             "password": ""
         }
@@ -759,11 +1214,71 @@
             "destination": {
                 "mask": -1,
                 "inputId": "633ab31eeb2682341270e17a",
-                "deviceId": "000000000000000000876877",
+                "deviceId": "632d78448a0f5177d6b60410",
                 "destinationRegister": 30
+            }
+        },
+        {
+            "mapId": "634b07ec9b4e54d3984e607f",
+            "source": {
+                "mask": -1,
+                "inputId": "621f4416b997f5a6c4d68107",
+                "deviceId": "632d79d88a0f5177d6b60488"
+            },
+            "destination": {
+                "mask": -1,
+                "inputId": "634a9c65df55171c08be26ca",
+                "deviceId": "632d78448a0f5177d6b60410",
+                "destinationRegister": 110
+            }
+        },
+        {
+            "mapId": "636e8cfad94c253bfb87632e",
+            "source": {
+                "mask": -1,
+                "inputId": "636e2115e96fa3ab27a676a3",
+                "deviceId": "632d79d88a0f5177d6b60488"
+            },
+            "destination": {
+                "mask": -1,
+                "inputId": "636e219924caf2553673467c",
+                "deviceId": "632d78448a0f5177d6b60410",
+                "destinationRegister": 100
+            }
+        },
+        {
+            "mapId": "637172130f103d9b80e30a5e",
+            "source": {
+                "mask": -1,
+                "inputId": "6371064edf464f59695b7d45",
+                "deviceId": "632d79f58a0f5177d6b60494"
+            },
+            "destination": {
+                "mask": -1,
+                "inputId": "637106c2be1172d8d300b495",
+                "deviceId": "632d78448a0f5177d6b60410",
+                "destinationRegister": 32
+            }
+        },
+        {
+            "mapId": "637172232bd9d4df2a4f31a7",
+            "source": {
+                "mask": -1,
+                "inputId": "6371067214638d00b9248048",
+                "deviceId": "632d79d88a0f5177d6b60488"
+            },
+            "destination": {
+                "mask": -1,
+                "inputId": "637106c2be1172d8d300b495",
+                "deviceId": "632d78448a0f5177d6b60410",
+                "destinationRegister": 32
             }
         }
     ],
     "apn": "tech5",
-    "publishEnabled": true
+    "publishEnabled": true,
+    "rateLimits": {
+        "rateLimitTmrSP": 60,
+        "rateLimitTxCountSP": 60
+    }
 }

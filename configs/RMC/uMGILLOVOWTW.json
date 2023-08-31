@@ -40,6 +40,7 @@
     },
     "devices": [
         {
+            "id": 0,
             "io": [
                 {
                     "scaling": {
@@ -78,7 +79,7 @@
                     },
                     "key": "digitalsIn",
                     "tagId": "",
-                    "value": 29313,
+                    "value": 29333,
                     "shift": 0,
                     "inputId": "721f4416b997f5a6c4d68107",
                     "register": 0,
@@ -87,7 +88,9 @@
                     "interface": "",
                     "writeable": true,
                     "description": "DigitalsIn from Abstraction - LSB",
-                    "cofs": -1
+                    "cofs": -1,
+                    "command": "",
+                    "rtuId": 0
                 },
                 {
                     "scaling": {
@@ -126,7 +129,7 @@
                     },
                     "key": "AI1",
                     "tagId": "",
-                    "value": 72,
+                    "value": 62,
                     "shift": 0,
                     "inputId": "733abfc88e271370f0674964",
                     "register": 0,
@@ -135,7 +138,9 @@
                     "interface": "",
                     "writeable": true,
                     "description": "AI1 from Abstraction - Delivery Pressure PV",
-                    "cofs": -1
+                    "cofs": -1,
+                    "command": "",
+                    "rtuId": 0
                 },
                 {
                     "scaling": {
@@ -174,7 +179,7 @@
                     },
                     "key": "AI2",
                     "tagId": "",
-                    "value": 356,
+                    "value": 0,
                     "shift": 0,
                     "inputId": "733abfdd77faba11856aaa94",
                     "register": 0,
@@ -183,7 +188,9 @@
                     "interface": "",
                     "writeable": true,
                     "description": "AI2 from Abstraction - Delivery Flowmeter PV",
-                    "cofs": -1
+                    "cofs": -1,
+                    "command": "",
+                    "rtuId": 0
                 },
                 {
                     "scaling": {
@@ -222,7 +229,7 @@
                     },
                     "key": "AI3",
                     "tagId": "",
-                    "value": 393,
+                    "value": 395,
                     "shift": 0,
                     "inputId": "733abfee554cd8d18889172f",
                     "register": 0,
@@ -231,7 +238,9 @@
                     "interface": "",
                     "writeable": true,
                     "description": "AI3 from Abstraction - Pump 1 Runhour Meter",
-                    "cofs": -1
+                    "cofs": -1,
+                    "command": "",
+                    "rtuId": 0
                 },
                 {
                     "scaling": {
@@ -270,7 +279,7 @@
                     },
                     "key": "AI4",
                     "tagId": "",
-                    "value": 351,
+                    "value": 352,
                     "shift": 0,
                     "inputId": "733abffab3ac98a1bdbc4e7d",
                     "register": 0,
@@ -279,7 +288,9 @@
                     "interface": "",
                     "writeable": true,
                     "description": "AI4 from Abstraction - Pump 2 Runhour Meter",
-                    "cofs": -1
+                    "cofs": -1,
+                    "command": "",
+                    "rtuId": 0
                 },
                 {
                     "scaling": {
@@ -318,7 +329,7 @@
                     },
                     "key": "AIExt1",
                     "tagId": "",
-                    "value": 0,
+                    "value": 4,
                     "shift": 0,
                     "inputId": "733ac009eed502d248c94b3d",
                     "register": 0,
@@ -327,7 +338,9 @@
                     "interface": "",
                     "writeable": true,
                     "description": "AIExt1 from Abstraction - Pump 1 Start Counts",
-                    "cofs": -1
+                    "cofs": -1,
+                    "command": "",
+                    "rtuId": 0
                 },
                 {
                     "scaling": {
@@ -366,7 +379,7 @@
                     },
                     "key": "AIExt2",
                     "tagId": "",
-                    "value": 0,
+                    "value": 5,
                     "shift": 0,
                     "inputId": "733ac0191a0da80101d7fe88",
                     "register": 0,
@@ -375,7 +388,9 @@
                     "interface": "",
                     "writeable": true,
                     "description": "AIExt2 from Abstraction - Pump 2 Start Counts",
-                    "cofs": -1
+                    "cofs": -1,
+                    "command": "",
+                    "rtuId": 0
                 },
                 {
                     "scaling": {
@@ -414,7 +429,7 @@
                     },
                     "key": "AIExt3",
                     "tagId": "",
-                    "value": 2,
+                    "value": 0,
                     "shift": 0,
                     "inputId": "733ac03f1b5b68b39c8fe501",
                     "register": 0,
@@ -423,7 +438,9 @@
                     "interface": "",
                     "writeable": true,
                     "description": "AIExt3 from Abstraction - Pump 1 Status",
-                    "cofs": -1
+                    "cofs": -1,
+                    "command": "",
+                    "rtuId": 0
                 },
                 {
                     "scaling": {
@@ -462,7 +479,7 @@
                     },
                     "key": "AIExt4",
                     "tagId": "",
-                    "value": 2,
+                    "value": 0,
                     "shift": 0,
                     "inputId": "733ac0caa6c82de1041f8d70",
                     "register": 0,
@@ -471,7 +488,9 @@
                     "interface": "",
                     "writeable": true,
                     "description": "AIExt4 from Abstraction - Pump 2 Status",
-                    "cofs": -1
+                    "cofs": -1,
+                    "command": "",
+                    "rtuId": 0
                 },
                 {
                     "scaling": {
@@ -519,7 +538,59 @@
                     "interface": "",
                     "writeable": true,
                     "description": "DigitalsIn from Abstraction - MSB",
-                    "cofs": -1
+                    "cofs": -1,
+                    "command": "",
+                    "rtuId": 0
+                },
+                {
+                    "scaling": {
+                        "raw": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "scaled": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "type": "none"
+                    },
+                    "publish": {
+                        "bit": 0,
+                        "key": "",
+                        "enabled": false,
+                        "moduleId": 0
+                    },
+                    "masking": {
+                        "bit": 0,
+                        "enabled": false
+                    },
+                    "mqtt": {
+                        "userName": "",
+                        "password": "",
+                        "subscribe": {
+                            "data": "",
+                            "control": ""
+                        },
+                        "enabled": false
+                    },
+                    "modbus": {
+                        "isCoil": false,
+                        "isHoldingRegister": false
+                    },
+                    "key": "AIExt5",
+                    "tagId": "",
+                    "value": 95,
+                    "shift": 0,
+                    "inputId": "64ef712eb89fe341f01884b0",
+                    "register": 0,
+                    "moduleId": 0,
+                    "readable": true,
+                    "interface": "",
+                    "writeable": true,
+                    "description": "AIExt5 from Abstraction - Totalised Flow",
+                    "cofs": -1,
+                    "command": "",
+                    "rtuId": 0
                 }
             ],
             "ip": "0.0.0.0",
@@ -535,10 +606,10 @@
             "deviceId": "632d78448a0f5177d6b60410",
             "description": "Abstraction - External",
             "userName": "",
-            "password": "",
-            "id": 0
+            "password": ""
         },
         {
+            "id": 1,
             "io": [
                 {
                     "scaling": {
@@ -585,9 +656,11 @@
                     "moduleId": 0,
                     "readable": true,
                     "interface": "",
-                    "writeable": true,
+                    "writeable": false,
                     "description": "Telemetry Override Command - Abstraction - All Digital Controls",
-                    "cofs": -1
+                    "cofs": "1",
+                    "command": "",
+                    "rtuId": 0
                 },
                 {
                     "scaling": {
@@ -606,7 +679,7 @@
                         "key": "CI8",
                         "enabled": true,
                         "moduleId": 0,
-                        "lastCOFSValue": 9
+                        "lastCOFSValue": 0
                     },
                     "masking": {
                         "bit": 0,
@@ -627,16 +700,18 @@
                     },
                     "key": "",
                     "tagId": "",
-                    "value": 9,
+                    "value": 0,
                     "shift": -1,
                     "inputId": "633abc04fbfb9603a765f50a",
                     "register": 80,
                     "moduleId": 0,
                     "readable": true,
                     "interface": "",
-                    "writeable": true,
+                    "writeable": false,
                     "description": "Telemetry Override Command - High Lift - ALL Digital Controls",
-                    "cofs": -1
+                    "cofs": "1",
+                    "command": "",
+                    "rtuId": 0
                 },
                 {
                     "scaling": {
@@ -684,7 +759,9 @@
                     "interface": "",
                     "writeable": true,
                     "description": "Local - Digitals - Abstraction - Reg 10",
-                    "cofs": -1
+                    "cofs": -1,
+                    "command": "",
+                    "rtuId": 0
                 },
                 {
                     "scaling": {
@@ -732,7 +809,9 @@
                     "interface": "",
                     "writeable": true,
                     "description": "Local - Digitals - Abstraction - Reg 11",
-                    "cofs": -1
+                    "cofs": -1,
+                    "command": "",
+                    "rtuId": 0
                 },
                 {
                     "scaling": {
@@ -771,7 +850,7 @@
                     },
                     "key": "",
                     "tagId": "",
-                    "value": 20480,
+                    "value": 20511,
                     "shift": -1,
                     "inputId": "633ac845bd8e0b4a95b3b1d5",
                     "register": 60,
@@ -780,7 +859,9 @@
                     "interface": "",
                     "writeable": true,
                     "description": "Local - Digitals - High Lift - Reg 60",
-                    "cofs": -1
+                    "cofs": -1,
+                    "command": "",
+                    "rtuId": 0
                 },
                 {
                     "scaling": {
@@ -828,7 +909,9 @@
                     "interface": "",
                     "writeable": true,
                     "description": "Local - Digitals - High Lift - Reg 61",
-                    "cofs": -1
+                    "cofs": -1,
+                    "command": "",
+                    "rtuId": 0
                 },
                 {
                     "scaling": {
@@ -867,7 +950,7 @@
                     },
                     "key": "",
                     "tagId": "",
-                    "value": 72,
+                    "value": 62,
                     "shift": -1,
                     "inputId": "733acbb00fd8f09efd5c6c61",
                     "register": 16,
@@ -876,7 +959,9 @@
                     "interface": "",
                     "writeable": true,
                     "description": "Abstraction - Local - Delivery Pressure PV - AI1",
-                    "cofs": -1
+                    "cofs": -1,
+                    "command": "",
+                    "rtuId": 0
                 },
                 {
                     "scaling": {
@@ -915,7 +1000,7 @@
                     },
                     "key": "",
                     "tagId": "",
-                    "value": 356,
+                    "value": 0,
                     "shift": -1,
                     "inputId": "733acbcbfc871076a9a13d3a",
                     "register": 17,
@@ -924,7 +1009,9 @@
                     "interface": "",
                     "writeable": true,
                     "description": "Abstraction - Local - Delivery Flowmeter PV - AI2",
-                    "cofs": -1
+                    "cofs": -1,
+                    "command": "",
+                    "rtuId": 0
                 },
                 {
                     "scaling": {
@@ -963,7 +1050,7 @@
                     },
                     "key": "",
                     "tagId": "",
-                    "value": 393,
+                    "value": 395,
                     "shift": -1,
                     "inputId": "733acbdd4a38d4d13ac7a3c5",
                     "register": 18,
@@ -972,7 +1059,9 @@
                     "interface": "",
                     "writeable": true,
                     "description": "Abstraction - Local - Pump 1 Runhour Meter - AI3",
-                    "cofs": -1
+                    "cofs": -1,
+                    "command": "",
+                    "rtuId": 0
                 },
                 {
                     "scaling": {
@@ -1011,7 +1100,7 @@
                     },
                     "key": "",
                     "tagId": "",
-                    "value": 351,
+                    "value": 352,
                     "shift": -1,
                     "inputId": "733acbf095fbc148cd425b7d",
                     "register": 19,
@@ -1020,7 +1109,9 @@
                     "interface": "",
                     "writeable": true,
                     "description": "Abstraction - Local - Pump 2 Runhour Meter - AI4",
-                    "cofs": -1
+                    "cofs": -1,
+                    "command": "",
+                    "rtuId": 0
                 },
                 {
                     "scaling": {
@@ -1059,7 +1150,7 @@
                     },
                     "key": "",
                     "tagId": "",
-                    "value": 0,
+                    "value": 4,
                     "shift": -1,
                     "inputId": "733acc08a2f1986b683442d1",
                     "register": 20,
@@ -1068,7 +1159,59 @@
                     "interface": "",
                     "writeable": true,
                     "description": "Abstraction - Local - Pump 1 Start Counts - AIExt1",
-                    "cofs": -1
+                    "cofs": -1,
+                    "command": "",
+                    "rtuId": 0
+                },
+                {
+                    "scaling": {
+                        "raw": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "scaled": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "type": "none"
+                    },
+                    "publish": {
+                        "bit": 0,
+                        "key": "",
+                        "enabled": false,
+                        "moduleId": 0
+                    },
+                    "masking": {
+                        "bit": 0,
+                        "enabled": false
+                    },
+                    "mqtt": {
+                        "userName": "",
+                        "password": "",
+                        "subscribe": {
+                            "data": "",
+                            "control": ""
+                        },
+                        "enabled": false
+                    },
+                    "modbus": {
+                        "isCoil": false,
+                        "isHoldingRegister": true
+                    },
+                    "key": "",
+                    "tagId": "",
+                    "value": 5,
+                    "shift": -1,
+                    "inputId": "733acc16915e5f13ce37161c",
+                    "register": 21,
+                    "moduleId": 0,
+                    "readable": true,
+                    "interface": "",
+                    "writeable": true,
+                    "description": "Abstraction - Local - Pump 2 Start Counts - AIExt2",
+                    "cofs": -1,
+                    "command": "",
+                    "rtuId": 0
                 },
                 {
                     "scaling": {
@@ -1109,54 +1252,6 @@
                     "tagId": "",
                     "value": 0,
                     "shift": -1,
-                    "inputId": "733acc16915e5f13ce37161c",
-                    "register": 21,
-                    "moduleId": 0,
-                    "readable": true,
-                    "interface": "",
-                    "writeable": true,
-                    "description": "Abstraction - Local - Pump 2 Start Counts - AIExt2",
-                    "cofs": -1
-                },
-                {
-                    "scaling": {
-                        "raw": {
-                            "low": 0,
-                            "high": 0
-                        },
-                        "scaled": {
-                            "low": 0,
-                            "high": 0
-                        },
-                        "type": "none"
-                    },
-                    "publish": {
-                        "bit": 0,
-                        "key": "",
-                        "enabled": false,
-                        "moduleId": 0
-                    },
-                    "masking": {
-                        "bit": 0,
-                        "enabled": false
-                    },
-                    "mqtt": {
-                        "userName": "",
-                        "password": "",
-                        "subscribe": {
-                            "data": "",
-                            "control": ""
-                        },
-                        "enabled": false
-                    },
-                    "modbus": {
-                        "isCoil": false,
-                        "isHoldingRegister": true
-                    },
-                    "key": "",
-                    "tagId": "",
-                    "value": 2,
-                    "shift": -1,
                     "inputId": "733acc274c49860148684802",
                     "register": 22,
                     "moduleId": 0,
@@ -1164,7 +1259,9 @@
                     "interface": "",
                     "writeable": true,
                     "description": "Abstraction - Local - Pump 1 Status - AIExt3",
-                    "cofs": -1
+                    "cofs": -1,
+                    "command": "",
+                    "rtuId": 0
                 },
                 {
                     "scaling": {
@@ -1203,7 +1300,7 @@
                     },
                     "key": "",
                     "tagId": "",
-                    "value": 2,
+                    "value": 0,
                     "shift": -1,
                     "inputId": "733acc32e985eb53d66e944b",
                     "register": 23,
@@ -1212,7 +1309,9 @@
                     "interface": "",
                     "writeable": true,
                     "description": "Abstraction - Local - Pump 2 Status - AIExt4",
-                    "cofs": -1
+                    "cofs": -1,
+                    "command": "",
+                    "rtuId": 0
                 },
                 {
                     "scaling": {
@@ -1251,7 +1350,7 @@
                     },
                     "key": "",
                     "tagId": "",
-                    "value": 83,
+                    "value": 66,
                     "shift": -1,
                     "inputId": "633acc70aa269dbda24cf4cc",
                     "register": 65,
@@ -1260,7 +1359,9 @@
                     "interface": "",
                     "writeable": true,
                     "description": "High Lift - Local - Reservoir Level PV - AI1",
-                    "cofs": -1
+                    "cofs": -1,
+                    "command": "",
+                    "rtuId": 0
                 },
                 {
                     "scaling": {
@@ -1299,7 +1400,7 @@
                     },
                     "key": "",
                     "tagId": "",
-                    "value": 88,
+                    "value": 40,
                     "shift": -1,
                     "inputId": "633acc86450a6507916b0f52",
                     "register": 66,
@@ -1308,7 +1409,9 @@
                     "interface": "",
                     "writeable": true,
                     "description": "High Lift - Local - Delivery Pressure PV - AI2",
-                    "cofs": -1
+                    "cofs": -1,
+                    "command": "",
+                    "rtuId": 0
                 },
                 {
                     "scaling": {
@@ -1327,7 +1430,7 @@
                         "key": "AI3",
                         "enabled": true,
                         "moduleId": 0,
-                        "lastCOFSValue": 70
+                        "lastCOFSValue": 0
                     },
                     "masking": {
                         "bit": 0,
@@ -1348,7 +1451,7 @@
                     },
                     "key": "",
                     "tagId": "",
-                    "value": 70,
+                    "value": 0,
                     "shift": -1,
                     "inputId": "633acc9ad8a6d066e13e4d09",
                     "register": 67,
@@ -1357,7 +1460,9 @@
                     "interface": "",
                     "writeable": true,
                     "description": "High Lift - Local - Delivery Flowmeter PV - AI3",
-                    "cofs": -1
+                    "cofs": -1,
+                    "command": "",
+                    "rtuId": 0
                 },
                 {
                     "scaling": {
@@ -1396,7 +1501,7 @@
                     },
                     "key": "",
                     "tagId": "",
-                    "value": 118,
+                    "value": 119,
                     "shift": -1,
                     "inputId": "633accab033b9444686505e2",
                     "register": 68,
@@ -1405,7 +1510,9 @@
                     "interface": "",
                     "writeable": true,
                     "description": "High Lift - Local - Pump 1 Runhour Meter - AI4",
-                    "cofs": -1
+                    "cofs": -1,
+                    "command": "",
+                    "rtuId": 0
                 },
                 {
                     "scaling": {
@@ -1453,7 +1560,9 @@
                     "interface": "",
                     "writeable": true,
                     "description": "High Lift - Local - Pump 2 Runhour Meter - AIExt1",
-                    "cofs": -1
+                    "cofs": -1,
+                    "command": "",
+                    "rtuId": 0
                 },
                 {
                     "scaling": {
@@ -1492,7 +1601,7 @@
                     },
                     "key": "",
                     "tagId": "",
-                    "value": 0,
+                    "value": 10,
                     "shift": -1,
                     "inputId": "633accd74cf668790cafb4f8",
                     "register": 70,
@@ -1501,7 +1610,9 @@
                     "interface": "",
                     "writeable": true,
                     "description": "High Lift - Local - Pump 1 Start Counts - AIExt2",
-                    "cofs": -1
+                    "cofs": -1,
+                    "command": "",
+                    "rtuId": 0
                 },
                 {
                     "scaling": {
@@ -1549,7 +1660,9 @@
                     "interface": "",
                     "writeable": true,
                     "description": "High Lift - Local - Pump 2 Start Counts - AIExt3",
-                    "cofs": -1
+                    "cofs": -1,
+                    "command": "",
+                    "rtuId": 0
                 },
                 {
                     "scaling": {
@@ -1588,7 +1701,7 @@
                     },
                     "key": "",
                     "tagId": "",
-                    "value": 2,
+                    "value": 1,
                     "shift": -1,
                     "inputId": "633accf8176fec9227934836",
                     "register": 72,
@@ -1597,7 +1710,9 @@
                     "interface": "",
                     "writeable": true,
                     "description": "High Lift - Local - Pump 1 Status - AIExt4",
-                    "cofs": -1
+                    "cofs": -1,
+                    "command": "",
+                    "rtuId": 0
                 },
                 {
                     "scaling": {
@@ -1645,26 +1760,130 @@
                     "interface": "",
                     "writeable": true,
                     "description": "High Lift - Local - Pump 2 Status - AIExt5",
-                    "cofs": -1
+                    "cofs": -1,
+                    "command": "",
+                    "rtuId": 0
+                },
+                {
+                    "scaling": {
+                        "raw": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "scaled": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "type": "none"
+                    },
+                    "publish": {
+                        "bit": 0,
+                        "key": "",
+                        "enabled": false,
+                        "moduleId": 0
+                    },
+                    "masking": {
+                        "bit": 0,
+                        "enabled": false
+                    },
+                    "mqtt": {
+                        "userName": "",
+                        "password": "",
+                        "subscribe": {
+                            "data": "",
+                            "control": ""
+                        },
+                        "enabled": false
+                    },
+                    "modbus": {
+                        "isCoil": false,
+                        "isHoldingRegister": true
+                    },
+                    "key": "",
+                    "tagId": "",
+                    "value": 95,
+                    "shift": -1,
+                    "inputId": "64ef7283ef700ea16d110dda",
+                    "register": 24,
+                    "moduleId": 0,
+                    "readable": true,
+                    "interface": "",
+                    "writeable": true,
+                    "description": "Abstraction - Local - Totalised Flow - AIExt5",
+                    "cofs": -1,
+                    "command": "",
+                    "rtuId": 0
+                },
+                {
+                    "scaling": {
+                        "raw": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "scaled": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "type": "none"
+                    },
+                    "publish": {
+                        "bit": 0,
+                        "key": "",
+                        "enabled": false,
+                        "moduleId": 0
+                    },
+                    "masking": {
+                        "bit": 0,
+                        "enabled": false
+                    },
+                    "mqtt": {
+                        "userName": "",
+                        "password": "",
+                        "subscribe": {
+                            "data": "",
+                            "control": ""
+                        },
+                        "enabled": false
+                    },
+                    "modbus": {
+                        "isCoil": false,
+                        "isHoldingRegister": true
+                    },
+                    "key": "",
+                    "tagId": "",
+                    "value": 7,
+                    "shift": -1,
+                    "inputId": "64ef729e4da44fc76476f9db",
+                    "register": 64,
+                    "moduleId": 0,
+                    "readable": true,
+                    "interface": "",
+                    "writeable": true,
+                    "description": "High Lift - Local - Totalised Flow - AIExt6",
+                    "cofs": -1,
+                    "command": "",
+                    "rtuId": 0
                 }
             ],
             "ip": "192.168.1.129",
             "port": 5002,
+            "softwareIp": "",
+            "softwarePort": 0,
             "type": "modbus",
             "txtime": 1,
             "pxtime": 120,
             "timeout": 900,
-            "barcode": "0",
+            "barcode": "uMGILLOVOWTW",
             "publish": true,
             "enabled": true,
             "unitId": 0,
-            "deviceId": "000000000000000000876877",
+            "deviceId": "632d79f58a0f5177d6b60494",
             "description": "WTW BLACKBOX",
             "userName": "",
-            "password": "",
-            "id": 1
+            "password": ""
         },
         {
+            "id": 2,
             "io": [
                 {
                     "scaling": {
@@ -1703,7 +1922,7 @@
                     },
                     "key": "digitalsIn",
                     "tagId": "",
-                    "value": 24576,
+                    "value": 20511,
                     "shift": 0,
                     "inputId": "621f4416b997f5a6c4d68107",
                     "register": 0,
@@ -1712,7 +1931,9 @@
                     "interface": "",
                     "writeable": true,
                     "description": "DigitalsIn from High Lift - LSB",
-                    "cofs": -1
+                    "cofs": -1,
+                    "command": "",
+                    "rtuId": 0
                 },
                 {
                     "scaling": {
@@ -1751,7 +1972,7 @@
                     },
                     "key": "AI2",
                     "tagId": "",
-                    "value": 88,
+                    "value": 40,
                     "shift": 0,
                     "inputId": "633abfc88e271370f0674964",
                     "register": 0,
@@ -1760,7 +1981,9 @@
                     "interface": "",
                     "writeable": true,
                     "description": "AI2 from High Lift - Delivery Pressure PV",
-                    "cofs": -1
+                    "cofs": -1,
+                    "command": "",
+                    "rtuId": 0
                 },
                 {
                     "scaling": {
@@ -1799,7 +2022,7 @@
                     },
                     "key": "AI3",
                     "tagId": "",
-                    "value": 70,
+                    "value": 0,
                     "shift": 0,
                     "inputId": "633abfdd77faba11856aaa94",
                     "register": 0,
@@ -1808,7 +2031,9 @@
                     "interface": "",
                     "writeable": true,
                     "description": "AI3 from High Lift - Delivery Flowmeter PV",
-                    "cofs": -1
+                    "cofs": -1,
+                    "command": "",
+                    "rtuId": 0
                 },
                 {
                     "scaling": {
@@ -1847,7 +2072,7 @@
                     },
                     "key": "AI4",
                     "tagId": "",
-                    "value": 118,
+                    "value": 119,
                     "shift": 0,
                     "inputId": "633abfee554cd8d18889172f",
                     "register": 0,
@@ -1856,7 +2081,9 @@
                     "interface": "",
                     "writeable": true,
                     "description": "AI4 from High Lift - Pump 1 Runhour Meter",
-                    "cofs": -1
+                    "cofs": -1,
+                    "command": "",
+                    "rtuId": 0
                 },
                 {
                     "scaling": {
@@ -1904,7 +2131,9 @@
                     "interface": "",
                     "writeable": true,
                     "description": "AIExt1 from High Lift - Pump 2 Runhour Meter",
-                    "cofs": -1
+                    "cofs": -1,
+                    "command": "",
+                    "rtuId": 0
                 },
                 {
                     "scaling": {
@@ -1943,7 +2172,7 @@
                     },
                     "key": "AIExt2",
                     "tagId": "",
-                    "value": 0,
+                    "value": 10,
                     "shift": 0,
                     "inputId": "633ac009eed502d248c94b3d",
                     "register": 0,
@@ -1952,7 +2181,9 @@
                     "interface": "",
                     "writeable": true,
                     "description": "AIExt2 from High Lift - Pump 1 Start Counts",
-                    "cofs": -1
+                    "cofs": -1,
+                    "command": "",
+                    "rtuId": 0
                 },
                 {
                     "scaling": {
@@ -2000,7 +2231,9 @@
                     "interface": "",
                     "writeable": true,
                     "description": "AIExt3 from High Lift - Pump 2 Start Counts",
-                    "cofs": -1
+                    "cofs": -1,
+                    "command": "",
+                    "rtuId": 0
                 },
                 {
                     "scaling": {
@@ -2039,7 +2272,7 @@
                     },
                     "key": "AIExt4",
                     "tagId": "",
-                    "value": 2,
+                    "value": 1,
                     "shift": 0,
                     "inputId": "633ac03f1b5b68b39c8fe501",
                     "register": 0,
@@ -2048,7 +2281,9 @@
                     "interface": "",
                     "writeable": true,
                     "description": "AIExt4 from High Lift - Pump 1 Status",
-                    "cofs": -1
+                    "cofs": -1,
+                    "command": "",
+                    "rtuId": 0
                 },
                 {
                     "scaling": {
@@ -2096,7 +2331,9 @@
                     "interface": "",
                     "writeable": true,
                     "description": "AIExt5 from High Lift - Pump 2 Status",
-                    "cofs": -1
+                    "cofs": -1,
+                    "command": "",
+                    "rtuId": 0
                 },
                 {
                     "scaling": {
@@ -2135,7 +2372,7 @@
                     },
                     "key": "AI1",
                     "tagId": "",
-                    "value": 83,
+                    "value": 66,
                     "shift": 0,
                     "inputId": "633ac3093e0d0e764c85fb57",
                     "register": 0,
@@ -2144,7 +2381,9 @@
                     "interface": "",
                     "writeable": true,
                     "description": "AI1 from High Lift - Reservoir Level PV",
-                    "cofs": -1
+                    "cofs": -1,
+                    "command": "",
+                    "rtuId": 0
                 },
                 {
                     "scaling": {
@@ -2192,11 +2431,65 @@
                     "interface": "",
                     "writeable": true,
                     "description": "DigitalsIn from High Lift - MSB",
-                    "cofs": -1
+                    "cofs": -1,
+                    "command": "",
+                    "rtuId": 0
+                },
+                {
+                    "scaling": {
+                        "raw": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "scaled": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "type": "none"
+                    },
+                    "publish": {
+                        "bit": 0,
+                        "key": "",
+                        "enabled": false,
+                        "moduleId": 0
+                    },
+                    "masking": {
+                        "bit": 0,
+                        "enabled": false
+                    },
+                    "mqtt": {
+                        "userName": "",
+                        "password": "",
+                        "subscribe": {
+                            "data": "",
+                            "control": ""
+                        },
+                        "enabled": false
+                    },
+                    "modbus": {
+                        "isCoil": false,
+                        "isHoldingRegister": false
+                    },
+                    "key": "AIExt6",
+                    "tagId": "",
+                    "value": 7,
+                    "shift": 0,
+                    "inputId": "64ef7150becb455016d288ca",
+                    "register": 0,
+                    "moduleId": 0,
+                    "readable": true,
+                    "interface": "",
+                    "writeable": true,
+                    "description": "AIExt6 from High Lift - Totalised Flow",
+                    "cofs": -1,
+                    "command": "",
+                    "rtuId": 0
                 }
             ],
             "ip": "0.0.0.0",
             "port": 0,
+            "softwareIp": "",
+            "softwarePort": 0,
             "type": "external",
             "txtime": 5,
             "pxtime": 120,
@@ -2208,8 +2501,7 @@
             "deviceId": "632d79d88a0f5177d6b60488",
             "description": "High Lift - External",
             "userName": "",
-            "password": "",
-            "id": 2
+            "password": ""
         }
     ],
     "mapping": [
@@ -2223,7 +2515,7 @@
             "destination": {
                 "mask": 65535,
                 "inputId": "733ac664de0aa29185a07cd6",
-                "deviceId": "000000000000000000876877",
+                "deviceId": "632d79f58a0f5177d6b60494",
                 "destinationRegister": 10
             }
         },
@@ -2237,7 +2529,7 @@
             "destination": {
                 "mask": -1,
                 "inputId": "733ac8068f86116e5157094f",
-                "deviceId": "000000000000000000876877",
+                "deviceId": "632d79f58a0f5177d6b60494",
                 "destinationRegister": 11
             }
         },
@@ -2251,7 +2543,7 @@
             "destination": {
                 "mask": 65535,
                 "inputId": "633ac845bd8e0b4a95b3b1d5",
-                "deviceId": "000000000000000000876877",
+                "deviceId": "632d79f58a0f5177d6b60494",
                 "destinationRegister": 60
             }
         },
@@ -2265,7 +2557,7 @@
             "destination": {
                 "mask": -1,
                 "inputId": "633ac84e7649060a05b4b493",
-                "deviceId": "000000000000000000876877",
+                "deviceId": "632d79f58a0f5177d6b60494",
                 "destinationRegister": 61
             }
         },
@@ -2279,7 +2571,7 @@
             "destination": {
                 "mask": -1,
                 "inputId": "733acbb00fd8f09efd5c6c61",
-                "deviceId": "000000000000000000876877",
+                "deviceId": "632d79f58a0f5177d6b60494",
                 "destinationRegister": 16
             }
         },
@@ -2293,7 +2585,7 @@
             "destination": {
                 "mask": -1,
                 "inputId": "733acbcbfc871076a9a13d3a",
-                "deviceId": "000000000000000000876877",
+                "deviceId": "632d79f58a0f5177d6b60494",
                 "destinationRegister": 17
             }
         },
@@ -2307,7 +2599,7 @@
             "destination": {
                 "mask": -1,
                 "inputId": "733acbdd4a38d4d13ac7a3c5",
-                "deviceId": "000000000000000000876877",
+                "deviceId": "632d79f58a0f5177d6b60494",
                 "destinationRegister": 18
             }
         },
@@ -2321,7 +2613,7 @@
             "destination": {
                 "mask": -1,
                 "inputId": "733acbf095fbc148cd425b7d",
-                "deviceId": "000000000000000000876877",
+                "deviceId": "632d79f58a0f5177d6b60494",
                 "destinationRegister": 19
             }
         },
@@ -2335,7 +2627,7 @@
             "destination": {
                 "mask": -1,
                 "inputId": "733acc08a2f1986b683442d1",
-                "deviceId": "000000000000000000876877",
+                "deviceId": "632d79f58a0f5177d6b60494",
                 "destinationRegister": 20
             }
         },
@@ -2349,7 +2641,7 @@
             "destination": {
                 "mask": -1,
                 "inputId": "733acc16915e5f13ce37161c",
-                "deviceId": "000000000000000000876877",
+                "deviceId": "632d79f58a0f5177d6b60494",
                 "destinationRegister": 21
             }
         },
@@ -2363,7 +2655,7 @@
             "destination": {
                 "mask": -1,
                 "inputId": "733acc274c49860148684802",
-                "deviceId": "000000000000000000876877",
+                "deviceId": "632d79f58a0f5177d6b60494",
                 "destinationRegister": 22
             }
         },
@@ -2377,7 +2669,7 @@
             "destination": {
                 "mask": -1,
                 "inputId": "733acc32e985eb53d66e944b",
-                "deviceId": "000000000000000000876877",
+                "deviceId": "632d79f58a0f5177d6b60494",
                 "destinationRegister": 23
             }
         },
@@ -2391,7 +2683,7 @@
             "destination": {
                 "mask": -1,
                 "inputId": "633acc70aa269dbda24cf4cc",
-                "deviceId": "000000000000000000876877",
+                "deviceId": "632d79f58a0f5177d6b60494",
                 "destinationRegister": 65
             }
         },
@@ -2405,7 +2697,7 @@
             "destination": {
                 "mask": -1,
                 "inputId": "633acc86450a6507916b0f52",
-                "deviceId": "000000000000000000876877",
+                "deviceId": "632d79f58a0f5177d6b60494",
                 "destinationRegister": 66
             }
         },
@@ -2419,7 +2711,7 @@
             "destination": {
                 "mask": -1,
                 "inputId": "633acc9ad8a6d066e13e4d09",
-                "deviceId": "000000000000000000876877",
+                "deviceId": "632d79f58a0f5177d6b60494",
                 "destinationRegister": 67
             }
         },
@@ -2433,7 +2725,7 @@
             "destination": {
                 "mask": -1,
                 "inputId": "633accab033b9444686505e2",
-                "deviceId": "000000000000000000876877",
+                "deviceId": "632d79f58a0f5177d6b60494",
                 "destinationRegister": 68
             }
         },
@@ -2447,7 +2739,7 @@
             "destination": {
                 "mask": -1,
                 "inputId": "633accc24a76bbaa6c4abb96",
-                "deviceId": "000000000000000000876877",
+                "deviceId": "632d79f58a0f5177d6b60494",
                 "destinationRegister": 69
             }
         },
@@ -2461,7 +2753,7 @@
             "destination": {
                 "mask": -1,
                 "inputId": "633accd74cf668790cafb4f8",
-                "deviceId": "000000000000000000876877",
+                "deviceId": "632d79f58a0f5177d6b60494",
                 "destinationRegister": 70
             }
         },
@@ -2475,7 +2767,7 @@
             "destination": {
                 "mask": -1,
                 "inputId": "633acce55f11c8aefcd5f6c9",
-                "deviceId": "000000000000000000876877",
+                "deviceId": "632d79f58a0f5177d6b60494",
                 "destinationRegister": 71
             }
         },
@@ -2489,7 +2781,7 @@
             "destination": {
                 "mask": -1,
                 "inputId": "633accf8176fec9227934836",
-                "deviceId": "000000000000000000876877",
+                "deviceId": "632d79f58a0f5177d6b60494",
                 "destinationRegister": 72
             }
         },
@@ -2503,8 +2795,36 @@
             "destination": {
                 "mask": -1,
                 "inputId": "633acd07aede07fcdf31d4cd",
-                "deviceId": "000000000000000000876877",
+                "deviceId": "632d79f58a0f5177d6b60494",
                 "destinationRegister": 73
+            }
+        },
+        {
+            "mapId": "64ef6edd164a31db4eeaee19",
+            "source": {
+                "mask": -1,
+                "inputId": "64ef7150becb455016d288ca",
+                "deviceId": "632d79d88a0f5177d6b60488"
+            },
+            "destination": {
+                "mask": -1,
+                "inputId": "64ef729e4da44fc76476f9db",
+                "deviceId": "632d79f58a0f5177d6b60494",
+                "destinationRegister": 64
+            }
+        },
+        {
+            "mapId": "64ef7033d14f944eb1edd95b",
+            "source": {
+                "mask": -1,
+                "inputId": "64ef712eb89fe341f01884b0",
+                "deviceId": "632d78448a0f5177d6b60410"
+            },
+            "destination": {
+                "mask": -1,
+                "inputId": "64ef7283ef700ea16d110dda",
+                "deviceId": "632d79f58a0f5177d6b60494",
+                "destinationRegister": 24
             }
         }
     ],
