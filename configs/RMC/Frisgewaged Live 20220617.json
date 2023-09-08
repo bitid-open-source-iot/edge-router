@@ -1,0 +1,4156 @@
+{
+    "port": 8080,
+    "txtime": 360,
+    "barcode": "816F5426-C458-473F-B97F-2748048F213C",
+    "deviceId": "611e38702eb0ae145713f486",
+    "production": true,
+    "authentication": false,
+    "admin": {
+        "email": "admin@bitid.co.za",
+        "password": "admin"
+    },
+    "server": {
+        "host": "mqtt://bitid.co.za",
+        "port": 1888,
+        "username": "telemetry",
+        "password": "telemetry1!",
+        "subscribe": {
+            "data": "/rock/v1.1/data",
+            "control": "/rock/v1.1/control"
+        }
+    },
+    "logger": {
+        "appenders": {
+            "edge-router": {
+                "type": "file",
+                "backups": 10,
+                "filename": "/var/www/node/edge-router/logs/edge-router.log",
+                "absolute": true,
+                "maxLogSize": 102400
+            }
+        },
+        "categories": {
+            "default": {
+                "appenders": [
+                    "edge-router"
+                ],
+                "level": "error"
+            }
+        }
+    },
+    "devices": [
+        {
+            "io": [
+                {
+                    "key": "",
+                    "tagId": "MIMIC_PANEL_MAP_Tx[0]",
+                    "inputId": "000000000000000000000001",
+                    "register": "",
+                    "moduleId": 0,
+                    "readable": true,
+                    "interface": "INT",
+                    "writeable": false,
+                    "description": "MIMIC_PANEL_MAP_Tx[0]",
+                    "tag": {
+                        "_events": {},
+                        "_eventsCount": 0,
+                        "state": {
+                            "tag": {
+                                "name": "MIMIC_PANEL_MAP_Tx[0]",
+                                "type": 195,
+                                "bitIndex": null,
+                                "value": null,
+                                "controllerValue": null,
+                                "path": {
+                                    "type": "Buffer",
+                                    "data": [
+                                        145,
+                                        18,
+                                        77,
+                                        73,
+                                        77,
+                                        73,
+                                        67,
+                                        95,
+                                        80,
+                                        65,
+                                        78,
+                                        69,
+                                        76,
+                                        95,
+                                        77,
+                                        65,
+                                        80,
+                                        95,
+                                        84,
+                                        120,
+                                        40,
+                                        0
+                                    ]
+                                },
+                                "program": null,
+                                "stage_write": false
+                            },
+                            "read_size": 1,
+                            "error": {
+                                "code": null,
+                                "status": null
+                            },
+                            "timestamp": "2022-06-17T18:21:31.545Z",
+                            "instance": "c70a39d2d4555b363d3fafb4626d8cd0",
+                            "keepAlive": 0
+                        }
+                    }
+                },
+                {
+                    "key": "",
+                    "tagId": "MIMIC_PANEL_MAP_Tx[1]",
+                    "inputId": "000000000000000000000002",
+                    "register": "",
+                    "moduleId": 0,
+                    "readable": true,
+                    "interface": "INT",
+                    "writeable": false,
+                    "description": "MIMIC_PANEL_MAP_Tx[1]",
+                    "tag": {
+                        "_events": {},
+                        "_eventsCount": 0,
+                        "state": {
+                            "tag": {
+                                "name": "MIMIC_PANEL_MAP_Tx[1]",
+                                "type": 195,
+                                "bitIndex": null,
+                                "value": null,
+                                "controllerValue": null,
+                                "path": {
+                                    "type": "Buffer",
+                                    "data": [
+                                        145,
+                                        18,
+                                        77,
+                                        73,
+                                        77,
+                                        73,
+                                        67,
+                                        95,
+                                        80,
+                                        65,
+                                        78,
+                                        69,
+                                        76,
+                                        95,
+                                        77,
+                                        65,
+                                        80,
+                                        95,
+                                        84,
+                                        120,
+                                        40,
+                                        1
+                                    ]
+                                },
+                                "program": null,
+                                "stage_write": false
+                            },
+                            "read_size": 1,
+                            "error": {
+                                "code": null,
+                                "status": null
+                            },
+                            "timestamp": "2022-06-17T18:21:31.552Z",
+                            "instance": "1d9bccb53fa77ae5c247e5915cf8ff13",
+                            "keepAlive": 0
+                        }
+                    }
+                },
+                {
+                    "key": "",
+                    "tagId": "MIMIC_PANEL_MAP_Tx[2]",
+                    "inputId": "000000000000000000000003",
+                    "register": "",
+                    "moduleId": 0,
+                    "readable": true,
+                    "interface": "INT",
+                    "writeable": false,
+                    "description": "MIMIC_PANEL_MAP_Tx[2]",
+                    "tag": {
+                        "_events": {},
+                        "_eventsCount": 0,
+                        "state": {
+                            "tag": {
+                                "name": "MIMIC_PANEL_MAP_Tx[2]",
+                                "type": 195,
+                                "bitIndex": null,
+                                "value": null,
+                                "controllerValue": null,
+                                "path": {
+                                    "type": "Buffer",
+                                    "data": [
+                                        145,
+                                        18,
+                                        77,
+                                        73,
+                                        77,
+                                        73,
+                                        67,
+                                        95,
+                                        80,
+                                        65,
+                                        78,
+                                        69,
+                                        76,
+                                        95,
+                                        77,
+                                        65,
+                                        80,
+                                        95,
+                                        84,
+                                        120,
+                                        40,
+                                        2
+                                    ]
+                                },
+                                "program": null,
+                                "stage_write": false
+                            },
+                            "read_size": 1,
+                            "error": {
+                                "code": null,
+                                "status": null
+                            },
+                            "timestamp": "2022-06-17T18:21:31.554Z",
+                            "instance": "9367f6fcea99be406a854a45c2b05304",
+                            "keepAlive": 0
+                        }
+                    }
+                },
+                {
+                    "key": "",
+                    "tagId": "MIMIC_PANEL_MAP_Tx[3]",
+                    "inputId": "000000000000000000000004",
+                    "register": "",
+                    "moduleId": 0,
+                    "readable": true,
+                    "interface": "INT",
+                    "writeable": false,
+                    "description": "MIMIC_PANEL_MAP_Tx[3]",
+                    "tag": {
+                        "_events": {},
+                        "_eventsCount": 0,
+                        "state": {
+                            "tag": {
+                                "name": "MIMIC_PANEL_MAP_Tx[3]",
+                                "type": 195,
+                                "bitIndex": null,
+                                "value": null,
+                                "controllerValue": null,
+                                "path": {
+                                    "type": "Buffer",
+                                    "data": [
+                                        145,
+                                        18,
+                                        77,
+                                        73,
+                                        77,
+                                        73,
+                                        67,
+                                        95,
+                                        80,
+                                        65,
+                                        78,
+                                        69,
+                                        76,
+                                        95,
+                                        77,
+                                        65,
+                                        80,
+                                        95,
+                                        84,
+                                        120,
+                                        40,
+                                        3
+                                    ]
+                                },
+                                "program": null,
+                                "stage_write": false
+                            },
+                            "read_size": 1,
+                            "error": {
+                                "code": null,
+                                "status": null
+                            },
+                            "timestamp": "2022-06-17T18:21:31.556Z",
+                            "instance": "cf70cfabb52ba4e1160ab6badd66c776",
+                            "keepAlive": 0
+                        }
+                    }
+                },
+                {
+                    "key": "",
+                    "tagId": "MIMIC_PANEL_MAP_Tx[4]",
+                    "inputId": "000000000000000000000005",
+                    "register": "",
+                    "moduleId": 0,
+                    "readable": true,
+                    "interface": "INT",
+                    "writeable": false,
+                    "description": "MIMIC_PANEL_MAP_Tx[4]",
+                    "tag": {
+                        "_events": {},
+                        "_eventsCount": 0,
+                        "state": {
+                            "tag": {
+                                "name": "MIMIC_PANEL_MAP_Tx[4]",
+                                "type": 195,
+                                "bitIndex": null,
+                                "value": null,
+                                "controllerValue": null,
+                                "path": {
+                                    "type": "Buffer",
+                                    "data": [
+                                        145,
+                                        18,
+                                        77,
+                                        73,
+                                        77,
+                                        73,
+                                        67,
+                                        95,
+                                        80,
+                                        65,
+                                        78,
+                                        69,
+                                        76,
+                                        95,
+                                        77,
+                                        65,
+                                        80,
+                                        95,
+                                        84,
+                                        120,
+                                        40,
+                                        4
+                                    ]
+                                },
+                                "program": null,
+                                "stage_write": false
+                            },
+                            "read_size": 1,
+                            "error": {
+                                "code": null,
+                                "status": null
+                            },
+                            "timestamp": "2022-06-17T18:21:31.557Z",
+                            "instance": "7b1076405d5b767af45f374dc20cfee0",
+                            "keepAlive": 0
+                        }
+                    }
+                },
+                {
+                    "key": "",
+                    "tagId": "MIMIC_PANEL_MAP_Tx[5]",
+                    "inputId": "000000000000000000000006",
+                    "register": "",
+                    "moduleId": 0,
+                    "readable": true,
+                    "interface": "INT",
+                    "writeable": false,
+                    "description": "MIMIC_PANEL_MAP_Tx[5]",
+                    "tag": {
+                        "_events": {},
+                        "_eventsCount": 0,
+                        "state": {
+                            "tag": {
+                                "name": "MIMIC_PANEL_MAP_Tx[5]",
+                                "type": 195,
+                                "bitIndex": null,
+                                "value": null,
+                                "controllerValue": null,
+                                "path": {
+                                    "type": "Buffer",
+                                    "data": [
+                                        145,
+                                        18,
+                                        77,
+                                        73,
+                                        77,
+                                        73,
+                                        67,
+                                        95,
+                                        80,
+                                        65,
+                                        78,
+                                        69,
+                                        76,
+                                        95,
+                                        77,
+                                        65,
+                                        80,
+                                        95,
+                                        84,
+                                        120,
+                                        40,
+                                        5
+                                    ]
+                                },
+                                "program": null,
+                                "stage_write": false
+                            },
+                            "read_size": 1,
+                            "error": {
+                                "code": null,
+                                "status": null
+                            },
+                            "timestamp": "2022-06-17T18:21:31.558Z",
+                            "instance": "5d4f84ec87b342591f659eb3f88eb1b0",
+                            "keepAlive": 0
+                        }
+                    }
+                },
+                {
+                    "key": "",
+                    "tagId": "MIMIC_PANEL_MAP_Tx[6]",
+                    "inputId": "000000000000000000000007",
+                    "register": "",
+                    "moduleId": 0,
+                    "readable": true,
+                    "interface": "INT",
+                    "writeable": false,
+                    "description": "MIMIC_PANEL_MAP_Tx[6]",
+                    "tag": {
+                        "_events": {},
+                        "_eventsCount": 0,
+                        "state": {
+                            "tag": {
+                                "name": "MIMIC_PANEL_MAP_Tx[6]",
+                                "type": 195,
+                                "bitIndex": null,
+                                "value": null,
+                                "controllerValue": null,
+                                "path": {
+                                    "type": "Buffer",
+                                    "data": [
+                                        145,
+                                        18,
+                                        77,
+                                        73,
+                                        77,
+                                        73,
+                                        67,
+                                        95,
+                                        80,
+                                        65,
+                                        78,
+                                        69,
+                                        76,
+                                        95,
+                                        77,
+                                        65,
+                                        80,
+                                        95,
+                                        84,
+                                        120,
+                                        40,
+                                        6
+                                    ]
+                                },
+                                "program": null,
+                                "stage_write": false
+                            },
+                            "read_size": 1,
+                            "error": {
+                                "code": null,
+                                "status": null
+                            },
+                            "timestamp": "2022-06-17T18:21:31.559Z",
+                            "instance": "a0825283b33e5ac2d4aad5a1d6e98ed1",
+                            "keepAlive": 0
+                        }
+                    }
+                },
+                {
+                    "key": "",
+                    "tagId": "MIMIC_PANEL_MAP_Tx[7]",
+                    "inputId": "000000000000000000000008",
+                    "register": "",
+                    "moduleId": 0,
+                    "readable": true,
+                    "interface": "INT",
+                    "writeable": false,
+                    "description": "MIMIC_PANEL_MAP_Tx[7]",
+                    "tag": {
+                        "_events": {},
+                        "_eventsCount": 0,
+                        "state": {
+                            "tag": {
+                                "name": "MIMIC_PANEL_MAP_Tx[7]",
+                                "type": 195,
+                                "bitIndex": null,
+                                "value": null,
+                                "controllerValue": null,
+                                "path": {
+                                    "type": "Buffer",
+                                    "data": [
+                                        145,
+                                        18,
+                                        77,
+                                        73,
+                                        77,
+                                        73,
+                                        67,
+                                        95,
+                                        80,
+                                        65,
+                                        78,
+                                        69,
+                                        76,
+                                        95,
+                                        77,
+                                        65,
+                                        80,
+                                        95,
+                                        84,
+                                        120,
+                                        40,
+                                        7
+                                    ]
+                                },
+                                "program": null,
+                                "stage_write": false
+                            },
+                            "read_size": 1,
+                            "error": {
+                                "code": null,
+                                "status": null
+                            },
+                            "timestamp": "2022-06-17T18:21:31.560Z",
+                            "instance": "440685ea3ec9236df2cb21b2ce4d9d72",
+                            "keepAlive": 0
+                        }
+                    }
+                },
+                {
+                    "key": "",
+                    "tagId": "MIMIC_PANEL_MAP_Tx[8]",
+                    "inputId": "000000000000000000000009",
+                    "register": "",
+                    "moduleId": 0,
+                    "readable": true,
+                    "interface": "INT",
+                    "writeable": false,
+                    "description": "MIMIC_PANEL_MAP_Tx[8]",
+                    "tag": {
+                        "_events": {},
+                        "_eventsCount": 0,
+                        "state": {
+                            "tag": {
+                                "name": "MIMIC_PANEL_MAP_Tx[8]",
+                                "type": 195,
+                                "bitIndex": null,
+                                "value": null,
+                                "controllerValue": null,
+                                "path": {
+                                    "type": "Buffer",
+                                    "data": [
+                                        145,
+                                        18,
+                                        77,
+                                        73,
+                                        77,
+                                        73,
+                                        67,
+                                        95,
+                                        80,
+                                        65,
+                                        78,
+                                        69,
+                                        76,
+                                        95,
+                                        77,
+                                        65,
+                                        80,
+                                        95,
+                                        84,
+                                        120,
+                                        40,
+                                        8
+                                    ]
+                                },
+                                "program": null,
+                                "stage_write": false
+                            },
+                            "read_size": 1,
+                            "error": {
+                                "code": null,
+                                "status": null
+                            },
+                            "timestamp": "2022-06-17T18:21:31.561Z",
+                            "instance": "11ad8abadb0bc3e19a33ba08129d56db",
+                            "keepAlive": 0
+                        }
+                    }
+                },
+                {
+                    "key": "",
+                    "tagId": "MIMIC_PANEL_MAP_Tx[9]",
+                    "inputId": "000000000000000000000010",
+                    "register": "",
+                    "moduleId": 0,
+                    "readable": true,
+                    "interface": "INT",
+                    "writeable": false,
+                    "description": "MIMIC_PANEL_MAP_Tx[9]",
+                    "tag": {
+                        "_events": {},
+                        "_eventsCount": 0,
+                        "state": {
+                            "tag": {
+                                "name": "MIMIC_PANEL_MAP_Tx[9]",
+                                "type": 195,
+                                "bitIndex": null,
+                                "value": null,
+                                "controllerValue": null,
+                                "path": {
+                                    "type": "Buffer",
+                                    "data": [
+                                        145,
+                                        18,
+                                        77,
+                                        73,
+                                        77,
+                                        73,
+                                        67,
+                                        95,
+                                        80,
+                                        65,
+                                        78,
+                                        69,
+                                        76,
+                                        95,
+                                        77,
+                                        65,
+                                        80,
+                                        95,
+                                        84,
+                                        120,
+                                        40,
+                                        9
+                                    ]
+                                },
+                                "program": null,
+                                "stage_write": false
+                            },
+                            "read_size": 1,
+                            "error": {
+                                "code": null,
+                                "status": null
+                            },
+                            "timestamp": "2022-06-17T18:21:31.561Z",
+                            "instance": "94b85974de3d3770305a06ece394d283",
+                            "keepAlive": 0
+                        }
+                    }
+                },
+                {
+                    "key": "",
+                    "tagId": "MIMIC_PANEL_MAP_Tx[10]",
+                    "inputId": "000000000000000000000011",
+                    "register": "",
+                    "moduleId": 0,
+                    "readable": true,
+                    "interface": "INT",
+                    "writeable": false,
+                    "description": "MIMIC_PANEL_MAP_Tx[10]",
+                    "tag": {
+                        "_events": {},
+                        "_eventsCount": 0,
+                        "state": {
+                            "tag": {
+                                "name": "MIMIC_PANEL_MAP_Tx[10]",
+                                "type": 195,
+                                "bitIndex": null,
+                                "value": null,
+                                "controllerValue": null,
+                                "path": {
+                                    "type": "Buffer",
+                                    "data": [
+                                        145,
+                                        18,
+                                        77,
+                                        73,
+                                        77,
+                                        73,
+                                        67,
+                                        95,
+                                        80,
+                                        65,
+                                        78,
+                                        69,
+                                        76,
+                                        95,
+                                        77,
+                                        65,
+                                        80,
+                                        95,
+                                        84,
+                                        120,
+                                        40,
+                                        10
+                                    ]
+                                },
+                                "program": null,
+                                "stage_write": false
+                            },
+                            "read_size": 1,
+                            "error": {
+                                "code": null,
+                                "status": null
+                            },
+                            "timestamp": "2022-06-17T18:21:31.562Z",
+                            "instance": "c01af58ed70bead80cd74a89e747c8ce",
+                            "keepAlive": 0
+                        }
+                    }
+                },
+                {
+                    "key": "",
+                    "tagId": "MIMIC_PANEL_MAP_Tx[11]",
+                    "inputId": "000000000000000000000012",
+                    "register": "",
+                    "moduleId": 0,
+                    "readable": true,
+                    "interface": "INT",
+                    "writeable": false,
+                    "description": "MIMIC_PANEL_MAP_Tx[11]",
+                    "tag": {
+                        "_events": {},
+                        "_eventsCount": 0,
+                        "state": {
+                            "tag": {
+                                "name": "MIMIC_PANEL_MAP_Tx[11]",
+                                "type": 195,
+                                "bitIndex": null,
+                                "value": null,
+                                "controllerValue": null,
+                                "path": {
+                                    "type": "Buffer",
+                                    "data": [
+                                        145,
+                                        18,
+                                        77,
+                                        73,
+                                        77,
+                                        73,
+                                        67,
+                                        95,
+                                        80,
+                                        65,
+                                        78,
+                                        69,
+                                        76,
+                                        95,
+                                        77,
+                                        65,
+                                        80,
+                                        95,
+                                        84,
+                                        120,
+                                        40,
+                                        11
+                                    ]
+                                },
+                                "program": null,
+                                "stage_write": false
+                            },
+                            "read_size": 1,
+                            "error": {
+                                "code": null,
+                                "status": null
+                            },
+                            "timestamp": "2022-06-17T18:21:31.563Z",
+                            "instance": "acd82a01e6ca3bfa9c2e99abf1e4746a",
+                            "keepAlive": 0
+                        }
+                    }
+                },
+                {
+                    "key": "",
+                    "tagId": "MIMIC_PANEL_MAP_Tx[12]",
+                    "inputId": "000000000000000000000013",
+                    "register": "",
+                    "moduleId": 0,
+                    "readable": true,
+                    "interface": "INT",
+                    "writeable": false,
+                    "description": "MIMIC_PANEL_MAP_Tx[12]",
+                    "tag": {
+                        "_events": {},
+                        "_eventsCount": 0,
+                        "state": {
+                            "tag": {
+                                "name": "MIMIC_PANEL_MAP_Tx[12]",
+                                "type": 195,
+                                "bitIndex": null,
+                                "value": null,
+                                "controllerValue": null,
+                                "path": {
+                                    "type": "Buffer",
+                                    "data": [
+                                        145,
+                                        18,
+                                        77,
+                                        73,
+                                        77,
+                                        73,
+                                        67,
+                                        95,
+                                        80,
+                                        65,
+                                        78,
+                                        69,
+                                        76,
+                                        95,
+                                        77,
+                                        65,
+                                        80,
+                                        95,
+                                        84,
+                                        120,
+                                        40,
+                                        12
+                                    ]
+                                },
+                                "program": null,
+                                "stage_write": false
+                            },
+                            "read_size": 1,
+                            "error": {
+                                "code": null,
+                                "status": null
+                            },
+                            "timestamp": "2022-06-17T18:21:31.564Z",
+                            "instance": "0e0ee711e96503f595d64a21ff4a046e",
+                            "keepAlive": 0
+                        }
+                    }
+                },
+                {
+                    "key": "",
+                    "tagId": "MIMIC_PANEL_MAP_Tx[13]",
+                    "inputId": "000000000000000000000014",
+                    "register": "",
+                    "moduleId": 0,
+                    "readable": true,
+                    "interface": "INT",
+                    "writeable": false,
+                    "description": "MIMIC_PANEL_MAP_Tx[13]",
+                    "tag": {
+                        "_events": {},
+                        "_eventsCount": 0,
+                        "state": {
+                            "tag": {
+                                "name": "MIMIC_PANEL_MAP_Tx[13]",
+                                "type": 195,
+                                "bitIndex": null,
+                                "value": null,
+                                "controllerValue": null,
+                                "path": {
+                                    "type": "Buffer",
+                                    "data": [
+                                        145,
+                                        18,
+                                        77,
+                                        73,
+                                        77,
+                                        73,
+                                        67,
+                                        95,
+                                        80,
+                                        65,
+                                        78,
+                                        69,
+                                        76,
+                                        95,
+                                        77,
+                                        65,
+                                        80,
+                                        95,
+                                        84,
+                                        120,
+                                        40,
+                                        13
+                                    ]
+                                },
+                                "program": null,
+                                "stage_write": false
+                            },
+                            "read_size": 1,
+                            "error": {
+                                "code": null,
+                                "status": null
+                            },
+                            "timestamp": "2022-06-17T18:21:31.565Z",
+                            "instance": "cb2650bdc44ed061a89894f165104f75",
+                            "keepAlive": 0
+                        }
+                    }
+                },
+                {
+                    "key": "",
+                    "tagId": "MIMIC_PANEL_MAP_Tx[14]",
+                    "inputId": "000000000000000000000015",
+                    "register": "",
+                    "moduleId": 0,
+                    "readable": true,
+                    "interface": "INT",
+                    "writeable": false,
+                    "description": "MIMIC_PANEL_MAP_Tx[14]",
+                    "tag": {
+                        "_events": {},
+                        "_eventsCount": 0,
+                        "state": {
+                            "tag": {
+                                "name": "MIMIC_PANEL_MAP_Tx[14]",
+                                "type": 195,
+                                "bitIndex": null,
+                                "value": null,
+                                "controllerValue": null,
+                                "path": {
+                                    "type": "Buffer",
+                                    "data": [
+                                        145,
+                                        18,
+                                        77,
+                                        73,
+                                        77,
+                                        73,
+                                        67,
+                                        95,
+                                        80,
+                                        65,
+                                        78,
+                                        69,
+                                        76,
+                                        95,
+                                        77,
+                                        65,
+                                        80,
+                                        95,
+                                        84,
+                                        120,
+                                        40,
+                                        14
+                                    ]
+                                },
+                                "program": null,
+                                "stage_write": false
+                            },
+                            "read_size": 1,
+                            "error": {
+                                "code": null,
+                                "status": null
+                            },
+                            "timestamp": "2022-06-17T18:21:31.565Z",
+                            "instance": "5975cbdc93ebb406ff17a83f39c8314a",
+                            "keepAlive": 0
+                        }
+                    }
+                },
+                {
+                    "key": "",
+                    "tagId": "MIMIC_PANEL_MAP_Tx[15]",
+                    "inputId": "000000000000000000000016",
+                    "register": "",
+                    "moduleId": 0,
+                    "readable": true,
+                    "interface": "INT",
+                    "writeable": false,
+                    "description": "MIMIC_PANEL_MAP_Tx[15]",
+                    "tag": {
+                        "_events": {},
+                        "_eventsCount": 0,
+                        "state": {
+                            "tag": {
+                                "name": "MIMIC_PANEL_MAP_Tx[15]",
+                                "type": 195,
+                                "bitIndex": null,
+                                "value": null,
+                                "controllerValue": null,
+                                "path": {
+                                    "type": "Buffer",
+                                    "data": [
+                                        145,
+                                        18,
+                                        77,
+                                        73,
+                                        77,
+                                        73,
+                                        67,
+                                        95,
+                                        80,
+                                        65,
+                                        78,
+                                        69,
+                                        76,
+                                        95,
+                                        77,
+                                        65,
+                                        80,
+                                        95,
+                                        84,
+                                        120,
+                                        40,
+                                        15
+                                    ]
+                                },
+                                "program": null,
+                                "stage_write": false
+                            },
+                            "read_size": 1,
+                            "error": {
+                                "code": null,
+                                "status": null
+                            },
+                            "timestamp": "2022-06-17T18:21:31.566Z",
+                            "instance": "2d640666f1d2b18519fae1d5ece886d9",
+                            "keepAlive": 0
+                        }
+                    }
+                },
+                {
+                    "key": "",
+                    "tagId": "MIMIC_PANEL_MAP_Tx[16]",
+                    "inputId": "000000000000000000000017",
+                    "register": "",
+                    "moduleId": 0,
+                    "readable": true,
+                    "interface": "INT",
+                    "writeable": false,
+                    "description": "MIMIC_PANEL_MAP_Tx[16]",
+                    "tag": {
+                        "_events": {},
+                        "_eventsCount": 0,
+                        "state": {
+                            "tag": {
+                                "name": "MIMIC_PANEL_MAP_Tx[16]",
+                                "type": 195,
+                                "bitIndex": null,
+                                "value": null,
+                                "controllerValue": null,
+                                "path": {
+                                    "type": "Buffer",
+                                    "data": [
+                                        145,
+                                        18,
+                                        77,
+                                        73,
+                                        77,
+                                        73,
+                                        67,
+                                        95,
+                                        80,
+                                        65,
+                                        78,
+                                        69,
+                                        76,
+                                        95,
+                                        77,
+                                        65,
+                                        80,
+                                        95,
+                                        84,
+                                        120,
+                                        40,
+                                        16
+                                    ]
+                                },
+                                "program": null,
+                                "stage_write": false
+                            },
+                            "read_size": 1,
+                            "error": {
+                                "code": null,
+                                "status": null
+                            },
+                            "timestamp": "2022-06-17T18:21:31.567Z",
+                            "instance": "38f17266cd7dda45a647abf303cc24ca",
+                            "keepAlive": 0
+                        }
+                    }
+                },
+                {
+                    "key": "",
+                    "tagId": "MIMIC_PANEL_MAP_Tx[17]",
+                    "inputId": "000000000000000000000018",
+                    "register": "",
+                    "moduleId": 0,
+                    "readable": true,
+                    "interface": "INT",
+                    "writeable": false,
+                    "description": "MIMIC_PANEL_MAP_Tx[17]",
+                    "tag": {
+                        "_events": {},
+                        "_eventsCount": 0,
+                        "state": {
+                            "tag": {
+                                "name": "MIMIC_PANEL_MAP_Tx[17]",
+                                "type": 195,
+                                "bitIndex": null,
+                                "value": null,
+                                "controllerValue": null,
+                                "path": {
+                                    "type": "Buffer",
+                                    "data": [
+                                        145,
+                                        18,
+                                        77,
+                                        73,
+                                        77,
+                                        73,
+                                        67,
+                                        95,
+                                        80,
+                                        65,
+                                        78,
+                                        69,
+                                        76,
+                                        95,
+                                        77,
+                                        65,
+                                        80,
+                                        95,
+                                        84,
+                                        120,
+                                        40,
+                                        17
+                                    ]
+                                },
+                                "program": null,
+                                "stage_write": false
+                            },
+                            "read_size": 1,
+                            "error": {
+                                "code": null,
+                                "status": null
+                            },
+                            "timestamp": "2022-06-17T18:21:31.568Z",
+                            "instance": "e5a696937348aac956f539bd57ece1f4",
+                            "keepAlive": 0
+                        }
+                    }
+                },
+                {
+                    "key": "",
+                    "tagId": "MIMIC_PANEL_MAP_Tx[18]",
+                    "inputId": "000000000000000000000019",
+                    "register": "",
+                    "moduleId": 0,
+                    "readable": true,
+                    "interface": "INT",
+                    "writeable": false,
+                    "description": "MIMIC_PANEL_MAP_Tx[18]",
+                    "tag": {
+                        "_events": {},
+                        "_eventsCount": 0,
+                        "state": {
+                            "tag": {
+                                "name": "MIMIC_PANEL_MAP_Tx[18]",
+                                "type": 195,
+                                "bitIndex": null,
+                                "value": null,
+                                "controllerValue": null,
+                                "path": {
+                                    "type": "Buffer",
+                                    "data": [
+                                        145,
+                                        18,
+                                        77,
+                                        73,
+                                        77,
+                                        73,
+                                        67,
+                                        95,
+                                        80,
+                                        65,
+                                        78,
+                                        69,
+                                        76,
+                                        95,
+                                        77,
+                                        65,
+                                        80,
+                                        95,
+                                        84,
+                                        120,
+                                        40,
+                                        18
+                                    ]
+                                },
+                                "program": null,
+                                "stage_write": false
+                            },
+                            "read_size": 1,
+                            "error": {
+                                "code": null,
+                                "status": null
+                            },
+                            "timestamp": "2022-06-17T18:21:31.569Z",
+                            "instance": "b8d650ad6d236c986296c685f81e0645",
+                            "keepAlive": 0
+                        }
+                    }
+                },
+                {
+                    "key": "",
+                    "tagId": "MIMIC_PANEL_MAP_Tx[19]",
+                    "inputId": "000000000000000000000020",
+                    "register": "",
+                    "moduleId": 0,
+                    "readable": true,
+                    "interface": "INT",
+                    "writeable": false,
+                    "description": "MIMIC_PANEL_MAP_Tx[19]",
+                    "tag": {
+                        "_events": {},
+                        "_eventsCount": 0,
+                        "state": {
+                            "tag": {
+                                "name": "MIMIC_PANEL_MAP_Tx[19]",
+                                "type": 195,
+                                "bitIndex": null,
+                                "value": null,
+                                "controllerValue": null,
+                                "path": {
+                                    "type": "Buffer",
+                                    "data": [
+                                        145,
+                                        18,
+                                        77,
+                                        73,
+                                        77,
+                                        73,
+                                        67,
+                                        95,
+                                        80,
+                                        65,
+                                        78,
+                                        69,
+                                        76,
+                                        95,
+                                        77,
+                                        65,
+                                        80,
+                                        95,
+                                        84,
+                                        120,
+                                        40,
+                                        19
+                                    ]
+                                },
+                                "program": null,
+                                "stage_write": false
+                            },
+                            "read_size": 1,
+                            "error": {
+                                "code": null,
+                                "status": null
+                            },
+                            "timestamp": "2022-06-17T18:21:31.570Z",
+                            "instance": "2f968b304ba4bfc8fa7fa2e8c4bf91db",
+                            "keepAlive": 0
+                        }
+                    }
+                },
+                {
+                    "key": "",
+                    "tagId": "MIMIC_PANEL_MAP_Tx[20]",
+                    "inputId": "000000000000000000000021",
+                    "register": "",
+                    "moduleId": 0,
+                    "readable": true,
+                    "interface": "INT",
+                    "writeable": false,
+                    "description": "MIMIC_PANEL_MAP_Tx[20]",
+                    "tag": {
+                        "_events": {},
+                        "_eventsCount": 0,
+                        "state": {
+                            "tag": {
+                                "name": "MIMIC_PANEL_MAP_Tx[20]",
+                                "type": 195,
+                                "bitIndex": null,
+                                "value": null,
+                                "controllerValue": null,
+                                "path": {
+                                    "type": "Buffer",
+                                    "data": [
+                                        145,
+                                        18,
+                                        77,
+                                        73,
+                                        77,
+                                        73,
+                                        67,
+                                        95,
+                                        80,
+                                        65,
+                                        78,
+                                        69,
+                                        76,
+                                        95,
+                                        77,
+                                        65,
+                                        80,
+                                        95,
+                                        84,
+                                        120,
+                                        40,
+                                        20
+                                    ]
+                                },
+                                "program": null,
+                                "stage_write": false
+                            },
+                            "read_size": 1,
+                            "error": {
+                                "code": null,
+                                "status": null
+                            },
+                            "timestamp": "2022-06-17T18:21:31.570Z",
+                            "instance": "4fa044c45081b2fd663eed153250c9c9",
+                            "keepAlive": 0
+                        }
+                    }
+                },
+                {
+                    "key": "",
+                    "tagId": "MIMIC_PANEL_MAP_Tx[21]",
+                    "inputId": "000000000000000000000022",
+                    "register": "",
+                    "moduleId": 0,
+                    "readable": true,
+                    "interface": "INT",
+                    "writeable": false,
+                    "description": "MIMIC_PANEL_MAP_Tx[21]",
+                    "tag": {
+                        "_events": {},
+                        "_eventsCount": 0,
+                        "state": {
+                            "tag": {
+                                "name": "MIMIC_PANEL_MAP_Tx[21]",
+                                "type": 195,
+                                "bitIndex": null,
+                                "value": null,
+                                "controllerValue": null,
+                                "path": {
+                                    "type": "Buffer",
+                                    "data": [
+                                        145,
+                                        18,
+                                        77,
+                                        73,
+                                        77,
+                                        73,
+                                        67,
+                                        95,
+                                        80,
+                                        65,
+                                        78,
+                                        69,
+                                        76,
+                                        95,
+                                        77,
+                                        65,
+                                        80,
+                                        95,
+                                        84,
+                                        120,
+                                        40,
+                                        21
+                                    ]
+                                },
+                                "program": null,
+                                "stage_write": false
+                            },
+                            "read_size": 1,
+                            "error": {
+                                "code": null,
+                                "status": null
+                            },
+                            "timestamp": "2022-06-17T18:21:31.571Z",
+                            "instance": "0116675cbd849f445f9ec3b2dac837cb",
+                            "keepAlive": 0
+                        }
+                    }
+                },
+                {
+                    "key": "",
+                    "tagId": "MIMIC_PANEL_MAP_Tx[22]",
+                    "inputId": "000000000000000000000023",
+                    "register": "",
+                    "moduleId": 0,
+                    "readable": true,
+                    "interface": "INT",
+                    "writeable": false,
+                    "description": "MIMIC_PANEL_MAP_Tx[22]",
+                    "tag": {
+                        "_events": {},
+                        "_eventsCount": 0,
+                        "state": {
+                            "tag": {
+                                "name": "MIMIC_PANEL_MAP_Tx[22]",
+                                "type": 195,
+                                "bitIndex": null,
+                                "value": null,
+                                "controllerValue": null,
+                                "path": {
+                                    "type": "Buffer",
+                                    "data": [
+                                        145,
+                                        18,
+                                        77,
+                                        73,
+                                        77,
+                                        73,
+                                        67,
+                                        95,
+                                        80,
+                                        65,
+                                        78,
+                                        69,
+                                        76,
+                                        95,
+                                        77,
+                                        65,
+                                        80,
+                                        95,
+                                        84,
+                                        120,
+                                        40,
+                                        22
+                                    ]
+                                },
+                                "program": null,
+                                "stage_write": false
+                            },
+                            "read_size": 1,
+                            "error": {
+                                "code": null,
+                                "status": null
+                            },
+                            "timestamp": "2022-06-17T18:21:31.572Z",
+                            "instance": "4bbd57f1be42495f403c39509288ad1d",
+                            "keepAlive": 0
+                        }
+                    }
+                },
+                {
+                    "key": "",
+                    "tagId": "MIMIC_PANEL_MAP_Tx[23]",
+                    "inputId": "000000000000000000000024",
+                    "register": "",
+                    "moduleId": 0,
+                    "readable": true,
+                    "interface": "INT",
+                    "writeable": false,
+                    "description": "MIMIC_PANEL_MAP_Tx[23]",
+                    "tag": {
+                        "_events": {},
+                        "_eventsCount": 0,
+                        "state": {
+                            "tag": {
+                                "name": "MIMIC_PANEL_MAP_Tx[23]",
+                                "type": 195,
+                                "bitIndex": null,
+                                "value": null,
+                                "controllerValue": null,
+                                "path": {
+                                    "type": "Buffer",
+                                    "data": [
+                                        145,
+                                        18,
+                                        77,
+                                        73,
+                                        77,
+                                        73,
+                                        67,
+                                        95,
+                                        80,
+                                        65,
+                                        78,
+                                        69,
+                                        76,
+                                        95,
+                                        77,
+                                        65,
+                                        80,
+                                        95,
+                                        84,
+                                        120,
+                                        40,
+                                        23
+                                    ]
+                                },
+                                "program": null,
+                                "stage_write": false
+                            },
+                            "read_size": 1,
+                            "error": {
+                                "code": null,
+                                "status": null
+                            },
+                            "timestamp": "2022-06-17T18:21:31.573Z",
+                            "instance": "04baf40f08f9a029a1f2aa4ef2b1f83d",
+                            "keepAlive": 0
+                        }
+                    }
+                },
+                {
+                    "key": "",
+                    "tagId": "MIMIC_PANEL_MAP_Tx[24]",
+                    "inputId": "000000000000000000000025",
+                    "register": "",
+                    "moduleId": 0,
+                    "readable": true,
+                    "interface": "INT",
+                    "writeable": false,
+                    "description": "MIMIC_PANEL_MAP_Tx[24]",
+                    "tag": {
+                        "_events": {},
+                        "_eventsCount": 0,
+                        "state": {
+                            "tag": {
+                                "name": "MIMIC_PANEL_MAP_Tx[24]",
+                                "type": 195,
+                                "bitIndex": null,
+                                "value": null,
+                                "controllerValue": null,
+                                "path": {
+                                    "type": "Buffer",
+                                    "data": [
+                                        145,
+                                        18,
+                                        77,
+                                        73,
+                                        77,
+                                        73,
+                                        67,
+                                        95,
+                                        80,
+                                        65,
+                                        78,
+                                        69,
+                                        76,
+                                        95,
+                                        77,
+                                        65,
+                                        80,
+                                        95,
+                                        84,
+                                        120,
+                                        40,
+                                        24
+                                    ]
+                                },
+                                "program": null,
+                                "stage_write": false
+                            },
+                            "read_size": 1,
+                            "error": {
+                                "code": null,
+                                "status": null
+                            },
+                            "timestamp": "2022-06-17T18:21:31.573Z",
+                            "instance": "8bb7fa94a788daf736fd7bceb77eaeab",
+                            "keepAlive": 0
+                        }
+                    }
+                },
+                {
+                    "key": "",
+                    "tagId": "MIMIC_PANEL_MAP_Tx[25]",
+                    "inputId": "000000000000000000000026",
+                    "register": "",
+                    "moduleId": 0,
+                    "readable": true,
+                    "interface": "INT",
+                    "writeable": false,
+                    "description": "MIMIC_PANEL_MAP_Tx[25]",
+                    "tag": {
+                        "_events": {},
+                        "_eventsCount": 0,
+                        "state": {
+                            "tag": {
+                                "name": "MIMIC_PANEL_MAP_Tx[25]",
+                                "type": 195,
+                                "bitIndex": null,
+                                "value": null,
+                                "controllerValue": null,
+                                "path": {
+                                    "type": "Buffer",
+                                    "data": [
+                                        145,
+                                        18,
+                                        77,
+                                        73,
+                                        77,
+                                        73,
+                                        67,
+                                        95,
+                                        80,
+                                        65,
+                                        78,
+                                        69,
+                                        76,
+                                        95,
+                                        77,
+                                        65,
+                                        80,
+                                        95,
+                                        84,
+                                        120,
+                                        40,
+                                        25
+                                    ]
+                                },
+                                "program": null,
+                                "stage_write": false
+                            },
+                            "read_size": 1,
+                            "error": {
+                                "code": null,
+                                "status": null
+                            },
+                            "timestamp": "2022-06-17T18:21:31.574Z",
+                            "instance": "92fae3c597e9ce7e6ac282d9f6cee330",
+                            "keepAlive": 0
+                        }
+                    }
+                },
+                {
+                    "key": "",
+                    "tagId": "MIMIC_PANEL_MAP_Tx[26]",
+                    "inputId": "000000000000000000000027",
+                    "register": "",
+                    "moduleId": 0,
+                    "readable": true,
+                    "interface": "INT",
+                    "writeable": false,
+                    "description": "MIMIC_PANEL_MAP_Tx[26]",
+                    "tag": {
+                        "_events": {},
+                        "_eventsCount": 0,
+                        "state": {
+                            "tag": {
+                                "name": "MIMIC_PANEL_MAP_Tx[26]",
+                                "type": 195,
+                                "bitIndex": null,
+                                "value": null,
+                                "controllerValue": null,
+                                "path": {
+                                    "type": "Buffer",
+                                    "data": [
+                                        145,
+                                        18,
+                                        77,
+                                        73,
+                                        77,
+                                        73,
+                                        67,
+                                        95,
+                                        80,
+                                        65,
+                                        78,
+                                        69,
+                                        76,
+                                        95,
+                                        77,
+                                        65,
+                                        80,
+                                        95,
+                                        84,
+                                        120,
+                                        40,
+                                        26
+                                    ]
+                                },
+                                "program": null,
+                                "stage_write": false
+                            },
+                            "read_size": 1,
+                            "error": {
+                                "code": null,
+                                "status": null
+                            },
+                            "timestamp": "2022-06-17T18:21:31.575Z",
+                            "instance": "e3c46659b915cb0d0f5aee31a91f1709",
+                            "keepAlive": 0
+                        }
+                    }
+                },
+                {
+                    "key": "",
+                    "tagId": "MIMIC_PANEL_MAP_Tx[27]",
+                    "inputId": "000000000000000000000028",
+                    "register": "",
+                    "moduleId": 0,
+                    "readable": true,
+                    "interface": "INT",
+                    "writeable": false,
+                    "description": "MIMIC_PANEL_MAP_Tx[27]",
+                    "tag": {
+                        "_events": {},
+                        "_eventsCount": 0,
+                        "state": {
+                            "tag": {
+                                "name": "MIMIC_PANEL_MAP_Tx[27]",
+                                "type": 195,
+                                "bitIndex": null,
+                                "value": null,
+                                "controllerValue": null,
+                                "path": {
+                                    "type": "Buffer",
+                                    "data": [
+                                        145,
+                                        18,
+                                        77,
+                                        73,
+                                        77,
+                                        73,
+                                        67,
+                                        95,
+                                        80,
+                                        65,
+                                        78,
+                                        69,
+                                        76,
+                                        95,
+                                        77,
+                                        65,
+                                        80,
+                                        95,
+                                        84,
+                                        120,
+                                        40,
+                                        27
+                                    ]
+                                },
+                                "program": null,
+                                "stage_write": false
+                            },
+                            "read_size": 1,
+                            "error": {
+                                "code": null,
+                                "status": null
+                            },
+                            "timestamp": "2022-06-17T18:21:31.575Z",
+                            "instance": "ce735fcb38a3b96ca4bb557dabbd4fea",
+                            "keepAlive": 0
+                        }
+                    }
+                },
+                {
+                    "key": "",
+                    "tagId": "MIMIC_PANEL_MAP_Tx[28]",
+                    "inputId": "000000000000000000000029",
+                    "register": "",
+                    "moduleId": 0,
+                    "readable": true,
+                    "interface": "INT",
+                    "writeable": false,
+                    "description": "MIMIC_PANEL_MAP_Tx[28]",
+                    "tag": {
+                        "_events": {},
+                        "_eventsCount": 0,
+                        "state": {
+                            "tag": {
+                                "name": "MIMIC_PANEL_MAP_Tx[28]",
+                                "type": 195,
+                                "bitIndex": null,
+                                "value": null,
+                                "controllerValue": null,
+                                "path": {
+                                    "type": "Buffer",
+                                    "data": [
+                                        145,
+                                        18,
+                                        77,
+                                        73,
+                                        77,
+                                        73,
+                                        67,
+                                        95,
+                                        80,
+                                        65,
+                                        78,
+                                        69,
+                                        76,
+                                        95,
+                                        77,
+                                        65,
+                                        80,
+                                        95,
+                                        84,
+                                        120,
+                                        40,
+                                        28
+                                    ]
+                                },
+                                "program": null,
+                                "stage_write": false
+                            },
+                            "read_size": 1,
+                            "error": {
+                                "code": null,
+                                "status": null
+                            },
+                            "timestamp": "2022-06-17T18:21:31.576Z",
+                            "instance": "91ceca7f9bb2dc2cd8c57cbfa01e9f85",
+                            "keepAlive": 0
+                        }
+                    }
+                },
+                {
+                    "key": "",
+                    "tagId": "MIMIC_PANEL_MAP_Tx[29]",
+                    "inputId": "000000000000000000000030",
+                    "register": "",
+                    "moduleId": 0,
+                    "readable": true,
+                    "interface": "INT",
+                    "writeable": false,
+                    "description": "MIMIC_PANEL_MAP_Tx[29]",
+                    "tag": {
+                        "_events": {},
+                        "_eventsCount": 0,
+                        "state": {
+                            "tag": {
+                                "name": "MIMIC_PANEL_MAP_Tx[29]",
+                                "type": 195,
+                                "bitIndex": null,
+                                "value": null,
+                                "controllerValue": null,
+                                "path": {
+                                    "type": "Buffer",
+                                    "data": [
+                                        145,
+                                        18,
+                                        77,
+                                        73,
+                                        77,
+                                        73,
+                                        67,
+                                        95,
+                                        80,
+                                        65,
+                                        78,
+                                        69,
+                                        76,
+                                        95,
+                                        77,
+                                        65,
+                                        80,
+                                        95,
+                                        84,
+                                        120,
+                                        40,
+                                        29
+                                    ]
+                                },
+                                "program": null,
+                                "stage_write": false
+                            },
+                            "read_size": 1,
+                            "error": {
+                                "code": null,
+                                "status": null
+                            },
+                            "timestamp": "2022-06-17T18:21:31.577Z",
+                            "instance": "fe693256495879afea048866091850cc",
+                            "keepAlive": 0
+                        }
+                    }
+                },
+                {
+                    "key": "",
+                    "tagId": "MIMIC_PANEL_MAP_Tx[30]",
+                    "inputId": "000000000000000000000031",
+                    "register": "",
+                    "moduleId": 0,
+                    "readable": true,
+                    "interface": "INT",
+                    "writeable": false,
+                    "description": "MIMIC_PANEL_MAP_Tx[30]",
+                    "tag": {
+                        "_events": {},
+                        "_eventsCount": 0,
+                        "state": {
+                            "tag": {
+                                "name": "MIMIC_PANEL_MAP_Tx[30]",
+                                "type": 195,
+                                "bitIndex": null,
+                                "value": null,
+                                "controllerValue": null,
+                                "path": {
+                                    "type": "Buffer",
+                                    "data": [
+                                        145,
+                                        18,
+                                        77,
+                                        73,
+                                        77,
+                                        73,
+                                        67,
+                                        95,
+                                        80,
+                                        65,
+                                        78,
+                                        69,
+                                        76,
+                                        95,
+                                        77,
+                                        65,
+                                        80,
+                                        95,
+                                        84,
+                                        120,
+                                        40,
+                                        30
+                                    ]
+                                },
+                                "program": null,
+                                "stage_write": false
+                            },
+                            "read_size": 1,
+                            "error": {
+                                "code": null,
+                                "status": null
+                            },
+                            "timestamp": "2022-06-17T18:21:31.578Z",
+                            "instance": "8724d8feee33510b94139ad80f4efdfd",
+                            "keepAlive": 0
+                        }
+                    }
+                },
+                {
+                    "key": "",
+                    "tagId": "MIMIC_PANEL_MAP_Tx[31]",
+                    "inputId": "000000000000000000000032",
+                    "register": "",
+                    "moduleId": 0,
+                    "readable": true,
+                    "interface": "INT",
+                    "writeable": false,
+                    "description": "MIMIC_PANEL_MAP_Tx[31]",
+                    "tag": {
+                        "_events": {},
+                        "_eventsCount": 0,
+                        "state": {
+                            "tag": {
+                                "name": "MIMIC_PANEL_MAP_Tx[31]",
+                                "type": 195,
+                                "bitIndex": null,
+                                "value": null,
+                                "controllerValue": null,
+                                "path": {
+                                    "type": "Buffer",
+                                    "data": [
+                                        145,
+                                        18,
+                                        77,
+                                        73,
+                                        77,
+                                        73,
+                                        67,
+                                        95,
+                                        80,
+                                        65,
+                                        78,
+                                        69,
+                                        76,
+                                        95,
+                                        77,
+                                        65,
+                                        80,
+                                        95,
+                                        84,
+                                        120,
+                                        40,
+                                        31
+                                    ]
+                                },
+                                "program": null,
+                                "stage_write": false
+                            },
+                            "read_size": 1,
+                            "error": {
+                                "code": null,
+                                "status": null
+                            },
+                            "timestamp": "2022-06-17T18:21:31.578Z",
+                            "instance": "ecb332c418f16215441c7d99f4fb36b3",
+                            "keepAlive": 0
+                        }
+                    }
+                },
+                {
+                    "key": "",
+                    "tagId": "MIMIC_PANEL_MAP_Tx[32]",
+                    "inputId": "000000000000000000000033",
+                    "register": "",
+                    "moduleId": 0,
+                    "readable": true,
+                    "interface": "INT",
+                    "writeable": false,
+                    "description": "MIMIC_PANEL_MAP_Tx[32]",
+                    "tag": {
+                        "_events": {},
+                        "_eventsCount": 0,
+                        "state": {
+                            "tag": {
+                                "name": "MIMIC_PANEL_MAP_Tx[32]",
+                                "type": 195,
+                                "bitIndex": null,
+                                "value": null,
+                                "controllerValue": null,
+                                "path": {
+                                    "type": "Buffer",
+                                    "data": [
+                                        145,
+                                        18,
+                                        77,
+                                        73,
+                                        77,
+                                        73,
+                                        67,
+                                        95,
+                                        80,
+                                        65,
+                                        78,
+                                        69,
+                                        76,
+                                        95,
+                                        77,
+                                        65,
+                                        80,
+                                        95,
+                                        84,
+                                        120,
+                                        40,
+                                        32
+                                    ]
+                                },
+                                "program": null,
+                                "stage_write": false
+                            },
+                            "read_size": 1,
+                            "error": {
+                                "code": null,
+                                "status": null
+                            },
+                            "timestamp": "2022-06-17T18:21:31.579Z",
+                            "instance": "e68c07b87b4a69295722b02b9a2f90b3",
+                            "keepAlive": 0
+                        }
+                    }
+                },
+                {
+                    "key": "",
+                    "tagId": "MIMIC_PANEL_MAP_Tx[33]",
+                    "inputId": "000000000000000000000034",
+                    "register": "",
+                    "moduleId": 0,
+                    "readable": true,
+                    "interface": "INT",
+                    "writeable": false,
+                    "description": "MIMIC_PANEL_MAP_Tx[33]",
+                    "tag": {
+                        "_events": {},
+                        "_eventsCount": 0,
+                        "state": {
+                            "tag": {
+                                "name": "MIMIC_PANEL_MAP_Tx[33]",
+                                "type": 195,
+                                "bitIndex": null,
+                                "value": null,
+                                "controllerValue": null,
+                                "path": {
+                                    "type": "Buffer",
+                                    "data": [
+                                        145,
+                                        18,
+                                        77,
+                                        73,
+                                        77,
+                                        73,
+                                        67,
+                                        95,
+                                        80,
+                                        65,
+                                        78,
+                                        69,
+                                        76,
+                                        95,
+                                        77,
+                                        65,
+                                        80,
+                                        95,
+                                        84,
+                                        120,
+                                        40,
+                                        33
+                                    ]
+                                },
+                                "program": null,
+                                "stage_write": false
+                            },
+                            "read_size": 1,
+                            "error": {
+                                "code": null,
+                                "status": null
+                            },
+                            "timestamp": "2022-06-17T18:21:31.580Z",
+                            "instance": "e6ba1444609bb5b19061ecb80a83618c",
+                            "keepAlive": 0
+                        }
+                    }
+                },
+                {
+                    "key": "",
+                    "tagId": "MIMIC_PANEL_MAP_Tx[34]",
+                    "inputId": "000000000000000000000035",
+                    "register": "",
+                    "moduleId": 0,
+                    "readable": true,
+                    "interface": "INT",
+                    "writeable": false,
+                    "description": "MIMIC_PANEL_MAP_Tx[34]",
+                    "tag": {
+                        "_events": {},
+                        "_eventsCount": 0,
+                        "state": {
+                            "tag": {
+                                "name": "MIMIC_PANEL_MAP_Tx[34]",
+                                "type": 195,
+                                "bitIndex": null,
+                                "value": null,
+                                "controllerValue": null,
+                                "path": {
+                                    "type": "Buffer",
+                                    "data": [
+                                        145,
+                                        18,
+                                        77,
+                                        73,
+                                        77,
+                                        73,
+                                        67,
+                                        95,
+                                        80,
+                                        65,
+                                        78,
+                                        69,
+                                        76,
+                                        95,
+                                        77,
+                                        65,
+                                        80,
+                                        95,
+                                        84,
+                                        120,
+                                        40,
+                                        34
+                                    ]
+                                },
+                                "program": null,
+                                "stage_write": false
+                            },
+                            "read_size": 1,
+                            "error": {
+                                "code": null,
+                                "status": null
+                            },
+                            "timestamp": "2022-06-17T18:21:31.580Z",
+                            "instance": "c338b01388d50d3e25688ea3a3eec2ec",
+                            "keepAlive": 0
+                        }
+                    }
+                },
+                {
+                    "key": "",
+                    "tagId": "MIMIC_PANEL_MAP_Tx[35]",
+                    "inputId": "000000000000000000000036",
+                    "register": "",
+                    "moduleId": 0,
+                    "readable": true,
+                    "interface": "INT",
+                    "writeable": false,
+                    "description": "MIMIC_PANEL_MAP_Tx[35]",
+                    "tag": {
+                        "_events": {},
+                        "_eventsCount": 0,
+                        "state": {
+                            "tag": {
+                                "name": "MIMIC_PANEL_MAP_Tx[35]",
+                                "type": 195,
+                                "bitIndex": null,
+                                "value": null,
+                                "controllerValue": null,
+                                "path": {
+                                    "type": "Buffer",
+                                    "data": [
+                                        145,
+                                        18,
+                                        77,
+                                        73,
+                                        77,
+                                        73,
+                                        67,
+                                        95,
+                                        80,
+                                        65,
+                                        78,
+                                        69,
+                                        76,
+                                        95,
+                                        77,
+                                        65,
+                                        80,
+                                        95,
+                                        84,
+                                        120,
+                                        40,
+                                        35
+                                    ]
+                                },
+                                "program": null,
+                                "stage_write": false
+                            },
+                            "read_size": 1,
+                            "error": {
+                                "code": null,
+                                "status": null
+                            },
+                            "timestamp": "2022-06-17T18:21:31.581Z",
+                            "instance": "7c29d403f8110b9cd961535389c332ca",
+                            "keepAlive": 0
+                        }
+                    }
+                },
+                {
+                    "key": "",
+                    "tagId": "MIMIC_PANEL_MAP_Tx[36]",
+                    "inputId": "000000000000000000000037",
+                    "register": "",
+                    "moduleId": 0,
+                    "readable": true,
+                    "interface": "INT",
+                    "writeable": false,
+                    "description": "MIMIC_PANEL_MAP_Tx[36]",
+                    "tag": {
+                        "_events": {},
+                        "_eventsCount": 0,
+                        "state": {
+                            "tag": {
+                                "name": "MIMIC_PANEL_MAP_Tx[36]",
+                                "type": 195,
+                                "bitIndex": null,
+                                "value": null,
+                                "controllerValue": null,
+                                "path": {
+                                    "type": "Buffer",
+                                    "data": [
+                                        145,
+                                        18,
+                                        77,
+                                        73,
+                                        77,
+                                        73,
+                                        67,
+                                        95,
+                                        80,
+                                        65,
+                                        78,
+                                        69,
+                                        76,
+                                        95,
+                                        77,
+                                        65,
+                                        80,
+                                        95,
+                                        84,
+                                        120,
+                                        40,
+                                        36
+                                    ]
+                                },
+                                "program": null,
+                                "stage_write": false
+                            },
+                            "read_size": 1,
+                            "error": {
+                                "code": null,
+                                "status": null
+                            },
+                            "timestamp": "2022-06-17T18:21:31.582Z",
+                            "instance": "d220954e30d352bd701e4c3fe16693fa",
+                            "keepAlive": 0
+                        }
+                    }
+                },
+                {
+                    "key": "",
+                    "tagId": "MIMIC_PANEL_MAP_Tx[37]",
+                    "inputId": "000000000000000000000038",
+                    "register": "",
+                    "moduleId": 0,
+                    "readable": true,
+                    "interface": "INT",
+                    "writeable": false,
+                    "description": "MIMIC_PANEL_MAP_Tx[37]",
+                    "tag": {
+                        "_events": {},
+                        "_eventsCount": 0,
+                        "state": {
+                            "tag": {
+                                "name": "MIMIC_PANEL_MAP_Tx[37]",
+                                "type": 195,
+                                "bitIndex": null,
+                                "value": null,
+                                "controllerValue": null,
+                                "path": {
+                                    "type": "Buffer",
+                                    "data": [
+                                        145,
+                                        18,
+                                        77,
+                                        73,
+                                        77,
+                                        73,
+                                        67,
+                                        95,
+                                        80,
+                                        65,
+                                        78,
+                                        69,
+                                        76,
+                                        95,
+                                        77,
+                                        65,
+                                        80,
+                                        95,
+                                        84,
+                                        120,
+                                        40,
+                                        37
+                                    ]
+                                },
+                                "program": null,
+                                "stage_write": false
+                            },
+                            "read_size": 1,
+                            "error": {
+                                "code": null,
+                                "status": null
+                            },
+                            "timestamp": "2022-06-17T18:21:31.582Z",
+                            "instance": "fd05ab8a9cec09c6051555bb0518a090",
+                            "keepAlive": 0
+                        }
+                    }
+                },
+                {
+                    "key": "",
+                    "tagId": "MIMIC_PANEL_MAP_Tx[38]",
+                    "inputId": "000000000000000000000039",
+                    "register": "",
+                    "moduleId": 0,
+                    "readable": true,
+                    "interface": "INT",
+                    "writeable": false,
+                    "description": "MIMIC_PANEL_MAP_Tx[38]",
+                    "tag": {
+                        "_events": {},
+                        "_eventsCount": 0,
+                        "state": {
+                            "tag": {
+                                "name": "MIMIC_PANEL_MAP_Tx[38]",
+                                "type": 195,
+                                "bitIndex": null,
+                                "value": null,
+                                "controllerValue": null,
+                                "path": {
+                                    "type": "Buffer",
+                                    "data": [
+                                        145,
+                                        18,
+                                        77,
+                                        73,
+                                        77,
+                                        73,
+                                        67,
+                                        95,
+                                        80,
+                                        65,
+                                        78,
+                                        69,
+                                        76,
+                                        95,
+                                        77,
+                                        65,
+                                        80,
+                                        95,
+                                        84,
+                                        120,
+                                        40,
+                                        38
+                                    ]
+                                },
+                                "program": null,
+                                "stage_write": false
+                            },
+                            "read_size": 1,
+                            "error": {
+                                "code": null,
+                                "status": null
+                            },
+                            "timestamp": "2022-06-17T18:21:31.583Z",
+                            "instance": "6ac0ae2aca17d6781ead7c73cccba852",
+                            "keepAlive": 0
+                        }
+                    }
+                },
+                {
+                    "key": "",
+                    "tagId": "MIMIC_PANEL_MAP_Tx[39]",
+                    "inputId": "000000000000000000000040",
+                    "register": "",
+                    "moduleId": 0,
+                    "readable": true,
+                    "interface": "INT",
+                    "writeable": false,
+                    "description": "MIMIC_PANEL_MAP_Tx[39]",
+                    "tag": {
+                        "_events": {},
+                        "_eventsCount": 0,
+                        "state": {
+                            "tag": {
+                                "name": "MIMIC_PANEL_MAP_Tx[39]",
+                                "type": 195,
+                                "bitIndex": null,
+                                "value": null,
+                                "controllerValue": null,
+                                "path": {
+                                    "type": "Buffer",
+                                    "data": [
+                                        145,
+                                        18,
+                                        77,
+                                        73,
+                                        77,
+                                        73,
+                                        67,
+                                        95,
+                                        80,
+                                        65,
+                                        78,
+                                        69,
+                                        76,
+                                        95,
+                                        77,
+                                        65,
+                                        80,
+                                        95,
+                                        84,
+                                        120,
+                                        40,
+                                        39
+                                    ]
+                                },
+                                "program": null,
+                                "stage_write": false
+                            },
+                            "read_size": 1,
+                            "error": {
+                                "code": null,
+                                "status": null
+                            },
+                            "timestamp": "2022-06-17T18:21:31.584Z",
+                            "instance": "1c1cd59b56be3a3dd9274aa910aadc98",
+                            "keepAlive": 0
+                        }
+                    }
+                },
+                {
+                    "key": "",
+                    "tagId": "MIMIC_PANEL_MAP_Tx[40]",
+                    "inputId": "000000000000000000000041",
+                    "register": "",
+                    "moduleId": 0,
+                    "readable": true,
+                    "interface": "INT",
+                    "writeable": false,
+                    "description": "MIMIC_PANEL_MAP_Tx[40]",
+                    "tag": {
+                        "_events": {},
+                        "_eventsCount": 0,
+                        "state": {
+                            "tag": {
+                                "name": "MIMIC_PANEL_MAP_Tx[40]",
+                                "type": 195,
+                                "bitIndex": null,
+                                "value": null,
+                                "controllerValue": null,
+                                "path": {
+                                    "type": "Buffer",
+                                    "data": [
+                                        145,
+                                        18,
+                                        77,
+                                        73,
+                                        77,
+                                        73,
+                                        67,
+                                        95,
+                                        80,
+                                        65,
+                                        78,
+                                        69,
+                                        76,
+                                        95,
+                                        77,
+                                        65,
+                                        80,
+                                        95,
+                                        84,
+                                        120,
+                                        40,
+                                        40
+                                    ]
+                                },
+                                "program": null,
+                                "stage_write": false
+                            },
+                            "read_size": 1,
+                            "error": {
+                                "code": null,
+                                "status": null
+                            },
+                            "timestamp": "2022-06-17T18:21:31.584Z",
+                            "instance": "a2f42e65e8c4b0a8e52ef76c496e315c",
+                            "keepAlive": 0
+                        }
+                    }
+                },
+                {
+                    "key": "",
+                    "tagId": "MIMIC_PANEL_MAP_Tx[41]",
+                    "inputId": "000000000000000000000042",
+                    "register": "",
+                    "moduleId": 0,
+                    "readable": true,
+                    "interface": "INT",
+                    "writeable": false,
+                    "description": "MIMIC_PANEL_MAP_Tx[41]",
+                    "tag": {
+                        "_events": {},
+                        "_eventsCount": 0,
+                        "state": {
+                            "tag": {
+                                "name": "MIMIC_PANEL_MAP_Tx[41]",
+                                "type": 195,
+                                "bitIndex": null,
+                                "value": null,
+                                "controllerValue": null,
+                                "path": {
+                                    "type": "Buffer",
+                                    "data": [
+                                        145,
+                                        18,
+                                        77,
+                                        73,
+                                        77,
+                                        73,
+                                        67,
+                                        95,
+                                        80,
+                                        65,
+                                        78,
+                                        69,
+                                        76,
+                                        95,
+                                        77,
+                                        65,
+                                        80,
+                                        95,
+                                        84,
+                                        120,
+                                        40,
+                                        41
+                                    ]
+                                },
+                                "program": null,
+                                "stage_write": false
+                            },
+                            "read_size": 1,
+                            "error": {
+                                "code": null,
+                                "status": null
+                            },
+                            "timestamp": "2022-06-17T18:21:31.585Z",
+                            "instance": "2784024ac66502bafebb546637dfd062",
+                            "keepAlive": 0
+                        }
+                    }
+                },
+                {
+                    "key": "",
+                    "tagId": "MIMIC_PANEL_MAP_Tx[42]",
+                    "inputId": "000000000000000000000043",
+                    "register": "",
+                    "moduleId": 0,
+                    "readable": true,
+                    "interface": "INT",
+                    "writeable": false,
+                    "description": "MIMIC_PANEL_MAP_Tx[42]",
+                    "tag": {
+                        "_events": {},
+                        "_eventsCount": 0,
+                        "state": {
+                            "tag": {
+                                "name": "MIMIC_PANEL_MAP_Tx[42]",
+                                "type": 195,
+                                "bitIndex": null,
+                                "value": null,
+                                "controllerValue": null,
+                                "path": {
+                                    "type": "Buffer",
+                                    "data": [
+                                        145,
+                                        18,
+                                        77,
+                                        73,
+                                        77,
+                                        73,
+                                        67,
+                                        95,
+                                        80,
+                                        65,
+                                        78,
+                                        69,
+                                        76,
+                                        95,
+                                        77,
+                                        65,
+                                        80,
+                                        95,
+                                        84,
+                                        120,
+                                        40,
+                                        42
+                                    ]
+                                },
+                                "program": null,
+                                "stage_write": false
+                            },
+                            "read_size": 1,
+                            "error": {
+                                "code": null,
+                                "status": null
+                            },
+                            "timestamp": "2022-06-17T18:21:31.586Z",
+                            "instance": "9e9b01e42e952abee77c0916a665ecff",
+                            "keepAlive": 0
+                        }
+                    }
+                },
+                {
+                    "key": "",
+                    "tagId": "MIMIC_PANEL_MAP_Tx[43]",
+                    "inputId": "000000000000000000000044",
+                    "register": "",
+                    "moduleId": 0,
+                    "readable": true,
+                    "interface": "INT",
+                    "writeable": false,
+                    "description": "MIMIC_PANEL_MAP_Tx[43]",
+                    "tag": {
+                        "_events": {},
+                        "_eventsCount": 0,
+                        "state": {
+                            "tag": {
+                                "name": "MIMIC_PANEL_MAP_Tx[43]",
+                                "type": 195,
+                                "bitIndex": null,
+                                "value": null,
+                                "controllerValue": null,
+                                "path": {
+                                    "type": "Buffer",
+                                    "data": [
+                                        145,
+                                        18,
+                                        77,
+                                        73,
+                                        77,
+                                        73,
+                                        67,
+                                        95,
+                                        80,
+                                        65,
+                                        78,
+                                        69,
+                                        76,
+                                        95,
+                                        77,
+                                        65,
+                                        80,
+                                        95,
+                                        84,
+                                        120,
+                                        40,
+                                        43
+                                    ]
+                                },
+                                "program": null,
+                                "stage_write": false
+                            },
+                            "read_size": 1,
+                            "error": {
+                                "code": null,
+                                "status": null
+                            },
+                            "timestamp": "2022-06-17T18:21:31.586Z",
+                            "instance": "237eff4f2701497bf6397da34283d444",
+                            "keepAlive": 0
+                        }
+                    }
+                },
+                {
+                    "key": "",
+                    "tagId": "MIMIC_PANEL_MAP_Tx[44]",
+                    "inputId": "000000000000000000000045",
+                    "register": "",
+                    "moduleId": 0,
+                    "readable": true,
+                    "interface": "INT",
+                    "writeable": false,
+                    "description": "MIMIC_PANEL_MAP_Tx[44]",
+                    "tag": {
+                        "_events": {},
+                        "_eventsCount": 0,
+                        "state": {
+                            "tag": {
+                                "name": "MIMIC_PANEL_MAP_Tx[44]",
+                                "type": 195,
+                                "bitIndex": null,
+                                "value": null,
+                                "controllerValue": null,
+                                "path": {
+                                    "type": "Buffer",
+                                    "data": [
+                                        145,
+                                        18,
+                                        77,
+                                        73,
+                                        77,
+                                        73,
+                                        67,
+                                        95,
+                                        80,
+                                        65,
+                                        78,
+                                        69,
+                                        76,
+                                        95,
+                                        77,
+                                        65,
+                                        80,
+                                        95,
+                                        84,
+                                        120,
+                                        40,
+                                        44
+                                    ]
+                                },
+                                "program": null,
+                                "stage_write": false
+                            },
+                            "read_size": 1,
+                            "error": {
+                                "code": null,
+                                "status": null
+                            },
+                            "timestamp": "2022-06-17T18:21:31.587Z",
+                            "instance": "4c2d5332bcc34764af48244a1ab354db",
+                            "keepAlive": 0
+                        }
+                    }
+                },
+                {
+                    "key": "",
+                    "tagId": "MIMIC_PANEL_MAP_Tx[45]",
+                    "inputId": "000000000000000000000046",
+                    "register": "",
+                    "moduleId": 0,
+                    "readable": true,
+                    "interface": "INT",
+                    "writeable": false,
+                    "description": "MIMIC_PANEL_MAP_Tx[45]",
+                    "tag": {
+                        "_events": {},
+                        "_eventsCount": 0,
+                        "state": {
+                            "tag": {
+                                "name": "MIMIC_PANEL_MAP_Tx[45]",
+                                "type": 195,
+                                "bitIndex": null,
+                                "value": null,
+                                "controllerValue": null,
+                                "path": {
+                                    "type": "Buffer",
+                                    "data": [
+                                        145,
+                                        18,
+                                        77,
+                                        73,
+                                        77,
+                                        73,
+                                        67,
+                                        95,
+                                        80,
+                                        65,
+                                        78,
+                                        69,
+                                        76,
+                                        95,
+                                        77,
+                                        65,
+                                        80,
+                                        95,
+                                        84,
+                                        120,
+                                        40,
+                                        45
+                                    ]
+                                },
+                                "program": null,
+                                "stage_write": false
+                            },
+                            "read_size": 1,
+                            "error": {
+                                "code": null,
+                                "status": null
+                            },
+                            "timestamp": "2022-06-17T18:21:31.598Z",
+                            "instance": "c87a4500f3503f193a3864a01df9ffa8",
+                            "keepAlive": 0
+                        }
+                    }
+                },
+                {
+                    "key": "",
+                    "tagId": "MIMIC_PANEL_MAP_Tx[46]",
+                    "inputId": "000000000000000000000047",
+                    "register": "",
+                    "moduleId": 0,
+                    "readable": true,
+                    "interface": "INT",
+                    "writeable": false,
+                    "description": "MIMIC_PANEL_MAP_Tx[46]",
+                    "tag": {
+                        "_events": {},
+                        "_eventsCount": 0,
+                        "state": {
+                            "tag": {
+                                "name": "MIMIC_PANEL_MAP_Tx[46]",
+                                "type": 195,
+                                "bitIndex": null,
+                                "value": null,
+                                "controllerValue": null,
+                                "path": {
+                                    "type": "Buffer",
+                                    "data": [
+                                        145,
+                                        18,
+                                        77,
+                                        73,
+                                        77,
+                                        73,
+                                        67,
+                                        95,
+                                        80,
+                                        65,
+                                        78,
+                                        69,
+                                        76,
+                                        95,
+                                        77,
+                                        65,
+                                        80,
+                                        95,
+                                        84,
+                                        120,
+                                        40,
+                                        46
+                                    ]
+                                },
+                                "program": null,
+                                "stage_write": false
+                            },
+                            "read_size": 1,
+                            "error": {
+                                "code": null,
+                                "status": null
+                            },
+                            "timestamp": "2022-06-17T18:21:31.599Z",
+                            "instance": "0ab1af8951c5f154419d0a65b2e01f8a",
+                            "keepAlive": 0
+                        }
+                    }
+                },
+                {
+                    "key": "",
+                    "tagId": "MIMIC_PANEL_MAP_Tx[47]",
+                    "inputId": "000000000000000000000048",
+                    "register": "",
+                    "moduleId": 0,
+                    "readable": true,
+                    "interface": "INT",
+                    "writeable": false,
+                    "description": "MIMIC_PANEL_MAP_Tx[47]",
+                    "tag": {
+                        "_events": {},
+                        "_eventsCount": 0,
+                        "state": {
+                            "tag": {
+                                "name": "MIMIC_PANEL_MAP_Tx[47]",
+                                "type": 195,
+                                "bitIndex": null,
+                                "value": null,
+                                "controllerValue": null,
+                                "path": {
+                                    "type": "Buffer",
+                                    "data": [
+                                        145,
+                                        18,
+                                        77,
+                                        73,
+                                        77,
+                                        73,
+                                        67,
+                                        95,
+                                        80,
+                                        65,
+                                        78,
+                                        69,
+                                        76,
+                                        95,
+                                        77,
+                                        65,
+                                        80,
+                                        95,
+                                        84,
+                                        120,
+                                        40,
+                                        47
+                                    ]
+                                },
+                                "program": null,
+                                "stage_write": false
+                            },
+                            "read_size": 1,
+                            "error": {
+                                "code": null,
+                                "status": null
+                            },
+                            "timestamp": "2022-06-17T18:21:31.600Z",
+                            "instance": "3bc314d333dddd2eb376184f9908c796",
+                            "keepAlive": 0
+                        }
+                    }
+                },
+                {
+                    "key": "",
+                    "tagId": "MIMIC_PANEL_MAP_Tx[48]",
+                    "inputId": "000000000000000000000049",
+                    "register": "",
+                    "moduleId": 0,
+                    "readable": true,
+                    "interface": "INT",
+                    "writeable": false,
+                    "description": "MIMIC_PANEL_MAP_Tx[48]",
+                    "tag": {
+                        "_events": {},
+                        "_eventsCount": 0,
+                        "state": {
+                            "tag": {
+                                "name": "MIMIC_PANEL_MAP_Tx[48]",
+                                "type": 195,
+                                "bitIndex": null,
+                                "value": null,
+                                "controllerValue": null,
+                                "path": {
+                                    "type": "Buffer",
+                                    "data": [
+                                        145,
+                                        18,
+                                        77,
+                                        73,
+                                        77,
+                                        73,
+                                        67,
+                                        95,
+                                        80,
+                                        65,
+                                        78,
+                                        69,
+                                        76,
+                                        95,
+                                        77,
+                                        65,
+                                        80,
+                                        95,
+                                        84,
+                                        120,
+                                        40,
+                                        48
+                                    ]
+                                },
+                                "program": null,
+                                "stage_write": false
+                            },
+                            "read_size": 1,
+                            "error": {
+                                "code": null,
+                                "status": null
+                            },
+                            "timestamp": "2022-06-17T18:21:31.601Z",
+                            "instance": "88ad4821ef31b93e694ac044b6aa470d",
+                            "keepAlive": 0
+                        }
+                    }
+                },
+                {
+                    "key": "",
+                    "tagId": "MIMIC_PANEL_MAP_Tx[49]",
+                    "inputId": "000000000000000000000050",
+                    "register": "",
+                    "moduleId": 0,
+                    "readable": true,
+                    "interface": "INT",
+                    "writeable": false,
+                    "description": "MIMIC_PANEL_MAP_Tx[49]",
+                    "tag": {
+                        "_events": {},
+                        "_eventsCount": 0,
+                        "state": {
+                            "tag": {
+                                "name": "MIMIC_PANEL_MAP_Tx[49]",
+                                "type": 195,
+                                "bitIndex": null,
+                                "value": null,
+                                "controllerValue": null,
+                                "path": {
+                                    "type": "Buffer",
+                                    "data": [
+                                        145,
+                                        18,
+                                        77,
+                                        73,
+                                        77,
+                                        73,
+                                        67,
+                                        95,
+                                        80,
+                                        65,
+                                        78,
+                                        69,
+                                        76,
+                                        95,
+                                        77,
+                                        65,
+                                        80,
+                                        95,
+                                        84,
+                                        120,
+                                        40,
+                                        49
+                                    ]
+                                },
+                                "program": null,
+                                "stage_write": false
+                            },
+                            "read_size": 1,
+                            "error": {
+                                "code": null,
+                                "status": null
+                            },
+                            "timestamp": "2022-06-17T18:21:31.601Z",
+                            "instance": "bf3f3d46231496ef8b13ffe9950f4ae5",
+                            "keepAlive": 0
+                        }
+                    }
+                },
+                {
+                    "key": "",
+                    "tagId": "MIMIC_PANEL_MAP_Rx[0]",
+                    "inputId": "000000000000000000000051",
+                    "register": "",
+                    "moduleId": 0,
+                    "readable": false,
+                    "interface": "INT",
+                    "writeable": true,
+                    "description": "MIMIC_PANEL_MAP_Rx[0]",
+                    "tag": {
+                        "_events": {},
+                        "_eventsCount": 0,
+                        "state": {
+                            "tag": {
+                                "name": "MIMIC_PANEL_MAP_Rx[0]",
+                                "type": 195,
+                                "bitIndex": null,
+                                "value": null,
+                                "controllerValue": null,
+                                "path": {
+                                    "type": "Buffer",
+                                    "data": [
+                                        145,
+                                        18,
+                                        77,
+                                        73,
+                                        77,
+                                        73,
+                                        67,
+                                        95,
+                                        80,
+                                        65,
+                                        78,
+                                        69,
+                                        76,
+                                        95,
+                                        77,
+                                        65,
+                                        80,
+                                        95,
+                                        82,
+                                        120,
+                                        40,
+                                        0
+                                    ]
+                                },
+                                "program": null,
+                                "stage_write": false
+                            },
+                            "read_size": 1,
+                            "error": {
+                                "code": null,
+                                "status": null
+                            },
+                            "timestamp": "2022-06-17T18:21:31.602Z",
+                            "instance": "4a52b9b1249ed1e4afa546fe9aad651b",
+                            "keepAlive": 0
+                        }
+                    }
+                }
+            ],
+            "ip": "192.168.0.40",
+            "port": 0,
+            "type": "programmable-logic-controller",
+            "txtime": 2,
+            "barcode": "xxx",
+            "publish": false,
+            "enabled": true,
+            "deviceId": "000000000000000000000PLC",
+            "description": "Programmable Logic Controller"
+        },
+        {
+            "io": [
+                {
+                    "key": "AI1",
+                    "tagId": "",
+                    "inputId": "000000000000000000000001",
+                    "register": "",
+                    "moduleId": 0,
+                    "readable": false,
+                    "interface": "",
+                    "writeable": false,
+                    "description": "Reservoir Level"
+                }
+            ],
+            "ip": "0.0.0.0",
+            "port": 0,
+            "type": "external",
+            "txtime": 2,
+            "barcode": "xxx",
+            "publish": false,
+            "enabled": true,
+            "deviceId": "000000000000000000000171",
+            "description": "External Real Log"
+        },
+        {
+            "io": [
+                {
+                    "key": "",
+                    "tagId": "",
+                    "inputId": "000000000000000000000001",
+                    "register": "hr2",
+                    "moduleId": 0,
+                    "readable": false,
+                    "interface": "",
+                    "writeable": false,
+                    "description": "HR2"
+                }
+            ],
+            "ip": "192.168.3.1",
+            "port": 502,
+            "type": "modbus",
+            "txtime": 2,
+            "barcode": "xxx",
+            "publish": false,
+            "enabled": true,
+            "deviceId": "000000000000000000000001",
+            "description": "Procon 1"
+        },
+        {
+            "io": [
+                {
+                    "key": "",
+                    "tagId": "",
+                    "inputId": "000000000000000000000002",
+                    "register": "hr2",
+                    "moduleId": 0,
+                    "readable": false,
+                    "interface": "",
+                    "writeable": false,
+                    "description": "HR2"
+                }
+            ],
+            "ip": "192.168.3.2",
+            "port": 502,
+            "type": "modbus",
+            "txtime": 2,
+            "barcode": "xxx",
+            "publish": false,
+            "enabled": true,
+            "deviceId": "000000000000000000000002",
+            "description": "Procon 2"
+        },
+        {
+            "io": [
+                {
+                    "key": "",
+                    "tagId": "",
+                    "inputId": "000000000000000000000003",
+                    "register": "hr2",
+                    "moduleId": 0,
+                    "readable": false,
+                    "interface": "",
+                    "writeable": false,
+                    "description": "HR2"
+                }
+            ],
+            "ip": "192.168.3.3",
+            "port": 502,
+            "type": "modbus",
+            "txtime": 2,
+            "barcode": "xxx",
+            "publish": false,
+            "enabled": true,
+            "deviceId": "000000000000000000000003",
+            "description": "Procon 3"
+        },
+        {
+            "io": [
+                {
+                    "key": "",
+                    "tagId": "",
+                    "inputId": "000000000000000000000004",
+                    "register": "hr2",
+                    "moduleId": 0,
+                    "readable": false,
+                    "interface": "",
+                    "writeable": false,
+                    "description": "HR2"
+                }
+            ],
+            "ip": "192.168.3.4",
+            "port": 502,
+            "type": "modbus",
+            "txtime": 2,
+            "barcode": "xxx",
+            "publish": false,
+            "enabled": true,
+            "deviceId": "000000000000000000000004",
+            "description": "Procon 4"
+        },
+        {
+            "io": [
+                {
+                    "key": "",
+                    "tagId": "",
+                    "inputId": "000000000000000000000005",
+                    "register": "hr2",
+                    "moduleId": 0,
+                    "readable": false,
+                    "interface": "",
+                    "writeable": false,
+                    "description": "HR2"
+                }
+            ],
+            "ip": "192.168.3.5",
+            "port": 502,
+            "type": "modbus",
+            "txtime": 2,
+            "barcode": "xxx",
+            "publish": false,
+            "enabled": true,
+            "deviceId": "000000000000000000000005",
+            "description": "Procon 5"
+        },
+        {
+            "io": [
+                {
+                    "key": "",
+                    "tagId": "",
+                    "inputId": "000000000000000000000006",
+                    "register": "hr2",
+                    "moduleId": 0,
+                    "readable": false,
+                    "interface": "",
+                    "writeable": false,
+                    "description": "HR2"
+                }
+            ],
+            "ip": "192.168.3.6",
+            "port": 502,
+            "type": "modbus",
+            "txtime": 2,
+            "barcode": "xxx",
+            "publish": false,
+            "enabled": true,
+            "deviceId": "000000000000000000000006",
+            "description": "Procon 6"
+        },
+        {
+            "io": [
+                {
+                    "key": "",
+                    "tagId": "",
+                    "inputId": "000000000000000000000007",
+                    "register": "hr2",
+                    "moduleId": 0,
+                    "readable": false,
+                    "interface": "",
+                    "writeable": false,
+                    "description": "HR2"
+                }
+            ],
+            "ip": "192.168.3.7",
+            "port": 502,
+            "type": "modbus",
+            "txtime": 2,
+            "barcode": "xxx",
+            "publish": false,
+            "enabled": true,
+            "deviceId": "000000000000000000000007",
+            "description": "Procon 7"
+        },
+        {
+            "io": [
+                {
+                    "key": "",
+                    "tagId": "",
+                    "inputId": "000000000000000000000008",
+                    "register": "hr2",
+                    "moduleId": 0,
+                    "readable": false,
+                    "interface": "",
+                    "writeable": false,
+                    "description": "HR2"
+                }
+            ],
+            "ip": "192.168.3.8",
+            "port": 502,
+            "type": "modbus",
+            "txtime": 2,
+            "barcode": "xxx",
+            "publish": false,
+            "enabled": true,
+            "deviceId": "000000000000000000000008",
+            "description": "Procon 8"
+        },
+        {
+            "io": [
+                {
+                    "key": "",
+                    "tagId": "",
+                    "inputId": "000000000000000000000009",
+                    "register": "hr2",
+                    "moduleId": 0,
+                    "readable": false,
+                    "interface": "",
+                    "writeable": false,
+                    "description": "HR2"
+                }
+            ],
+            "ip": "192.168.3.9",
+            "port": 502,
+            "type": "modbus",
+            "txtime": 2,
+            "barcode": "xxx",
+            "publish": false,
+            "enabled": true,
+            "deviceId": "000000000000000000000009",
+            "description": "Procon 9"
+        },
+        {
+            "io": [
+                {
+                    "key": "",
+                    "tagId": "",
+                    "inputId": "000000000000000000000010",
+                    "register": "hr2",
+                    "moduleId": 0,
+                    "readable": false,
+                    "interface": "",
+                    "writeable": false,
+                    "description": "HR2"
+                }
+            ],
+            "ip": "192.168.3.10",
+            "port": 502,
+            "type": "modbus",
+            "txtime": 2,
+            "barcode": "xxx",
+            "publish": false,
+            "enabled": true,
+            "deviceId": "000000000000000000000010",
+            "description": "Procon 10"
+        },
+        {
+            "io": [
+                {
+                    "key": "",
+                    "tagId": "",
+                    "inputId": "000000000000000000000001",
+                    "register": "hr2",
+                    "moduleId": 0,
+                    "readable": false,
+                    "interface": "",
+                    "writeable": false,
+                    "description": "HR2"
+                },
+                {
+                    "key": "",
+                    "tagId": "",
+                    "inputId": "000000000000000000000002",
+                    "register": "hr3",
+                    "moduleId": 0,
+                    "readable": false,
+                    "interface": "",
+                    "writeable": false,
+                    "description": "HR3"
+                },
+                {
+                    "key": "",
+                    "tagId": "",
+                    "inputId": "000000000000000000000003",
+                    "register": "hr4",
+                    "moduleId": 0,
+                    "readable": false,
+                    "interface": "",
+                    "writeable": false,
+                    "description": "HR4"
+                },
+                {
+                    "key": "",
+                    "tagId": "",
+                    "inputId": "000000000000000000000004",
+                    "register": "hr5",
+                    "moduleId": 0,
+                    "readable": false,
+                    "interface": "",
+                    "writeable": false,
+                    "description": "HR5"
+                },
+                {
+                    "key": "",
+                    "tagId": "",
+                    "inputId": "000000000000000000000005",
+                    "register": "hr6",
+                    "moduleId": 0,
+                    "readable": false,
+                    "interface": "",
+                    "writeable": false,
+                    "description": "HR6"
+                },
+                {
+                    "key": "",
+                    "tagId": "",
+                    "inputId": "000000000000000000000006",
+                    "register": "hr7",
+                    "moduleId": 0,
+                    "readable": false,
+                    "interface": "",
+                    "writeable": false,
+                    "description": "HR7"
+                },
+                {
+                    "key": "",
+                    "tagId": "",
+                    "inputId": "000000000000000000000007",
+                    "register": "hr8",
+                    "moduleId": 0,
+                    "readable": false,
+                    "interface": "",
+                    "writeable": false,
+                    "description": "HR8"
+                },
+                {
+                    "key": "",
+                    "tagId": "",
+                    "inputId": "000000000000000000000008",
+                    "register": "hr9",
+                    "moduleId": 0,
+                    "readable": false,
+                    "interface": "",
+                    "writeable": false,
+                    "description": "HR9"
+                }
+            ],
+            "ip": "192.168.3.11",
+            "port": 502,
+            "type": "modbus",
+            "txtime": 2,
+            "barcode": "xxx",
+            "publish": false,
+            "enabled": true,
+            "deviceId": "000000000000000000000011",
+            "description": "Procon 11"
+        },
+        {
+            "io": [
+                {
+                    "key": "",
+                    "tagId": "",
+                    "inputId": "000000000000000000000001",
+                    "register": "hr2",
+                    "moduleId": 0,
+                    "readable": false,
+                    "interface": "",
+                    "writeable": false,
+                    "description": "HR2"
+                },
+                {
+                    "key": "",
+                    "tagId": "",
+                    "inputId": "000000000000000000000002",
+                    "register": "hr3",
+                    "moduleId": 0,
+                    "readable": false,
+                    "interface": "",
+                    "writeable": false,
+                    "description": "HR3"
+                },
+                {
+                    "key": "",
+                    "tagId": "",
+                    "inputId": "000000000000000000000003",
+                    "register": "hr4",
+                    "moduleId": 0,
+                    "readable": false,
+                    "interface": "",
+                    "writeable": false,
+                    "description": "HR4"
+                },
+                {
+                    "key": "",
+                    "tagId": "",
+                    "inputId": "000000000000000000000004",
+                    "register": "hr5",
+                    "moduleId": 0,
+                    "readable": false,
+                    "interface": "",
+                    "writeable": false,
+                    "description": "HR5"
+                },
+                {
+                    "key": "",
+                    "tagId": "",
+                    "inputId": "000000000000000000000005",
+                    "register": "hr6",
+                    "moduleId": 0,
+                    "readable": false,
+                    "interface": "",
+                    "writeable": false,
+                    "description": "HR6"
+                },
+                {
+                    "key": "",
+                    "tagId": "",
+                    "inputId": "000000000000000000000006",
+                    "register": "hr7",
+                    "moduleId": 0,
+                    "readable": false,
+                    "interface": "",
+                    "writeable": false,
+                    "description": "HR7"
+                },
+                {
+                    "key": "",
+                    "tagId": "",
+                    "inputId": "000000000000000000000007",
+                    "register": "hr8",
+                    "moduleId": 0,
+                    "readable": false,
+                    "interface": "",
+                    "writeable": false,
+                    "description": "HR8"
+                },
+                {
+                    "key": "",
+                    "tagId": "",
+                    "inputId": "000000000000000000000008",
+                    "register": "hr9",
+                    "moduleId": 0,
+                    "readable": false,
+                    "interface": "",
+                    "writeable": false,
+                    "description": "HR9"
+                }
+            ],
+            "ip": "192.168.3.12",
+            "port": 502,
+            "type": "modbus",
+            "txtime": 2,
+            "barcode": "xxx",
+            "publish": false,
+            "enabled": true,
+            "deviceId": "000000000000000000000012",
+            "description": "Procon 12"
+        },
+        {
+            "io": [
+                {
+                    "key": "",
+                    "tagId": "",
+                    "inputId": "000000000000000000000001",
+                    "register": "hr2",
+                    "moduleId": 0,
+                    "readable": false,
+                    "interface": "",
+                    "writeable": false,
+                    "description": "HR2"
+                },
+                {
+                    "key": "",
+                    "tagId": "",
+                    "inputId": "000000000000000000000002",
+                    "register": "hr3",
+                    "moduleId": 0,
+                    "readable": false,
+                    "interface": "",
+                    "writeable": false,
+                    "description": "HR3"
+                },
+                {
+                    "key": "",
+                    "tagId": "",
+                    "inputId": "000000000000000000000003",
+                    "register": "hr4",
+                    "moduleId": 0,
+                    "readable": false,
+                    "interface": "",
+                    "writeable": false,
+                    "description": "HR4"
+                },
+                {
+                    "key": "",
+                    "tagId": "",
+                    "inputId": "000000000000000000000004",
+                    "register": "hr5",
+                    "moduleId": 0,
+                    "readable": false,
+                    "interface": "",
+                    "writeable": false,
+                    "description": "HR5"
+                },
+                {
+                    "key": "",
+                    "tagId": "",
+                    "inputId": "000000000000000000000005",
+                    "register": "hr6",
+                    "moduleId": 0,
+                    "readable": false,
+                    "interface": "",
+                    "writeable": false,
+                    "description": "HR6"
+                },
+                {
+                    "key": "",
+                    "tagId": "",
+                    "inputId": "000000000000000000000006",
+                    "register": "hr7",
+                    "moduleId": 0,
+                    "readable": false,
+                    "interface": "",
+                    "writeable": false,
+                    "description": "HR7"
+                },
+                {
+                    "key": "",
+                    "tagId": "",
+                    "inputId": "000000000000000000000007",
+                    "register": "hr8",
+                    "moduleId": 0,
+                    "readable": false,
+                    "interface": "",
+                    "writeable": false,
+                    "description": "HR8"
+                },
+                {
+                    "key": "",
+                    "tagId": "",
+                    "inputId": "000000000000000000000008",
+                    "register": "hr9",
+                    "moduleId": 0,
+                    "readable": false,
+                    "interface": "",
+                    "writeable": false,
+                    "description": "HR9"
+                }
+            ],
+            "ip": "192.168.3.13",
+            "port": 502,
+            "type": "modbus",
+            "txtime": 2,
+            "barcode": "xxx",
+            "publish": false,
+            "enabled": true,
+            "deviceId": "000000000000000000000013",
+            "description": "Procon 13"
+        }
+    ],
+    "mapping": [
+        {
+            "source": {
+                "mask": 65535,
+                "inputId": "000000000000000000000001",
+                "deviceId": "000000000000000000000PLC"
+            },
+            "destination": {
+                "mask": 65535,
+                "inputId": "000000000000000000000001",
+                "deviceId": "000000000000000000000001"
+            }
+        },
+        {
+            "source": {
+                "mask": 65535,
+                "inputId": "000000000000000000000002",
+                "deviceId": "000000000000000000000PLC"
+            },
+            "destination": {
+                "mask": 65535,
+                "inputId": "000000000000000000000002",
+                "deviceId": "000000000000000000000002"
+            }
+        },
+        {
+            "source": {
+                "mask": 65535,
+                "inputId": "000000000000000000000003",
+                "deviceId": "000000000000000000000PLC"
+            },
+            "destination": {
+                "mask": 65535,
+                "inputId": "000000000000000000000003",
+                "deviceId": "000000000000000000000003"
+            }
+        },
+        {
+            "source": {
+                "mask": 65535,
+                "inputId": "000000000000000000000004",
+                "deviceId": "000000000000000000000PLC"
+            },
+            "destination": {
+                "mask": 65535,
+                "inputId": "000000000000000000000004",
+                "deviceId": "000000000000000000000004"
+            }
+        },
+        {
+            "source": {
+                "mask": 65535,
+                "inputId": "000000000000000000000005",
+                "deviceId": "000000000000000000000PLC"
+            },
+            "destination": {
+                "mask": 65535,
+                "inputId": "000000000000000000000005",
+                "deviceId": "000000000000000000000005"
+            }
+        },
+        {
+            "source": {
+                "mask": 65535,
+                "inputId": "000000000000000000000006",
+                "deviceId": "000000000000000000000PLC"
+            },
+            "destination": {
+                "mask": 65535,
+                "inputId": "000000000000000000000006",
+                "deviceId": "000000000000000000000006"
+            }
+        },
+        {
+            "source": {
+                "mask": 65535,
+                "inputId": "000000000000000000000007",
+                "deviceId": "000000000000000000000PLC"
+            },
+            "destination": {
+                "mask": 65535,
+                "inputId": "000000000000000000000007",
+                "deviceId": "000000000000000000000007"
+            }
+        },
+        {
+            "source": {
+                "mask": 65535,
+                "inputId": "000000000000000000000008",
+                "deviceId": "000000000000000000000PLC"
+            },
+            "destination": {
+                "mask": 65535,
+                "inputId": "000000000000000000000008",
+                "deviceId": "000000000000000000000008"
+            }
+        },
+        {
+            "source": {
+                "mask": 65535,
+                "inputId": "000000000000000000000009",
+                "deviceId": "000000000000000000000PLC"
+            },
+            "destination": {
+                "mask": 65535,
+                "inputId": "000000000000000000000009",
+                "deviceId": "000000000000000000000009"
+            }
+        },
+        {
+            "source": {
+                "mask": 65535,
+                "inputId": "000000000000000000000010",
+                "deviceId": "000000000000000000000PLC"
+            },
+            "destination": {
+                "mask": 65535,
+                "inputId": "000000000000000000000010",
+                "deviceId": "000000000000000000000010"
+            }
+        },
+        {
+            "source": {
+                "mask": -1,
+                "inputId": "000000000000000000000021",
+                "deviceId": "000000000000000000000PLC"
+            },
+            "destination": {
+                "mask": -1,
+                "inputId": "000000000000000000000001",
+                "deviceId": "000000000000000000000011"
+            }
+        },
+        {
+            "source": {
+                "mask": -1,
+                "inputId": "000000000000000000000022",
+                "deviceId": "000000000000000000000PLC"
+            },
+            "destination": {
+                "mask": -1,
+                "inputId": "000000000000000000000002",
+                "deviceId": "000000000000000000000011"
+            }
+        },
+        {
+            "source": {
+                "mask": -1,
+                "inputId": "000000000000000000000023",
+                "deviceId": "000000000000000000000PLC"
+            },
+            "destination": {
+                "mask": -1,
+                "inputId": "000000000000000000000003",
+                "deviceId": "000000000000000000000011"
+            }
+        },
+        {
+            "source": {
+                "mask": -1,
+                "inputId": "000000000000000000000024",
+                "deviceId": "000000000000000000000PLC"
+            },
+            "destination": {
+                "mask": -1,
+                "inputId": "000000000000000000000004",
+                "deviceId": "000000000000000000000011"
+            }
+        },
+        {
+            "source": {
+                "mask": -1,
+                "inputId": "000000000000000000000025",
+                "deviceId": "000000000000000000000PLC"
+            },
+            "destination": {
+                "mask": -1,
+                "inputId": "000000000000000000000005",
+                "deviceId": "000000000000000000000011"
+            }
+        },
+        {
+            "source": {
+                "mask": -1,
+                "inputId": "000000000000000000000026",
+                "deviceId": "000000000000000000000PLC"
+            },
+            "destination": {
+                "mask": -1,
+                "inputId": "000000000000000000000006",
+                "deviceId": "000000000000000000000011"
+            }
+        },
+        {
+            "source": {
+                "mask": -1,
+                "inputId": "000000000000000000000027",
+                "deviceId": "000000000000000000000PLC"
+            },
+            "destination": {
+                "mask": -1,
+                "inputId": "000000000000000000000007",
+                "deviceId": "000000000000000000000011"
+            }
+        },
+        {
+            "source": {
+                "mask": -1,
+                "inputId": "000000000000000000000028",
+                "deviceId": "000000000000000000000PLC"
+            },
+            "destination": {
+                "mask": -1,
+                "inputId": "000000000000000000000008",
+                "deviceId": "000000000000000000000011"
+            }
+        },
+        {
+            "source": {
+                "mask": -1,
+                "inputId": "000000000000000000000031",
+                "deviceId": "000000000000000000000PLC"
+            },
+            "destination": {
+                "mask": -1,
+                "inputId": "000000000000000000000001",
+                "deviceId": "000000000000000000000012"
+            }
+        },
+        {
+            "source": {
+                "mask": -1,
+                "inputId": "000000000000000000000032",
+                "deviceId": "000000000000000000000PLC"
+            },
+            "destination": {
+                "mask": -1,
+                "inputId": "000000000000000000000002",
+                "deviceId": "000000000000000000000012"
+            }
+        },
+        {
+            "source": {
+                "mask": -1,
+                "inputId": "000000000000000000000033",
+                "deviceId": "000000000000000000000PLC"
+            },
+            "destination": {
+                "mask": -1,
+                "inputId": "000000000000000000000003",
+                "deviceId": "000000000000000000000012"
+            }
+        },
+        {
+            "source": {
+                "mask": -1,
+                "inputId": "000000000000000000000034",
+                "deviceId": "000000000000000000000PLC"
+            },
+            "destination": {
+                "mask": -1,
+                "inputId": "000000000000000000000004",
+                "deviceId": "000000000000000000000012"
+            }
+        },
+        {
+            "source": {
+                "mask": -1,
+                "inputId": "000000000000000000000035",
+                "deviceId": "000000000000000000000PLC"
+            },
+            "destination": {
+                "mask": -1,
+                "inputId": "000000000000000000000005",
+                "deviceId": "000000000000000000000012"
+            }
+        },
+        {
+            "source": {
+                "mask": -1,
+                "inputId": "000000000000000000000036",
+                "deviceId": "000000000000000000000PLC"
+            },
+            "destination": {
+                "mask": -1,
+                "inputId": "000000000000000000000006",
+                "deviceId": "000000000000000000000012"
+            }
+        },
+        {
+            "source": {
+                "mask": -1,
+                "inputId": "000000000000000000000037",
+                "deviceId": "000000000000000000000PLC"
+            },
+            "destination": {
+                "mask": -1,
+                "inputId": "000000000000000000000007",
+                "deviceId": "000000000000000000000012"
+            }
+        },
+        {
+            "source": {
+                "mask": -1,
+                "inputId": "000000000000000000000038",
+                "deviceId": "000000000000000000000PLC"
+            },
+            "destination": {
+                "mask": -1,
+                "inputId": "000000000000000000000008",
+                "deviceId": "000000000000000000000012"
+            }
+        },
+        {
+            "source": {
+                "mask": -1,
+                "inputId": "000000000000000000000041",
+                "deviceId": "000000000000000000000PLC"
+            },
+            "destination": {
+                "mask": -1,
+                "inputId": "000000000000000000000001",
+                "deviceId": "000000000000000000000013"
+            }
+        },
+        {
+            "source": {
+                "mask": -1,
+                "inputId": "000000000000000000000042",
+                "deviceId": "000000000000000000000PLC"
+            },
+            "destination": {
+                "mask": -1,
+                "inputId": "000000000000000000000002",
+                "deviceId": "000000000000000000000013"
+            }
+        },
+        {
+            "source": {
+                "mask": -1,
+                "inputId": "000000000000000000000043",
+                "deviceId": "000000000000000000000PLC"
+            },
+            "destination": {
+                "mask": -1,
+                "inputId": "000000000000000000000003",
+                "deviceId": "000000000000000000000013"
+            }
+        },
+        {
+            "source": {
+                "mask": -1,
+                "inputId": "000000000000000000000044",
+                "deviceId": "000000000000000000000PLC"
+            },
+            "destination": {
+                "mask": -1,
+                "inputId": "000000000000000000000004",
+                "deviceId": "000000000000000000000013"
+            }
+        },
+        {
+            "source": {
+                "mask": -1,
+                "inputId": "000000000000000000000045",
+                "deviceId": "000000000000000000000PLC"
+            },
+            "destination": {
+                "mask": -1,
+                "inputId": "000000000000000000000005",
+                "deviceId": "000000000000000000000013"
+            }
+        },
+        {
+            "source": {
+                "mask": -1,
+                "inputId": "000000000000000000000046",
+                "deviceId": "000000000000000000000PLC"
+            },
+            "destination": {
+                "mask": -1,
+                "inputId": "000000000000000000000006",
+                "deviceId": "000000000000000000000013"
+            }
+        },
+        {
+            "source": {
+                "mask": -1,
+                "inputId": "000000000000000000000047",
+                "deviceId": "000000000000000000000PLC"
+            },
+            "destination": {
+                "mask": -1,
+                "inputId": "000000000000000000000007",
+                "deviceId": "000000000000000000000013"
+            }
+        },
+        {
+            "source": {
+                "mask": -1,
+                "inputId": "000000000000000000000048",
+                "deviceId": "000000000000000000000PLC"
+            },
+            "destination": {
+                "mask": -1,
+                "inputId": "000000000000000000000008",
+                "deviceId": "000000000000000000000013"
+            }
+        },
+        {
+            "source": {
+                "mask": -1,
+                "inputId": "000000000000000000000001",
+                "deviceId": "000000000000000000000171"
+            },
+            "destination": {
+                "mask": -1,
+                "inputId": "000000000000000000000051",
+                "deviceId": "000000000000000000000PLC"
+            }
+        }
+    ]
+}

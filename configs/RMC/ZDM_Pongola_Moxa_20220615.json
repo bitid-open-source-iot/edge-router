@@ -1,8 +1,8 @@
 {
     "port": 8080,
-    "txtime": 10,
-    "barcode": "uMGILLOVOWTW",
-    "deviceId": "632d79f58a0f5177d6b60494",
+    "txtime": 600,
+    "barcode": "ZDMPONGOLAWTWMOXA",
+    "deviceId": "62a6f58458e58855a13305d4",
     "production": true,
     "authentication": true,
     "admin": {
@@ -15,8 +15,8 @@
         "username": "telemetry",
         "password": "telemetry1!",
         "subscribe": {
-            "data": "/rock/v1.1.umgenicoastal/data",
-            "control": "/rock/v1.1.umgenicoastal/control"
+            "data": "/rock/v1.1/data",
+            "control": "/rock/v1.1/control"
         }
     },
     "logger": {
@@ -40,58 +40,7 @@
     },
     "devices": [
         {
-            "id": 0,
             "io": [
-                {
-                    "scaling": {
-                        "raw": {
-                            "low": 0,
-                            "high": 0
-                        },
-                        "scaled": {
-                            "low": 0,
-                            "high": 0
-                        },
-                        "type": "none"
-                    },
-                    "publish": {
-                        "bit": 0,
-                        "key": "",
-                        "enabled": false,
-                        "moduleId": 0
-                    },
-                    "masking": {
-                        "bit": 0,
-                        "enabled": false
-                    },
-                    "mqtt": {
-                        "userName": "",
-                        "password": "",
-                        "subscribe": {
-                            "data": "",
-                            "control": ""
-                        },
-                        "enabled": false
-                    },
-                    "modbus": {
-                        "isCoil": false,
-                        "isHoldingRegister": false
-                    },
-                    "key": "digitalsIn",
-                    "tagId": "",
-                    "value": 31701,
-                    "shift": 0,
-                    "inputId": "721f4416b997f5a6c4d68107",
-                    "register": 0,
-                    "moduleId": 0,
-                    "readable": true,
-                    "interface": "",
-                    "writeable": true,
-                    "description": "DigitalsIn from Abstraction - LSB",
-                    "cofs": -1,
-                    "command": "",
-                    "rtuId": 0
-                },
                 {
                     "scaling": {
                         "raw": {
@@ -129,218 +78,15 @@
                     },
                     "key": "AI1",
                     "tagId": "",
-                    "value": 73,
-                    "shift": 0,
-                    "inputId": "733abfc88e271370f0674964",
-                    "register": 0,
-                    "moduleId": 0,
-                    "readable": true,
-                    "interface": "",
-                    "writeable": true,
-                    "description": "AI1 from Abstraction - Delivery Pressure PV",
-                    "cofs": -1,
-                    "command": "",
-                    "rtuId": 0
-                },
-                {
-                    "scaling": {
-                        "raw": {
-                            "low": 0,
-                            "high": 0
-                        },
-                        "scaled": {
-                            "low": 0,
-                            "high": 0
-                        },
-                        "type": "none"
-                    },
-                    "publish": {
-                        "bit": 0,
-                        "key": "",
-                        "enabled": false,
-                        "moduleId": 0
-                    },
-                    "masking": {
-                        "bit": 0,
-                        "enabled": false
-                    },
-                    "mqtt": {
-                        "userName": "",
-                        "password": "",
-                        "subscribe": {
-                            "data": "",
-                            "control": ""
-                        },
-                        "enabled": false
-                    },
-                    "modbus": {
-                        "isCoil": false,
-                        "isHoldingRegister": false
-                    },
-                    "key": "AI2",
-                    "tagId": "",
-                    "value": 356,
-                    "shift": 0,
-                    "inputId": "733abfdd77faba11856aaa94",
-                    "register": 0,
-                    "moduleId": 0,
-                    "readable": true,
-                    "interface": "",
-                    "writeable": true,
-                    "description": "AI2 from Abstraction - Delivery Flowmeter PV",
-                    "cofs": -1,
-                    "command": "",
-                    "rtuId": 0
-                },
-                {
-                    "scaling": {
-                        "raw": {
-                            "low": 0,
-                            "high": 0
-                        },
-                        "scaled": {
-                            "low": 0,
-                            "high": 0
-                        },
-                        "type": "none"
-                    },
-                    "publish": {
-                        "bit": 0,
-                        "key": "",
-                        "enabled": false,
-                        "moduleId": 0
-                    },
-                    "masking": {
-                        "bit": 0,
-                        "enabled": false
-                    },
-                    "mqtt": {
-                        "userName": "",
-                        "password": "",
-                        "subscribe": {
-                            "data": "",
-                            "control": ""
-                        },
-                        "enabled": false
-                    },
-                    "modbus": {
-                        "isCoil": false,
-                        "isHoldingRegister": false
-                    },
-                    "key": "AI3",
-                    "tagId": "",
-                    "value": 457,
-                    "shift": 0,
-                    "inputId": "733abfee554cd8d18889172f",
-                    "register": 0,
-                    "moduleId": 0,
-                    "readable": true,
-                    "interface": "",
-                    "writeable": true,
-                    "description": "AI3 from Abstraction - Pump 1 Runhour Meter",
-                    "cofs": -1,
-                    "command": "",
-                    "rtuId": 0
-                },
-                {
-                    "scaling": {
-                        "raw": {
-                            "low": 0,
-                            "high": 0
-                        },
-                        "scaled": {
-                            "low": 0,
-                            "high": 0
-                        },
-                        "type": "none"
-                    },
-                    "publish": {
-                        "bit": 0,
-                        "key": "",
-                        "enabled": false,
-                        "moduleId": 0
-                    },
-                    "masking": {
-                        "bit": 0,
-                        "enabled": false
-                    },
-                    "mqtt": {
-                        "userName": "",
-                        "password": "",
-                        "subscribe": {
-                            "data": "",
-                            "control": ""
-                        },
-                        "enabled": false
-                    },
-                    "modbus": {
-                        "isCoil": false,
-                        "isHoldingRegister": false
-                    },
-                    "key": "AI4",
-                    "tagId": "",
-                    "value": 418,
-                    "shift": 0,
-                    "inputId": "733abffab3ac98a1bdbc4e7d",
-                    "register": 0,
-                    "moduleId": 0,
-                    "readable": true,
-                    "interface": "",
-                    "writeable": true,
-                    "description": "AI4 from Abstraction - Pump 2 Runhour Meter",
-                    "cofs": -1,
-                    "command": "",
-                    "rtuId": 0
-                },
-                {
-                    "scaling": {
-                        "raw": {
-                            "low": 0,
-                            "high": 0
-                        },
-                        "scaled": {
-                            "low": 0,
-                            "high": 0
-                        },
-                        "type": "none"
-                    },
-                    "publish": {
-                        "bit": 0,
-                        "key": "",
-                        "enabled": false,
-                        "moduleId": 0
-                    },
-                    "masking": {
-                        "bit": 0,
-                        "enabled": false
-                    },
-                    "mqtt": {
-                        "userName": "",
-                        "password": "",
-                        "subscribe": {
-                            "data": "",
-                            "control": ""
-                        },
-                        "enabled": false
-                    },
-                    "modbus": {
-                        "isCoil": false,
-                        "isHoldingRegister": false
-                    },
-                    "key": "AIExt1",
-                    "tagId": "",
                     "value": 0,
                     "shift": 0,
-                    "inputId": "733ac009eed502d248c94b3d",
+                    "inputId": "621336f7319eee089a296555",
                     "register": 0,
                     "moduleId": 0,
-                    "readable": true,
+                    "readable": false,
                     "interface": "",
-                    "writeable": true,
-                    "description": "AIExt1 from Abstraction - Pump 1 Start Counts",
-                    "cofs": -1,
-                    "command": "",
-                    "rtuId": 0
+                    "writeable": false,
+                    "description": "PS1 Res Level"
                 },
                 {
                     "scaling": {
@@ -362,7 +108,7 @@
                     },
                     "masking": {
                         "bit": 0,
-                        "enabled": false
+                        "enabled": true
                     },
                     "mqtt": {
                         "userName": "",
@@ -377,120 +123,17 @@
                         "isCoil": false,
                         "isHoldingRegister": false
                     },
-                    "key": "AIExt2",
-                    "tagId": "",
-                    "value": 2,
-                    "shift": 0,
-                    "inputId": "733ac0191a0da80101d7fe88",
-                    "register": 0,
-                    "moduleId": 0,
-                    "readable": true,
-                    "interface": "",
-                    "writeable": true,
-                    "description": "AIExt2 from Abstraction - Pump 2 Start Counts",
-                    "cofs": -1,
-                    "command": "",
-                    "rtuId": 0
-                },
-                {
-                    "scaling": {
-                        "raw": {
-                            "low": 0,
-                            "high": 0
-                        },
-                        "scaled": {
-                            "low": 0,
-                            "high": 0
-                        },
-                        "type": "none"
-                    },
-                    "publish": {
-                        "bit": 0,
-                        "key": "",
-                        "enabled": false,
-                        "moduleId": 0
-                    },
-                    "masking": {
-                        "bit": 0,
-                        "enabled": false
-                    },
-                    "mqtt": {
-                        "userName": "",
-                        "password": "",
-                        "subscribe": {
-                            "data": "",
-                            "control": ""
-                        },
-                        "enabled": false
-                    },
-                    "modbus": {
-                        "isCoil": false,
-                        "isHoldingRegister": false
-                    },
-                    "key": "AIExt3",
-                    "tagId": "",
-                    "value": 0,
-                    "shift": 0,
-                    "inputId": "733ac03f1b5b68b39c8fe501",
-                    "register": 0,
-                    "moduleId": 0,
-                    "readable": true,
-                    "interface": "",
-                    "writeable": true,
-                    "description": "AIExt3 from Abstraction - Pump 1 Status",
-                    "cofs": -1,
-                    "command": "",
-                    "rtuId": 0
-                },
-                {
-                    "scaling": {
-                        "raw": {
-                            "low": 0,
-                            "high": 0
-                        },
-                        "scaled": {
-                            "low": 0,
-                            "high": 0
-                        },
-                        "type": "none"
-                    },
-                    "publish": {
-                        "bit": 0,
-                        "key": "",
-                        "enabled": false,
-                        "moduleId": 0
-                    },
-                    "masking": {
-                        "bit": 0,
-                        "enabled": false
-                    },
-                    "mqtt": {
-                        "userName": "",
-                        "password": "",
-                        "subscribe": {
-                            "data": "",
-                            "control": ""
-                        },
-                        "enabled": false
-                    },
-                    "modbus": {
-                        "isCoil": false,
-                        "isHoldingRegister": false
-                    },
-                    "key": "AIExt4",
+                    "key": "digitalsIn",
                     "tagId": "",
                     "value": 1,
-                    "shift": 0,
-                    "inputId": "733ac0caa6c82de1041f8d70",
+                    "shift": 10,
+                    "inputId": "621f0ccc6e8fc5dc94269f67",
                     "register": 0,
                     "moduleId": 0,
-                    "readable": true,
+                    "readable": false,
                     "interface": "",
-                    "writeable": true,
-                    "description": "AIExt4 from Abstraction - Pump 2 Status",
-                    "cofs": -1,
-                    "command": "",
-                    "rtuId": 0
+                    "writeable": false,
+                    "description": "RW Procon 1 - P1 Run"
                 },
                 {
                     "scaling": {
@@ -511,8 +154,8 @@
                         "moduleId": 0
                     },
                     "masking": {
-                        "bit": 0,
-                        "enabled": false
+                        "bit": 1,
+                        "enabled": true
                     },
                     "mqtt": {
                         "userName": "",
@@ -530,17 +173,972 @@
                     "key": "digitalsIn",
                     "tagId": "",
                     "value": 0,
-                    "shift": 16,
-                    "inputId": "733ac93a8a223b2f4987c625",
+                    "shift": 10,
+                    "inputId": "621f439813bfefcdbc670a0c",
                     "register": 0,
+                    "moduleId": 0,
+                    "readable": false,
+                    "interface": "",
+                    "writeable": false,
+                    "description": "RW Procon 1 - P1 Trip"
+                },
+                {
+                    "scaling": {
+                        "raw": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "scaled": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "type": "none"
+                    },
+                    "publish": {
+                        "bit": 0,
+                        "key": "",
+                        "enabled": false,
+                        "moduleId": 0
+                    },
+                    "masking": {
+                        "bit": 2,
+                        "enabled": true
+                    },
+                    "mqtt": {
+                        "userName": "",
+                        "password": "",
+                        "subscribe": {
+                            "data": "",
+                            "control": ""
+                        },
+                        "enabled": false
+                    },
+                    "modbus": {
+                        "isCoil": false,
+                        "isHoldingRegister": false
+                    },
+                    "key": "digitalsIn",
+                    "tagId": "",
+                    "value": 0,
+                    "shift": 10,
+                    "inputId": "621f43a7e4df942ca265f7e7",
+                    "register": 0,
+                    "moduleId": 0,
+                    "readable": false,
+                    "interface": "",
+                    "writeable": false,
+                    "description": "RW Procon 1 - P2 Run"
+                },
+                {
+                    "scaling": {
+                        "raw": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "scaled": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "type": "none"
+                    },
+                    "publish": {
+                        "bit": 0,
+                        "key": "",
+                        "enabled": false,
+                        "moduleId": 0
+                    },
+                    "masking": {
+                        "bit": 3,
+                        "enabled": true
+                    },
+                    "mqtt": {
+                        "userName": "",
+                        "password": "",
+                        "subscribe": {
+                            "data": "",
+                            "control": ""
+                        },
+                        "enabled": false
+                    },
+                    "modbus": {
+                        "isCoil": false,
+                        "isHoldingRegister": false
+                    },
+                    "key": "digitalsIn",
+                    "tagId": "",
+                    "value": 0,
+                    "shift": 10,
+                    "inputId": "621f43b4d55ce44ab889855f",
+                    "register": 0,
+                    "moduleId": 0,
+                    "readable": false,
+                    "interface": "",
+                    "writeable": false,
+                    "description": "RW Procon 1 - P2 Trip"
+                },
+                {
+                    "scaling": {
+                        "raw": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "scaled": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "type": "none"
+                    },
+                    "publish": {
+                        "bit": 0,
+                        "key": "",
+                        "enabled": false,
+                        "moduleId": 0
+                    },
+                    "masking": {
+                        "bit": 4,
+                        "enabled": true
+                    },
+                    "mqtt": {
+                        "userName": "",
+                        "password": "",
+                        "subscribe": {
+                            "data": "",
+                            "control": ""
+                        },
+                        "enabled": false
+                    },
+                    "modbus": {
+                        "isCoil": false,
+                        "isHoldingRegister": false
+                    },
+                    "key": "digitalsIn",
+                    "tagId": "",
+                    "value": 0,
+                    "shift": 10,
+                    "inputId": "621f43c30ed6eb5e769e6e30",
+                    "register": 0,
+                    "moduleId": 0,
+                    "readable": false,
+                    "interface": "",
+                    "writeable": false,
+                    "description": "RW Procon 1 - P3 Run"
+                },
+                {
+                    "scaling": {
+                        "raw": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "scaled": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "type": "none"
+                    },
+                    "publish": {
+                        "bit": 0,
+                        "key": "",
+                        "enabled": false,
+                        "moduleId": 0
+                    },
+                    "masking": {
+                        "bit": 5,
+                        "enabled": true
+                    },
+                    "mqtt": {
+                        "userName": "",
+                        "password": "",
+                        "subscribe": {
+                            "data": "",
+                            "control": ""
+                        },
+                        "enabled": false
+                    },
+                    "modbus": {
+                        "isCoil": false,
+                        "isHoldingRegister": false
+                    },
+                    "key": "digitalsIn",
+                    "tagId": "",
+                    "value": 0,
+                    "shift": 10,
+                    "inputId": "621f43cf150412fa7ee378a4",
+                    "register": 0,
+                    "moduleId": 0,
+                    "readable": false,
+                    "interface": "",
+                    "writeable": false,
+                    "description": "RW Procon 1 - P3 Trip"
+                },
+                {
+                    "scaling": {
+                        "raw": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "scaled": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "type": "none"
+                    },
+                    "publish": {
+                        "bit": 0,
+                        "key": "",
+                        "enabled": false,
+                        "moduleId": 0
+                    },
+                    "masking": {
+                        "bit": 6,
+                        "enabled": true
+                    },
+                    "mqtt": {
+                        "userName": "",
+                        "password": "",
+                        "subscribe": {
+                            "data": "",
+                            "control": ""
+                        },
+                        "enabled": false
+                    },
+                    "modbus": {
+                        "isCoil": false,
+                        "isHoldingRegister": false
+                    },
+                    "key": "digitalsIn",
+                    "tagId": "",
+                    "value": 0,
+                    "shift": 10,
+                    "inputId": "621f43eb49b504d38778c636",
+                    "register": 0,
+                    "moduleId": 0,
+                    "readable": false,
+                    "interface": "",
+                    "writeable": false,
+                    "description": "RW Procon 1 - P4 Run"
+                },
+                {
+                    "scaling": {
+                        "raw": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "scaled": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "type": "none"
+                    },
+                    "publish": {
+                        "bit": 0,
+                        "key": "",
+                        "enabled": false,
+                        "moduleId": 0
+                    },
+                    "masking": {
+                        "bit": 7,
+                        "enabled": true
+                    },
+                    "mqtt": {
+                        "userName": "",
+                        "password": "",
+                        "subscribe": {
+                            "data": "",
+                            "control": ""
+                        },
+                        "enabled": false
+                    },
+                    "modbus": {
+                        "isCoil": false,
+                        "isHoldingRegister": false
+                    },
+                    "key": "digitalsIn",
+                    "tagId": "",
+                    "value": 0,
+                    "shift": 10,
+                    "inputId": "621f440059cf41d68b52c808",
+                    "register": 0,
+                    "moduleId": 0,
+                    "readable": false,
+                    "interface": "",
+                    "writeable": false,
+                    "description": "RW Procon 1 - P4 Trip"
+                },
+                {
+                    "scaling": {
+                        "raw": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "scaled": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "type": "none"
+                    },
+                    "publish": {
+                        "bit": 0,
+                        "key": "",
+                        "enabled": false,
+                        "moduleId": 0
+                    },
+                    "masking": {
+                        "bit": 8,
+                        "enabled": true
+                    },
+                    "mqtt": {
+                        "userName": "",
+                        "password": "",
+                        "subscribe": {
+                            "data": "",
+                            "control": ""
+                        },
+                        "enabled": false
+                    },
+                    "modbus": {
+                        "isCoil": false,
+                        "isHoldingRegister": false
+                    },
+                    "key": "digitalsIn",
+                    "tagId": "",
+                    "value": 0,
+                    "shift": 10,
+                    "inputId": "621f4416b997f5a6c4d68107",
+                    "register": 0,
+                    "moduleId": 0,
+                    "readable": false,
+                    "interface": "",
+                    "writeable": false,
+                    "description": "RW Procon 1 - P5 Run"
+                },
+                {
+                    "scaling": {
+                        "raw": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "scaled": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "type": "none"
+                    },
+                    "publish": {
+                        "bit": 0,
+                        "key": "",
+                        "enabled": false,
+                        "moduleId": 0
+                    },
+                    "masking": {
+                        "bit": 9,
+                        "enabled": true
+                    },
+                    "mqtt": {
+                        "userName": "",
+                        "password": "",
+                        "subscribe": {
+                            "data": "",
+                            "control": ""
+                        },
+                        "enabled": false
+                    },
+                    "modbus": {
+                        "isCoil": false,
+                        "isHoldingRegister": false
+                    },
+                    "key": "digitalsIn",
+                    "tagId": "",
+                    "value": 0,
+                    "shift": 10,
+                    "inputId": "62a6ec884f070f61dea1080d",
+                    "register": 0,
+                    "moduleId": 0,
+                    "readable": false,
+                    "interface": "",
+                    "writeable": false,
+                    "description": "RW Procon 1 - P5 Trip"
+                },
+                {
+                    "scaling": {
+                        "raw": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "scaled": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "type": "none"
+                    },
+                    "publish": {
+                        "bit": 0,
+                        "key": "",
+                        "enabled": false,
+                        "moduleId": 0
+                    },
+                    "masking": {
+                        "bit": 10,
+                        "enabled": true
+                    },
+                    "mqtt": {
+                        "userName": "",
+                        "password": "",
+                        "subscribe": {
+                            "data": "",
+                            "control": ""
+                        },
+                        "enabled": false
+                    },
+                    "modbus": {
+                        "isCoil": false,
+                        "isHoldingRegister": false
+                    },
+                    "key": "digitalsIn",
+                    "tagId": "",
+                    "value": 0,
+                    "shift": 10,
+                    "inputId": "62a6ec91071bea07fb5d2504",
+                    "register": 0,
+                    "moduleId": 0,
+                    "readable": false,
+                    "interface": "",
+                    "writeable": false,
+                    "description": "RW Procon 1 - P6 Run"
+                },
+                {
+                    "scaling": {
+                        "raw": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "scaled": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "type": "none"
+                    },
+                    "publish": {
+                        "bit": 0,
+                        "key": "",
+                        "enabled": false,
+                        "moduleId": 0
+                    },
+                    "masking": {
+                        "bit": 11,
+                        "enabled": true
+                    },
+                    "mqtt": {
+                        "userName": "",
+                        "password": "",
+                        "subscribe": {
+                            "data": "",
+                            "control": ""
+                        },
+                        "enabled": false
+                    },
+                    "modbus": {
+                        "isCoil": false,
+                        "isHoldingRegister": false
+                    },
+                    "key": "digitalsIn",
+                    "tagId": "",
+                    "value": 0,
+                    "shift": 10,
+                    "inputId": "62a6ec9a47a9fc9ad177d943",
+                    "register": 0,
+                    "moduleId": 0,
+                    "readable": false,
+                    "interface": "",
+                    "writeable": false,
+                    "description": "RW Procon 1 - P6 Trip"
+                },
+                {
+                    "scaling": {
+                        "raw": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "scaled": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "type": "none"
+                    },
+                    "publish": {
+                        "bit": 0,
+                        "key": "",
+                        "enabled": false,
+                        "moduleId": 0
+                    },
+                    "masking": {
+                        "bit": 12,
+                        "enabled": true
+                    },
+                    "mqtt": {
+                        "userName": "",
+                        "password": "",
+                        "subscribe": {
+                            "data": "",
+                            "control": ""
+                        },
+                        "enabled": false
+                    },
+                    "modbus": {
+                        "isCoil": false,
+                        "isHoldingRegister": false
+                    },
+                    "key": "digitalsIn",
+                    "tagId": "",
+                    "value": 0,
+                    "shift": 10,
+                    "inputId": "62a6eca10f6b3c707e9d17b3",
+                    "register": 0,
+                    "moduleId": 0,
+                    "readable": false,
+                    "interface": "",
+                    "writeable": false,
+                    "description": "RW Procon 1 - P7 Run"
+                },
+                {
+                    "scaling": {
+                        "raw": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "scaled": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "type": "none"
+                    },
+                    "publish": {
+                        "bit": 0,
+                        "key": "",
+                        "enabled": false,
+                        "moduleId": 0
+                    },
+                    "masking": {
+                        "bit": 13,
+                        "enabled": true
+                    },
+                    "mqtt": {
+                        "userName": "",
+                        "password": "",
+                        "subscribe": {
+                            "data": "",
+                            "control": ""
+                        },
+                        "enabled": false
+                    },
+                    "modbus": {
+                        "isCoil": false,
+                        "isHoldingRegister": false
+                    },
+                    "key": "digitalsIn",
+                    "tagId": "",
+                    "value": 0,
+                    "shift": 10,
+                    "inputId": "62a6eca86560a4c98b84c796",
+                    "register": 0,
+                    "moduleId": 0,
+                    "readable": false,
+                    "interface": "",
+                    "writeable": false,
+                    "description": "RW Procon 1 - P7 Trip"
+                },
+                {
+                    "scaling": {
+                        "raw": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "scaled": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "type": "none"
+                    },
+                    "publish": {
+                        "bit": 0,
+                        "key": "",
+                        "enabled": false,
+                        "moduleId": 0
+                    },
+                    "masking": {
+                        "bit": 14,
+                        "enabled": true
+                    },
+                    "mqtt": {
+                        "userName": "",
+                        "password": "",
+                        "subscribe": {
+                            "data": "",
+                            "control": ""
+                        },
+                        "enabled": false
+                    },
+                    "modbus": {
+                        "isCoil": false,
+                        "isHoldingRegister": false
+                    },
+                    "key": "digitalsIn",
+                    "tagId": "",
+                    "value": 0,
+                    "shift": 10,
+                    "inputId": "62a6ecae49eff5ad167685b9",
+                    "register": 0,
+                    "moduleId": 0,
+                    "readable": false,
+                    "interface": "",
+                    "writeable": false,
+                    "description": "RW Procon 1 - P8 Run"
+                },
+                {
+                    "scaling": {
+                        "raw": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "scaled": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "type": "none"
+                    },
+                    "publish": {
+                        "bit": 0,
+                        "key": "",
+                        "enabled": false,
+                        "moduleId": 0
+                    },
+                    "masking": {
+                        "bit": 15,
+                        "enabled": true
+                    },
+                    "mqtt": {
+                        "userName": "",
+                        "password": "",
+                        "subscribe": {
+                            "data": "",
+                            "control": ""
+                        },
+                        "enabled": false
+                    },
+                    "modbus": {
+                        "isCoil": false,
+                        "isHoldingRegister": false
+                    },
+                    "key": "digitalsIn",
+                    "tagId": "",
+                    "value": 0,
+                    "shift": 10,
+                    "inputId": "62a6ecb5d4c10f3d5a288a33",
+                    "register": 0,
+                    "moduleId": 0,
+                    "readable": false,
+                    "interface": "",
+                    "writeable": false,
+                    "description": "RW Procon 1 - P8 Trip"
+                },
+                {
+                    "scaling": {
+                        "raw": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "scaled": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "type": "none"
+                    },
+                    "publish": {
+                        "bit": 0,
+                        "key": "",
+                        "enabled": false,
+                        "moduleId": 0
+                    },
+                    "masking": {
+                        "bit": 4,
+                        "enabled": true
+                    },
+                    "mqtt": {
+                        "userName": "",
+                        "password": "",
+                        "subscribe": {
+                            "data": "",
+                            "control": ""
+                        },
+                        "enabled": false
+                    },
+                    "modbus": {
+                        "isCoil": false,
+                        "isHoldingRegister": false
+                    },
+                    "key": "digitalsIn",
+                    "tagId": "",
+                    "value": 0,
+                    "shift": 0,
+                    "inputId": "62a6ecdff07307b56ea82dab",
+                    "register": 0,
+                    "moduleId": 0,
+                    "readable": false,
+                    "interface": "",
+                    "writeable": false,
+                    "description": "PS1 - Pump Call 1"
+                },
+                {
+                    "scaling": {
+                        "raw": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "scaled": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "type": "none"
+                    },
+                    "publish": {
+                        "bit": 0,
+                        "key": "",
+                        "enabled": false,
+                        "moduleId": 0
+                    },
+                    "masking": {
+                        "bit": 5,
+                        "enabled": true
+                    },
+                    "mqtt": {
+                        "userName": "",
+                        "password": "",
+                        "subscribe": {
+                            "data": "",
+                            "control": ""
+                        },
+                        "enabled": false
+                    },
+                    "modbus": {
+                        "isCoil": false,
+                        "isHoldingRegister": false
+                    },
+                    "key": "digitalsIn",
+                    "tagId": "",
+                    "value": 0,
+                    "shift": 0,
+                    "inputId": "62a6eceb656c3d91cf65c521",
+                    "register": 0,
+                    "moduleId": 0,
+                    "readable": false,
+                    "interface": "",
+                    "writeable": false,
+                    "description": "PS1 - Pump Call 2"
+                },
+                {
+                    "scaling": {
+                        "raw": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "scaled": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "type": "none"
+                    },
+                    "publish": {
+                        "bit": 0,
+                        "key": "",
+                        "enabled": false,
+                        "moduleId": 0
+                    },
+                    "masking": {
+                        "bit": 7,
+                        "enabled": true
+                    },
+                    "mqtt": {
+                        "userName": "",
+                        "password": "",
+                        "subscribe": {
+                            "data": "",
+                            "control": ""
+                        },
+                        "enabled": false
+                    },
+                    "modbus": {
+                        "isCoil": false,
+                        "isHoldingRegister": false
+                    },
+                    "key": "digitalsIn",
+                    "tagId": "",
+                    "value": 0,
+                    "shift": 0,
+                    "inputId": "62a6ecf93d6d50bbc937ff8a",
+                    "register": 0,
+                    "moduleId": 0,
+                    "readable": false,
+                    "interface": "",
+                    "writeable": false,
+                    "description": "PS1 - Phase Failure"
+                },
+                {
+                    "scaling": {
+                        "raw": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "scaled": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "type": "none"
+                    },
+                    "publish": {
+                        "bit": 0,
+                        "key": "",
+                        "enabled": false,
+                        "moduleId": 0
+                    },
+                    "masking": {
+                        "bit": 8,
+                        "enabled": true
+                    },
+                    "mqtt": {
+                        "userName": "",
+                        "password": "",
+                        "subscribe": {
+                            "data": "",
+                            "control": ""
+                        },
+                        "enabled": false
+                    },
+                    "modbus": {
+                        "isCoil": false,
+                        "isHoldingRegister": false
+                    },
+                    "key": "digitalsIn",
+                    "tagId": "",
+                    "value": 0,
+                    "shift": 0,
+                    "inputId": "62a6ed024c9d6cdec1d7634d",
+                    "register": 0,
+                    "moduleId": 0,
+                    "readable": false,
+                    "interface": "",
+                    "writeable": false,
+                    "description": "PS1 - Mains Failure"
+                },
+                {
+                    "scaling": {
+                        "raw": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "scaled": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "type": "none"
+                    },
+                    "publish": {
+                        "bit": 0,
+                        "key": "",
+                        "enabled": false,
+                        "moduleId": 0
+                    },
+                    "masking": {
+                        "bit": 9,
+                        "enabled": true
+                    },
+                    "mqtt": {
+                        "userName": "",
+                        "password": "",
+                        "subscribe": {
+                            "data": "",
+                            "control": ""
+                        },
+                        "enabled": false
+                    },
+                    "modbus": {
+                        "isCoil": false,
+                        "isHoldingRegister": false
+                    },
+                    "key": "digitalsIn",
+                    "tagId": "",
+                    "value": 1,
+                    "shift": 0,
+                    "inputId": "62a6ed09d31f82ecdecc47e7",
+                    "register": 0,
+                    "moduleId": 0,
+                    "readable": false,
+                    "interface": "",
+                    "writeable": false,
+                    "description": "PS1 - Intruder Status"
+                }
+            ],
+            "ip": "0.0.0.0",
+            "port": 0,
+            "type": "external",
+            "txtime": 5,
+            "pxtime": 120,
+            "timeout": 900,
+            "barcode": "250",
+            "publish": false,
+            "enabled": true,
+            "unitId": 0,
+            "deviceId": "000000000000000000000250",
+            "description": "Pongola PS1 External",
+            "userName": "",
+            "password": ""
+        },
+        {
+            "io": [
+                {
+                    "scaling": {
+                        "raw": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "scaled": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "type": "none"
+                    },
+                    "publish": {
+                        "bit": 0,
+                        "key": "",
+                        "enabled": false,
+                        "moduleId": 0
+                    },
+                    "masking": {
+                        "bit": 0,
+                        "enabled": false
+                    },
+                    "mqtt": {
+                        "userName": "",
+                        "password": "",
+                        "subscribe": {
+                            "data": "",
+                            "control": ""
+                        },
+                        "enabled": false
+                    },
+                    "modbus": {
+                        "isCoil": true,
+                        "isHoldingRegister": false
+                    },
+                    "key": "digitalsIn",
+                    "tagId": "",
+                    "value": 0,
+                    "shift": -1,
+                    "inputId": "621338d503c167ca7c8cd7ee",
+                    "register": 1,
                     "moduleId": 0,
                     "readable": true,
                     "interface": "",
-                    "writeable": true,
-                    "description": "DigitalsIn from Abstraction - MSB",
-                    "cofs": -1,
-                    "command": "",
-                    "rtuId": 0
+                    "writeable": false,
+                    "description": "DI1"
                 },
                 {
                     "scaling": {
@@ -574,43 +1172,21 @@
                         "enabled": false
                     },
                     "modbus": {
-                        "isCoil": false,
+                        "isCoil": true,
                         "isHoldingRegister": false
                     },
-                    "key": "AIExt5",
+                    "key": "digitalsIn",
                     "tagId": "",
-                    "value": 16,
-                    "shift": 0,
-                    "inputId": "64ef712eb89fe341f01884b0",
-                    "register": 0,
+                    "value": 0,
+                    "shift": -1,
+                    "inputId": "621f44955b0a9851a23b8847",
+                    "register": 2,
                     "moduleId": 0,
                     "readable": true,
                     "interface": "",
-                    "writeable": true,
-                    "description": "AIExt5 from Abstraction - Totalised Flow",
-                    "cofs": -1,
-                    "command": "",
-                    "rtuId": 0
-                }
-            ],
-            "ip": "0.0.0.0",
-            "port": 0,
-            "type": "external",
-            "txtime": 5,
-            "pxtime": 120,
-            "timeout": 900,
-            "barcode": "uMGILLOVOABST",
-            "publish": false,
-            "enabled": true,
-            "unitId": 1,
-            "deviceId": "632d78448a0f5177d6b60410",
-            "description": "Abstraction - External",
-            "userName": "",
-            "password": ""
-        },
-        {
-            "id": 1,
-            "io": [
+                    "writeable": false,
+                    "description": "DI2"
+                },
                 {
                     "scaling": {
                         "raw": {
@@ -627,8 +1203,7 @@
                         "bit": -1,
                         "key": "digitalsIn",
                         "enabled": true,
-                        "moduleId": 0,
-                        "lastCOFSValue": 0
+                        "moduleId": 0
                     },
                     "masking": {
                         "bit": 0,
@@ -651,16 +1226,13 @@
                     "tagId": "",
                     "value": 0,
                     "shift": -1,
-                    "inputId": "733aac49f12d5d0ed4eebb88",
-                    "register": 30,
+                    "inputId": "62a44a4679441e84c78b18a6",
+                    "register": 2,
                     "moduleId": 0,
                     "readable": true,
                     "interface": "",
                     "writeable": false,
-                    "description": "Telemetry Override Command - Abstraction - All Digital Controls",
-                    "cofs": "1",
-                    "command": "",
-                    "rtuId": 0
+                    "description": "All Digital Ins"
                 },
                 {
                     "scaling": {
@@ -676,10 +1248,9 @@
                     },
                     "publish": {
                         "bit": 0,
-                        "key": "CI8",
-                        "enabled": true,
-                        "moduleId": 0,
-                        "lastCOFSValue": 0
+                        "key": "",
+                        "enabled": false,
+                        "moduleId": 0
                     },
                     "masking": {
                         "bit": 0,
@@ -695,623 +1266,20 @@
                         "enabled": false
                     },
                     "modbus": {
-                        "isCoil": false,
-                        "isHoldingRegister": true
+                        "isCoil": true,
+                        "isHoldingRegister": false
                     },
                     "key": "",
                     "tagId": "",
                     "value": 0,
                     "shift": -1,
-                    "inputId": "633abc04fbfb9603a765f50a",
-                    "register": 80,
-                    "moduleId": 0,
-                    "readable": true,
-                    "interface": "",
-                    "writeable": false,
-                    "description": "Telemetry Override Command - High Lift - ALL Digital Controls",
-                    "cofs": "1",
-                    "command": "",
-                    "rtuId": 0
-                },
-                {
-                    "scaling": {
-                        "raw": {
-                            "low": 0,
-                            "high": 0
-                        },
-                        "scaled": {
-                            "low": 0,
-                            "high": 0
-                        },
-                        "type": "none"
-                    },
-                    "publish": {
-                        "bit": 0,
-                        "key": "",
-                        "enabled": false,
-                        "moduleId": 0
-                    },
-                    "masking": {
-                        "bit": 0,
-                        "enabled": false
-                    },
-                    "mqtt": {
-                        "userName": "",
-                        "password": "",
-                        "subscribe": {
-                            "data": "",
-                            "control": ""
-                        },
-                        "enabled": false
-                    },
-                    "modbus": {
-                        "isCoil": false,
-                        "isHoldingRegister": true
-                    },
-                    "key": "",
-                    "tagId": "",
-                    "value": 0,
-                    "shift": -1,
-                    "inputId": "733ac664de0aa29185a07cd6",
-                    "register": 10,
-                    "moduleId": 0,
-                    "readable": false,
-                    "interface": "",
-                    "writeable": true,
-                    "description": "Local - Digitals - Abstraction - Reg 10",
-                    "cofs": -1,
-                    "command": "",
-                    "rtuId": 0
-                },
-                {
-                    "scaling": {
-                        "raw": {
-                            "low": 0,
-                            "high": 0
-                        },
-                        "scaled": {
-                            "low": 0,
-                            "high": 0
-                        },
-                        "type": "none"
-                    },
-                    "publish": {
-                        "bit": 0,
-                        "key": "",
-                        "enabled": false,
-                        "moduleId": 0
-                    },
-                    "masking": {
-                        "bit": 0,
-                        "enabled": false
-                    },
-                    "mqtt": {
-                        "userName": "",
-                        "password": "",
-                        "subscribe": {
-                            "data": "",
-                            "control": ""
-                        },
-                        "enabled": false
-                    },
-                    "modbus": {
-                        "isCoil": false,
-                        "isHoldingRegister": true
-                    },
-                    "key": "",
-                    "tagId": "",
-                    "value": 0,
-                    "shift": -1,
-                    "inputId": "733ac8068f86116e5157094f",
-                    "register": 11,
-                    "moduleId": 0,
-                    "readable": true,
-                    "interface": "",
-                    "writeable": true,
-                    "description": "Local - Digitals - Abstraction - Reg 11",
-                    "cofs": -1,
-                    "command": "",
-                    "rtuId": 0
-                },
-                {
-                    "scaling": {
-                        "raw": {
-                            "low": 0,
-                            "high": 0
-                        },
-                        "scaled": {
-                            "low": 0,
-                            "high": 0
-                        },
-                        "type": "none"
-                    },
-                    "publish": {
-                        "bit": 0,
-                        "key": "",
-                        "enabled": false,
-                        "moduleId": 0
-                    },
-                    "masking": {
-                        "bit": 0,
-                        "enabled": false
-                    },
-                    "mqtt": {
-                        "userName": "",
-                        "password": "",
-                        "subscribe": {
-                            "data": "",
-                            "control": ""
-                        },
-                        "enabled": false
-                    },
-                    "modbus": {
-                        "isCoil": false,
-                        "isHoldingRegister": true
-                    },
-                    "key": "",
-                    "tagId": "",
-                    "value": 20639,
-                    "shift": -1,
-                    "inputId": "633ac845bd8e0b4a95b3b1d5",
-                    "register": 60,
-                    "moduleId": 0,
-                    "readable": true,
-                    "interface": "",
-                    "writeable": true,
-                    "description": "Local - Digitals - High Lift - Reg 60",
-                    "cofs": -1,
-                    "command": "",
-                    "rtuId": 0
-                },
-                {
-                    "scaling": {
-                        "raw": {
-                            "low": 0,
-                            "high": 0
-                        },
-                        "scaled": {
-                            "low": 0,
-                            "high": 0
-                        },
-                        "type": "none"
-                    },
-                    "publish": {
-                        "bit": 0,
-                        "key": "",
-                        "enabled": false,
-                        "moduleId": 0
-                    },
-                    "masking": {
-                        "bit": 0,
-                        "enabled": false
-                    },
-                    "mqtt": {
-                        "userName": "",
-                        "password": "",
-                        "subscribe": {
-                            "data": "",
-                            "control": ""
-                        },
-                        "enabled": false
-                    },
-                    "modbus": {
-                        "isCoil": false,
-                        "isHoldingRegister": true
-                    },
-                    "key": "",
-                    "tagId": "",
-                    "value": 0,
-                    "shift": -1,
-                    "inputId": "633ac84e7649060a05b4b493",
-                    "register": 61,
-                    "moduleId": 0,
-                    "readable": true,
-                    "interface": "",
-                    "writeable": true,
-                    "description": "Local - Digitals - High Lift - Reg 61",
-                    "cofs": -1,
-                    "command": "",
-                    "rtuId": 0
-                },
-                {
-                    "scaling": {
-                        "raw": {
-                            "low": 0,
-                            "high": 0
-                        },
-                        "scaled": {
-                            "low": 0,
-                            "high": 0
-                        },
-                        "type": "none"
-                    },
-                    "publish": {
-                        "bit": 0,
-                        "key": "",
-                        "enabled": false,
-                        "moduleId": 0
-                    },
-                    "masking": {
-                        "bit": 0,
-                        "enabled": false
-                    },
-                    "mqtt": {
-                        "userName": "",
-                        "password": "",
-                        "subscribe": {
-                            "data": "",
-                            "control": ""
-                        },
-                        "enabled": false
-                    },
-                    "modbus": {
-                        "isCoil": false,
-                        "isHoldingRegister": true
-                    },
-                    "key": "",
-                    "tagId": "",
-                    "value": 73,
-                    "shift": -1,
-                    "inputId": "733acbb00fd8f09efd5c6c61",
-                    "register": 16,
-                    "moduleId": 0,
-                    "readable": true,
-                    "interface": "",
-                    "writeable": true,
-                    "description": "Abstraction - Local - Delivery Pressure PV - AI1",
-                    "cofs": -1,
-                    "command": "",
-                    "rtuId": 0
-                },
-                {
-                    "scaling": {
-                        "raw": {
-                            "low": 0,
-                            "high": 0
-                        },
-                        "scaled": {
-                            "low": 0,
-                            "high": 0
-                        },
-                        "type": "none"
-                    },
-                    "publish": {
-                        "bit": 0,
-                        "key": "",
-                        "enabled": false,
-                        "moduleId": 0
-                    },
-                    "masking": {
-                        "bit": 0,
-                        "enabled": false
-                    },
-                    "mqtt": {
-                        "userName": "",
-                        "password": "",
-                        "subscribe": {
-                            "data": "",
-                            "control": ""
-                        },
-                        "enabled": false
-                    },
-                    "modbus": {
-                        "isCoil": false,
-                        "isHoldingRegister": true
-                    },
-                    "key": "",
-                    "tagId": "",
-                    "value": 356,
-                    "shift": -1,
-                    "inputId": "733acbcbfc871076a9a13d3a",
-                    "register": 17,
-                    "moduleId": 0,
-                    "readable": true,
-                    "interface": "",
-                    "writeable": true,
-                    "description": "Abstraction - Local - Delivery Flowmeter PV - AI2",
-                    "cofs": -1,
-                    "command": "",
-                    "rtuId": 0
-                },
-                {
-                    "scaling": {
-                        "raw": {
-                            "low": 0,
-                            "high": 0
-                        },
-                        "scaled": {
-                            "low": 0,
-                            "high": 0
-                        },
-                        "type": "none"
-                    },
-                    "publish": {
-                        "bit": 0,
-                        "key": "",
-                        "enabled": false,
-                        "moduleId": 0
-                    },
-                    "masking": {
-                        "bit": 0,
-                        "enabled": false
-                    },
-                    "mqtt": {
-                        "userName": "",
-                        "password": "",
-                        "subscribe": {
-                            "data": "",
-                            "control": ""
-                        },
-                        "enabled": false
-                    },
-                    "modbus": {
-                        "isCoil": false,
-                        "isHoldingRegister": true
-                    },
-                    "key": "",
-                    "tagId": "",
-                    "value": 457,
-                    "shift": -1,
-                    "inputId": "733acbdd4a38d4d13ac7a3c5",
-                    "register": 18,
-                    "moduleId": 0,
-                    "readable": true,
-                    "interface": "",
-                    "writeable": true,
-                    "description": "Abstraction - Local - Pump 1 Runhour Meter - AI3",
-                    "cofs": -1,
-                    "command": "",
-                    "rtuId": 0
-                },
-                {
-                    "scaling": {
-                        "raw": {
-                            "low": 0,
-                            "high": 0
-                        },
-                        "scaled": {
-                            "low": 0,
-                            "high": 0
-                        },
-                        "type": "none"
-                    },
-                    "publish": {
-                        "bit": 0,
-                        "key": "",
-                        "enabled": false,
-                        "moduleId": 0
-                    },
-                    "masking": {
-                        "bit": 0,
-                        "enabled": false
-                    },
-                    "mqtt": {
-                        "userName": "",
-                        "password": "",
-                        "subscribe": {
-                            "data": "",
-                            "control": ""
-                        },
-                        "enabled": false
-                    },
-                    "modbus": {
-                        "isCoil": false,
-                        "isHoldingRegister": true
-                    },
-                    "key": "",
-                    "tagId": "",
-                    "value": 418,
-                    "shift": -1,
-                    "inputId": "733acbf095fbc148cd425b7d",
-                    "register": 19,
-                    "moduleId": 0,
-                    "readable": true,
-                    "interface": "",
-                    "writeable": true,
-                    "description": "Abstraction - Local - Pump 2 Runhour Meter - AI4",
-                    "cofs": -1,
-                    "command": "",
-                    "rtuId": 0
-                },
-                {
-                    "scaling": {
-                        "raw": {
-                            "low": 0,
-                            "high": 0
-                        },
-                        "scaled": {
-                            "low": 0,
-                            "high": 0
-                        },
-                        "type": "none"
-                    },
-                    "publish": {
-                        "bit": 0,
-                        "key": "",
-                        "enabled": false,
-                        "moduleId": 0
-                    },
-                    "masking": {
-                        "bit": 0,
-                        "enabled": false
-                    },
-                    "mqtt": {
-                        "userName": "",
-                        "password": "",
-                        "subscribe": {
-                            "data": "",
-                            "control": ""
-                        },
-                        "enabled": false
-                    },
-                    "modbus": {
-                        "isCoil": false,
-                        "isHoldingRegister": true
-                    },
-                    "key": "",
-                    "tagId": "",
-                    "value": 0,
-                    "shift": -1,
-                    "inputId": "733acc08a2f1986b683442d1",
-                    "register": 20,
-                    "moduleId": 0,
-                    "readable": true,
-                    "interface": "",
-                    "writeable": true,
-                    "description": "Abstraction - Local - Pump 1 Start Counts - AIExt1",
-                    "cofs": -1,
-                    "command": "",
-                    "rtuId": 0
-                },
-                {
-                    "scaling": {
-                        "raw": {
-                            "low": 0,
-                            "high": 0
-                        },
-                        "scaled": {
-                            "low": 0,
-                            "high": 0
-                        },
-                        "type": "none"
-                    },
-                    "publish": {
-                        "bit": 0,
-                        "key": "",
-                        "enabled": false,
-                        "moduleId": 0
-                    },
-                    "masking": {
-                        "bit": 0,
-                        "enabled": false
-                    },
-                    "mqtt": {
-                        "userName": "",
-                        "password": "",
-                        "subscribe": {
-                            "data": "",
-                            "control": ""
-                        },
-                        "enabled": false
-                    },
-                    "modbus": {
-                        "isCoil": false,
-                        "isHoldingRegister": true
-                    },
-                    "key": "",
-                    "tagId": "",
-                    "value": 2,
-                    "shift": -1,
-                    "inputId": "733acc16915e5f13ce37161c",
-                    "register": 21,
-                    "moduleId": 0,
-                    "readable": true,
-                    "interface": "",
-                    "writeable": true,
-                    "description": "Abstraction - Local - Pump 2 Start Counts - AIExt2",
-                    "cofs": -1,
-                    "command": "",
-                    "rtuId": 0
-                },
-                {
-                    "scaling": {
-                        "raw": {
-                            "low": 0,
-                            "high": 0
-                        },
-                        "scaled": {
-                            "low": 0,
-                            "high": 0
-                        },
-                        "type": "none"
-                    },
-                    "publish": {
-                        "bit": 0,
-                        "key": "",
-                        "enabled": false,
-                        "moduleId": 0
-                    },
-                    "masking": {
-                        "bit": 0,
-                        "enabled": false
-                    },
-                    "mqtt": {
-                        "userName": "",
-                        "password": "",
-                        "subscribe": {
-                            "data": "",
-                            "control": ""
-                        },
-                        "enabled": false
-                    },
-                    "modbus": {
-                        "isCoil": false,
-                        "isHoldingRegister": true
-                    },
-                    "key": "",
-                    "tagId": "",
-                    "value": 0,
-                    "shift": -1,
-                    "inputId": "733acc274c49860148684802",
-                    "register": 22,
-                    "moduleId": 0,
-                    "readable": true,
-                    "interface": "",
-                    "writeable": true,
-                    "description": "Abstraction - Local - Pump 1 Status - AIExt3",
-                    "cofs": -1,
-                    "command": "",
-                    "rtuId": 0
-                },
-                {
-                    "scaling": {
-                        "raw": {
-                            "low": 0,
-                            "high": 0
-                        },
-                        "scaled": {
-                            "low": 0,
-                            "high": 0
-                        },
-                        "type": "none"
-                    },
-                    "publish": {
-                        "bit": 0,
-                        "key": "",
-                        "enabled": false,
-                        "moduleId": 0
-                    },
-                    "masking": {
-                        "bit": 0,
-                        "enabled": false
-                    },
-                    "mqtt": {
-                        "userName": "",
-                        "password": "",
-                        "subscribe": {
-                            "data": "",
-                            "control": ""
-                        },
-                        "enabled": false
-                    },
-                    "modbus": {
-                        "isCoil": false,
-                        "isHoldingRegister": true
-                    },
-                    "key": "",
-                    "tagId": "",
-                    "value": 1,
-                    "shift": -1,
-                    "inputId": "733acc32e985eb53d66e944b",
+                    "inputId": "62a7117cd77fccc18b1812b4",
                     "register": 23,
                     "moduleId": 0,
                     "readable": true,
                     "interface": "",
                     "writeable": true,
-                    "description": "Abstraction - Local - Pump 2 Status - AIExt4",
-                    "cofs": -1,
-                    "command": "",
-                    "rtuId": 0
+                    "description": "PS1 Pump Call 1"
                 },
                 {
                     "scaling": {
@@ -1345,474 +1313,20 @@
                         "enabled": false
                     },
                     "modbus": {
-                        "isCoil": false,
-                        "isHoldingRegister": true
-                    },
-                    "key": "",
-                    "tagId": "",
-                    "value": 62,
-                    "shift": -1,
-                    "inputId": "633acc70aa269dbda24cf4cc",
-                    "register": 65,
-                    "moduleId": 0,
-                    "readable": true,
-                    "interface": "",
-                    "writeable": true,
-                    "description": "High Lift - Local - Reservoir Level PV - AI1",
-                    "cofs": -1,
-                    "command": "",
-                    "rtuId": 0
-                },
-                {
-                    "scaling": {
-                        "raw": {
-                            "low": 0,
-                            "high": 0
-                        },
-                        "scaled": {
-                            "low": 0,
-                            "high": 0
-                        },
-                        "type": "none"
-                    },
-                    "publish": {
-                        "bit": 0,
-                        "key": "",
-                        "enabled": false,
-                        "moduleId": 0
-                    },
-                    "masking": {
-                        "bit": 0,
-                        "enabled": false
-                    },
-                    "mqtt": {
-                        "userName": "",
-                        "password": "",
-                        "subscribe": {
-                            "data": "",
-                            "control": ""
-                        },
-                        "enabled": false
-                    },
-                    "modbus": {
-                        "isCoil": false,
-                        "isHoldingRegister": true
-                    },
-                    "key": "",
-                    "tagId": "",
-                    "value": 100,
-                    "shift": -1,
-                    "inputId": "633acc86450a6507916b0f52",
-                    "register": 66,
-                    "moduleId": 0,
-                    "readable": true,
-                    "interface": "",
-                    "writeable": true,
-                    "description": "High Lift - Local - Delivery Pressure PV - AI2",
-                    "cofs": -1,
-                    "command": "",
-                    "rtuId": 0
-                },
-                {
-                    "scaling": {
-                        "raw": {
-                            "low": 0,
-                            "high": 0
-                        },
-                        "scaled": {
-                            "low": 0,
-                            "high": 0
-                        },
-                        "type": "none"
-                    },
-                    "publish": {
-                        "bit": 0,
-                        "key": "AI3",
-                        "enabled": true,
-                        "moduleId": 0,
-                        "lastCOFSValue": 0
-                    },
-                    "masking": {
-                        "bit": 0,
-                        "enabled": false
-                    },
-                    "mqtt": {
-                        "userName": "",
-                        "password": "",
-                        "subscribe": {
-                            "data": "",
-                            "control": ""
-                        },
-                        "enabled": false
-                    },
-                    "modbus": {
-                        "isCoil": false,
-                        "isHoldingRegister": true
-                    },
-                    "key": "",
-                    "tagId": "",
-                    "value": 94,
-                    "shift": -1,
-                    "inputId": "633acc9ad8a6d066e13e4d09",
-                    "register": 67,
-                    "moduleId": 0,
-                    "readable": true,
-                    "interface": "",
-                    "writeable": true,
-                    "description": "High Lift - Local - Delivery Flowmeter PV - AI3",
-                    "cofs": -1,
-                    "command": "",
-                    "rtuId": 0
-                },
-                {
-                    "scaling": {
-                        "raw": {
-                            "low": 0,
-                            "high": 0
-                        },
-                        "scaled": {
-                            "low": 0,
-                            "high": 0
-                        },
-                        "type": "none"
-                    },
-                    "publish": {
-                        "bit": 0,
-                        "key": "",
-                        "enabled": false,
-                        "moduleId": 0
-                    },
-                    "masking": {
-                        "bit": 0,
-                        "enabled": false
-                    },
-                    "mqtt": {
-                        "userName": "",
-                        "password": "",
-                        "subscribe": {
-                            "data": "",
-                            "control": ""
-                        },
-                        "enabled": false
-                    },
-                    "modbus": {
-                        "isCoil": false,
-                        "isHoldingRegister": true
-                    },
-                    "key": "",
-                    "tagId": "",
-                    "value": 130,
-                    "shift": -1,
-                    "inputId": "633accab033b9444686505e2",
-                    "register": 68,
-                    "moduleId": 0,
-                    "readable": true,
-                    "interface": "",
-                    "writeable": true,
-                    "description": "High Lift - Local - Pump 1 Runhour Meter - AI4",
-                    "cofs": -1,
-                    "command": "",
-                    "rtuId": 0
-                },
-                {
-                    "scaling": {
-                        "raw": {
-                            "low": 0,
-                            "high": 0
-                        },
-                        "scaled": {
-                            "low": 0,
-                            "high": 0
-                        },
-                        "type": "none"
-                    },
-                    "publish": {
-                        "bit": 0,
-                        "key": "",
-                        "enabled": false,
-                        "moduleId": 0
-                    },
-                    "masking": {
-                        "bit": 0,
-                        "enabled": false
-                    },
-                    "mqtt": {
-                        "userName": "",
-                        "password": "",
-                        "subscribe": {
-                            "data": "",
-                            "control": ""
-                        },
-                        "enabled": false
-                    },
-                    "modbus": {
-                        "isCoil": false,
-                        "isHoldingRegister": true
-                    },
-                    "key": "",
-                    "tagId": "",
-                    "value": 10,
-                    "shift": -1,
-                    "inputId": "633accc24a76bbaa6c4abb96",
-                    "register": 69,
-                    "moduleId": 0,
-                    "readable": true,
-                    "interface": "",
-                    "writeable": true,
-                    "description": "High Lift - Local - Pump 2 Runhour Meter - AIExt1",
-                    "cofs": -1,
-                    "command": "",
-                    "rtuId": 0
-                },
-                {
-                    "scaling": {
-                        "raw": {
-                            "low": 0,
-                            "high": 0
-                        },
-                        "scaled": {
-                            "low": 0,
-                            "high": 0
-                        },
-                        "type": "none"
-                    },
-                    "publish": {
-                        "bit": 0,
-                        "key": "",
-                        "enabled": false,
-                        "moduleId": 0
-                    },
-                    "masking": {
-                        "bit": 0,
-                        "enabled": false
-                    },
-                    "mqtt": {
-                        "userName": "",
-                        "password": "",
-                        "subscribe": {
-                            "data": "",
-                            "control": ""
-                        },
-                        "enabled": false
-                    },
-                    "modbus": {
-                        "isCoil": false,
-                        "isHoldingRegister": true
-                    },
-                    "key": "",
-                    "tagId": "",
-                    "value": 3,
-                    "shift": -1,
-                    "inputId": "633accd74cf668790cafb4f8",
-                    "register": 70,
-                    "moduleId": 0,
-                    "readable": true,
-                    "interface": "",
-                    "writeable": true,
-                    "description": "High Lift - Local - Pump 1 Start Counts - AIExt2",
-                    "cofs": -1,
-                    "command": "",
-                    "rtuId": 0
-                },
-                {
-                    "scaling": {
-                        "raw": {
-                            "low": 0,
-                            "high": 0
-                        },
-                        "scaled": {
-                            "low": 0,
-                            "high": 0
-                        },
-                        "type": "none"
-                    },
-                    "publish": {
-                        "bit": 0,
-                        "key": "",
-                        "enabled": false,
-                        "moduleId": 0
-                    },
-                    "masking": {
-                        "bit": 0,
-                        "enabled": false
-                    },
-                    "mqtt": {
-                        "userName": "",
-                        "password": "",
-                        "subscribe": {
-                            "data": "",
-                            "control": ""
-                        },
-                        "enabled": false
-                    },
-                    "modbus": {
-                        "isCoil": false,
-                        "isHoldingRegister": true
+                        "isCoil": true,
+                        "isHoldingRegister": false
                     },
                     "key": "",
                     "tagId": "",
                     "value": 0,
                     "shift": -1,
-                    "inputId": "633acce55f11c8aefcd5f6c9",
-                    "register": 71,
-                    "moduleId": 0,
-                    "readable": true,
-                    "interface": "",
-                    "writeable": true,
-                    "description": "High Lift - Local - Pump 2 Start Counts - AIExt3",
-                    "cofs": -1,
-                    "command": "",
-                    "rtuId": 0
-                },
-                {
-                    "scaling": {
-                        "raw": {
-                            "low": 0,
-                            "high": 0
-                        },
-                        "scaled": {
-                            "low": 0,
-                            "high": 0
-                        },
-                        "type": "none"
-                    },
-                    "publish": {
-                        "bit": 0,
-                        "key": "",
-                        "enabled": false,
-                        "moduleId": 0
-                    },
-                    "masking": {
-                        "bit": 0,
-                        "enabled": false
-                    },
-                    "mqtt": {
-                        "userName": "",
-                        "password": "",
-                        "subscribe": {
-                            "data": "",
-                            "control": ""
-                        },
-                        "enabled": false
-                    },
-                    "modbus": {
-                        "isCoil": false,
-                        "isHoldingRegister": true
-                    },
-                    "key": "",
-                    "tagId": "",
-                    "value": 1,
-                    "shift": -1,
-                    "inputId": "633accf8176fec9227934836",
-                    "register": 72,
-                    "moduleId": 0,
-                    "readable": true,
-                    "interface": "",
-                    "writeable": true,
-                    "description": "High Lift - Local - Pump 1 Status - AIExt4",
-                    "cofs": -1,
-                    "command": "",
-                    "rtuId": 0
-                },
-                {
-                    "scaling": {
-                        "raw": {
-                            "low": 0,
-                            "high": 0
-                        },
-                        "scaled": {
-                            "low": 0,
-                            "high": 0
-                        },
-                        "type": "none"
-                    },
-                    "publish": {
-                        "bit": 0,
-                        "key": "",
-                        "enabled": false,
-                        "moduleId": 0
-                    },
-                    "masking": {
-                        "bit": 0,
-                        "enabled": false
-                    },
-                    "mqtt": {
-                        "userName": "",
-                        "password": "",
-                        "subscribe": {
-                            "data": "",
-                            "control": ""
-                        },
-                        "enabled": false
-                    },
-                    "modbus": {
-                        "isCoil": false,
-                        "isHoldingRegister": true
-                    },
-                    "key": "",
-                    "tagId": "",
-                    "value": 2,
-                    "shift": -1,
-                    "inputId": "633acd07aede07fcdf31d4cd",
-                    "register": 73,
-                    "moduleId": 0,
-                    "readable": true,
-                    "interface": "",
-                    "writeable": true,
-                    "description": "High Lift - Local - Pump 2 Status - AIExt5",
-                    "cofs": -1,
-                    "command": "",
-                    "rtuId": 0
-                },
-                {
-                    "scaling": {
-                        "raw": {
-                            "low": 0,
-                            "high": 0
-                        },
-                        "scaled": {
-                            "low": 0,
-                            "high": 0
-                        },
-                        "type": "none"
-                    },
-                    "publish": {
-                        "bit": 0,
-                        "key": "",
-                        "enabled": false,
-                        "moduleId": 0
-                    },
-                    "masking": {
-                        "bit": 0,
-                        "enabled": false
-                    },
-                    "mqtt": {
-                        "userName": "",
-                        "password": "",
-                        "subscribe": {
-                            "data": "",
-                            "control": ""
-                        },
-                        "enabled": false
-                    },
-                    "modbus": {
-                        "isCoil": false,
-                        "isHoldingRegister": true
-                    },
-                    "key": "",
-                    "tagId": "",
-                    "value": 16,
-                    "shift": -1,
-                    "inputId": "64ef7283ef700ea16d110dda",
+                    "inputId": "62a7118a893f9a3b55ee08f2",
                     "register": 24,
                     "moduleId": 0,
                     "readable": true,
                     "interface": "",
                     "writeable": true,
-                    "description": "Abstraction - Local - Totalised Flow - AIExt5",
-                    "cofs": -1,
-                    "command": "",
-                    "rtuId": 0
+                    "description": "PS1 Pump Call 2"
                 },
                 {
                     "scaling": {
@@ -1846,44 +1360,132 @@
                         "enabled": false
                     },
                     "modbus": {
-                        "isCoil": false,
-                        "isHoldingRegister": true
+                        "isCoil": true,
+                        "isHoldingRegister": false
                     },
                     "key": "",
                     "tagId": "",
-                    "value": 13,
+                    "value": 0,
                     "shift": -1,
-                    "inputId": "64ef729e4da44fc76476f9db",
-                    "register": 64,
+                    "inputId": "62a7119d69235b03e1c55efc",
+                    "register": 17,
                     "moduleId": 0,
                     "readable": true,
                     "interface": "",
                     "writeable": true,
-                    "description": "High Lift - Local - Totalised Flow - AIExt6",
-                    "cofs": -1,
-                    "command": "",
-                    "rtuId": 0
+                    "description": "PS1 Phase Fail"
+                },
+                {
+                    "scaling": {
+                        "raw": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "scaled": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "type": "none"
+                    },
+                    "publish": {
+                        "bit": 0,
+                        "key": "",
+                        "enabled": false,
+                        "moduleId": 0
+                    },
+                    "masking": {
+                        "bit": 0,
+                        "enabled": false
+                    },
+                    "mqtt": {
+                        "userName": "",
+                        "password": "",
+                        "subscribe": {
+                            "data": "",
+                            "control": ""
+                        },
+                        "enabled": false
+                    },
+                    "modbus": {
+                        "isCoil": true,
+                        "isHoldingRegister": false
+                    },
+                    "key": "",
+                    "tagId": "",
+                    "value": 0,
+                    "shift": -1,
+                    "inputId": "62a711a8bb407135225a1dc1",
+                    "register": 18,
+                    "moduleId": 0,
+                    "readable": true,
+                    "interface": "",
+                    "writeable": true,
+                    "description": "PS1 Mains Fail"
+                },
+                {
+                    "scaling": {
+                        "raw": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "scaled": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "type": "none"
+                    },
+                    "publish": {
+                        "bit": 0,
+                        "key": "",
+                        "enabled": false,
+                        "moduleId": 0
+                    },
+                    "masking": {
+                        "bit": 0,
+                        "enabled": false
+                    },
+                    "mqtt": {
+                        "userName": "",
+                        "password": "",
+                        "subscribe": {
+                            "data": "",
+                            "control": ""
+                        },
+                        "enabled": false
+                    },
+                    "modbus": {
+                        "isCoil": true,
+                        "isHoldingRegister": false
+                    },
+                    "key": "",
+                    "tagId": "",
+                    "value": 1,
+                    "shift": -1,
+                    "inputId": "62a711b8e22e782ad15730eb",
+                    "register": 19,
+                    "moduleId": 0,
+                    "readable": true,
+                    "interface": "",
+                    "writeable": true,
+                    "description": "PS1 Intruder"
                 }
             ],
-            "ip": "192.168.1.129",
-            "port": 5002,
-            "softwareIp": "",
-            "softwarePort": 0,
+            "ip": "192.168.0.201",
+            "port": 502,
             "type": "modbus",
             "txtime": 1,
             "pxtime": 120,
             "timeout": 900,
-            "barcode": "uMGILLOVOWTW",
+            "barcode": "6969",
             "publish": true,
             "enabled": true,
             "unitId": 0,
-            "deviceId": "632d79f58a0f5177d6b60494",
-            "description": "WTW BLACKBOX",
+            "deviceId": "62a5a54f30000c9ebe201fc8",
+            "description": "Procon DIO8",
             "userName": "",
             "password": ""
         },
         {
-            "id": 2,
             "io": [
                 {
                     "scaling": {
@@ -1918,322 +1520,19 @@
                     },
                     "modbus": {
                         "isCoil": false,
-                        "isHoldingRegister": false
+                        "isHoldingRegister": true
                     },
-                    "key": "digitalsIn",
-                    "tagId": "",
-                    "value": 20639,
-                    "shift": 0,
-                    "inputId": "621f4416b997f5a6c4d68107",
-                    "register": 0,
-                    "moduleId": 0,
-                    "readable": true,
-                    "interface": "",
-                    "writeable": true,
-                    "description": "DigitalsIn from High Lift - LSB",
-                    "cofs": -1,
-                    "command": "",
-                    "rtuId": 0
-                },
-                {
-                    "scaling": {
-                        "raw": {
-                            "low": 0,
-                            "high": 0
-                        },
-                        "scaled": {
-                            "low": 0,
-                            "high": 0
-                        },
-                        "type": "none"
-                    },
-                    "publish": {
-                        "bit": 0,
-                        "key": "",
-                        "enabled": false,
-                        "moduleId": 0
-                    },
-                    "masking": {
-                        "bit": 0,
-                        "enabled": false
-                    },
-                    "mqtt": {
-                        "userName": "",
-                        "password": "",
-                        "subscribe": {
-                            "data": "",
-                            "control": ""
-                        },
-                        "enabled": false
-                    },
-                    "modbus": {
-                        "isCoil": false,
-                        "isHoldingRegister": false
-                    },
-                    "key": "AI2",
-                    "tagId": "",
-                    "value": 100,
-                    "shift": 0,
-                    "inputId": "633abfc88e271370f0674964",
-                    "register": 0,
-                    "moduleId": 0,
-                    "readable": true,
-                    "interface": "",
-                    "writeable": true,
-                    "description": "AI2 from High Lift - Delivery Pressure PV",
-                    "cofs": -1,
-                    "command": "",
-                    "rtuId": 0
-                },
-                {
-                    "scaling": {
-                        "raw": {
-                            "low": 0,
-                            "high": 0
-                        },
-                        "scaled": {
-                            "low": 0,
-                            "high": 0
-                        },
-                        "type": "none"
-                    },
-                    "publish": {
-                        "bit": 0,
-                        "key": "",
-                        "enabled": false,
-                        "moduleId": 0
-                    },
-                    "masking": {
-                        "bit": 0,
-                        "enabled": false
-                    },
-                    "mqtt": {
-                        "userName": "",
-                        "password": "",
-                        "subscribe": {
-                            "data": "",
-                            "control": ""
-                        },
-                        "enabled": false
-                    },
-                    "modbus": {
-                        "isCoil": false,
-                        "isHoldingRegister": false
-                    },
-                    "key": "AI3",
-                    "tagId": "",
-                    "value": 94,
-                    "shift": 0,
-                    "inputId": "633abfdd77faba11856aaa94",
-                    "register": 0,
-                    "moduleId": 0,
-                    "readable": true,
-                    "interface": "",
-                    "writeable": true,
-                    "description": "AI3 from High Lift - Delivery Flowmeter PV",
-                    "cofs": -1,
-                    "command": "",
-                    "rtuId": 0
-                },
-                {
-                    "scaling": {
-                        "raw": {
-                            "low": 0,
-                            "high": 0
-                        },
-                        "scaled": {
-                            "low": 0,
-                            "high": 0
-                        },
-                        "type": "none"
-                    },
-                    "publish": {
-                        "bit": 0,
-                        "key": "",
-                        "enabled": false,
-                        "moduleId": 0
-                    },
-                    "masking": {
-                        "bit": 0,
-                        "enabled": false
-                    },
-                    "mqtt": {
-                        "userName": "",
-                        "password": "",
-                        "subscribe": {
-                            "data": "",
-                            "control": ""
-                        },
-                        "enabled": false
-                    },
-                    "modbus": {
-                        "isCoil": false,
-                        "isHoldingRegister": false
-                    },
-                    "key": "AI4",
-                    "tagId": "",
-                    "value": 130,
-                    "shift": 0,
-                    "inputId": "633abfee554cd8d18889172f",
-                    "register": 0,
-                    "moduleId": 0,
-                    "readable": true,
-                    "interface": "",
-                    "writeable": true,
-                    "description": "AI4 from High Lift - Pump 1 Runhour Meter",
-                    "cofs": -1,
-                    "command": "",
-                    "rtuId": 0
-                },
-                {
-                    "scaling": {
-                        "raw": {
-                            "low": 0,
-                            "high": 0
-                        },
-                        "scaled": {
-                            "low": 0,
-                            "high": 0
-                        },
-                        "type": "none"
-                    },
-                    "publish": {
-                        "bit": 0,
-                        "key": "",
-                        "enabled": false,
-                        "moduleId": 0
-                    },
-                    "masking": {
-                        "bit": 0,
-                        "enabled": false
-                    },
-                    "mqtt": {
-                        "userName": "",
-                        "password": "",
-                        "subscribe": {
-                            "data": "",
-                            "control": ""
-                        },
-                        "enabled": false
-                    },
-                    "modbus": {
-                        "isCoil": false,
-                        "isHoldingRegister": false
-                    },
-                    "key": "AIExt1",
-                    "tagId": "",
-                    "value": 10,
-                    "shift": 0,
-                    "inputId": "633abffab3ac98a1bdbc4e7d",
-                    "register": 0,
-                    "moduleId": 0,
-                    "readable": true,
-                    "interface": "",
-                    "writeable": true,
-                    "description": "AIExt1 from High Lift - Pump 2 Runhour Meter",
-                    "cofs": -1,
-                    "command": "",
-                    "rtuId": 0
-                },
-                {
-                    "scaling": {
-                        "raw": {
-                            "low": 0,
-                            "high": 0
-                        },
-                        "scaled": {
-                            "low": 0,
-                            "high": 0
-                        },
-                        "type": "none"
-                    },
-                    "publish": {
-                        "bit": 0,
-                        "key": "",
-                        "enabled": false,
-                        "moduleId": 0
-                    },
-                    "masking": {
-                        "bit": 0,
-                        "enabled": false
-                    },
-                    "mqtt": {
-                        "userName": "",
-                        "password": "",
-                        "subscribe": {
-                            "data": "",
-                            "control": ""
-                        },
-                        "enabled": false
-                    },
-                    "modbus": {
-                        "isCoil": false,
-                        "isHoldingRegister": false
-                    },
-                    "key": "AIExt2",
-                    "tagId": "",
-                    "value": 3,
-                    "shift": 0,
-                    "inputId": "633ac009eed502d248c94b3d",
-                    "register": 0,
-                    "moduleId": 0,
-                    "readable": true,
-                    "interface": "",
-                    "writeable": true,
-                    "description": "AIExt2 from High Lift - Pump 1 Start Counts",
-                    "cofs": -1,
-                    "command": "",
-                    "rtuId": 0
-                },
-                {
-                    "scaling": {
-                        "raw": {
-                            "low": 0,
-                            "high": 0
-                        },
-                        "scaled": {
-                            "low": 0,
-                            "high": 0
-                        },
-                        "type": "none"
-                    },
-                    "publish": {
-                        "bit": 0,
-                        "key": "",
-                        "enabled": false,
-                        "moduleId": 0
-                    },
-                    "masking": {
-                        "bit": 0,
-                        "enabled": false
-                    },
-                    "mqtt": {
-                        "userName": "",
-                        "password": "",
-                        "subscribe": {
-                            "data": "",
-                            "control": ""
-                        },
-                        "enabled": false
-                    },
-                    "modbus": {
-                        "isCoil": false,
-                        "isHoldingRegister": false
-                    },
-                    "key": "AIExt3",
+                    "key": "",
                     "tagId": "",
                     "value": 0,
-                    "shift": 0,
-                    "inputId": "633ac0191a0da80101d7fe88",
-                    "register": 0,
+                    "shift": -1,
+                    "inputId": "62a4446900328648eb6af7d1",
+                    "register": 2,
                     "moduleId": 0,
                     "readable": true,
                     "interface": "",
                     "writeable": true,
-                    "description": "AIExt3 from High Lift - Pump 2 Start Counts",
-                    "cofs": -1,
-                    "command": "",
-                    "rtuId": 0
+                    "description": "AO1"
                 },
                 {
                     "scaling": {
@@ -2268,576 +1567,1163 @@
                     },
                     "modbus": {
                         "isCoil": false,
-                        "isHoldingRegister": false
+                        "isHoldingRegister": true
                     },
-                    "key": "AIExt4",
-                    "tagId": "",
-                    "value": 1,
-                    "shift": 0,
-                    "inputId": "633ac03f1b5b68b39c8fe501",
-                    "register": 0,
-                    "moduleId": 0,
-                    "readable": true,
-                    "interface": "",
-                    "writeable": true,
-                    "description": "AIExt4 from High Lift - Pump 1 Status",
-                    "cofs": -1,
-                    "command": "",
-                    "rtuId": 0
-                },
-                {
-                    "scaling": {
-                        "raw": {
-                            "low": 0,
-                            "high": 0
-                        },
-                        "scaled": {
-                            "low": 0,
-                            "high": 0
-                        },
-                        "type": "none"
-                    },
-                    "publish": {
-                        "bit": 0,
-                        "key": "",
-                        "enabled": false,
-                        "moduleId": 0
-                    },
-                    "masking": {
-                        "bit": 0,
-                        "enabled": false
-                    },
-                    "mqtt": {
-                        "userName": "",
-                        "password": "",
-                        "subscribe": {
-                            "data": "",
-                            "control": ""
-                        },
-                        "enabled": false
-                    },
-                    "modbus": {
-                        "isCoil": false,
-                        "isHoldingRegister": false
-                    },
-                    "key": "AIExt5",
-                    "tagId": "",
-                    "value": 2,
-                    "shift": 0,
-                    "inputId": "633ac0caa6c82de1041f8d70",
-                    "register": 0,
-                    "moduleId": 0,
-                    "readable": true,
-                    "interface": "",
-                    "writeable": true,
-                    "description": "AIExt5 from High Lift - Pump 2 Status",
-                    "cofs": -1,
-                    "command": "",
-                    "rtuId": 0
-                },
-                {
-                    "scaling": {
-                        "raw": {
-                            "low": 0,
-                            "high": 0
-                        },
-                        "scaled": {
-                            "low": 0,
-                            "high": 0
-                        },
-                        "type": "none"
-                    },
-                    "publish": {
-                        "bit": 0,
-                        "key": "",
-                        "enabled": false,
-                        "moduleId": 0
-                    },
-                    "masking": {
-                        "bit": 0,
-                        "enabled": false
-                    },
-                    "mqtt": {
-                        "userName": "",
-                        "password": "",
-                        "subscribe": {
-                            "data": "",
-                            "control": ""
-                        },
-                        "enabled": false
-                    },
-                    "modbus": {
-                        "isCoil": false,
-                        "isHoldingRegister": false
-                    },
-                    "key": "AI1",
-                    "tagId": "",
-                    "value": 62,
-                    "shift": 0,
-                    "inputId": "633ac3093e0d0e764c85fb57",
-                    "register": 0,
-                    "moduleId": 0,
-                    "readable": true,
-                    "interface": "",
-                    "writeable": true,
-                    "description": "AI1 from High Lift - Reservoir Level PV",
-                    "cofs": -1,
-                    "command": "",
-                    "rtuId": 0
-                },
-                {
-                    "scaling": {
-                        "raw": {
-                            "low": 0,
-                            "high": 0
-                        },
-                        "scaled": {
-                            "low": 0,
-                            "high": 0
-                        },
-                        "type": "none"
-                    },
-                    "publish": {
-                        "bit": 0,
-                        "key": "",
-                        "enabled": false,
-                        "moduleId": 0
-                    },
-                    "masking": {
-                        "bit": 0,
-                        "enabled": false
-                    },
-                    "mqtt": {
-                        "userName": "",
-                        "password": "",
-                        "subscribe": {
-                            "data": "",
-                            "control": ""
-                        },
-                        "enabled": false
-                    },
-                    "modbus": {
-                        "isCoil": false,
-                        "isHoldingRegister": false
-                    },
-                    "key": "digitalsIn",
+                    "key": "",
                     "tagId": "",
                     "value": 0,
-                    "shift": 16,
-                    "inputId": "633acab898ad8e25546bf94c",
-                    "register": 0,
+                    "shift": -1,
+                    "inputId": "62a5a3d22d7d3befe2498bd5",
+                    "register": 3,
                     "moduleId": 0,
                     "readable": true,
                     "interface": "",
                     "writeable": true,
-                    "description": "DigitalsIn from High Lift - MSB",
-                    "cofs": -1,
-                    "command": "",
-                    "rtuId": 0
-                },
-                {
-                    "scaling": {
-                        "raw": {
-                            "low": 0,
-                            "high": 0
-                        },
-                        "scaled": {
-                            "low": 0,
-                            "high": 0
-                        },
-                        "type": "none"
-                    },
-                    "publish": {
-                        "bit": 0,
-                        "key": "",
-                        "enabled": false,
-                        "moduleId": 0
-                    },
-                    "masking": {
-                        "bit": 0,
-                        "enabled": false
-                    },
-                    "mqtt": {
-                        "userName": "",
-                        "password": "",
-                        "subscribe": {
-                            "data": "",
-                            "control": ""
-                        },
-                        "enabled": false
-                    },
-                    "modbus": {
-                        "isCoil": false,
-                        "isHoldingRegister": false
-                    },
-                    "key": "AIExt6",
-                    "tagId": "",
-                    "value": 13,
-                    "shift": 0,
-                    "inputId": "64ef7150becb455016d288ca",
-                    "register": 0,
-                    "moduleId": 0,
-                    "readable": true,
-                    "interface": "",
-                    "writeable": true,
-                    "description": "AIExt6 from High Lift - Totalised Flow",
-                    "cofs": -1,
-                    "command": "",
-                    "rtuId": 0
+                    "description": "AO2"
                 }
             ],
-            "ip": "0.0.0.0",
-            "port": 0,
-            "softwareIp": "",
-            "softwarePort": 0,
-            "type": "external",
-            "txtime": 5,
+            "ip": "192.168.0.202",
+            "port": 502,
+            "type": "modbus",
+            "txtime": 1,
             "pxtime": 120,
             "timeout": 900,
-            "barcode": "uMGILLOVOHLPS",
+            "barcode": "0",
             "publish": false,
             "enabled": true,
-            "unitId": 1,
-            "deviceId": "632d79d88a0f5177d6b60488",
-            "description": "High Lift - External",
+            "unitId": 0,
+            "deviceId": "000000000000034567345846",
+            "description": "Procon 8AOI",
+            "userName": "",
+            "password": ""
+        },
+        {
+            "io": [
+                {
+                    "scaling": {
+                        "raw": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "scaled": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "type": "none"
+                    },
+                    "publish": {
+                        "bit": 0,
+                        "key": "CI1",
+                        "enabled": true,
+                        "moduleId": 0
+                    },
+                    "masking": {
+                        "bit": 0,
+                        "enabled": false
+                    },
+                    "mqtt": {
+                        "userName": "",
+                        "password": "",
+                        "subscribe": {
+                            "data": "",
+                            "control": ""
+                        },
+                        "enabled": false
+                    },
+                    "modbus": {
+                        "isCoil": false,
+                        "isHoldingRegister": true
+                    },
+                    "key": "",
+                    "tagId": "",
+                    "value": 1,
+                    "shift": -1,
+                    "inputId": "62a4446900328648eb6af7d1",
+                    "register": 2,
+                    "moduleId": 0,
+                    "readable": true,
+                    "interface": "",
+                    "writeable": true,
+                    "description": "DO ALL"
+                },
+                {
+                    "scaling": {
+                        "raw": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "scaled": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "type": "none"
+                    },
+                    "publish": {
+                        "bit": 0,
+                        "key": "",
+                        "enabled": false,
+                        "moduleId": 0
+                    },
+                    "masking": {
+                        "bit": 0,
+                        "enabled": false
+                    },
+                    "mqtt": {
+                        "userName": "",
+                        "password": "",
+                        "subscribe": {
+                            "data": "",
+                            "control": ""
+                        },
+                        "enabled": false
+                    },
+                    "modbus": {
+                        "isCoil": true,
+                        "isHoldingRegister": false
+                    },
+                    "key": "",
+                    "tagId": "",
+                    "value": 1,
+                    "shift": -1,
+                    "inputId": "62a59dbd908dca34fde57bb1",
+                    "register": 1,
+                    "moduleId": 0,
+                    "readable": true,
+                    "interface": "",
+                    "writeable": true,
+                    "description": "DO1"
+                },
+                {
+                    "scaling": {
+                        "raw": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "scaled": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "type": "none"
+                    },
+                    "publish": {
+                        "bit": 0,
+                        "key": "",
+                        "enabled": false,
+                        "moduleId": 0
+                    },
+                    "masking": {
+                        "bit": 0,
+                        "enabled": false
+                    },
+                    "mqtt": {
+                        "userName": "",
+                        "password": "",
+                        "subscribe": {
+                            "data": "",
+                            "control": ""
+                        },
+                        "enabled": false
+                    },
+                    "modbus": {
+                        "isCoil": true,
+                        "isHoldingRegister": false
+                    },
+                    "key": "",
+                    "tagId": "",
+                    "value": 0,
+                    "shift": -1,
+                    "inputId": "62a6fd88a496be91a3283a6f",
+                    "register": 2,
+                    "moduleId": 0,
+                    "readable": true,
+                    "interface": "",
+                    "writeable": true,
+                    "description": "DO2"
+                },
+                {
+                    "scaling": {
+                        "raw": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "scaled": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "type": "none"
+                    },
+                    "publish": {
+                        "bit": 0,
+                        "key": "",
+                        "enabled": false,
+                        "moduleId": 0
+                    },
+                    "masking": {
+                        "bit": 0,
+                        "enabled": false
+                    },
+                    "mqtt": {
+                        "userName": "",
+                        "password": "",
+                        "subscribe": {
+                            "data": "",
+                            "control": ""
+                        },
+                        "enabled": false
+                    },
+                    "modbus": {
+                        "isCoil": true,
+                        "isHoldingRegister": false
+                    },
+                    "key": "",
+                    "tagId": "",
+                    "value": 0,
+                    "shift": -1,
+                    "inputId": "62a6fd96b04d60e63443396d",
+                    "register": 3,
+                    "moduleId": 0,
+                    "readable": true,
+                    "interface": "",
+                    "writeable": true,
+                    "description": "DO3"
+                },
+                {
+                    "scaling": {
+                        "raw": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "scaled": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "type": "none"
+                    },
+                    "publish": {
+                        "bit": 0,
+                        "key": "",
+                        "enabled": false,
+                        "moduleId": 0
+                    },
+                    "masking": {
+                        "bit": 0,
+                        "enabled": false
+                    },
+                    "mqtt": {
+                        "userName": "",
+                        "password": "",
+                        "subscribe": {
+                            "data": "",
+                            "control": ""
+                        },
+                        "enabled": false
+                    },
+                    "modbus": {
+                        "isCoil": true,
+                        "isHoldingRegister": false
+                    },
+                    "key": "",
+                    "tagId": "",
+                    "value": 0,
+                    "shift": -1,
+                    "inputId": "62a6fd9e91dabd2b33e3b1f2",
+                    "register": 4,
+                    "moduleId": 0,
+                    "readable": true,
+                    "interface": "",
+                    "writeable": true,
+                    "description": "DO4"
+                },
+                {
+                    "scaling": {
+                        "raw": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "scaled": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "type": "none"
+                    },
+                    "publish": {
+                        "bit": 0,
+                        "key": "",
+                        "enabled": false,
+                        "moduleId": 0
+                    },
+                    "masking": {
+                        "bit": 0,
+                        "enabled": false
+                    },
+                    "mqtt": {
+                        "userName": "",
+                        "password": "",
+                        "subscribe": {
+                            "data": "",
+                            "control": ""
+                        },
+                        "enabled": false
+                    },
+                    "modbus": {
+                        "isCoil": true,
+                        "isHoldingRegister": false
+                    },
+                    "key": "",
+                    "tagId": "",
+                    "value": 0,
+                    "shift": -1,
+                    "inputId": "62a6fda707a4f9ab59c65109",
+                    "register": 5,
+                    "moduleId": 0,
+                    "readable": true,
+                    "interface": "",
+                    "writeable": true,
+                    "description": "DO5"
+                },
+                {
+                    "scaling": {
+                        "raw": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "scaled": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "type": "none"
+                    },
+                    "publish": {
+                        "bit": 0,
+                        "key": "",
+                        "enabled": false,
+                        "moduleId": 0
+                    },
+                    "masking": {
+                        "bit": 0,
+                        "enabled": false
+                    },
+                    "mqtt": {
+                        "userName": "",
+                        "password": "",
+                        "subscribe": {
+                            "data": "",
+                            "control": ""
+                        },
+                        "enabled": false
+                    },
+                    "modbus": {
+                        "isCoil": true,
+                        "isHoldingRegister": false
+                    },
+                    "key": "",
+                    "tagId": "",
+                    "value": 0,
+                    "shift": -1,
+                    "inputId": "62a6fdc48039ce197d7946f6",
+                    "register": 6,
+                    "moduleId": 0,
+                    "readable": true,
+                    "interface": "",
+                    "writeable": true,
+                    "description": "DO6"
+                },
+                {
+                    "scaling": {
+                        "raw": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "scaled": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "type": "none"
+                    },
+                    "publish": {
+                        "bit": 0,
+                        "key": "",
+                        "enabled": false,
+                        "moduleId": 0
+                    },
+                    "masking": {
+                        "bit": 0,
+                        "enabled": false
+                    },
+                    "mqtt": {
+                        "userName": "",
+                        "password": "",
+                        "subscribe": {
+                            "data": "",
+                            "control": ""
+                        },
+                        "enabled": false
+                    },
+                    "modbus": {
+                        "isCoil": true,
+                        "isHoldingRegister": false
+                    },
+                    "key": "",
+                    "tagId": "",
+                    "value": 0,
+                    "shift": -1,
+                    "inputId": "62a6fdcd3c8b8e81c405ba2c",
+                    "register": 7,
+                    "moduleId": 0,
+                    "readable": true,
+                    "interface": "",
+                    "writeable": true,
+                    "description": "DO7"
+                },
+                {
+                    "scaling": {
+                        "raw": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "scaled": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "type": "none"
+                    },
+                    "publish": {
+                        "bit": 0,
+                        "key": "",
+                        "enabled": false,
+                        "moduleId": 0
+                    },
+                    "masking": {
+                        "bit": 0,
+                        "enabled": false
+                    },
+                    "mqtt": {
+                        "userName": "",
+                        "password": "",
+                        "subscribe": {
+                            "data": "",
+                            "control": ""
+                        },
+                        "enabled": false
+                    },
+                    "modbus": {
+                        "isCoil": true,
+                        "isHoldingRegister": false
+                    },
+                    "key": "",
+                    "tagId": "",
+                    "value": 0,
+                    "shift": -1,
+                    "inputId": "62a6fddf82caaac21922c908",
+                    "register": 8,
+                    "moduleId": 0,
+                    "readable": true,
+                    "interface": "",
+                    "writeable": true,
+                    "description": "DO8"
+                },
+                {
+                    "scaling": {
+                        "raw": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "scaled": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "type": "none"
+                    },
+                    "publish": {
+                        "bit": 0,
+                        "key": "",
+                        "enabled": false,
+                        "moduleId": 0
+                    },
+                    "masking": {
+                        "bit": 0,
+                        "enabled": false
+                    },
+                    "mqtt": {
+                        "userName": "",
+                        "password": "",
+                        "subscribe": {
+                            "data": "",
+                            "control": ""
+                        },
+                        "enabled": false
+                    },
+                    "modbus": {
+                        "isCoil": true,
+                        "isHoldingRegister": false
+                    },
+                    "key": "",
+                    "tagId": "",
+                    "value": 0,
+                    "shift": -1,
+                    "inputId": "62a6fde7be90e9fa864f4781",
+                    "register": 9,
+                    "moduleId": 0,
+                    "readable": true,
+                    "interface": "",
+                    "writeable": true,
+                    "description": "DO9"
+                },
+                {
+                    "scaling": {
+                        "raw": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "scaled": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "type": "none"
+                    },
+                    "publish": {
+                        "bit": 0,
+                        "key": "",
+                        "enabled": false,
+                        "moduleId": 0
+                    },
+                    "masking": {
+                        "bit": 0,
+                        "enabled": false
+                    },
+                    "mqtt": {
+                        "userName": "",
+                        "password": "",
+                        "subscribe": {
+                            "data": "",
+                            "control": ""
+                        },
+                        "enabled": false
+                    },
+                    "modbus": {
+                        "isCoil": true,
+                        "isHoldingRegister": false
+                    },
+                    "key": "",
+                    "tagId": "",
+                    "value": 0,
+                    "shift": -1,
+                    "inputId": "62a6fdf35326e90937a49e94",
+                    "register": 10,
+                    "moduleId": 0,
+                    "readable": true,
+                    "interface": "",
+                    "writeable": true,
+                    "description": "DO10"
+                },
+                {
+                    "scaling": {
+                        "raw": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "scaled": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "type": "none"
+                    },
+                    "publish": {
+                        "bit": 0,
+                        "key": "",
+                        "enabled": false,
+                        "moduleId": 0
+                    },
+                    "masking": {
+                        "bit": 0,
+                        "enabled": false
+                    },
+                    "mqtt": {
+                        "userName": "",
+                        "password": "",
+                        "subscribe": {
+                            "data": "",
+                            "control": ""
+                        },
+                        "enabled": false
+                    },
+                    "modbus": {
+                        "isCoil": true,
+                        "isHoldingRegister": false
+                    },
+                    "key": "",
+                    "tagId": "",
+                    "value": 0,
+                    "shift": -1,
+                    "inputId": "62a6fdff2bbad4c8b2bc84df",
+                    "register": 11,
+                    "moduleId": 0,
+                    "readable": true,
+                    "interface": "",
+                    "writeable": true,
+                    "description": "DO11"
+                },
+                {
+                    "scaling": {
+                        "raw": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "scaled": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "type": "none"
+                    },
+                    "publish": {
+                        "bit": 0,
+                        "key": "",
+                        "enabled": false,
+                        "moduleId": 0
+                    },
+                    "masking": {
+                        "bit": 0,
+                        "enabled": false
+                    },
+                    "mqtt": {
+                        "userName": "",
+                        "password": "",
+                        "subscribe": {
+                            "data": "",
+                            "control": ""
+                        },
+                        "enabled": false
+                    },
+                    "modbus": {
+                        "isCoil": true,
+                        "isHoldingRegister": false
+                    },
+                    "key": "",
+                    "tagId": "",
+                    "value": 0,
+                    "shift": -1,
+                    "inputId": "62a6fe094b270442c08b9f0b",
+                    "register": 12,
+                    "moduleId": 0,
+                    "readable": true,
+                    "interface": "",
+                    "writeable": true,
+                    "description": "DO12"
+                },
+                {
+                    "scaling": {
+                        "raw": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "scaled": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "type": "none"
+                    },
+                    "publish": {
+                        "bit": 0,
+                        "key": "",
+                        "enabled": false,
+                        "moduleId": 0
+                    },
+                    "masking": {
+                        "bit": 0,
+                        "enabled": false
+                    },
+                    "mqtt": {
+                        "userName": "",
+                        "password": "",
+                        "subscribe": {
+                            "data": "",
+                            "control": ""
+                        },
+                        "enabled": false
+                    },
+                    "modbus": {
+                        "isCoil": true,
+                        "isHoldingRegister": false
+                    },
+                    "key": "",
+                    "tagId": "",
+                    "value": 0,
+                    "shift": -1,
+                    "inputId": "62a6fe13e1880b9a0e8eba41",
+                    "register": 13,
+                    "moduleId": 0,
+                    "readable": true,
+                    "interface": "",
+                    "writeable": true,
+                    "description": "DO13"
+                },
+                {
+                    "scaling": {
+                        "raw": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "scaled": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "type": "none"
+                    },
+                    "publish": {
+                        "bit": 0,
+                        "key": "",
+                        "enabled": false,
+                        "moduleId": 0
+                    },
+                    "masking": {
+                        "bit": 0,
+                        "enabled": false
+                    },
+                    "mqtt": {
+                        "userName": "",
+                        "password": "",
+                        "subscribe": {
+                            "data": "",
+                            "control": ""
+                        },
+                        "enabled": false
+                    },
+                    "modbus": {
+                        "isCoil": true,
+                        "isHoldingRegister": false
+                    },
+                    "key": "",
+                    "tagId": "",
+                    "value": 0,
+                    "shift": -1,
+                    "inputId": "62a6fe1eb431cdd13cacc00b",
+                    "register": 14,
+                    "moduleId": 0,
+                    "readable": true,
+                    "interface": "",
+                    "writeable": true,
+                    "description": "DO14"
+                },
+                {
+                    "scaling": {
+                        "raw": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "scaled": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "type": "none"
+                    },
+                    "publish": {
+                        "bit": 0,
+                        "key": "",
+                        "enabled": false,
+                        "moduleId": 0
+                    },
+                    "masking": {
+                        "bit": 0,
+                        "enabled": false
+                    },
+                    "mqtt": {
+                        "userName": "",
+                        "password": "",
+                        "subscribe": {
+                            "data": "",
+                            "control": ""
+                        },
+                        "enabled": false
+                    },
+                    "modbus": {
+                        "isCoil": true,
+                        "isHoldingRegister": false
+                    },
+                    "key": "",
+                    "tagId": "",
+                    "value": 0,
+                    "shift": -1,
+                    "inputId": "62a6fe27ff650ed45417bf53",
+                    "register": 15,
+                    "moduleId": 0,
+                    "readable": true,
+                    "interface": "",
+                    "writeable": true,
+                    "description": "DO15"
+                },
+                {
+                    "scaling": {
+                        "raw": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "scaled": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "type": "none"
+                    },
+                    "publish": {
+                        "bit": 0,
+                        "key": "",
+                        "enabled": false,
+                        "moduleId": 0
+                    },
+                    "masking": {
+                        "bit": 0,
+                        "enabled": false
+                    },
+                    "mqtt": {
+                        "userName": "",
+                        "password": "",
+                        "subscribe": {
+                            "data": "",
+                            "control": ""
+                        },
+                        "enabled": false
+                    },
+                    "modbus": {
+                        "isCoil": true,
+                        "isHoldingRegister": false
+                    },
+                    "key": "",
+                    "tagId": "",
+                    "value": 0,
+                    "shift": -1,
+                    "inputId": "62a6fe2ff72b43da6cdd4c1b",
+                    "register": 16,
+                    "moduleId": 0,
+                    "readable": true,
+                    "interface": "",
+                    "writeable": true,
+                    "description": "DO16"
+                }
+            ],
+            "ip": "192.168.0.200",
+            "port": 502,
+            "type": "modbus",
+            "txtime": 1,
+            "pxtime": 120,
+            "timeout": 900,
+            "barcode": "0",
+            "publish": true,
+            "enabled": true,
+            "unitId": 0,
+            "deviceId": "689769878978979878787965",
+            "description": "Procon 16DO",
             "userName": "",
             "password": ""
         }
     ],
     "mapping": [
         {
-            "mapId": "633ac88db06daeb719380719",
+            "mapId": "62a6fa2197adb7c20932fbf8",
             "source": {
-                "mask": 65535,
-                "inputId": "721f4416b997f5a6c4d68107",
-                "deviceId": "632d78448a0f5177d6b60410"
+                "mask": -1,
+                "inputId": "621336f7319eee089a296555",
+                "deviceId": "000000000000000000000250"
             },
             "destination": {
-                "mask": 65535,
-                "inputId": "733ac664de0aa29185a07cd6",
-                "deviceId": "632d79f58a0f5177d6b60494",
-                "destinationRegister": 10
+                "mask": -1,
+                "inputId": "62a4446900328648eb6af7d1",
+                "deviceId": "000000000000034567345846",
+                "destinationRegister": 2
             }
         },
         {
-            "mapId": "633aca89ebf47698af88d274",
+            "mapId": "62a6fa9c9d58e353fd6c43ce",
             "source": {
                 "mask": -1,
-                "inputId": "733ac93a8a223b2f4987c625",
-                "deviceId": "632d78448a0f5177d6b60410"
+                "inputId": "62a6ecdff07307b56ea82dab",
+                "deviceId": "000000000000000000000250"
             },
             "destination": {
                 "mask": -1,
-                "inputId": "733ac8068f86116e5157094f",
-                "deviceId": "632d79f58a0f5177d6b60494",
-                "destinationRegister": 11
-            }
-        },
-        {
-            "mapId": "633acaf24872eb0b043eaa7f",
-            "source": {
-                "mask": 65535,
-                "inputId": "621f4416b997f5a6c4d68107",
-                "deviceId": "632d79d88a0f5177d6b60488"
-            },
-            "destination": {
-                "mask": 65535,
-                "inputId": "633ac845bd8e0b4a95b3b1d5",
-                "deviceId": "632d79f58a0f5177d6b60494",
-                "destinationRegister": 60
-            }
-        },
-        {
-            "mapId": "633acb0302c2815a20a6f030",
-            "source": {
-                "mask": -1,
-                "inputId": "633acab898ad8e25546bf94c",
-                "deviceId": "632d79d88a0f5177d6b60488"
-            },
-            "destination": {
-                "mask": -1,
-                "inputId": "633ac84e7649060a05b4b493",
-                "deviceId": "632d79f58a0f5177d6b60494",
-                "destinationRegister": 61
-            }
-        },
-        {
-            "mapId": "633acd2f40c7a5fe4241111b",
-            "source": {
-                "mask": -1,
-                "inputId": "733abfc88e271370f0674964",
-                "deviceId": "632d78448a0f5177d6b60410"
-            },
-            "destination": {
-                "mask": -1,
-                "inputId": "733acbb00fd8f09efd5c6c61",
-                "deviceId": "632d79f58a0f5177d6b60494",
-                "destinationRegister": 16
-            }
-        },
-        {
-            "mapId": "633acd47d16e274d1fdc404e",
-            "source": {
-                "mask": -1,
-                "inputId": "733abfdd77faba11856aaa94",
-                "deviceId": "632d78448a0f5177d6b60410"
-            },
-            "destination": {
-                "mask": -1,
-                "inputId": "733acbcbfc871076a9a13d3a",
-                "deviceId": "632d79f58a0f5177d6b60494",
-                "destinationRegister": 17
-            }
-        },
-        {
-            "mapId": "633acd57b9152e8ff760f259",
-            "source": {
-                "mask": -1,
-                "inputId": "733abfee554cd8d18889172f",
-                "deviceId": "632d78448a0f5177d6b60410"
-            },
-            "destination": {
-                "mask": -1,
-                "inputId": "733acbdd4a38d4d13ac7a3c5",
-                "deviceId": "632d79f58a0f5177d6b60494",
-                "destinationRegister": 18
-            }
-        },
-        {
-            "mapId": "633acd66b918a50191661c48",
-            "source": {
-                "mask": -1,
-                "inputId": "733abffab3ac98a1bdbc4e7d",
-                "deviceId": "632d78448a0f5177d6b60410"
-            },
-            "destination": {
-                "mask": -1,
-                "inputId": "733acbf095fbc148cd425b7d",
-                "deviceId": "632d79f58a0f5177d6b60494",
-                "destinationRegister": 19
-            }
-        },
-        {
-            "mapId": "633acd78cba4de0e5a47628e",
-            "source": {
-                "mask": -1,
-                "inputId": "733ac009eed502d248c94b3d",
-                "deviceId": "632d78448a0f5177d6b60410"
-            },
-            "destination": {
-                "mask": -1,
-                "inputId": "733acc08a2f1986b683442d1",
-                "deviceId": "632d79f58a0f5177d6b60494",
-                "destinationRegister": 20
-            }
-        },
-        {
-            "mapId": "633acd892d55cde11144d8d8",
-            "source": {
-                "mask": -1,
-                "inputId": "733ac0191a0da80101d7fe88",
-                "deviceId": "632d78448a0f5177d6b60410"
-            },
-            "destination": {
-                "mask": -1,
-                "inputId": "733acc16915e5f13ce37161c",
-                "deviceId": "632d79f58a0f5177d6b60494",
-                "destinationRegister": 21
-            }
-        },
-        {
-            "mapId": "633acd99f500ca98b43cf146",
-            "source": {
-                "mask": -1,
-                "inputId": "733ac03f1b5b68b39c8fe501",
-                "deviceId": "632d78448a0f5177d6b60410"
-            },
-            "destination": {
-                "mask": -1,
-                "inputId": "733acc274c49860148684802",
-                "deviceId": "632d79f58a0f5177d6b60494",
-                "destinationRegister": 22
-            }
-        },
-        {
-            "mapId": "633acdaa089ef7ed32bbfb0f",
-            "source": {
-                "mask": -1,
-                "inputId": "733ac0caa6c82de1041f8d70",
-                "deviceId": "632d78448a0f5177d6b60410"
-            },
-            "destination": {
-                "mask": -1,
-                "inputId": "733acc32e985eb53d66e944b",
-                "deviceId": "632d79f58a0f5177d6b60494",
+                "inputId": "62a7117cd77fccc18b1812b4",
+                "deviceId": "62a5a54f30000c9ebe201fc8",
                 "destinationRegister": 23
             }
         },
         {
-            "mapId": "633acdce4d14ec82d3d2f21d",
+            "mapId": "62a6fb6c22edddeed6e62a7c",
             "source": {
                 "mask": -1,
-                "inputId": "633ac3093e0d0e764c85fb57",
-                "deviceId": "632d79d88a0f5177d6b60488"
+                "inputId": "62a6eceb656c3d91cf65c521",
+                "deviceId": "000000000000000000000250"
             },
             "destination": {
                 "mask": -1,
-                "inputId": "633acc70aa269dbda24cf4cc",
-                "deviceId": "632d79f58a0f5177d6b60494",
-                "destinationRegister": 65
-            }
-        },
-        {
-            "mapId": "633acde271a69fb99b0d067d",
-            "source": {
-                "mask": -1,
-                "inputId": "633abfc88e271370f0674964",
-                "deviceId": "632d79d88a0f5177d6b60488"
-            },
-            "destination": {
-                "mask": -1,
-                "inputId": "633acc86450a6507916b0f52",
-                "deviceId": "632d79f58a0f5177d6b60494",
-                "destinationRegister": 66
-            }
-        },
-        {
-            "mapId": "633acdf39f1f750d770fb245",
-            "source": {
-                "mask": -1,
-                "inputId": "633abfdd77faba11856aaa94",
-                "deviceId": "632d79d88a0f5177d6b60488"
-            },
-            "destination": {
-                "mask": -1,
-                "inputId": "633acc9ad8a6d066e13e4d09",
-                "deviceId": "632d79f58a0f5177d6b60494",
-                "destinationRegister": 67
-            }
-        },
-        {
-            "mapId": "633ace059d78a6a9a27ac113",
-            "source": {
-                "mask": -1,
-                "inputId": "633abfee554cd8d18889172f",
-                "deviceId": "632d79d88a0f5177d6b60488"
-            },
-            "destination": {
-                "mask": -1,
-                "inputId": "633accab033b9444686505e2",
-                "deviceId": "632d79f58a0f5177d6b60494",
-                "destinationRegister": 68
-            }
-        },
-        {
-            "mapId": "633ace1b474a39d90920997a",
-            "source": {
-                "mask": -1,
-                "inputId": "633abffab3ac98a1bdbc4e7d",
-                "deviceId": "632d79d88a0f5177d6b60488"
-            },
-            "destination": {
-                "mask": -1,
-                "inputId": "633accc24a76bbaa6c4abb96",
-                "deviceId": "632d79f58a0f5177d6b60494",
-                "destinationRegister": 69
-            }
-        },
-        {
-            "mapId": "633ace488ea7edd19c4f4726",
-            "source": {
-                "mask": -1,
-                "inputId": "633ac009eed502d248c94b3d",
-                "deviceId": "632d79d88a0f5177d6b60488"
-            },
-            "destination": {
-                "mask": -1,
-                "inputId": "633accd74cf668790cafb4f8",
-                "deviceId": "632d79f58a0f5177d6b60494",
-                "destinationRegister": 70
-            }
-        },
-        {
-            "mapId": "633ace5aea61b4f67ed8d457",
-            "source": {
-                "mask": -1,
-                "inputId": "633ac0191a0da80101d7fe88",
-                "deviceId": "632d79d88a0f5177d6b60488"
-            },
-            "destination": {
-                "mask": -1,
-                "inputId": "633acce55f11c8aefcd5f6c9",
-                "deviceId": "632d79f58a0f5177d6b60494",
-                "destinationRegister": 71
-            }
-        },
-        {
-            "mapId": "633ace6d8240d02f3d33f176",
-            "source": {
-                "mask": -1,
-                "inputId": "633ac03f1b5b68b39c8fe501",
-                "deviceId": "632d79d88a0f5177d6b60488"
-            },
-            "destination": {
-                "mask": -1,
-                "inputId": "633accf8176fec9227934836",
-                "deviceId": "632d79f58a0f5177d6b60494",
-                "destinationRegister": 72
-            }
-        },
-        {
-            "mapId": "633ace7ed5ec025d3f1787ac",
-            "source": {
-                "mask": -1,
-                "inputId": "633ac0caa6c82de1041f8d70",
-                "deviceId": "632d79d88a0f5177d6b60488"
-            },
-            "destination": {
-                "mask": -1,
-                "inputId": "633acd07aede07fcdf31d4cd",
-                "deviceId": "632d79f58a0f5177d6b60494",
-                "destinationRegister": 73
-            }
-        },
-        {
-            "mapId": "64ef6edd164a31db4eeaee19",
-            "source": {
-                "mask": -1,
-                "inputId": "64ef7150becb455016d288ca",
-                "deviceId": "632d79d88a0f5177d6b60488"
-            },
-            "destination": {
-                "mask": -1,
-                "inputId": "64ef729e4da44fc76476f9db",
-                "deviceId": "632d79f58a0f5177d6b60494",
-                "destinationRegister": 64
-            }
-        },
-        {
-            "mapId": "64ef7033d14f944eb1edd95b",
-            "source": {
-                "mask": -1,
-                "inputId": "64ef712eb89fe341f01884b0",
-                "deviceId": "632d78448a0f5177d6b60410"
-            },
-            "destination": {
-                "mask": -1,
-                "inputId": "64ef7283ef700ea16d110dda",
-                "deviceId": "632d79f58a0f5177d6b60494",
+                "inputId": "62a7118a893f9a3b55ee08f2",
+                "deviceId": "62a5a54f30000c9ebe201fc8",
                 "destinationRegister": 24
+            }
+        },
+        {
+            "mapId": "62a6fb8633985c715463adf5",
+            "source": {
+                "mask": -1,
+                "inputId": "62a6ecf93d6d50bbc937ff8a",
+                "deviceId": "000000000000000000000250"
+            },
+            "destination": {
+                "mask": -1,
+                "inputId": "62a7119d69235b03e1c55efc",
+                "deviceId": "62a5a54f30000c9ebe201fc8",
+                "destinationRegister": 17
+            }
+        },
+        {
+            "mapId": "62a6fb9897db86acd84ec038",
+            "source": {
+                "mask": -1,
+                "inputId": "62a6ed024c9d6cdec1d7634d",
+                "deviceId": "000000000000000000000250"
+            },
+            "destination": {
+                "mask": -1,
+                "inputId": "62a711a8bb407135225a1dc1",
+                "deviceId": "62a5a54f30000c9ebe201fc8",
+                "destinationRegister": 18
+            }
+        },
+        {
+            "mapId": "62a6fbaa3e7a832ebaf3f14e",
+            "source": {
+                "mask": -1,
+                "inputId": "62a6ed09d31f82ecdecc47e7",
+                "deviceId": "000000000000000000000250"
+            },
+            "destination": {
+                "mask": -1,
+                "inputId": "62a711b8e22e782ad15730eb",
+                "deviceId": "62a5a54f30000c9ebe201fc8",
+                "destinationRegister": 19
+            }
+        },
+        {
+            "mapId": "62a6fbc656688756aa9f1485",
+            "source": {
+                "mask": -1,
+                "inputId": "621f0ccc6e8fc5dc94269f67",
+                "deviceId": "000000000000000000000250"
+            },
+            "destination": {
+                "mask": -1,
+                "inputId": "62a59dbd908dca34fde57bb1",
+                "deviceId": "689769878978979878787965",
+                "destinationRegister": 1
+            }
+        },
+        {
+            "mapId": "62a6fbdcce522a752000b000",
+            "source": {
+                "mask": -1,
+                "inputId": "621f439813bfefcdbc670a0c",
+                "deviceId": "000000000000000000000250"
+            },
+            "destination": {
+                "mask": -1,
+                "inputId": "62a6fd88a496be91a3283a6f",
+                "deviceId": "689769878978979878787965",
+                "destinationRegister": 2
+            }
+        },
+        {
+            "mapId": "62a6fbed0d17f2e972503533",
+            "source": {
+                "mask": -1,
+                "inputId": "621f43a7e4df942ca265f7e7",
+                "deviceId": "000000000000000000000250"
+            },
+            "destination": {
+                "mask": -1,
+                "inputId": "62a6fd96b04d60e63443396d",
+                "deviceId": "689769878978979878787965",
+                "destinationRegister": 3
+            }
+        },
+        {
+            "mapId": "62a6fbfcad0d6920775d5180",
+            "source": {
+                "mask": -1,
+                "inputId": "621f43b4d55ce44ab889855f",
+                "deviceId": "000000000000000000000250"
+            },
+            "destination": {
+                "mask": -1,
+                "inputId": "62a6fd9e91dabd2b33e3b1f2",
+                "deviceId": "689769878978979878787965",
+                "destinationRegister": 4
+            }
+        },
+        {
+            "mapId": "62a6fc09b56f86fefbb38130",
+            "source": {
+                "mask": -1,
+                "inputId": "621f43c30ed6eb5e769e6e30",
+                "deviceId": "000000000000000000000250"
+            },
+            "destination": {
+                "mask": -1,
+                "inputId": "62a6fda707a4f9ab59c65109",
+                "deviceId": "689769878978979878787965",
+                "destinationRegister": 5
+            }
+        },
+        {
+            "mapId": "62a6fc16b96d38f9a24d95e0",
+            "source": {
+                "mask": -1,
+                "inputId": "621f43cf150412fa7ee378a4",
+                "deviceId": "000000000000000000000250"
+            },
+            "destination": {
+                "mask": -1,
+                "inputId": "62a6fdc48039ce197d7946f6",
+                "deviceId": "689769878978979878787965",
+                "destinationRegister": 6
+            }
+        },
+        {
+            "mapId": "62a6fc251a05633b5099b641",
+            "source": {
+                "mask": -1,
+                "inputId": "621f43eb49b504d38778c636",
+                "deviceId": "000000000000000000000250"
+            },
+            "destination": {
+                "mask": -1,
+                "inputId": "62a6fdcd3c8b8e81c405ba2c",
+                "deviceId": "689769878978979878787965",
+                "destinationRegister": 7
+            }
+        },
+        {
+            "mapId": "62a6fc35ae3986862c8820cd",
+            "source": {
+                "mask": -1,
+                "inputId": "621f440059cf41d68b52c808",
+                "deviceId": "000000000000000000000250"
+            },
+            "destination": {
+                "mask": -1,
+                "inputId": "62a6fddf82caaac21922c908",
+                "deviceId": "689769878978979878787965",
+                "destinationRegister": 8
+            }
+        },
+        {
+            "mapId": "62a6fc451cc45e9db12a9566",
+            "source": {
+                "mask": -1,
+                "inputId": "621f4416b997f5a6c4d68107",
+                "deviceId": "000000000000000000000250"
+            },
+            "destination": {
+                "mask": -1,
+                "inputId": "62a6fde7be90e9fa864f4781",
+                "deviceId": "689769878978979878787965",
+                "destinationRegister": 9
+            }
+        },
+        {
+            "mapId": "62a6fc58f563fab785f06e6a",
+            "source": {
+                "mask": -1,
+                "inputId": "62a6ec884f070f61dea1080d",
+                "deviceId": "000000000000000000000250"
+            },
+            "destination": {
+                "mask": -1,
+                "inputId": "62a6fdf35326e90937a49e94",
+                "deviceId": "689769878978979878787965",
+                "destinationRegister": 10
+            }
+        },
+        {
+            "mapId": "62a6fc6aa97dde58e52af731",
+            "source": {
+                "mask": -1,
+                "inputId": "62a6ec91071bea07fb5d2504",
+                "deviceId": "000000000000000000000250"
+            },
+            "destination": {
+                "mask": -1,
+                "inputId": "62a6fdff2bbad4c8b2bc84df",
+                "deviceId": "689769878978979878787965",
+                "destinationRegister": 11
+            }
+        },
+        {
+            "mapId": "62a6fc7f79381088438d73e7",
+            "source": {
+                "mask": -1,
+                "inputId": "62a6ec9a47a9fc9ad177d943",
+                "deviceId": "000000000000000000000250"
+            },
+            "destination": {
+                "mask": -1,
+                "inputId": "62a6fe094b270442c08b9f0b",
+                "deviceId": "689769878978979878787965",
+                "destinationRegister": 12
+            }
+        },
+        {
+            "mapId": "62a6fc954bda04cadf1b169e",
+            "source": {
+                "mask": -1,
+                "inputId": "62a6eca10f6b3c707e9d17b3",
+                "deviceId": "000000000000000000000250"
+            },
+            "destination": {
+                "mask": -1,
+                "inputId": "62a6fe13e1880b9a0e8eba41",
+                "deviceId": "689769878978979878787965",
+                "destinationRegister": 13
+            }
+        },
+        {
+            "mapId": "62a6fccfd1aee6b639199481",
+            "source": {
+                "mask": -1,
+                "inputId": "62a6eca86560a4c98b84c796",
+                "deviceId": "000000000000000000000250"
+            },
+            "destination": {
+                "mask": -1,
+                "inputId": "62a6fe1eb431cdd13cacc00b",
+                "deviceId": "689769878978979878787965",
+                "destinationRegister": 14
+            }
+        },
+        {
+            "mapId": "62a6fcea4f9f2772d324732f",
+            "source": {
+                "mask": -1,
+                "inputId": "62a6ecae49eff5ad167685b9",
+                "deviceId": "000000000000000000000250"
+            },
+            "destination": {
+                "mask": -1,
+                "inputId": "62a6fe27ff650ed45417bf53",
+                "deviceId": "689769878978979878787965",
+                "destinationRegister": 15
+            }
+        },
+        {
+            "mapId": "62a6fd0f16ef5e677ddb86b7",
+            "source": {
+                "mask": -1,
+                "inputId": "62a6ecb5d4c10f3d5a288a33",
+                "deviceId": "000000000000000000000250"
+            },
+            "destination": {
+                "mask": -1,
+                "inputId": "62a6fe2ff72b43da6cdd4c1b",
+                "deviceId": "689769878978979878787965",
+                "destinationRegister": 16
             }
         }
     ],
-    "apn": "tech5",
-    "publishEnabled": true,
-    "rateLimits": {
-        "rateLimitTmrSP": 60,
-        "rateLimitTxCountSP": 60
-    },
-    "commsOption": "0",
-    "overideDeviceBarcode": "true",
-    "tcpClient": {
-        "host": "",
-        "port": 0
-    }
+    "apn": "internet"
 }
