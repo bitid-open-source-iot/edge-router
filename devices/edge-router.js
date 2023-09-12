@@ -62,7 +62,7 @@ module.exports = class extends EventEmitter {
         this.sendOnce = true
 
         // if (__settings.commsOption == '0') {
-            this.connectMQTT();
+        this.connectMQTT();
         // } else {
         //     this.connectTCPClient();
         // }
@@ -150,59 +150,59 @@ module.exports = class extends EventEmitter {
 
                     try {
                         for (const input of inputs) {
-                            if (item.source.inputId != input.inputId && item.source.deviceId != deviceId) {
-                                continue;
-                            }
+                            if (item.source.inputId == input.inputId && item.source.deviceId == deviceId) {
 
-                            let maskSourceValue = null;
 
-                            if (item.source.mask != -1) {
-                                maskSourceValue = input.value & item.source.mask;
-                            } else {
-                                maskSourceValue = input.value;
-                            }
+                                let maskSourceValue = null;
 
-                            const device = __devices.find(d => d.deviceId === item.destination.deviceId && deviceId == item.source.deviceId);
+                                if (item.source.mask != -1) {
+                                    maskSourceValue = input.value & item.source.mask;
+                                } else {
+                                    maskSourceValue = input.value;
+                                }
 
-                            if (!device) {
-                                continue;
-                            }
+                                const device = __devices.find(d => d.deviceId === item.destination.deviceId && deviceId == item.source.deviceId);
 
-                            let deviceCurrentState = null;
-                            let maskDestinationValue = null;
+                                if (!device) {
+                                    continue;
+                                }
 
-                            if (item.destination.mask != -1) {
-                                for (const dv of device.values) {
-                                    if (dv.inputId == item.destination.inputId) {
-                                        deviceCurrentState = (dv.value & Math.pow(2, item.destination.mask)) >> item.destination.mask
+                                let deviceCurrentState = null;
+                                let maskDestinationValue = null;
+
+                                if (item.destination.mask != -1) {
+                                    for (const dv of device.values) {
+                                        if (dv.inputId == item.destination.inputId) {
+                                            deviceCurrentState = (dv.value & Math.pow(2, item.destination.mask)) >> item.destination.mask
+                                        }
                                     }
+
+                                    let dontTouchVal = 0;
+                                    maskDestinationValue = maskSourceValue & item.destination.mask;
+
+                                    if (deviceCurrentState & item.destination.mask > 0 && deviceCurrentState != -1) {
+                                        dontTouchVal = deviceCurrentState - (deviceCurrentState & item.destination.mask);
+                                    }
+
+
+
+                                    maskDestinationValue = dontTouchVal + maskDestinationValue;
+                                } else {
+                                    maskDestinationValue = maskSourceValue;
                                 }
 
-                                let dontTouchVal = 0;
-                                maskDestinationValue = maskSourceValue & item.destination.mask;
+                                const io = device.io.find(io => io.inputId === item.destination.inputId);
 
-                                if (deviceCurrentState & item.destination.mask > 0 && deviceCurrentState != -1) {
-                                    dontTouchVal = deviceCurrentState - (deviceCurrentState & item.destination.mask);
+                                if (!io) {
+                                    continue;
                                 }
 
-
-
-                                maskDestinationValue = dontTouchVal + maskDestinationValue;
-                            } else {
-                                maskDestinationValue = maskSourceValue;
-                            }
-
-                            const io = device.io.find(io => io.inputId === item.destination.inputId);
-
-                            if (!io) {
-                                continue;
-                            }
-
-                            __logger.info(io.description + ': ' + maskDestinationValue);
-                            try {
-                                await device.write(item.destination.inputId, maskDestinationValue);
-                            } catch (e) {
-                                console.error(e)
+                                // __logger.info(io.description + ': ' + maskDestinationValue);
+                                try {
+                                    await device.write(item.destination.inputId, maskDestinationValue);
+                                } catch (e) {
+                                    console.error(e)
+                                }
                             }
 
                         }
@@ -255,14 +255,14 @@ module.exports = class extends EventEmitter {
                     if (data == 'CONNECTED') {
                         this.status = 'connected';
                         setTimeout(() => {
-                            if(__settings.overideDeviceBarcode == 'false' || __settings.overideDeviceBarcode == false){
+                            if (__settings.overideDeviceBarcode == 'false' || __settings.overideDeviceBarcode == false) {
                                 __devices.forEach(device => {
-                                    if(device.enabled == true && device.publish == true){
+                                    if (device.enabled == true && device.publish == true) {
                                         console.log('tcpClient sending Device Logon', `%S ${device.barcode} *`)
                                         this.tcpClient.SendData(`%S ${device.barcode} *`)
                                     }
                                 })
-                            }else{
+                            } else {
                                 console.log('tcpClient sending Device Logon', `%S ${__settings.barcode} *`)
                                 this.tcpClient.SendData(`%S ${__settings.barcode} *`)
                             }
