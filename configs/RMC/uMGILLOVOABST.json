@@ -81,7 +81,7 @@
                     "tagId": "",
                     "value": 0,
                     "shift": 0,
-                    "inputId": "621f4416b997f5a6c4d68107",
+                    "inputId": "621f4416b997f5a6c4d68106",
                     "register": 0,
                     "moduleId": 0,
                     "readable": true,
@@ -226,7 +226,7 @@
                         "key": "digitalsIn",
                         "enabled": true,
                         "moduleId": 0,
-                        "lastCOFSValue": 29335
+                        "lastCOFSValue": 31455
                     },
                     "masking": {
                         "bit": 0,
@@ -247,7 +247,7 @@
                     },
                     "key": "",
                     "tagId": "",
-                    "value": 29399,
+                    "value": 31455,
                     "shift": -1,
                     "inputId": "633aac49f12d5d0ed4eebb88",
                     "register": 10,
@@ -256,7 +256,7 @@
                     "interface": "",
                     "writeable": false,
                     "description": "Digital Inputs Reg10",
-                    "cofs": -1,
+                    "cofs": "0.5",
                     "command": "",
                     "rtuId": 0
                 },
@@ -307,7 +307,7 @@
                     "interface": "",
                     "writeable": false,
                     "description": "Digital Inputs Reg11",
-                    "cofs": -1,
+                    "cofs": "0.5",
                     "command": "",
                     "rtuId": 0
                 },
@@ -328,7 +328,7 @@
                         "key": "AI1",
                         "enabled": true,
                         "moduleId": 0,
-                        "lastCOFSValue": 62
+                        "lastCOFSValue": 73
                     },
                     "masking": {
                         "bit": 0,
@@ -349,7 +349,7 @@
                     },
                     "key": "",
                     "tagId": "",
-                    "value": 62,
+                    "value": 83,
                     "shift": -1,
                     "inputId": "633aae28a7c68d96ead0ab5a",
                     "register": 16,
@@ -358,7 +358,7 @@
                     "interface": "",
                     "writeable": false,
                     "description": "Delivery Pressure PV",
-                    "cofs": "100",
+                    "cofs": "-1",
                     "command": "",
                     "rtuId": 0
                 },
@@ -379,7 +379,7 @@
                         "key": "AI2",
                         "enabled": true,
                         "moduleId": 0,
-                        "lastCOFSValue": 40
+                        "lastCOFSValue": 375
                     },
                     "masking": {
                         "bit": 0,
@@ -400,7 +400,7 @@
                     },
                     "key": "",
                     "tagId": "",
-                    "value": 40,
+                    "value": 59,
                     "shift": -1,
                     "inputId": "633aae3d6dfb63ca57dd6b4a",
                     "register": 17,
@@ -409,7 +409,7 @@
                     "interface": "",
                     "writeable": false,
                     "description": "Delivery Flowmeter PV",
-                    "cofs": "100",
+                    "cofs": "-1",
                     "command": "",
                     "rtuId": 0
                 },
@@ -430,7 +430,7 @@
                         "key": "AI3",
                         "enabled": true,
                         "moduleId": 0,
-                        "lastCOFSValue": 395
+                        "lastCOFSValue": 24
                     },
                     "masking": {
                         "bit": 0,
@@ -451,7 +451,7 @@
                     },
                     "key": "",
                     "tagId": "",
-                    "value": 397,
+                    "value": 24,
                     "shift": -1,
                     "inputId": "633aae4dfca991015bd508c6",
                     "register": 18,
@@ -481,7 +481,7 @@
                         "key": "AI4",
                         "enabled": true,
                         "moduleId": 0,
-                        "lastCOFSValue": 352
+                        "lastCOFSValue": 42
                     },
                     "masking": {
                         "bit": 0,
@@ -502,7 +502,7 @@
                     },
                     "key": "",
                     "tagId": "",
-                    "value": 356,
+                    "value": 42,
                     "shift": -1,
                     "inputId": "633aae5dc1faf016df36f1ee",
                     "register": 19,
@@ -532,7 +532,7 @@
                         "key": "AIExt1",
                         "enabled": true,
                         "moduleId": 0,
-                        "lastCOFSValue": 4
+                        "lastCOFSValue": 6
                     },
                     "masking": {
                         "bit": 0,
@@ -553,7 +553,7 @@
                     },
                     "key": "",
                     "tagId": "",
-                    "value": 4,
+                    "value": 9,
                     "shift": -1,
                     "inputId": "633aae6c4071c8b02413b770",
                     "register": 20,
@@ -583,7 +583,7 @@
                         "key": "AIExt2",
                         "enabled": true,
                         "moduleId": 0,
-                        "lastCOFSValue": 5
+                        "lastCOFSValue": 7
                     },
                     "masking": {
                         "bit": 0,
@@ -604,7 +604,7 @@
                     },
                     "key": "",
                     "tagId": "",
-                    "value": 5,
+                    "value": 10,
                     "shift": -1,
                     "inputId": "633aae7ba05daad03661f152",
                     "register": 21,
@@ -634,7 +634,7 @@
                         "key": "AIExt3",
                         "enabled": true,
                         "moduleId": 0,
-                        "lastCOFSValue": 0
+                        "lastCOFSValue": 1
                     },
                     "masking": {
                         "bit": 0,
@@ -655,7 +655,7 @@
                     },
                     "key": "",
                     "tagId": "",
-                    "value": 2,
+                    "value": 1,
                     "shift": -1,
                     "inputId": "633aae8a9492537981c797bd",
                     "register": 22,
@@ -706,7 +706,7 @@
                     },
                     "key": "",
                     "tagId": "",
-                    "value": 2,
+                    "value": 0,
                     "shift": -1,
                     "inputId": "633aaea6166323695a14977c",
                     "register": 23,
@@ -806,7 +806,7 @@
                     },
                     "key": "",
                     "tagId": "",
-                    "value": 0,
+                    "value": 21463,
                     "shift": -1,
                     "inputId": "634a9c65df55171c08be26ca",
                     "register": 110,
@@ -856,7 +856,7 @@
                     },
                     "key": "",
                     "tagId": "",
-                    "value": 93,
+                    "value": 53,
                     "shift": -1,
                     "inputId": "636e219924caf2553673467c",
                     "register": 100,
@@ -906,7 +906,7 @@
                     },
                     "key": "",
                     "tagId": "",
-                    "value": 0,
+                    "value": 1,
                     "shift": -1,
                     "inputId": "637106a53fd2acf917f0f76a",
                     "register": 33,
@@ -986,7 +986,7 @@
                         "key": "AIExt5",
                         "enabled": true,
                         "moduleId": 0,
-                        "lastCOFSValue": 95
+                        "lastCOFSValue": 19
                     },
                     "masking": {
                         "bit": 0,
@@ -1007,7 +1007,7 @@
                     },
                     "key": "",
                     "tagId": "",
-                    "value": 95,
+                    "value": 19,
                     "shift": -1,
                     "inputId": "64ef70ab1dcbf48dd44aceac",
                     "register": 24,
@@ -1076,7 +1076,7 @@
                     },
                     "key": "digitalsIn",
                     "tagId": "",
-                    "value": 20503,
+                    "value": 21463,
                     "shift": 0,
                     "inputId": "621f4416b997f5a6c4d68107",
                     "register": 0,
@@ -1086,7 +1086,8 @@
                     "writeable": true,
                     "description": "DigitalsIn from High-Lift PLC",
                     "cofs": -1,
-                    "command": ""
+                    "command": "",
+                    "rtuId": 0
                 },
                 {
                     "scaling": {
@@ -1125,7 +1126,7 @@
                     },
                     "key": "AI1",
                     "tagId": "",
-                    "value": 93,
+                    "value": 53,
                     "shift": 0,
                     "inputId": "636e2115e96fa3ab27a676a3",
                     "register": 0,
@@ -1135,7 +1136,8 @@
                     "writeable": true,
                     "description": "HLPS Reservoir Level AI1",
                     "cofs": -1,
-                    "command": ""
+                    "command": "",
+                    "rtuId": 0
                 },
                 {
                     "scaling": {
@@ -1183,8 +1185,9 @@
                     "interface": "",
                     "writeable": false,
                     "description": "High Lift Comms Status New",
-                    "cofs": "21",
-                    "command": ""
+                    "cofs": "15",
+                    "command": "",
+                    "rtuId": 0
                 }
             ],
             "ip": "0.0.0.0",
@@ -1208,7 +1211,7 @@
             "mapId": "633b1f141c9a600ed2963adc",
             "source": {
                 "mask": -1,
-                "inputId": "621f4416b997f5a6c4d68107",
+                "inputId": "621f4416b997f5a6c4d68106",
                 "deviceId": "632d79f58a0f5177d6b60494"
             },
             "destination": {
@@ -1255,9 +1258,9 @@
             },
             "destination": {
                 "mask": -1,
-                "inputId": "637106c2be1172d8d300b495",
+                "inputId": "637106a53fd2acf917f0f76a",
                 "deviceId": "632d78448a0f5177d6b60410",
-                "destinationRegister": 32
+                "destinationRegister": 33
             }
         },
         {
