@@ -113,6 +113,10 @@ module.exports = class extends EventEmitter {
                                 regValue = await this.controller.read(['hr', item.register].join(''))
                                 // console.log(`<<<<<<<<<<<<<<<<<<<<<<item.register ${item.register} regValue: ${regValue}`)
                             }
+                            if(regValue < 0){
+                                //convert 16 bit signed int to 16 bit unsigned int
+                                regValue = regValue + 65536
+                            }
                         } else {
                             await this.wait(200);
                             regValue = this.commsStatus
