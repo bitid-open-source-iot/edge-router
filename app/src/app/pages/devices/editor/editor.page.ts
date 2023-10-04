@@ -264,7 +264,7 @@ export class DevicesEditorPage implements OnInit, OnDestroy {
             this.type = type;
             switch (type) {
                 case ('tcpClient'):
-                    this.columns = ['description', 'register', 'publish.enabled', 'publish.bit', 'publish.key', 'publish.moduleId'];
+                    this.columns = ['description', 'register', 'moduleId', 'publish.enabled', 'publish.bit', 'publish.key', 'publish.moduleId'];
                     break
                 case ('tcpServer'):
                     this.columns = []

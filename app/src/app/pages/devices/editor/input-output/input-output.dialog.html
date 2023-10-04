@@ -593,6 +593,24 @@
                     {{ errors.register }}
                 </mat-error>
             </mat-form-field>
+
+
+            <mat-form-field appearance="outline">
+                <mat-label>
+                    Module ID
+                </mat-label>
+
+                <input matInput type="number" min="0" placeholder="moduleId" formControlName="moduleId"
+                    [required]="type == 'tcpClient'">
+
+                <mat-error *ngIf="errors.moduleId">
+                    {{ errors.moduleId }}
+                </mat-error>
+            </mat-form-field>
+
+
+
+
         </section>
 
 

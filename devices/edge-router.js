@@ -61,12 +61,16 @@ module.exports = class extends EventEmitter {
 
         this.sendOnce = true
 
-        // if (__settings.commsOption == '0') {
-        this.connectMQTT();
-        // } else {
-        //     this.connectTCPClient();
-        // }
-
+        if (__settings.commsOption) {
+            if (__settings.commsOption == 0) {
+                this.connectMQTT();
+            }else{
+                this.connectTCPClient();    
+            }
+        } else {
+            this.connectMQTT();
+        }
+        
         this.init()
     }
 
