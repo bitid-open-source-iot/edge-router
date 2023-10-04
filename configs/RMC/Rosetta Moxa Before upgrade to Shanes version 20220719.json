@@ -1,0 +1,3660 @@
+{
+    "port": 8080,
+    "txtime": 900,
+    "barcode": "15044874",
+    "deviceId": "000000000000000015044874",
+    "production": true,
+    "authentication": true,
+    "admin": {
+        "email": "admin@bitid.co.za",
+        "password": "admin"
+    },
+    "server": {
+        "host": "mqtt://bitid.co.za",
+        "port": 1888,
+        "username": "telemetry",
+        "password": "telemetry1!",
+        "subscribe": {
+            "data": "/rock/v1.1/data",
+            "control": "/rock/v1.1/control"
+        }
+    },
+    "logger": {
+        "appenders": {
+            "edge-router": {
+                "type": "file",
+                "backups": 3,
+                "filename": "/var/www/node/edge-router/logs/edge-router.log",
+                "absolute": true,
+                "maxLogSize": 102400
+            }
+        },
+        "categories": {
+            "default": {
+                "appenders": [
+                    "edge-router"
+                ],
+                "level": "error"
+            }
+        }
+    },
+    "devices": [
+        {
+            "io": [
+                {
+                    "bit": 0,
+                    "key": "AI1",
+                    "tagId": "ROSE_091_Rx01[0]",
+                    "value": 0,
+                    "inputId": "000000000000000000000001",
+                    "register": 0,
+                    "moduleId": 0,
+                    "readable": false,
+                    "interface": "DINT",
+                    "writeable": true,
+                    "description": "ROSE_091_Rx01[0]",
+                    "tag": {
+                        "_events": {},
+                        "_eventsCount": 0,
+                        "state": {
+                            "tag": {
+                                "name": "ROSE_091_Rx01[0]",
+                                "type": 196,
+                                "bitIndex": null,
+                                "value": 0,
+                                "controllerValue": 0,
+                                "path": {
+                                    "type": "Buffer",
+                                    "data": [
+                                        145,
+                                        13,
+                                        82,
+                                        79,
+                                        83,
+                                        69,
+                                        95,
+                                        48,
+                                        57,
+                                        49,
+                                        95,
+                                        82,
+                                        120,
+                                        48,
+                                        49,
+                                        0,
+                                        40,
+                                        0
+                                    ]
+                                },
+                                "program": null,
+                                "stage_write": false
+                            },
+                            "read_size": 1,
+                            "error": {
+                                "code": null,
+                                "status": null
+                            },
+                            "timestamp": "2022-07-19T09:04:27.348Z",
+                            "instance": "8818dcdf4f0191fe57e7f3b859b4ae8d",
+                            "keepAlive": 0
+                        }
+                    }
+                },
+                {
+                    "bit": 0,
+                    "key": "AI2",
+                    "tagId": "ROSE_091_Rx01[1]",
+                    "value": 0,
+                    "inputId": "000000000000000000000002",
+                    "register": 0,
+                    "moduleId": 0,
+                    "readable": false,
+                    "interface": "DINT",
+                    "writeable": true,
+                    "description": "ROSE_091_Rx01[1]",
+                    "tag": {
+                        "_events": {},
+                        "_eventsCount": 0,
+                        "state": {
+                            "tag": {
+                                "name": "ROSE_091_Rx01[1]",
+                                "type": 196,
+                                "bitIndex": null,
+                                "value": 0,
+                                "controllerValue": 0,
+                                "path": {
+                                    "type": "Buffer",
+                                    "data": [
+                                        145,
+                                        13,
+                                        82,
+                                        79,
+                                        83,
+                                        69,
+                                        95,
+                                        48,
+                                        57,
+                                        49,
+                                        95,
+                                        82,
+                                        120,
+                                        48,
+                                        49,
+                                        0,
+                                        40,
+                                        1
+                                    ]
+                                },
+                                "program": null,
+                                "stage_write": false
+                            },
+                            "read_size": 1,
+                            "error": {
+                                "code": null,
+                                "status": null
+                            },
+                            "timestamp": "2022-07-19T09:04:27.355Z",
+                            "instance": "23f50bb6b940be1b38170a0c1ebfd017",
+                            "keepAlive": 0
+                        }
+                    }
+                },
+                {
+                    "bit": 0,
+                    "key": "AI3",
+                    "tagId": "ROSE_091_Rx01[2]",
+                    "value": 0,
+                    "inputId": "000000000000000000000003",
+                    "register": 0,
+                    "moduleId": 0,
+                    "readable": false,
+                    "interface": "DINT",
+                    "writeable": true,
+                    "description": "ROSE_091_Rx01[2]",
+                    "tag": {
+                        "_events": {},
+                        "_eventsCount": 0,
+                        "state": {
+                            "tag": {
+                                "name": "ROSE_091_Rx01[2]",
+                                "type": 196,
+                                "bitIndex": null,
+                                "value": 0,
+                                "controllerValue": 0,
+                                "path": {
+                                    "type": "Buffer",
+                                    "data": [
+                                        145,
+                                        13,
+                                        82,
+                                        79,
+                                        83,
+                                        69,
+                                        95,
+                                        48,
+                                        57,
+                                        49,
+                                        95,
+                                        82,
+                                        120,
+                                        48,
+                                        49,
+                                        0,
+                                        40,
+                                        2
+                                    ]
+                                },
+                                "program": null,
+                                "stage_write": false
+                            },
+                            "read_size": 1,
+                            "error": {
+                                "code": null,
+                                "status": null
+                            },
+                            "timestamp": "2022-07-19T09:04:27.357Z",
+                            "instance": "b5b8a61c544043a72a1617085e8827e1",
+                            "keepAlive": 0
+                        }
+                    }
+                },
+                {
+                    "bit": 0,
+                    "key": "AI4",
+                    "tagId": "ROSE_091_Rx01[3]",
+                    "value": 0,
+                    "inputId": "000000000000000000000004",
+                    "register": 0,
+                    "moduleId": 0,
+                    "readable": false,
+                    "interface": "DINT",
+                    "writeable": true,
+                    "description": "ROSE_091_Rx01[3]",
+                    "tag": {
+                        "_events": {},
+                        "_eventsCount": 0,
+                        "state": {
+                            "tag": {
+                                "name": "ROSE_091_Rx01[3]",
+                                "type": 196,
+                                "bitIndex": null,
+                                "value": 689,
+                                "controllerValue": 689,
+                                "path": {
+                                    "type": "Buffer",
+                                    "data": [
+                                        145,
+                                        13,
+                                        82,
+                                        79,
+                                        83,
+                                        69,
+                                        95,
+                                        48,
+                                        57,
+                                        49,
+                                        95,
+                                        82,
+                                        120,
+                                        48,
+                                        49,
+                                        0,
+                                        40,
+                                        3
+                                    ]
+                                },
+                                "program": null,
+                                "stage_write": false
+                            },
+                            "read_size": 1,
+                            "error": {
+                                "code": null,
+                                "status": null
+                            },
+                            "timestamp": "2022-07-19T09:04:27.359Z",
+                            "instance": "18580b00fa7fe3fa5518c3fce0d68926",
+                            "keepAlive": 0
+                        }
+                    }
+                },
+                {
+                    "bit": 0,
+                    "key": "CI1",
+                    "tagId": "ROSE_091_Rx01[4]",
+                    "value": 0,
+                    "inputId": "000000000000000000000005",
+                    "register": 0,
+                    "moduleId": 0,
+                    "readable": false,
+                    "interface": "DINT",
+                    "writeable": true,
+                    "description": "ROSE_091_Rx01[4]",
+                    "tag": {
+                        "_events": {},
+                        "_eventsCount": 0,
+                        "state": {
+                            "tag": {
+                                "name": "ROSE_091_Rx01[4]",
+                                "type": 196,
+                                "bitIndex": null,
+                                "value": 63,
+                                "controllerValue": 63,
+                                "path": {
+                                    "type": "Buffer",
+                                    "data": [
+                                        145,
+                                        13,
+                                        82,
+                                        79,
+                                        83,
+                                        69,
+                                        95,
+                                        48,
+                                        57,
+                                        49,
+                                        95,
+                                        82,
+                                        120,
+                                        48,
+                                        49,
+                                        0,
+                                        40,
+                                        4
+                                    ]
+                                },
+                                "program": null,
+                                "stage_write": false
+                            },
+                            "read_size": 1,
+                            "error": {
+                                "code": null,
+                                "status": null
+                            },
+                            "timestamp": "2022-07-19T09:04:27.360Z",
+                            "instance": "55e6b7f731c92c0e5815d7b5cd323932",
+                            "keepAlive": 0
+                        }
+                    }
+                },
+                {
+                    "bit": 0,
+                    "key": "CI2",
+                    "tagId": "ROSE_091_Rx01[5]",
+                    "value": 0,
+                    "inputId": "000000000000000000000006",
+                    "register": 0,
+                    "moduleId": 0,
+                    "readable": false,
+                    "interface": "DINT",
+                    "writeable": true,
+                    "description": "ROSE_091_Rx01[5]",
+                    "tag": {
+                        "_events": {},
+                        "_eventsCount": 0,
+                        "state": {
+                            "tag": {
+                                "name": "ROSE_091_Rx01[5]",
+                                "type": 196,
+                                "bitIndex": null,
+                                "value": 130,
+                                "controllerValue": 130,
+                                "path": {
+                                    "type": "Buffer",
+                                    "data": [
+                                        145,
+                                        13,
+                                        82,
+                                        79,
+                                        83,
+                                        69,
+                                        95,
+                                        48,
+                                        57,
+                                        49,
+                                        95,
+                                        82,
+                                        120,
+                                        48,
+                                        49,
+                                        0,
+                                        40,
+                                        5
+                                    ]
+                                },
+                                "program": null,
+                                "stage_write": false
+                            },
+                            "read_size": 1,
+                            "error": {
+                                "code": null,
+                                "status": null
+                            },
+                            "timestamp": "2022-07-19T09:04:27.361Z",
+                            "instance": "1161c5a54fdbdd6ac810039f90f30658",
+                            "keepAlive": 0
+                        }
+                    }
+                },
+                {
+                    "bit": 0,
+                    "key": "CI3",
+                    "tagId": "ROSE_091_Rx01[6]",
+                    "value": 0,
+                    "inputId": "000000000000000000000007",
+                    "register": 0,
+                    "moduleId": 0,
+                    "readable": false,
+                    "interface": "DINT",
+                    "writeable": true,
+                    "description": "ROSE_091_Rx01[6]",
+                    "tag": {
+                        "_events": {},
+                        "_eventsCount": 0,
+                        "state": {
+                            "tag": {
+                                "name": "ROSE_091_Rx01[6]",
+                                "type": 196,
+                                "bitIndex": null,
+                                "value": 1,
+                                "controllerValue": 1,
+                                "path": {
+                                    "type": "Buffer",
+                                    "data": [
+                                        145,
+                                        13,
+                                        82,
+                                        79,
+                                        83,
+                                        69,
+                                        95,
+                                        48,
+                                        57,
+                                        49,
+                                        95,
+                                        82,
+                                        120,
+                                        48,
+                                        49,
+                                        0,
+                                        40,
+                                        6
+                                    ]
+                                },
+                                "program": null,
+                                "stage_write": false
+                            },
+                            "read_size": 1,
+                            "error": {
+                                "code": null,
+                                "status": null
+                            },
+                            "timestamp": "2022-07-19T09:04:27.362Z",
+                            "instance": "f81248f6663c7e562e2a07dcc6fb4827",
+                            "keepAlive": 0
+                        }
+                    }
+                },
+                {
+                    "bit": 0,
+                    "key": "CI4",
+                    "tagId": "ROSE_091_Rx01[7]",
+                    "value": 0,
+                    "inputId": "000000000000000000000008",
+                    "register": 0,
+                    "moduleId": 0,
+                    "readable": false,
+                    "interface": "DINT",
+                    "writeable": true,
+                    "description": "ROSE_091_Rx01[7]",
+                    "tag": {
+                        "_events": {},
+                        "_eventsCount": 0,
+                        "state": {
+                            "tag": {
+                                "name": "ROSE_091_Rx01[7]",
+                                "type": 196,
+                                "bitIndex": null,
+                                "value": 6,
+                                "controllerValue": 6,
+                                "path": {
+                                    "type": "Buffer",
+                                    "data": [
+                                        145,
+                                        13,
+                                        82,
+                                        79,
+                                        83,
+                                        69,
+                                        95,
+                                        48,
+                                        57,
+                                        49,
+                                        95,
+                                        82,
+                                        120,
+                                        48,
+                                        49,
+                                        0,
+                                        40,
+                                        7
+                                    ]
+                                },
+                                "program": null,
+                                "stage_write": false
+                            },
+                            "read_size": 1,
+                            "error": {
+                                "code": null,
+                                "status": null
+                            },
+                            "timestamp": "2022-07-19T09:04:27.363Z",
+                            "instance": "6184d667cb61caa311a0028a79f1f11a",
+                            "keepAlive": 0
+                        }
+                    }
+                },
+                {
+                    "bit": 0,
+                    "key": "CI5",
+                    "tagId": "ROSE_091_Rx01[8]",
+                    "value": 0,
+                    "inputId": "000000000000000000000009",
+                    "register": 0,
+                    "moduleId": 0,
+                    "readable": false,
+                    "interface": "DINT",
+                    "writeable": true,
+                    "description": "ROSE_091_Rx01[8]",
+                    "tag": {
+                        "_events": {},
+                        "_eventsCount": 0,
+                        "state": {
+                            "tag": {
+                                "name": "ROSE_091_Rx01[8]",
+                                "type": 196,
+                                "bitIndex": null,
+                                "value": 0,
+                                "controllerValue": 0,
+                                "path": {
+                                    "type": "Buffer",
+                                    "data": [
+                                        145,
+                                        13,
+                                        82,
+                                        79,
+                                        83,
+                                        69,
+                                        95,
+                                        48,
+                                        57,
+                                        49,
+                                        95,
+                                        82,
+                                        120,
+                                        48,
+                                        49,
+                                        0,
+                                        40,
+                                        8
+                                    ]
+                                },
+                                "program": null,
+                                "stage_write": false
+                            },
+                            "read_size": 1,
+                            "error": {
+                                "code": null,
+                                "status": null
+                            },
+                            "timestamp": "2022-07-19T09:04:27.364Z",
+                            "instance": "f8411a0e6eee519f8c9fe13330f5ad0d",
+                            "keepAlive": 0
+                        }
+                    }
+                },
+                {
+                    "bit": 0,
+                    "key": "CI6",
+                    "tagId": "ROSE_091_Rx01[9]",
+                    "value": 0,
+                    "inputId": "000000000000000000000010",
+                    "register": 0,
+                    "moduleId": 0,
+                    "readable": false,
+                    "interface": "DINT",
+                    "writeable": true,
+                    "description": "ROSE_091_Rx01[9]",
+                    "tag": {
+                        "_events": {},
+                        "_eventsCount": 0,
+                        "state": {
+                            "tag": {
+                                "name": "ROSE_091_Rx01[9]",
+                                "type": 196,
+                                "bitIndex": null,
+                                "value": 0,
+                                "controllerValue": 0,
+                                "path": {
+                                    "type": "Buffer",
+                                    "data": [
+                                        145,
+                                        13,
+                                        82,
+                                        79,
+                                        83,
+                                        69,
+                                        95,
+                                        48,
+                                        57,
+                                        49,
+                                        95,
+                                        82,
+                                        120,
+                                        48,
+                                        49,
+                                        0,
+                                        40,
+                                        9
+                                    ]
+                                },
+                                "program": null,
+                                "stage_write": false
+                            },
+                            "read_size": 1,
+                            "error": {
+                                "code": null,
+                                "status": null
+                            },
+                            "timestamp": "2022-07-19T09:04:27.365Z",
+                            "instance": "80d1d35aef768057b068d1853922e417",
+                            "keepAlive": 0
+                        }
+                    }
+                },
+                {
+                    "bit": 0,
+                    "key": "CI7",
+                    "tagId": "ROSE_091_Rx01[10]",
+                    "value": 0,
+                    "inputId": "000000000000000000000011",
+                    "register": 0,
+                    "moduleId": 0,
+                    "readable": false,
+                    "interface": "DINT",
+                    "writeable": true,
+                    "description": "ROSE_091_Rx01[10]",
+                    "tag": {
+                        "_events": {},
+                        "_eventsCount": 0,
+                        "state": {
+                            "tag": {
+                                "name": "ROSE_091_Rx01[10]",
+                                "type": 196,
+                                "bitIndex": null,
+                                "value": 0,
+                                "controllerValue": 0,
+                                "path": {
+                                    "type": "Buffer",
+                                    "data": [
+                                        145,
+                                        13,
+                                        82,
+                                        79,
+                                        83,
+                                        69,
+                                        95,
+                                        48,
+                                        57,
+                                        49,
+                                        95,
+                                        82,
+                                        120,
+                                        48,
+                                        49,
+                                        0,
+                                        40,
+                                        10
+                                    ]
+                                },
+                                "program": null,
+                                "stage_write": false
+                            },
+                            "read_size": 1,
+                            "error": {
+                                "code": null,
+                                "status": null
+                            },
+                            "timestamp": "2022-07-19T09:04:27.366Z",
+                            "instance": "c384bea39bf25c111742f0d417e0332a",
+                            "keepAlive": 0
+                        }
+                    }
+                },
+                {
+                    "bit": 0,
+                    "key": "CI8",
+                    "tagId": "ROSE_091_Rx01[11]",
+                    "value": 0,
+                    "inputId": "000000000000000000000012",
+                    "register": 0,
+                    "moduleId": 0,
+                    "readable": false,
+                    "interface": "DINT",
+                    "writeable": true,
+                    "description": "ROSE_091_Rx01[11]",
+                    "tag": {
+                        "_events": {},
+                        "_eventsCount": 0,
+                        "state": {
+                            "tag": {
+                                "name": "ROSE_091_Rx01[11]",
+                                "type": 196,
+                                "bitIndex": null,
+                                "value": 0,
+                                "controllerValue": 0,
+                                "path": {
+                                    "type": "Buffer",
+                                    "data": [
+                                        145,
+                                        13,
+                                        82,
+                                        79,
+                                        83,
+                                        69,
+                                        95,
+                                        48,
+                                        57,
+                                        49,
+                                        95,
+                                        82,
+                                        120,
+                                        48,
+                                        49,
+                                        0,
+                                        40,
+                                        11
+                                    ]
+                                },
+                                "program": null,
+                                "stage_write": false
+                            },
+                            "read_size": 1,
+                            "error": {
+                                "code": null,
+                                "status": null
+                            },
+                            "timestamp": "2022-07-19T09:04:27.367Z",
+                            "instance": "954208aaef0791eec421dd734d9769c2",
+                            "keepAlive": 0
+                        }
+                    }
+                },
+                {
+                    "bit": 0,
+                    "key": "SIG",
+                    "tagId": "ROSE_091_Rx01[12]",
+                    "value": 0,
+                    "inputId": "000000000000000000000013",
+                    "register": 0,
+                    "moduleId": 0,
+                    "readable": false,
+                    "interface": "DINT",
+                    "writeable": true,
+                    "description": "ROSE_091_Rx01[12]",
+                    "tag": {
+                        "_events": {},
+                        "_eventsCount": 0,
+                        "state": {
+                            "tag": {
+                                "name": "ROSE_091_Rx01[12]",
+                                "type": 196,
+                                "bitIndex": null,
+                                "value": 67,
+                                "controllerValue": 67,
+                                "path": {
+                                    "type": "Buffer",
+                                    "data": [
+                                        145,
+                                        13,
+                                        82,
+                                        79,
+                                        83,
+                                        69,
+                                        95,
+                                        48,
+                                        57,
+                                        49,
+                                        95,
+                                        82,
+                                        120,
+                                        48,
+                                        49,
+                                        0,
+                                        40,
+                                        12
+                                    ]
+                                },
+                                "program": null,
+                                "stage_write": false
+                            },
+                            "read_size": 1,
+                            "error": {
+                                "code": null,
+                                "status": null
+                            },
+                            "timestamp": "2022-07-19T09:04:27.367Z",
+                            "instance": "b89fe62495212b186a19349374cb9ca3",
+                            "keepAlive": 0
+                        }
+                    }
+                },
+                {
+                    "bit": 0,
+                    "key": "BATT",
+                    "tagId": "ROSE_091_Rx01[13]",
+                    "value": 0,
+                    "inputId": "000000000000000000000014",
+                    "register": 0,
+                    "moduleId": 0,
+                    "readable": false,
+                    "interface": "DINT",
+                    "writeable": true,
+                    "description": "ROSE_091_Rx01[13]",
+                    "tag": {
+                        "_events": {},
+                        "_eventsCount": 0,
+                        "state": {
+                            "tag": {
+                                "name": "ROSE_091_Rx01[13]",
+                                "type": 196,
+                                "bitIndex": null,
+                                "value": 227,
+                                "controllerValue": 227,
+                                "path": {
+                                    "type": "Buffer",
+                                    "data": [
+                                        145,
+                                        13,
+                                        82,
+                                        79,
+                                        83,
+                                        69,
+                                        95,
+                                        48,
+                                        57,
+                                        49,
+                                        95,
+                                        82,
+                                        120,
+                                        48,
+                                        49,
+                                        0,
+                                        40,
+                                        13
+                                    ]
+                                },
+                                "program": null,
+                                "stage_write": false
+                            },
+                            "read_size": 1,
+                            "error": {
+                                "code": null,
+                                "status": null
+                            },
+                            "timestamp": "2022-07-19T09:04:27.368Z",
+                            "instance": "b1f380806ea1b224d6bce577b58da376",
+                            "keepAlive": 0
+                        }
+                    }
+                },
+                {
+                    "bit": 0,
+                    "key": "AIExt1",
+                    "tagId": "ROSE_091_Rx01[14]",
+                    "value": 0,
+                    "inputId": "000000000000000000000015",
+                    "register": 0,
+                    "moduleId": 0,
+                    "readable": false,
+                    "interface": "DINT",
+                    "writeable": true,
+                    "description": "ROSE_091_Rx01[14]",
+                    "tag": {
+                        "_events": {},
+                        "_eventsCount": 0,
+                        "state": {
+                            "tag": {
+                                "name": "ROSE_091_Rx01[14]",
+                                "type": 196,
+                                "bitIndex": null,
+                                "value": 0,
+                                "controllerValue": 0,
+                                "path": {
+                                    "type": "Buffer",
+                                    "data": [
+                                        145,
+                                        13,
+                                        82,
+                                        79,
+                                        83,
+                                        69,
+                                        95,
+                                        48,
+                                        57,
+                                        49,
+                                        95,
+                                        82,
+                                        120,
+                                        48,
+                                        49,
+                                        0,
+                                        40,
+                                        14
+                                    ]
+                                },
+                                "program": null,
+                                "stage_write": false
+                            },
+                            "read_size": 1,
+                            "error": {
+                                "code": null,
+                                "status": null
+                            },
+                            "timestamp": "2022-07-19T09:04:27.379Z",
+                            "instance": "7b59b46aa99d1add1d773db8cbd2b609",
+                            "keepAlive": 0
+                        }
+                    }
+                },
+                {
+                    "bit": 0,
+                    "key": "AIExt2",
+                    "tagId": "ROSE_091_Rx01[15]",
+                    "value": 0,
+                    "inputId": "000000000000000000000016",
+                    "register": 0,
+                    "moduleId": 0,
+                    "readable": false,
+                    "interface": "DINT",
+                    "writeable": true,
+                    "description": "ROSE_091_Rx01[15]",
+                    "tag": {
+                        "_events": {},
+                        "_eventsCount": 0,
+                        "state": {
+                            "tag": {
+                                "name": "ROSE_091_Rx01[15]",
+                                "type": 196,
+                                "bitIndex": null,
+                                "value": 0,
+                                "controllerValue": 0,
+                                "path": {
+                                    "type": "Buffer",
+                                    "data": [
+                                        145,
+                                        13,
+                                        82,
+                                        79,
+                                        83,
+                                        69,
+                                        95,
+                                        48,
+                                        57,
+                                        49,
+                                        95,
+                                        82,
+                                        120,
+                                        48,
+                                        49,
+                                        0,
+                                        40,
+                                        15
+                                    ]
+                                },
+                                "program": null,
+                                "stage_write": false
+                            },
+                            "read_size": 1,
+                            "error": {
+                                "code": null,
+                                "status": null
+                            },
+                            "timestamp": "2022-07-19T09:04:27.381Z",
+                            "instance": "f17a18b3be418f86658e054be5029c8b",
+                            "keepAlive": 0
+                        }
+                    }
+                },
+                {
+                    "bit": 0,
+                    "key": "AIExt3",
+                    "tagId": "ROSE_091_Rx01[16]",
+                    "value": 0,
+                    "inputId": "000000000000000000000017",
+                    "register": 0,
+                    "moduleId": 0,
+                    "readable": false,
+                    "interface": "DINT",
+                    "writeable": true,
+                    "description": "ROSE_091_Rx01[16]",
+                    "tag": {
+                        "_events": {},
+                        "_eventsCount": 0,
+                        "state": {
+                            "tag": {
+                                "name": "ROSE_091_Rx01[16]",
+                                "type": 196,
+                                "bitIndex": null,
+                                "value": 0,
+                                "controllerValue": 0,
+                                "path": {
+                                    "type": "Buffer",
+                                    "data": [
+                                        145,
+                                        13,
+                                        82,
+                                        79,
+                                        83,
+                                        69,
+                                        95,
+                                        48,
+                                        57,
+                                        49,
+                                        95,
+                                        82,
+                                        120,
+                                        48,
+                                        49,
+                                        0,
+                                        40,
+                                        16
+                                    ]
+                                },
+                                "program": null,
+                                "stage_write": false
+                            },
+                            "read_size": 1,
+                            "error": {
+                                "code": null,
+                                "status": null
+                            },
+                            "timestamp": "2022-07-19T09:04:27.382Z",
+                            "instance": "82c893a65c090b16c33f6b801958265b",
+                            "keepAlive": 0
+                        }
+                    }
+                },
+                {
+                    "bit": 0,
+                    "key": "AIExt4",
+                    "tagId": "ROSE_091_Rx01[17]",
+                    "value": 0,
+                    "inputId": "000000000000000000000018",
+                    "register": 0,
+                    "moduleId": 0,
+                    "readable": false,
+                    "interface": "DINT",
+                    "writeable": true,
+                    "description": "ROSE_091_Rx01[17]",
+                    "tag": {
+                        "_events": {},
+                        "_eventsCount": 0,
+                        "state": {
+                            "tag": {
+                                "name": "ROSE_091_Rx01[17]",
+                                "type": 196,
+                                "bitIndex": null,
+                                "value": 0,
+                                "controllerValue": 0,
+                                "path": {
+                                    "type": "Buffer",
+                                    "data": [
+                                        145,
+                                        13,
+                                        82,
+                                        79,
+                                        83,
+                                        69,
+                                        95,
+                                        48,
+                                        57,
+                                        49,
+                                        95,
+                                        82,
+                                        120,
+                                        48,
+                                        49,
+                                        0,
+                                        40,
+                                        17
+                                    ]
+                                },
+                                "program": null,
+                                "stage_write": false
+                            },
+                            "read_size": 1,
+                            "error": {
+                                "code": null,
+                                "status": null
+                            },
+                            "timestamp": "2022-07-19T09:04:27.382Z",
+                            "instance": "7e706090bbd1301f590db15c1c5f65e3",
+                            "keepAlive": 0
+                        }
+                    }
+                },
+                {
+                    "bit": 0,
+                    "key": "AIExt5",
+                    "tagId": "ROSE_091_Rx01[18]",
+                    "value": 0,
+                    "inputId": "000000000000000000000019",
+                    "register": 0,
+                    "moduleId": 0,
+                    "readable": false,
+                    "interface": "DINT",
+                    "writeable": true,
+                    "description": "ROSE_091_Rx01[18]",
+                    "tag": {
+                        "_events": {},
+                        "_eventsCount": 0,
+                        "state": {
+                            "tag": {
+                                "name": "ROSE_091_Rx01[18]",
+                                "type": 196,
+                                "bitIndex": null,
+                                "value": 0,
+                                "controllerValue": 0,
+                                "path": {
+                                    "type": "Buffer",
+                                    "data": [
+                                        145,
+                                        13,
+                                        82,
+                                        79,
+                                        83,
+                                        69,
+                                        95,
+                                        48,
+                                        57,
+                                        49,
+                                        95,
+                                        82,
+                                        120,
+                                        48,
+                                        49,
+                                        0,
+                                        40,
+                                        18
+                                    ]
+                                },
+                                "program": null,
+                                "stage_write": false
+                            },
+                            "read_size": 1,
+                            "error": {
+                                "code": null,
+                                "status": null
+                            },
+                            "timestamp": "2022-07-19T09:04:27.414Z",
+                            "instance": "60cb51b6c179c92c332f280fed89abae",
+                            "keepAlive": 0
+                        }
+                    }
+                },
+                {
+                    "bit": 0,
+                    "key": "AIExt6",
+                    "tagId": "ROSE_091_Rx01[19]",
+                    "value": 0,
+                    "inputId": "000000000000000000000020",
+                    "register": 0,
+                    "moduleId": 0,
+                    "readable": false,
+                    "interface": "DINT",
+                    "writeable": true,
+                    "description": "ROSE_091_Rx01[19]",
+                    "tag": {
+                        "_events": {},
+                        "_eventsCount": 0,
+                        "state": {
+                            "tag": {
+                                "name": "ROSE_091_Rx01[19]",
+                                "type": 196,
+                                "bitIndex": null,
+                                "value": 0,
+                                "controllerValue": 0,
+                                "path": {
+                                    "type": "Buffer",
+                                    "data": [
+                                        145,
+                                        13,
+                                        82,
+                                        79,
+                                        83,
+                                        69,
+                                        95,
+                                        48,
+                                        57,
+                                        49,
+                                        95,
+                                        82,
+                                        120,
+                                        48,
+                                        49,
+                                        0,
+                                        40,
+                                        19
+                                    ]
+                                },
+                                "program": null,
+                                "stage_write": false
+                            },
+                            "read_size": 1,
+                            "error": {
+                                "code": null,
+                                "status": null
+                            },
+                            "timestamp": "2022-07-19T09:04:27.415Z",
+                            "instance": "1524c361a2ebfa08df0378726f18d612",
+                            "keepAlive": 0
+                        }
+                    }
+                },
+                {
+                    "bit": 0,
+                    "key": "digitalsIn",
+                    "tagId": "ROSE_091_Rx01[20]",
+                    "value": 0,
+                    "inputId": "000000000000000000000021",
+                    "register": 0,
+                    "moduleId": 0,
+                    "readable": false,
+                    "interface": "DINT",
+                    "writeable": true,
+                    "description": "ROSE_091_Rx01[20]",
+                    "tag": {
+                        "_events": {},
+                        "_eventsCount": 0,
+                        "state": {
+                            "tag": {
+                                "name": "ROSE_091_Rx01[20]",
+                                "type": 196,
+                                "bitIndex": null,
+                                "value": 32,
+                                "controllerValue": 32,
+                                "path": {
+                                    "type": "Buffer",
+                                    "data": [
+                                        145,
+                                        13,
+                                        82,
+                                        79,
+                                        83,
+                                        69,
+                                        95,
+                                        48,
+                                        57,
+                                        49,
+                                        95,
+                                        82,
+                                        120,
+                                        48,
+                                        49,
+                                        0,
+                                        40,
+                                        20
+                                    ]
+                                },
+                                "program": null,
+                                "stage_write": false
+                            },
+                            "read_size": 1,
+                            "error": {
+                                "code": null,
+                                "status": null
+                            },
+                            "timestamp": "2022-07-19T09:04:27.416Z",
+                            "instance": "c60f0ec92034f3f0269a45182565f91d",
+                            "keepAlive": 0
+                        }
+                    }
+                },
+                {
+                    "bit": 0,
+                    "key": "AI1",
+                    "tagId": "ROSE_092_RX01[0]",
+                    "value": 0,
+                    "inputId": "000000000000000000000022",
+                    "register": 0,
+                    "moduleId": 1,
+                    "readable": false,
+                    "interface": "DINT",
+                    "writeable": true,
+                    "description": "ROSE_092_RX01[0]",
+                    "tag": {
+                        "_events": {},
+                        "_eventsCount": 0,
+                        "state": {
+                            "tag": {
+                                "name": "ROSE_092_RX01[0]",
+                                "type": 196,
+                                "bitIndex": null,
+                                "value": null,
+                                "controllerValue": null,
+                                "path": {
+                                    "type": "Buffer",
+                                    "data": [
+                                        145,
+                                        13,
+                                        82,
+                                        79,
+                                        83,
+                                        69,
+                                        95,
+                                        48,
+                                        57,
+                                        50,
+                                        95,
+                                        82,
+                                        88,
+                                        48,
+                                        49,
+                                        0,
+                                        40,
+                                        0
+                                    ]
+                                },
+                                "program": null,
+                                "stage_write": false
+                            },
+                            "read_size": 1,
+                            "error": {
+                                "code": null,
+                                "status": null
+                            },
+                            "timestamp": "2022-07-19T09:04:27.417Z",
+                            "instance": "70266622dcfcf62598c07c9f6168612b",
+                            "keepAlive": 0
+                        }
+                    }
+                },
+                {
+                    "bit": 0,
+                    "key": "AI2",
+                    "tagId": "ROSE_092_RX01[1]",
+                    "value": 0,
+                    "inputId": "000000000000000000000023",
+                    "register": 0,
+                    "moduleId": 1,
+                    "readable": false,
+                    "interface": "DINT",
+                    "writeable": true,
+                    "description": "ROSE_092_RX01[1]",
+                    "tag": {
+                        "_events": {},
+                        "_eventsCount": 0,
+                        "state": {
+                            "tag": {
+                                "name": "ROSE_092_RX01[1]",
+                                "type": 196,
+                                "bitIndex": null,
+                                "value": null,
+                                "controllerValue": null,
+                                "path": {
+                                    "type": "Buffer",
+                                    "data": [
+                                        145,
+                                        13,
+                                        82,
+                                        79,
+                                        83,
+                                        69,
+                                        95,
+                                        48,
+                                        57,
+                                        50,
+                                        95,
+                                        82,
+                                        88,
+                                        48,
+                                        49,
+                                        0,
+                                        40,
+                                        1
+                                    ]
+                                },
+                                "program": null,
+                                "stage_write": false
+                            },
+                            "read_size": 1,
+                            "error": {
+                                "code": null,
+                                "status": null
+                            },
+                            "timestamp": "2022-07-19T09:04:27.418Z",
+                            "instance": "96c18abc90f83ff5c0698bdfc347fecc",
+                            "keepAlive": 0
+                        }
+                    }
+                },
+                {
+                    "bit": 0,
+                    "key": "AI3",
+                    "tagId": "ROSE_092_RX01[2]",
+                    "value": 0,
+                    "inputId": "000000000000000000000024",
+                    "register": 0,
+                    "moduleId": 1,
+                    "readable": false,
+                    "interface": "DINT",
+                    "writeable": true,
+                    "description": "ROSE_092_RX01[2]",
+                    "tag": {
+                        "_events": {},
+                        "_eventsCount": 0,
+                        "state": {
+                            "tag": {
+                                "name": "ROSE_092_RX01[2]",
+                                "type": 196,
+                                "bitIndex": null,
+                                "value": null,
+                                "controllerValue": null,
+                                "path": {
+                                    "type": "Buffer",
+                                    "data": [
+                                        145,
+                                        13,
+                                        82,
+                                        79,
+                                        83,
+                                        69,
+                                        95,
+                                        48,
+                                        57,
+                                        50,
+                                        95,
+                                        82,
+                                        88,
+                                        48,
+                                        49,
+                                        0,
+                                        40,
+                                        2
+                                    ]
+                                },
+                                "program": null,
+                                "stage_write": false
+                            },
+                            "read_size": 1,
+                            "error": {
+                                "code": null,
+                                "status": null
+                            },
+                            "timestamp": "2022-07-19T09:04:27.418Z",
+                            "instance": "e6edbd4da12f803757914affd8702d82",
+                            "keepAlive": 0
+                        }
+                    }
+                },
+                {
+                    "bit": 0,
+                    "key": "AI4",
+                    "tagId": "ROSE_092_RX01[3]",
+                    "value": 0,
+                    "inputId": "000000000000000000000025",
+                    "register": 0,
+                    "moduleId": 1,
+                    "readable": false,
+                    "interface": "DINT",
+                    "writeable": true,
+                    "description": "ROSE_092_RX01[3]",
+                    "tag": {
+                        "_events": {},
+                        "_eventsCount": 0,
+                        "state": {
+                            "tag": {
+                                "name": "ROSE_092_RX01[3]",
+                                "type": 196,
+                                "bitIndex": null,
+                                "value": null,
+                                "controllerValue": null,
+                                "path": {
+                                    "type": "Buffer",
+                                    "data": [
+                                        145,
+                                        13,
+                                        82,
+                                        79,
+                                        83,
+                                        69,
+                                        95,
+                                        48,
+                                        57,
+                                        50,
+                                        95,
+                                        82,
+                                        88,
+                                        48,
+                                        49,
+                                        0,
+                                        40,
+                                        3
+                                    ]
+                                },
+                                "program": null,
+                                "stage_write": false
+                            },
+                            "read_size": 1,
+                            "error": {
+                                "code": null,
+                                "status": null
+                            },
+                            "timestamp": "2022-07-19T09:04:27.419Z",
+                            "instance": "5c206a529338a0c4d925443acc0e74bb",
+                            "keepAlive": 0
+                        }
+                    }
+                },
+                {
+                    "bit": 0,
+                    "key": "CI1",
+                    "tagId": "ROSE_092_RX01[4]",
+                    "value": 0,
+                    "inputId": "000000000000000000000026",
+                    "register": 0,
+                    "moduleId": 1,
+                    "readable": false,
+                    "interface": "DINT",
+                    "writeable": true,
+                    "description": "ROSE_092_RX01[4]",
+                    "tag": {
+                        "_events": {},
+                        "_eventsCount": 0,
+                        "state": {
+                            "tag": {
+                                "name": "ROSE_092_RX01[4]",
+                                "type": 196,
+                                "bitIndex": null,
+                                "value": null,
+                                "controllerValue": null,
+                                "path": {
+                                    "type": "Buffer",
+                                    "data": [
+                                        145,
+                                        13,
+                                        82,
+                                        79,
+                                        83,
+                                        69,
+                                        95,
+                                        48,
+                                        57,
+                                        50,
+                                        95,
+                                        82,
+                                        88,
+                                        48,
+                                        49,
+                                        0,
+                                        40,
+                                        4
+                                    ]
+                                },
+                                "program": null,
+                                "stage_write": false
+                            },
+                            "read_size": 1,
+                            "error": {
+                                "code": null,
+                                "status": null
+                            },
+                            "timestamp": "2022-07-19T09:04:27.420Z",
+                            "instance": "c6b007d915b1486c212df1477ea2ea6b",
+                            "keepAlive": 0
+                        }
+                    }
+                },
+                {
+                    "bit": 0,
+                    "key": "CI2",
+                    "tagId": "ROSE_092_RX01[5]",
+                    "value": 0,
+                    "inputId": "000000000000000000000027",
+                    "register": 0,
+                    "moduleId": 1,
+                    "readable": false,
+                    "interface": "DINT",
+                    "writeable": true,
+                    "description": "ROSE_092_RX01[5]",
+                    "tag": {
+                        "_events": {},
+                        "_eventsCount": 0,
+                        "state": {
+                            "tag": {
+                                "name": "ROSE_092_RX01[5]",
+                                "type": 196,
+                                "bitIndex": null,
+                                "value": null,
+                                "controllerValue": null,
+                                "path": {
+                                    "type": "Buffer",
+                                    "data": [
+                                        145,
+                                        13,
+                                        82,
+                                        79,
+                                        83,
+                                        69,
+                                        95,
+                                        48,
+                                        57,
+                                        50,
+                                        95,
+                                        82,
+                                        88,
+                                        48,
+                                        49,
+                                        0,
+                                        40,
+                                        5
+                                    ]
+                                },
+                                "program": null,
+                                "stage_write": false
+                            },
+                            "read_size": 1,
+                            "error": {
+                                "code": null,
+                                "status": null
+                            },
+                            "timestamp": "2022-07-19T09:04:27.421Z",
+                            "instance": "073ff1a9dd9c83bb598277ee9d750e9b",
+                            "keepAlive": 0
+                        }
+                    }
+                },
+                {
+                    "bit": 0,
+                    "key": "CI3",
+                    "tagId": "ROSE_092_RX01[6]",
+                    "value": 0,
+                    "inputId": "000000000000000000000028",
+                    "register": 0,
+                    "moduleId": 1,
+                    "readable": false,
+                    "interface": "DINT",
+                    "writeable": true,
+                    "description": "ROSE_092_RX01[6]",
+                    "tag": {
+                        "_events": {},
+                        "_eventsCount": 0,
+                        "state": {
+                            "tag": {
+                                "name": "ROSE_092_RX01[6]",
+                                "type": 196,
+                                "bitIndex": null,
+                                "value": null,
+                                "controllerValue": null,
+                                "path": {
+                                    "type": "Buffer",
+                                    "data": [
+                                        145,
+                                        13,
+                                        82,
+                                        79,
+                                        83,
+                                        69,
+                                        95,
+                                        48,
+                                        57,
+                                        50,
+                                        95,
+                                        82,
+                                        88,
+                                        48,
+                                        49,
+                                        0,
+                                        40,
+                                        6
+                                    ]
+                                },
+                                "program": null,
+                                "stage_write": false
+                            },
+                            "read_size": 1,
+                            "error": {
+                                "code": null,
+                                "status": null
+                            },
+                            "timestamp": "2022-07-19T09:04:27.422Z",
+                            "instance": "691baaf0720b3fd34b7e858b0c7edb16",
+                            "keepAlive": 0
+                        }
+                    }
+                },
+                {
+                    "bit": 0,
+                    "key": "CI4",
+                    "tagId": "ROSE_092_RX01[7]",
+                    "value": 0,
+                    "inputId": "000000000000000000000029",
+                    "register": 0,
+                    "moduleId": 1,
+                    "readable": false,
+                    "interface": "DINT",
+                    "writeable": true,
+                    "description": "ROSE_092_RX01[7]",
+                    "tag": {
+                        "_events": {},
+                        "_eventsCount": 0,
+                        "state": {
+                            "tag": {
+                                "name": "ROSE_092_RX01[7]",
+                                "type": 196,
+                                "bitIndex": null,
+                                "value": null,
+                                "controllerValue": null,
+                                "path": {
+                                    "type": "Buffer",
+                                    "data": [
+                                        145,
+                                        13,
+                                        82,
+                                        79,
+                                        83,
+                                        69,
+                                        95,
+                                        48,
+                                        57,
+                                        50,
+                                        95,
+                                        82,
+                                        88,
+                                        48,
+                                        49,
+                                        0,
+                                        40,
+                                        7
+                                    ]
+                                },
+                                "program": null,
+                                "stage_write": false
+                            },
+                            "read_size": 1,
+                            "error": {
+                                "code": null,
+                                "status": null
+                            },
+                            "timestamp": "2022-07-19T09:04:27.422Z",
+                            "instance": "4ce16e6cac9a35b448959fb9f94df0da",
+                            "keepAlive": 0
+                        }
+                    }
+                },
+                {
+                    "bit": 0,
+                    "key": "CI5",
+                    "tagId": "ROSE_092_RX01[8]",
+                    "value": 0,
+                    "inputId": "000000000000000000000030",
+                    "register": 0,
+                    "moduleId": 1,
+                    "readable": false,
+                    "interface": "DINT",
+                    "writeable": true,
+                    "description": "ROSE_092_RX01[8]",
+                    "tag": {
+                        "_events": {},
+                        "_eventsCount": 0,
+                        "state": {
+                            "tag": {
+                                "name": "ROSE_092_RX01[8]",
+                                "type": 196,
+                                "bitIndex": null,
+                                "value": null,
+                                "controllerValue": null,
+                                "path": {
+                                    "type": "Buffer",
+                                    "data": [
+                                        145,
+                                        13,
+                                        82,
+                                        79,
+                                        83,
+                                        69,
+                                        95,
+                                        48,
+                                        57,
+                                        50,
+                                        95,
+                                        82,
+                                        88,
+                                        48,
+                                        49,
+                                        0,
+                                        40,
+                                        8
+                                    ]
+                                },
+                                "program": null,
+                                "stage_write": false
+                            },
+                            "read_size": 1,
+                            "error": {
+                                "code": null,
+                                "status": null
+                            },
+                            "timestamp": "2022-07-19T09:04:27.423Z",
+                            "instance": "1738d1f44da8ae41ab14d6fd173d89c1",
+                            "keepAlive": 0
+                        }
+                    }
+                },
+                {
+                    "bit": 0,
+                    "key": "CI6",
+                    "tagId": "ROSE_092_RX01[9]",
+                    "value": 0,
+                    "inputId": "000000000000000000000031",
+                    "register": 0,
+                    "moduleId": 1,
+                    "readable": false,
+                    "interface": "DINT",
+                    "writeable": true,
+                    "description": "ROSE_092_RX01[9]",
+                    "tag": {
+                        "_events": {},
+                        "_eventsCount": 0,
+                        "state": {
+                            "tag": {
+                                "name": "ROSE_092_RX01[9]",
+                                "type": 196,
+                                "bitIndex": null,
+                                "value": null,
+                                "controllerValue": null,
+                                "path": {
+                                    "type": "Buffer",
+                                    "data": [
+                                        145,
+                                        13,
+                                        82,
+                                        79,
+                                        83,
+                                        69,
+                                        95,
+                                        48,
+                                        57,
+                                        50,
+                                        95,
+                                        82,
+                                        88,
+                                        48,
+                                        49,
+                                        0,
+                                        40,
+                                        9
+                                    ]
+                                },
+                                "program": null,
+                                "stage_write": false
+                            },
+                            "read_size": 1,
+                            "error": {
+                                "code": null,
+                                "status": null
+                            },
+                            "timestamp": "2022-07-19T09:04:27.424Z",
+                            "instance": "5dcdc4f63e7976a57129c4977185bc98",
+                            "keepAlive": 0
+                        }
+                    }
+                },
+                {
+                    "bit": 0,
+                    "key": "CI7",
+                    "tagId": "ROSE_092_RX01[10]",
+                    "value": 0,
+                    "inputId": "000000000000000000000032",
+                    "register": 0,
+                    "moduleId": 1,
+                    "readable": false,
+                    "interface": "DINT",
+                    "writeable": true,
+                    "description": "ROSE_092_RX01[10]",
+                    "tag": {
+                        "_events": {},
+                        "_eventsCount": 0,
+                        "state": {
+                            "tag": {
+                                "name": "ROSE_092_RX01[10]",
+                                "type": 196,
+                                "bitIndex": null,
+                                "value": null,
+                                "controllerValue": null,
+                                "path": {
+                                    "type": "Buffer",
+                                    "data": [
+                                        145,
+                                        13,
+                                        82,
+                                        79,
+                                        83,
+                                        69,
+                                        95,
+                                        48,
+                                        57,
+                                        50,
+                                        95,
+                                        82,
+                                        88,
+                                        48,
+                                        49,
+                                        0,
+                                        40,
+                                        10
+                                    ]
+                                },
+                                "program": null,
+                                "stage_write": false
+                            },
+                            "read_size": 1,
+                            "error": {
+                                "code": null,
+                                "status": null
+                            },
+                            "timestamp": "2022-07-19T09:04:27.424Z",
+                            "instance": "02c1819c3659fd29bb8824c5058f3afe",
+                            "keepAlive": 0
+                        }
+                    }
+                },
+                {
+                    "bit": 0,
+                    "key": "CI8",
+                    "tagId": "ROSE_092_RX01[11]",
+                    "value": 0,
+                    "inputId": "000000000000000000000033",
+                    "register": 0,
+                    "moduleId": 1,
+                    "readable": false,
+                    "interface": "DINT",
+                    "writeable": true,
+                    "description": "ROSE_092_RX01[11]",
+                    "tag": {
+                        "_events": {},
+                        "_eventsCount": 0,
+                        "state": {
+                            "tag": {
+                                "name": "ROSE_092_RX01[11]",
+                                "type": 196,
+                                "bitIndex": null,
+                                "value": null,
+                                "controllerValue": null,
+                                "path": {
+                                    "type": "Buffer",
+                                    "data": [
+                                        145,
+                                        13,
+                                        82,
+                                        79,
+                                        83,
+                                        69,
+                                        95,
+                                        48,
+                                        57,
+                                        50,
+                                        95,
+                                        82,
+                                        88,
+                                        48,
+                                        49,
+                                        0,
+                                        40,
+                                        11
+                                    ]
+                                },
+                                "program": null,
+                                "stage_write": false
+                            },
+                            "read_size": 1,
+                            "error": {
+                                "code": null,
+                                "status": null
+                            },
+                            "timestamp": "2022-07-19T09:04:27.425Z",
+                            "instance": "bc1eb07860a7d0d5a5347828b5507e54",
+                            "keepAlive": 0
+                        }
+                    }
+                },
+                {
+                    "bit": 0,
+                    "key": "SIG",
+                    "tagId": "ROSE_092_RX01[12]",
+                    "value": 0,
+                    "inputId": "000000000000000000000034",
+                    "register": 0,
+                    "moduleId": 1,
+                    "readable": false,
+                    "interface": "DINT",
+                    "writeable": true,
+                    "description": "ROSE_092_RX01[12]",
+                    "tag": {
+                        "_events": {},
+                        "_eventsCount": 0,
+                        "state": {
+                            "tag": {
+                                "name": "ROSE_092_RX01[12]",
+                                "type": 196,
+                                "bitIndex": null,
+                                "value": null,
+                                "controllerValue": null,
+                                "path": {
+                                    "type": "Buffer",
+                                    "data": [
+                                        145,
+                                        13,
+                                        82,
+                                        79,
+                                        83,
+                                        69,
+                                        95,
+                                        48,
+                                        57,
+                                        50,
+                                        95,
+                                        82,
+                                        88,
+                                        48,
+                                        49,
+                                        0,
+                                        40,
+                                        12
+                                    ]
+                                },
+                                "program": null,
+                                "stage_write": false
+                            },
+                            "read_size": 1,
+                            "error": {
+                                "code": null,
+                                "status": null
+                            },
+                            "timestamp": "2022-07-19T09:04:27.426Z",
+                            "instance": "30495cf6873fa193221d57c024930002",
+                            "keepAlive": 0
+                        }
+                    }
+                },
+                {
+                    "bit": 0,
+                    "key": "BATT",
+                    "tagId": "ROSE_092_RX01[13]",
+                    "value": 0,
+                    "inputId": "000000000000000000000035",
+                    "register": 0,
+                    "moduleId": 1,
+                    "readable": false,
+                    "interface": "DINT",
+                    "writeable": true,
+                    "description": "ROSE_092_RX01[13]",
+                    "tag": {
+                        "_events": {},
+                        "_eventsCount": 0,
+                        "state": {
+                            "tag": {
+                                "name": "ROSE_092_RX01[13]",
+                                "type": 196,
+                                "bitIndex": null,
+                                "value": null,
+                                "controllerValue": null,
+                                "path": {
+                                    "type": "Buffer",
+                                    "data": [
+                                        145,
+                                        13,
+                                        82,
+                                        79,
+                                        83,
+                                        69,
+                                        95,
+                                        48,
+                                        57,
+                                        50,
+                                        95,
+                                        82,
+                                        88,
+                                        48,
+                                        49,
+                                        0,
+                                        40,
+                                        13
+                                    ]
+                                },
+                                "program": null,
+                                "stage_write": false
+                            },
+                            "read_size": 1,
+                            "error": {
+                                "code": null,
+                                "status": null
+                            },
+                            "timestamp": "2022-07-19T09:04:27.427Z",
+                            "instance": "5c0b381dd70950f5141850b4be626b64",
+                            "keepAlive": 0
+                        }
+                    }
+                },
+                {
+                    "bit": 0,
+                    "key": "AIExt1",
+                    "tagId": "ROSE_092_RX01[14]",
+                    "value": 0,
+                    "inputId": "000000000000000000000036",
+                    "register": 0,
+                    "moduleId": 1,
+                    "readable": false,
+                    "interface": "DINT",
+                    "writeable": true,
+                    "description": "ROSE_092_RX01[14]",
+                    "tag": {
+                        "_events": {},
+                        "_eventsCount": 0,
+                        "state": {
+                            "tag": {
+                                "name": "ROSE_092_RX01[14]",
+                                "type": 196,
+                                "bitIndex": null,
+                                "value": null,
+                                "controllerValue": null,
+                                "path": {
+                                    "type": "Buffer",
+                                    "data": [
+                                        145,
+                                        13,
+                                        82,
+                                        79,
+                                        83,
+                                        69,
+                                        95,
+                                        48,
+                                        57,
+                                        50,
+                                        95,
+                                        82,
+                                        88,
+                                        48,
+                                        49,
+                                        0,
+                                        40,
+                                        14
+                                    ]
+                                },
+                                "program": null,
+                                "stage_write": false
+                            },
+                            "read_size": 1,
+                            "error": {
+                                "code": null,
+                                "status": null
+                            },
+                            "timestamp": "2022-07-19T09:04:27.427Z",
+                            "instance": "d5ab304d27b506c3b360a8d3d402037b",
+                            "keepAlive": 0
+                        }
+                    }
+                },
+                {
+                    "bit": 0,
+                    "key": "AIExt2",
+                    "tagId": "ROSE_092_RX01[15]",
+                    "value": 0,
+                    "inputId": "000000000000000000000037",
+                    "register": 0,
+                    "moduleId": 1,
+                    "readable": false,
+                    "interface": "DINT",
+                    "writeable": true,
+                    "description": "ROSE_092_RX01[15]",
+                    "tag": {
+                        "_events": {},
+                        "_eventsCount": 0,
+                        "state": {
+                            "tag": {
+                                "name": "ROSE_092_RX01[15]",
+                                "type": 196,
+                                "bitIndex": null,
+                                "value": null,
+                                "controllerValue": null,
+                                "path": {
+                                    "type": "Buffer",
+                                    "data": [
+                                        145,
+                                        13,
+                                        82,
+                                        79,
+                                        83,
+                                        69,
+                                        95,
+                                        48,
+                                        57,
+                                        50,
+                                        95,
+                                        82,
+                                        88,
+                                        48,
+                                        49,
+                                        0,
+                                        40,
+                                        15
+                                    ]
+                                },
+                                "program": null,
+                                "stage_write": false
+                            },
+                            "read_size": 1,
+                            "error": {
+                                "code": null,
+                                "status": null
+                            },
+                            "timestamp": "2022-07-19T09:04:27.428Z",
+                            "instance": "231d1806f82ad87abb6d7fb20af44f00",
+                            "keepAlive": 0
+                        }
+                    }
+                },
+                {
+                    "bit": 0,
+                    "key": "AIExt3",
+                    "tagId": "ROSE_092_RX01[16]",
+                    "value": 0,
+                    "inputId": "000000000000000000000038",
+                    "register": 0,
+                    "moduleId": 1,
+                    "readable": false,
+                    "interface": "DINT",
+                    "writeable": true,
+                    "description": "ROSE_092_RX01[16]",
+                    "tag": {
+                        "_events": {},
+                        "_eventsCount": 0,
+                        "state": {
+                            "tag": {
+                                "name": "ROSE_092_RX01[16]",
+                                "type": 196,
+                                "bitIndex": null,
+                                "value": null,
+                                "controllerValue": null,
+                                "path": {
+                                    "type": "Buffer",
+                                    "data": [
+                                        145,
+                                        13,
+                                        82,
+                                        79,
+                                        83,
+                                        69,
+                                        95,
+                                        48,
+                                        57,
+                                        50,
+                                        95,
+                                        82,
+                                        88,
+                                        48,
+                                        49,
+                                        0,
+                                        40,
+                                        16
+                                    ]
+                                },
+                                "program": null,
+                                "stage_write": false
+                            },
+                            "read_size": 1,
+                            "error": {
+                                "code": null,
+                                "status": null
+                            },
+                            "timestamp": "2022-07-19T09:04:27.428Z",
+                            "instance": "7185c1e14dedde3d4416a360f747820a",
+                            "keepAlive": 0
+                        }
+                    }
+                },
+                {
+                    "bit": 0,
+                    "key": "AIExt4",
+                    "tagId": "ROSE_092_RX01[17]",
+                    "value": 0,
+                    "inputId": "000000000000000000000039",
+                    "register": 0,
+                    "moduleId": 1,
+                    "readable": false,
+                    "interface": "DINT",
+                    "writeable": true,
+                    "description": "ROSE_092_RX01[17]",
+                    "tag": {
+                        "_events": {},
+                        "_eventsCount": 0,
+                        "state": {
+                            "tag": {
+                                "name": "ROSE_092_RX01[17]",
+                                "type": 196,
+                                "bitIndex": null,
+                                "value": null,
+                                "controllerValue": null,
+                                "path": {
+                                    "type": "Buffer",
+                                    "data": [
+                                        145,
+                                        13,
+                                        82,
+                                        79,
+                                        83,
+                                        69,
+                                        95,
+                                        48,
+                                        57,
+                                        50,
+                                        95,
+                                        82,
+                                        88,
+                                        48,
+                                        49,
+                                        0,
+                                        40,
+                                        17
+                                    ]
+                                },
+                                "program": null,
+                                "stage_write": false
+                            },
+                            "read_size": 1,
+                            "error": {
+                                "code": null,
+                                "status": null
+                            },
+                            "timestamp": "2022-07-19T09:04:27.442Z",
+                            "instance": "4304aead1c47fde0f0709e4041c35325",
+                            "keepAlive": 0
+                        }
+                    }
+                },
+                {
+                    "bit": 0,
+                    "key": "AIExt5",
+                    "tagId": "ROSE_092_RX01[18]",
+                    "value": 0,
+                    "inputId": "000000000000000000000040",
+                    "register": 0,
+                    "moduleId": 1,
+                    "readable": false,
+                    "interface": "DINT",
+                    "writeable": true,
+                    "description": "ROSE_092_RX01[18]",
+                    "tag": {
+                        "_events": {},
+                        "_eventsCount": 0,
+                        "state": {
+                            "tag": {
+                                "name": "ROSE_092_RX01[18]",
+                                "type": 196,
+                                "bitIndex": null,
+                                "value": null,
+                                "controllerValue": null,
+                                "path": {
+                                    "type": "Buffer",
+                                    "data": [
+                                        145,
+                                        13,
+                                        82,
+                                        79,
+                                        83,
+                                        69,
+                                        95,
+                                        48,
+                                        57,
+                                        50,
+                                        95,
+                                        82,
+                                        88,
+                                        48,
+                                        49,
+                                        0,
+                                        40,
+                                        18
+                                    ]
+                                },
+                                "program": null,
+                                "stage_write": false
+                            },
+                            "read_size": 1,
+                            "error": {
+                                "code": null,
+                                "status": null
+                            },
+                            "timestamp": "2022-07-19T09:04:27.444Z",
+                            "instance": "2506e7deccae5e74d1f80fb13af35ab5",
+                            "keepAlive": 0
+                        }
+                    }
+                },
+                {
+                    "bit": 0,
+                    "key": "AIExt6",
+                    "tagId": "ROSE_092_RX01[19]",
+                    "value": 0,
+                    "inputId": "000000000000000000000041",
+                    "register": 0,
+                    "moduleId": 1,
+                    "readable": false,
+                    "interface": "DINT",
+                    "writeable": true,
+                    "description": "ROSE_092_RX01[19]",
+                    "tag": {
+                        "_events": {},
+                        "_eventsCount": 0,
+                        "state": {
+                            "tag": {
+                                "name": "ROSE_092_RX01[19]",
+                                "type": 196,
+                                "bitIndex": null,
+                                "value": null,
+                                "controllerValue": null,
+                                "path": {
+                                    "type": "Buffer",
+                                    "data": [
+                                        145,
+                                        13,
+                                        82,
+                                        79,
+                                        83,
+                                        69,
+                                        95,
+                                        48,
+                                        57,
+                                        50,
+                                        95,
+                                        82,
+                                        88,
+                                        48,
+                                        49,
+                                        0,
+                                        40,
+                                        19
+                                    ]
+                                },
+                                "program": null,
+                                "stage_write": false
+                            },
+                            "read_size": 1,
+                            "error": {
+                                "code": null,
+                                "status": null
+                            },
+                            "timestamp": "2022-07-19T09:04:27.444Z",
+                            "instance": "31c8bbb2f716f246782b05f6aff43550",
+                            "keepAlive": 0
+                        }
+                    }
+                },
+                {
+                    "bit": 0,
+                    "key": "digitalsIn",
+                    "tagId": "ROSE_092_RX01[20]",
+                    "value": 0,
+                    "inputId": "000000000000000000000042",
+                    "register": 0,
+                    "moduleId": 1,
+                    "readable": false,
+                    "interface": "DINT",
+                    "writeable": true,
+                    "description": "ROSE_092_RX01[20]",
+                    "tag": {
+                        "_events": {},
+                        "_eventsCount": 0,
+                        "state": {
+                            "tag": {
+                                "name": "ROSE_092_RX01[20]",
+                                "type": 196,
+                                "bitIndex": null,
+                                "value": null,
+                                "controllerValue": null,
+                                "path": {
+                                    "type": "Buffer",
+                                    "data": [
+                                        145,
+                                        13,
+                                        82,
+                                        79,
+                                        83,
+                                        69,
+                                        95,
+                                        48,
+                                        57,
+                                        50,
+                                        95,
+                                        82,
+                                        88,
+                                        48,
+                                        49,
+                                        0,
+                                        40,
+                                        20
+                                    ]
+                                },
+                                "program": null,
+                                "stage_write": false
+                            },
+                            "read_size": 1,
+                            "error": {
+                                "code": null,
+                                "status": null
+                            },
+                            "timestamp": "2022-07-19T09:04:27.445Z",
+                            "instance": "699167161f4a10bde9af18d8cd01d96d",
+                            "keepAlive": 0
+                        }
+                    }
+                }
+            ],
+            "ip": "10.18.85.59",
+            "port": 0,
+            "type": "programmable-logic-controller",
+            "txtime": 5,
+            "pxtime": 900,
+            "timeout": 900,
+            "barcode": "000000000000000000000000",
+            "publish": false,
+            "enabled": true,
+            "deviceId": "000000000000000000000000",
+            "description": "Rosetta Moxa-PLC"
+        },
+        {
+            "io": [
+                {
+                    "bit": 0,
+                    "key": "AI1",
+                    "tagId": "",
+                    "value": 0,
+                    "inputId": "000000000000000000000001",
+                    "register": 0,
+                    "moduleId": 0,
+                    "readable": true,
+                    "interface": "",
+                    "writeable": true,
+                    "description": "AI1"
+                },
+                {
+                    "bit": 0,
+                    "key": "AI2",
+                    "tagId": "",
+                    "value": 0,
+                    "inputId": "000000000000000000000002",
+                    "register": 0,
+                    "moduleId": 0,
+                    "readable": true,
+                    "interface": "",
+                    "writeable": true,
+                    "description": "AI2"
+                },
+                {
+                    "bit": 0,
+                    "key": "AI3",
+                    "tagId": "",
+                    "value": 0,
+                    "inputId": "000000000000000000000003",
+                    "register": 0,
+                    "moduleId": 0,
+                    "readable": true,
+                    "interface": "",
+                    "writeable": true,
+                    "description": "AI3"
+                },
+                {
+                    "bit": 0,
+                    "key": "AI4",
+                    "tagId": "",
+                    "value": 689,
+                    "inputId": "000000000000000000000004",
+                    "register": 0,
+                    "moduleId": 0,
+                    "readable": true,
+                    "interface": "",
+                    "writeable": true,
+                    "description": "AI4"
+                },
+                {
+                    "bit": 0,
+                    "key": "CI1",
+                    "tagId": "",
+                    "value": 63,
+                    "inputId": "000000000000000000000005",
+                    "register": 0,
+                    "moduleId": 0,
+                    "readable": true,
+                    "interface": "",
+                    "writeable": true,
+                    "description": "CI1"
+                },
+                {
+                    "bit": 0,
+                    "key": "CI2",
+                    "tagId": "",
+                    "value": 130,
+                    "inputId": "000000000000000000000006",
+                    "register": 0,
+                    "moduleId": 0,
+                    "readable": true,
+                    "interface": "",
+                    "writeable": true,
+                    "description": "CI2"
+                },
+                {
+                    "bit": 0,
+                    "key": "CI3",
+                    "tagId": "",
+                    "value": 1,
+                    "inputId": "000000000000000000000007",
+                    "register": 0,
+                    "moduleId": 0,
+                    "readable": true,
+                    "interface": "",
+                    "writeable": true,
+                    "description": "CI3"
+                },
+                {
+                    "bit": 0,
+                    "key": "CI4",
+                    "tagId": "",
+                    "value": 6,
+                    "inputId": "000000000000000000000008",
+                    "register": 0,
+                    "moduleId": 0,
+                    "readable": true,
+                    "interface": "",
+                    "writeable": true,
+                    "description": "CI4"
+                },
+                {
+                    "bit": 0,
+                    "key": "CI5",
+                    "tagId": "",
+                    "value": 0,
+                    "inputId": "000000000000000000000009",
+                    "register": 0,
+                    "moduleId": 0,
+                    "readable": true,
+                    "interface": "",
+                    "writeable": true,
+                    "description": "CI5"
+                },
+                {
+                    "bit": 0,
+                    "key": "CI6",
+                    "tagId": "",
+                    "value": 0,
+                    "inputId": "000000000000000000000010",
+                    "register": 0,
+                    "moduleId": 0,
+                    "readable": true,
+                    "interface": "",
+                    "writeable": true,
+                    "description": "CI6"
+                },
+                {
+                    "bit": 0,
+                    "key": "CI7",
+                    "tagId": "",
+                    "value": 0,
+                    "inputId": "000000000000000000000011",
+                    "register": 0,
+                    "moduleId": 0,
+                    "readable": true,
+                    "interface": "",
+                    "writeable": true,
+                    "description": "CI7"
+                },
+                {
+                    "bit": 0,
+                    "key": "CI8",
+                    "tagId": "",
+                    "value": 0,
+                    "inputId": "000000000000000000000012",
+                    "register": 0,
+                    "moduleId": 0,
+                    "readable": true,
+                    "interface": "",
+                    "writeable": true,
+                    "description": "CI8"
+                },
+                {
+                    "bit": 0,
+                    "key": "SIG",
+                    "tagId": "",
+                    "value": 67,
+                    "inputId": "000000000000000000000013",
+                    "register": 0,
+                    "moduleId": 0,
+                    "readable": true,
+                    "interface": "",
+                    "writeable": true,
+                    "description": "SIG"
+                },
+                {
+                    "bit": 0,
+                    "key": "BATT",
+                    "tagId": "",
+                    "value": 227,
+                    "inputId": "000000000000000000000014",
+                    "register": 0,
+                    "moduleId": 0,
+                    "readable": true,
+                    "interface": "",
+                    "writeable": true,
+                    "description": "BATT"
+                },
+                {
+                    "bit": 0,
+                    "key": "AIExt1",
+                    "tagId": "",
+                    "value": 0,
+                    "inputId": "000000000000000000000015",
+                    "register": 0,
+                    "moduleId": 0,
+                    "readable": true,
+                    "interface": "",
+                    "writeable": true,
+                    "description": "AIExt1"
+                },
+                {
+                    "bit": 0,
+                    "key": "AIExt2",
+                    "tagId": "",
+                    "value": 0,
+                    "inputId": "000000000000000000000016",
+                    "register": 0,
+                    "moduleId": 0,
+                    "readable": true,
+                    "interface": "",
+                    "writeable": true,
+                    "description": "AIExt2"
+                },
+                {
+                    "bit": 0,
+                    "key": "AIExt3",
+                    "tagId": "",
+                    "value": 0,
+                    "inputId": "000000000000000000000017",
+                    "register": 0,
+                    "moduleId": 0,
+                    "readable": true,
+                    "interface": "",
+                    "writeable": true,
+                    "description": "AIExt3"
+                },
+                {
+                    "bit": 0,
+                    "key": "AIExt4",
+                    "tagId": "",
+                    "value": 0,
+                    "inputId": "000000000000000000000018",
+                    "register": 0,
+                    "moduleId": 0,
+                    "readable": true,
+                    "interface": "",
+                    "writeable": true,
+                    "description": "AIExt4"
+                },
+                {
+                    "bit": 0,
+                    "key": "AIExt5",
+                    "tagId": "",
+                    "value": 0,
+                    "inputId": "000000000000000000000019",
+                    "register": 0,
+                    "moduleId": 0,
+                    "readable": true,
+                    "interface": "",
+                    "writeable": true,
+                    "description": "AIExt5"
+                },
+                {
+                    "bit": 0,
+                    "key": "AIExt6",
+                    "tagId": "",
+                    "value": 0,
+                    "inputId": "000000000000000000000020",
+                    "register": 0,
+                    "moduleId": 0,
+                    "readable": true,
+                    "interface": "",
+                    "writeable": true,
+                    "description": "AIExt6"
+                },
+                {
+                    "bit": 0,
+                    "key": "digitalsIn",
+                    "tagId": "",
+                    "value": 32,
+                    "inputId": "000000000000000000000021",
+                    "register": 0,
+                    "moduleId": 0,
+                    "readable": true,
+                    "interface": "",
+                    "writeable": true,
+                    "description": "digitalsIn"
+                }
+            ],
+            "ip": "0.0.0.0",
+            "port": 0,
+            "type": "external",
+            "txtime": 5,
+            "pxtime": 900,
+            "timeout": 900,
+            "barcode": "182",
+            "publish": false,
+            "enabled": true,
+            "deviceId": "000000000000000000000182",
+            "description": "Nottingham Res"
+        },
+        {
+            "io": [
+                {
+                    "bit": 0,
+                    "key": "AI1",
+                    "tagId": "",
+                    "value": 0,
+                    "inputId": "000000000000000000000001",
+                    "register": 0,
+                    "moduleId": 0,
+                    "readable": true,
+                    "interface": "",
+                    "writeable": true,
+                    "description": "AI1"
+                },
+                {
+                    "bit": 0,
+                    "key": "AI2",
+                    "tagId": "",
+                    "value": 0,
+                    "inputId": "000000000000000000000002",
+                    "register": 0,
+                    "moduleId": 0,
+                    "readable": true,
+                    "interface": "",
+                    "writeable": true,
+                    "description": "AI2"
+                },
+                {
+                    "bit": 0,
+                    "key": "AI3",
+                    "tagId": "",
+                    "value": 0,
+                    "inputId": "000000000000000000000003",
+                    "register": 0,
+                    "moduleId": 0,
+                    "readable": true,
+                    "interface": "",
+                    "writeable": true,
+                    "description": "AI3"
+                },
+                {
+                    "bit": 0,
+                    "key": "AI4",
+                    "tagId": "",
+                    "value": 0,
+                    "inputId": "000000000000000000000004",
+                    "register": 0,
+                    "moduleId": 0,
+                    "readable": true,
+                    "interface": "",
+                    "writeable": true,
+                    "description": "AI4"
+                },
+                {
+                    "bit": 0,
+                    "key": "CI1",
+                    "tagId": "",
+                    "value": 0,
+                    "inputId": "000000000000000000000005",
+                    "register": 0,
+                    "moduleId": 0,
+                    "readable": true,
+                    "interface": "",
+                    "writeable": true,
+                    "description": "CI1"
+                },
+                {
+                    "bit": 0,
+                    "key": "CI2",
+                    "tagId": "",
+                    "value": 0,
+                    "inputId": "000000000000000000000006",
+                    "register": 0,
+                    "moduleId": 0,
+                    "readable": true,
+                    "interface": "",
+                    "writeable": true,
+                    "description": "CI2"
+                },
+                {
+                    "bit": 0,
+                    "key": "CI3",
+                    "tagId": "",
+                    "value": 0,
+                    "inputId": "000000000000000000000007",
+                    "register": 0,
+                    "moduleId": 0,
+                    "readable": true,
+                    "interface": "",
+                    "writeable": true,
+                    "description": "CI3"
+                },
+                {
+                    "bit": 0,
+                    "key": "CI4",
+                    "tagId": "",
+                    "value": 0,
+                    "inputId": "000000000000000000000008",
+                    "register": 0,
+                    "moduleId": 0,
+                    "readable": true,
+                    "interface": "",
+                    "writeable": true,
+                    "description": "CI4"
+                },
+                {
+                    "bit": 0,
+                    "key": "CI5",
+                    "tagId": "",
+                    "value": 0,
+                    "inputId": "000000000000000000000009",
+                    "register": 0,
+                    "moduleId": 0,
+                    "readable": true,
+                    "interface": "",
+                    "writeable": true,
+                    "description": "CI5"
+                },
+                {
+                    "bit": 0,
+                    "key": "CI6",
+                    "tagId": "",
+                    "value": 0,
+                    "inputId": "000000000000000000000010",
+                    "register": 0,
+                    "moduleId": 0,
+                    "readable": true,
+                    "interface": "",
+                    "writeable": true,
+                    "description": "CI6"
+                },
+                {
+                    "bit": 0,
+                    "key": "CI7",
+                    "tagId": "",
+                    "value": 0,
+                    "inputId": "000000000000000000000011",
+                    "register": 0,
+                    "moduleId": 0,
+                    "readable": true,
+                    "interface": "",
+                    "writeable": true,
+                    "description": "CI7"
+                },
+                {
+                    "bit": 0,
+                    "key": "CI8",
+                    "tagId": "",
+                    "value": 0,
+                    "inputId": "000000000000000000000012",
+                    "register": 0,
+                    "moduleId": 0,
+                    "readable": true,
+                    "interface": "",
+                    "writeable": true,
+                    "description": "CI8"
+                },
+                {
+                    "bit": 0,
+                    "key": "SIG",
+                    "tagId": "",
+                    "value": 0,
+                    "inputId": "000000000000000000000013",
+                    "register": 0,
+                    "moduleId": 0,
+                    "readable": true,
+                    "interface": "",
+                    "writeable": true,
+                    "description": "SIG"
+                },
+                {
+                    "bit": 0,
+                    "key": "BATT",
+                    "tagId": "",
+                    "value": 0,
+                    "inputId": "000000000000000000000014",
+                    "register": 0,
+                    "moduleId": 0,
+                    "readable": true,
+                    "interface": "",
+                    "writeable": true,
+                    "description": "BATT"
+                },
+                {
+                    "bit": 0,
+                    "key": "AIExt1",
+                    "tagId": "",
+                    "value": 0,
+                    "inputId": "000000000000000000000015",
+                    "register": 0,
+                    "moduleId": 0,
+                    "readable": true,
+                    "interface": "",
+                    "writeable": true,
+                    "description": "AIExt1"
+                },
+                {
+                    "bit": 0,
+                    "key": "AIExt2",
+                    "tagId": "",
+                    "value": 0,
+                    "inputId": "000000000000000000000016",
+                    "register": 0,
+                    "moduleId": 0,
+                    "readable": true,
+                    "interface": "",
+                    "writeable": true,
+                    "description": "AIExt2"
+                },
+                {
+                    "bit": 0,
+                    "key": "AIExt3",
+                    "tagId": "",
+                    "value": 0,
+                    "inputId": "000000000000000000000017",
+                    "register": 0,
+                    "moduleId": 0,
+                    "readable": true,
+                    "interface": "",
+                    "writeable": true,
+                    "description": "AIExt3"
+                },
+                {
+                    "bit": 0,
+                    "key": "AIExt4",
+                    "tagId": "",
+                    "value": 0,
+                    "inputId": "000000000000000000000018",
+                    "register": 0,
+                    "moduleId": 0,
+                    "readable": true,
+                    "interface": "",
+                    "writeable": true,
+                    "description": "AIExt4"
+                },
+                {
+                    "bit": 0,
+                    "key": "AIExt5",
+                    "tagId": "",
+                    "value": 0,
+                    "inputId": "000000000000000000000019",
+                    "register": 0,
+                    "moduleId": 0,
+                    "readable": true,
+                    "interface": "",
+                    "writeable": true,
+                    "description": "AIExt5"
+                },
+                {
+                    "bit": 0,
+                    "key": "AIExt6",
+                    "tagId": "",
+                    "value": 0,
+                    "inputId": "000000000000000000000020",
+                    "register": 0,
+                    "moduleId": 0,
+                    "readable": true,
+                    "interface": "",
+                    "writeable": true,
+                    "description": "AIExt6"
+                },
+                {
+                    "bit": 0,
+                    "key": "digitalsIn",
+                    "tagId": "",
+                    "value": 0,
+                    "inputId": "000000000000000000000021",
+                    "register": 0,
+                    "moduleId": 0,
+                    "readable": true,
+                    "interface": "",
+                    "writeable": true,
+                    "description": "digitalsIn"
+                }
+            ],
+            "ip": "0.0.0.0",
+            "port": 0,
+            "type": "external",
+            "txtime": 5,
+            "pxtime": 900,
+            "timeout": 900,
+            "barcode": "183",
+            "publish": false,
+            "enabled": false,
+            "deviceId": "000000000000000000000183",
+            "description": "Brandtville Res"
+        }
+    ],
+    "mapping": [
+        {
+            "mapId": "61fe904c01382f437bc9310a",
+            "source": {
+                "mask": -1,
+                "inputId": "000000000000000000000001",
+                "deviceId": "000000000000000000000182"
+            },
+            "destination": {
+                "mask": -1,
+                "inputId": "000000000000000000000001",
+                "deviceId": "000000000000000000000000"
+            }
+        },
+        {
+            "mapId": "61fe90573a87367199201d35",
+            "source": {
+                "mask": -1,
+                "inputId": "000000000000000000000002",
+                "deviceId": "000000000000000000000182"
+            },
+            "destination": {
+                "mask": -1,
+                "inputId": "000000000000000000000002",
+                "deviceId": "000000000000000000000000"
+            }
+        },
+        {
+            "mapId": "61fe9063c660300a6f3945be",
+            "source": {
+                "mask": -1,
+                "inputId": "000000000000000000000003",
+                "deviceId": "000000000000000000000182"
+            },
+            "destination": {
+                "mask": -1,
+                "inputId": "000000000000000000000003",
+                "deviceId": "000000000000000000000000"
+            }
+        },
+        {
+            "mapId": "61fe90710ea1e09b6d5a877b",
+            "source": {
+                "mask": -1,
+                "inputId": "000000000000000000000004",
+                "deviceId": "000000000000000000000182"
+            },
+            "destination": {
+                "mask": -1,
+                "inputId": "000000000000000000000004",
+                "deviceId": "000000000000000000000000"
+            }
+        },
+        {
+            "mapId": "61fe907f36675c1761538b33",
+            "source": {
+                "mask": -1,
+                "inputId": "000000000000000000000005",
+                "deviceId": "000000000000000000000182"
+            },
+            "destination": {
+                "mask": -1,
+                "inputId": "000000000000000000000005",
+                "deviceId": "000000000000000000000000"
+            }
+        },
+        {
+            "mapId": "61fe909594864cbcd54334a9",
+            "source": {
+                "mask": -1,
+                "inputId": "000000000000000000000006",
+                "deviceId": "000000000000000000000182"
+            },
+            "destination": {
+                "mask": -1,
+                "inputId": "000000000000000000000006",
+                "deviceId": "000000000000000000000000"
+            }
+        },
+        {
+            "mapId": "61fe90a38fe8656c29ddd2c0",
+            "source": {
+                "mask": -1,
+                "inputId": "000000000000000000000007",
+                "deviceId": "000000000000000000000182"
+            },
+            "destination": {
+                "mask": -1,
+                "inputId": "000000000000000000000007",
+                "deviceId": "000000000000000000000000"
+            }
+        },
+        {
+            "mapId": "61fe90b17cc723ab4111715b",
+            "source": {
+                "mask": -1,
+                "inputId": "000000000000000000000008",
+                "deviceId": "000000000000000000000182"
+            },
+            "destination": {
+                "mask": -1,
+                "inputId": "000000000000000000000008",
+                "deviceId": "000000000000000000000000"
+            }
+        },
+        {
+            "mapId": "61fe90bde60d3ded016bb1b9",
+            "source": {
+                "mask": -1,
+                "inputId": "000000000000000000000009",
+                "deviceId": "000000000000000000000182"
+            },
+            "destination": {
+                "mask": -1,
+                "inputId": "000000000000000000000009",
+                "deviceId": "000000000000000000000000"
+            }
+        },
+        {
+            "mapId": "61fe90c7aa64c5eeaaeb02e1",
+            "source": {
+                "mask": -1,
+                "inputId": "000000000000000000000010",
+                "deviceId": "000000000000000000000182"
+            },
+            "destination": {
+                "mask": -1,
+                "inputId": "000000000000000000000010",
+                "deviceId": "000000000000000000000000"
+            }
+        },
+        {
+            "mapId": "61fe90d319300e960e9ef201",
+            "source": {
+                "mask": -1,
+                "inputId": "000000000000000000000011",
+                "deviceId": "000000000000000000000182"
+            },
+            "destination": {
+                "mask": -1,
+                "inputId": "000000000000000000000011",
+                "deviceId": "000000000000000000000000"
+            }
+        },
+        {
+            "mapId": "61fe90e43956a21853959fda",
+            "source": {
+                "mask": -1,
+                "inputId": "000000000000000000000012",
+                "deviceId": "000000000000000000000182"
+            },
+            "destination": {
+                "mask": -1,
+                "inputId": "000000000000000000000012",
+                "deviceId": "000000000000000000000000"
+            }
+        },
+        {
+            "mapId": "61fe90faa59e25b0afdca88f",
+            "source": {
+                "mask": -1,
+                "inputId": "000000000000000000000013",
+                "deviceId": "000000000000000000000182"
+            },
+            "destination": {
+                "mask": -1,
+                "inputId": "000000000000000000000013",
+                "deviceId": "000000000000000000000000"
+            }
+        },
+        {
+            "mapId": "61fe9104b2020be5413d5138",
+            "source": {
+                "mask": -1,
+                "inputId": "000000000000000000000014",
+                "deviceId": "000000000000000000000182"
+            },
+            "destination": {
+                "mask": -1,
+                "inputId": "000000000000000000000014",
+                "deviceId": "000000000000000000000000"
+            }
+        },
+        {
+            "mapId": "61fe91199b1eab37eca1d311",
+            "source": {
+                "mask": -1,
+                "inputId": "000000000000000000000015",
+                "deviceId": "000000000000000000000182"
+            },
+            "destination": {
+                "mask": -1,
+                "inputId": "000000000000000000000015",
+                "deviceId": "000000000000000000000000"
+            }
+        },
+        {
+            "mapId": "61fe912d9579ba25e371dfaf",
+            "source": {
+                "mask": -1,
+                "inputId": "000000000000000000000016",
+                "deviceId": "000000000000000000000182"
+            },
+            "destination": {
+                "mask": -1,
+                "inputId": "000000000000000000000016",
+                "deviceId": "000000000000000000000000"
+            }
+        },
+        {
+            "mapId": "61fe913c62fdf3febba1b5ed",
+            "source": {
+                "mask": -1,
+                "inputId": "000000000000000000000017",
+                "deviceId": "000000000000000000000182"
+            },
+            "destination": {
+                "mask": -1,
+                "inputId": "000000000000000000000017",
+                "deviceId": "000000000000000000000000"
+            }
+        },
+        {
+            "mapId": "61fe914736d7ed8c22977b0c",
+            "source": {
+                "mask": -1,
+                "inputId": "000000000000000000000018",
+                "deviceId": "000000000000000000000182"
+            },
+            "destination": {
+                "mask": -1,
+                "inputId": "000000000000000000000018",
+                "deviceId": "000000000000000000000000"
+            }
+        },
+        {
+            "mapId": "61fe91562e6f09383570b975",
+            "source": {
+                "mask": -1,
+                "inputId": "000000000000000000000019",
+                "deviceId": "000000000000000000000182"
+            },
+            "destination": {
+                "mask": -1,
+                "inputId": "000000000000000000000019",
+                "deviceId": "000000000000000000000000"
+            }
+        },
+        {
+            "mapId": "61fe916475b25dbb961d278f",
+            "source": {
+                "mask": -1,
+                "inputId": "000000000000000000000020",
+                "deviceId": "000000000000000000000182"
+            },
+            "destination": {
+                "mask": -1,
+                "inputId": "000000000000000000000020",
+                "deviceId": "000000000000000000000000"
+            }
+        },
+        {
+            "mapId": "61fe917264331366bf84386f",
+            "source": {
+                "mask": -1,
+                "inputId": "000000000000000000000021",
+                "deviceId": "000000000000000000000182"
+            },
+            "destination": {
+                "mask": -1,
+                "inputId": "000000000000000000000021",
+                "deviceId": "000000000000000000000000"
+            }
+        },
+        {
+            "mapId": "61fe91917bbff587ebde0217",
+            "source": {
+                "mask": -1,
+                "inputId": "000000000000000000000001",
+                "deviceId": "000000000000000000000183"
+            },
+            "destination": {
+                "mask": -1,
+                "inputId": "000000000000000000000022",
+                "deviceId": "000000000000000000000000"
+            }
+        },
+        {
+            "mapId": "61fe919d3bfb85e3021a9c1a",
+            "source": {
+                "mask": -1,
+                "inputId": "000000000000000000000002",
+                "deviceId": "000000000000000000000183"
+            },
+            "destination": {
+                "mask": -1,
+                "inputId": "000000000000000000000023",
+                "deviceId": "000000000000000000000000"
+            }
+        },
+        {
+            "mapId": "61fe91ae396f316d521834c4",
+            "source": {
+                "mask": -1,
+                "inputId": "000000000000000000000003",
+                "deviceId": "000000000000000000000183"
+            },
+            "destination": {
+                "mask": -1,
+                "inputId": "000000000000000000000024",
+                "deviceId": "000000000000000000000000"
+            }
+        },
+        {
+            "mapId": "61fe91c2fd193e0b9730576c",
+            "source": {
+                "mask": -1,
+                "inputId": "000000000000000000000004",
+                "deviceId": "000000000000000000000183"
+            },
+            "destination": {
+                "mask": -1,
+                "inputId": "000000000000000000000025",
+                "deviceId": "000000000000000000000000"
+            }
+        },
+        {
+            "mapId": "61fe91d8f15cf6571011f49f",
+            "source": {
+                "mask": -1,
+                "inputId": "000000000000000000000005",
+                "deviceId": "000000000000000000000183"
+            },
+            "destination": {
+                "mask": -1,
+                "inputId": "000000000000000000000026",
+                "deviceId": "000000000000000000000000"
+            }
+        },
+        {
+            "mapId": "61fe923a937f200ab19382d7",
+            "source": {
+                "mask": -1,
+                "inputId": "000000000000000000000006",
+                "deviceId": "000000000000000000000183"
+            },
+            "destination": {
+                "mask": -1,
+                "inputId": "000000000000000000000027",
+                "deviceId": "000000000000000000000000"
+            }
+        },
+        {
+            "mapId": "61fe924af9269010ee76b2f3",
+            "source": {
+                "mask": -1,
+                "inputId": "000000000000000000000007",
+                "deviceId": "000000000000000000000183"
+            },
+            "destination": {
+                "mask": -1,
+                "inputId": "000000000000000000000028",
+                "deviceId": "000000000000000000000000"
+            }
+        },
+        {
+            "mapId": "61fe925898fce8902921b99e",
+            "source": {
+                "mask": -1,
+                "inputId": "000000000000000000000008",
+                "deviceId": "000000000000000000000183"
+            },
+            "destination": {
+                "mask": -1,
+                "inputId": "000000000000000000000029",
+                "deviceId": "000000000000000000000000"
+            }
+        },
+        {
+            "mapId": "61fe926ac8739fcac5222d36",
+            "source": {
+                "mask": -1,
+                "inputId": "000000000000000000000009",
+                "deviceId": "000000000000000000000183"
+            },
+            "destination": {
+                "mask": -1,
+                "inputId": "000000000000000000000030",
+                "deviceId": "000000000000000000000000"
+            }
+        },
+        {
+            "mapId": "61fe927a9b3e5f13d59dd8cd",
+            "source": {
+                "mask": -1,
+                "inputId": "000000000000000000000010",
+                "deviceId": "000000000000000000000183"
+            },
+            "destination": {
+                "mask": -1,
+                "inputId": "000000000000000000000031",
+                "deviceId": "000000000000000000000000"
+            }
+        },
+        {
+            "mapId": "61fe9289e51737f910e9c855",
+            "source": {
+                "mask": -1,
+                "inputId": "000000000000000000000011",
+                "deviceId": "000000000000000000000183"
+            },
+            "destination": {
+                "mask": -1,
+                "inputId": "000000000000000000000032",
+                "deviceId": "000000000000000000000000"
+            }
+        },
+        {
+            "mapId": "61fe92979cd2337239fc9d54",
+            "source": {
+                "mask": -1,
+                "inputId": "000000000000000000000012",
+                "deviceId": "000000000000000000000183"
+            },
+            "destination": {
+                "mask": -1,
+                "inputId": "000000000000000000000033",
+                "deviceId": "000000000000000000000000"
+            }
+        },
+        {
+            "mapId": "61fe92ab4343df9f4a2fc6b2",
+            "source": {
+                "mask": -1,
+                "inputId": "000000000000000000000013",
+                "deviceId": "000000000000000000000183"
+            },
+            "destination": {
+                "mask": -1,
+                "inputId": "000000000000000000000034",
+                "deviceId": "000000000000000000000000"
+            }
+        },
+        {
+            "mapId": "61fe92bf073d3e027170daf1",
+            "source": {
+                "mask": -1,
+                "inputId": "000000000000000000000014",
+                "deviceId": "000000000000000000000183"
+            },
+            "destination": {
+                "mask": -1,
+                "inputId": "000000000000000000000035",
+                "deviceId": "000000000000000000000000"
+            }
+        },
+        {
+            "mapId": "61fe92cd024c53aed30574e2",
+            "source": {
+                "mask": -1,
+                "inputId": "000000000000000000000015",
+                "deviceId": "000000000000000000000183"
+            },
+            "destination": {
+                "mask": -1,
+                "inputId": "000000000000000000000036",
+                "deviceId": "000000000000000000000000"
+            }
+        },
+        {
+            "mapId": "61fe92e09ee6cff104f3b21d",
+            "source": {
+                "mask": -1,
+                "inputId": "000000000000000000000016",
+                "deviceId": "000000000000000000000183"
+            },
+            "destination": {
+                "mask": -1,
+                "inputId": "000000000000000000000037",
+                "deviceId": "000000000000000000000000"
+            }
+        },
+        {
+            "mapId": "61fe92f256fc8d26137f6544",
+            "source": {
+                "mask": -1,
+                "inputId": "000000000000000000000017",
+                "deviceId": "000000000000000000000183"
+            },
+            "destination": {
+                "mask": -1,
+                "inputId": "000000000000000000000017",
+                "deviceId": "000000000000000000000000"
+            }
+        },
+        {
+            "mapId": "61fe92ff760fbf03b40582b8",
+            "source": {
+                "mask": -1,
+                "inputId": "000000000000000000000018",
+                "deviceId": "000000000000000000000183"
+            },
+            "destination": {
+                "mask": -1,
+                "inputId": "000000000000000000000039",
+                "deviceId": "000000000000000000000000"
+            }
+        },
+        {
+            "mapId": "61fe930d80066529821ce6a2",
+            "source": {
+                "mask": -1,
+                "inputId": "000000000000000000000019",
+                "deviceId": "000000000000000000000183"
+            },
+            "destination": {
+                "mask": -1,
+                "inputId": "000000000000000000000040",
+                "deviceId": "000000000000000000000000"
+            }
+        },
+        {
+            "mapId": "61fe931f9fbeef67c4b086e1",
+            "source": {
+                "mask": -1,
+                "inputId": "000000000000000000000020",
+                "deviceId": "000000000000000000000183"
+            },
+            "destination": {
+                "mask": -1,
+                "inputId": "000000000000000000000041",
+                "deviceId": "000000000000000000000000"
+            }
+        },
+        {
+            "mapId": "61fe932d848fd94bd3cf02ad",
+            "source": {
+                "mask": -1,
+                "inputId": "000000000000000000000021",
+                "deviceId": "000000000000000000000183"
+            },
+            "destination": {
+                "mask": -1,
+                "inputId": "000000000000000000000042",
+                "deviceId": "000000000000000000000000"
+            }
+        }
+    ]
+}

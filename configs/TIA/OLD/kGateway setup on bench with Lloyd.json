@@ -1,0 +1,105 @@
+{
+    "port": 8080,
+    "txtime": 900,
+    "barcode": "15044875",
+    "deviceId": "000000000000000015044875",
+    "production": true,
+    "authentication": true,
+    "admin": {
+        "email": "admin@bitid.co.za",
+        "password": "admin"
+    },
+    "server": {
+        "host": "mqtt://app.trackitall.co.za",
+        "port": 1888,
+        "username": "unittest",
+        "password": "unittest1!",
+        "subscribe": {
+            "data": "/rock/v1.1/data",
+            "control": "/rock/v1.1/control"
+        }
+    },
+    "logger": {
+        "appenders": {
+            "edge-router": {
+                "type": "file",
+                "backups": 10,
+                "filename": "./logs/edge-router.log",
+                "absolute": true,
+                "maxLogSize": 102400
+            }
+        },
+        "categories": {
+            "default": {
+                "appenders": [
+                    "edge-router"
+                ],
+                "level": "error"
+            }
+        }
+    },
+    "devices": [
+        {
+            "io": [
+                {
+                    "scaling": {
+                        "raw": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "scaled": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "type": "none"
+                    },
+                    "publish": {
+                        "bit": 0,
+                        "key": "",
+                        "enabled": false,
+                        "moduleId": 0
+                    },
+                    "masking": {
+                        "bit": 0,
+                        "enabled": false
+                    },
+                    "mqtt": {
+                        "userName": "unittestNot",
+                        "password": "unittest1!",
+                        "subscribe": {
+                            "data": "#",
+                            "control": "kGatewayRouter/control"
+                        },
+                        "enabled": true
+                    },
+                    "key": "",
+                    "tagId": "",
+                    "value": 0,
+                    "shift": -1,
+                    "inputId": "627f7769ecef55608ccfa76b",
+                    "register": 0,
+                    "moduleId": 0,
+                    "readable": false,
+                    "interface": "",
+                    "writeable": false,
+                    "description": "Subscribe"
+                }
+            ],
+            "ip": "mqtt://localhost",
+            "port": 1888,
+            "type": "kGateway",
+            "txtime": 5,
+            "pxtime": 120,
+            "timeout": 120,
+            "barcode": "69",
+            "publish": false,
+            "enabled": true,
+            "unitId": 0,
+            "deviceId": "000000000000000000000069",
+            "description": "KGateway Bluetooth Reader",
+            "userName": "unittest",
+            "password": "unittest1!"
+        }
+    ],
+    "mapping": []
+}

@@ -1,0 +1,313 @@
+{
+    "port": 8080,
+    "txtime": 900,
+    "barcode": "15044875",
+    "deviceId": "000000000000000015044875",
+    "production": true,
+    "authentication": true,
+    "admin": {
+        "email": "admin@bitid.co.za",
+        "password": "admin"
+    },
+    "server": {
+        "host": "mqtt://app.trackitall.co.za",
+        "port": 1888,
+        "username": "unittest",
+        "password": "unittest1!",
+        "subscribe": {
+            "data": "/rock/v1.1/data",
+            "control": "/rock/v1.1/control"
+        }
+    },
+    "logger": {
+        "appenders": {
+            "edge-router": {
+                "type": "file",
+                "backups": 10,
+                "filename": "./logs/edge-router.log",
+                "absolute": true,
+                "maxLogSize": 102400
+            }
+        },
+        "categories": {
+            "default": {
+                "appenders": [
+                    "edge-router"
+                ],
+                "level": "error"
+            }
+        }
+    },
+    "devices": [
+        {
+            "io": [
+                {
+                    "scaling": {
+                        "raw": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "scaled": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "type": "none"
+                    },
+                    "publish": {
+                        "bit": 0,
+                        "key": "AI1",
+                        "enabled": true,
+                        "moduleId": 0
+                    },
+                    "masking": {
+                        "bit": 0,
+                        "enabled": false
+                    },
+                    "mqtt": {
+                        "userName": "",
+                        "password": "",
+                        "subscribe": {
+                            "data": "",
+                            "control": ""
+                        },
+                        "enabled": false
+                    },
+                    "key": "",
+                    "tagId": "",
+                    "value": 0,
+                    "shift": -1,
+                    "inputId": "627e2c8f76405f0672fd7f84",
+                    "register": 2,
+                    "moduleId": 0,
+                    "readable": true,
+                    "interface": "",
+                    "writeable": false,
+                    "description": "Analog Input 1"
+                }
+            ],
+            "ip": "192.168.10.44",
+            "port": 502,
+            "type": "modbus",
+            "txtime": 1,
+            "pxtime": 120,
+            "timeout": 120,
+            "barcode": "PROL00001",
+            "publish": true,
+            "enabled": true,
+            "unitId": 1,
+            "deviceId": "6298a12d5237ef222a570bdf",
+            "description": "Temperature Prologics 8AII",
+            "userName": "",
+            "password": ""
+        },
+        {
+            "io": [
+                {
+                    "scaling": {
+                        "raw": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "scaled": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "type": "none"
+                    },
+                    "publish": {
+                        "bit": -1,
+                        "key": "digitalsIn",
+                        "enabled": true,
+                        "moduleId": 0
+                    },
+                    "masking": {
+                        "bit": 0,
+                        "enabled": false
+                    },
+                    "mqtt": {
+                        "userName": "",
+                        "password": "",
+                        "subscribe": {
+                            "data": "",
+                            "control": ""
+                        },
+                        "enabled": false
+                    },
+                    "key": "",
+                    "tagId": "",
+                    "value": 0,
+                    "shift": -1,
+                    "inputId": "627e2c8f76405f0672fd7f84",
+                    "register": 2,
+                    "moduleId": 0,
+                    "readable": true,
+                    "interface": "",
+                    "writeable": false,
+                    "description": "Digitals In"
+                },
+                {
+                    "scaling": {
+                        "raw": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "scaled": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "type": "none"
+                    },
+                    "publish": {
+                        "bit": -1,
+                        "key": "CI1",
+                        "enabled": true,
+                        "moduleId": 0
+                    },
+                    "masking": {
+                        "bit": 0,
+                        "enabled": false
+                    },
+                    "mqtt": {
+                        "userName": "",
+                        "password": "",
+                        "subscribe": {
+                            "data": "",
+                            "control": ""
+                        },
+                        "enabled": false
+                    },
+                    "key": "",
+                    "tagId": "",
+                    "value": 0,
+                    "shift": -1,
+                    "inputId": "6299c356aae0bb2dc6eb35c4",
+                    "register": 3,
+                    "moduleId": 0,
+                    "readable": true,
+                    "interface": "",
+                    "writeable": true,
+                    "description": "Digitals Out"
+                }
+            ],
+            "ip": "192.168.10.45",
+            "port": 502,
+            "type": "modbus",
+            "txtime": 1,
+            "pxtime": 120,
+            "timeout": 120,
+            "barcode": "PROL00002",
+            "publish": true,
+            "enabled": true,
+            "unitId": 1,
+            "deviceId": "6299c1d136730c20791c203a",
+            "description": "Gate",
+            "userName": "",
+            "password": ""
+        },
+        {
+            "io": [
+                {
+                    "scaling": {
+                        "raw": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "scaled": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "type": "none"
+                    },
+                    "publish": {
+                        "bit": -1,
+                        "key": "digitalsIn",
+                        "enabled": true,
+                        "moduleId": 0
+                    },
+                    "masking": {
+                        "bit": 0,
+                        "enabled": false
+                    },
+                    "mqtt": {
+                        "userName": "",
+                        "password": "",
+                        "subscribe": {
+                            "data": "",
+                            "control": ""
+                        },
+                        "enabled": false
+                    },
+                    "key": "",
+                    "tagId": "",
+                    "value": 0,
+                    "shift": -1,
+                    "inputId": "627e2c8f76405f0672fd7f84",
+                    "register": 2,
+                    "moduleId": 0,
+                    "readable": true,
+                    "interface": "",
+                    "writeable": false,
+                    "description": "Digitals In"
+                },
+                {
+                    "scaling": {
+                        "raw": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "scaled": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "type": "none"
+                    },
+                    "publish": {
+                        "bit": -1,
+                        "key": "CI1",
+                        "enabled": true,
+                        "moduleId": 0
+                    },
+                    "masking": {
+                        "bit": 0,
+                        "enabled": false
+                    },
+                    "mqtt": {
+                        "userName": "",
+                        "password": "",
+                        "subscribe": {
+                            "data": "",
+                            "control": ""
+                        },
+                        "enabled": false
+                    },
+                    "key": "",
+                    "tagId": "",
+                    "value": 0,
+                    "shift": -1,
+                    "inputId": "6299c356aae0bb2dc6eb35c4",
+                    "register": 3,
+                    "moduleId": 0,
+                    "readable": true,
+                    "interface": "",
+                    "writeable": true,
+                    "description": "Digitals Out"
+                }
+            ],
+            "ip": "192.168.10.43",
+            "port": 502,
+            "type": "modbus",
+            "txtime": 1,
+            "pxtime": 120,
+            "timeout": 120,
+            "barcode": "PROL00003",
+            "publish": true,
+            "enabled": true,
+            "unitId": 1,
+            "deviceId": "6299c2eb36730c4d361c2062",
+            "description": "Pumpstation",
+            "userName": "",
+            "password": ""
+        }
+    ],
+    "mapping": []
+}
