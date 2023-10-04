@@ -1,0 +1,2792 @@
+{
+    "port": 8080,
+    "txtime": 1,
+    "barcode": "ZDMPONGOLAWTWMOXA",
+    "deviceId": "62a6f58458e58855a13305d4",
+    "production": true,
+    "authentication": true,
+    "admin": {
+        "email": "admin@bitid.co.za",
+        "password": "admin"
+    },
+    "server": {
+        "host": "mqtt://bitid.co.za",
+        "port": 1888,
+        "username": "telemetry",
+        "password": "telemetry1!",
+        "subscribe": {
+            "data": "/rock/v1.1/data",
+            "control": "/rock/v1.1/control"
+        }
+    },
+    "logger": {
+        "appenders": {
+            "edge-router": {
+                "type": "file",
+                "backups": 10,
+                "filename": "./logs/edge-router.log",
+                "absolute": true,
+                "maxLogSize": 102400
+            }
+        },
+        "categories": {
+            "default": {
+                "appenders": [
+                    "edge-router"
+                ],
+                "level": "error"
+            }
+        }
+    },
+    "devices": [
+        {
+            "io": [
+                {
+                    "scaling": {
+                        "raw": {
+                            "low": 400,
+                            "high": 2000
+                        },
+                        "scaled": {
+                            "low": 812,
+                            "high": 4085
+                        },
+                        "type": "linear"
+                    },
+                    "publish": {
+                        "bit": 0,
+                        "key": "",
+                        "enabled": false,
+                        "moduleId": 0
+                    },
+                    "masking": {
+                        "bit": 0,
+                        "enabled": false
+                    },
+                    "mqtt": {
+                        "userName": "",
+                        "password": "",
+                        "subscribe": {
+                            "data": "",
+                            "control": ""
+                        },
+                        "enabled": false
+                    },
+                    "modbus": {
+                        "isCoil": false,
+                        "isHoldingRegister": false
+                    },
+                    "key": "AI1",
+                    "tagId": "",
+                    "value": 812,
+                    "shift": 0,
+                    "inputId": "621336f7319eee089a296555",
+                    "register": 0,
+                    "moduleId": 0,
+                    "readable": true,
+                    "interface": "",
+                    "writeable": true,
+                    "description": "PS1 Res Level",
+                    "cofs": -1
+                },
+                {
+                    "scaling": {
+                        "raw": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "scaled": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "type": "none"
+                    },
+                    "publish": {
+                        "bit": 0,
+                        "key": "",
+                        "enabled": false,
+                        "moduleId": 0
+                    },
+                    "masking": {
+                        "bit": 0,
+                        "enabled": true
+                    },
+                    "mqtt": {
+                        "userName": "",
+                        "password": "",
+                        "subscribe": {
+                            "data": "",
+                            "control": ""
+                        },
+                        "enabled": false
+                    },
+                    "modbus": {
+                        "isCoil": false,
+                        "isHoldingRegister": false
+                    },
+                    "key": "digitalsIn",
+                    "tagId": "",
+                    "value": 0,
+                    "shift": 10,
+                    "inputId": "621f0ccc6e8fc5dc94269f67",
+                    "register": 0,
+                    "moduleId": 0,
+                    "readable": false,
+                    "interface": "",
+                    "writeable": false,
+                    "description": "RW Procon 1 - P1 Run",
+                    "cofs": -1
+                },
+                {
+                    "scaling": {
+                        "raw": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "scaled": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "type": "none"
+                    },
+                    "publish": {
+                        "bit": 0,
+                        "key": "",
+                        "enabled": false,
+                        "moduleId": 0
+                    },
+                    "masking": {
+                        "bit": 1,
+                        "enabled": true
+                    },
+                    "mqtt": {
+                        "userName": "",
+                        "password": "",
+                        "subscribe": {
+                            "data": "",
+                            "control": ""
+                        },
+                        "enabled": false
+                    },
+                    "modbus": {
+                        "isCoil": false,
+                        "isHoldingRegister": false
+                    },
+                    "key": "digitalsIn",
+                    "tagId": "",
+                    "value": 0,
+                    "shift": 10,
+                    "inputId": "621f439813bfefcdbc670a0c",
+                    "register": 0,
+                    "moduleId": 0,
+                    "readable": false,
+                    "interface": "",
+                    "writeable": false,
+                    "description": "RW Procon 1 - P1 Trip",
+                    "cofs": -1
+                },
+                {
+                    "scaling": {
+                        "raw": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "scaled": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "type": "none"
+                    },
+                    "publish": {
+                        "bit": 0,
+                        "key": "",
+                        "enabled": false,
+                        "moduleId": 0
+                    },
+                    "masking": {
+                        "bit": 2,
+                        "enabled": true
+                    },
+                    "mqtt": {
+                        "userName": "",
+                        "password": "",
+                        "subscribe": {
+                            "data": "",
+                            "control": ""
+                        },
+                        "enabled": false
+                    },
+                    "modbus": {
+                        "isCoil": false,
+                        "isHoldingRegister": false
+                    },
+                    "key": "digitalsIn",
+                    "tagId": "",
+                    "value": 0,
+                    "shift": 10,
+                    "inputId": "621f43a7e4df942ca265f7e7",
+                    "register": 0,
+                    "moduleId": 0,
+                    "readable": false,
+                    "interface": "",
+                    "writeable": false,
+                    "description": "RW Procon 1 - P2 Run",
+                    "cofs": -1
+                },
+                {
+                    "scaling": {
+                        "raw": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "scaled": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "type": "none"
+                    },
+                    "publish": {
+                        "bit": 0,
+                        "key": "",
+                        "enabled": false,
+                        "moduleId": 0
+                    },
+                    "masking": {
+                        "bit": 3,
+                        "enabled": true
+                    },
+                    "mqtt": {
+                        "userName": "",
+                        "password": "",
+                        "subscribe": {
+                            "data": "",
+                            "control": ""
+                        },
+                        "enabled": false
+                    },
+                    "modbus": {
+                        "isCoil": false,
+                        "isHoldingRegister": false
+                    },
+                    "key": "digitalsIn",
+                    "tagId": "",
+                    "value": 0,
+                    "shift": 10,
+                    "inputId": "621f43b4d55ce44ab889855f",
+                    "register": 0,
+                    "moduleId": 0,
+                    "readable": false,
+                    "interface": "",
+                    "writeable": false,
+                    "description": "RW Procon 1 - P2 Trip",
+                    "cofs": -1
+                },
+                {
+                    "scaling": {
+                        "raw": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "scaled": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "type": "none"
+                    },
+                    "publish": {
+                        "bit": 0,
+                        "key": "",
+                        "enabled": false,
+                        "moduleId": 0
+                    },
+                    "masking": {
+                        "bit": 4,
+                        "enabled": true
+                    },
+                    "mqtt": {
+                        "userName": "",
+                        "password": "",
+                        "subscribe": {
+                            "data": "",
+                            "control": ""
+                        },
+                        "enabled": false
+                    },
+                    "modbus": {
+                        "isCoil": false,
+                        "isHoldingRegister": false
+                    },
+                    "key": "digitalsIn",
+                    "tagId": "",
+                    "value": 0,
+                    "shift": 10,
+                    "inputId": "621f43c30ed6eb5e769e6e30",
+                    "register": 0,
+                    "moduleId": 0,
+                    "readable": false,
+                    "interface": "",
+                    "writeable": false,
+                    "description": "RW Procon 1 - P3 Run",
+                    "cofs": -1
+                },
+                {
+                    "scaling": {
+                        "raw": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "scaled": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "type": "none"
+                    },
+                    "publish": {
+                        "bit": 0,
+                        "key": "",
+                        "enabled": false,
+                        "moduleId": 0
+                    },
+                    "masking": {
+                        "bit": 5,
+                        "enabled": true
+                    },
+                    "mqtt": {
+                        "userName": "",
+                        "password": "",
+                        "subscribe": {
+                            "data": "",
+                            "control": ""
+                        },
+                        "enabled": false
+                    },
+                    "modbus": {
+                        "isCoil": false,
+                        "isHoldingRegister": false
+                    },
+                    "key": "digitalsIn",
+                    "tagId": "",
+                    "value": 0,
+                    "shift": 10,
+                    "inputId": "621f43cf150412fa7ee378a4",
+                    "register": 0,
+                    "moduleId": 0,
+                    "readable": false,
+                    "interface": "",
+                    "writeable": false,
+                    "description": "RW Procon 1 - P3 Trip",
+                    "cofs": -1
+                },
+                {
+                    "scaling": {
+                        "raw": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "scaled": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "type": "none"
+                    },
+                    "publish": {
+                        "bit": 0,
+                        "key": "",
+                        "enabled": false,
+                        "moduleId": 0
+                    },
+                    "masking": {
+                        "bit": 6,
+                        "enabled": true
+                    },
+                    "mqtt": {
+                        "userName": "",
+                        "password": "",
+                        "subscribe": {
+                            "data": "",
+                            "control": ""
+                        },
+                        "enabled": false
+                    },
+                    "modbus": {
+                        "isCoil": false,
+                        "isHoldingRegister": false
+                    },
+                    "key": "digitalsIn",
+                    "tagId": "",
+                    "value": 0,
+                    "shift": 10,
+                    "inputId": "621f43eb49b504d38778c636",
+                    "register": 0,
+                    "moduleId": 0,
+                    "readable": false,
+                    "interface": "",
+                    "writeable": false,
+                    "description": "RW Procon 1 - P4 Run",
+                    "cofs": -1
+                },
+                {
+                    "scaling": {
+                        "raw": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "scaled": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "type": "none"
+                    },
+                    "publish": {
+                        "bit": 0,
+                        "key": "",
+                        "enabled": false,
+                        "moduleId": 0
+                    },
+                    "masking": {
+                        "bit": 7,
+                        "enabled": true
+                    },
+                    "mqtt": {
+                        "userName": "",
+                        "password": "",
+                        "subscribe": {
+                            "data": "",
+                            "control": ""
+                        },
+                        "enabled": false
+                    },
+                    "modbus": {
+                        "isCoil": false,
+                        "isHoldingRegister": false
+                    },
+                    "key": "digitalsIn",
+                    "tagId": "",
+                    "value": 0,
+                    "shift": 10,
+                    "inputId": "621f440059cf41d68b52c808",
+                    "register": 0,
+                    "moduleId": 0,
+                    "readable": false,
+                    "interface": "",
+                    "writeable": false,
+                    "description": "RW Procon 1 - P4 Trip",
+                    "cofs": -1
+                },
+                {
+                    "scaling": {
+                        "raw": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "scaled": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "type": "none"
+                    },
+                    "publish": {
+                        "bit": 0,
+                        "key": "",
+                        "enabled": false,
+                        "moduleId": 0
+                    },
+                    "masking": {
+                        "bit": 8,
+                        "enabled": true
+                    },
+                    "mqtt": {
+                        "userName": "",
+                        "password": "",
+                        "subscribe": {
+                            "data": "",
+                            "control": ""
+                        },
+                        "enabled": false
+                    },
+                    "modbus": {
+                        "isCoil": false,
+                        "isHoldingRegister": false
+                    },
+                    "key": "digitalsIn",
+                    "tagId": "",
+                    "value": 0,
+                    "shift": 10,
+                    "inputId": "621f4416b997f5a6c4d68107",
+                    "register": 0,
+                    "moduleId": 0,
+                    "readable": false,
+                    "interface": "",
+                    "writeable": false,
+                    "description": "RW Procon 1 - P5 Run",
+                    "cofs": -1
+                },
+                {
+                    "scaling": {
+                        "raw": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "scaled": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "type": "none"
+                    },
+                    "publish": {
+                        "bit": 0,
+                        "key": "",
+                        "enabled": false,
+                        "moduleId": 0
+                    },
+                    "masking": {
+                        "bit": 9,
+                        "enabled": true
+                    },
+                    "mqtt": {
+                        "userName": "",
+                        "password": "",
+                        "subscribe": {
+                            "data": "",
+                            "control": ""
+                        },
+                        "enabled": false
+                    },
+                    "modbus": {
+                        "isCoil": false,
+                        "isHoldingRegister": false
+                    },
+                    "key": "digitalsIn",
+                    "tagId": "",
+                    "value": 0,
+                    "shift": 10,
+                    "inputId": "62a6ec884f070f61dea1080d",
+                    "register": 0,
+                    "moduleId": 0,
+                    "readable": false,
+                    "interface": "",
+                    "writeable": false,
+                    "description": "RW Procon 1 - P5 Trip",
+                    "cofs": -1
+                },
+                {
+                    "scaling": {
+                        "raw": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "scaled": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "type": "none"
+                    },
+                    "publish": {
+                        "bit": 0,
+                        "key": "",
+                        "enabled": false,
+                        "moduleId": 0
+                    },
+                    "masking": {
+                        "bit": 10,
+                        "enabled": true
+                    },
+                    "mqtt": {
+                        "userName": "",
+                        "password": "",
+                        "subscribe": {
+                            "data": "",
+                            "control": ""
+                        },
+                        "enabled": false
+                    },
+                    "modbus": {
+                        "isCoil": false,
+                        "isHoldingRegister": false
+                    },
+                    "key": "digitalsIn",
+                    "tagId": "",
+                    "value": 0,
+                    "shift": 10,
+                    "inputId": "62a6ec91071bea07fb5d2504",
+                    "register": 0,
+                    "moduleId": 0,
+                    "readable": false,
+                    "interface": "",
+                    "writeable": false,
+                    "description": "RW Procon 1 - P6 Run",
+                    "cofs": -1
+                },
+                {
+                    "scaling": {
+                        "raw": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "scaled": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "type": "none"
+                    },
+                    "publish": {
+                        "bit": 0,
+                        "key": "",
+                        "enabled": false,
+                        "moduleId": 0
+                    },
+                    "masking": {
+                        "bit": 11,
+                        "enabled": true
+                    },
+                    "mqtt": {
+                        "userName": "",
+                        "password": "",
+                        "subscribe": {
+                            "data": "",
+                            "control": ""
+                        },
+                        "enabled": false
+                    },
+                    "modbus": {
+                        "isCoil": false,
+                        "isHoldingRegister": false
+                    },
+                    "key": "digitalsIn",
+                    "tagId": "",
+                    "value": 0,
+                    "shift": 10,
+                    "inputId": "62a6ec9a47a9fc9ad177d943",
+                    "register": 0,
+                    "moduleId": 0,
+                    "readable": false,
+                    "interface": "",
+                    "writeable": false,
+                    "description": "RW Procon 1 - P6 Trip",
+                    "cofs": -1
+                },
+                {
+                    "scaling": {
+                        "raw": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "scaled": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "type": "none"
+                    },
+                    "publish": {
+                        "bit": 0,
+                        "key": "",
+                        "enabled": false,
+                        "moduleId": 0
+                    },
+                    "masking": {
+                        "bit": 12,
+                        "enabled": true
+                    },
+                    "mqtt": {
+                        "userName": "",
+                        "password": "",
+                        "subscribe": {
+                            "data": "",
+                            "control": ""
+                        },
+                        "enabled": false
+                    },
+                    "modbus": {
+                        "isCoil": false,
+                        "isHoldingRegister": false
+                    },
+                    "key": "digitalsIn",
+                    "tagId": "",
+                    "value": 0,
+                    "shift": 10,
+                    "inputId": "62a6eca10f6b3c707e9d17b3",
+                    "register": 0,
+                    "moduleId": 0,
+                    "readable": false,
+                    "interface": "",
+                    "writeable": false,
+                    "description": "RW Procon 1 - P7 Run",
+                    "cofs": -1
+                },
+                {
+                    "scaling": {
+                        "raw": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "scaled": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "type": "none"
+                    },
+                    "publish": {
+                        "bit": 0,
+                        "key": "",
+                        "enabled": false,
+                        "moduleId": 0
+                    },
+                    "masking": {
+                        "bit": 13,
+                        "enabled": true
+                    },
+                    "mqtt": {
+                        "userName": "",
+                        "password": "",
+                        "subscribe": {
+                            "data": "",
+                            "control": ""
+                        },
+                        "enabled": false
+                    },
+                    "modbus": {
+                        "isCoil": false,
+                        "isHoldingRegister": false
+                    },
+                    "key": "digitalsIn",
+                    "tagId": "",
+                    "value": 0,
+                    "shift": 10,
+                    "inputId": "62a6eca86560a4c98b84c796",
+                    "register": 0,
+                    "moduleId": 0,
+                    "readable": false,
+                    "interface": "",
+                    "writeable": false,
+                    "description": "RW Procon 1 - P7 Trip",
+                    "cofs": -1
+                },
+                {
+                    "scaling": {
+                        "raw": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "scaled": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "type": "none"
+                    },
+                    "publish": {
+                        "bit": 0,
+                        "key": "",
+                        "enabled": false,
+                        "moduleId": 0
+                    },
+                    "masking": {
+                        "bit": 14,
+                        "enabled": true
+                    },
+                    "mqtt": {
+                        "userName": "",
+                        "password": "",
+                        "subscribe": {
+                            "data": "",
+                            "control": ""
+                        },
+                        "enabled": false
+                    },
+                    "modbus": {
+                        "isCoil": false,
+                        "isHoldingRegister": false
+                    },
+                    "key": "digitalsIn",
+                    "tagId": "",
+                    "value": 0,
+                    "shift": 10,
+                    "inputId": "62a6ecae49eff5ad167685b9",
+                    "register": 0,
+                    "moduleId": 0,
+                    "readable": false,
+                    "interface": "",
+                    "writeable": false,
+                    "description": "RW Procon 1 - P8 Run",
+                    "cofs": -1
+                },
+                {
+                    "scaling": {
+                        "raw": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "scaled": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "type": "none"
+                    },
+                    "publish": {
+                        "bit": 0,
+                        "key": "",
+                        "enabled": false,
+                        "moduleId": 0
+                    },
+                    "masking": {
+                        "bit": 15,
+                        "enabled": true
+                    },
+                    "mqtt": {
+                        "userName": "",
+                        "password": "",
+                        "subscribe": {
+                            "data": "",
+                            "control": ""
+                        },
+                        "enabled": false
+                    },
+                    "modbus": {
+                        "isCoil": false,
+                        "isHoldingRegister": false
+                    },
+                    "key": "digitalsIn",
+                    "tagId": "",
+                    "value": 0,
+                    "shift": 10,
+                    "inputId": "62a6ecb5d4c10f3d5a288a33",
+                    "register": 0,
+                    "moduleId": 0,
+                    "readable": false,
+                    "interface": "",
+                    "writeable": false,
+                    "description": "RW Procon 1 - P8 Trip",
+                    "cofs": -1
+                },
+                {
+                    "scaling": {
+                        "raw": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "scaled": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "type": "none"
+                    },
+                    "publish": {
+                        "bit": 0,
+                        "key": "",
+                        "enabled": false,
+                        "moduleId": 0
+                    },
+                    "masking": {
+                        "bit": 4,
+                        "enabled": true
+                    },
+                    "mqtt": {
+                        "userName": "",
+                        "password": "",
+                        "subscribe": {
+                            "data": "",
+                            "control": ""
+                        },
+                        "enabled": false
+                    },
+                    "modbus": {
+                        "isCoil": false,
+                        "isHoldingRegister": false
+                    },
+                    "key": "digitalsIn",
+                    "tagId": "",
+                    "value": 0,
+                    "shift": 0,
+                    "inputId": "62a6ecdff07307b56ea82dab",
+                    "register": 0,
+                    "moduleId": 0,
+                    "readable": false,
+                    "interface": "",
+                    "writeable": false,
+                    "description": "PS1 - Pump Call 1",
+                    "cofs": -1
+                },
+                {
+                    "scaling": {
+                        "raw": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "scaled": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "type": "none"
+                    },
+                    "publish": {
+                        "bit": 0,
+                        "key": "",
+                        "enabled": false,
+                        "moduleId": 0
+                    },
+                    "masking": {
+                        "bit": 5,
+                        "enabled": true
+                    },
+                    "mqtt": {
+                        "userName": "",
+                        "password": "",
+                        "subscribe": {
+                            "data": "",
+                            "control": ""
+                        },
+                        "enabled": false
+                    },
+                    "modbus": {
+                        "isCoil": false,
+                        "isHoldingRegister": false
+                    },
+                    "key": "digitalsIn",
+                    "tagId": "",
+                    "value": 0,
+                    "shift": 0,
+                    "inputId": "62a6eceb656c3d91cf65c521",
+                    "register": 0,
+                    "moduleId": 0,
+                    "readable": false,
+                    "interface": "",
+                    "writeable": false,
+                    "description": "PS1 - Pump Call 2",
+                    "cofs": -1
+                },
+                {
+                    "scaling": {
+                        "raw": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "scaled": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "type": "none"
+                    },
+                    "publish": {
+                        "bit": 0,
+                        "key": "",
+                        "enabled": false,
+                        "moduleId": 0
+                    },
+                    "masking": {
+                        "bit": 7,
+                        "enabled": true
+                    },
+                    "mqtt": {
+                        "userName": "",
+                        "password": "",
+                        "subscribe": {
+                            "data": "",
+                            "control": ""
+                        },
+                        "enabled": false
+                    },
+                    "modbus": {
+                        "isCoil": false,
+                        "isHoldingRegister": false
+                    },
+                    "key": "digitalsIn",
+                    "tagId": "",
+                    "value": 0,
+                    "shift": 0,
+                    "inputId": "62a6ecf93d6d50bbc937ff8a",
+                    "register": 0,
+                    "moduleId": 0,
+                    "readable": false,
+                    "interface": "",
+                    "writeable": false,
+                    "description": "PS1 - Phase Failure",
+                    "cofs": -1
+                },
+                {
+                    "scaling": {
+                        "raw": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "scaled": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "type": "none"
+                    },
+                    "publish": {
+                        "bit": 0,
+                        "key": "",
+                        "enabled": false,
+                        "moduleId": 0
+                    },
+                    "masking": {
+                        "bit": 8,
+                        "enabled": true
+                    },
+                    "mqtt": {
+                        "userName": "",
+                        "password": "",
+                        "subscribe": {
+                            "data": "",
+                            "control": ""
+                        },
+                        "enabled": false
+                    },
+                    "modbus": {
+                        "isCoil": false,
+                        "isHoldingRegister": false
+                    },
+                    "key": "digitalsIn",
+                    "tagId": "",
+                    "value": 0,
+                    "shift": 0,
+                    "inputId": "62a6ed024c9d6cdec1d7634d",
+                    "register": 0,
+                    "moduleId": 0,
+                    "readable": false,
+                    "interface": "",
+                    "writeable": false,
+                    "description": "PS1 - Mains Failure",
+                    "cofs": -1
+                },
+                {
+                    "scaling": {
+                        "raw": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "scaled": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "type": "none"
+                    },
+                    "publish": {
+                        "bit": 0,
+                        "key": "",
+                        "enabled": false,
+                        "moduleId": 0
+                    },
+                    "masking": {
+                        "bit": 9,
+                        "enabled": true
+                    },
+                    "mqtt": {
+                        "userName": "",
+                        "password": "",
+                        "subscribe": {
+                            "data": "",
+                            "control": ""
+                        },
+                        "enabled": false
+                    },
+                    "modbus": {
+                        "isCoil": false,
+                        "isHoldingRegister": false
+                    },
+                    "key": "digitalsIn",
+                    "tagId": "",
+                    "value": 1,
+                    "shift": 0,
+                    "inputId": "62a6ed09d31f82ecdecc47e7",
+                    "register": 0,
+                    "moduleId": 0,
+                    "readable": false,
+                    "interface": "",
+                    "writeable": false,
+                    "description": "PS1 - Intruder Status",
+                    "cofs": -1
+                }
+            ],
+            "ip": "0.0.0.0",
+            "port": 0,
+            "type": "external",
+            "txtime": 5,
+            "pxtime": 120,
+            "timeout": 900,
+            "barcode": "250",
+            "publish": false,
+            "enabled": true,
+            "unitId": 0,
+            "deviceId": "000000000000000000000250",
+            "description": "Pongola PS1 External",
+            "userName": "",
+            "password": ""
+        },
+        {
+            "io": [
+                {
+                    "scaling": {
+                        "raw": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "scaled": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "type": "none"
+                    },
+                    "publish": {
+                        "bit": 0,
+                        "key": "",
+                        "enabled": false,
+                        "moduleId": 0
+                    },
+                    "masking": {
+                        "bit": 0,
+                        "enabled": false
+                    },
+                    "mqtt": {
+                        "userName": "",
+                        "password": "",
+                        "subscribe": {
+                            "data": "",
+                            "control": ""
+                        },
+                        "enabled": false
+                    },
+                    "modbus": {
+                        "isCoil": true,
+                        "isHoldingRegister": false
+                    },
+                    "key": "digitalsIn",
+                    "tagId": "",
+                    "value": 0,
+                    "shift": -1,
+                    "inputId": "621338d503c167ca7c8cd7ee",
+                    "register": 1,
+                    "moduleId": 0,
+                    "readable": true,
+                    "interface": "",
+                    "writeable": false,
+                    "description": "DI1",
+                    "cofs": -1
+                },
+                {
+                    "scaling": {
+                        "raw": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "scaled": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "type": "none"
+                    },
+                    "publish": {
+                        "bit": 0,
+                        "key": "",
+                        "enabled": false,
+                        "moduleId": 0
+                    },
+                    "masking": {
+                        "bit": 0,
+                        "enabled": false
+                    },
+                    "mqtt": {
+                        "userName": "",
+                        "password": "",
+                        "subscribe": {
+                            "data": "",
+                            "control": ""
+                        },
+                        "enabled": false
+                    },
+                    "modbus": {
+                        "isCoil": true,
+                        "isHoldingRegister": false
+                    },
+                    "key": "digitalsIn",
+                    "tagId": "",
+                    "value": 0,
+                    "shift": -1,
+                    "inputId": "621f44955b0a9851a23b8847",
+                    "register": 2,
+                    "moduleId": 0,
+                    "readable": true,
+                    "interface": "",
+                    "writeable": false,
+                    "description": "DI2",
+                    "cofs": -1
+                },
+                {
+                    "scaling": {
+                        "raw": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "scaled": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "type": "none"
+                    },
+                    "publish": {
+                        "bit": -1,
+                        "key": "digitalsIn",
+                        "enabled": true,
+                        "moduleId": 0
+                    },
+                    "masking": {
+                        "bit": 0,
+                        "enabled": false
+                    },
+                    "mqtt": {
+                        "userName": "",
+                        "password": "",
+                        "subscribe": {
+                            "data": "",
+                            "control": ""
+                        },
+                        "enabled": false
+                    },
+                    "modbus": {
+                        "isCoil": false,
+                        "isHoldingRegister": true
+                    },
+                    "key": "",
+                    "tagId": "",
+                    "value": 0,
+                    "shift": -1,
+                    "inputId": "62a44a4679441e84c78b18a6",
+                    "register": 2,
+                    "moduleId": 0,
+                    "readable": true,
+                    "interface": "",
+                    "writeable": true,
+                    "description": "All Digital Ins",
+                    "cofs": -1
+                },
+                {
+                    "scaling": {
+                        "raw": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "scaled": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "type": "none"
+                    },
+                    "publish": {
+                        "bit": 0,
+                        "key": "",
+                        "enabled": false,
+                        "moduleId": 0
+                    },
+                    "masking": {
+                        "bit": 0,
+                        "enabled": false
+                    },
+                    "mqtt": {
+                        "userName": "",
+                        "password": "",
+                        "subscribe": {
+                            "data": "",
+                            "control": ""
+                        },
+                        "enabled": false
+                    },
+                    "modbus": {
+                        "isCoil": true,
+                        "isHoldingRegister": false
+                    },
+                    "key": "",
+                    "tagId": "",
+                    "value": 0,
+                    "shift": -1,
+                    "inputId": "62a7117cd77fccc18b1812b4",
+                    "register": 23,
+                    "moduleId": 0,
+                    "readable": true,
+                    "interface": "",
+                    "writeable": true,
+                    "description": "PS1 Pump Call 1",
+                    "cofs": -1
+                },
+                {
+                    "scaling": {
+                        "raw": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "scaled": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "type": "none"
+                    },
+                    "publish": {
+                        "bit": 0,
+                        "key": "",
+                        "enabled": false,
+                        "moduleId": 0
+                    },
+                    "masking": {
+                        "bit": 0,
+                        "enabled": false
+                    },
+                    "mqtt": {
+                        "userName": "",
+                        "password": "",
+                        "subscribe": {
+                            "data": "",
+                            "control": ""
+                        },
+                        "enabled": false
+                    },
+                    "modbus": {
+                        "isCoil": true,
+                        "isHoldingRegister": false
+                    },
+                    "key": "",
+                    "tagId": "",
+                    "value": 0,
+                    "shift": -1,
+                    "inputId": "62a7118a893f9a3b55ee08f2",
+                    "register": 24,
+                    "moduleId": 0,
+                    "readable": true,
+                    "interface": "",
+                    "writeable": true,
+                    "description": "PS1 Pump Call 2",
+                    "cofs": -1
+                },
+                {
+                    "scaling": {
+                        "raw": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "scaled": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "type": "none"
+                    },
+                    "publish": {
+                        "bit": 0,
+                        "key": "",
+                        "enabled": false,
+                        "moduleId": 0
+                    },
+                    "masking": {
+                        "bit": 0,
+                        "enabled": false
+                    },
+                    "mqtt": {
+                        "userName": "",
+                        "password": "",
+                        "subscribe": {
+                            "data": "",
+                            "control": ""
+                        },
+                        "enabled": false
+                    },
+                    "modbus": {
+                        "isCoil": true,
+                        "isHoldingRegister": false
+                    },
+                    "key": "",
+                    "tagId": "",
+                    "value": 0,
+                    "shift": -1,
+                    "inputId": "62a7119d69235b03e1c55efc",
+                    "register": 17,
+                    "moduleId": 0,
+                    "readable": true,
+                    "interface": "",
+                    "writeable": true,
+                    "description": "PS1 Phase Fail",
+                    "cofs": -1
+                },
+                {
+                    "scaling": {
+                        "raw": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "scaled": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "type": "none"
+                    },
+                    "publish": {
+                        "bit": 0,
+                        "key": "",
+                        "enabled": false,
+                        "moduleId": 0
+                    },
+                    "masking": {
+                        "bit": 0,
+                        "enabled": false
+                    },
+                    "mqtt": {
+                        "userName": "",
+                        "password": "",
+                        "subscribe": {
+                            "data": "",
+                            "control": ""
+                        },
+                        "enabled": false
+                    },
+                    "modbus": {
+                        "isCoil": true,
+                        "isHoldingRegister": false
+                    },
+                    "key": "",
+                    "tagId": "",
+                    "value": 0,
+                    "shift": -1,
+                    "inputId": "62a711a8bb407135225a1dc1",
+                    "register": 18,
+                    "moduleId": 0,
+                    "readable": true,
+                    "interface": "",
+                    "writeable": true,
+                    "description": "PS1 Mains Fail",
+                    "cofs": -1
+                },
+                {
+                    "scaling": {
+                        "raw": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "scaled": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "type": "none"
+                    },
+                    "publish": {
+                        "bit": 0,
+                        "key": "",
+                        "enabled": false,
+                        "moduleId": 0
+                    },
+                    "masking": {
+                        "bit": 0,
+                        "enabled": false
+                    },
+                    "mqtt": {
+                        "userName": "",
+                        "password": "",
+                        "subscribe": {
+                            "data": "",
+                            "control": ""
+                        },
+                        "enabled": false
+                    },
+                    "modbus": {
+                        "isCoil": true,
+                        "isHoldingRegister": false
+                    },
+                    "key": "",
+                    "tagId": "",
+                    "value": 1,
+                    "shift": -1,
+                    "inputId": "62a711b8e22e782ad15730eb",
+                    "register": 19,
+                    "moduleId": 0,
+                    "readable": true,
+                    "interface": "",
+                    "writeable": true,
+                    "description": "PS1 Intruder",
+                    "cofs": -1
+                }
+            ],
+            "ip": "192.168.0.201",
+            "port": 502,
+            "type": "modbus",
+            "txtime": 1,
+            "pxtime": 120,
+            "timeout": 900,
+            "barcode": "6969",
+            "publish": true,
+            "enabled": true,
+            "unitId": 0,
+            "deviceId": "62a5a54f30000c9ebe201fc8",
+            "description": "Procon DIO8",
+            "userName": "",
+            "password": ""
+        },
+        {
+            "io": [
+                {
+                    "scaling": {
+                        "raw": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "scaled": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "type": "none"
+                    },
+                    "publish": {
+                        "bit": 0,
+                        "key": "AI1",
+                        "enabled": true,
+                        "moduleId": 0
+                    },
+                    "masking": {
+                        "bit": 0,
+                        "enabled": false
+                    },
+                    "mqtt": {
+                        "userName": "",
+                        "password": "",
+                        "subscribe": {
+                            "data": "",
+                            "control": ""
+                        },
+                        "enabled": false
+                    },
+                    "modbus": {
+                        "isCoil": false,
+                        "isHoldingRegister": true
+                    },
+                    "key": "",
+                    "tagId": "",
+                    "value": 812,
+                    "shift": -1,
+                    "inputId": "62a4446900328648eb6af7d1",
+                    "register": 2,
+                    "moduleId": 0,
+                    "readable": true,
+                    "interface": "",
+                    "writeable": true,
+                    "description": "AO1",
+                    "cofs": -1
+                },
+                {
+                    "scaling": {
+                        "raw": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "scaled": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "type": "none"
+                    },
+                    "publish": {
+                        "bit": 0,
+                        "key": "",
+                        "enabled": false,
+                        "moduleId": 0
+                    },
+                    "masking": {
+                        "bit": 0,
+                        "enabled": false
+                    },
+                    "mqtt": {
+                        "userName": "",
+                        "password": "",
+                        "subscribe": {
+                            "data": "",
+                            "control": ""
+                        },
+                        "enabled": false
+                    },
+                    "modbus": {
+                        "isCoil": false,
+                        "isHoldingRegister": true
+                    },
+                    "key": "",
+                    "tagId": "",
+                    "value": 0,
+                    "shift": -1,
+                    "inputId": "62a5a3d22d7d3befe2498bd5",
+                    "register": 3,
+                    "moduleId": 0,
+                    "readable": true,
+                    "interface": "",
+                    "writeable": true,
+                    "description": "AO2",
+                    "cofs": -1
+                }
+            ],
+            "ip": "192.168.0.202",
+            "port": 502,
+            "type": "modbus",
+            "txtime": 1,
+            "pxtime": 120,
+            "timeout": 900,
+            "barcode": "0",
+            "publish": true,
+            "enabled": true,
+            "unitId": 0,
+            "deviceId": "000000000000034567345846",
+            "description": "Procon 8AOI",
+            "userName": "",
+            "password": ""
+        },
+        {
+            "io": [
+                {
+                    "scaling": {
+                        "raw": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "scaled": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "type": "none"
+                    },
+                    "publish": {
+                        "bit": 0,
+                        "key": "",
+                        "enabled": false,
+                        "moduleId": 0
+                    },
+                    "masking": {
+                        "bit": 0,
+                        "enabled": false
+                    },
+                    "mqtt": {
+                        "userName": "",
+                        "password": "",
+                        "subscribe": {
+                            "data": "",
+                            "control": ""
+                        },
+                        "enabled": false
+                    },
+                    "modbus": {
+                        "isCoil": false,
+                        "isHoldingRegister": true
+                    },
+                    "key": "",
+                    "tagId": "",
+                    "value": 0,
+                    "shift": -1,
+                    "inputId": "62a4446900328648eb6af7d1",
+                    "register": 2,
+                    "moduleId": 0,
+                    "readable": true,
+                    "interface": "",
+                    "writeable": true,
+                    "description": "DO ALL",
+                    "cofs": -1
+                },
+                {
+                    "scaling": {
+                        "raw": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "scaled": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "type": "none"
+                    },
+                    "publish": {
+                        "bit": 0,
+                        "key": "",
+                        "enabled": false,
+                        "moduleId": 0
+                    },
+                    "masking": {
+                        "bit": 0,
+                        "enabled": false
+                    },
+                    "mqtt": {
+                        "userName": "",
+                        "password": "",
+                        "subscribe": {
+                            "data": "",
+                            "control": ""
+                        },
+                        "enabled": false
+                    },
+                    "modbus": {
+                        "isCoil": true,
+                        "isHoldingRegister": false
+                    },
+                    "key": "",
+                    "tagId": "",
+                    "value": 0,
+                    "shift": -1,
+                    "inputId": "62a59dbd908dca34fde57bb1",
+                    "register": 1,
+                    "moduleId": 0,
+                    "readable": true,
+                    "interface": "",
+                    "writeable": true,
+                    "description": "DO1",
+                    "cofs": -1
+                },
+                {
+                    "scaling": {
+                        "raw": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "scaled": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "type": "none"
+                    },
+                    "publish": {
+                        "bit": 0,
+                        "key": "",
+                        "enabled": false,
+                        "moduleId": 0
+                    },
+                    "masking": {
+                        "bit": 0,
+                        "enabled": false
+                    },
+                    "mqtt": {
+                        "userName": "",
+                        "password": "",
+                        "subscribe": {
+                            "data": "",
+                            "control": ""
+                        },
+                        "enabled": false
+                    },
+                    "modbus": {
+                        "isCoil": true,
+                        "isHoldingRegister": false
+                    },
+                    "key": "",
+                    "tagId": "",
+                    "value": 0,
+                    "shift": -1,
+                    "inputId": "62a6fd88a496be91a3283a6f",
+                    "register": 2,
+                    "moduleId": 0,
+                    "readable": true,
+                    "interface": "",
+                    "writeable": true,
+                    "description": "DO2",
+                    "cofs": -1
+                },
+                {
+                    "scaling": {
+                        "raw": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "scaled": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "type": "none"
+                    },
+                    "publish": {
+                        "bit": 0,
+                        "key": "",
+                        "enabled": false,
+                        "moduleId": 0
+                    },
+                    "masking": {
+                        "bit": 0,
+                        "enabled": false
+                    },
+                    "mqtt": {
+                        "userName": "",
+                        "password": "",
+                        "subscribe": {
+                            "data": "",
+                            "control": ""
+                        },
+                        "enabled": false
+                    },
+                    "modbus": {
+                        "isCoil": true,
+                        "isHoldingRegister": false
+                    },
+                    "key": "",
+                    "tagId": "",
+                    "value": 0,
+                    "shift": -1,
+                    "inputId": "62a6fd96b04d60e63443396d",
+                    "register": 3,
+                    "moduleId": 0,
+                    "readable": true,
+                    "interface": "",
+                    "writeable": true,
+                    "description": "DO3",
+                    "cofs": -1
+                },
+                {
+                    "scaling": {
+                        "raw": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "scaled": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "type": "none"
+                    },
+                    "publish": {
+                        "bit": 0,
+                        "key": "",
+                        "enabled": false,
+                        "moduleId": 0
+                    },
+                    "masking": {
+                        "bit": 0,
+                        "enabled": false
+                    },
+                    "mqtt": {
+                        "userName": "",
+                        "password": "",
+                        "subscribe": {
+                            "data": "",
+                            "control": ""
+                        },
+                        "enabled": false
+                    },
+                    "modbus": {
+                        "isCoil": true,
+                        "isHoldingRegister": false
+                    },
+                    "key": "",
+                    "tagId": "",
+                    "value": 0,
+                    "shift": -1,
+                    "inputId": "62a6fd9e91dabd2b33e3b1f2",
+                    "register": 4,
+                    "moduleId": 0,
+                    "readable": true,
+                    "interface": "",
+                    "writeable": true,
+                    "description": "DO4",
+                    "cofs": -1
+                },
+                {
+                    "scaling": {
+                        "raw": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "scaled": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "type": "none"
+                    },
+                    "publish": {
+                        "bit": 0,
+                        "key": "",
+                        "enabled": false,
+                        "moduleId": 0
+                    },
+                    "masking": {
+                        "bit": 0,
+                        "enabled": false
+                    },
+                    "mqtt": {
+                        "userName": "",
+                        "password": "",
+                        "subscribe": {
+                            "data": "",
+                            "control": ""
+                        },
+                        "enabled": false
+                    },
+                    "modbus": {
+                        "isCoil": true,
+                        "isHoldingRegister": false
+                    },
+                    "key": "",
+                    "tagId": "",
+                    "value": 0,
+                    "shift": -1,
+                    "inputId": "62a6fda707a4f9ab59c65109",
+                    "register": 5,
+                    "moduleId": 0,
+                    "readable": true,
+                    "interface": "",
+                    "writeable": true,
+                    "description": "DO5",
+                    "cofs": -1
+                },
+                {
+                    "scaling": {
+                        "raw": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "scaled": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "type": "none"
+                    },
+                    "publish": {
+                        "bit": 0,
+                        "key": "",
+                        "enabled": false,
+                        "moduleId": 0
+                    },
+                    "masking": {
+                        "bit": 0,
+                        "enabled": false
+                    },
+                    "mqtt": {
+                        "userName": "",
+                        "password": "",
+                        "subscribe": {
+                            "data": "",
+                            "control": ""
+                        },
+                        "enabled": false
+                    },
+                    "modbus": {
+                        "isCoil": true,
+                        "isHoldingRegister": false
+                    },
+                    "key": "",
+                    "tagId": "",
+                    "value": 0,
+                    "shift": -1,
+                    "inputId": "62a6fdc48039ce197d7946f6",
+                    "register": 6,
+                    "moduleId": 0,
+                    "readable": true,
+                    "interface": "",
+                    "writeable": true,
+                    "description": "DO6",
+                    "cofs": -1
+                },
+                {
+                    "scaling": {
+                        "raw": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "scaled": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "type": "none"
+                    },
+                    "publish": {
+                        "bit": 0,
+                        "key": "",
+                        "enabled": false,
+                        "moduleId": 0
+                    },
+                    "masking": {
+                        "bit": 0,
+                        "enabled": false
+                    },
+                    "mqtt": {
+                        "userName": "",
+                        "password": "",
+                        "subscribe": {
+                            "data": "",
+                            "control": ""
+                        },
+                        "enabled": false
+                    },
+                    "modbus": {
+                        "isCoil": true,
+                        "isHoldingRegister": false
+                    },
+                    "key": "",
+                    "tagId": "",
+                    "value": 0,
+                    "shift": -1,
+                    "inputId": "62a6fdcd3c8b8e81c405ba2c",
+                    "register": 7,
+                    "moduleId": 0,
+                    "readable": true,
+                    "interface": "",
+                    "writeable": true,
+                    "description": "DO7",
+                    "cofs": -1
+                },
+                {
+                    "scaling": {
+                        "raw": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "scaled": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "type": "none"
+                    },
+                    "publish": {
+                        "bit": 0,
+                        "key": "",
+                        "enabled": false,
+                        "moduleId": 0
+                    },
+                    "masking": {
+                        "bit": 0,
+                        "enabled": false
+                    },
+                    "mqtt": {
+                        "userName": "",
+                        "password": "",
+                        "subscribe": {
+                            "data": "",
+                            "control": ""
+                        },
+                        "enabled": false
+                    },
+                    "modbus": {
+                        "isCoil": true,
+                        "isHoldingRegister": false
+                    },
+                    "key": "",
+                    "tagId": "",
+                    "value": 0,
+                    "shift": -1,
+                    "inputId": "62a6fddf82caaac21922c908",
+                    "register": 8,
+                    "moduleId": 0,
+                    "readable": true,
+                    "interface": "",
+                    "writeable": true,
+                    "description": "DO8",
+                    "cofs": -1
+                },
+                {
+                    "scaling": {
+                        "raw": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "scaled": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "type": "none"
+                    },
+                    "publish": {
+                        "bit": 0,
+                        "key": "",
+                        "enabled": false,
+                        "moduleId": 0
+                    },
+                    "masking": {
+                        "bit": 0,
+                        "enabled": false
+                    },
+                    "mqtt": {
+                        "userName": "",
+                        "password": "",
+                        "subscribe": {
+                            "data": "",
+                            "control": ""
+                        },
+                        "enabled": false
+                    },
+                    "modbus": {
+                        "isCoil": true,
+                        "isHoldingRegister": false
+                    },
+                    "key": "",
+                    "tagId": "",
+                    "value": 0,
+                    "shift": -1,
+                    "inputId": "62a6fde7be90e9fa864f4781",
+                    "register": 9,
+                    "moduleId": 0,
+                    "readable": true,
+                    "interface": "",
+                    "writeable": true,
+                    "description": "DO9",
+                    "cofs": -1
+                },
+                {
+                    "scaling": {
+                        "raw": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "scaled": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "type": "none"
+                    },
+                    "publish": {
+                        "bit": 0,
+                        "key": "",
+                        "enabled": false,
+                        "moduleId": 0
+                    },
+                    "masking": {
+                        "bit": 0,
+                        "enabled": false
+                    },
+                    "mqtt": {
+                        "userName": "",
+                        "password": "",
+                        "subscribe": {
+                            "data": "",
+                            "control": ""
+                        },
+                        "enabled": false
+                    },
+                    "modbus": {
+                        "isCoil": true,
+                        "isHoldingRegister": false
+                    },
+                    "key": "",
+                    "tagId": "",
+                    "value": 0,
+                    "shift": -1,
+                    "inputId": "62a6fdf35326e90937a49e94",
+                    "register": 10,
+                    "moduleId": 0,
+                    "readable": true,
+                    "interface": "",
+                    "writeable": true,
+                    "description": "DO10",
+                    "cofs": -1
+                },
+                {
+                    "scaling": {
+                        "raw": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "scaled": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "type": "none"
+                    },
+                    "publish": {
+                        "bit": 0,
+                        "key": "",
+                        "enabled": false,
+                        "moduleId": 0
+                    },
+                    "masking": {
+                        "bit": 0,
+                        "enabled": false
+                    },
+                    "mqtt": {
+                        "userName": "",
+                        "password": "",
+                        "subscribe": {
+                            "data": "",
+                            "control": ""
+                        },
+                        "enabled": false
+                    },
+                    "modbus": {
+                        "isCoil": true,
+                        "isHoldingRegister": false
+                    },
+                    "key": "",
+                    "tagId": "",
+                    "value": 0,
+                    "shift": -1,
+                    "inputId": "62a6fdff2bbad4c8b2bc84df",
+                    "register": 11,
+                    "moduleId": 0,
+                    "readable": true,
+                    "interface": "",
+                    "writeable": true,
+                    "description": "DO11",
+                    "cofs": -1
+                },
+                {
+                    "scaling": {
+                        "raw": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "scaled": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "type": "none"
+                    },
+                    "publish": {
+                        "bit": 0,
+                        "key": "",
+                        "enabled": false,
+                        "moduleId": 0
+                    },
+                    "masking": {
+                        "bit": 0,
+                        "enabled": false
+                    },
+                    "mqtt": {
+                        "userName": "",
+                        "password": "",
+                        "subscribe": {
+                            "data": "",
+                            "control": ""
+                        },
+                        "enabled": false
+                    },
+                    "modbus": {
+                        "isCoil": true,
+                        "isHoldingRegister": false
+                    },
+                    "key": "",
+                    "tagId": "",
+                    "value": 0,
+                    "shift": -1,
+                    "inputId": "62a6fe094b270442c08b9f0b",
+                    "register": 12,
+                    "moduleId": 0,
+                    "readable": true,
+                    "interface": "",
+                    "writeable": true,
+                    "description": "DO12",
+                    "cofs": -1
+                },
+                {
+                    "scaling": {
+                        "raw": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "scaled": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "type": "none"
+                    },
+                    "publish": {
+                        "bit": 0,
+                        "key": "",
+                        "enabled": false,
+                        "moduleId": 0
+                    },
+                    "masking": {
+                        "bit": 0,
+                        "enabled": false
+                    },
+                    "mqtt": {
+                        "userName": "",
+                        "password": "",
+                        "subscribe": {
+                            "data": "",
+                            "control": ""
+                        },
+                        "enabled": false
+                    },
+                    "modbus": {
+                        "isCoil": true,
+                        "isHoldingRegister": false
+                    },
+                    "key": "",
+                    "tagId": "",
+                    "value": 0,
+                    "shift": -1,
+                    "inputId": "62a6fe13e1880b9a0e8eba41",
+                    "register": 13,
+                    "moduleId": 0,
+                    "readable": true,
+                    "interface": "",
+                    "writeable": true,
+                    "description": "DO13",
+                    "cofs": -1
+                },
+                {
+                    "scaling": {
+                        "raw": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "scaled": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "type": "none"
+                    },
+                    "publish": {
+                        "bit": 0,
+                        "key": "",
+                        "enabled": false,
+                        "moduleId": 0
+                    },
+                    "masking": {
+                        "bit": 0,
+                        "enabled": false
+                    },
+                    "mqtt": {
+                        "userName": "",
+                        "password": "",
+                        "subscribe": {
+                            "data": "",
+                            "control": ""
+                        },
+                        "enabled": false
+                    },
+                    "modbus": {
+                        "isCoil": true,
+                        "isHoldingRegister": false
+                    },
+                    "key": "",
+                    "tagId": "",
+                    "value": 0,
+                    "shift": -1,
+                    "inputId": "62a6fe1eb431cdd13cacc00b",
+                    "register": 14,
+                    "moduleId": 0,
+                    "readable": true,
+                    "interface": "",
+                    "writeable": true,
+                    "description": "DO14",
+                    "cofs": -1
+                },
+                {
+                    "scaling": {
+                        "raw": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "scaled": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "type": "none"
+                    },
+                    "publish": {
+                        "bit": 0,
+                        "key": "",
+                        "enabled": false,
+                        "moduleId": 0
+                    },
+                    "masking": {
+                        "bit": 0,
+                        "enabled": false
+                    },
+                    "mqtt": {
+                        "userName": "",
+                        "password": "",
+                        "subscribe": {
+                            "data": "",
+                            "control": ""
+                        },
+                        "enabled": false
+                    },
+                    "modbus": {
+                        "isCoil": true,
+                        "isHoldingRegister": false
+                    },
+                    "key": "",
+                    "tagId": "",
+                    "value": 0,
+                    "shift": -1,
+                    "inputId": "62a6fe27ff650ed45417bf53",
+                    "register": 15,
+                    "moduleId": 0,
+                    "readable": true,
+                    "interface": "",
+                    "writeable": true,
+                    "description": "DO15",
+                    "cofs": -1
+                },
+                {
+                    "scaling": {
+                        "raw": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "scaled": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "type": "none"
+                    },
+                    "publish": {
+                        "bit": 0,
+                        "key": "",
+                        "enabled": false,
+                        "moduleId": 0
+                    },
+                    "masking": {
+                        "bit": 0,
+                        "enabled": false
+                    },
+                    "mqtt": {
+                        "userName": "",
+                        "password": "",
+                        "subscribe": {
+                            "data": "",
+                            "control": ""
+                        },
+                        "enabled": false
+                    },
+                    "modbus": {
+                        "isCoil": true,
+                        "isHoldingRegister": false
+                    },
+                    "key": "",
+                    "tagId": "",
+                    "value": 0,
+                    "shift": -1,
+                    "inputId": "62a6fe2ff72b43da6cdd4c1b",
+                    "register": 16,
+                    "moduleId": 0,
+                    "readable": true,
+                    "interface": "",
+                    "writeable": true,
+                    "description": "DO16",
+                    "cofs": -1
+                }
+            ],
+            "ip": "192.168.0.200",
+            "port": 502,
+            "type": "modbus",
+            "txtime": 1,
+            "pxtime": 120,
+            "timeout": 900,
+            "barcode": "0",
+            "publish": false,
+            "enabled": true,
+            "unitId": 0,
+            "deviceId": "689769878978979878787965",
+            "description": "Procon 16DO",
+            "userName": "",
+            "password": ""
+        }
+    ],
+    "mapping": [
+        {
+            "mapId": "62a6fa2197adb7c20932fbf8",
+            "source": {
+                "mask": -1,
+                "inputId": "621336f7319eee089a296555",
+                "deviceId": "000000000000000000000250"
+            },
+            "destination": {
+                "mask": -1,
+                "inputId": "62a4446900328648eb6af7d1",
+                "deviceId": "000000000000034567345846",
+                "destinationRegister": 2
+            }
+        },
+        {
+            "mapId": "62a6fa9c9d58e353fd6c43ce",
+            "source": {
+                "mask": -1,
+                "inputId": "62a6ecdff07307b56ea82dab",
+                "deviceId": "000000000000000000000250"
+            },
+            "destination": {
+                "mask": -1,
+                "inputId": "62a7117cd77fccc18b1812b4",
+                "deviceId": "62a5a54f30000c9ebe201fc8",
+                "destinationRegister": 23
+            }
+        },
+        {
+            "mapId": "62a6fb6c22edddeed6e62a7c",
+            "source": {
+                "mask": -1,
+                "inputId": "62a6eceb656c3d91cf65c521",
+                "deviceId": "000000000000000000000250"
+            },
+            "destination": {
+                "mask": -1,
+                "inputId": "62a7118a893f9a3b55ee08f2",
+                "deviceId": "62a5a54f30000c9ebe201fc8",
+                "destinationRegister": 24
+            }
+        },
+        {
+            "mapId": "62a6fb8633985c715463adf5",
+            "source": {
+                "mask": -1,
+                "inputId": "62a6ecf93d6d50bbc937ff8a",
+                "deviceId": "000000000000000000000250"
+            },
+            "destination": {
+                "mask": -1,
+                "inputId": "62a7119d69235b03e1c55efc",
+                "deviceId": "62a5a54f30000c9ebe201fc8",
+                "destinationRegister": 17
+            }
+        },
+        {
+            "mapId": "62a6fb9897db86acd84ec038",
+            "source": {
+                "mask": -1,
+                "inputId": "62a6ed024c9d6cdec1d7634d",
+                "deviceId": "000000000000000000000250"
+            },
+            "destination": {
+                "mask": -1,
+                "inputId": "62a711a8bb407135225a1dc1",
+                "deviceId": "62a5a54f30000c9ebe201fc8",
+                "destinationRegister": 18
+            }
+        },
+        {
+            "mapId": "62a6fbaa3e7a832ebaf3f14e",
+            "source": {
+                "mask": -1,
+                "inputId": "62a6ed09d31f82ecdecc47e7",
+                "deviceId": "000000000000000000000250"
+            },
+            "destination": {
+                "mask": -1,
+                "inputId": "62a711b8e22e782ad15730eb",
+                "deviceId": "62a5a54f30000c9ebe201fc8",
+                "destinationRegister": 19
+            }
+        },
+        {
+            "mapId": "62a6fbc656688756aa9f1485",
+            "source": {
+                "mask": -1,
+                "inputId": "621f0ccc6e8fc5dc94269f67",
+                "deviceId": "000000000000000000000250"
+            },
+            "destination": {
+                "mask": -1,
+                "inputId": "62a59dbd908dca34fde57bb1",
+                "deviceId": "689769878978979878787965",
+                "destinationRegister": 1
+            }
+        },
+        {
+            "mapId": "62a6fbdcce522a752000b000",
+            "source": {
+                "mask": -1,
+                "inputId": "621f439813bfefcdbc670a0c",
+                "deviceId": "000000000000000000000250"
+            },
+            "destination": {
+                "mask": -1,
+                "inputId": "62a6fd88a496be91a3283a6f",
+                "deviceId": "689769878978979878787965",
+                "destinationRegister": 2
+            }
+        },
+        {
+            "mapId": "62a6fbed0d17f2e972503533",
+            "source": {
+                "mask": -1,
+                "inputId": "621f43a7e4df942ca265f7e7",
+                "deviceId": "000000000000000000000250"
+            },
+            "destination": {
+                "mask": -1,
+                "inputId": "62a6fd96b04d60e63443396d",
+                "deviceId": "689769878978979878787965",
+                "destinationRegister": 3
+            }
+        },
+        {
+            "mapId": "62a6fbfcad0d6920775d5180",
+            "source": {
+                "mask": -1,
+                "inputId": "621f43b4d55ce44ab889855f",
+                "deviceId": "000000000000000000000250"
+            },
+            "destination": {
+                "mask": -1,
+                "inputId": "62a6fd9e91dabd2b33e3b1f2",
+                "deviceId": "689769878978979878787965",
+                "destinationRegister": 4
+            }
+        },
+        {
+            "mapId": "62a6fc09b56f86fefbb38130",
+            "source": {
+                "mask": -1,
+                "inputId": "621f43c30ed6eb5e769e6e30",
+                "deviceId": "000000000000000000000250"
+            },
+            "destination": {
+                "mask": -1,
+                "inputId": "62a6fda707a4f9ab59c65109",
+                "deviceId": "689769878978979878787965",
+                "destinationRegister": 5
+            }
+        },
+        {
+            "mapId": "62a6fc16b96d38f9a24d95e0",
+            "source": {
+                "mask": -1,
+                "inputId": "621f43cf150412fa7ee378a4",
+                "deviceId": "000000000000000000000250"
+            },
+            "destination": {
+                "mask": -1,
+                "inputId": "62a6fdc48039ce197d7946f6",
+                "deviceId": "689769878978979878787965",
+                "destinationRegister": 6
+            }
+        },
+        {
+            "mapId": "62a6fc251a05633b5099b641",
+            "source": {
+                "mask": -1,
+                "inputId": "621f43eb49b504d38778c636",
+                "deviceId": "000000000000000000000250"
+            },
+            "destination": {
+                "mask": -1,
+                "inputId": "62a6fdcd3c8b8e81c405ba2c",
+                "deviceId": "689769878978979878787965",
+                "destinationRegister": 7
+            }
+        },
+        {
+            "mapId": "62a6fc35ae3986862c8820cd",
+            "source": {
+                "mask": -1,
+                "inputId": "621f440059cf41d68b52c808",
+                "deviceId": "000000000000000000000250"
+            },
+            "destination": {
+                "mask": -1,
+                "inputId": "62a6fddf82caaac21922c908",
+                "deviceId": "689769878978979878787965",
+                "destinationRegister": 8
+            }
+        },
+        {
+            "mapId": "62a6fc451cc45e9db12a9566",
+            "source": {
+                "mask": -1,
+                "inputId": "621f4416b997f5a6c4d68107",
+                "deviceId": "000000000000000000000250"
+            },
+            "destination": {
+                "mask": -1,
+                "inputId": "62a6fde7be90e9fa864f4781",
+                "deviceId": "689769878978979878787965",
+                "destinationRegister": 9
+            }
+        },
+        {
+            "mapId": "62a6fc58f563fab785f06e6a",
+            "source": {
+                "mask": -1,
+                "inputId": "62a6ec884f070f61dea1080d",
+                "deviceId": "000000000000000000000250"
+            },
+            "destination": {
+                "mask": -1,
+                "inputId": "62a6fdf35326e90937a49e94",
+                "deviceId": "689769878978979878787965",
+                "destinationRegister": 10
+            }
+        },
+        {
+            "mapId": "62a6fc6aa97dde58e52af731",
+            "source": {
+                "mask": -1,
+                "inputId": "62a6ec91071bea07fb5d2504",
+                "deviceId": "000000000000000000000250"
+            },
+            "destination": {
+                "mask": -1,
+                "inputId": "62a6fdff2bbad4c8b2bc84df",
+                "deviceId": "689769878978979878787965",
+                "destinationRegister": 11
+            }
+        },
+        {
+            "mapId": "62a6fc7f79381088438d73e7",
+            "source": {
+                "mask": -1,
+                "inputId": "62a6ec9a47a9fc9ad177d943",
+                "deviceId": "000000000000000000000250"
+            },
+            "destination": {
+                "mask": -1,
+                "inputId": "62a6fe094b270442c08b9f0b",
+                "deviceId": "689769878978979878787965",
+                "destinationRegister": 12
+            }
+        },
+        {
+            "mapId": "62a6fc954bda04cadf1b169e",
+            "source": {
+                "mask": -1,
+                "inputId": "62a6eca10f6b3c707e9d17b3",
+                "deviceId": "000000000000000000000250"
+            },
+            "destination": {
+                "mask": -1,
+                "inputId": "62a6fe13e1880b9a0e8eba41",
+                "deviceId": "689769878978979878787965",
+                "destinationRegister": 13
+            }
+        },
+        {
+            "mapId": "62a6fccfd1aee6b639199481",
+            "source": {
+                "mask": -1,
+                "inputId": "62a6eca86560a4c98b84c796",
+                "deviceId": "000000000000000000000250"
+            },
+            "destination": {
+                "mask": -1,
+                "inputId": "62a6fe1eb431cdd13cacc00b",
+                "deviceId": "689769878978979878787965",
+                "destinationRegister": 14
+            }
+        },
+        {
+            "mapId": "62a6fcea4f9f2772d324732f",
+            "source": {
+                "mask": -1,
+                "inputId": "62a6ecae49eff5ad167685b9",
+                "deviceId": "000000000000000000000250"
+            },
+            "destination": {
+                "mask": -1,
+                "inputId": "62a6fe27ff650ed45417bf53",
+                "deviceId": "689769878978979878787965",
+                "destinationRegister": 15
+            }
+        },
+        {
+            "mapId": "62a6fd0f16ef5e677ddb86b7",
+            "source": {
+                "mask": -1,
+                "inputId": "62a6ecb5d4c10f3d5a288a33",
+                "deviceId": "000000000000000000000250"
+            },
+            "destination": {
+                "mask": -1,
+                "inputId": "62a6fe2ff72b43da6cdd4c1b",
+                "deviceId": "689769878978979878787965",
+                "destinationRegister": 16
+            }
+        },
+        {
+            "mapId": "62b1ad6caf12f641c7a6bf0d",
+            "source": {
+                "mask": -1,
+                "inputId": "62a44a4679441e84c78b18a6",
+                "deviceId": "62a5a54f30000c9ebe201fc8"
+            },
+            "destination": {
+                "mask": -1,
+                "inputId": "62a44a4679441e84c78b18a6",
+                "deviceId": "62a5a54f30000c9ebe201fc8",
+                "destinationRegister": 2
+            }
+        }
+    ],
+    "apn": "internet"
+}

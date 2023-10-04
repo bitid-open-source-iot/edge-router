@@ -1,0 +1,2223 @@
+{
+    "port": 8080,
+    "txtime": 900,
+    "barcode": "6969",
+    "deviceId": "62a5a54f36730c9ebe201fc8",
+    "production": true,
+    "authentication": true,
+    "admin": {
+        "email": "admin@bitid.co.za",
+        "password": "admin"
+    },
+    "server": {
+        "host": "mqtt://app.trackitall.co.za",
+        "port": 1888,
+        "username": "unittest",
+        "password": "unittest1!",
+        "subscribe": {
+            "data": "/rock/v1.1/data",
+            "control": "/rock/v1.1/control"
+        }
+    },
+    "logger": {
+        "appenders": {
+            "edge-router": {
+                "type": "file",
+                "backups": 10,
+                "filename": "./logs/edge-router.log",
+                "absolute": true,
+                "maxLogSize": 102400
+            }
+        },
+        "categories": {
+            "default": {
+                "appenders": [
+                    "edge-router"
+                ],
+                "level": "error"
+            }
+        }
+    },
+    "devices": [
+        {
+            "io": [
+                {
+                    "scaling": {
+                        "raw": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "scaled": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "type": "none"
+                    },
+                    "publish": {
+                        "bit": 0,
+                        "key": "",
+                        "enabled": false,
+                        "moduleId": 0
+                    },
+                    "masking": {
+                        "bit": 0,
+                        "enabled": false
+                    },
+                    "key": "AI1",
+                    "tagId": "",
+                    "value": 0,
+                    "shift": -1,
+                    "inputId": "621336f7319eee089a296555",
+                    "register": 0,
+                    "moduleId": 0,
+                    "readable": false,
+                    "interface": "",
+                    "writeable": false,
+                    "description": "RW Inlet Level"
+                },
+                {
+                    "scaling": {
+                        "raw": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "scaled": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "type": "none"
+                    },
+                    "publish": {
+                        "bit": 0,
+                        "key": "",
+                        "enabled": false,
+                        "moduleId": 0
+                    },
+                    "masking": {
+                        "bit": 0,
+                        "enabled": false
+                    },
+                    "key": "AI2",
+                    "tagId": "",
+                    "value": 924,
+                    "shift": -1,
+                    "inputId": "62133705ace53e0432a8b476",
+                    "register": 0,
+                    "moduleId": 0,
+                    "readable": false,
+                    "interface": "",
+                    "writeable": false,
+                    "description": "RW Inlet Flowrate"
+                },
+                {
+                    "scaling": {
+                        "raw": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "scaled": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "type": "none"
+                    },
+                    "publish": {
+                        "bit": 0,
+                        "key": "",
+                        "enabled": false,
+                        "moduleId": 0
+                    },
+                    "masking": {
+                        "bit": 0,
+                        "enabled": true
+                    },
+                    "key": "digitalsIn",
+                    "tagId": "",
+                    "value": 266,
+                    "shift": 10,
+                    "inputId": "621f0ccc6e8fc5dc94269f67",
+                    "register": 0,
+                    "moduleId": 0,
+                    "readable": false,
+                    "interface": "",
+                    "writeable": false,
+                    "description": "RW Procon 1 - P1 Run"
+                },
+                {
+                    "scaling": {
+                        "raw": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "scaled": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "type": "none"
+                    },
+                    "publish": {
+                        "bit": 0,
+                        "key": "",
+                        "enabled": false,
+                        "moduleId": 0
+                    },
+                    "masking": {
+                        "bit": 1,
+                        "enabled": true
+                    },
+                    "key": "digitalsIn",
+                    "tagId": "",
+                    "value": 266,
+                    "shift": 10,
+                    "inputId": "621f439813bfefcdbc670a0c",
+                    "register": 0,
+                    "moduleId": 0,
+                    "readable": false,
+                    "interface": "",
+                    "writeable": false,
+                    "description": "RW Procon 1 - P1 Trip"
+                },
+                {
+                    "scaling": {
+                        "raw": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "scaled": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "type": "none"
+                    },
+                    "publish": {
+                        "bit": 0,
+                        "key": "",
+                        "enabled": false,
+                        "moduleId": 0
+                    },
+                    "masking": {
+                        "bit": 2,
+                        "enabled": true
+                    },
+                    "key": "digitalsIn",
+                    "tagId": "",
+                    "value": 266,
+                    "shift": 10,
+                    "inputId": "621f43a7e4df942ca265f7e7",
+                    "register": 0,
+                    "moduleId": 0,
+                    "readable": false,
+                    "interface": "",
+                    "writeable": false,
+                    "description": "RW Procon 1 - P1 Moisture Ingress"
+                },
+                {
+                    "scaling": {
+                        "raw": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "scaled": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "type": "none"
+                    },
+                    "publish": {
+                        "bit": 0,
+                        "key": "",
+                        "enabled": false,
+                        "moduleId": 0
+                    },
+                    "masking": {
+                        "bit": 3,
+                        "enabled": true
+                    },
+                    "key": "digitalsIn",
+                    "tagId": "",
+                    "value": 266,
+                    "shift": 10,
+                    "inputId": "621f43b4d55ce44ab889855f",
+                    "register": 0,
+                    "moduleId": 0,
+                    "readable": false,
+                    "interface": "",
+                    "writeable": false,
+                    "description": "RW Procon 1 - P2 Run"
+                },
+                {
+                    "scaling": {
+                        "raw": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "scaled": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "type": "none"
+                    },
+                    "publish": {
+                        "bit": 0,
+                        "key": "",
+                        "enabled": false,
+                        "moduleId": 0
+                    },
+                    "masking": {
+                        "bit": 4,
+                        "enabled": true
+                    },
+                    "key": "digitalsIn",
+                    "tagId": "",
+                    "value": 266,
+                    "shift": 10,
+                    "inputId": "621f43c30ed6eb5e769e6e30",
+                    "register": 0,
+                    "moduleId": 0,
+                    "readable": false,
+                    "interface": "",
+                    "writeable": false,
+                    "description": "RW Procon 1 - P2 Trip"
+                },
+                {
+                    "scaling": {
+                        "raw": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "scaled": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "type": "none"
+                    },
+                    "publish": {
+                        "bit": 0,
+                        "key": "",
+                        "enabled": false,
+                        "moduleId": 0
+                    },
+                    "masking": {
+                        "bit": 5,
+                        "enabled": true
+                    },
+                    "key": "digitalsIn",
+                    "tagId": "",
+                    "value": 266,
+                    "shift": 10,
+                    "inputId": "621f43cf150412fa7ee378a4",
+                    "register": 0,
+                    "moduleId": 0,
+                    "readable": false,
+                    "interface": "",
+                    "writeable": false,
+                    "description": "RW Procon 1 - P2 Moisture Ingress"
+                },
+                {
+                    "scaling": {
+                        "raw": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "scaled": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "type": "none"
+                    },
+                    "publish": {
+                        "bit": 0,
+                        "key": "",
+                        "enabled": false,
+                        "moduleId": 0
+                    },
+                    "masking": {
+                        "bit": 6,
+                        "enabled": true
+                    },
+                    "key": "digitalsIn",
+                    "tagId": "",
+                    "value": 266,
+                    "shift": 10,
+                    "inputId": "621f43eb49b504d38778c636",
+                    "register": 0,
+                    "moduleId": 0,
+                    "readable": false,
+                    "interface": "",
+                    "writeable": false,
+                    "description": "RW Procon 1 - Inlet Low Level"
+                },
+                {
+                    "scaling": {
+                        "raw": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "scaled": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "type": "none"
+                    },
+                    "publish": {
+                        "bit": 0,
+                        "key": "",
+                        "enabled": false,
+                        "moduleId": 0
+                    },
+                    "masking": {
+                        "bit": 7,
+                        "enabled": true
+                    },
+                    "key": "digitalsIn",
+                    "tagId": "",
+                    "value": 266,
+                    "shift": 10,
+                    "inputId": "621f440059cf41d68b52c808",
+                    "register": 0,
+                    "moduleId": 0,
+                    "readable": false,
+                    "interface": "",
+                    "writeable": false,
+                    "description": "RW Procon 1 - Duty Pump Fail"
+                },
+                {
+                    "scaling": {
+                        "raw": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "scaled": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "type": "none"
+                    },
+                    "publish": {
+                        "bit": 0,
+                        "key": "",
+                        "enabled": false,
+                        "moduleId": 0
+                    },
+                    "masking": {
+                        "bit": 8,
+                        "enabled": true
+                    },
+                    "key": "digitalsIn",
+                    "tagId": "",
+                    "value": 266,
+                    "shift": 10,
+                    "inputId": "621f4416b997f5a6c4d68107",
+                    "register": 0,
+                    "moduleId": 0,
+                    "readable": false,
+                    "interface": "",
+                    "writeable": false,
+                    "description": "RW Procon 1 - Duty Pump CALL"
+                }
+            ],
+            "ip": "0.0.0.0",
+            "port": 0,
+            "type": "external",
+            "txtime": 5,
+            "pxtime": 120,
+            "timeout": 900,
+            "barcode": "10",
+            "publish": false,
+            "enabled": false,
+            "deviceId": "000000000000000000000010",
+            "description": "Madungela RWPS"
+        },
+        {
+            "io": [
+                {
+                    "scaling": {
+                        "raw": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "scaled": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "type": "none"
+                    },
+                    "publish": {
+                        "bit": 0,
+                        "key": "",
+                        "enabled": false,
+                        "moduleId": 0
+                    },
+                    "masking": {
+                        "bit": 0,
+                        "enabled": false
+                    },
+                    "key": "AI1",
+                    "tagId": "",
+                    "value": 0,
+                    "shift": -1,
+                    "inputId": "62133344d8b285adb7c60126",
+                    "register": 0,
+                    "moduleId": 0,
+                    "readable": false,
+                    "interface": "",
+                    "writeable": false,
+                    "description": "Res Level"
+                },
+                {
+                    "scaling": {
+                        "raw": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "scaled": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "type": "none"
+                    },
+                    "publish": {
+                        "bit": 0,
+                        "key": "",
+                        "enabled": false,
+                        "moduleId": 0
+                    },
+                    "masking": {
+                        "bit": 0,
+                        "enabled": true
+                    },
+                    "key": "digitalsIn",
+                    "tagId": "",
+                    "value": 0,
+                    "shift": 4,
+                    "inputId": "6213336609829875aee4f110",
+                    "register": 0,
+                    "moduleId": 0,
+                    "readable": false,
+                    "interface": "",
+                    "writeable": false,
+                    "description": "Pump Call Signal"
+                },
+                {
+                    "scaling": {
+                        "raw": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "scaled": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "type": "none"
+                    },
+                    "publish": {
+                        "bit": 0,
+                        "key": "",
+                        "enabled": false,
+                        "moduleId": 0
+                    },
+                    "masking": {
+                        "bit": 1,
+                        "enabled": true
+                    },
+                    "key": "digitalsIn",
+                    "tagId": "",
+                    "value": 1,
+                    "shift": 4,
+                    "inputId": "621333793e9a0ec38545e858",
+                    "register": 0,
+                    "moduleId": 0,
+                    "readable": false,
+                    "interface": "",
+                    "writeable": false,
+                    "description": "Intruder Status"
+                }
+            ],
+            "ip": "0.0.0.0",
+            "port": 0,
+            "type": "external",
+            "txtime": 5,
+            "pxtime": 120,
+            "timeout": 900,
+            "barcode": "11",
+            "publish": false,
+            "enabled": false,
+            "deviceId": "000000000000000000000011",
+            "description": "Madungela Intermediate Res"
+        },
+        {
+            "io": [
+                {
+                    "scaling": {
+                        "raw": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "scaled": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "type": "none"
+                    },
+                    "publish": {
+                        "bit": 0,
+                        "key": "",
+                        "enabled": false,
+                        "moduleId": 0
+                    },
+                    "masking": {
+                        "bit": 0,
+                        "enabled": false
+                    },
+                    "mqtt": {
+                        "userName": "",
+                        "password": "",
+                        "subscribe": {
+                            "data": "",
+                            "control": ""
+                        },
+                        "enabled": false
+                    },
+                    "key": "digitalsIn",
+                    "tagId": "",
+                    "value": 266,
+                    "shift": -1,
+                    "inputId": "621338d503c167ca7c8cd7ee",
+                    "register": 2,
+                    "moduleId": 0,
+                    "readable": false,
+                    "interface": "",
+                    "writeable": false,
+                    "description": "O/P 01 - P1 Run"
+                },
+                {
+                    "scaling": {
+                        "raw": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "scaled": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "type": "none"
+                    },
+                    "publish": {
+                        "bit": 0,
+                        "key": "",
+                        "enabled": false,
+                        "moduleId": 0
+                    },
+                    "masking": {
+                        "bit": 0,
+                        "enabled": false
+                    },
+                    "mqtt": {
+                        "userName": "",
+                        "password": "",
+                        "subscribe": {
+                            "data": "",
+                            "control": ""
+                        },
+                        "enabled": false
+                    },
+                    "key": "digitalsIn",
+                    "tagId": "",
+                    "value": 266,
+                    "shift": -1,
+                    "inputId": "621f44955b0a9851a23b8847",
+                    "register": 3,
+                    "moduleId": 0,
+                    "readable": false,
+                    "interface": "",
+                    "writeable": false,
+                    "description": "O/P 02 - P1 Trip"
+                },
+                {
+                    "scaling": {
+                        "raw": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "scaled": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "type": "none"
+                    },
+                    "publish": {
+                        "bit": 0,
+                        "key": "",
+                        "enabled": false,
+                        "moduleId": 0
+                    },
+                    "masking": {
+                        "bit": 0,
+                        "enabled": false
+                    },
+                    "mqtt": {
+                        "userName": "",
+                        "password": "",
+                        "subscribe": {
+                            "data": "",
+                            "control": ""
+                        },
+                        "enabled": false
+                    },
+                    "key": "digitalsIn",
+                    "tagId": "",
+                    "value": 266,
+                    "shift": -1,
+                    "inputId": "621f47248f8460f46f9aa9e6",
+                    "register": 4,
+                    "moduleId": 0,
+                    "readable": false,
+                    "interface": "",
+                    "writeable": false,
+                    "description": "O/P 03 - P1 Moisture Ingress"
+                },
+                {
+                    "scaling": {
+                        "raw": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "scaled": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "type": "none"
+                    },
+                    "publish": {
+                        "bit": 0,
+                        "key": "",
+                        "enabled": false,
+                        "moduleId": 0
+                    },
+                    "masking": {
+                        "bit": 0,
+                        "enabled": false
+                    },
+                    "mqtt": {
+                        "userName": "",
+                        "password": "",
+                        "subscribe": {
+                            "data": "",
+                            "control": ""
+                        },
+                        "enabled": false
+                    },
+                    "key": "digitalsIn",
+                    "tagId": "",
+                    "value": 266,
+                    "shift": -1,
+                    "inputId": "621f4730d8dce03ecc0b8477",
+                    "register": 5,
+                    "moduleId": 0,
+                    "readable": false,
+                    "interface": "",
+                    "writeable": false,
+                    "description": "O/P 04 - P2 Run"
+                },
+                {
+                    "scaling": {
+                        "raw": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "scaled": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "type": "none"
+                    },
+                    "publish": {
+                        "bit": 0,
+                        "key": "",
+                        "enabled": false,
+                        "moduleId": 0
+                    },
+                    "masking": {
+                        "bit": 0,
+                        "enabled": false
+                    },
+                    "mqtt": {
+                        "userName": "",
+                        "password": "",
+                        "subscribe": {
+                            "data": "",
+                            "control": ""
+                        },
+                        "enabled": false
+                    },
+                    "key": "digitalsIn",
+                    "tagId": "",
+                    "value": 266,
+                    "shift": -1,
+                    "inputId": "621f4738c0a69c9d59473b4a",
+                    "register": 6,
+                    "moduleId": 0,
+                    "readable": false,
+                    "interface": "",
+                    "writeable": false,
+                    "description": "O/P 05 - P2 Trip"
+                },
+                {
+                    "scaling": {
+                        "raw": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "scaled": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "type": "none"
+                    },
+                    "publish": {
+                        "bit": 0,
+                        "key": "",
+                        "enabled": false,
+                        "moduleId": 0
+                    },
+                    "masking": {
+                        "bit": 0,
+                        "enabled": false
+                    },
+                    "mqtt": {
+                        "userName": "",
+                        "password": "",
+                        "subscribe": {
+                            "data": "",
+                            "control": ""
+                        },
+                        "enabled": false
+                    },
+                    "key": "digitalsIn",
+                    "tagId": "",
+                    "value": 266,
+                    "shift": -1,
+                    "inputId": "621f473f519dae7a2270d9d2",
+                    "register": 7,
+                    "moduleId": 0,
+                    "readable": false,
+                    "interface": "",
+                    "writeable": false,
+                    "description": "O/P 06 - P2 Moisture Ingress"
+                },
+                {
+                    "scaling": {
+                        "raw": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "scaled": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "type": "none"
+                    },
+                    "publish": {
+                        "bit": 0,
+                        "key": "",
+                        "enabled": false,
+                        "moduleId": 0
+                    },
+                    "masking": {
+                        "bit": 0,
+                        "enabled": false
+                    },
+                    "mqtt": {
+                        "userName": "",
+                        "password": "",
+                        "subscribe": {
+                            "data": "",
+                            "control": ""
+                        },
+                        "enabled": false
+                    },
+                    "key": "digitalsIn",
+                    "tagId": "",
+                    "value": 266,
+                    "shift": -1,
+                    "inputId": "621f474abb50c500fe9d1abf",
+                    "register": 8,
+                    "moduleId": 0,
+                    "readable": false,
+                    "interface": "",
+                    "writeable": false,
+                    "description": "O/P 07 - Inlet Low Level"
+                },
+                {
+                    "scaling": {
+                        "raw": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "scaled": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "type": "none"
+                    },
+                    "publish": {
+                        "bit": 0,
+                        "key": "",
+                        "enabled": false,
+                        "moduleId": 0
+                    },
+                    "masking": {
+                        "bit": 0,
+                        "enabled": false
+                    },
+                    "mqtt": {
+                        "userName": "",
+                        "password": "",
+                        "subscribe": {
+                            "data": "",
+                            "control": ""
+                        },
+                        "enabled": false
+                    },
+                    "key": "digitalsIn",
+                    "tagId": "",
+                    "value": 266,
+                    "shift": -1,
+                    "inputId": "621f4756d4c0e12d6c76b737",
+                    "register": 9,
+                    "moduleId": 0,
+                    "readable": false,
+                    "interface": "",
+                    "writeable": false,
+                    "description": "O/P 08 - Duty Pump Fail"
+                },
+                {
+                    "scaling": {
+                        "raw": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "scaled": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "type": "none"
+                    },
+                    "publish": {
+                        "bit": 0,
+                        "key": "",
+                        "enabled": false,
+                        "moduleId": 0
+                    },
+                    "masking": {
+                        "bit": 0,
+                        "enabled": false
+                    },
+                    "mqtt": {
+                        "userName": "",
+                        "password": "",
+                        "subscribe": {
+                            "data": "",
+                            "control": ""
+                        },
+                        "enabled": false
+                    },
+                    "key": "digitalsIn",
+                    "tagId": "",
+                    "value": 266,
+                    "shift": -1,
+                    "inputId": "621f47624f131a9601cae9d2",
+                    "register": 10,
+                    "moduleId": 0,
+                    "readable": false,
+                    "interface": "",
+                    "writeable": false,
+                    "description": "O/P 09 - Duty Pump CALL"
+                },
+                {
+                    "scaling": {
+                        "raw": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "scaled": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "type": "none"
+                    },
+                    "publish": {
+                        "bit": 0,
+                        "key": "",
+                        "enabled": false,
+                        "moduleId": 0
+                    },
+                    "masking": {
+                        "bit": 0,
+                        "enabled": false
+                    },
+                    "mqtt": {
+                        "userName": "",
+                        "password": "",
+                        "subscribe": {
+                            "data": "",
+                            "control": ""
+                        },
+                        "enabled": false
+                    },
+                    "key": "digitalsIn",
+                    "tagId": "",
+                    "value": 1,
+                    "shift": -1,
+                    "inputId": "621f4b1139a90f3eb5504d33",
+                    "register": 11,
+                    "moduleId": 0,
+                    "readable": false,
+                    "interface": "",
+                    "writeable": false,
+                    "description": "O/P 10 - Intermediate Res Intruder"
+                }
+            ],
+            "ip": "192.168.0.101",
+            "port": 502,
+            "type": "modbus",
+            "txtime": 5,
+            "pxtime": 120,
+            "timeout": 900,
+            "barcode": "0",
+            "publish": false,
+            "enabled": false,
+            "deviceId": "000000000000000000000000",
+            "description": "Procon DO-1"
+        },
+        {
+            "io": [
+                {
+                    "scaling": {
+                        "raw": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "scaled": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "type": "none"
+                    },
+                    "publish": {
+                        "bit": 0,
+                        "key": "",
+                        "enabled": false,
+                        "moduleId": 0
+                    },
+                    "masking": {
+                        "bit": 0,
+                        "enabled": false
+                    },
+                    "mqtt": {
+                        "userName": "",
+                        "password": "",
+                        "subscribe": {
+                            "data": "",
+                            "control": ""
+                        },
+                        "enabled": false
+                    },
+                    "key": "AI1",
+                    "tagId": "",
+                    "value": 0,
+                    "shift": -1,
+                    "inputId": "62133f9846356e61c70a904d",
+                    "register": 2,
+                    "moduleId": 0,
+                    "readable": true,
+                    "interface": "",
+                    "writeable": true,
+                    "description": "Raw Water Inlet Res Level"
+                },
+                {
+                    "scaling": {
+                        "raw": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "scaled": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "type": "none"
+                    },
+                    "publish": {
+                        "bit": 0,
+                        "key": "",
+                        "enabled": false,
+                        "moduleId": 0
+                    },
+                    "masking": {
+                        "bit": 0,
+                        "enabled": false
+                    },
+                    "mqtt": {
+                        "userName": "",
+                        "password": "",
+                        "subscribe": {
+                            "data": "",
+                            "control": ""
+                        },
+                        "enabled": false
+                    },
+                    "key": "AI2",
+                    "tagId": "",
+                    "value": 924,
+                    "shift": -1,
+                    "inputId": "62133fae5035493a5a6dbfc7",
+                    "register": 3,
+                    "moduleId": 0,
+                    "readable": false,
+                    "interface": "",
+                    "writeable": false,
+                    "description": "Raw Water Inlet Flowrate"
+                },
+                {
+                    "scaling": {
+                        "raw": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "scaled": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "type": "none"
+                    },
+                    "publish": {
+                        "bit": 0,
+                        "key": "",
+                        "enabled": false,
+                        "moduleId": 0
+                    },
+                    "masking": {
+                        "bit": 0,
+                        "enabled": false
+                    },
+                    "mqtt": {
+                        "userName": "",
+                        "password": "",
+                        "subscribe": {
+                            "data": "",
+                            "control": ""
+                        },
+                        "enabled": false
+                    },
+                    "key": "AI3",
+                    "tagId": "",
+                    "value": 0,
+                    "shift": -1,
+                    "inputId": "62133fc5058c97605ab57940",
+                    "register": 4,
+                    "moduleId": 0,
+                    "readable": false,
+                    "interface": "",
+                    "writeable": false,
+                    "description": "Intermediate Res Level"
+                }
+            ],
+            "ip": "192.168.0.202",
+            "port": 502,
+            "type": "modbus",
+            "txtime": 1,
+            "pxtime": 120,
+            "timeout": 900,
+            "barcode": "1",
+            "publish": false,
+            "enabled": false,
+            "unitId": 0,
+            "deviceId": "000000000000000000000001",
+            "description": "Procon AO-1",
+            "userName": "",
+            "password": ""
+        },
+        {
+            "io": [
+                {
+                    "scaling": {
+                        "raw": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "scaled": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "type": "none"
+                    },
+                    "publish": {
+                        "bit": 0,
+                        "key": "",
+                        "enabled": false,
+                        "moduleId": 0
+                    },
+                    "masking": {
+                        "bit": 0,
+                        "enabled": false
+                    },
+                    "mqtt": {
+                        "userName": "",
+                        "password": "",
+                        "subscribe": {
+                            "data": "",
+                            "control": ""
+                        },
+                        "enabled": false
+                    },
+                    "key": "",
+                    "tagId": "",
+                    "value": 0,
+                    "shift": -1,
+                    "inputId": "627e2c8f76405f0672fd7f84",
+                    "register": 2,
+                    "moduleId": 0,
+                    "readable": true,
+                    "interface": "",
+                    "writeable": false,
+                    "description": "Digital Inputs"
+                }
+            ],
+            "ip": "192.168.0.101",
+            "port": 502,
+            "type": "modbus",
+            "txtime": 5,
+            "pxtime": 120,
+            "timeout": 120,
+            "barcode": "000000000000000000001346",
+            "publish": false,
+            "enabled": false,
+            "unitId": 2,
+            "deviceId": "000000000000000000001346",
+            "description": "New Fancy Procon DI8",
+            "userName": "",
+            "password": ""
+        },
+        {
+            "io": [
+                {
+                    "scaling": {
+                        "raw": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "scaled": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "type": "none"
+                    },
+                    "publish": {
+                        "bit": 0,
+                        "key": "",
+                        "enabled": false,
+                        "moduleId": 0
+                    },
+                    "masking": {
+                        "bit": 0,
+                        "enabled": false
+                    },
+                    "mqtt": {
+                        "userName": "",
+                        "password": "",
+                        "subscribe": {
+                            "data": "",
+                            "control": ""
+                        },
+                        "enabled": false
+                    },
+                    "key": "",
+                    "tagId": "",
+                    "value": 0,
+                    "shift": -1,
+                    "inputId": "627e2c8f76405f0672fd7f84",
+                    "register": 3,
+                    "moduleId": 0,
+                    "readable": true,
+                    "interface": "",
+                    "writeable": true,
+                    "description": "Digital Outputs"
+                }
+            ],
+            "ip": "192.168.0.101",
+            "port": 502,
+            "type": "modbus",
+            "txtime": 5,
+            "pxtime": 120,
+            "timeout": 120,
+            "barcode": "000000000000000000001347",
+            "publish": false,
+            "enabled": false,
+            "unitId": 2,
+            "deviceId": "000000000000000000001347",
+            "description": "New Fancy Procon DO8",
+            "userName": "",
+            "password": ""
+        },
+        {
+            "io": [
+                {
+                    "scaling": {
+                        "raw": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "scaled": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "type": "none"
+                    },
+                    "publish": {
+                        "bit": 0,
+                        "key": "",
+                        "enabled": false,
+                        "moduleId": 0
+                    },
+                    "masking": {
+                        "bit": 0,
+                        "enabled": false
+                    },
+                    "mqtt": {
+                        "userName": "",
+                        "password": "",
+                        "subscribe": {
+                            "data": "",
+                            "control": ""
+                        },
+                        "enabled": false
+                    },
+                    "key": "",
+                    "tagId": "",
+                    "value": 0,
+                    "shift": -1,
+                    "inputId": "627e2c8f76405f0672fd7f84",
+                    "register": 2,
+                    "moduleId": 0,
+                    "readable": true,
+                    "interface": "",
+                    "writeable": false,
+                    "description": "Analog Input 1"
+                }
+            ],
+            "ip": "192.168.0.101",
+            "port": 502,
+            "type": "modbus",
+            "txtime": 5,
+            "pxtime": 120,
+            "timeout": 120,
+            "barcode": "000000000000000000001348",
+            "publish": false,
+            "enabled": false,
+            "unitId": 1,
+            "deviceId": "000000000000000000001348",
+            "description": "New Fancy Procon AI"
+        },
+        {
+            "io": [
+                {
+                    "scaling": {
+                        "raw": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "scaled": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "type": "none"
+                    },
+                    "publish": {
+                        "bit": 0,
+                        "key": "",
+                        "enabled": false,
+                        "moduleId": 0
+                    },
+                    "masking": {
+                        "bit": 0,
+                        "enabled": false
+                    },
+                    "mqtt": {
+                        "userName": "unittest",
+                        "password": "unittest1!",
+                        "subscribe": {
+                            "data": "#",
+                            "control": "kGatewayRouter/control"
+                        },
+                        "enabled": true
+                    },
+                    "modbus": {
+                        "isCoil": false,
+                        "isHoldingRegister": false
+                    },
+                    "key": "",
+                    "tagId": "",
+                    "value": 0,
+                    "shift": -1,
+                    "inputId": "627f7769ecef55608ccfa76b",
+                    "register": 0,
+                    "moduleId": 0,
+                    "readable": false,
+                    "interface": "",
+                    "writeable": false,
+                    "description": "Subscribe"
+                }
+            ],
+            "ip": "mqtt://localhost",
+            "port": 1888,
+            "type": "kGateway",
+            "txtime": 5,
+            "pxtime": 120,
+            "timeout": 120,
+            "barcode": "69",
+            "publish": false,
+            "enabled": false,
+            "unitId": 0,
+            "deviceId": "000000000000000000000069",
+            "description": "KGateway Bluetooth Reader",
+            "userName": "unittest",
+            "password": "unittest1!"
+        },
+        {
+            "io": [
+                {
+                    "scaling": {
+                        "raw": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "scaled": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "type": "none"
+                    },
+                    "publish": {
+                        "bit": 0,
+                        "key": "",
+                        "enabled": false,
+                        "moduleId": 0
+                    },
+                    "masking": {
+                        "bit": 0,
+                        "enabled": false
+                    },
+                    "mqtt": {
+                        "userName": "",
+                        "password": "",
+                        "subscribe": {
+                            "data": "",
+                            "control": ""
+                        },
+                        "enabled": false
+                    },
+                    "key": "",
+                    "tagId": "",
+                    "value": 0,
+                    "shift": -1,
+                    "inputId": "6283755da3a74e9b9cc1e43f",
+                    "register": 2,
+                    "moduleId": 0,
+                    "readable": true,
+                    "interface": "",
+                    "writeable": false,
+                    "description": "Digital Inputs"
+                }
+            ],
+            "ip": "192.168.0.102",
+            "port": 502,
+            "type": "modbus",
+            "txtime": 1,
+            "pxtime": 120,
+            "timeout": 120,
+            "barcode": "000000000000000000001349",
+            "publish": false,
+            "enabled": false,
+            "unitId": 1,
+            "deviceId": "000000000000000000001349",
+            "description": "Prologics Digital Inputs PS1",
+            "userName": "",
+            "password": ""
+        },
+        {
+            "io": [
+                {
+                    "scaling": {
+                        "raw": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "scaled": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "type": "none"
+                    },
+                    "publish": {
+                        "bit": 0,
+                        "key": "",
+                        "enabled": false,
+                        "moduleId": 0
+                    },
+                    "masking": {
+                        "bit": 0,
+                        "enabled": false
+                    },
+                    "mqtt": {
+                        "userName": "",
+                        "password": "",
+                        "subscribe": {
+                            "data": "",
+                            "control": ""
+                        },
+                        "enabled": false
+                    },
+                    "key": "",
+                    "tagId": "",
+                    "value": 0,
+                    "shift": -1,
+                    "inputId": "62837491e4c12133fbe6c578",
+                    "register": 3,
+                    "moduleId": 0,
+                    "readable": true,
+                    "interface": "",
+                    "writeable": false,
+                    "description": "Digital Outputs V2"
+                }
+            ],
+            "ip": "192.168.0.102",
+            "port": 502,
+            "type": "modbus",
+            "txtime": 1,
+            "pxtime": 120,
+            "timeout": 120,
+            "barcode": "000000000000000000001350",
+            "publish": false,
+            "enabled": false,
+            "unitId": 1,
+            "deviceId": "000000000000000000001350",
+            "description": "Prologics Digital Outputs PS1",
+            "userName": "",
+            "password": ""
+        },
+        {
+            "io": [
+                {
+                    "scaling": {
+                        "raw": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "scaled": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "type": "none"
+                    },
+                    "publish": {
+                        "bit": 0,
+                        "key": "",
+                        "enabled": false,
+                        "moduleId": 0
+                    },
+                    "masking": {
+                        "bit": 0,
+                        "enabled": false
+                    },
+                    "mqtt": {
+                        "userName": "",
+                        "password": "",
+                        "subscribe": {
+                            "data": "",
+                            "control": ""
+                        },
+                        "enabled": false
+                    },
+                    "modbus": {
+                        "isCoil": true,
+                        "isHoldingRegister": false
+                    },
+                    "key": "digitalsIn",
+                    "tagId": "",
+                    "value": 0,
+                    "shift": -1,
+                    "inputId": "621338d503c167ca7c8cd7ee",
+                    "register": 1,
+                    "moduleId": 0,
+                    "readable": true,
+                    "interface": "",
+                    "writeable": false,
+                    "description": "DI1"
+                },
+                {
+                    "scaling": {
+                        "raw": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "scaled": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "type": "none"
+                    },
+                    "publish": {
+                        "bit": 0,
+                        "key": "",
+                        "enabled": false,
+                        "moduleId": 0
+                    },
+                    "masking": {
+                        "bit": 0,
+                        "enabled": false
+                    },
+                    "mqtt": {
+                        "userName": "",
+                        "password": "",
+                        "subscribe": {
+                            "data": "",
+                            "control": ""
+                        },
+                        "enabled": false
+                    },
+                    "modbus": {
+                        "isCoil": true,
+                        "isHoldingRegister": false
+                    },
+                    "key": "digitalsIn",
+                    "tagId": "",
+                    "value": 1,
+                    "shift": -1,
+                    "inputId": "621f44955b0a9851a23b8847",
+                    "register": 2,
+                    "moduleId": 0,
+                    "readable": true,
+                    "interface": "",
+                    "writeable": false,
+                    "description": "DI2"
+                },
+                {
+                    "scaling": {
+                        "raw": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "scaled": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "type": "none"
+                    },
+                    "publish": {
+                        "bit": 0,
+                        "key": "",
+                        "enabled": false,
+                        "moduleId": 0
+                    },
+                    "masking": {
+                        "bit": 0,
+                        "enabled": false
+                    },
+                    "mqtt": {
+                        "userName": "",
+                        "password": "",
+                        "subscribe": {
+                            "data": "",
+                            "control": ""
+                        },
+                        "enabled": false
+                    },
+                    "modbus": {
+                        "isCoil": false,
+                        "isHoldingRegister": true
+                    },
+                    "key": "",
+                    "tagId": "",
+                    "value": 0,
+                    "shift": -1,
+                    "inputId": "62a4446900328648eb6af7d1",
+                    "register": 3,
+                    "moduleId": 0,
+                    "readable": true,
+                    "interface": "",
+                    "writeable": true,
+                    "description": "DO ALL"
+                },
+                {
+                    "scaling": {
+                        "raw": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "scaled": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "type": "none"
+                    },
+                    "publish": {
+                        "bit": -1,
+                        "key": "digitalsIn",
+                        "enabled": true,
+                        "moduleId": 0
+                    },
+                    "masking": {
+                        "bit": 0,
+                        "enabled": false
+                    },
+                    "mqtt": {
+                        "userName": "",
+                        "password": "",
+                        "subscribe": {
+                            "data": "",
+                            "control": ""
+                        },
+                        "enabled": false
+                    },
+                    "modbus": {
+                        "isCoil": false,
+                        "isHoldingRegister": true
+                    },
+                    "key": "",
+                    "tagId": "",
+                    "value": 2,
+                    "shift": -1,
+                    "inputId": "62a44a4679441e84c78b18a6",
+                    "register": 2,
+                    "moduleId": 0,
+                    "readable": true,
+                    "interface": "",
+                    "writeable": false,
+                    "description": "All Digital Ins"
+                }
+            ],
+            "ip": "192.168.0.201",
+            "port": 502,
+            "type": "modbus",
+            "txtime": 1,
+            "pxtime": 120,
+            "timeout": 900,
+            "barcode": "6969",
+            "publish": true,
+            "enabled": true,
+            "unitId": 0,
+            "deviceId": "62a5a54f30000c9ebe201fc8",
+            "description": "Procon DIO8",
+            "userName": "",
+            "password": ""
+        },
+        {
+            "io": [
+                {
+                    "scaling": {
+                        "raw": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "scaled": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "type": "none"
+                    },
+                    "publish": {
+                        "bit": 0,
+                        "key": "AI1",
+                        "enabled": true,
+                        "moduleId": 0
+                    },
+                    "masking": {
+                        "bit": 0,
+                        "enabled": false
+                    },
+                    "mqtt": {
+                        "userName": "",
+                        "password": "",
+                        "subscribe": {
+                            "data": "",
+                            "control": ""
+                        },
+                        "enabled": false
+                    },
+                    "modbus": {
+                        "isCoil": false,
+                        "isHoldingRegister": true
+                    },
+                    "key": "",
+                    "tagId": "",
+                    "value": 1,
+                    "shift": -1,
+                    "inputId": "62a4446900328648eb6af7d1",
+                    "register": 2,
+                    "moduleId": 0,
+                    "readable": true,
+                    "interface": "",
+                    "writeable": true,
+                    "description": "AO1"
+                },
+                {
+                    "scaling": {
+                        "raw": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "scaled": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "type": "none"
+                    },
+                    "publish": {
+                        "bit": 0,
+                        "key": "",
+                        "enabled": false,
+                        "moduleId": 0
+                    },
+                    "masking": {
+                        "bit": 0,
+                        "enabled": false
+                    },
+                    "mqtt": {
+                        "userName": "",
+                        "password": "",
+                        "subscribe": {
+                            "data": "",
+                            "control": ""
+                        },
+                        "enabled": false
+                    },
+                    "modbus": {
+                        "isCoil": false,
+                        "isHoldingRegister": true
+                    },
+                    "key": "",
+                    "tagId": "",
+                    "value": 0,
+                    "shift": -1,
+                    "inputId": "62a5a3d22d7d3befe2498bd5",
+                    "register": 3,
+                    "moduleId": 0,
+                    "readable": true,
+                    "interface": "",
+                    "writeable": true,
+                    "description": "AO2"
+                }
+            ],
+            "ip": "192.168.0.202",
+            "port": 502,
+            "type": "modbus",
+            "txtime": 1,
+            "pxtime": 120,
+            "timeout": 900,
+            "barcode": "0",
+            "publish": true,
+            "enabled": true,
+            "unitId": 0,
+            "deviceId": "000000000000034567345846",
+            "description": "Procon 8AOI",
+            "userName": "",
+            "password": ""
+        },
+        {
+            "io": [
+                {
+                    "scaling": {
+                        "raw": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "scaled": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "type": "none"
+                    },
+                    "publish": {
+                        "bit": 0,
+                        "key": "CI2",
+                        "enabled": true,
+                        "moduleId": 0
+                    },
+                    "masking": {
+                        "bit": 0,
+                        "enabled": false
+                    },
+                    "mqtt": {
+                        "userName": "",
+                        "password": "",
+                        "subscribe": {
+                            "data": "",
+                            "control": ""
+                        },
+                        "enabled": false
+                    },
+                    "modbus": {
+                        "isCoil": false,
+                        "isHoldingRegister": true
+                    },
+                    "key": "",
+                    "tagId": "",
+                    "value": 2,
+                    "shift": -1,
+                    "inputId": "62a4446900328648eb6af7d1",
+                    "register": 2,
+                    "moduleId": 0,
+                    "readable": true,
+                    "interface": "",
+                    "writeable": true,
+                    "description": "DO ALL"
+                },
+                {
+                    "scaling": {
+                        "raw": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "scaled": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "type": "none"
+                    },
+                    "publish": {
+                        "bit": 0,
+                        "key": "",
+                        "enabled": false,
+                        "moduleId": 0
+                    },
+                    "masking": {
+                        "bit": 0,
+                        "enabled": false
+                    },
+                    "mqtt": {
+                        "userName": "",
+                        "password": "",
+                        "subscribe": {
+                            "data": "",
+                            "control": ""
+                        },
+                        "enabled": false
+                    },
+                    "modbus": {
+                        "isCoil": true,
+                        "isHoldingRegister": false
+                    },
+                    "key": "",
+                    "tagId": "",
+                    "value": 0,
+                    "shift": -1,
+                    "inputId": "62a59dbd908dca34fde57bb1",
+                    "register": 1,
+                    "moduleId": 0,
+                    "readable": true,
+                    "interface": "",
+                    "writeable": true,
+                    "description": "DO1"
+                }
+            ],
+            "ip": "192.168.0.200",
+            "port": 502,
+            "type": "modbus",
+            "txtime": 1,
+            "pxtime": 120,
+            "timeout": 900,
+            "barcode": "0",
+            "publish": true,
+            "enabled": true,
+            "unitId": 0,
+            "deviceId": "689769878978979878787965",
+            "description": "Procon 16DO",
+            "userName": "",
+            "password": ""
+        },
+        {
+            "io": [
+                {
+                    "scaling": {
+                        "raw": {
+                            "low": 812,
+                            "high": 4085
+                        },
+                        "scaled": {
+                            "low": -10,
+                            "high": 70
+                        },
+                        "type": "none"
+                    },
+                    "publish": {
+                        "bit": 0,
+                        "key": "",
+                        "enabled": false,
+                        "moduleId": 0
+                    },
+                    "masking": {
+                        "bit": 0,
+                        "enabled": false
+                    },
+                    "mqtt": {
+                        "userName": "",
+                        "password": "",
+                        "subscribe": {
+                            "data": "",
+                            "control": ""
+                        },
+                        "enabled": false
+                    },
+                    "modbus": {
+                        "isCoil": false,
+                        "isHoldingRegister": false
+                    },
+                    "key": "AI1",
+                    "tagId": "",
+                    "value": 2150,
+                    "shift": 0,
+                    "inputId": "621336f7319eee089a296555",
+                    "register": 0,
+                    "moduleId": 0,
+                    "readable": false,
+                    "interface": "",
+                    "writeable": true,
+                    "description": "Probe Temperature"
+                },
+                {
+                    "scaling": {
+                        "raw": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "scaled": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "type": "none"
+                    },
+                    "publish": {
+                        "bit": 0,
+                        "key": "",
+                        "enabled": false,
+                        "moduleId": 0
+                    },
+                    "masking": {
+                        "bit": 0,
+                        "enabled": false
+                    },
+                    "mqtt": {
+                        "userName": "",
+                        "password": "",
+                        "subscribe": {
+                            "data": "",
+                            "control": ""
+                        },
+                        "enabled": false
+                    },
+                    "modbus": {
+                        "isCoil": false,
+                        "isHoldingRegister": false
+                    },
+                    "key": "CI2",
+                    "tagId": "",
+                    "value": 0,
+                    "shift": 0,
+                    "inputId": "62133705ace53e0432a8b476",
+                    "register": 0,
+                    "moduleId": 0,
+                    "readable": false,
+                    "interface": "",
+                    "writeable": true,
+                    "description": "RW Inlet Flowrate"
+                },
+                {
+                    "scaling": {
+                        "raw": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "scaled": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "type": "none"
+                    },
+                    "publish": {
+                        "bit": 0,
+                        "key": "",
+                        "enabled": false,
+                        "moduleId": 0
+                    },
+                    "masking": {
+                        "bit": 0,
+                        "enabled": true
+                    },
+                    "mqtt": {
+                        "userName": "",
+                        "password": "",
+                        "subscribe": {
+                            "data": "",
+                            "control": ""
+                        },
+                        "enabled": false
+                    },
+                    "modbus": {
+                        "isCoil": false,
+                        "isHoldingRegister": false
+                    },
+                    "key": "digitalsIn",
+                    "tagId": "",
+                    "value": 0,
+                    "shift": 10,
+                    "inputId": "621f0ccc6e8fc5dc94269f67",
+                    "register": 0,
+                    "moduleId": 0,
+                    "readable": false,
+                    "interface": "",
+                    "writeable": true,
+                    "description": "RW Procon 1 - P1 Run"
+                },
+                {
+                    "scaling": {
+                        "raw": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "scaled": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "type": "none"
+                    },
+                    "publish": {
+                        "bit": 0,
+                        "key": "",
+                        "enabled": false,
+                        "moduleId": 0
+                    },
+                    "masking": {
+                        "bit": 1,
+                        "enabled": true
+                    },
+                    "mqtt": {
+                        "userName": "",
+                        "password": "",
+                        "subscribe": {
+                            "data": "",
+                            "control": ""
+                        },
+                        "enabled": false
+                    },
+                    "modbus": {
+                        "isCoil": false,
+                        "isHoldingRegister": false
+                    },
+                    "key": "digitalsIn",
+                    "tagId": "",
+                    "value": 0,
+                    "shift": 10,
+                    "inputId": "621f439813bfefcdbc670a0c",
+                    "register": 0,
+                    "moduleId": 0,
+                    "readable": false,
+                    "interface": "",
+                    "writeable": true,
+                    "description": "RW Procon 1 - P1 Trip"
+                },
+                {
+                    "scaling": {
+                        "raw": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "scaled": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "type": "none"
+                    },
+                    "publish": {
+                        "bit": 0,
+                        "key": "",
+                        "enabled": false,
+                        "moduleId": 0
+                    },
+                    "masking": {
+                        "bit": 2,
+                        "enabled": true
+                    },
+                    "mqtt": {
+                        "userName": "",
+                        "password": "",
+                        "subscribe": {
+                            "data": "",
+                            "control": ""
+                        },
+                        "enabled": false
+                    },
+                    "modbus": {
+                        "isCoil": false,
+                        "isHoldingRegister": false
+                    },
+                    "key": "digitalsIn",
+                    "tagId": "",
+                    "value": 0,
+                    "shift": 10,
+                    "inputId": "621f43a7e4df942ca265f7e7",
+                    "register": 0,
+                    "moduleId": 0,
+                    "readable": false,
+                    "interface": "",
+                    "writeable": true,
+                    "description": "RW Procon 1 - P1 Moisture Ingress"
+                }
+            ],
+            "ip": "0.0.0.0",
+            "port": 0,
+            "type": "external",
+            "txtime": 5,
+            "pxtime": 120,
+            "timeout": 900,
+            "barcode": "PROL00001",
+            "publish": false,
+            "enabled": true,
+            "unitId": 0,
+            "deviceId": "6298a12d5237ef222a570bdf",
+            "description": "Shane Test Bainsfield Temperature",
+            "userName": "",
+            "password": ""
+        }
+    ],
+    "mapping": [
+        {
+            "mapId": "62a5c117c66a80a07530ed40",
+            "source": {
+                "mask": -1,
+                "inputId": "62a44a4679441e84c78b18a6",
+                "deviceId": "62a5a54f30000c9ebe201fc8"
+            },
+            "destination": {
+                "mask": -1,
+                "inputId": "62a4446900328648eb6af7d1",
+                "deviceId": "000000000000034567345846",
+                "destinationRegister": 2
+            }
+        },
+        {
+            "mapId": "62a5c13b34c7d13d1ce88ab8",
+            "source": {
+                "mask": -1,
+                "inputId": "62a4446900328648eb6af7d1",
+                "deviceId": "000000000000034567345846"
+            },
+            "destination": {
+                "mask": -1,
+                "inputId": "62a4446900328648eb6af7d1",
+                "deviceId": "689769878978979878787965",
+                "destinationRegister": 2
+            }
+        }
+    ],
+    "apn": "internet"
+}

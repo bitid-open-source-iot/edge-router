@@ -1,0 +1,105 @@
+{
+    "port": 8080,
+    "txtime": 900,
+    "barcode": "15044875",
+    "deviceId": "000000000000000015044875",
+    "production": true,
+    "authentication": true,
+    "admin": {
+        "email": "admin@bitid.co.za",
+        "password": "admin"
+    },
+    "server": {
+        "host": "mqtt://app.trackitall.co.za",
+        "port": 1888,
+        "username": "unittest",
+        "password": "unittest1!",
+        "subscribe": {
+            "data": "/rock/v1.1/data",
+            "control": "/rock/v1.1/control"
+        }
+    },
+    "logger": {
+        "appenders": {
+            "edge-router": {
+                "type": "file",
+                "backups": 10,
+                "filename": "./logs/edge-router.log",
+                "absolute": true,
+                "maxLogSize": 102400
+            }
+        },
+        "categories": {
+            "default": {
+                "appenders": [
+                    "edge-router"
+                ],
+                "level": "error"
+            }
+        }
+    },
+    "devices": [
+        {
+            "io": [
+                {
+                    "scaling": {
+                        "raw": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "scaled": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "type": "none"
+                    },
+                    "publish": {
+                        "bit": 0,
+                        "key": "AI1",
+                        "enabled": true,
+                        "moduleId": 0
+                    },
+                    "masking": {
+                        "bit": 0,
+                        "enabled": false
+                    },
+                    "mqtt": {
+                        "userName": "",
+                        "password": "",
+                        "subscribe": {
+                            "data": "",
+                            "control": ""
+                        },
+                        "enabled": false
+                    },
+                    "key": "",
+                    "tagId": "",
+                    "value": 2059,
+                    "shift": -1,
+                    "inputId": "627e2c8f76405f0672fd7f84",
+                    "register": 2,
+                    "moduleId": 0,
+                    "readable": true,
+                    "interface": "",
+                    "writeable": false,
+                    "description": "Analog Input 1"
+                }
+            ],
+            "ip": "192.168.0.103",
+            "port": 502,
+            "type": "modbus",
+            "txtime": 1,
+            "pxtime": 120,
+            "timeout": 120,
+            "barcode": "PROL00001",
+            "publish": true,
+            "enabled": true,
+            "unitId": 1,
+            "deviceId": "6298a12d5237ef222a570bdf",
+            "description": "Prologics 8AII",
+            "userName": "",
+            "password": ""
+        }
+    ],
+    "mapping": []
+}

@@ -1,0 +1,1275 @@
+{
+    "port": 8080,
+    "txtime": 900,
+    "enabled": true,
+    "barcode": "15044875",
+    "deviceId": "000000000000000015044875",
+    "production": true,
+    "authentication": true,
+    "admin": {
+        "email": "admin@bitid.co.za",
+        "password": "admin"
+    },
+    "server": {
+        "host": "mqtt://bitid.co.za",
+        "port": 1888,
+        "username": "telemetry",
+        "password": "telemetry1!",
+        "subscribe": {
+            "data": "/rock/v1.1/data",
+            "control": "/rock/v1.1/control"
+        }
+    },
+    "logger": {
+        "appenders": {
+            "edge-router": {
+                "type": "file",
+                "backups": 10,
+                "filename": "/var/www/node/edge-router/logs/edge-router.log",
+                "absolute": true,
+                "maxLogSize": 102400
+            }
+        },
+        "categories": {
+            "default": {
+                "appenders": [
+                    "edge-router"
+                ],
+                "level": "error"
+            }
+        }
+    },
+    "devices": [
+        {
+            "io": [
+                {
+                    "scaling": {
+                        "raw": {
+                            "low": 400,
+                            "high": 2000
+                        },
+                        "scaled": {
+                            "low": 819,
+                            "high": 4095
+                        },
+                        "type": "linear"
+                    },
+                    "publish": {
+                        "bit": 0,
+                        "key": "",
+                        "enabled": false,
+                        "moduleId": 0
+                    },
+                    "masking": {
+                        "bit": 0,
+                        "enabled": false
+                    },
+                    "key": "AI1",
+                    "tagId": "",
+                    "value": 819,
+                    "shift": -1,
+                    "inputId": "621336f7319eee089a296555",
+                    "register": 0,
+                    "moduleId": 0,
+                    "readable": false,
+                    "interface": "",
+                    "writeable": false,
+                    "description": "RW Inlet Level"
+                },
+                {
+                    "scaling": {
+                        "raw": {
+                            "low": 400,
+                            "high": 2000
+                        },
+                        "scaled": {
+                            "low": 819,
+                            "high": 4095
+                        },
+                        "type": "linear"
+                    },
+                    "publish": {
+                        "bit": 0,
+                        "key": "",
+                        "enabled": false,
+                        "moduleId": 0
+                    },
+                    "masking": {
+                        "bit": 0,
+                        "enabled": false
+                    },
+                    "key": "AI2",
+                    "tagId": "",
+                    "value": 819,
+                    "shift": -1,
+                    "inputId": "62133705ace53e0432a8b476",
+                    "register": 0,
+                    "moduleId": 0,
+                    "readable": false,
+                    "interface": "",
+                    "writeable": false,
+                    "description": "RW Inlet Flowrate"
+                },
+                {
+                    "scaling": {
+                        "raw": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "scaled": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "type": "none"
+                    },
+                    "publish": {
+                        "bit": 0,
+                        "key": "",
+                        "enabled": false,
+                        "moduleId": 0
+                    },
+                    "masking": {
+                        "bit": 10,
+                        "enabled": true
+                    },
+                    "key": "digitalsIn",
+                    "tagId": "",
+                    "value": 2,
+                    "shift": 8,
+                    "inputId": "621f0ccc6e8fc5dc94269f67",
+                    "register": 0,
+                    "moduleId": 0,
+                    "readable": false,
+                    "interface": "",
+                    "writeable": false,
+                    "description": "RW Procon 1 - P1 Run"
+                },
+                {
+                    "scaling": {
+                        "raw": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "scaled": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "type": "none"
+                    },
+                    "publish": {
+                        "bit": 0,
+                        "key": "",
+                        "enabled": false,
+                        "moduleId": 0
+                    },
+                    "masking": {
+                        "bit": 11,
+                        "enabled": true
+                    },
+                    "key": "digitalsIn",
+                    "tagId": "",
+                    "value": 2,
+                    "shift": 8,
+                    "inputId": "621f439813bfefcdbc670a0c",
+                    "register": 0,
+                    "moduleId": 0,
+                    "readable": false,
+                    "interface": "",
+                    "writeable": false,
+                    "description": "RW Procon 1 - P1 Trip"
+                },
+                {
+                    "scaling": {
+                        "raw": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "scaled": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "type": "none"
+                    },
+                    "publish": {
+                        "bit": 0,
+                        "key": "",
+                        "enabled": false,
+                        "moduleId": 0
+                    },
+                    "masking": {
+                        "bit": 12,
+                        "enabled": true
+                    },
+                    "key": "digitalsIn",
+                    "tagId": "",
+                    "value": 2,
+                    "shift": 8,
+                    "inputId": "621f43a7e4df942ca265f7e7",
+                    "register": 0,
+                    "moduleId": 0,
+                    "readable": false,
+                    "interface": "",
+                    "writeable": false,
+                    "description": "RW Procon 1 - P1 Moisture Ingress"
+                },
+                {
+                    "scaling": {
+                        "raw": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "scaled": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "type": "none"
+                    },
+                    "publish": {
+                        "bit": 0,
+                        "key": "",
+                        "enabled": false,
+                        "moduleId": 0
+                    },
+                    "masking": {
+                        "bit": 13,
+                        "enabled": true
+                    },
+                    "key": "digitalsIn",
+                    "tagId": "",
+                    "value": 2,
+                    "shift": 8,
+                    "inputId": "621f43b4d55ce44ab889855f",
+                    "register": 0,
+                    "moduleId": 0,
+                    "readable": false,
+                    "interface": "",
+                    "writeable": false,
+                    "description": "RW Procon 1 - P2 Run"
+                },
+                {
+                    "scaling": {
+                        "raw": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "scaled": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "type": "none"
+                    },
+                    "publish": {
+                        "bit": 0,
+                        "key": "",
+                        "enabled": false,
+                        "moduleId": 0
+                    },
+                    "masking": {
+                        "bit": 14,
+                        "enabled": true
+                    },
+                    "key": "digitalsIn",
+                    "tagId": "",
+                    "value": 2,
+                    "shift": 8,
+                    "inputId": "621f43c30ed6eb5e769e6e30",
+                    "register": 0,
+                    "moduleId": 0,
+                    "readable": false,
+                    "interface": "",
+                    "writeable": false,
+                    "description": "RW Procon 1 - P2 Trip"
+                },
+                {
+                    "scaling": {
+                        "raw": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "scaled": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "type": "none"
+                    },
+                    "publish": {
+                        "bit": 0,
+                        "key": "",
+                        "enabled": false,
+                        "moduleId": 0
+                    },
+                    "masking": {
+                        "bit": 15,
+                        "enabled": true
+                    },
+                    "key": "digitalsIn",
+                    "tagId": "",
+                    "value": 2,
+                    "shift": 8,
+                    "inputId": "621f43cf150412fa7ee378a4",
+                    "register": 0,
+                    "moduleId": 0,
+                    "readable": false,
+                    "interface": "",
+                    "writeable": false,
+                    "description": "RW Procon 1 - P2 Moisture Ingress"
+                },
+                {
+                    "scaling": {
+                        "raw": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "scaled": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "type": "none"
+                    },
+                    "publish": {
+                        "bit": 0,
+                        "key": "",
+                        "enabled": false,
+                        "moduleId": 0
+                    },
+                    "masking": {
+                        "bit": 16,
+                        "enabled": true
+                    },
+                    "key": "digitalsIn",
+                    "tagId": "",
+                    "value": 2,
+                    "shift": 8,
+                    "inputId": "621f43eb49b504d38778c636",
+                    "register": 0,
+                    "moduleId": 0,
+                    "readable": false,
+                    "interface": "",
+                    "writeable": false,
+                    "description": "RW Procon 1 - Inlet Low Level"
+                },
+                {
+                    "scaling": {
+                        "raw": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "scaled": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "type": "none"
+                    },
+                    "publish": {
+                        "bit": 0,
+                        "key": "",
+                        "enabled": false,
+                        "moduleId": 0
+                    },
+                    "masking": {
+                        "bit": 17,
+                        "enabled": true
+                    },
+                    "key": "digitalsIn",
+                    "tagId": "",
+                    "value": 2,
+                    "shift": 8,
+                    "inputId": "621f440059cf41d68b52c808",
+                    "register": 0,
+                    "moduleId": 0,
+                    "readable": false,
+                    "interface": "",
+                    "writeable": false,
+                    "description": "RW Procon 1 - Duty Pump Fail"
+                },
+                {
+                    "scaling": {
+                        "raw": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "scaled": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "type": "none"
+                    },
+                    "publish": {
+                        "bit": 0,
+                        "key": "",
+                        "enabled": false,
+                        "moduleId": 0
+                    },
+                    "masking": {
+                        "bit": 18,
+                        "enabled": true
+                    },
+                    "key": "digitalsIn",
+                    "tagId": "",
+                    "value": 2,
+                    "shift": 8,
+                    "inputId": "621f4416b997f5a6c4d68107",
+                    "register": 0,
+                    "moduleId": 0,
+                    "readable": false,
+                    "interface": "",
+                    "writeable": false,
+                    "description": "RW Procon 1 - Duty Pump CALL"
+                },
+                {
+                    "scaling": {
+                        "raw": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "scaled": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "type": "none"
+                    },
+                    "publish": {
+                        "bit": 0,
+                        "key": "",
+                        "enabled": false,
+                        "moduleId": 0
+                    },
+                    "masking": {
+                        "bit": 8,
+                        "enabled": true
+                    },
+                    "key": "digitalsIn",
+                    "tagId": "",
+                    "value": 2,
+                    "shift": 8,
+                    "inputId": "621f6be463ea2ba0f35f108d",
+                    "register": 0,
+                    "moduleId": 0,
+                    "readable": false,
+                    "interface": "",
+                    "writeable": false,
+                    "description": "RW RL Mains Failure"
+                },
+                {
+                    "scaling": {
+                        "raw": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "scaled": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "type": "none"
+                    },
+                    "publish": {
+                        "bit": 0,
+                        "key": "",
+                        "enabled": false,
+                        "moduleId": 0
+                    },
+                    "masking": {
+                        "bit": 9,
+                        "enabled": true
+                    },
+                    "key": "digitalsIn",
+                    "tagId": "",
+                    "value": 2,
+                    "shift": 8,
+                    "inputId": "621f6bf6c88245a57e8ace01",
+                    "register": 0,
+                    "moduleId": 0,
+                    "readable": false,
+                    "interface": "",
+                    "writeable": false,
+                    "description": "RW RL Phase Failure"
+                }
+            ],
+            "ip": "0.0.0.0",
+            "port": 0,
+            "type": "external",
+            "txtime": 5,
+            "pxtime": 120,
+            "timeout": 900,
+            "barcode": "10",
+            "publish": false,
+            "enabled": true,
+            "deviceId": "000000000000000000000010",
+            "description": "Madungela RWPS"
+        },
+        {
+            "io": [
+                {
+                    "scaling": {
+                        "raw": {
+                            "low": 400,
+                            "high": 2000
+                        },
+                        "scaled": {
+                            "low": 819,
+                            "high": 4095
+                        },
+                        "type": "linear"
+                    },
+                    "publish": {
+                        "bit": 0,
+                        "key": "",
+                        "enabled": false,
+                        "moduleId": 0
+                    },
+                    "masking": {
+                        "bit": 0,
+                        "enabled": false
+                    },
+                    "key": "AI1",
+                    "tagId": "",
+                    "value": 819,
+                    "shift": -1,
+                    "inputId": "62133344d8b285adb7c60126",
+                    "register": 0,
+                    "moduleId": 0,
+                    "readable": false,
+                    "interface": "",
+                    "writeable": false,
+                    "description": "Res Level"
+                },
+                {
+                    "scaling": {
+                        "raw": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "scaled": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "type": "none"
+                    },
+                    "publish": {
+                        "bit": 0,
+                        "key": "",
+                        "enabled": false,
+                        "moduleId": 0
+                    },
+                    "masking": {
+                        "bit": 4,
+                        "enabled": true
+                    },
+                    "key": "digitalsIn",
+                    "tagId": "",
+                    "value": 0,
+                    "shift": -1,
+                    "inputId": "6213336609829875aee4f110",
+                    "register": 0,
+                    "moduleId": 0,
+                    "readable": false,
+                    "interface": "",
+                    "writeable": false,
+                    "description": "Pump Call Signal"
+                },
+                {
+                    "scaling": {
+                        "raw": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "scaled": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "type": "none"
+                    },
+                    "publish": {
+                        "bit": 0,
+                        "key": "",
+                        "enabled": false,
+                        "moduleId": 0
+                    },
+                    "masking": {
+                        "bit": 5,
+                        "enabled": true
+                    },
+                    "key": "digitalsIn",
+                    "tagId": "",
+                    "value": 0,
+                    "shift": -1,
+                    "inputId": "621333793e9a0ec38545e858",
+                    "register": 0,
+                    "moduleId": 0,
+                    "readable": false,
+                    "interface": "",
+                    "writeable": false,
+                    "description": "Intruder Status"
+                }
+            ],
+            "ip": "0.0.0.0",
+            "port": 0,
+            "type": "external",
+            "txtime": 5,
+            "pxtime": 120,
+            "timeout": 900,
+            "barcode": "11",
+            "publish": false,
+            "enabled": true,
+            "deviceId": "000000000000000000000011",
+            "description": "Madungela Intermediate Res"
+        },
+        {
+            "io": [
+                {
+                    "scaling": {
+                        "raw": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "scaled": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "type": "none"
+                    },
+                    "publish": {
+                        "bit": 0,
+                        "key": "",
+                        "enabled": false,
+                        "moduleId": 0
+                    },
+                    "masking": {
+                        "bit": 0,
+                        "enabled": false
+                    },
+                    "key": "",
+                    "tagId": "",
+                    "value": 0,
+                    "shift": -1,
+                    "inputId": "62232827435a3bebd1c8f54b",
+                    "register": 2,
+                    "moduleId": 0,
+                    "readable": false,
+                    "interface": "",
+                    "writeable": false,
+                    "description": "O/P 01 - I/L RL Mains Fail"
+                },
+                {
+                    "scaling": {
+                        "raw": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "scaled": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "type": "none"
+                    },
+                    "publish": {
+                        "bit": 0,
+                        "key": "",
+                        "enabled": false,
+                        "moduleId": 0
+                    },
+                    "masking": {
+                        "bit": 0,
+                        "enabled": false
+                    },
+                    "key": "",
+                    "tagId": "",
+                    "value": 0,
+                    "shift": -1,
+                    "inputId": "622328329b8036e42f8b7f98",
+                    "register": 2,
+                    "moduleId": 0,
+                    "readable": false,
+                    "interface": "",
+                    "writeable": false,
+                    "description": "O/P 02 - I/L RL Phase Fail"
+                },
+                {
+                    "scaling": {
+                        "raw": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "scaled": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "type": "none"
+                    },
+                    "publish": {
+                        "bit": 0,
+                        "key": "",
+                        "enabled": false,
+                        "moduleId": 0
+                    },
+                    "masking": {
+                        "bit": 0,
+                        "enabled": false
+                    },
+                    "key": "",
+                    "tagId": "",
+                    "value": 0,
+                    "shift": -1,
+                    "inputId": "62232841294ca6ebc362aa21",
+                    "register": 2,
+                    "moduleId": 0,
+                    "readable": false,
+                    "interface": "",
+                    "writeable": false,
+                    "description": "O/P 03 - I/L PR Pump 1 Run"
+                },
+                {
+                    "scaling": {
+                        "raw": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "scaled": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "type": "none"
+                    },
+                    "publish": {
+                        "bit": 0,
+                        "key": "",
+                        "enabled": false,
+                        "moduleId": 0
+                    },
+                    "masking": {
+                        "bit": 0,
+                        "enabled": false
+                    },
+                    "key": "",
+                    "tagId": "",
+                    "value": 0,
+                    "shift": -1,
+                    "inputId": "6223284cb021347c57f1028d",
+                    "register": 2,
+                    "moduleId": 0,
+                    "readable": false,
+                    "interface": "",
+                    "writeable": false,
+                    "description": "O/P 04 - I/L PR Pump 1 Trip"
+                },
+                {
+                    "scaling": {
+                        "raw": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "scaled": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "type": "none"
+                    },
+                    "publish": {
+                        "bit": 0,
+                        "key": "",
+                        "enabled": false,
+                        "moduleId": 0
+                    },
+                    "masking": {
+                        "bit": 0,
+                        "enabled": false
+                    },
+                    "key": "",
+                    "tagId": "",
+                    "value": 0,
+                    "shift": -1,
+                    "inputId": "622328585f958ee1a1e92ec4",
+                    "register": 2,
+                    "moduleId": 0,
+                    "readable": false,
+                    "interface": "",
+                    "writeable": false,
+                    "description": "O/P 05 - I/L PR Pump 1 Moisture Ingress"
+                },
+                {
+                    "scaling": {
+                        "raw": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "scaled": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "type": "none"
+                    },
+                    "publish": {
+                        "bit": 0,
+                        "key": "",
+                        "enabled": false,
+                        "moduleId": 0
+                    },
+                    "masking": {
+                        "bit": 0,
+                        "enabled": false
+                    },
+                    "key": "",
+                    "tagId": "",
+                    "value": 0,
+                    "shift": -1,
+                    "inputId": "6223286287c871f15473a436",
+                    "register": 2,
+                    "moduleId": 0,
+                    "readable": false,
+                    "interface": "",
+                    "writeable": false,
+                    "description": "O/P 06 - I/L PR Pump 2 Run"
+                },
+                {
+                    "scaling": {
+                        "raw": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "scaled": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "type": "none"
+                    },
+                    "publish": {
+                        "bit": 0,
+                        "key": "",
+                        "enabled": false,
+                        "moduleId": 0
+                    },
+                    "masking": {
+                        "bit": 0,
+                        "enabled": false
+                    },
+                    "key": "",
+                    "tagId": "",
+                    "value": 0,
+                    "shift": -1,
+                    "inputId": "6223286cc242a6c4f6bd0eca",
+                    "register": 2,
+                    "moduleId": 0,
+                    "readable": false,
+                    "interface": "",
+                    "writeable": false,
+                    "description": "O/P 07 - I/L PR Pump 2 Trip"
+                },
+                {
+                    "scaling": {
+                        "raw": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "scaled": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "type": "none"
+                    },
+                    "publish": {
+                        "bit": 0,
+                        "key": "",
+                        "enabled": false,
+                        "moduleId": 0
+                    },
+                    "masking": {
+                        "bit": 0,
+                        "enabled": false
+                    },
+                    "key": "",
+                    "tagId": "",
+                    "value": 0,
+                    "shift": -1,
+                    "inputId": "622328752ed97acfd9072517",
+                    "register": 2,
+                    "moduleId": 0,
+                    "readable": false,
+                    "interface": "",
+                    "writeable": false,
+                    "description": "O/P 08 - I/L PR Pump 2 Moisture Ingress"
+                },
+                {
+                    "scaling": {
+                        "raw": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "scaled": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "type": "none"
+                    },
+                    "publish": {
+                        "bit": 0,
+                        "key": "",
+                        "enabled": false,
+                        "moduleId": 0
+                    },
+                    "masking": {
+                        "bit": 0,
+                        "enabled": false
+                    },
+                    "key": "",
+                    "tagId": "",
+                    "value": 0,
+                    "shift": -1,
+                    "inputId": "62232a02cedf0051396ed6aa",
+                    "register": 2,
+                    "moduleId": 0,
+                    "readable": false,
+                    "interface": "",
+                    "writeable": false,
+                    "description": "O/P 09 - I/L PR Res Low Level"
+                },
+                {
+                    "scaling": {
+                        "raw": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "scaled": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "type": "none"
+                    },
+                    "publish": {
+                        "bit": 0,
+                        "key": "",
+                        "enabled": false,
+                        "moduleId": 0
+                    },
+                    "masking": {
+                        "bit": 0,
+                        "enabled": false
+                    },
+                    "key": "",
+                    "tagId": "",
+                    "value": 0,
+                    "shift": -1,
+                    "inputId": "62232a13bf6b83753c26118c",
+                    "register": 2,
+                    "moduleId": 0,
+                    "readable": false,
+                    "interface": "",
+                    "writeable": false,
+                    "description": "O/P 10 - I/L PR Duty Pump Fail"
+                },
+                {
+                    "scaling": {
+                        "raw": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "scaled": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "type": "none"
+                    },
+                    "publish": {
+                        "bit": 0,
+                        "key": "",
+                        "enabled": false,
+                        "moduleId": 0
+                    },
+                    "masking": {
+                        "bit": 0,
+                        "enabled": false
+                    },
+                    "key": "",
+                    "tagId": "",
+                    "value": 0,
+                    "shift": -1,
+                    "inputId": "62232a38bdbe84d88e6aed31",
+                    "register": 2,
+                    "moduleId": 0,
+                    "readable": false,
+                    "interface": "",
+                    "writeable": false,
+                    "description": "O/P 11 - I/L PR Duty Pump CALL"
+                }
+            ],
+            "ip": "192.168.3.130",
+            "port": 502,
+            "type": "modbus",
+            "txtime": 5,
+            "pxtime": 120,
+            "timeout": 900,
+            "barcode": "0",
+            "publish": false,
+            "enabled": true,
+            "deviceId": "000000000000000000000000",
+            "description": "Procon DO-1"
+        },
+        {
+            "io": [
+                {
+                    "publish": {
+                        "bit": 0,
+                        "key": "",
+                        "enabled": false,
+                        "moduleId": 0
+                    },
+                    "masking": {
+                        "bit": 0,
+                        "enabled": false
+                    },
+                    "key": "AI1",
+                    "tagId": "",
+                    "value": 819,
+                    "shift": -1,
+                    "inputId": "62133f9846356e61c70a904d",
+                    "register": 2,
+                    "moduleId": 0,
+                    "readable": false,
+                    "interface": "",
+                    "writeable": false,
+                    "description": "Raw Water Inlet Res Level"
+                },
+                {
+                    "publish": {
+                        "bit": 0,
+                        "key": "",
+                        "enabled": false,
+                        "moduleId": 0
+                    },
+                    "masking": {
+                        "bit": 0,
+                        "enabled": false
+                    },
+                    "key": "AI2",
+                    "tagId": "",
+                    "value": 819,
+                    "shift": -1,
+                    "inputId": "62133fae5035493a5a6dbfc7",
+                    "register": 3,
+                    "moduleId": 0,
+                    "readable": false,
+                    "interface": "",
+                    "writeable": false,
+                    "description": "Raw Water Inlet Flowrate"
+                },
+                {
+                    "publish": {
+                        "bit": 0,
+                        "key": "",
+                        "enabled": false,
+                        "moduleId": 0
+                    },
+                    "masking": {
+                        "bit": 0,
+                        "enabled": false
+                    },
+                    "key": "AI3",
+                    "tagId": "",
+                    "value": 819,
+                    "shift": -1,
+                    "inputId": "62133fc5058c97605ab57940",
+                    "register": 4,
+                    "moduleId": 0,
+                    "readable": false,
+                    "interface": "",
+                    "writeable": false,
+                    "description": "Intermediate Res Level"
+                }
+            ],
+            "ip": "192.168.3.131",
+            "port": 502,
+            "type": "modbus",
+            "txtime": 5,
+            "pxtime": 120,
+            "timeout": 900,
+            "barcode": "1",
+            "publish": false,
+            "enabled": true,
+            "deviceId": "000000000000000000000001",
+            "description": "Procon AO-1"
+        }
+    ],
+    "mapping": [
+        {
+            "mapId": "6217519819d349571b4d8a0c",
+            "source": {
+                "mask": -1,
+                "inputId": "621336f7319eee089a296555",
+                "deviceId": "000000000000000000000010"
+            },
+            "destination": {
+                "mask": -1,
+                "inputId": "62133f9846356e61c70a904d",
+                "deviceId": "000000000000000000000001"
+            }
+        },
+        {
+            "mapId": "621751a8e1dfbfe7bd93c248",
+            "source": {
+                "mask": -1,
+                "inputId": "62133705ace53e0432a8b476",
+                "deviceId": "000000000000000000000010"
+            },
+            "destination": {
+                "mask": -1,
+                "inputId": "62133fae5035493a5a6dbfc7",
+                "deviceId": "000000000000000000000001"
+            }
+        },
+        {
+            "mapId": "621751c03490133f842bce5c",
+            "source": {
+                "mask": -1,
+                "inputId": "62133344d8b285adb7c60126",
+                "deviceId": "000000000000000000000011"
+            },
+            "destination": {
+                "mask": -1,
+                "inputId": "62133fc5058c97605ab57940",
+                "deviceId": "000000000000000000000001"
+            }
+        },
+        {
+            "mapId": "62232ab8781cd8f8dfc3b790",
+            "source": {
+                "mask": -1,
+                "inputId": "621f6be463ea2ba0f35f108d",
+                "deviceId": "000000000000000000000010"
+            },
+            "destination": {
+                "mask": 1,
+                "inputId": "62232827435a3bebd1c8f54b",
+                "deviceId": "000000000000000000000000"
+            }
+        },
+        {
+            "mapId": "62232ac951b48948f5f6cf0f",
+            "source": {
+                "mask": -1,
+                "inputId": "621f6bf6c88245a57e8ace01",
+                "deviceId": "000000000000000000000010"
+            },
+            "destination": {
+                "mask": 2,
+                "inputId": "622328329b8036e42f8b7f98",
+                "deviceId": "000000000000000000000000"
+            }
+        },
+        {
+            "mapId": "62232ad7c8906762e8e45ced",
+            "source": {
+                "mask": -1,
+                "inputId": "621f0ccc6e8fc5dc94269f67",
+                "deviceId": "000000000000000000000010"
+            },
+            "destination": {
+                "mask": 4,
+                "inputId": "62232841294ca6ebc362aa21",
+                "deviceId": "000000000000000000000000"
+            }
+        },
+        {
+            "mapId": "62232ae26941fa8cfdec1c7a",
+            "source": {
+                "mask": -1,
+                "inputId": "621f439813bfefcdbc670a0c",
+                "deviceId": "000000000000000000000010"
+            },
+            "destination": {
+                "mask": 8,
+                "inputId": "6223284cb021347c57f1028d",
+                "deviceId": "000000000000000000000000"
+            }
+        },
+        {
+            "mapId": "62232aeef5afe68306064b4b",
+            "source": {
+                "mask": -1,
+                "inputId": "621f43a7e4df942ca265f7e7",
+                "deviceId": "000000000000000000000010"
+            },
+            "destination": {
+                "mask": 16,
+                "inputId": "622328585f958ee1a1e92ec4",
+                "deviceId": "000000000000000000000000"
+            }
+        },
+        {
+            "mapId": "62232afe7b1b0e243980fa60",
+            "source": {
+                "mask": -1,
+                "inputId": "621f43b4d55ce44ab889855f",
+                "deviceId": "000000000000000000000010"
+            },
+            "destination": {
+                "mask": 32,
+                "inputId": "6223286287c871f15473a436",
+                "deviceId": "000000000000000000000000"
+            }
+        },
+        {
+            "mapId": "62232b24f82eec5c3f52ed5d",
+            "source": {
+                "mask": -1,
+                "inputId": "621f43c30ed6eb5e769e6e30",
+                "deviceId": "000000000000000000000010"
+            },
+            "destination": {
+                "mask": 64,
+                "inputId": "6223286cc242a6c4f6bd0eca",
+                "deviceId": "000000000000000000000000"
+            }
+        },
+        {
+            "mapId": "62232b36754280113fab89cf",
+            "source": {
+                "mask": -1,
+                "inputId": "621f43cf150412fa7ee378a4",
+                "deviceId": "000000000000000000000010"
+            },
+            "destination": {
+                "mask": 128,
+                "inputId": "622328752ed97acfd9072517",
+                "deviceId": "000000000000000000000000"
+            }
+        },
+        {
+            "mapId": "62232b48c4dede5e6c2aa0e7",
+            "source": {
+                "mask": -1,
+                "inputId": "621f43eb49b504d38778c636",
+                "deviceId": "000000000000000000000010"
+            },
+            "destination": {
+                "mask": 256,
+                "inputId": "62232a02cedf0051396ed6aa",
+                "deviceId": "000000000000000000000000"
+            }
+        },
+        {
+            "mapId": "62232b5afd229cadef61f875",
+            "source": {
+                "mask": -1,
+                "inputId": "621f440059cf41d68b52c808",
+                "deviceId": "000000000000000000000010"
+            },
+            "destination": {
+                "mask": 512,
+                "inputId": "62232a13bf6b83753c26118c",
+                "deviceId": "000000000000000000000000"
+            }
+        },
+        {
+            "mapId": "62232b7241bcca67c8776417",
+            "source": {
+                "mask": -1,
+                "inputId": "621f4416b997f5a6c4d68107",
+                "deviceId": "000000000000000000000010"
+            },
+            "destination": {
+                "mask": 1024,
+                "inputId": "62232a38bdbe84d88e6aed31",
+                "deviceId": "000000000000000000000000"
+            }
+        }
+    ]
+}
