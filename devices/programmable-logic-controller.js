@@ -186,9 +186,9 @@ module.exports = class extends EventEmitter {
     async write() {
         try {
             this.io.map(async item => {
-                if (item.tag.value != item.tag.newValue && item.writeable) {
-                    item.tag.value = parseInt(item.tag.newValue || 0);
-                    // console.log('Writing a value of ' + item.tag.value + ' to ' + item.tagId)
+                if (item.tag.value != item.value && item.writeable) {
+                    item.tag.value = parseInt(item.value || 0);
+                    console.log('Writing a value of ' + item.tag.value + ' to ' + item.tagId)
                     __logger.info('Writing a value of ' + item.tag.value + ' to ' + item.tagId);
                     try {
                         await this.controller.writeTag(item.tag);

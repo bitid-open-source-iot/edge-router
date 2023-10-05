@@ -39,7 +39,7 @@ class TCP_CLIENT_DEVICE extends EventEmitter {
                         case ('%1'):
                             self.options.io.map((item) => {
                                 if (item.rtuId != arrData[0] || item.rtuId == arrData[0]) {
-                                    let regValue = arrData[item.register]
+                                    let regValue = arrData[item.register + 1]
                                     if (this.values.map(o => o.inputId).includes(item.inputId)) {
                                         this.values.map(o => {
                                             if (this.forceChange == true) {
