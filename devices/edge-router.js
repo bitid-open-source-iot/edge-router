@@ -155,6 +155,7 @@ module.exports = class extends EventEmitter {
                     try {
                         for (const input of inputs) {
                             if (item.source.inputId == input.inputId) {
+                            if (item.source.inputId == input.inputId) {
 
 
                                 let maskSourceValue = null;
@@ -202,6 +203,7 @@ module.exports = class extends EventEmitter {
 
                                 // __logger.info(io.description + ': ' + maskDestinationValue);
                                 try {
+                                    io.value = maskDestinationValue
                                     await deviceDestination.write(item.destination.inputId, maskDestinationValue);
                                 } catch (e) {
                                     console.error(e)
