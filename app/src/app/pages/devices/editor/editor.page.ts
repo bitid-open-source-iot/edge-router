@@ -3,6 +3,7 @@ import { MatTableDataSource } from '@angular/material/table';
 import { Router, ActivatedRoute } from '@angular/router';
 import { OnInit, Component, OnDestroy } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import {TooltipPosition, MatTooltipModule} from '@angular/material/tooltip';
 
 /* --- DIALOGS --- */
 import { InputOutputDialog } from './input-output/input-output.dialog';
@@ -40,7 +41,6 @@ export class DevicesEditorPage implements OnInit, OnDestroy {
         id: new FormControl(0, [Validators.required, Validators.min(0)]),
         ip: new FormControl('0.0.0.0', [Validators.required]),
         port: new FormControl(0, [Validators.required, Validators.min(0)]),
-        softwareIp: new FormControl('0.0.0.0'),
         softwarePort: new FormControl(0, [Validators.min(0)]),
         type: new FormControl(null, [Validators.required]),
         txtime: new FormControl(5, [Validators.required, Validators.min(1)]),
@@ -68,7 +68,6 @@ export class DevicesEditorPage implements OnInit, OnDestroy {
         id: '',
         ip: '',
         port: '',
-        softwareIp: '',
         softwarePort: '',
         type: '',
         txtime: '',
@@ -98,7 +97,6 @@ export class DevicesEditorPage implements OnInit, OnDestroy {
                 'io',
                 'ip',
                 'port',
-                'softwareIp',
                 'softwarePort',
                 'type',
                 'pxtime',
@@ -121,7 +119,6 @@ export class DevicesEditorPage implements OnInit, OnDestroy {
             this.form.controls['id'].setValue(device.id);
             this.form.controls['ip'].setValue(device.ip);
             this.form.controls['port'].setValue(device.port);
-            this.form.controls['softwareIp'].setValue(device.softwareIp);
             this.form.controls['softwarePort'].setValue(device.softwarePort);
             this.form.controls['type'].setValue(device.type);
             this.form.controls['pxtime'].setValue(device.pxtime);
@@ -154,6 +151,11 @@ export class DevicesEditorPage implements OnInit, OnDestroy {
         if (mode == 'copy') {
             mode = 'add';
             delete this.id;
+
+            this.table.data = this.table.data.map((o: any) => {
+                o.inputId = ObjectId();
+                return o;
+            });
         };
 
         const response = await (this.service as any)[mode]({
@@ -161,7 +163,6 @@ export class DevicesEditorPage implements OnInit, OnDestroy {
             io: this.table.data,
             ip: this.form.value.ip,
             port: this.form.value.port,
-            softwareIp: this.form.value.softwareIp,
             softwarePort: this.form.value.softwarePort,
             type: this.form.value.type,
             txtime: this.form.value.txtime,
@@ -264,7 +265,7 @@ export class DevicesEditorPage implements OnInit, OnDestroy {
             this.type = type;
             switch (type) {
                 case ('tcpClient'):
-                    this.columns = ['description', 'register', 'moduleId', 'publish.enabled', 'publish.bit', 'publish.key', 'publish.moduleId'];
+                    this.columns = ['description', 'register', 'moduleId'];
                     break
                 case ('tcpServer'):
                     this.columns = []

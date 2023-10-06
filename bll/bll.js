@@ -337,11 +337,67 @@ var module = function () {
         },
 
         devices: {
+
             add: async (req, res) => {
                 var args = {
                     req: req,
                     res: res
                 };
+
+
+
+
+
+
+                async function reorderIds(){
+                    var deferred = Q.defer()
+    
+                    let newId = 0;
+                    __settings.devices.map(device => {
+                        newId++
+                        device.id = newId;
+                    });
+                    __settings.devices = __settings.devices.map(o => {
+                        return {
+                            id: o.id,
+                            io: o.io,
+                            ip: o.ip,
+                            port: o.port,
+                            softwarePort: o.softwarePort,
+                            type: o.type,
+                            txtime: o.txtime,
+                            pxtime: o.pxtime,
+                            timeout: o.timeout,
+                            barcode: o.barcode,
+                            publish: o.publish,
+                            enabled: o.enabled,
+                            unitId: o.unitId,
+                            deviceId: o.deviceId,
+                            description: o.description,
+                            userName: o.userName,
+                            password: o.password,
+                        };
+                    });
+                    const saved = await SaveConfig(__settings);
+                    if (!saved) {
+                        var err = new ErrorResponse();
+                        err.error.errors[0].code = 503;
+                        err.error.errors[0].reason = error.message;
+                        err.error.errors[0].message = 'Issue loading devices!';
+                        deferred.reject(err)
+                    } else {
+                        deferred.resolve(__settings.devices.length-1)
+                    };
+    
+    
+                    return deferred.promise
+                }
+
+
+
+
+
+
 
                 try {
                     var found = false;
@@ -358,7 +414,6 @@ var module = function () {
                             io: args.req.body.io,
                             ip: args.req.body.ip,
                             port: args.req.body.port,
-                            softwareIp: args.req.body.softwareIp,
                             softwarePort: args.req.body.softwarePort,
                             type: args.req.body.type,
                             txtime: args.req.body.txtime,
@@ -379,7 +434,6 @@ var module = function () {
                                 io: o.io,
                                 ip: o.ip,
                                 port: o.port,
-                                softwareIp: o.softwareIp,
                                 softwarePort: o.softwarePort,
                                 type: o.type,
                                 txtime: o.txtime,
@@ -403,8 +457,9 @@ var module = function () {
                             err.error.errors[0].message = 'Issue loading devices!';
                             __responder.error(req, res, err);
                         } else {
+                            let response = await reorderIds()
                             args.result = {
-                                _id: args.req.body.id
+                                _id: response
                             };
                             __responder.success(req, res, args.result);
                         };
@@ -520,7 +575,6 @@ var module = function () {
                             io: o.io,
                             ip: o.ip,
                             port: o.port,
-                            softwareIp: o.softwareIp,
                             softwarePort: o.softwarePort,
                             type: o.type,
                             txtime: o.txtime,
@@ -569,6 +623,56 @@ var module = function () {
                     res: res
                 };
 
+
+
+                async function reorderIds(){
+                    var deferred = Q.defer()
+    
+                    let newId = 0;
+                    __settings.devices.map(device => {
+                        newId++
+                        device.id = newId;
+                    });
+                    __settings.devices = __settings.devices.map(o => {
+                        return {
+                            id: o.id,
+                            io: o.io,
+                            ip: o.ip,
+                            port: o.port,
+                            softwarePort: o.softwarePort,
+                            type: o.type,
+                            txtime: o.txtime,
+                            pxtime: o.pxtime,
+                            timeout: o.timeout,
+                            barcode: o.barcode,
+                            publish: o.publish,
+                            enabled: o.enabled,
+                            unitId: o.unitId,
+                            deviceId: o.deviceId,
+                            description: o.description,
+                            userName: o.userName,
+                            password: o.password,
+                        };
+                    });
+                    const saved = await SaveConfig(__settings);
+                    if (!saved) {
+                        var err = new ErrorResponse();
+                        err.error.errors[0].code = 503;
+                        err.error.errors[0].reason = error.message;
+                        err.error.errors[0].message = 'Issue loading devices!';
+                        deferred.reject(err)
+                    } else {
+                        deferred.resolve(__settings.devices.length-1)
+                    };
+    
+    
+                    return deferred.promise
+                }
+
+
+
+
+
                 try {
                     args.result = {
                         n: 0
@@ -609,6 +713,7 @@ var module = function () {
                             err.error.errors[0].message = 'Issue loading devices!';
                             __responder.error(req, res, err);
                         } else {
+                            await reorderIds()
                             __responder.success(req, res, args.result);
                         };
                     } else {

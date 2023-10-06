@@ -132,7 +132,7 @@ module.exports = class extends EventEmitter {
             }, Promise.resolve())
                 .then(async () => {
                     try {
-                        await __router.mapping(deviceItem.deviceId, inputs)
+                        await __router.mapping(inputs)
                     } catch (e) {
                         console.error(e)
                     }
@@ -145,7 +145,7 @@ module.exports = class extends EventEmitter {
     }
 
 
-    async mapping(deviceId, inputs) {
+    async mapping(inputs) {
         return new Promise(async (resolve, reject) => {
             let index = 0;
             try {
@@ -155,8 +155,6 @@ module.exports = class extends EventEmitter {
                     try {
                         for (const input of inputs) {
                             if (item.source.inputId == input.inputId) {
-                            if (item.source.inputId == input.inputId) {
-
 
                                 let maskSourceValue = null;
 
@@ -166,8 +164,8 @@ module.exports = class extends EventEmitter {
                                     maskSourceValue = input.value;
                                 }
 
-                                const deviceSource = __devices.find(d => d.deviceId === item.source.deviceId);
-                                const deviceDestination = __devices.find(d => d.deviceId === item.destination.deviceId);
+                                const deviceSource = __devices.find(d => d.io.find(io => io.inputId === item.source.inputId));
+                                const deviceDestination = __devices.find(d => d.io.find(io => io.inputId === item.destination.inputId));
 
                                 if (!deviceSource || !deviceDestination) {
                                     continue;

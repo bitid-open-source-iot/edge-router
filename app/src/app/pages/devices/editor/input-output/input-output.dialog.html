@@ -47,13 +47,13 @@
             </mat-error>
         </mat-form-field>
 
-        <section *ngIf="type != 'kGateway'">
+        <section *ngIf="type != 'kGateway' && type != 'tcpClient' && type != 'tcpServer'">
             <h2>
                 Publish
             </h2>
         </section>
 
-        <section formGroupName="publish" *ngIf="type != 'kGateway'">
+        <section formGroupName="publish" *ngIf="type != 'kGateway' && type != 'tcpClient' && type != 'tcpServer'">
             <mat-form-field appearance="outline">
                 <mat-label>
                     Enabled
@@ -74,7 +74,7 @@
             </mat-form-field>
         </section>
 
-        <section formGroupName="publish" *ngIf="type != 'kGateway'">
+        <section formGroupName="publish" *ngIf="type != 'kGateway' && type != 'tcpClient' && type != 'tcpServer'">
             <mat-form-field appearance="outline">
                 <mat-label>
                     Module ID
@@ -382,7 +382,7 @@
             Programmable Logic Controller
         </h2>
 
-        <section *ngIf="type != 'kGateway'">
+        <section *ngIf="type != 'kGateway' && type != 'tcpClient' && type != 'tcpServer'">
             <mat-form-field appearance="outline">
                 <mat-label>
                     Readable
