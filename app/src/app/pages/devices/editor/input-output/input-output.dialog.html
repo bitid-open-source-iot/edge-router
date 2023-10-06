@@ -28,7 +28,8 @@
                 Change Of State / commsStatus Timeout (minutes)
             </mat-label>
 
-            <input matInput type="text" placeholder="cofs" formControlName="cofs" required>
+            <input matInput type="text" placeholder="cofs" formControlName="cofs" required #tooltip="matTooltip"
+            matTooltip="Set to -1 to Disable">
 
             <mat-error *ngIf="errors.cofs">
                 {{ errors.cofs }}
@@ -129,7 +130,7 @@
                 Register
             </mat-label>
 
-            <input matInput type="number" min="0" placeholder="register" formControlName="register"
+            <input matInput type="number" min="1" placeholder="register" formControlName="register"
                 [required]="type == 'modbus'">
 
             <mat-error *ngIf="errors.register">

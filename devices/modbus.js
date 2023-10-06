@@ -3,6 +3,7 @@ const { fin } = require('q');
 const { async } = require('q');
 const Q = require('q');
 const modbus = require('../lib/modbus');
+const COFS = require('../lib/cofs');
 const EventEmitter = require('events').EventEmitter;
 
 module.exports = class extends EventEmitter {
@@ -32,6 +33,8 @@ module.exports = class extends EventEmitter {
             this.busy = false
 
             this.test = 0
+
+            this.cofs = new COFS()
 
             setInterval(() => {
                 this.test += 1
@@ -122,26 +125,24 @@ module.exports = class extends EventEmitter {
                             regValue = this.commsStatus
                         }
 
-
-                        if (this.values.map(o => o.inputId).includes(item.inputId)) {
-                            this.values.map(o => {
-                                if (this.forceChange == true) {
-                                    if (o.inputId == item.inputId) {
-                                        change = true;
-                                        o.value = regValue;
-                                    }
-                                } else if (o.inputId == item.inputId && o.value != regValue && (Math.abs(parseFloat(o.value - regValue)) >= parseFloat(item.cofs) || parseFloat(item.cofs) == -1)) {
-                                    change = true;
-                                    o.value = regValue;
-                                };
-                            });
-                        } else {
+                        let io = this.values.find(o => o.inputId == item.inputId)
+                        if(io){
+                            if (this.forceChange == true) {
+                                change = true;
+                                io.value = regValue;
+                            }else{
+                                item.value = regValue
+                                change = await this.cofs.checkCOFS(item);
+                                io.value = regValue;
+                            }
+                        }else{
                             change = true;
                             this.values.push({
                                 value: regValue,
                                 inputId: item.inputId
                             });
-                        };
+                        }
+
                     } else {
                         if (this.values.map(o => o.inputId).includes(item.inputId)) {
                             this.values.map(o => {

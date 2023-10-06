@@ -231,10 +231,10 @@
             </mat-form-field>
         </section>
 
-        <section *ngIf="form.value.type != 'kGateway'">
+        <section *ngIf="form.value.type == 'modbus' || form.value.type == 'programmable-logic-controller'">
             <mat-form-field appearance="outline" *ngIf="form.value.type != 'tcpServer'">
                 <mat-label>
-                    TX Time
+                    TX Time (seconds)
                 </mat-label>
 
                 <input matInput min="1" type="number" placeholder="tx time" formControlName="txtime" >

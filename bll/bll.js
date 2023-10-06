@@ -404,7 +404,7 @@ var module = function () {
                     let newId = 0;
                     __settings.devices.map(device => {
                         newId++
-                        if (device.description == args.req.body.description) {
+                        if (device.description == args.req.body.description || device.deviceId == args.req.body.deviceId) {
                             found = true;
                         };
                     });
@@ -466,8 +466,8 @@ var module = function () {
                     } else {
                         var err = new ErrorResponse();
                         err.error.errors[0].code = 70;
-                        err.error.errors[0].reason = 'Device with that description already exists!';
-                        err.error.errors[0].message = 'Device with that description already exists!';
+                        err.error.errors[0].reason = 'Device with that description or deviceId already exists!';
+                        err.error.errors[0].message = 'Device with that description or deviceId already exists!';
                         __responder.error(req, res, err);
                     };
                 } catch (error) {
@@ -554,6 +554,10 @@ var module = function () {
                     res: res
                 };
 
+                let deviceIdOld = '';
+                let deviceIdNew = '';
+
+
                 try {
                     args.result = {
                         n: 0
@@ -562,6 +566,12 @@ var module = function () {
                         if (__settings.devices[i].id == args.req.body.id) {
                             Object.keys(args.req.body).map(key => {
                                 if (__settings.devices[i].hasOwnProperty(key)) {
+                                    if (key == 'deviceId') {
+                                        if (__settings.devices[i][key] != args.req.body[key]) {
+                                            deviceIdOld = __settings.devices[i][key];
+                                            deviceIdNew = args.req.body[key];
+                                        };
+                                    };
                                     __settings.devices[i][key] = args.req.body[key];
                                     args.result.n++;
                                 };
@@ -591,6 +601,18 @@ var module = function () {
                         };
                     });
                     if (args.result.n > 0) {
+
+                        if (deviceIdOld != '') {
+                            __settings.mapping.map(map => {
+                                if(map.source.deviceId == deviceIdOld){
+                                    map.source.deviceId = deviceIdNew
+                                }
+                                if(map.destination.deviceId == deviceIdOld){
+                                    map.destination.deviceId = deviceIdNew
+                                }
+                            })
+                        }
+
                         const saved = await SaveConfig(__settings);
                         if (!saved) {
                             var err = new ErrorResponse();

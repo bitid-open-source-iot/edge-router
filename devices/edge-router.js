@@ -77,11 +77,12 @@ module.exports = class extends EventEmitter {
     init() {
         this.fixedTransmit = setInterval(() => {
             try {
+                console.log('shane fixedTransmit', new Date())
                 this.cofs.applyCOFSServer()
             } catch (e) {
                 console.error('fixedTransmit Error', e)
             }
-        }, this.txtime * 60000)
+        }, this.pxTime * 1000)
 
         /**
          * This timer keeps the __arrPublisher empty
@@ -410,6 +411,7 @@ module.exports = class extends EventEmitter {
 
     async publishArrFromTimer(data) {
         try {
+            console.log('shane publish time', new Date())
             if (this.mqtt?.connected) {
                 __logger.info(`publish ${this.server.subscribe.data} : ${JSON.stringify(data)}`);
                 __logger.info(`keeping an eye on the arrPublisher ${__arrPublisher.length}`)

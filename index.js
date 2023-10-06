@@ -276,12 +276,16 @@ try {
                                 break;
                             case ('tcpServer'):
                                 var device = new TcpServerDevice(o);
-                                // device.on('change', async event => await __router.updateDeviceInputsThenActionMapping(device.id, event));
-                                // __devices.push(device);
                                 break;
                             case ('modbus'):
                                 var device = new Modbus(o);
                                 device.on('change', async event => await __router.updateDeviceInputsThenActionMapping(device.id, event));
+                                device.on('data', async (event) => {
+                                    __socket.send('devices:data', {
+                                        data: device.values,
+                                        id: device.id
+                                    });
+                                });
                                 __devices.push(device);
                                 break;
                             case ('hostAgent'):
