@@ -70,7 +70,8 @@ class TCP_CLIENT_DEVICE extends EventEmitter {
                 }
                 if (this.values.length > 0) {
                     this.emit('data', this.values);
-                    if (change == true || change == false) {
+                    // if (change == true || change == false) { //for testing
+                    if (change == true) {
                         this.forceChange = false
                         this.emit('change', this.values);
                     };
