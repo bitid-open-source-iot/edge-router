@@ -337,18 +337,74 @@ var module = function () {
         },
 
         devices: {
+
             add: async (req, res) => {
                 var args = {
                     req: req,
                     res: res
                 };
 
+
+
+
+
+
+                async function reorderIds(){
+                    var deferred = Q.defer()
+    
+                    let newId = 0;
+                    __settings.devices.map(device => {
+                        newId++
+                        device.id = newId;
+                    });
+                    __settings.devices = __settings.devices.map(o => {
+                        return {
+                            id: o.id,
+                            io: o.io,
+                            ip: o.ip,
+                            port: o.port,
+                            softwarePort: o.softwarePort,
+                            type: o.type,
+                            txtime: o.txtime,
+                            pxtime: o.pxtime,
+                            timeout: o.timeout,
+                            barcode: o.barcode,
+                            publish: o.publish,
+                            enabled: o.enabled,
+                            unitId: o.unitId,
+                            deviceId: o.deviceId,
+                            description: o.description,
+                            userName: o.userName,
+                            password: o.password,
+                        };
+                    });
+                    const saved = await SaveConfig(__settings);
+                    if (!saved) {
+                        var err = new ErrorResponse();
+                        err.error.errors[0].code = 503;
+                        err.error.errors[0].reason = error.message;
+                        err.error.errors[0].message = 'Issue loading devices!';
+                        deferred.reject(err)
+                    } else {
+                        deferred.resolve(__settings.devices.length-1)
+                    };
+    
+    
+                    return deferred.promise
+                }
+
+
+
+
+
+
+
                 try {
                     var found = false;
                     let newId = 0;
                     __settings.devices.map(device => {
                         newId++
-                        if (device.description == args.req.body.description) {
+                        if (device.description == args.req.body.description || device.deviceId == args.req.body.deviceId) {
                             found = true;
                         };
                     });
@@ -358,7 +414,6 @@ var module = function () {
                             io: args.req.body.io,
                             ip: args.req.body.ip,
                             port: args.req.body.port,
-                            softwareIp: args.req.body.softwareIp,
                             softwarePort: args.req.body.softwarePort,
                             type: args.req.body.type,
                             txtime: args.req.body.txtime,
@@ -379,7 +434,6 @@ var module = function () {
                                 io: o.io,
                                 ip: o.ip,
                                 port: o.port,
-                                softwareIp: o.softwareIp,
                                 softwarePort: o.softwarePort,
                                 type: o.type,
                                 txtime: o.txtime,
@@ -403,16 +457,17 @@ var module = function () {
                             err.error.errors[0].message = 'Issue loading devices!';
                             __responder.error(req, res, err);
                         } else {
+                            let response = await reorderIds()
                             args.result = {
-                                _id: args.req.body.id
+                                _id: response
                             };
                             __responder.success(req, res, args.result);
                         };
                     } else {
                         var err = new ErrorResponse();
                         err.error.errors[0].code = 70;
-                        err.error.errors[0].reason = 'Device with that description already exists!';
-                        err.error.errors[0].message = 'Device with that description already exists!';
+                        err.error.errors[0].reason = 'Device with that description or deviceId already exists!';
+                        err.error.errors[0].message = 'Device with that description or deviceId already exists!';
                         __responder.error(req, res, err);
                     };
                 } catch (error) {
@@ -499,6 +554,10 @@ var module = function () {
                     res: res
                 };
 
+                let deviceIdOld = '';
+                let deviceIdNew = '';
+
+
                 try {
                     args.result = {
                         n: 0
@@ -507,6 +566,12 @@ var module = function () {
                         if (__settings.devices[i].id == args.req.body.id) {
                             Object.keys(args.req.body).map(key => {
                                 if (__settings.devices[i].hasOwnProperty(key)) {
+                                    if (key == 'deviceId') {
+                                        if (__settings.devices[i][key] != args.req.body[key]) {
+                                            deviceIdOld = __settings.devices[i][key];
+                                            deviceIdNew = args.req.body[key];
+                                        };
+                                    };
                                     __settings.devices[i][key] = args.req.body[key];
                                     args.result.n++;
                                 };
@@ -520,7 +585,6 @@ var module = function () {
                             io: o.io,
                             ip: o.ip,
                             port: o.port,
-                            softwareIp: o.softwareIp,
                             softwarePort: o.softwarePort,
                             type: o.type,
                             txtime: o.txtime,
@@ -537,6 +601,18 @@ var module = function () {
                         };
                     });
                     if (args.result.n > 0) {
+
+                        if (deviceIdOld != '') {
+                            __settings.mapping.map(map => {
+                                if(map.source.deviceId == deviceIdOld){
+                                    map.source.deviceId = deviceIdNew
+                                }
+                                if(map.destination.deviceId == deviceIdOld){
+                                    map.destination.deviceId = deviceIdNew
+                                }
+                            })
+                        }
+
                         const saved = await SaveConfig(__settings);
                         if (!saved) {
                             var err = new ErrorResponse();
@@ -568,6 +644,56 @@ var module = function () {
                     req: req,
                     res: res
                 };
+
+
+
+                async function reorderIds(){
+                    var deferred = Q.defer()
+    
+                    let newId = 0;
+                    __settings.devices.map(device => {
+                        newId++
+                        device.id = newId;
+                    });
+                    __settings.devices = __settings.devices.map(o => {
+                        return {
+                            id: o.id,
+                            io: o.io,
+                            ip: o.ip,
+                            port: o.port,
+                            softwarePort: o.softwarePort,
+                            type: o.type,
+                            txtime: o.txtime,
+                            pxtime: o.pxtime,
+                            timeout: o.timeout,
+                            barcode: o.barcode,
+                            publish: o.publish,
+                            enabled: o.enabled,
+                            unitId: o.unitId,
+                            deviceId: o.deviceId,
+                            description: o.description,
+                            userName: o.userName,
+                            password: o.password,
+                        };
+                    });
+                    const saved = await SaveConfig(__settings);
+                    if (!saved) {
+                        var err = new ErrorResponse();
+                        err.error.errors[0].code = 503;
+                        err.error.errors[0].reason = error.message;
+                        err.error.errors[0].message = 'Issue loading devices!';
+                        deferred.reject(err)
+                    } else {
+                        deferred.resolve(__settings.devices.length-1)
+                    };
+    
+    
+                    return deferred.promise
+                }
+
+
+
+
 
                 try {
                     args.result = {
@@ -609,6 +735,7 @@ var module = function () {
                             err.error.errors[0].message = 'Issue loading devices!';
                             __responder.error(req, res, err);
                         } else {
+                            await reorderIds()
                             __responder.success(req, res, args.result);
                         };
                     } else {

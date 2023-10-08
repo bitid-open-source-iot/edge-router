@@ -61,23 +61,28 @@ module.exports = class extends EventEmitter {
 
         this.sendOnce = true
 
-        // if (__settings.commsOption == '0') {
-        this.connectMQTT();
-        // } else {
-        //     this.connectTCPClient();
-        // }
-
+        if (__settings.commsOption) {
+            if (__settings.commsOption == 0) {
+                this.connectMQTT();
+            }else{
+                this.connectTCPClient();    
+            }
+        } else {
+            this.connectMQTT();
+        }
+        
         this.init()
     }
 
     init() {
         this.fixedTransmit = setInterval(() => {
             try {
+                console.log('shane fixedTransmit', new Date())
                 this.cofs.applyCOFSServer()
             } catch (e) {
                 console.error('fixedTransmit Error', e)
             }
-        }, this.txtime * 60000)
+        }, this.pxTime * 1000)
 
         /**
          * This timer keeps the __arrPublisher empty
@@ -128,7 +133,7 @@ module.exports = class extends EventEmitter {
             }, Promise.resolve())
                 .then(async () => {
                     try {
-                        await __router.mapping(deviceItem.deviceId, inputs)
+                        await __router.mapping(inputs)
                     } catch (e) {
                         console.error(e)
                     }
@@ -141,7 +146,7 @@ module.exports = class extends EventEmitter {
     }
 
 
-    async mapping(deviceId, inputs) {
+    async mapping(inputs) {
         return new Promise(async (resolve, reject) => {
             let index = 0;
             try {
@@ -150,8 +155,7 @@ module.exports = class extends EventEmitter {
 
                     try {
                         for (const input of inputs) {
-                            if (item.source.inputId == input.inputId && item.source.deviceId == deviceId) {
-
+                            if (item.source.inputId == input.inputId) {
 
                                 let maskSourceValue = null;
 
@@ -161,9 +165,10 @@ module.exports = class extends EventEmitter {
                                     maskSourceValue = input.value;
                                 }
 
-                                const device = __devices.find(d => d.deviceId === item.destination.deviceId && deviceId == item.source.deviceId);
+                                const deviceSource = __devices.find(d => d.io.find(io => io.inputId === item.source.inputId));
+                                const deviceDestination = __devices.find(d => d.io.find(io => io.inputId === item.destination.inputId));
 
-                                if (!device) {
+                                if (!deviceSource || !deviceDestination) {
                                     continue;
                                 }
 
@@ -171,9 +176,9 @@ module.exports = class extends EventEmitter {
                                 let maskDestinationValue = null;
 
                                 if (item.destination.mask != -1) {
-                                    for (const dv of device.values) {
-                                        if (dv.inputId == item.destination.inputId) {
-                                            deviceCurrentState = (dv.value & Math.pow(2, item.destination.mask)) >> item.destination.mask
+                                    for (const dvSource of deviceSource.values) {
+                                        if (dvSource.inputId == item.destination.inputId) {
+                                            deviceCurrentState = (dvSource.value & Math.pow(2, item.destination.mask)) >> item.destination.mask
                                         }
                                     }
 
@@ -184,14 +189,12 @@ module.exports = class extends EventEmitter {
                                         dontTouchVal = deviceCurrentState - (deviceCurrentState & item.destination.mask);
                                     }
 
-
-
                                     maskDestinationValue = dontTouchVal + maskDestinationValue;
                                 } else {
                                     maskDestinationValue = maskSourceValue;
                                 }
 
-                                const io = device.io.find(io => io.inputId === item.destination.inputId);
+                                const io = deviceDestination.io.find(io => io.inputId === item.destination.inputId);
 
                                 if (!io) {
                                     continue;
@@ -199,7 +202,8 @@ module.exports = class extends EventEmitter {
 
                                 // __logger.info(io.description + ': ' + maskDestinationValue);
                                 try {
-                                    await device.write(item.destination.inputId, maskDestinationValue);
+                                    io.value = maskDestinationValue
+                                    await deviceDestination.write(item.destination.inputId, maskDestinationValue);
                                 } catch (e) {
                                     console.error(e)
                                 }
@@ -407,6 +411,7 @@ module.exports = class extends EventEmitter {
 
     async publishArrFromTimer(data) {
         try {
+            console.log('shane publish time', new Date())
             if (this.mqtt?.connected) {
                 __logger.info(`publish ${this.server.subscribe.data} : ${JSON.stringify(data)}`);
                 __logger.info(`keeping an eye on the arrPublisher ${__arrPublisher.length}`)

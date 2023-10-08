@@ -38,20 +38,22 @@ class TCP_CLIENT_DEVICE extends EventEmitter {
                     switch (arrData[1]) {
                         case ('%1'):
                             self.options.io.map((item) => {
-                                if (item.rtuId != arrData[0] || item.rtuId == arrData[0]) {
-                                    let regValue = arrData[item.register]
-                                    if (this.values.map(o => o.inputId).includes(item.inputId)) {
-                                        this.values.map(o => {
-                                            if (this.forceChange == true) {
-                                                if (o.inputId == item.inputId) {
-                                                    change = true;
-                                                    o.value = regValue;
-                                                }
-                                            } else if (o.inputId == item.inputId && o.value != regValue && (Math.abs(parseFloat(o.value - regValue)) >= parseFloat(item.cofs) || parseFloat(item.cofs) == -1)) {
+                                let moduleId = arrData[3].split('.')[1]
+                                if ((parseInt(item.rtuId) == parseInt(arrData[0]) && parseInt(item.moduleId) == parseInt(moduleId))) {
+                                    let regValue = arrData[item.register + 1]
+                                    let o = this.values.find(o => o.inputId == item.inputId)
+                                    if (o) {
+                                        if (this.forceChange == true) {
+                                            if (o.inputId == item.inputId) {
                                                 change = true;
                                                 o.value = regValue;
-                                            };
-                                        });
+                                            }
+                                        } else if (o.inputId == item.inputId) {
+                                            if (o.value != regValue && (Math.abs(parseFloat(o.value - regValue)) >= parseFloat(item.cofs) || parseFloat(item.cofs) == -1)) {
+                                                change = true;
+                                                o.value = regValue;
+                                            }
+                                        };
                                     } else {
                                         change = true;
                                         this.values.push({
@@ -66,9 +68,10 @@ class TCP_CLIENT_DEVICE extends EventEmitter {
                             console.log('TCP_CLIENT_DEVICE unhandled message switch', arrData.join(' '))
                     }
                 }
-                if(this.values.length > 0){
+                if (this.values.length > 0) {
                     this.emit('data', this.values);
-                    if (change) {
+                    // if (change == true || change == false) { //for testing
+                    if (change == true) {
                         this.forceChange = false
                         this.emit('change', this.values);
                     };
@@ -82,6 +85,6 @@ class TCP_CLIENT_DEVICE extends EventEmitter {
 
     async forceCOFS() {
         this.forceChange = true
-    }    
+    }
 }
 module.exports = TCP_CLIENT_DEVICE

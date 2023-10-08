@@ -208,6 +208,8 @@ export class InputOutputDialog implements OnInit, OnDestroy {
             case ('modbus'):
                 this.form.controls['register'].setValidators([Validators.required]);
                 this.form.controls['register'].updateValueAndValidity();
+                this.form.controls['moduleId'].setValidators([Validators.required]);
+                this.form.controls['moduleId'].updateValueAndValidity();
                 break;
             case ('hostAgent'):
                 this.form.controls['command'].setValidators([Validators.required]);

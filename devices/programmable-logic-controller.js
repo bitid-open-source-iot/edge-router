@@ -2,6 +2,7 @@ const Q = require('q');
 const { Tag, Controller, EthernetIP } = require('ethernet-ip');
 const interval = require('rxjs').interval;
 const DATA_TYPES = EthernetIP.CIP.DataTypes.Types;
+const COFS = require('../lib/cofs');
 const EventEmitter = require('events').EventEmitter;
 
 module.exports = class extends EventEmitter {
@@ -28,6 +29,8 @@ module.exports = class extends EventEmitter {
         this.controller = new Controller();
         this.lastConnection = new Date();
         this.publish = args.publish || false;
+        
+        this.cofs = new COFS()
 
         this.on('data', () => {
             if (__socket) {
@@ -84,20 +87,39 @@ module.exports = class extends EventEmitter {
                         // console.log('read', item.tag);
                         await this.controller.readTag(item.tag);
 
-                        if (this.values.map(o => o.inputId).includes(item.inputId)) {
-                            this.values.map(o => {
-                                if (o.inputId == item.inputId && o.value != item.tag.value) {
-                                    change = true;
-                                    o.value = item.tag.value;
-                                };
-                            });
-                        } else {
+
+                        let io = this.values.find(o => o.inputId == item.inputId)
+                        if(io){
+                            if (this.forceChange == true) {
+                                change = true;
+                                io.value = item.tag.value;
+                            }else{
+                                item.value = item.tag.value
+                                change = await this.cofs.checkCOFS(item);
+                                io.value = item.tag.value;
+                            }
+                        }else{
                             change = true;
                             this.values.push({
                                 value: item.tag.value,
                                 inputId: item.inputId
                             });
-                        };
+                        }
+
+                        // if (this.values.map(o => o.inputId).includes(item.inputId)) {
+                        //     this.values.map(o => {
+                        //         if (o.inputId == item.inputId && o.value != item.tag.value) {
+                        //             change = true;
+                        //             o.value = item.tag.value;
+                        //         };
+                        //     });
+                        // } else {
+                        //     change = true;
+                        //     this.values.push({
+                        //         value: item.tag.value,
+                        //         inputId: item.inputId
+                        //     });
+                        // };
                     } else {
                         if (this.values.map(o => o.inputId).includes(item.inputId)) {
                             this.values.map(o => {
@@ -186,9 +208,9 @@ module.exports = class extends EventEmitter {
     async write() {
         try {
             this.io.map(async item => {
-                if (item.tag.value != item.tag.newValue && item.writeable) {
-                    item.tag.value = parseInt(item.tag.newValue || 0);
-                    // console.log('Writing a value of ' + item.tag.value + ' to ' + item.tagId)
+                if (item.tag.value != item.value && item.writeable) {
+                    item.tag.value = parseInt(item.value || 0);
+                    console.log('Writing a value of ' + item.tag.value + ' to ' + item.tagId)
                     __logger.info('Writing a value of ' + item.tag.value + ' to ' + item.tagId);
                     try {
                         await this.controller.writeTag(item.tag);

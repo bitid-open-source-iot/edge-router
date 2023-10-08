@@ -64,7 +64,8 @@
                 </mat-label>
 
                 <input matInput type="text" minlength="24" maxlength="24" placeholder="device id"
-                    formControlName="deviceId" required>
+                    formControlName="deviceId" required #tooltip="matTooltip"
+                    matTooltip="Set this to 000000000000000000000000">
 
                 <mat-error *ngIf="errors.deviceId">
                     {{ errors.deviceId }}
@@ -91,7 +92,8 @@
                     IP
                 </mat-label>
 
-                <input matInput type="url" placeholder="ip" formControlName="ip" required>
+                <input matInput type="url" placeholder="ip" formControlName="ip" required #tooltip="matTooltip"
+                matTooltip="Set this to the IP of the edge-router">
 
                 <mat-error *ngIf="errors.ip">
                     {{ errors.ip }}
@@ -103,28 +105,15 @@
                     Port
                 </mat-label>
 
-                <input matInput type="number" min="0" placeholder="port" formControlName="port" required>
+                <input matInput type="number" min="0" placeholder="port" formControlName="port" required #tooltip="matTooltip"
+                matTooltip="Set this to the Software Port of the TCPServer">
 
                 <mat-error *ngIf="errors.port">
                     {{ errors.port }}
                 </mat-error>
             </mat-form-field>
-        </section>
 
-        <section *ngIf="type == 'tcpServer'">
-            <mat-form-field appearance="outline">
-                <mat-label>
-                    Software IP
-                </mat-label>
-
-                <input matInput type="url" placeholder="softwareIp" formControlName="softwareIp">
-
-                <mat-error *ngIf="errors.softwareIp">
-                    {{ errors.softwareIp }}
-                </mat-error>
-            </mat-form-field>
-
-            <mat-form-field appearance="outline">
+            <mat-form-field appearance="outline" *ngIf="form.value.type != 'tcpClient'">
                 <mat-label>
                     Software Port
                 </mat-label>
@@ -135,7 +124,9 @@
                     {{ errors.softwarePort }}
                 </mat-error>
             </mat-form-field>
-        </section>        
+
+        </section>
+
 
         <section *ngIf="form.value.type == 'kGateway'">
             <mat-form-field appearance="outline">
@@ -165,7 +156,7 @@
 
 
 
-        <section>
+        <section *ngIf="form.value.type != 'tcpServer'">
             <mat-form-field appearance="outline">
                 <mat-label>
                     Publish
@@ -223,7 +214,7 @@
                 </mat-error>
             </mat-form-field>
 
-            <mat-form-field appearance="outline" *ngIf="form.value.type != 'kGateway' && form.value.type != 'modbus'">
+            <mat-form-field appearance="outline" *ngIf="form.value.type != 'kGateway' && form.value.type != 'modbus' && form.value.type != 'tcpServer'">
                 <mat-label>
                     Timeout Interval
                 </mat-label>
@@ -240,10 +231,10 @@
             </mat-form-field>
         </section>
 
-        <section *ngIf="form.value.type != 'kGateway'">
-            <mat-form-field appearance="outline">
+        <section *ngIf="form.value.type == 'modbus' || form.value.type == 'programmable-logic-controller'">
+            <mat-form-field appearance="outline" *ngIf="form.value.type != 'tcpServer'">
                 <mat-label>
-                    TX Time
+                    TX Time (seconds)
                 </mat-label>
 
                 <input matInput min="1" type="number" placeholder="tx time" formControlName="txtime" >
@@ -253,7 +244,7 @@
                 </mat-error>
             </mat-form-field>
 
-            <mat-form-field appearance="outline">
+            <mat-form-field appearance="outline" *ngIf="form.value.type != 'tcpServer'">
                 <mat-label>
                     Barcode
                 </mat-label>
