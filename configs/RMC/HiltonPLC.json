@@ -1,0 +1,3428 @@
+{
+    "port": 8080,
+    "txtime": 1,
+    "barcode": "2",
+    "deviceId": "61bf28b82789da0ea7b5f197",
+    "production": true,
+    "authentication": true,
+    "admin": {
+        "email": "admin@bitid.co.za",
+        "password": "admin"
+    },
+    "server": {
+        "host": "mqtt://bitid.co.za",
+        "port": 1888,
+        "username": "telemetry",
+        "password": "telemetry1!",
+        "subscribe": {
+            "data": "/rock/v1.1.zdm/data",
+            "control": "/rock/v1.1.zdm/control"
+        }
+    },
+    "logger": {
+        "appenders": {
+            "edge-router": {
+                "type": "file",
+                "backups": 10,
+                "filename": "/var/www/node/edge-router/logs/edge-router.log",
+                "absolute": true,
+                "maxLogSize": 102400
+            }
+        },
+        "categories": {
+            "default": {
+                "appenders": [
+                    "edge-router"
+                ],
+                "level": "error"
+            }
+        }
+    },
+    "devices": [
+        {
+            "id": 1,
+            "io": [
+                {
+                    "scaling": {
+                        "raw": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "scaled": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "type": "none"
+                    },
+                    "publish": {
+                        "bit": 0,
+                        "key": "AI1",
+                        "enabled": true,
+                        "moduleId": 0
+                    },
+                    "masking": {
+                        "bit": 0,
+                        "enabled": false
+                    },
+                    "mqtt": {
+                        "userName": "",
+                        "password": "",
+                        "subscribe": {
+                            "data": "",
+                            "control": ""
+                        },
+                        "enabled": false
+                    },
+                    "modbus": {
+                        "isCoil": false,
+                        "isHoldingRegister": false
+                    },
+                    "key": "AI1",
+                    "tagId": "N3H_Tele_TX[0]",
+                    "value": 1,
+                    "shift": -1,
+                    "inputId": "619dff5457c1563cd740c57b",
+                    "register": 0,
+                    "moduleId": 0,
+                    "readable": true,
+                    "interface": "INT",
+                    "writeable": false,
+                    "description": "Pump Station Pump No. 1 Motor Status",
+                    "cofs": "1",
+                    "command": "",
+                    "rtuId": 0
+                },
+                {
+                    "scaling": {
+                        "raw": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "scaled": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "type": "none"
+                    },
+                    "publish": {
+                        "bit": 1,
+                        "key": "AI2",
+                        "enabled": true,
+                        "moduleId": 0
+                    },
+                    "masking": {
+                        "bit": 0,
+                        "enabled": false
+                    },
+                    "mqtt": {
+                        "userName": "",
+                        "password": "",
+                        "subscribe": {
+                            "data": "",
+                            "control": ""
+                        },
+                        "enabled": false
+                    },
+                    "modbus": {
+                        "isCoil": false,
+                        "isHoldingRegister": false
+                    },
+                    "key": "AI1",
+                    "tagId": "N3H_Tele_TX[1]",
+                    "value": 512,
+                    "shift": -1,
+                    "inputId": "64c1c426286ab40e5d38cbc6",
+                    "register": 0,
+                    "moduleId": 0,
+                    "readable": true,
+                    "interface": "INT",
+                    "writeable": false,
+                    "description": "Pump Station Pump No. 1 MCC Status",
+                    "cofs": "1",
+                    "command": "",
+                    "rtuId": 0
+                },
+                {
+                    "scaling": {
+                        "raw": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "scaled": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "type": "none"
+                    },
+                    "publish": {
+                        "bit": 2,
+                        "key": "AI3",
+                        "enabled": true,
+                        "moduleId": 0
+                    },
+                    "masking": {
+                        "bit": 0,
+                        "enabled": false
+                    },
+                    "mqtt": {
+                        "userName": "",
+                        "password": "",
+                        "subscribe": {
+                            "data": "",
+                            "control": ""
+                        },
+                        "enabled": false
+                    },
+                    "modbus": {
+                        "isCoil": false,
+                        "isHoldingRegister": false
+                    },
+                    "key": "AI1",
+                    "tagId": "N3H_Tele_TX[2]",
+                    "value": 3,
+                    "shift": -1,
+                    "inputId": "64c1c46f413648413fdb2793",
+                    "register": 0,
+                    "moduleId": 0,
+                    "readable": true,
+                    "interface": "INT",
+                    "writeable": false,
+                    "description": "Pump Station Pump No. 1 RHM ",
+                    "cofs": "1",
+                    "command": "",
+                    "rtuId": 0
+                },
+                {
+                    "scaling": {
+                        "raw": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "scaled": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "type": "none"
+                    },
+                    "publish": {
+                        "bit": 3,
+                        "key": "AI4",
+                        "enabled": true,
+                        "moduleId": 0
+                    },
+                    "masking": {
+                        "bit": 0,
+                        "enabled": false
+                    },
+                    "mqtt": {
+                        "userName": "",
+                        "password": "",
+                        "subscribe": {
+                            "data": "",
+                            "control": ""
+                        },
+                        "enabled": false
+                    },
+                    "modbus": {
+                        "isCoil": false,
+                        "isHoldingRegister": false
+                    },
+                    "key": "AI1",
+                    "tagId": "N3H_Tele_TX[3]",
+                    "value": 13,
+                    "shift": -1,
+                    "inputId": "64c1c489c03041af4a2ba1ae",
+                    "register": 0,
+                    "moduleId": 0,
+                    "readable": true,
+                    "interface": "INT",
+                    "writeable": false,
+                    "description": "Pump Station Pump No. 1 NOS ",
+                    "cofs": -1,
+                    "command": "",
+                    "rtuId": 0
+                },
+                {
+                    "scaling": {
+                        "raw": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "scaled": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "type": "none"
+                    },
+                    "publish": {
+                        "bit": 4,
+                        "key": "AIExt1",
+                        "enabled": true,
+                        "moduleId": 0
+                    },
+                    "masking": {
+                        "bit": 0,
+                        "enabled": false
+                    },
+                    "mqtt": {
+                        "userName": "",
+                        "password": "",
+                        "subscribe": {
+                            "data": "",
+                            "control": ""
+                        },
+                        "enabled": false
+                    },
+                    "modbus": {
+                        "isCoil": false,
+                        "isHoldingRegister": false
+                    },
+                    "key": "AI1",
+                    "tagId": "N3H_Tele_TX[4]",
+                    "value": 6,
+                    "shift": -1,
+                    "inputId": "64c1c49edb0b0142afb8777a",
+                    "register": 0,
+                    "moduleId": 0,
+                    "readable": true,
+                    "interface": "INT",
+                    "writeable": false,
+                    "description": "Pump Station Pump No. 1 Delivery Valve Status",
+                    "cofs": -1,
+                    "command": "",
+                    "rtuId": 0
+                },
+                {
+                    "scaling": {
+                        "raw": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "scaled": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "type": "none"
+                    },
+                    "publish": {
+                        "bit": 4,
+                        "key": "AIExt2",
+                        "enabled": true,
+                        "moduleId": 0
+                    },
+                    "masking": {
+                        "bit": 0,
+                        "enabled": false
+                    },
+                    "mqtt": {
+                        "userName": "",
+                        "password": "",
+                        "subscribe": {
+                            "data": "",
+                            "control": ""
+                        },
+                        "enabled": false
+                    },
+                    "modbus": {
+                        "isCoil": false,
+                        "isHoldingRegister": false
+                    },
+                    "key": "AI1",
+                    "tagId": "N3H_Tele_TX[5]",
+                    "value": 0,
+                    "shift": -1,
+                    "inputId": "6526953d30fe90a74dc58e52",
+                    "register": 0,
+                    "moduleId": 0,
+                    "readable": true,
+                    "interface": "INT",
+                    "writeable": false,
+                    "description": "Pump Station Spare5",
+                    "cofs": -1,
+                    "command": "",
+                    "rtuId": 0
+                },
+                {
+                    "scaling": {
+                        "raw": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "scaled": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "type": "none"
+                    },
+                    "publish": {
+                        "bit": 4,
+                        "key": "AIExt3",
+                        "enabled": true,
+                        "moduleId": 0
+                    },
+                    "masking": {
+                        "bit": 0,
+                        "enabled": false
+                    },
+                    "mqtt": {
+                        "userName": "",
+                        "password": "",
+                        "subscribe": {
+                            "data": "",
+                            "control": ""
+                        },
+                        "enabled": false
+                    },
+                    "modbus": {
+                        "isCoil": false,
+                        "isHoldingRegister": false
+                    },
+                    "key": "AI1",
+                    "tagId": "N3H_Tele_TX[6]",
+                    "value": 0,
+                    "shift": -1,
+                    "inputId": "6526955035aef3aa4edef075",
+                    "register": 0,
+                    "moduleId": 0,
+                    "readable": true,
+                    "interface": "INT",
+                    "writeable": false,
+                    "description": "Pump Station Spare6",
+                    "cofs": -1,
+                    "command": "",
+                    "rtuId": 0
+                },
+                {
+                    "scaling": {
+                        "raw": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "scaled": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "type": "none"
+                    },
+                    "publish": {
+                        "bit": 4,
+                        "key": "AIExt3",
+                        "enabled": true,
+                        "moduleId": 0
+                    },
+                    "masking": {
+                        "bit": 0,
+                        "enabled": false
+                    },
+                    "mqtt": {
+                        "userName": "",
+                        "password": "",
+                        "subscribe": {
+                            "data": "",
+                            "control": ""
+                        },
+                        "enabled": false
+                    },
+                    "modbus": {
+                        "isCoil": false,
+                        "isHoldingRegister": false
+                    },
+                    "key": "AI1",
+                    "tagId": "N3H_Tele_TX[7]",
+                    "value": 0,
+                    "shift": -1,
+                    "inputId": "652695a70ef3d3942aa49e9f",
+                    "register": 0,
+                    "moduleId": 0,
+                    "readable": true,
+                    "interface": "INT",
+                    "writeable": false,
+                    "description": "Pump Station Spare7",
+                    "cofs": -1,
+                    "command": "",
+                    "rtuId": 0
+                },
+                {
+                    "scaling": {
+                        "raw": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "scaled": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "type": "none"
+                    },
+                    "publish": {
+                        "bit": 4,
+                        "key": "AIExt4",
+                        "enabled": true,
+                        "moduleId": 0
+                    },
+                    "masking": {
+                        "bit": 0,
+                        "enabled": false
+                    },
+                    "mqtt": {
+                        "userName": "",
+                        "password": "",
+                        "subscribe": {
+                            "data": "",
+                            "control": ""
+                        },
+                        "enabled": false
+                    },
+                    "modbus": {
+                        "isCoil": false,
+                        "isHoldingRegister": false
+                    },
+                    "key": "AI1",
+                    "tagId": "N3H_Tele_TX[8]",
+                    "value": 0,
+                    "shift": -1,
+                    "inputId": "652695b99c18870030f31181",
+                    "register": 0,
+                    "moduleId": 0,
+                    "readable": true,
+                    "interface": "INT",
+                    "writeable": false,
+                    "description": "Pump Station Spare8",
+                    "cofs": -1,
+                    "command": "",
+                    "rtuId": 0
+                },
+                {
+                    "scaling": {
+                        "raw": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "scaled": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "type": "none"
+                    },
+                    "publish": {
+                        "bit": 4,
+                        "key": "AIExt5",
+                        "enabled": true,
+                        "moduleId": 0
+                    },
+                    "masking": {
+                        "bit": 0,
+                        "enabled": false
+                    },
+                    "mqtt": {
+                        "userName": "",
+                        "password": "",
+                        "subscribe": {
+                            "data": "",
+                            "control": ""
+                        },
+                        "enabled": false
+                    },
+                    "modbus": {
+                        "isCoil": false,
+                        "isHoldingRegister": false
+                    },
+                    "key": "AI1",
+                    "tagId": "N3H_Tele_TX[9]",
+                    "value": 0,
+                    "shift": -1,
+                    "inputId": "652695cb78f28c312d743d49",
+                    "register": 0,
+                    "moduleId": 0,
+                    "readable": true,
+                    "interface": "INT",
+                    "writeable": false,
+                    "description": "Pump Station Spare9",
+                    "cofs": -1,
+                    "command": "",
+                    "rtuId": 0
+                }
+            ],
+            "ip": "10.18.80.10",
+            "port": 0,
+            "softwarePort": 0,
+            "type": "programmable-logic-controller",
+            "txtime": 5,
+            "pxtime": 900,
+            "timeout": 300,
+            "barcode": "10",
+            "publish": true,
+            "enabled": false,
+            "unitId": 0,
+            "deviceId": "61bf28b82789ba0ea7b5f197",
+            "description": "Hilton Pumpstation PLC 0-9",
+            "userName": "",
+            "password": ""
+        },
+        {
+            "id": 2,
+            "io": [
+                {
+                    "scaling": {
+                        "raw": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "scaled": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "type": "none"
+                    },
+                    "publish": {
+                        "bit": 10,
+                        "key": "AI1",
+                        "enabled": true,
+                        "moduleId": 0
+                    },
+                    "masking": {
+                        "bit": 0,
+                        "enabled": false
+                    },
+                    "mqtt": {
+                        "userName": "",
+                        "password": "",
+                        "subscribe": {
+                            "data": "",
+                            "control": ""
+                        },
+                        "enabled": false
+                    },
+                    "modbus": {
+                        "isCoil": false,
+                        "isHoldingRegister": false
+                    },
+                    "key": "AI1",
+                    "tagId": "N3H_Tele_TX[10]",
+                    "value": 18,
+                    "shift": -1,
+                    "inputId": "64c1c4aff2e29c176bc3a87d",
+                    "register": 0,
+                    "moduleId": 0,
+                    "readable": true,
+                    "interface": "INT",
+                    "writeable": false,
+                    "description": "Pump Station Pump No. 2 Motor Status",
+                    "cofs": -1,
+                    "command": "",
+                    "rtuId": 0
+                },
+                {
+                    "scaling": {
+                        "raw": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "scaled": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "type": "none"
+                    },
+                    "publish": {
+                        "bit": 11,
+                        "key": "AI2",
+                        "enabled": true,
+                        "moduleId": 0
+                    },
+                    "masking": {
+                        "bit": 0,
+                        "enabled": false
+                    },
+                    "mqtt": {
+                        "userName": "",
+                        "password": "",
+                        "subscribe": {
+                            "data": "",
+                            "control": ""
+                        },
+                        "enabled": false
+                    },
+                    "modbus": {
+                        "isCoil": false,
+                        "isHoldingRegister": false
+                    },
+                    "key": "AI1",
+                    "tagId": "N3H_Tele_TX[11]",
+                    "value": 44,
+                    "shift": -1,
+                    "inputId": "64c1c4ffdbc611b11f6b14d9",
+                    "register": 0,
+                    "moduleId": 0,
+                    "readable": true,
+                    "interface": "INT",
+                    "writeable": false,
+                    "description": "Pump Station Pump No. 2 MCC Status",
+                    "cofs": -1,
+                    "command": "",
+                    "rtuId": 0
+                },
+                {
+                    "scaling": {
+                        "raw": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "scaled": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "type": "none"
+                    },
+                    "publish": {
+                        "bit": 12,
+                        "key": "AI3",
+                        "enabled": true,
+                        "moduleId": 0
+                    },
+                    "masking": {
+                        "bit": 0,
+                        "enabled": false
+                    },
+                    "mqtt": {
+                        "userName": "",
+                        "password": "",
+                        "subscribe": {
+                            "data": "",
+                            "control": ""
+                        },
+                        "enabled": false
+                    },
+                    "modbus": {
+                        "isCoil": false,
+                        "isHoldingRegister": false
+                    },
+                    "key": "AI1",
+                    "tagId": "N3H_Tele_TX[12]",
+                    "value": 0,
+                    "shift": -1,
+                    "inputId": "64c1c50c8895ad87ab15cee4",
+                    "register": 0,
+                    "moduleId": 0,
+                    "readable": true,
+                    "interface": "INT",
+                    "writeable": false,
+                    "description": "Pump Station Pump No. 2 RHM ",
+                    "cofs": -1,
+                    "command": "",
+                    "rtuId": 0
+                },
+                {
+                    "scaling": {
+                        "raw": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "scaled": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "type": "none"
+                    },
+                    "publish": {
+                        "bit": 13,
+                        "key": "AI4",
+                        "enabled": true,
+                        "moduleId": 0
+                    },
+                    "masking": {
+                        "bit": 0,
+                        "enabled": false
+                    },
+                    "mqtt": {
+                        "userName": "",
+                        "password": "",
+                        "subscribe": {
+                            "data": "",
+                            "control": ""
+                        },
+                        "enabled": false
+                    },
+                    "modbus": {
+                        "isCoil": false,
+                        "isHoldingRegister": false
+                    },
+                    "key": "AI1",
+                    "tagId": "N3H_Tele_TX[13]",
+                    "value": 0,
+                    "shift": -1,
+                    "inputId": "64c1c51ce829df10cb49e3c8",
+                    "register": 0,
+                    "moduleId": 0,
+                    "readable": true,
+                    "interface": "INT",
+                    "writeable": false,
+                    "description": "Pump Station Pump No. 2 NOS ",
+                    "cofs": -1,
+                    "command": "",
+                    "rtuId": 0
+                },
+                {
+                    "scaling": {
+                        "raw": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "scaled": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "type": "none"
+                    },
+                    "publish": {
+                        "bit": 14,
+                        "key": "AIExt1",
+                        "enabled": true,
+                        "moduleId": 0
+                    },
+                    "masking": {
+                        "bit": 0,
+                        "enabled": false
+                    },
+                    "mqtt": {
+                        "userName": "",
+                        "password": "",
+                        "subscribe": {
+                            "data": "",
+                            "control": ""
+                        },
+                        "enabled": false
+                    },
+                    "modbus": {
+                        "isCoil": false,
+                        "isHoldingRegister": false
+                    },
+                    "key": "AI1",
+                    "tagId": "N3H_Tele_TX[14]",
+                    "value": 0,
+                    "shift": -1,
+                    "inputId": "64c1c52bd5c53b48b306dd27",
+                    "register": 0,
+                    "moduleId": 0,
+                    "readable": true,
+                    "interface": "INT",
+                    "writeable": false,
+                    "description": "Pump Station Pump No. 2 Delivery Valve Status",
+                    "cofs": -1,
+                    "command": "",
+                    "rtuId": 0
+                },
+                {
+                    "scaling": {
+                        "raw": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "scaled": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "type": "none"
+                    },
+                    "publish": {
+                        "bit": 14,
+                        "key": "AIExt2",
+                        "enabled": true,
+                        "moduleId": 0
+                    },
+                    "masking": {
+                        "bit": 0,
+                        "enabled": false
+                    },
+                    "mqtt": {
+                        "userName": "",
+                        "password": "",
+                        "subscribe": {
+                            "data": "",
+                            "control": ""
+                        },
+                        "enabled": false
+                    },
+                    "modbus": {
+                        "isCoil": false,
+                        "isHoldingRegister": false
+                    },
+                    "key": "AI1",
+                    "tagId": "N3H_Tele_TX[15]",
+                    "value": 0,
+                    "shift": -1,
+                    "inputId": "652695ff9a8dc09990ff3471",
+                    "register": 0,
+                    "moduleId": 0,
+                    "readable": true,
+                    "interface": "INT",
+                    "writeable": false,
+                    "description": "Pump Station Spare15",
+                    "cofs": -1,
+                    "command": "",
+                    "rtuId": 0
+                },
+                {
+                    "scaling": {
+                        "raw": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "scaled": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "type": "none"
+                    },
+                    "publish": {
+                        "bit": 14,
+                        "key": "AIExt3",
+                        "enabled": true,
+                        "moduleId": 0
+                    },
+                    "masking": {
+                        "bit": 0,
+                        "enabled": false
+                    },
+                    "mqtt": {
+                        "userName": "",
+                        "password": "",
+                        "subscribe": {
+                            "data": "",
+                            "control": ""
+                        },
+                        "enabled": false
+                    },
+                    "modbus": {
+                        "isCoil": false,
+                        "isHoldingRegister": false
+                    },
+                    "key": "AI1",
+                    "tagId": "N3H_Tele_TX[16]",
+                    "value": 0,
+                    "shift": -1,
+                    "inputId": "6526960f2424d931b7336d4c",
+                    "register": 0,
+                    "moduleId": 0,
+                    "readable": true,
+                    "interface": "INT",
+                    "writeable": false,
+                    "description": "Pump Station Spare16",
+                    "cofs": -1,
+                    "command": "",
+                    "rtuId": 0
+                },
+                {
+                    "scaling": {
+                        "raw": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "scaled": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "type": "none"
+                    },
+                    "publish": {
+                        "bit": 14,
+                        "key": "AIExt4",
+                        "enabled": true,
+                        "moduleId": 0
+                    },
+                    "masking": {
+                        "bit": 0,
+                        "enabled": false
+                    },
+                    "mqtt": {
+                        "userName": "",
+                        "password": "",
+                        "subscribe": {
+                            "data": "",
+                            "control": ""
+                        },
+                        "enabled": false
+                    },
+                    "modbus": {
+                        "isCoil": false,
+                        "isHoldingRegister": false
+                    },
+                    "key": "AI1",
+                    "tagId": "N3H_Tele_TX[17]",
+                    "value": 0,
+                    "shift": -1,
+                    "inputId": "6526961fcc3f314208e9b017",
+                    "register": 0,
+                    "moduleId": 0,
+                    "readable": true,
+                    "interface": "INT",
+                    "writeable": false,
+                    "description": "Pump Station Spare17",
+                    "cofs": -1,
+                    "command": "",
+                    "rtuId": 0
+                },
+                {
+                    "scaling": {
+                        "raw": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "scaled": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "type": "none"
+                    },
+                    "publish": {
+                        "bit": 14,
+                        "key": "AIExt5",
+                        "enabled": true,
+                        "moduleId": 0
+                    },
+                    "masking": {
+                        "bit": 0,
+                        "enabled": false
+                    },
+                    "mqtt": {
+                        "userName": "",
+                        "password": "",
+                        "subscribe": {
+                            "data": "",
+                            "control": ""
+                        },
+                        "enabled": false
+                    },
+                    "modbus": {
+                        "isCoil": false,
+                        "isHoldingRegister": false
+                    },
+                    "key": "AI1",
+                    "tagId": "N3H_Tele_TX[18]",
+                    "value": 0,
+                    "shift": -1,
+                    "inputId": "6526962ef509f1681ab543fa",
+                    "register": 0,
+                    "moduleId": 0,
+                    "readable": true,
+                    "interface": "INT",
+                    "writeable": false,
+                    "description": "Pump Station Spare18",
+                    "cofs": -1,
+                    "command": "",
+                    "rtuId": 0
+                },
+                {
+                    "scaling": {
+                        "raw": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "scaled": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "type": "none"
+                    },
+                    "publish": {
+                        "bit": 14,
+                        "key": "AIExt6",
+                        "enabled": true,
+                        "moduleId": 0
+                    },
+                    "masking": {
+                        "bit": 0,
+                        "enabled": false
+                    },
+                    "mqtt": {
+                        "userName": "",
+                        "password": "",
+                        "subscribe": {
+                            "data": "",
+                            "control": ""
+                        },
+                        "enabled": false
+                    },
+                    "modbus": {
+                        "isCoil": false,
+                        "isHoldingRegister": false
+                    },
+                    "key": "AI1",
+                    "tagId": "N3H_Tele_TX[19]",
+                    "value": 0,
+                    "shift": -1,
+                    "inputId": "6526963e8e44f1ba25f7bb60",
+                    "register": 0,
+                    "moduleId": 0,
+                    "readable": true,
+                    "interface": "INT",
+                    "writeable": false,
+                    "description": "Pump Station Spare19",
+                    "cofs": -1,
+                    "command": "",
+                    "rtuId": 0
+                }
+            ],
+            "ip": "10.18.80.10",
+            "port": 0,
+            "softwarePort": 0,
+            "type": "programmable-logic-controller",
+            "txtime": 5,
+            "pxtime": 900,
+            "timeout": 300,
+            "barcode": "11",
+            "publish": true,
+            "enabled": false,
+            "unitId": 0,
+            "deviceId": "61bf28b82789ba0ea7b5f198",
+            "description": "Hilton Pumpstation PLC 10-19",
+            "userName": "",
+            "password": ""
+        },
+        {
+            "id": 3,
+            "io": [
+                {
+                    "scaling": {
+                        "raw": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "scaled": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "type": "none"
+                    },
+                    "publish": {
+                        "bit": 20,
+                        "key": "AI1",
+                        "enabled": true,
+                        "moduleId": 0
+                    },
+                    "masking": {
+                        "bit": 0,
+                        "enabled": false
+                    },
+                    "mqtt": {
+                        "userName": "",
+                        "password": "",
+                        "subscribe": {
+                            "data": "",
+                            "control": ""
+                        },
+                        "enabled": false
+                    },
+                    "modbus": {
+                        "isCoil": false,
+                        "isHoldingRegister": false
+                    },
+                    "key": "AI1",
+                    "tagId": "N3H_Tele_TX[20]",
+                    "value": 0,
+                    "shift": -1,
+                    "inputId": "64c1c5a4c50d2f2c6cfc1d33",
+                    "register": 0,
+                    "moduleId": 0,
+                    "readable": true,
+                    "interface": "INT",
+                    "writeable": false,
+                    "description": "Pump Station Pump No. 3 Motor Status",
+                    "cofs": -1,
+                    "command": "",
+                    "rtuId": 0
+                },
+                {
+                    "scaling": {
+                        "raw": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "scaled": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "type": "none"
+                    },
+                    "publish": {
+                        "bit": 21,
+                        "key": "AI2",
+                        "enabled": true,
+                        "moduleId": 0
+                    },
+                    "masking": {
+                        "bit": 0,
+                        "enabled": false
+                    },
+                    "mqtt": {
+                        "userName": "",
+                        "password": "",
+                        "subscribe": {
+                            "data": "",
+                            "control": ""
+                        },
+                        "enabled": false
+                    },
+                    "modbus": {
+                        "isCoil": false,
+                        "isHoldingRegister": false
+                    },
+                    "key": "AI1",
+                    "tagId": "N3H_Tele_TX[21]",
+                    "value": 0,
+                    "shift": -1,
+                    "inputId": "64c1c5b3f2496cb3359b6af5",
+                    "register": 0,
+                    "moduleId": 0,
+                    "readable": true,
+                    "interface": "INT",
+                    "writeable": false,
+                    "description": "Pump Station Pump No. 3 MCC Status",
+                    "cofs": -1,
+                    "command": "",
+                    "rtuId": 0
+                },
+                {
+                    "scaling": {
+                        "raw": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "scaled": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "type": "none"
+                    },
+                    "publish": {
+                        "bit": 22,
+                        "key": "AI3",
+                        "enabled": true,
+                        "moduleId": 0
+                    },
+                    "masking": {
+                        "bit": 0,
+                        "enabled": false
+                    },
+                    "mqtt": {
+                        "userName": "",
+                        "password": "",
+                        "subscribe": {
+                            "data": "",
+                            "control": ""
+                        },
+                        "enabled": false
+                    },
+                    "modbus": {
+                        "isCoil": false,
+                        "isHoldingRegister": false
+                    },
+                    "key": "AI1",
+                    "tagId": "N3H_Tele_TX[22]",
+                    "value": 0,
+                    "shift": -1,
+                    "inputId": "64c1c5c2f8e270a02c0ba616",
+                    "register": 0,
+                    "moduleId": 0,
+                    "readable": true,
+                    "interface": "INT",
+                    "writeable": false,
+                    "description": "Pump Station Pump No. 3 RHM ",
+                    "cofs": -1,
+                    "command": "",
+                    "rtuId": 0
+                },
+                {
+                    "scaling": {
+                        "raw": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "scaled": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "type": "none"
+                    },
+                    "publish": {
+                        "bit": 23,
+                        "key": "AI4",
+                        "enabled": true,
+                        "moduleId": 0
+                    },
+                    "masking": {
+                        "bit": 0,
+                        "enabled": false
+                    },
+                    "mqtt": {
+                        "userName": "",
+                        "password": "",
+                        "subscribe": {
+                            "data": "",
+                            "control": ""
+                        },
+                        "enabled": false
+                    },
+                    "modbus": {
+                        "isCoil": false,
+                        "isHoldingRegister": false
+                    },
+                    "key": "AI1",
+                    "tagId": "N3H_Tele_TX[23]",
+                    "value": 0,
+                    "shift": -1,
+                    "inputId": "64c1c5cf5c26d08e11d2e52f",
+                    "register": 0,
+                    "moduleId": 0,
+                    "readable": true,
+                    "interface": "INT",
+                    "writeable": false,
+                    "description": "Pump Station Pump No. 3 NOS ",
+                    "cofs": -1,
+                    "command": "",
+                    "rtuId": 0
+                },
+                {
+                    "scaling": {
+                        "raw": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "scaled": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "type": "none"
+                    },
+                    "publish": {
+                        "bit": 24,
+                        "key": "AIExt1",
+                        "enabled": true,
+                        "moduleId": 0
+                    },
+                    "masking": {
+                        "bit": 0,
+                        "enabled": false
+                    },
+                    "mqtt": {
+                        "userName": "",
+                        "password": "",
+                        "subscribe": {
+                            "data": "",
+                            "control": ""
+                        },
+                        "enabled": false
+                    },
+                    "modbus": {
+                        "isCoil": false,
+                        "isHoldingRegister": false
+                    },
+                    "key": "AI1",
+                    "tagId": "N3H_Tele_TX[24]",
+                    "value": 0,
+                    "shift": -1,
+                    "inputId": "64c1c5e3a9fb2bf721942976",
+                    "register": 0,
+                    "moduleId": 0,
+                    "readable": true,
+                    "interface": "INT",
+                    "writeable": false,
+                    "description": "Pump Station Pump No. 3 Delivery Valve Status",
+                    "cofs": -1,
+                    "command": "",
+                    "rtuId": 0
+                },
+                {
+                    "scaling": {
+                        "raw": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "scaled": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "type": "none"
+                    },
+                    "publish": {
+                        "bit": 24,
+                        "key": "AIExt2",
+                        "enabled": true,
+                        "moduleId": 0
+                    },
+                    "masking": {
+                        "bit": 0,
+                        "enabled": false
+                    },
+                    "mqtt": {
+                        "userName": "",
+                        "password": "",
+                        "subscribe": {
+                            "data": "",
+                            "control": ""
+                        },
+                        "enabled": false
+                    },
+                    "modbus": {
+                        "isCoil": false,
+                        "isHoldingRegister": false
+                    },
+                    "key": "AI1",
+                    "tagId": "N3H_Tele_TX[25]",
+                    "value": 0,
+                    "shift": -1,
+                    "inputId": "6526965c4d5ca4c9d7cb5867",
+                    "register": 0,
+                    "moduleId": 0,
+                    "readable": true,
+                    "interface": "INT",
+                    "writeable": false,
+                    "description": "Pump Station Spare25  ",
+                    "cofs": -1,
+                    "command": "",
+                    "rtuId": 0
+                },
+                {
+                    "scaling": {
+                        "raw": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "scaled": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "type": "none"
+                    },
+                    "publish": {
+                        "bit": 24,
+                        "key": "AIExt3",
+                        "enabled": true,
+                        "moduleId": 0
+                    },
+                    "masking": {
+                        "bit": 0,
+                        "enabled": false
+                    },
+                    "mqtt": {
+                        "userName": "",
+                        "password": "",
+                        "subscribe": {
+                            "data": "",
+                            "control": ""
+                        },
+                        "enabled": false
+                    },
+                    "modbus": {
+                        "isCoil": false,
+                        "isHoldingRegister": false
+                    },
+                    "key": "AI1",
+                    "tagId": "N3H_Tele_TX[26]",
+                    "value": 0,
+                    "shift": -1,
+                    "inputId": "6526966c780ffa58b9453771",
+                    "register": 0,
+                    "moduleId": 0,
+                    "readable": true,
+                    "interface": "INT",
+                    "writeable": false,
+                    "description": "Pump Station Spare26  ",
+                    "cofs": -1,
+                    "command": "",
+                    "rtuId": 0
+                },
+                {
+                    "scaling": {
+                        "raw": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "scaled": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "type": "none"
+                    },
+                    "publish": {
+                        "bit": 24,
+                        "key": "AIExt4",
+                        "enabled": true,
+                        "moduleId": 0
+                    },
+                    "masking": {
+                        "bit": 0,
+                        "enabled": false
+                    },
+                    "mqtt": {
+                        "userName": "",
+                        "password": "",
+                        "subscribe": {
+                            "data": "",
+                            "control": ""
+                        },
+                        "enabled": false
+                    },
+                    "modbus": {
+                        "isCoil": false,
+                        "isHoldingRegister": false
+                    },
+                    "key": "AI1",
+                    "tagId": "N3H_Tele_TX[27]",
+                    "value": 0,
+                    "shift": -1,
+                    "inputId": "6526967bf99fcc879b44e956",
+                    "register": 0,
+                    "moduleId": 0,
+                    "readable": true,
+                    "interface": "INT",
+                    "writeable": false,
+                    "description": "Pump Station Spare27  ",
+                    "cofs": -1,
+                    "command": "",
+                    "rtuId": 0
+                },
+                {
+                    "scaling": {
+                        "raw": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "scaled": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "type": "none"
+                    },
+                    "publish": {
+                        "bit": 24,
+                        "key": "AIExt5",
+                        "enabled": true,
+                        "moduleId": 0
+                    },
+                    "masking": {
+                        "bit": 0,
+                        "enabled": false
+                    },
+                    "mqtt": {
+                        "userName": "",
+                        "password": "",
+                        "subscribe": {
+                            "data": "",
+                            "control": ""
+                        },
+                        "enabled": false
+                    },
+                    "modbus": {
+                        "isCoil": false,
+                        "isHoldingRegister": false
+                    },
+                    "key": "AI1",
+                    "tagId": "N3H_Tele_TX[28]",
+                    "value": 0,
+                    "shift": -1,
+                    "inputId": "652696881e11ea4fa65c05e6",
+                    "register": 0,
+                    "moduleId": 0,
+                    "readable": true,
+                    "interface": "INT",
+                    "writeable": false,
+                    "description": "Pump Station Spare28  ",
+                    "cofs": -1,
+                    "command": "",
+                    "rtuId": 0
+                },
+                {
+                    "scaling": {
+                        "raw": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "scaled": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "type": "none"
+                    },
+                    "publish": {
+                        "bit": 24,
+                        "key": "AIExt6",
+                        "enabled": true,
+                        "moduleId": 0
+                    },
+                    "masking": {
+                        "bit": 0,
+                        "enabled": false
+                    },
+                    "mqtt": {
+                        "userName": "",
+                        "password": "",
+                        "subscribe": {
+                            "data": "",
+                            "control": ""
+                        },
+                        "enabled": false
+                    },
+                    "modbus": {
+                        "isCoil": false,
+                        "isHoldingRegister": false
+                    },
+                    "key": "AI1",
+                    "tagId": "N3H_Tele_TX[29]",
+                    "value": 0,
+                    "shift": -1,
+                    "inputId": "6526969dc66a25fa93a189d2",
+                    "register": 0,
+                    "moduleId": 0,
+                    "readable": true,
+                    "interface": "INT",
+                    "writeable": false,
+                    "description": "Pump Station Spare29  ",
+                    "cofs": -1,
+                    "command": "",
+                    "rtuId": 0
+                }
+            ],
+            "ip": "10.18.80.10",
+            "port": 0,
+            "softwarePort": 0,
+            "type": "programmable-logic-controller",
+            "txtime": 5,
+            "pxtime": 900,
+            "timeout": 300,
+            "barcode": "12",
+            "publish": true,
+            "enabled": false,
+            "unitId": 0,
+            "deviceId": "61bf28b82789ba0ea7b5f302",
+            "description": "Hilton Pumpstation PLC 20-29",
+            "userName": "",
+            "password": ""
+        },
+        {
+            "id": 4,
+            "io": [
+                {
+                    "scaling": {
+                        "raw": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "scaled": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "type": "none"
+                    },
+                    "publish": {
+                        "bit": 30,
+                        "key": "AI1",
+                        "enabled": true,
+                        "moduleId": 0
+                    },
+                    "masking": {
+                        "bit": 0,
+                        "enabled": false
+                    },
+                    "mqtt": {
+                        "userName": "",
+                        "password": "",
+                        "subscribe": {
+                            "data": "",
+                            "control": ""
+                        },
+                        "enabled": false
+                    },
+                    "modbus": {
+                        "isCoil": false,
+                        "isHoldingRegister": false
+                    },
+                    "key": "AI1",
+                    "tagId": "N3H_Tele_TX[30]",
+                    "value": 555,
+                    "shift": -1,
+                    "inputId": "64c1c601b4c706147ce37d4a",
+                    "register": 0,
+                    "moduleId": 0,
+                    "readable": true,
+                    "interface": "INT",
+                    "writeable": false,
+                    "description": "Pump Station Sump Level PV ",
+                    "cofs": -1,
+                    "command": "",
+                    "rtuId": 0
+                },
+                {
+                    "scaling": {
+                        "raw": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "scaled": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "type": "none"
+                    },
+                    "publish": {
+                        "bit": 30,
+                        "key": "AI2",
+                        "enabled": true,
+                        "moduleId": 0
+                    },
+                    "masking": {
+                        "bit": 0,
+                        "enabled": false
+                    },
+                    "mqtt": {
+                        "userName": "",
+                        "password": "",
+                        "subscribe": {
+                            "data": "",
+                            "control": ""
+                        },
+                        "enabled": false
+                    },
+                    "modbus": {
+                        "isCoil": false,
+                        "isHoldingRegister": false
+                    },
+                    "key": "AI1",
+                    "tagId": "N3H_Tele_TX[31]",
+                    "value": 0,
+                    "shift": -1,
+                    "inputId": "64c1c62fcfc0cbdc90a87a88",
+                    "register": 0,
+                    "moduleId": 0,
+                    "readable": true,
+                    "interface": "INT",
+                    "writeable": false,
+                    "description": "Pump Station Delivery Pressure PV ",
+                    "cofs": -1,
+                    "command": "",
+                    "rtuId": 0
+                },
+                {
+                    "scaling": {
+                        "raw": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "scaled": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "type": "none"
+                    },
+                    "publish": {
+                        "bit": 30,
+                        "key": "AI3",
+                        "enabled": true,
+                        "moduleId": 0
+                    },
+                    "masking": {
+                        "bit": 0,
+                        "enabled": false
+                    },
+                    "mqtt": {
+                        "userName": "",
+                        "password": "",
+                        "subscribe": {
+                            "data": "",
+                            "control": ""
+                        },
+                        "enabled": false
+                    },
+                    "modbus": {
+                        "isCoil": false,
+                        "isHoldingRegister": false
+                    },
+                    "key": "AI1",
+                    "tagId": "N3H_Tele_TX[32]",
+                    "value": 0,
+                    "shift": -1,
+                    "inputId": "64c1c646b821076caec3d519",
+                    "register": 0,
+                    "moduleId": 0,
+                    "readable": true,
+                    "interface": "INT",
+                    "writeable": false,
+                    "description": "Pump Station Suction Pressure PV ",
+                    "cofs": -1,
+                    "command": "",
+                    "rtuId": 0
+                },
+                {
+                    "scaling": {
+                        "raw": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "scaled": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "type": "none"
+                    },
+                    "publish": {
+                        "bit": 30,
+                        "key": "AI4",
+                        "enabled": true,
+                        "moduleId": 0
+                    },
+                    "masking": {
+                        "bit": 0,
+                        "enabled": false
+                    },
+                    "mqtt": {
+                        "userName": "",
+                        "password": "",
+                        "subscribe": {
+                            "data": "",
+                            "control": ""
+                        },
+                        "enabled": false
+                    },
+                    "modbus": {
+                        "isCoil": false,
+                        "isHoldingRegister": false
+                    },
+                    "key": "AI1",
+                    "tagId": "N3H_Tele_TX[33]",
+                    "value": 0,
+                    "shift": -1,
+                    "inputId": "64c1c657f841b933400169da",
+                    "register": 0,
+                    "moduleId": 0,
+                    "readable": true,
+                    "interface": "INT",
+                    "writeable": false,
+                    "description": "Pump Station Flowmeter PV ",
+                    "cofs": -1,
+                    "command": "",
+                    "rtuId": 0
+                },
+                {
+                    "scaling": {
+                        "raw": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "scaled": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "type": "none"
+                    },
+                    "publish": {
+                        "bit": 38,
+                        "key": "AIExt1",
+                        "enabled": true,
+                        "moduleId": 0
+                    },
+                    "masking": {
+                        "bit": 0,
+                        "enabled": false
+                    },
+                    "mqtt": {
+                        "userName": "",
+                        "password": "",
+                        "subscribe": {
+                            "data": "",
+                            "control": ""
+                        },
+                        "enabled": false
+                    },
+                    "modbus": {
+                        "isCoil": false,
+                        "isHoldingRegister": false
+                    },
+                    "key": "AI1",
+                    "tagId": "N3H_Tele_TX[34]",
+                    "value": 0,
+                    "shift": -1,
+                    "inputId": "652696ebc1c47e85987eab8f",
+                    "register": 0,
+                    "moduleId": 0,
+                    "readable": true,
+                    "interface": "INT",
+                    "writeable": false,
+                    "description": "Pump Station Spare34  ",
+                    "cofs": -1,
+                    "command": "",
+                    "rtuId": 0
+                },
+                {
+                    "scaling": {
+                        "raw": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "scaled": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "type": "none"
+                    },
+                    "publish": {
+                        "bit": 38,
+                        "key": "AIExt2",
+                        "enabled": true,
+                        "moduleId": 0
+                    },
+                    "masking": {
+                        "bit": 0,
+                        "enabled": false
+                    },
+                    "mqtt": {
+                        "userName": "",
+                        "password": "",
+                        "subscribe": {
+                            "data": "",
+                            "control": ""
+                        },
+                        "enabled": false
+                    },
+                    "modbus": {
+                        "isCoil": false,
+                        "isHoldingRegister": false
+                    },
+                    "key": "AI1",
+                    "tagId": "N3H_Tele_TX[35]",
+                    "value": 0,
+                    "shift": -1,
+                    "inputId": "652697467aaa95052982c986",
+                    "register": 0,
+                    "moduleId": 0,
+                    "readable": true,
+                    "interface": "INT",
+                    "writeable": false,
+                    "description": "Pump Station Misc. Signals Pump No. 1 ",
+                    "cofs": -1,
+                    "command": "",
+                    "rtuId": 0
+                },
+                {
+                    "scaling": {
+                        "raw": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "scaled": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "type": "none"
+                    },
+                    "publish": {
+                        "bit": 38,
+                        "key": "AIExt3",
+                        "enabled": true,
+                        "moduleId": 0
+                    },
+                    "masking": {
+                        "bit": 0,
+                        "enabled": false
+                    },
+                    "mqtt": {
+                        "userName": "",
+                        "password": "",
+                        "subscribe": {
+                            "data": "",
+                            "control": ""
+                        },
+                        "enabled": false
+                    },
+                    "modbus": {
+                        "isCoil": false,
+                        "isHoldingRegister": false
+                    },
+                    "key": "AI1",
+                    "tagId": "N3H_Tele_TX[36]",
+                    "value": 0,
+                    "shift": -1,
+                    "inputId": "65269753ca029ee937252850",
+                    "register": 0,
+                    "moduleId": 0,
+                    "readable": true,
+                    "interface": "INT",
+                    "writeable": false,
+                    "description": "Pump Station Misc. Signals Pump No. 2 ",
+                    "cofs": -1,
+                    "command": "",
+                    "rtuId": 0
+                },
+                {
+                    "scaling": {
+                        "raw": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "scaled": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "type": "none"
+                    },
+                    "publish": {
+                        "bit": 38,
+                        "key": "AIExt4",
+                        "enabled": true,
+                        "moduleId": 0
+                    },
+                    "masking": {
+                        "bit": 0,
+                        "enabled": false
+                    },
+                    "mqtt": {
+                        "userName": "",
+                        "password": "",
+                        "subscribe": {
+                            "data": "",
+                            "control": ""
+                        },
+                        "enabled": false
+                    },
+                    "modbus": {
+                        "isCoil": false,
+                        "isHoldingRegister": false
+                    },
+                    "key": "AI1",
+                    "tagId": "N3H_Tele_TX[37]",
+                    "value": 0,
+                    "shift": -1,
+                    "inputId": "6526976a0623abb39e93ed73",
+                    "register": 0,
+                    "moduleId": 0,
+                    "readable": true,
+                    "interface": "INT",
+                    "writeable": false,
+                    "description": "Pump Station Misc. Signals Pump No. 3 ",
+                    "cofs": -1,
+                    "command": "",
+                    "rtuId": 0
+                },
+                {
+                    "scaling": {
+                        "raw": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "scaled": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "type": "none"
+                    },
+                    "publish": {
+                        "bit": 38,
+                        "key": "AIExt5",
+                        "enabled": true,
+                        "moduleId": 0
+                    },
+                    "masking": {
+                        "bit": 0,
+                        "enabled": false
+                    },
+                    "mqtt": {
+                        "userName": "",
+                        "password": "",
+                        "subscribe": {
+                            "data": "",
+                            "control": ""
+                        },
+                        "enabled": false
+                    },
+                    "modbus": {
+                        "isCoil": false,
+                        "isHoldingRegister": false
+                    },
+                    "key": "AI1",
+                    "tagId": "N3H_Tele_TX[38]",
+                    "value": 0,
+                    "shift": -1,
+                    "inputId": "652697774373ec776214fecf",
+                    "register": 0,
+                    "moduleId": 0,
+                    "readable": true,
+                    "interface": "INT",
+                    "writeable": false,
+                    "description": "Pump Station General Signals  ",
+                    "cofs": -1,
+                    "command": "",
+                    "rtuId": 0
+                },
+                {
+                    "scaling": {
+                        "raw": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "scaled": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "type": "none"
+                    },
+                    "publish": {
+                        "bit": 38,
+                        "key": "AIExt6",
+                        "enabled": true,
+                        "moduleId": 0
+                    },
+                    "masking": {
+                        "bit": 0,
+                        "enabled": false
+                    },
+                    "mqtt": {
+                        "userName": "",
+                        "password": "",
+                        "subscribe": {
+                            "data": "",
+                            "control": ""
+                        },
+                        "enabled": false
+                    },
+                    "modbus": {
+                        "isCoil": false,
+                        "isHoldingRegister": false
+                    },
+                    "key": "AI1",
+                    "tagId": "N3H_Tele_TX[39]",
+                    "value": 0,
+                    "shift": -1,
+                    "inputId": "65269788e80a77f0a1d43492",
+                    "register": 0,
+                    "moduleId": 0,
+                    "readable": true,
+                    "interface": "INT",
+                    "writeable": false,
+                    "description": "Pump Station Spare  ",
+                    "cofs": -1,
+                    "command": "",
+                    "rtuId": 0
+                }
+            ],
+            "ip": "10.18.80.10",
+            "port": 0,
+            "softwarePort": 0,
+            "type": "programmable-logic-controller",
+            "txtime": 5,
+            "pxtime": 900,
+            "timeout": 300,
+            "barcode": "13",
+            "publish": true,
+            "enabled": false,
+            "unitId": 0,
+            "deviceId": "61bf28b82789ba0ea7b5f304",
+            "description": "Hilton Pumpstation PLC 30-31",
+            "userName": "",
+            "password": ""
+        },
+        {
+            "id": 5,
+            "io": [
+                {
+                    "scaling": {
+                        "raw": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "scaled": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "type": "none"
+                    },
+                    "publish": {
+                        "bit": 0,
+                        "key": "AI1",
+                        "enabled": true,
+                        "moduleId": 0
+                    },
+                    "masking": {
+                        "bit": 0,
+                        "enabled": false
+                    },
+                    "mqtt": {
+                        "userName": "",
+                        "password": "",
+                        "subscribe": {
+                            "data": "",
+                            "control": ""
+                        },
+                        "enabled": false
+                    },
+                    "modbus": {
+                        "isCoil": false,
+                        "isHoldingRegister": true
+                    },
+                    "key": "",
+                    "tagId": "",
+                    "value": 1235,
+                    "shift": -1,
+                    "inputId": "651d7fee9e013089a0687543",
+                    "register": 100,
+                    "moduleId": 0,
+                    "readable": true,
+                    "interface": "",
+                    "writeable": false,
+                    "description": "Pump Station Pump No. 1 Motor Status 100",
+                    "cofs": "1",
+                    "command": "",
+                    "rtuId": 0
+                },
+                {
+                    "scaling": {
+                        "raw": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "scaled": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "type": "none"
+                    },
+                    "publish": {
+                        "bit": 0,
+                        "key": "AI1",
+                        "enabled": true,
+                        "moduleId": 1
+                    },
+                    "masking": {
+                        "bit": 0,
+                        "enabled": false
+                    },
+                    "mqtt": {
+                        "userName": "",
+                        "password": "",
+                        "subscribe": {
+                            "data": "",
+                            "control": ""
+                        },
+                        "enabled": false
+                    },
+                    "modbus": {
+                        "isCoil": false,
+                        "isHoldingRegister": true
+                    },
+                    "key": "",
+                    "tagId": "",
+                    "value": 129,
+                    "shift": -1,
+                    "inputId": "651d8a131137f3fd34bdc616",
+                    "register": 101,
+                    "moduleId": 0,
+                    "readable": true,
+                    "interface": "",
+                    "writeable": false,
+                    "description": "Pump Station Pump No. 2 Motor Status 101",
+                    "cofs": "1",
+                    "command": "",
+                    "rtuId": 0
+                }
+            ],
+            "ip": "192.168.0.18",
+            "port": 5002,
+            "softwarePort": 0,
+            "type": "modbus",
+            "txtime": 5,
+            "pxtime": 120,
+            "timeout": 120,
+            "barcode": "2",
+            "publish": true,
+            "enabled": false,
+            "unitId": 0,
+            "deviceId": "222200000000000000000001",
+            "description": "SIMULATE PLC USING MODBUS",
+            "userName": "",
+            "password": ""
+        },
+        {
+            "id": 6,
+            "io": [
+                {
+                    "scaling": {
+                        "raw": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "scaled": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "type": "none"
+                    },
+                    "publish": {
+                        "bit": 0,
+                        "key": "",
+                        "enabled": false,
+                        "moduleId": 0
+                    },
+                    "masking": {
+                        "bit": 0,
+                        "enabled": false
+                    },
+                    "mqtt": {
+                        "userName": "",
+                        "password": "",
+                        "subscribe": {
+                            "data": "",
+                            "control": ""
+                        },
+                        "enabled": false
+                    },
+                    "modbus": {
+                        "isCoil": false,
+                        "isHoldingRegister": false
+                    },
+                    "key": "",
+                    "tagId": "",
+                    "value": "12",
+                    "shift": -1,
+                    "inputId": "651e5e5f7073df7cb790c3d6",
+                    "register": 8,
+                    "moduleId": 0,
+                    "readable": true,
+                    "interface": "",
+                    "writeable": true,
+                    "description": "Control Room Pump No. 1 Ctrl Word ",
+                    "cofs": "1",
+                    "command": "",
+                    "rtuId": 1
+                },
+                {
+                    "scaling": {
+                        "raw": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "scaled": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "type": "none"
+                    },
+                    "publish": {
+                        "bit": 0,
+                        "key": "",
+                        "enabled": false,
+                        "moduleId": 0
+                    },
+                    "masking": {
+                        "bit": 0,
+                        "enabled": false
+                    },
+                    "mqtt": {
+                        "userName": "",
+                        "password": "",
+                        "subscribe": {
+                            "data": "",
+                            "control": ""
+                        },
+                        "enabled": false
+                    },
+                    "modbus": {
+                        "isCoil": false,
+                        "isHoldingRegister": false
+                    },
+                    "key": "",
+                    "tagId": "",
+                    "value": 0,
+                    "shift": -1,
+                    "inputId": "65269435141f20891ae1d0f9",
+                    "register": 9,
+                    "moduleId": 0,
+                    "readable": true,
+                    "interface": "",
+                    "writeable": true,
+                    "description": "Control Room Pump No. 2 Ctrl Word ",
+                    "cofs": "1",
+                    "command": "",
+                    "rtuId": 1
+                },
+                {
+                    "scaling": {
+                        "raw": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "scaled": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "type": "none"
+                    },
+                    "publish": {
+                        "bit": 0,
+                        "key": "",
+                        "enabled": false,
+                        "moduleId": 0
+                    },
+                    "masking": {
+                        "bit": 0,
+                        "enabled": false
+                    },
+                    "mqtt": {
+                        "userName": "",
+                        "password": "",
+                        "subscribe": {
+                            "data": "",
+                            "control": ""
+                        },
+                        "enabled": false
+                    },
+                    "modbus": {
+                        "isCoil": false,
+                        "isHoldingRegister": false
+                    },
+                    "key": "",
+                    "tagId": "",
+                    "value": 0,
+                    "shift": -1,
+                    "inputId": "65269451858ff15d2540cb5e",
+                    "register": 10,
+                    "moduleId": 0,
+                    "readable": true,
+                    "interface": "",
+                    "writeable": true,
+                    "description": "Control Room Pump No. 3 Ctrl Word ",
+                    "cofs": "1",
+                    "command": "",
+                    "rtuId": 1
+                },
+                {
+                    "scaling": {
+                        "raw": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "scaled": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "type": "none"
+                    },
+                    "publish": {
+                        "bit": 0,
+                        "key": "",
+                        "enabled": false,
+                        "moduleId": 0
+                    },
+                    "masking": {
+                        "bit": 0,
+                        "enabled": false
+                    },
+                    "mqtt": {
+                        "userName": "",
+                        "password": "",
+                        "subscribe": {
+                            "data": "",
+                            "control": ""
+                        },
+                        "enabled": false
+                    },
+                    "modbus": {
+                        "isCoil": false,
+                        "isHoldingRegister": false
+                    },
+                    "key": "",
+                    "tagId": "",
+                    "value": 0,
+                    "shift": -1,
+                    "inputId": "65269461a8d71340ab38cae6",
+                    "register": 11,
+                    "moduleId": 0,
+                    "readable": true,
+                    "interface": "",
+                    "writeable": true,
+                    "description": "Control Room Sump Level Start SP",
+                    "cofs": "1",
+                    "command": "",
+                    "rtuId": 1
+                },
+                {
+                    "scaling": {
+                        "raw": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "scaled": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "type": "none"
+                    },
+                    "publish": {
+                        "bit": 0,
+                        "key": "",
+                        "enabled": false,
+                        "moduleId": 0
+                    },
+                    "masking": {
+                        "bit": 0,
+                        "enabled": false
+                    },
+                    "mqtt": {
+                        "userName": "",
+                        "password": "",
+                        "subscribe": {
+                            "data": "",
+                            "control": ""
+                        },
+                        "enabled": false
+                    },
+                    "modbus": {
+                        "isCoil": false,
+                        "isHoldingRegister": false
+                    },
+                    "key": "",
+                    "tagId": "",
+                    "value": 0,
+                    "shift": -1,
+                    "inputId": "6526946f7fd38358a6b77888",
+                    "register": 12,
+                    "moduleId": 0,
+                    "readable": true,
+                    "interface": "",
+                    "writeable": true,
+                    "description": "Control Room Sump Level Stop SP",
+                    "cofs": "1",
+                    "command": "",
+                    "rtuId": 1
+                },
+                {
+                    "scaling": {
+                        "raw": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "scaled": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "type": "none"
+                    },
+                    "publish": {
+                        "bit": 0,
+                        "key": "",
+                        "enabled": false,
+                        "moduleId": 0
+                    },
+                    "masking": {
+                        "bit": 0,
+                        "enabled": false
+                    },
+                    "mqtt": {
+                        "userName": "",
+                        "password": "",
+                        "subscribe": {
+                            "data": "",
+                            "control": ""
+                        },
+                        "enabled": false
+                    },
+                    "modbus": {
+                        "isCoil": false,
+                        "isHoldingRegister": false
+                    },
+                    "key": "",
+                    "tagId": "",
+                    "value": 0,
+                    "shift": -1,
+                    "inputId": "652694797ab6d3adbe55f023",
+                    "register": 13,
+                    "moduleId": 0,
+                    "readable": true,
+                    "interface": "",
+                    "writeable": true,
+                    "description": "Control Room Spare5  ",
+                    "cofs": "1",
+                    "command": "",
+                    "rtuId": 1
+                },
+                {
+                    "scaling": {
+                        "raw": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "scaled": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "type": "none"
+                    },
+                    "publish": {
+                        "bit": 0,
+                        "key": "",
+                        "enabled": false,
+                        "moduleId": 0
+                    },
+                    "masking": {
+                        "bit": 0,
+                        "enabled": false
+                    },
+                    "mqtt": {
+                        "userName": "",
+                        "password": "",
+                        "subscribe": {
+                            "data": "",
+                            "control": ""
+                        },
+                        "enabled": false
+                    },
+                    "modbus": {
+                        "isCoil": false,
+                        "isHoldingRegister": false
+                    },
+                    "key": "",
+                    "tagId": "",
+                    "value": 0,
+                    "shift": -1,
+                    "inputId": "65269487115b6b3b2f6e842a",
+                    "register": 14,
+                    "moduleId": 0,
+                    "readable": true,
+                    "interface": "",
+                    "writeable": true,
+                    "description": "Control Room Spare6  ",
+                    "cofs": "1",
+                    "command": "",
+                    "rtuId": 1
+                },
+                {
+                    "scaling": {
+                        "raw": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "scaled": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "type": "none"
+                    },
+                    "publish": {
+                        "bit": 0,
+                        "key": "",
+                        "enabled": false,
+                        "moduleId": 0
+                    },
+                    "masking": {
+                        "bit": 0,
+                        "enabled": false
+                    },
+                    "mqtt": {
+                        "userName": "",
+                        "password": "",
+                        "subscribe": {
+                            "data": "",
+                            "control": ""
+                        },
+                        "enabled": false
+                    },
+                    "modbus": {
+                        "isCoil": false,
+                        "isHoldingRegister": false
+                    },
+                    "key": "",
+                    "tagId": "",
+                    "value": 0,
+                    "shift": -1,
+                    "inputId": "6526948fdf1c9324092196ed",
+                    "register": 15,
+                    "moduleId": 0,
+                    "readable": true,
+                    "interface": "",
+                    "writeable": true,
+                    "description": "Control Room Spare7 ",
+                    "cofs": "1",
+                    "command": "",
+                    "rtuId": 1
+                },
+                {
+                    "scaling": {
+                        "raw": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "scaled": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "type": "none"
+                    },
+                    "publish": {
+                        "bit": 0,
+                        "key": "",
+                        "enabled": false,
+                        "moduleId": 0
+                    },
+                    "masking": {
+                        "bit": 0,
+                        "enabled": false
+                    },
+                    "mqtt": {
+                        "userName": "",
+                        "password": "",
+                        "subscribe": {
+                            "data": "",
+                            "control": ""
+                        },
+                        "enabled": false
+                    },
+                    "modbus": {
+                        "isCoil": false,
+                        "isHoldingRegister": false
+                    },
+                    "key": "",
+                    "tagId": "",
+                    "value": 0,
+                    "shift": -1,
+                    "inputId": "6526949b14b23c6d3b865d8d",
+                    "register": 16,
+                    "moduleId": 0,
+                    "readable": true,
+                    "interface": "",
+                    "writeable": true,
+                    "description": "Control Room Spare8 ",
+                    "cofs": "1",
+                    "command": "",
+                    "rtuId": 1
+                },
+                {
+                    "scaling": {
+                        "raw": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "scaled": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "type": "none"
+                    },
+                    "publish": {
+                        "bit": 0,
+                        "key": "",
+                        "enabled": false,
+                        "moduleId": 0
+                    },
+                    "masking": {
+                        "bit": 0,
+                        "enabled": false
+                    },
+                    "mqtt": {
+                        "userName": "",
+                        "password": "",
+                        "subscribe": {
+                            "data": "",
+                            "control": ""
+                        },
+                        "enabled": false
+                    },
+                    "modbus": {
+                        "isCoil": false,
+                        "isHoldingRegister": false
+                    },
+                    "key": "",
+                    "tagId": "",
+                    "value": 0,
+                    "shift": -1,
+                    "inputId": "652694a69fb5f07b45846930",
+                    "register": 17,
+                    "moduleId": 0,
+                    "readable": true,
+                    "interface": "",
+                    "writeable": true,
+                    "description": "Control Room Spare9 ",
+                    "cofs": "1",
+                    "command": "",
+                    "rtuId": 1
+                }
+            ],
+            "ip": "10.18.80.17",
+            "port": 1457,
+            "softwarePort": 0,
+            "type": "tcpClient",
+            "txtime": 5,
+            "pxtime": 120,
+            "timeout": 120,
+            "barcode": "1",
+            "publish": false,
+            "enabled": true,
+            "unitId": 0,
+            "deviceId": "000000000000000000000001",
+            "description": "TCP Client Data From Scada",
+            "userName": "",
+            "password": ""
+        },
+        {
+            "id": 7,
+            "io": [
+                {
+                    "scaling": {
+                        "raw": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "scaled": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "type": "none"
+                    },
+                    "publish": {
+                        "bit": 0,
+                        "key": "",
+                        "enabled": false,
+                        "moduleId": 0
+                    },
+                    "masking": {
+                        "bit": 0,
+                        "enabled": false
+                    },
+                    "mqtt": {
+                        "userName": "",
+                        "password": "",
+                        "subscribe": {
+                            "data": "",
+                            "control": ""
+                        },
+                        "enabled": false
+                    },
+                    "modbus": {
+                        "isCoil": false,
+                        "isHoldingRegister": false
+                    },
+                    "key": "",
+                    "tagId": "N3H_Tele_RX[0]",
+                    "value": 0,
+                    "shift": -1,
+                    "inputId": "651e81d352f62186d17efb57",
+                    "register": 0,
+                    "moduleId": 0,
+                    "readable": true,
+                    "interface": "INT",
+                    "writeable": true,
+                    "description": "Control Room Pump No. 1 Ctrl Word ",
+                    "cofs": "1",
+                    "command": "",
+                    "rtuId": 0
+                },
+                {
+                    "scaling": {
+                        "raw": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "scaled": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "type": "none"
+                    },
+                    "publish": {
+                        "bit": 0,
+                        "key": "",
+                        "enabled": false,
+                        "moduleId": 0
+                    },
+                    "masking": {
+                        "bit": 0,
+                        "enabled": false
+                    },
+                    "mqtt": {
+                        "userName": "",
+                        "password": "",
+                        "subscribe": {
+                            "data": "",
+                            "control": ""
+                        },
+                        "enabled": false
+                    },
+                    "modbus": {
+                        "isCoil": false,
+                        "isHoldingRegister": false
+                    },
+                    "key": "",
+                    "tagId": "N3H_Tele_RX[1]",
+                    "value": 0,
+                    "shift": -1,
+                    "inputId": "65269806a64c78cb9052024a",
+                    "register": 0,
+                    "moduleId": 0,
+                    "readable": true,
+                    "interface": "INT",
+                    "writeable": true,
+                    "description": "Control Room Pump No. 2 Ctrl Word ",
+                    "cofs": "1",
+                    "command": "",
+                    "rtuId": 0
+                },
+                {
+                    "scaling": {
+                        "raw": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "scaled": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "type": "none"
+                    },
+                    "publish": {
+                        "bit": 0,
+                        "key": "",
+                        "enabled": false,
+                        "moduleId": 0
+                    },
+                    "masking": {
+                        "bit": 0,
+                        "enabled": false
+                    },
+                    "mqtt": {
+                        "userName": "",
+                        "password": "",
+                        "subscribe": {
+                            "data": "",
+                            "control": ""
+                        },
+                        "enabled": false
+                    },
+                    "modbus": {
+                        "isCoil": false,
+                        "isHoldingRegister": false
+                    },
+                    "key": "",
+                    "tagId": "N3H_Tele_RX[2]",
+                    "value": 0,
+                    "shift": -1,
+                    "inputId": "652698124f66340b83db84f6",
+                    "register": 0,
+                    "moduleId": 0,
+                    "readable": true,
+                    "interface": "INT",
+                    "writeable": true,
+                    "description": "Control Room Pump No. 3 Ctrl Word ",
+                    "cofs": "1",
+                    "command": "",
+                    "rtuId": 0
+                },
+                {
+                    "scaling": {
+                        "raw": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "scaled": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "type": "none"
+                    },
+                    "publish": {
+                        "bit": 0,
+                        "key": "",
+                        "enabled": false,
+                        "moduleId": 0
+                    },
+                    "masking": {
+                        "bit": 0,
+                        "enabled": false
+                    },
+                    "mqtt": {
+                        "userName": "",
+                        "password": "",
+                        "subscribe": {
+                            "data": "",
+                            "control": ""
+                        },
+                        "enabled": false
+                    },
+                    "modbus": {
+                        "isCoil": false,
+                        "isHoldingRegister": false
+                    },
+                    "key": "",
+                    "tagId": "N3H_Tele_RX[3]",
+                    "value": 0,
+                    "shift": -1,
+                    "inputId": "65269826d135cc5a2e8808f6",
+                    "register": 0,
+                    "moduleId": 0,
+                    "readable": true,
+                    "interface": "INT",
+                    "writeable": true,
+                    "description": "Control Room Sump Level Start SP",
+                    "cofs": "1",
+                    "command": "",
+                    "rtuId": 0
+                },
+                {
+                    "scaling": {
+                        "raw": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "scaled": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "type": "none"
+                    },
+                    "publish": {
+                        "bit": 0,
+                        "key": "",
+                        "enabled": false,
+                        "moduleId": 0
+                    },
+                    "masking": {
+                        "bit": 0,
+                        "enabled": false
+                    },
+                    "mqtt": {
+                        "userName": "",
+                        "password": "",
+                        "subscribe": {
+                            "data": "",
+                            "control": ""
+                        },
+                        "enabled": false
+                    },
+                    "modbus": {
+                        "isCoil": false,
+                        "isHoldingRegister": false
+                    },
+                    "key": "",
+                    "tagId": "N3H_Tele_RX[4]",
+                    "value": 0,
+                    "shift": -1,
+                    "inputId": "652698305cea1ceaccd2dc60",
+                    "register": 0,
+                    "moduleId": 0,
+                    "readable": true,
+                    "interface": "INT",
+                    "writeable": true,
+                    "description": "Control Room Sump Level Stop SP",
+                    "cofs": "1",
+                    "command": "",
+                    "rtuId": 0
+                },
+                {
+                    "scaling": {
+                        "raw": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "scaled": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "type": "none"
+                    },
+                    "publish": {
+                        "bit": 0,
+                        "key": "",
+                        "enabled": false,
+                        "moduleId": 0
+                    },
+                    "masking": {
+                        "bit": 0,
+                        "enabled": false
+                    },
+                    "mqtt": {
+                        "userName": "",
+                        "password": "",
+                        "subscribe": {
+                            "data": "",
+                            "control": ""
+                        },
+                        "enabled": false
+                    },
+                    "modbus": {
+                        "isCoil": false,
+                        "isHoldingRegister": false
+                    },
+                    "key": "",
+                    "tagId": "N3H_Tele_RX[5]",
+                    "value": 0,
+                    "shift": -1,
+                    "inputId": "6526983e972a9d2787d1729f",
+                    "register": 0,
+                    "moduleId": 0,
+                    "readable": true,
+                    "interface": "INT",
+                    "writeable": true,
+                    "description": "Control Room Spare5  ",
+                    "cofs": "1",
+                    "command": "",
+                    "rtuId": 0
+                },
+                {
+                    "scaling": {
+                        "raw": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "scaled": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "type": "none"
+                    },
+                    "publish": {
+                        "bit": 0,
+                        "key": "",
+                        "enabled": false,
+                        "moduleId": 0
+                    },
+                    "masking": {
+                        "bit": 0,
+                        "enabled": false
+                    },
+                    "mqtt": {
+                        "userName": "",
+                        "password": "",
+                        "subscribe": {
+                            "data": "",
+                            "control": ""
+                        },
+                        "enabled": false
+                    },
+                    "modbus": {
+                        "isCoil": false,
+                        "isHoldingRegister": false
+                    },
+                    "key": "",
+                    "tagId": "N3H_Tele_RX[6]",
+                    "value": 0,
+                    "shift": -1,
+                    "inputId": "6526984c16a2e3ff2b33b5fe",
+                    "register": 0,
+                    "moduleId": 0,
+                    "readable": true,
+                    "interface": "INT",
+                    "writeable": true,
+                    "description": "Control Room Spare6  ",
+                    "cofs": "1",
+                    "command": "",
+                    "rtuId": 0
+                },
+                {
+                    "scaling": {
+                        "raw": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "scaled": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "type": "none"
+                    },
+                    "publish": {
+                        "bit": 0,
+                        "key": "",
+                        "enabled": false,
+                        "moduleId": 0
+                    },
+                    "masking": {
+                        "bit": 0,
+                        "enabled": false
+                    },
+                    "mqtt": {
+                        "userName": "",
+                        "password": "",
+                        "subscribe": {
+                            "data": "",
+                            "control": ""
+                        },
+                        "enabled": false
+                    },
+                    "modbus": {
+                        "isCoil": false,
+                        "isHoldingRegister": false
+                    },
+                    "key": "",
+                    "tagId": "N3H_Tele_RX[7]",
+                    "value": 0,
+                    "shift": -1,
+                    "inputId": "6526985aa77e74d7b590b7b0",
+                    "register": 0,
+                    "moduleId": 0,
+                    "readable": true,
+                    "interface": "INT",
+                    "writeable": true,
+                    "description": "Control Room Spare7 ",
+                    "cofs": "1",
+                    "command": "",
+                    "rtuId": 0
+                },
+                {
+                    "scaling": {
+                        "raw": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "scaled": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "type": "none"
+                    },
+                    "publish": {
+                        "bit": 0,
+                        "key": "",
+                        "enabled": false,
+                        "moduleId": 0
+                    },
+                    "masking": {
+                        "bit": 0,
+                        "enabled": false
+                    },
+                    "mqtt": {
+                        "userName": "",
+                        "password": "",
+                        "subscribe": {
+                            "data": "",
+                            "control": ""
+                        },
+                        "enabled": false
+                    },
+                    "modbus": {
+                        "isCoil": false,
+                        "isHoldingRegister": false
+                    },
+                    "key": "",
+                    "tagId": "N3H_Tele_RX[8]",
+                    "value": 0,
+                    "shift": -1,
+                    "inputId": "652698661ba71774be02da44",
+                    "register": 0,
+                    "moduleId": 0,
+                    "readable": true,
+                    "interface": "INT",
+                    "writeable": true,
+                    "description": "Control Room Spare8 ",
+                    "cofs": "1",
+                    "command": "",
+                    "rtuId": 0
+                },
+                {
+                    "scaling": {
+                        "raw": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "scaled": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "type": "none"
+                    },
+                    "publish": {
+                        "bit": 0,
+                        "key": "",
+                        "enabled": false,
+                        "moduleId": 0
+                    },
+                    "masking": {
+                        "bit": 0,
+                        "enabled": false
+                    },
+                    "mqtt": {
+                        "userName": "",
+                        "password": "",
+                        "subscribe": {
+                            "data": "",
+                            "control": ""
+                        },
+                        "enabled": false
+                    },
+                    "modbus": {
+                        "isCoil": false,
+                        "isHoldingRegister": false
+                    },
+                    "key": "",
+                    "tagId": "N3H_Tele_RX[9]",
+                    "value": 0,
+                    "shift": -1,
+                    "inputId": "652698728bf24260ccfab145",
+                    "register": 0,
+                    "moduleId": 0,
+                    "readable": true,
+                    "interface": "INT",
+                    "writeable": true,
+                    "description": "Control Room Spare9 ",
+                    "cofs": "1",
+                    "command": "",
+                    "rtuId": 0
+                }
+            ],
+            "ip": "10.18.80.10",
+            "port": 0,
+            "softwarePort": 0,
+            "type": "programmable-logic-controller",
+            "txtime": 5,
+            "pxtime": 120,
+            "timeout": 120,
+            "barcode": "1",
+            "publish": false,
+            "enabled": true,
+            "unitId": 0,
+            "deviceId": "000000000000000000000069",
+            "description": "PLC Controled From Scada",
+            "userName": "",
+            "password": ""
+        }
+    ],
+    "mapping": [
+        {
+            "mapId": "651e840056a8c31144137e93",
+            "source": {
+                "mask": -1,
+                "inputId": "651e5e5f7073df7cb790c3d6",
+                "deviceId": "000000000000000000000001"
+            },
+            "destination": {
+                "mask": -1,
+                "inputId": "651e81d352f62186d17efb57",
+                "deviceId": "000000000000000000000069",
+                "destinationRegister": 0
+            }
+        },
+        {
+            "mapId": "652698965c1f5bb402f81100",
+            "source": {
+                "mask": -1,
+                "inputId": "65269435141f20891ae1d0f9",
+                "deviceId": "000000000000000000000001"
+            },
+            "destination": {
+                "mask": -1,
+                "inputId": "65269806a64c78cb9052024a",
+                "deviceId": "000000000000000000000069"
+            }
+        },
+        {
+            "mapId": "652698a412f925bda29b5741",
+            "source": {
+                "mask": -1,
+                "inputId": "65269451858ff15d2540cb5e",
+                "deviceId": "000000000000000000000001"
+            },
+            "destination": {
+                "mask": -1,
+                "inputId": "652698124f66340b83db84f6",
+                "deviceId": "000000000000000000000069"
+            }
+        },
+        {
+            "mapId": "652698b36735b027a4253609",
+            "source": {
+                "mask": -1,
+                "inputId": "65269461a8d71340ab38cae6",
+                "deviceId": "000000000000000000000001"
+            },
+            "destination": {
+                "mask": -1,
+                "inputId": "65269826d135cc5a2e8808f6",
+                "deviceId": "000000000000000000000069"
+            }
+        },
+        {
+            "mapId": "652698c54ee0ee0cc6cafb4a",
+            "source": {
+                "mask": -1,
+                "inputId": "6526946f7fd38358a6b77888",
+                "deviceId": "000000000000000000000001"
+            },
+            "destination": {
+                "mask": -1,
+                "inputId": "652698305cea1ceaccd2dc60",
+                "deviceId": "000000000000000000000069"
+            }
+        },
+        {
+            "mapId": "652698d87022661f7023285a",
+            "source": {
+                "mask": -1,
+                "inputId": "652694797ab6d3adbe55f023",
+                "deviceId": "000000000000000000000001"
+            },
+            "destination": {
+                "mask": -1,
+                "inputId": "6526983e972a9d2787d1729f",
+                "deviceId": "000000000000000000000069"
+            }
+        },
+        {
+            "mapId": "652698eb81a576ef5385aa27",
+            "source": {
+                "mask": -1,
+                "inputId": "65269487115b6b3b2f6e842a",
+                "deviceId": "000000000000000000000001"
+            },
+            "destination": {
+                "mask": -1,
+                "inputId": "6526984c16a2e3ff2b33b5fe",
+                "deviceId": "000000000000000000000069"
+            }
+        },
+        {
+            "mapId": "652698fddba645d0c617cda9",
+            "source": {
+                "mask": -1,
+                "inputId": "6526948fdf1c9324092196ed",
+                "deviceId": "000000000000000000000001"
+            },
+            "destination": {
+                "mask": -1,
+                "inputId": "6526985aa77e74d7b590b7b0",
+                "deviceId": "000000000000000000000069"
+            }
+        },
+        {
+            "mapId": "6526990e9f9e800d9a8ac8ad",
+            "source": {
+                "mask": -1,
+                "inputId": "6526949b14b23c6d3b865d8d",
+                "deviceId": "000000000000000000000001"
+            },
+            "destination": {
+                "mask": -1,
+                "inputId": "652698661ba71774be02da44",
+                "deviceId": "000000000000000000000069"
+            }
+        },
+        {
+            "mapId": "6526991fd0e0e93950b4d309",
+            "source": {
+                "mask": -1,
+                "inputId": "652694a69fb5f07b45846930",
+                "deviceId": "000000000000000000000001"
+            },
+            "destination": {
+                "mask": -1,
+                "inputId": "652698728bf24260ccfab145",
+                "deviceId": "000000000000000000000069"
+            }
+        }
+    ],
+    "rateLimits": {
+        "rateLimitTmrSP": 60,
+        "rateLimitTxCountSP": 400
+    },
+    "apn": "tech5",
+    "publishEnabled": true,
+    "overideDeviceBarcode": "true",
+    "commsOption": "1",
+    "tcpClient": {
+        "host": "192.168.0.21",
+        "port": 1456
+    }
+}
