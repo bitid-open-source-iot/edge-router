@@ -2810,7 +2810,51 @@
                     "description": "Control Room Pump No. 1 Ctrl Word ",
                     "cofs": "1",
                     "command": "",
-                    "rtuId": 0
+                    "rtuId": 0,
+                    "tag": {
+                        "_events": {},
+                        "_eventsCount": 0,
+                        "state": {
+                            "tag": {
+                                "name": "N3H_Tele_RX[0]",
+                                "type": 195,
+                                "bitIndex": null,
+                                "value": null,
+                                "controllerValue": null,
+                                "path": {
+                                    "type": "Buffer",
+                                    "data": [
+                                        145,
+                                        11,
+                                        78,
+                                        51,
+                                        72,
+                                        95,
+                                        84,
+                                        101,
+                                        108,
+                                        101,
+                                        95,
+                                        82,
+                                        88,
+                                        0,
+                                        40,
+                                        0
+                                    ]
+                                },
+                                "program": null,
+                                "stage_write": false
+                            },
+                            "read_size": 1,
+                            "error": {
+                                "code": null,
+                                "status": null
+                            },
+                            "timestamp": "2023-10-11T12:54:21.949Z",
+                            "instance": "e183449f147d81cfad59e0c6abf6e17d",
+                            "keepAlive": 0
+                        }
+                    }
                 },
                 {
                     "scaling": {
@@ -2860,7 +2904,51 @@
                     "description": "Control Room Pump No. 2 Ctrl Word ",
                     "cofs": "1",
                     "command": "",
-                    "rtuId": 0
+                    "rtuId": 0,
+                    "tag": {
+                        "_events": {},
+                        "_eventsCount": 0,
+                        "state": {
+                            "tag": {
+                                "name": "N3H_Tele_RX[1]",
+                                "type": 195,
+                                "bitIndex": null,
+                                "value": null,
+                                "controllerValue": null,
+                                "path": {
+                                    "type": "Buffer",
+                                    "data": [
+                                        145,
+                                        11,
+                                        78,
+                                        51,
+                                        72,
+                                        95,
+                                        84,
+                                        101,
+                                        108,
+                                        101,
+                                        95,
+                                        82,
+                                        88,
+                                        0,
+                                        40,
+                                        1
+                                    ]
+                                },
+                                "program": null,
+                                "stage_write": false
+                            },
+                            "read_size": 1,
+                            "error": {
+                                "code": null,
+                                "status": null
+                            },
+                            "timestamp": "2023-10-11T12:54:21.949Z",
+                            "instance": "419473a9c623b19bef14a257d8982d87",
+                            "keepAlive": 0
+                        }
+                    }
                 },
                 {
                     "scaling": {
@@ -2910,7 +2998,51 @@
                     "description": "Control Room Pump No. 3 Ctrl Word ",
                     "cofs": "1",
                     "command": "",
-                    "rtuId": 0
+                    "rtuId": 0,
+                    "tag": {
+                        "_events": {},
+                        "_eventsCount": 0,
+                        "state": {
+                            "tag": {
+                                "name": "N3H_Tele_RX[2]",
+                                "type": 195,
+                                "bitIndex": null,
+                                "value": null,
+                                "controllerValue": null,
+                                "path": {
+                                    "type": "Buffer",
+                                    "data": [
+                                        145,
+                                        11,
+                                        78,
+                                        51,
+                                        72,
+                                        95,
+                                        84,
+                                        101,
+                                        108,
+                                        101,
+                                        95,
+                                        82,
+                                        88,
+                                        0,
+                                        40,
+                                        2
+                                    ]
+                                },
+                                "program": null,
+                                "stage_write": false
+                            },
+                            "read_size": 1,
+                            "error": {
+                                "code": null,
+                                "status": null
+                            },
+                            "timestamp": "2023-10-11T12:54:21.949Z",
+                            "instance": "6c52c1b4cf39e686e1080be92d689953",
+                            "keepAlive": 0
+                        }
+                    }
                 },
                 {
                     "scaling": {
@@ -2960,7 +3092,51 @@
                     "description": "Control Room Sump Level Start SP",
                     "cofs": "1",
                     "command": "",
-                    "rtuId": 0
+                    "rtuId": 0,
+                    "tag": {
+                        "_events": {},
+                        "_eventsCount": 0,
+                        "state": {
+                            "tag": {
+                                "name": "N3H_Tele_RX[3]",
+                                "type": 195,
+                                "bitIndex": null,
+                                "value": null,
+                                "controllerValue": null,
+                                "path": {
+                                    "type": "Buffer",
+                                    "data": [
+                                        145,
+                                        11,
+                                        78,
+                                        51,
+                                        72,
+                                        95,
+                                        84,
+                                        101,
+                                        108,
+                                        101,
+                                        95,
+                                        82,
+                                        88,
+                                        0,
+                                        40,
+                                        3
+                                    ]
+                                },
+                                "program": null,
+                                "stage_write": false
+                            },
+                            "read_size": 1,
+                            "error": {
+                                "code": null,
+                                "status": null
+                            },
+                            "timestamp": "2023-10-11T12:54:21.949Z",
+                            "instance": "0294c8fe7a09328b5c0e8c934f87f592",
+                            "keepAlive": 0
+                        }
+                    }
                 },
                 {
                     "scaling": {
@@ -3010,7 +3186,51 @@
                     "description": "Control Room Sump Level Stop SP",
                     "cofs": "1",
                     "command": "",
-                    "rtuId": 0
+                    "rtuId": 0,
+                    "tag": {
+                        "_events": {},
+                        "_eventsCount": 0,
+                        "state": {
+                            "tag": {
+                                "name": "N3H_Tele_RX[4]",
+                                "type": 195,
+                                "bitIndex": null,
+                                "value": null,
+                                "controllerValue": null,
+                                "path": {
+                                    "type": "Buffer",
+                                    "data": [
+                                        145,
+                                        11,
+                                        78,
+                                        51,
+                                        72,
+                                        95,
+                                        84,
+                                        101,
+                                        108,
+                                        101,
+                                        95,
+                                        82,
+                                        88,
+                                        0,
+                                        40,
+                                        4
+                                    ]
+                                },
+                                "program": null,
+                                "stage_write": false
+                            },
+                            "read_size": 1,
+                            "error": {
+                                "code": null,
+                                "status": null
+                            },
+                            "timestamp": "2023-10-11T12:54:21.949Z",
+                            "instance": "b7948736761f702bda2a6451e31cd6dd",
+                            "keepAlive": 0
+                        }
+                    }
                 },
                 {
                     "scaling": {
@@ -3060,7 +3280,51 @@
                     "description": "Control Room Spare5  ",
                     "cofs": "1",
                     "command": "",
-                    "rtuId": 0
+                    "rtuId": 0,
+                    "tag": {
+                        "_events": {},
+                        "_eventsCount": 0,
+                        "state": {
+                            "tag": {
+                                "name": "N3H_Tele_RX[5]",
+                                "type": 195,
+                                "bitIndex": null,
+                                "value": null,
+                                "controllerValue": null,
+                                "path": {
+                                    "type": "Buffer",
+                                    "data": [
+                                        145,
+                                        11,
+                                        78,
+                                        51,
+                                        72,
+                                        95,
+                                        84,
+                                        101,
+                                        108,
+                                        101,
+                                        95,
+                                        82,
+                                        88,
+                                        0,
+                                        40,
+                                        5
+                                    ]
+                                },
+                                "program": null,
+                                "stage_write": false
+                            },
+                            "read_size": 1,
+                            "error": {
+                                "code": null,
+                                "status": null
+                            },
+                            "timestamp": "2023-10-11T12:54:21.949Z",
+                            "instance": "92bafd4719b8fb0370d7e90a8a40b6ce",
+                            "keepAlive": 0
+                        }
+                    }
                 },
                 {
                     "scaling": {
@@ -3110,7 +3374,51 @@
                     "description": "Control Room Spare6  ",
                     "cofs": "1",
                     "command": "",
-                    "rtuId": 0
+                    "rtuId": 0,
+                    "tag": {
+                        "_events": {},
+                        "_eventsCount": 0,
+                        "state": {
+                            "tag": {
+                                "name": "N3H_Tele_RX[6]",
+                                "type": 195,
+                                "bitIndex": null,
+                                "value": null,
+                                "controllerValue": null,
+                                "path": {
+                                    "type": "Buffer",
+                                    "data": [
+                                        145,
+                                        11,
+                                        78,
+                                        51,
+                                        72,
+                                        95,
+                                        84,
+                                        101,
+                                        108,
+                                        101,
+                                        95,
+                                        82,
+                                        88,
+                                        0,
+                                        40,
+                                        6
+                                    ]
+                                },
+                                "program": null,
+                                "stage_write": false
+                            },
+                            "read_size": 1,
+                            "error": {
+                                "code": null,
+                                "status": null
+                            },
+                            "timestamp": "2023-10-11T12:54:21.949Z",
+                            "instance": "e16e01e428a7fa62a06d0ffcc31f1a28",
+                            "keepAlive": 0
+                        }
+                    }
                 },
                 {
                     "scaling": {
@@ -3160,7 +3468,51 @@
                     "description": "Control Room Spare7 ",
                     "cofs": "1",
                     "command": "",
-                    "rtuId": 0
+                    "rtuId": 0,
+                    "tag": {
+                        "_events": {},
+                        "_eventsCount": 0,
+                        "state": {
+                            "tag": {
+                                "name": "N3H_Tele_RX[7]",
+                                "type": 195,
+                                "bitIndex": null,
+                                "value": null,
+                                "controllerValue": null,
+                                "path": {
+                                    "type": "Buffer",
+                                    "data": [
+                                        145,
+                                        11,
+                                        78,
+                                        51,
+                                        72,
+                                        95,
+                                        84,
+                                        101,
+                                        108,
+                                        101,
+                                        95,
+                                        82,
+                                        88,
+                                        0,
+                                        40,
+                                        7
+                                    ]
+                                },
+                                "program": null,
+                                "stage_write": false
+                            },
+                            "read_size": 1,
+                            "error": {
+                                "code": null,
+                                "status": null
+                            },
+                            "timestamp": "2023-10-11T12:54:21.950Z",
+                            "instance": "3e9586c2150852f8af515fbcef660d03",
+                            "keepAlive": 0
+                        }
+                    }
                 },
                 {
                     "scaling": {
@@ -3210,7 +3562,51 @@
                     "description": "Control Room Spare8 ",
                     "cofs": "1",
                     "command": "",
-                    "rtuId": 0
+                    "rtuId": 0,
+                    "tag": {
+                        "_events": {},
+                        "_eventsCount": 0,
+                        "state": {
+                            "tag": {
+                                "name": "N3H_Tele_RX[8]",
+                                "type": 195,
+                                "bitIndex": null,
+                                "value": null,
+                                "controllerValue": null,
+                                "path": {
+                                    "type": "Buffer",
+                                    "data": [
+                                        145,
+                                        11,
+                                        78,
+                                        51,
+                                        72,
+                                        95,
+                                        84,
+                                        101,
+                                        108,
+                                        101,
+                                        95,
+                                        82,
+                                        88,
+                                        0,
+                                        40,
+                                        8
+                                    ]
+                                },
+                                "program": null,
+                                "stage_write": false
+                            },
+                            "read_size": 1,
+                            "error": {
+                                "code": null,
+                                "status": null
+                            },
+                            "timestamp": "2023-10-11T12:54:21.950Z",
+                            "instance": "b2f4f509884090c668af5d190f94c6dd",
+                            "keepAlive": 0
+                        }
+                    }
                 },
                 {
                     "scaling": {
@@ -3260,7 +3656,51 @@
                     "description": "Control Room Spare9 ",
                     "cofs": "1",
                     "command": "",
-                    "rtuId": 0
+                    "rtuId": 0,
+                    "tag": {
+                        "_events": {},
+                        "_eventsCount": 0,
+                        "state": {
+                            "tag": {
+                                "name": "N3H_Tele_RX[9]",
+                                "type": 195,
+                                "bitIndex": null,
+                                "value": null,
+                                "controllerValue": null,
+                                "path": {
+                                    "type": "Buffer",
+                                    "data": [
+                                        145,
+                                        11,
+                                        78,
+                                        51,
+                                        72,
+                                        95,
+                                        84,
+                                        101,
+                                        108,
+                                        101,
+                                        95,
+                                        82,
+                                        88,
+                                        0,
+                                        40,
+                                        9
+                                    ]
+                                },
+                                "program": null,
+                                "stage_write": false
+                            },
+                            "read_size": 1,
+                            "error": {
+                                "code": null,
+                                "status": null
+                            },
+                            "timestamp": "2023-10-11T12:54:21.950Z",
+                            "instance": "449d8b46d9141f6c12fff240c92ee69b",
+                            "keepAlive": 0
+                        }
+                    }
                 }
             ],
             "ip": "10.18.80.10",
@@ -3305,7 +3745,8 @@
             "destination": {
                 "mask": -1,
                 "inputId": "65269806a64c78cb9052024a",
-                "deviceId": "000000000000000000000069"
+                "deviceId": "000000000000000000000069",
+                "destinationRegister": 0
             }
         },
         {
@@ -3318,7 +3759,8 @@
             "destination": {
                 "mask": -1,
                 "inputId": "652698124f66340b83db84f6",
-                "deviceId": "000000000000000000000069"
+                "deviceId": "000000000000000000000069",
+                "destinationRegister": 0
             }
         },
         {
@@ -3331,7 +3773,8 @@
             "destination": {
                 "mask": -1,
                 "inputId": "65269826d135cc5a2e8808f6",
-                "deviceId": "000000000000000000000069"
+                "deviceId": "000000000000000000000069",
+                "destinationRegister": 0
             }
         },
         {
@@ -3344,7 +3787,8 @@
             "destination": {
                 "mask": -1,
                 "inputId": "652698305cea1ceaccd2dc60",
-                "deviceId": "000000000000000000000069"
+                "deviceId": "000000000000000000000069",
+                "destinationRegister": 0
             }
         },
         {
@@ -3357,7 +3801,8 @@
             "destination": {
                 "mask": -1,
                 "inputId": "6526983e972a9d2787d1729f",
-                "deviceId": "000000000000000000000069"
+                "deviceId": "000000000000000000000069",
+                "destinationRegister": 0
             }
         },
         {
@@ -3370,7 +3815,8 @@
             "destination": {
                 "mask": -1,
                 "inputId": "6526984c16a2e3ff2b33b5fe",
-                "deviceId": "000000000000000000000069"
+                "deviceId": "000000000000000000000069",
+                "destinationRegister": 0
             }
         },
         {
@@ -3383,7 +3829,8 @@
             "destination": {
                 "mask": -1,
                 "inputId": "6526985aa77e74d7b590b7b0",
-                "deviceId": "000000000000000000000069"
+                "deviceId": "000000000000000000000069",
+                "destinationRegister": 0
             }
         },
         {
@@ -3396,7 +3843,8 @@
             "destination": {
                 "mask": -1,
                 "inputId": "652698661ba71774be02da44",
-                "deviceId": "000000000000000000000069"
+                "deviceId": "000000000000000000000069",
+                "destinationRegister": 0
             }
         },
         {
@@ -3409,7 +3857,8 @@
             "destination": {
                 "mask": -1,
                 "inputId": "652698728bf24260ccfab145",
-                "deviceId": "000000000000000000000069"
+                "deviceId": "000000000000000000000069",
+                "destinationRegister": 0
             }
         }
     ],
