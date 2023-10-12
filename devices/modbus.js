@@ -132,7 +132,9 @@ module.exports = class extends EventEmitter {
                                 io.value = regValue;
                             }else{
                                 item.value = regValue
-                                change = await this.cofs.checkCOFS(item);
+                                if(!change){
+                                    change = await this.cofs.checkCOFS(item);
+                                }
                                 io.value = regValue;
                             }
                         }else{

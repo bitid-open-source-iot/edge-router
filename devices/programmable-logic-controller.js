@@ -95,7 +95,9 @@ module.exports = class extends EventEmitter {
                                 io.value = item.tag.value;
                             }else{
                                 item.value = item.tag.value
-                                change = await this.cofs.checkCOFS(item);
+                                if(!change){
+                                    change = await this.cofs.checkCOFS(item);
+                                }
                                 io.value = item.tag.value;
                             }
                         }else{

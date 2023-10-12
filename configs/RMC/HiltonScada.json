@@ -58,7 +58,8 @@
                         "bit": 0,
                         "key": "",
                         "enabled": false,
-                        "moduleId": 0
+                        "moduleId": 0,
+                        "lastCOFSValue": 0
                     },
                     "masking": {
                         "bit": 0,
@@ -79,7 +80,7 @@
                     },
                     "key": "",
                     "tagId": "",
-                    "value": 0,
+                    "value": 1,
                     "shift": -1,
                     "inputId": "619e28a2d5b6220d2ad97ba1",
                     "register": 1,
@@ -108,7 +109,8 @@
                         "bit": 0,
                         "key": "",
                         "enabled": false,
-                        "moduleId": 0
+                        "moduleId": 0,
+                        "lastCOFSValue": 0
                     },
                     "masking": {
                         "bit": 0,
@@ -129,7 +131,7 @@
                     },
                     "key": "",
                     "tagId": "",
-                    "value": 0,
+                    "value": 512,
                     "shift": -1,
                     "inputId": "619e28da5ec5f6977ee6ea29",
                     "register": 2,
@@ -158,7 +160,8 @@
                         "bit": 0,
                         "key": "",
                         "enabled": false,
-                        "moduleId": 0
+                        "moduleId": 0,
+                        "lastCOFSValue": 0
                     },
                     "masking": {
                         "bit": 0,
@@ -179,7 +182,7 @@
                     },
                     "key": "",
                     "tagId": "",
-                    "value": 0,
+                    "value": 3,
                     "shift": -1,
                     "inputId": "619e28f1d646868573886748",
                     "register": 3,
@@ -208,7 +211,8 @@
                         "bit": 0,
                         "key": "",
                         "enabled": false,
-                        "moduleId": 0
+                        "moduleId": 0,
+                        "lastCOFSValue": 0
                     },
                     "masking": {
                         "bit": 0,
@@ -229,7 +233,7 @@
                     },
                     "key": "",
                     "tagId": "",
-                    "value": 0,
+                    "value": 13,
                     "shift": -1,
                     "inputId": "65267dd94874df6f4e9c3064",
                     "register": 4,
@@ -258,7 +262,8 @@
                         "bit": 0,
                         "key": "",
                         "enabled": false,
-                        "moduleId": 0
+                        "moduleId": 0,
+                        "lastCOFSValue": 0
                     },
                     "masking": {
                         "bit": 0,
@@ -279,7 +284,7 @@
                     },
                     "key": "",
                     "tagId": "",
-                    "value": 0,
+                    "value": 6,
                     "shift": -1,
                     "inputId": "65267df3676e7ce8de6da8f6",
                     "register": 5,
@@ -308,7 +313,8 @@
                         "bit": 0,
                         "key": "",
                         "enabled": false,
-                        "moduleId": 0
+                        "moduleId": 0,
+                        "lastCOFSValue": 0
                     },
                     "masking": {
                         "bit": 0,
@@ -358,7 +364,8 @@
                         "bit": 0,
                         "key": "",
                         "enabled": false,
-                        "moduleId": 0
+                        "moduleId": 0,
+                        "lastCOFSValue": 0
                     },
                     "masking": {
                         "bit": 0,
@@ -408,7 +415,8 @@
                         "bit": 0,
                         "key": "",
                         "enabled": false,
-                        "moduleId": 0
+                        "moduleId": 0,
+                        "lastCOFSValue": 0
                     },
                     "masking": {
                         "bit": 0,
@@ -458,7 +466,8 @@
                         "bit": 0,
                         "key": "",
                         "enabled": false,
-                        "moduleId": 0
+                        "moduleId": 0,
+                        "lastCOFSValue": 0
                     },
                     "masking": {
                         "bit": 0,
@@ -508,7 +517,8 @@
                         "bit": 0,
                         "key": "",
                         "enabled": false,
-                        "moduleId": 0
+                        "moduleId": 0,
+                        "lastCOFSValue": 0
                     },
                     "masking": {
                         "bit": 0,
@@ -558,7 +568,8 @@
                         "bit": 0,
                         "key": "",
                         "enabled": false,
-                        "moduleId": 0
+                        "moduleId": 0,
+                        "lastCOFSValue": 0
                     },
                     "masking": {
                         "bit": 0,
@@ -608,7 +619,8 @@
                         "bit": 0,
                         "key": "",
                         "enabled": false,
-                        "moduleId": 0
+                        "moduleId": 0,
+                        "lastCOFSValue": 0
                     },
                     "masking": {
                         "bit": 0,
@@ -658,7 +670,8 @@
                         "bit": 0,
                         "key": "",
                         "enabled": false,
-                        "moduleId": 0
+                        "moduleId": 0,
+                        "lastCOFSValue": 0
                     },
                     "masking": {
                         "bit": 0,
@@ -708,7 +721,8 @@
                         "bit": 0,
                         "key": "",
                         "enabled": false,
-                        "moduleId": 0
+                        "moduleId": 0,
+                        "lastCOFSValue": 0
                     },
                     "masking": {
                         "bit": 0,
@@ -758,7 +772,8 @@
                         "bit": 0,
                         "key": "",
                         "enabled": false,
-                        "moduleId": 0
+                        "moduleId": 0,
+                        "lastCOFSValue": 0
                     },
                     "masking": {
                         "bit": 0,
@@ -808,7 +823,8 @@
                         "bit": 0,
                         "key": "",
                         "enabled": false,
-                        "moduleId": 0
+                        "moduleId": 0,
+                        "lastCOFSValue": 0
                     },
                     "masking": {
                         "bit": 0,
@@ -858,7 +874,8 @@
                         "bit": 0,
                         "key": "",
                         "enabled": false,
-                        "moduleId": 0
+                        "moduleId": 0,
+                        "lastCOFSValue": 0
                     },
                     "masking": {
                         "bit": 0,
@@ -908,7 +925,8 @@
                         "bit": 0,
                         "key": "",
                         "enabled": false,
-                        "moduleId": 0
+                        "moduleId": 0,
+                        "lastCOFSValue": 0
                     },
                     "masking": {
                         "bit": 0,
@@ -958,7 +976,8 @@
                         "bit": 0,
                         "key": "",
                         "enabled": false,
-                        "moduleId": 0
+                        "moduleId": 0,
+                        "lastCOFSValue": 0
                     },
                     "masking": {
                         "bit": 0,
@@ -1008,7 +1027,8 @@
                         "bit": 0,
                         "key": "",
                         "enabled": false,
-                        "moduleId": 0
+                        "moduleId": 0,
+                        "lastCOFSValue": 0
                     },
                     "masking": {
                         "bit": 0,
@@ -1058,7 +1078,8 @@
                         "bit": 0,
                         "key": "",
                         "enabled": false,
-                        "moduleId": 0
+                        "moduleId": 0,
+                        "lastCOFSValue": 0
                     },
                     "masking": {
                         "bit": 0,
@@ -1108,7 +1129,8 @@
                         "bit": 0,
                         "key": "",
                         "enabled": false,
-                        "moduleId": 0
+                        "moduleId": 0,
+                        "lastCOFSValue": 0
                     },
                     "masking": {
                         "bit": 0,
@@ -1158,7 +1180,8 @@
                         "bit": 0,
                         "key": "",
                         "enabled": false,
-                        "moduleId": 0
+                        "moduleId": 0,
+                        "lastCOFSValue": 0
                     },
                     "masking": {
                         "bit": 0,
@@ -1208,7 +1231,8 @@
                         "bit": 0,
                         "key": "",
                         "enabled": false,
-                        "moduleId": 0
+                        "moduleId": 0,
+                        "lastCOFSValue": 0
                     },
                     "masking": {
                         "bit": 0,
@@ -1258,7 +1282,8 @@
                         "bit": 0,
                         "key": "",
                         "enabled": false,
-                        "moduleId": 0
+                        "moduleId": 0,
+                        "lastCOFSValue": 0
                     },
                     "masking": {
                         "bit": 0,
@@ -1308,7 +1333,8 @@
                         "bit": 0,
                         "key": "",
                         "enabled": false,
-                        "moduleId": 0
+                        "moduleId": 0,
+                        "lastCOFSValue": 0
                     },
                     "masking": {
                         "bit": 0,
@@ -1358,7 +1384,8 @@
                         "bit": 0,
                         "key": "",
                         "enabled": false,
-                        "moduleId": 0
+                        "moduleId": 0,
+                        "lastCOFSValue": 0
                     },
                     "masking": {
                         "bit": 0,
@@ -1408,7 +1435,8 @@
                         "bit": 0,
                         "key": "",
                         "enabled": false,
-                        "moduleId": 0
+                        "moduleId": 0,
+                        "lastCOFSValue": 0
                     },
                     "masking": {
                         "bit": 0,
@@ -1458,7 +1486,8 @@
                         "bit": 0,
                         "key": "",
                         "enabled": false,
-                        "moduleId": 0
+                        "moduleId": 0,
+                        "lastCOFSValue": 0
                     },
                     "masking": {
                         "bit": 0,
@@ -1508,7 +1537,8 @@
                         "bit": 0,
                         "key": "",
                         "enabled": false,
-                        "moduleId": 0
+                        "moduleId": 0,
+                        "lastCOFSValue": 0
                     },
                     "masking": {
                         "bit": 0,
@@ -1558,7 +1588,8 @@
                         "bit": 0,
                         "key": "",
                         "enabled": false,
-                        "moduleId": 0
+                        "moduleId": 0,
+                        "lastCOFSValue": 0
                     },
                     "masking": {
                         "bit": 0,
@@ -1579,7 +1610,7 @@
                     },
                     "key": "",
                     "tagId": "",
-                    "value": 0,
+                    "value": 511,
                     "shift": -1,
                     "inputId": "65268b80ad3ca92e4f2fc54f",
                     "register": 31,
@@ -1608,7 +1639,8 @@
                         "bit": 0,
                         "key": "",
                         "enabled": false,
-                        "moduleId": 0
+                        "moduleId": 0,
+                        "lastCOFSValue": 0
                     },
                     "masking": {
                         "bit": 0,
@@ -1658,7 +1690,8 @@
                         "bit": 0,
                         "key": "",
                         "enabled": false,
-                        "moduleId": 0
+                        "moduleId": 0,
+                        "lastCOFSValue": 0
                     },
                     "masking": {
                         "bit": 0,
@@ -1708,7 +1741,8 @@
                         "bit": 0,
                         "key": "",
                         "enabled": false,
-                        "moduleId": 0
+                        "moduleId": 0,
+                        "lastCOFSValue": 0
                     },
                     "masking": {
                         "bit": 0,
@@ -1758,7 +1792,8 @@
                         "bit": 0,
                         "key": "",
                         "enabled": false,
-                        "moduleId": 0
+                        "moduleId": 0,
+                        "lastCOFSValue": 0
                     },
                     "masking": {
                         "bit": 0,
@@ -1808,7 +1843,8 @@
                         "bit": 0,
                         "key": "",
                         "enabled": false,
-                        "moduleId": 0
+                        "moduleId": 0,
+                        "lastCOFSValue": 0
                     },
                     "masking": {
                         "bit": 0,
@@ -1858,7 +1894,8 @@
                         "bit": 0,
                         "key": "",
                         "enabled": false,
-                        "moduleId": 0
+                        "moduleId": 0,
+                        "lastCOFSValue": 0
                     },
                     "masking": {
                         "bit": 0,
@@ -1908,7 +1945,8 @@
                         "bit": 0,
                         "key": "",
                         "enabled": false,
-                        "moduleId": 0
+                        "moduleId": 0,
+                        "lastCOFSValue": 0
                     },
                     "masking": {
                         "bit": 0,
@@ -1958,7 +1996,8 @@
                         "bit": 0,
                         "key": "",
                         "enabled": false,
-                        "moduleId": 0
+                        "moduleId": 0,
+                        "lastCOFSValue": 0
                     },
                     "masking": {
                         "bit": 0,
@@ -2008,7 +2047,8 @@
                         "bit": 0,
                         "key": "",
                         "enabled": false,
-                        "moduleId": 0
+                        "moduleId": 0,
+                        "lastCOFSValue": 0
                     },
                     "masking": {
                         "bit": 0,
@@ -2058,7 +2098,9 @@
                         "bit": 0,
                         "key": "AI1",
                         "enabled": true,
-                        "moduleId": 0
+                        "moduleId": 0,
+                        "lastCOFSValue": 753,
+                        "lastCOFSMainValue": 753
                     },
                     "masking": {
                         "bit": 0,
@@ -2079,7 +2121,7 @@
                     },
                     "key": "",
                     "tagId": "",
-                    "value": 0,
+                    "value": 753,
                     "shift": -1,
                     "inputId": "65268c0ec1c557011b97a1bf",
                     "register": 101,
@@ -2108,7 +2150,9 @@
                         "bit": 0,
                         "key": "AI2",
                         "enabled": true,
-                        "moduleId": 0
+                        "moduleId": 0,
+                        "lastCOFSValue": 958,
+                        "lastCOFSMainValue": 958
                     },
                     "masking": {
                         "bit": 0,
@@ -2129,7 +2173,7 @@
                     },
                     "key": "",
                     "tagId": "",
-                    "value": 0,
+                    "value": 958,
                     "shift": -1,
                     "inputId": "65268c80f9eb0f76d0ff6cc6",
                     "register": 102,
@@ -2158,7 +2202,9 @@
                         "bit": 0,
                         "key": "AI3",
                         "enabled": true,
-                        "moduleId": 0
+                        "moduleId": 0,
+                        "lastCOFSValue": 0,
+                        "lastCOFSMainValue": 0
                     },
                     "masking": {
                         "bit": 0,
@@ -2208,7 +2254,9 @@
                         "bit": 0,
                         "key": "AI4",
                         "enabled": true,
-                        "moduleId": 0
+                        "moduleId": 0,
+                        "lastCOFSValue": 0,
+                        "lastCOFSMainValue": 0
                     },
                     "masking": {
                         "bit": 0,
@@ -2258,7 +2306,9 @@
                         "bit": 0,
                         "key": "AIExt1",
                         "enabled": true,
-                        "moduleId": 0
+                        "moduleId": 0,
+                        "lastCOFSValue": 0,
+                        "lastCOFSMainValue": 0
                     },
                     "masking": {
                         "bit": 0,
@@ -2308,7 +2358,9 @@
                         "bit": 0,
                         "key": "AIExt2",
                         "enabled": true,
-                        "moduleId": 0
+                        "moduleId": 0,
+                        "lastCOFSValue": 0,
+                        "lastCOFSMainValue": 0
                     },
                     "masking": {
                         "bit": 0,
@@ -2358,7 +2410,9 @@
                         "bit": 0,
                         "key": "AIExt3",
                         "enabled": true,
-                        "moduleId": 0
+                        "moduleId": 0,
+                        "lastCOFSValue": 0,
+                        "lastCOFSMainValue": 0
                     },
                     "masking": {
                         "bit": 0,
@@ -2408,7 +2462,9 @@
                         "bit": 0,
                         "key": "AIExt4",
                         "enabled": true,
-                        "moduleId": 0
+                        "moduleId": 0,
+                        "lastCOFSValue": 0,
+                        "lastCOFSMainValue": 0
                     },
                     "masking": {
                         "bit": 0,
@@ -2458,7 +2514,9 @@
                         "bit": 0,
                         "key": "AIExt5",
                         "enabled": true,
-                        "moduleId": 0
+                        "moduleId": 0,
+                        "lastCOFSValue": 0,
+                        "lastCOFSMainValue": 0
                     },
                     "masking": {
                         "bit": 0,
@@ -2508,7 +2566,9 @@
                         "bit": 0,
                         "key": "AIExt6",
                         "enabled": true,
-                        "moduleId": 0
+                        "moduleId": 0,
+                        "lastCOFSValue": 0,
+                        "lastCOFSMainValue": 0
                     },
                     "masking": {
                         "bit": 0,
@@ -2768,7 +2828,7 @@
                     },
                     "key": "",
                     "tagId": "",
-                    "value": 0,
+                    "value": "13",
                     "shift": -1,
                     "inputId": "65268d60a41623c62acad767",
                     "register": 11,
@@ -2818,7 +2878,7 @@
                     },
                     "key": "",
                     "tagId": "",
-                    "value": 0,
+                    "value": "6",
                     "shift": -1,
                     "inputId": "65268d79a33ccfeb1b9e127a",
                     "register": 12,
@@ -2868,7 +2928,7 @@
                     },
                     "key": "",
                     "tagId": "",
-                    "value": 0,
+                    "value": "0",
                     "shift": -1,
                     "inputId": "65268d88c51fbf1b6206f512",
                     "register": 13,
@@ -2918,7 +2978,7 @@
                     },
                     "key": "",
                     "tagId": "",
-                    "value": 0,
+                    "value": "0",
                     "shift": -1,
                     "inputId": "65268d93f1211db7335a0c95",
                     "register": 14,
@@ -2968,7 +3028,7 @@
                     },
                     "key": "",
                     "tagId": "",
-                    "value": 0,
+                    "value": "0",
                     "shift": -1,
                     "inputId": "65268d9dac238181225c4a29",
                     "register": 15,
@@ -3018,7 +3078,7 @@
                     },
                     "key": "",
                     "tagId": "",
-                    "value": 0,
+                    "value": "0",
                     "shift": -1,
                     "inputId": "65268da964f1a9c3051e3d60",
                     "register": 16,
@@ -3068,7 +3128,7 @@
                     },
                     "key": "",
                     "tagId": "",
-                    "value": 0,
+                    "value": "0",
                     "shift": -1,
                     "inputId": "65268db48b3e55ebfdd9ec92",
                     "register": 17,
@@ -3118,7 +3178,7 @@
                     },
                     "key": "",
                     "tagId": "",
-                    "value": 0,
+                    "value": "0",
                     "shift": -1,
                     "inputId": "65268dca8352e9f5bb4f7718",
                     "register": 8,
@@ -3168,7 +3228,7 @@
                     },
                     "key": "",
                     "tagId": "",
-                    "value": 0,
+                    "value": "0",
                     "shift": -1,
                     "inputId": "65268dd6e2cfb7dae0c9a8ba",
                     "register": 9,
@@ -3218,7 +3278,7 @@
                     },
                     "key": "",
                     "tagId": "",
-                    "value": 0,
+                    "value": "0",
                     "shift": -1,
                     "inputId": "65268de399545eaa6b95b463",
                     "register": 10,
@@ -3268,7 +3328,7 @@
                     },
                     "key": "",
                     "tagId": "",
-                    "value": 0,
+                    "value": "0",
                     "shift": -1,
                     "inputId": "65268df01a763697d82f30e8",
                     "register": 11,
@@ -3318,7 +3378,7 @@
                     },
                     "key": "",
                     "tagId": "",
-                    "value": 0,
+                    "value": "0",
                     "shift": -1,
                     "inputId": "65268dfaa4cbcd15fcfeee6f",
                     "register": 12,
@@ -3368,7 +3428,7 @@
                     },
                     "key": "",
                     "tagId": "",
-                    "value": 0,
+                    "value": "0",
                     "shift": -1,
                     "inputId": "65268e062164b9025141d79c",
                     "register": 13,
@@ -3418,7 +3478,7 @@
                     },
                     "key": "",
                     "tagId": "",
-                    "value": 0,
+                    "value": "-3",
                     "shift": -1,
                     "inputId": "65268e10507ff44faacd609e",
                     "register": 14,
@@ -3468,7 +3528,7 @@
                     },
                     "key": "",
                     "tagId": "",
-                    "value": 0,
+                    "value": "255",
                     "shift": -1,
                     "inputId": "65268e1be4ec5685bcde2d4d",
                     "register": 15,
@@ -3518,7 +3578,7 @@
                     },
                     "key": "",
                     "tagId": "",
-                    "value": 0,
+                    "value": "0",
                     "shift": -1,
                     "inputId": "65268e244ab5aed39ea52ceb",
                     "register": 16,
@@ -3568,7 +3628,7 @@
                     },
                     "key": "",
                     "tagId": "",
-                    "value": 0,
+                    "value": "0",
                     "shift": -1,
                     "inputId": "65268e2e883803143c437262",
                     "register": 17,
@@ -3618,7 +3678,7 @@
                     },
                     "key": "",
                     "tagId": "",
-                    "value": 0,
+                    "value": "0",
                     "shift": -1,
                     "inputId": "65268e3ddd8b91f54966cced",
                     "register": 8,
@@ -3668,7 +3728,7 @@
                     },
                     "key": "",
                     "tagId": "",
-                    "value": 0,
+                    "value": "0",
                     "shift": -1,
                     "inputId": "65268e47103706f535dbba8c",
                     "register": 9,
@@ -3718,7 +3778,7 @@
                     },
                     "key": "",
                     "tagId": "",
-                    "value": 0,
+                    "value": "0",
                     "shift": -1,
                     "inputId": "65268e57d413815acf873056",
                     "register": 10,
@@ -3768,7 +3828,7 @@
                     },
                     "key": "",
                     "tagId": "",
-                    "value": 0,
+                    "value": "0",
                     "shift": -1,
                     "inputId": "65268e62f7979bb18080407d",
                     "register": 11,
@@ -3818,7 +3878,7 @@
                     },
                     "key": "",
                     "tagId": "",
-                    "value": 0,
+                    "value": "0",
                     "shift": -1,
                     "inputId": "65268e6cb11b875ff2230156",
                     "register": 12,
@@ -3868,7 +3928,7 @@
                     },
                     "key": "",
                     "tagId": "",
-                    "value": 0,
+                    "value": "2048",
                     "shift": -1,
                     "inputId": "65268e77924040b2eb53b34d",
                     "register": 13,
@@ -3918,7 +3978,7 @@
                     },
                     "key": "",
                     "tagId": "",
-                    "value": 0,
+                    "value": "-3",
                     "shift": -1,
                     "inputId": "65268e848c31bb157d1643ae",
                     "register": 14,
@@ -3968,7 +4028,7 @@
                     },
                     "key": "",
                     "tagId": "",
-                    "value": 0,
+                    "value": "255",
                     "shift": -1,
                     "inputId": "65268e9163449538b0572c63",
                     "register": 15,
@@ -4018,7 +4078,7 @@
                     },
                     "key": "",
                     "tagId": "",
-                    "value": 0,
+                    "value": "0",
                     "shift": -1,
                     "inputId": "65268e9bc0f1e5a50d5d3aae",
                     "register": 16,
@@ -4068,7 +4128,7 @@
                     },
                     "key": "",
                     "tagId": "",
-                    "value": 0,
+                    "value": "0",
                     "shift": -1,
                     "inputId": "65268ea69f259396582fd336",
                     "register": 17,
@@ -4118,7 +4178,7 @@
                     },
                     "key": "",
                     "tagId": "",
-                    "value": 0,
+                    "value": "544",
                     "shift": -1,
                     "inputId": "65268eb23338df0741c6bb3a",
                     "register": 8,
@@ -4168,7 +4228,7 @@
                     },
                     "key": "",
                     "tagId": "",
-                    "value": 0,
+                    "value": "122",
                     "shift": -1,
                     "inputId": "65268ebe16cd246224fc4dd3",
                     "register": 9,
@@ -4218,7 +4278,7 @@
                     },
                     "key": "",
                     "tagId": "",
-                    "value": 0,
+                    "value": "0",
                     "shift": -1,
                     "inputId": "65268ecb381addf89f293317",
                     "register": 10,
@@ -4268,7 +4328,7 @@
                     },
                     "key": "",
                     "tagId": "",
-                    "value": 0,
+                    "value": "0",
                     "shift": -1,
                     "inputId": "65268ed5bb7af284eeb68e5f",
                     "register": 11,
@@ -4318,7 +4378,7 @@
                     },
                     "key": "",
                     "tagId": "",
-                    "value": 0,
+                    "value": "0",
                     "shift": -1,
                     "inputId": "65268ee04f4cc5238f3c8104",
                     "register": 12,
@@ -4368,7 +4428,7 @@
                     },
                     "key": "",
                     "tagId": "",
-                    "value": 0,
+                    "value": "0",
                     "shift": -1,
                     "inputId": "65268eea086b4473cc346b66",
                     "register": 13,
@@ -4418,7 +4478,7 @@
                     },
                     "key": "",
                     "tagId": "",
-                    "value": 0,
+                    "value": "0",
                     "shift": -1,
                     "inputId": "65268ef86f73c4f288cb50cb",
                     "register": 14,
@@ -4468,7 +4528,7 @@
                     },
                     "key": "",
                     "tagId": "",
-                    "value": 0,
+                    "value": "0",
                     "shift": -1,
                     "inputId": "65268f02072476e8310642cc",
                     "register": 15,
@@ -4518,7 +4578,7 @@
                     },
                     "key": "",
                     "tagId": "",
-                    "value": 0,
+                    "value": "0",
                     "shift": -1,
                     "inputId": "65268f0ce1d0465c9ecc8862",
                     "register": 16,
@@ -4568,7 +4628,7 @@
                     },
                     "key": "",
                     "tagId": "",
-                    "value": 0,
+                    "value": "0",
                     "shift": -1,
                     "inputId": "65268f16040462abaabc38f6",
                     "register": 17,
@@ -4640,6 +4700,500 @@
                 "inputId": "619e28f1d646868573886748",
                 "deviceId": "000000000000000000000000",
                 "destinationRegister": 3
+            }
+        },
+        {
+            "mapId": "6527a85fdb3395d70cb3bd46",
+            "source": {
+                "mask": -1,
+                "inputId": "65268d60a41623c62acad767",
+                "deviceId": "000000000000000000000009"
+            },
+            "destination": {
+                "mask": -1,
+                "inputId": "65267dd94874df6f4e9c3064",
+                "deviceId": "000000000000000000000000"
+            }
+        },
+        {
+            "mapId": "6527a86d49db6fa60b06f051",
+            "source": {
+                "mask": -1,
+                "inputId": "65268d79a33ccfeb1b9e127a",
+                "deviceId": "000000000000000000000009"
+            },
+            "destination": {
+                "mask": -1,
+                "inputId": "65267df3676e7ce8de6da8f6",
+                "deviceId": "000000000000000000000000"
+            }
+        },
+        {
+            "mapId": "6527a888ab4b5a923958edbc",
+            "source": {
+                "mask": -1,
+                "inputId": "65268d88c51fbf1b6206f512",
+                "deviceId": "000000000000000000000009"
+            },
+            "destination": {
+                "mask": -1,
+                "inputId": "65267e392a23770f8514f242",
+                "deviceId": "000000000000000000000000"
+            }
+        },
+        {
+            "mapId": "6527a8974622a1830fbef76d",
+            "source": {
+                "mask": -1,
+                "inputId": "65268d93f1211db7335a0c95",
+                "deviceId": "000000000000000000000009"
+            },
+            "destination": {
+                "mask": -1,
+                "inputId": "65267e4c2e2ff35c327227b8",
+                "deviceId": "000000000000000000000000"
+            }
+        },
+        {
+            "mapId": "6527a8a265350c312b67719c",
+            "source": {
+                "mask": -1,
+                "inputId": "65268d9dac238181225c4a29",
+                "deviceId": "000000000000000000000009"
+            },
+            "destination": {
+                "mask": -1,
+                "inputId": "65267e6db8b8461e0ed77ba2",
+                "deviceId": "000000000000000000000000"
+            }
+        },
+        {
+            "mapId": "6527a8b12415113b6fd5b303",
+            "source": {
+                "mask": -1,
+                "inputId": "65268da964f1a9c3051e3d60",
+                "deviceId": "000000000000000000000009"
+            },
+            "destination": {
+                "mask": -1,
+                "inputId": "65267e81e43645b3cfcccd6d",
+                "deviceId": "000000000000000000000000"
+            }
+        },
+        {
+            "mapId": "6527a8c1fdee424f0dc2db93",
+            "source": {
+                "mask": -1,
+                "inputId": "65268db48b3e55ebfdd9ec92",
+                "deviceId": "000000000000000000000009"
+            },
+            "destination": {
+                "mask": -1,
+                "inputId": "65267e8ebec0bc527715fe56",
+                "deviceId": "000000000000000000000000"
+            }
+        },
+        {
+            "mapId": "6527a8cc3cb7772717fb67e2",
+            "source": {
+                "mask": -1,
+                "inputId": "65268dca8352e9f5bb4f7718",
+                "deviceId": "000000000000000000000009"
+            },
+            "destination": {
+                "mask": -1,
+                "inputId": "65267ec0dbbfc65408fded45",
+                "deviceId": "000000000000000000000000"
+            }
+        },
+        {
+            "mapId": "6527a8dcd0719ec7c2aa1ef7",
+            "source": {
+                "mask": -1,
+                "inputId": "65268dd6e2cfb7dae0c9a8ba",
+                "deviceId": "000000000000000000000009"
+            },
+            "destination": {
+                "mask": -1,
+                "inputId": "65267ecd0e193cffd94e0cde",
+                "deviceId": "000000000000000000000000"
+            }
+        },
+        {
+            "mapId": "6527a8eaa47d8816e313591c",
+            "source": {
+                "mask": -1,
+                "inputId": "65268de399545eaa6b95b463",
+                "deviceId": "000000000000000000000009"
+            },
+            "destination": {
+                "mask": -1,
+                "inputId": "65267edca36dcb51524eb373",
+                "deviceId": "000000000000000000000000"
+            }
+        },
+        {
+            "mapId": "6527a8fa24dbec1e88a8a5db",
+            "source": {
+                "mask": -1,
+                "inputId": "65268df01a763697d82f30e8",
+                "deviceId": "000000000000000000000009"
+            },
+            "destination": {
+                "mask": -1,
+                "inputId": "65267ee977ee387215e7f757",
+                "deviceId": "000000000000000000000000"
+            }
+        },
+        {
+            "mapId": "6527a9167af85728b4c48efe",
+            "source": {
+                "mask": -1,
+                "inputId": "65268dfaa4cbcd15fcfeee6f",
+                "deviceId": "000000000000000000000009"
+            },
+            "destination": {
+                "mask": -1,
+                "inputId": "65267ef9bfd67308b932b080",
+                "deviceId": "000000000000000000000000"
+            }
+        },
+        {
+            "mapId": "6527a924343b3ca23ec1ac11",
+            "source": {
+                "mask": -1,
+                "inputId": "65268e062164b9025141d79c",
+                "deviceId": "000000000000000000000009"
+            },
+            "destination": {
+                "mask": -1,
+                "inputId": "65267f0626e25d0d679329c5",
+                "deviceId": "000000000000000000000000"
+            }
+        },
+        {
+            "mapId": "6527a931dbcb9d41517e24c9",
+            "source": {
+                "mask": -1,
+                "inputId": "65268e10507ff44faacd609e",
+                "deviceId": "000000000000000000000009"
+            },
+            "destination": {
+                "mask": -1,
+                "inputId": "65267f135f978de83f26a131",
+                "deviceId": "000000000000000000000000"
+            }
+        },
+        {
+            "mapId": "6527a93e0dd814c1eafb34cb",
+            "source": {
+                "mask": -1,
+                "inputId": "65268e1be4ec5685bcde2d4d",
+                "deviceId": "000000000000000000000009"
+            },
+            "destination": {
+                "mask": -1,
+                "inputId": "65267f1f6c6912144a96b4f2",
+                "deviceId": "000000000000000000000000"
+            }
+        },
+        {
+            "mapId": "6527a94e49b8855d0537e5c6",
+            "source": {
+                "mask": -1,
+                "inputId": "65268e244ab5aed39ea52ceb",
+                "deviceId": "000000000000000000000009"
+            },
+            "destination": {
+                "mask": -1,
+                "inputId": "65267f2d086a98107e3df5be",
+                "deviceId": "000000000000000000000000"
+            }
+        },
+        {
+            "mapId": "6527a95fe199b40373af957d",
+            "source": {
+                "mask": -1,
+                "inputId": "65268e2e883803143c437262",
+                "deviceId": "000000000000000000000009"
+            },
+            "destination": {
+                "mask": -1,
+                "inputId": "65267f38907a244e4a85204b",
+                "deviceId": "000000000000000000000000"
+            }
+        },
+        {
+            "mapId": "6527a96e171b8da958e840fc",
+            "source": {
+                "mask": -1,
+                "inputId": "65268e3ddd8b91f54966cced",
+                "deviceId": "000000000000000000000009"
+            },
+            "destination": {
+                "mask": -1,
+                "inputId": "65267f43060acb6c114c8ff0",
+                "deviceId": "000000000000000000000000"
+            }
+        },
+        {
+            "mapId": "6527a97abc55be4ca7706100",
+            "source": {
+                "mask": -1,
+                "inputId": "65268e47103706f535dbba8c",
+                "deviceId": "000000000000000000000009"
+            },
+            "destination": {
+                "mask": -1,
+                "inputId": "65267f4e0649aeb8ba7d4934",
+                "deviceId": "000000000000000000000000"
+            }
+        },
+        {
+            "mapId": "6527a985b86a4af19825d012",
+            "source": {
+                "mask": -1,
+                "inputId": "65268e57d413815acf873056",
+                "deviceId": "000000000000000000000009"
+            },
+            "destination": {
+                "mask": -1,
+                "inputId": "65267f5c68702aa675a6c571",
+                "deviceId": "000000000000000000000000"
+            }
+        },
+        {
+            "mapId": "6527a993abc4a7a1f6ba9903",
+            "source": {
+                "mask": -1,
+                "inputId": "65268e62f7979bb18080407d",
+                "deviceId": "000000000000000000000009"
+            },
+            "destination": {
+                "mask": -1,
+                "inputId": "65267f6778913a1b00fa0f68",
+                "deviceId": "000000000000000000000000"
+            }
+        },
+        {
+            "mapId": "6527a9a5114f7c2c248893a3",
+            "source": {
+                "mask": -1,
+                "inputId": "65268e6cb11b875ff2230156",
+                "deviceId": "000000000000000000000009"
+            },
+            "destination": {
+                "mask": -1,
+                "inputId": "65267f76c0508eb737aae1bb",
+                "deviceId": "000000000000000000000000"
+            }
+        },
+        {
+            "mapId": "6527a9bbd4ab453ebc18ce37",
+            "source": {
+                "mask": -1,
+                "inputId": "65268e77924040b2eb53b34d",
+                "deviceId": "000000000000000000000009"
+            },
+            "destination": {
+                "mask": -1,
+                "inputId": "65268b46cba9739df42ca895",
+                "deviceId": "000000000000000000000000"
+            }
+        },
+        {
+            "mapId": "6527a9c99b0a644c471b775c",
+            "source": {
+                "mask": -1,
+                "inputId": "65268e848c31bb157d1643ae",
+                "deviceId": "000000000000000000000009"
+            },
+            "destination": {
+                "mask": -1,
+                "inputId": "65268b502b5099a07f4cc155",
+                "deviceId": "000000000000000000000000"
+            }
+        },
+        {
+            "mapId": "6527a9d5ce5df2b345798382",
+            "source": {
+                "mask": -1,
+                "inputId": "65268e9163449538b0572c63",
+                "deviceId": "000000000000000000000009"
+            },
+            "destination": {
+                "mask": -1,
+                "inputId": "65268b5b52da928ebb3145ed",
+                "deviceId": "000000000000000000000000"
+            }
+        },
+        {
+            "mapId": "6527a9e5ae88e7046f813d88",
+            "source": {
+                "mask": -1,
+                "inputId": "65268e9bc0f1e5a50d5d3aae",
+                "deviceId": "000000000000000000000009"
+            },
+            "destination": {
+                "mask": -1,
+                "inputId": "65268b66d4aae27c8f454128",
+                "deviceId": "000000000000000000000000"
+            }
+        },
+        {
+            "mapId": "6527a9f5360e0d8d78ffc756",
+            "source": {
+                "mask": -1,
+                "inputId": "65268ea69f259396582fd336",
+                "deviceId": "000000000000000000000009"
+            },
+            "destination": {
+                "mask": -1,
+                "inputId": "65268b716bd20b2e6d799996",
+                "deviceId": "000000000000000000000000"
+            }
+        },
+        {
+            "mapId": "6527aa07240b9d695589a0cd",
+            "source": {
+                "mask": -1,
+                "inputId": "65268eb23338df0741c6bb3a",
+                "deviceId": "000000000000000000000009"
+            },
+            "destination": {
+                "mask": -1,
+                "inputId": "65268b80ad3ca92e4f2fc54f",
+                "deviceId": "000000000000000000000000"
+            }
+        },
+        {
+            "mapId": "6527aa189bdeb99beb781d9c",
+            "source": {
+                "mask": -1,
+                "inputId": "65268ebe16cd246224fc4dd3",
+                "deviceId": "000000000000000000000009"
+            },
+            "destination": {
+                "mask": -1,
+                "inputId": "65268b8a21ea1c9f379a4aab",
+                "deviceId": "000000000000000000000000"
+            }
+        },
+        {
+            "mapId": "6527aa29fbc23ca6796eeee1",
+            "source": {
+                "mask": -1,
+                "inputId": "65268ebe16cd246224fc4dd3",
+                "deviceId": "000000000000000000000009"
+            },
+            "destination": {
+                "mask": -1,
+                "inputId": "65268b8a21ea1c9f379a4aab",
+                "deviceId": "000000000000000000000000"
+            }
+        },
+        {
+            "mapId": "6527aa389154e80cb2be3888",
+            "source": {
+                "mask": -1,
+                "inputId": "65268ecb381addf89f293317",
+                "deviceId": "000000000000000000000009"
+            },
+            "destination": {
+                "mask": -1,
+                "inputId": "65268b947485c8aa34ca54df",
+                "deviceId": "000000000000000000000000"
+            }
+        },
+        {
+            "mapId": "6527aa4646ce520a75ef5dae",
+            "source": {
+                "mask": -1,
+                "inputId": "65268ed5bb7af284eeb68e5f",
+                "deviceId": "000000000000000000000009"
+            },
+            "destination": {
+                "mask": -1,
+                "inputId": "65268b9f9da3048604a1bba7",
+                "deviceId": "000000000000000000000000"
+            }
+        },
+        {
+            "mapId": "6527aa5a097f6b3c54094325",
+            "source": {
+                "mask": -1,
+                "inputId": "65268ee04f4cc5238f3c8104",
+                "deviceId": "000000000000000000000009"
+            },
+            "destination": {
+                "mask": -1,
+                "inputId": "65268baa737a11a872eee1f9",
+                "deviceId": "000000000000000000000000"
+            }
+        },
+        {
+            "mapId": "6527aa7091dca79198d161a5",
+            "source": {
+                "mask": -1,
+                "inputId": "65268eea086b4473cc346b66",
+                "deviceId": "000000000000000000000009"
+            },
+            "destination": {
+                "mask": -1,
+                "inputId": "65268bb802898b427b684a8f",
+                "deviceId": "000000000000000000000000"
+            }
+        },
+        {
+            "mapId": "6527aa82d8c903e7faca662b",
+            "source": {
+                "mask": -1,
+                "inputId": "65268ef86f73c4f288cb50cb",
+                "deviceId": "000000000000000000000009"
+            },
+            "destination": {
+                "mask": -1,
+                "inputId": "65268bc3ea3ef009a4bb98e6",
+                "deviceId": "000000000000000000000000"
+            }
+        },
+        {
+            "mapId": "6527aa95c6568b174af5bbd4",
+            "source": {
+                "mask": -1,
+                "inputId": "65268f02072476e8310642cc",
+                "deviceId": "000000000000000000000009"
+            },
+            "destination": {
+                "mask": -1,
+                "inputId": "65268be5a10ed95d37ee4537",
+                "deviceId": "000000000000000000000000"
+            }
+        },
+        {
+            "mapId": "6527aaa7803eb39385a63282",
+            "source": {
+                "mask": -1,
+                "inputId": "65268f0ce1d0465c9ecc8862",
+                "deviceId": "000000000000000000000009"
+            },
+            "destination": {
+                "mask": -1,
+                "inputId": "65268bf1176a3f7a9ce96513",
+                "deviceId": "000000000000000000000000"
+            }
+        },
+        {
+            "mapId": "6527aab928a3da8897e1f6d4",
+            "source": {
+                "mask": -1,
+                "inputId": "65268f16040462abaabc38f6",
+                "deviceId": "000000000000000000000009"
+            },
+            "destination": {
+                "mask": -1,
+                "inputId": "65268bff9e97b4da4ccda14a",
+                "deviceId": "000000000000000000000000"
             }
         }
     ],

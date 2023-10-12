@@ -58,7 +58,9 @@
                         "bit": 0,
                         "key": "AI1",
                         "enabled": true,
-                        "moduleId": 0
+                        "moduleId": 0,
+                        "lastCOFSMainValue": 1,
+                        "lastCOFSValue": 1
                     },
                     "masking": {
                         "bit": 0,
@@ -90,7 +92,51 @@
                     "description": "Pump Station Pump No. 1 Motor Status",
                     "cofs": "1",
                     "command": "",
-                    "rtuId": 0
+                    "rtuId": 0,
+                    "tag": {
+                        "_events": {},
+                        "_eventsCount": 0,
+                        "state": {
+                            "tag": {
+                                "name": "N3H_Tele_TX[0]",
+                                "type": 195,
+                                "bitIndex": null,
+                                "value": 1,
+                                "controllerValue": 1,
+                                "path": {
+                                    "type": "Buffer",
+                                    "data": [
+                                        145,
+                                        11,
+                                        78,
+                                        51,
+                                        72,
+                                        95,
+                                        84,
+                                        101,
+                                        108,
+                                        101,
+                                        95,
+                                        84,
+                                        88,
+                                        0,
+                                        40,
+                                        0
+                                    ]
+                                },
+                                "program": null,
+                                "stage_write": false
+                            },
+                            "read_size": 1,
+                            "error": {
+                                "code": null,
+                                "status": null
+                            },
+                            "timestamp": "2023-10-12T07:53:32.342Z",
+                            "instance": "eb90f57016ecce7e4b50dda22bdbf952",
+                            "keepAlive": 0
+                        }
+                    }
                 },
                 {
                     "scaling": {
@@ -108,7 +154,9 @@
                         "bit": 1,
                         "key": "AI2",
                         "enabled": true,
-                        "moduleId": 0
+                        "moduleId": 0,
+                        "lastCOFSMainValue": 512,
+                        "lastCOFSValue": 512
                     },
                     "masking": {
                         "bit": 0,
@@ -140,7 +188,51 @@
                     "description": "Pump Station Pump No. 1 MCC Status",
                     "cofs": "1",
                     "command": "",
-                    "rtuId": 0
+                    "rtuId": 0,
+                    "tag": {
+                        "_events": {},
+                        "_eventsCount": 0,
+                        "state": {
+                            "tag": {
+                                "name": "N3H_Tele_TX[1]",
+                                "type": 195,
+                                "bitIndex": null,
+                                "value": 512,
+                                "controllerValue": 512,
+                                "path": {
+                                    "type": "Buffer",
+                                    "data": [
+                                        145,
+                                        11,
+                                        78,
+                                        51,
+                                        72,
+                                        95,
+                                        84,
+                                        101,
+                                        108,
+                                        101,
+                                        95,
+                                        84,
+                                        88,
+                                        0,
+                                        40,
+                                        1
+                                    ]
+                                },
+                                "program": null,
+                                "stage_write": false
+                            },
+                            "read_size": 1,
+                            "error": {
+                                "code": null,
+                                "status": null
+                            },
+                            "timestamp": "2023-10-12T07:53:32.354Z",
+                            "instance": "c0915f429a517f2e800361a9c43c6f0d",
+                            "keepAlive": 0
+                        }
+                    }
                 },
                 {
                     "scaling": {
@@ -158,7 +250,9 @@
                         "bit": 2,
                         "key": "AI3",
                         "enabled": true,
-                        "moduleId": 0
+                        "moduleId": 0,
+                        "lastCOFSMainValue": 3,
+                        "lastCOFSValue": 3
                     },
                     "masking": {
                         "bit": 0,
@@ -190,7 +284,51 @@
                     "description": "Pump Station Pump No. 1 RHM ",
                     "cofs": "1",
                     "command": "",
-                    "rtuId": 0
+                    "rtuId": 0,
+                    "tag": {
+                        "_events": {},
+                        "_eventsCount": 0,
+                        "state": {
+                            "tag": {
+                                "name": "N3H_Tele_TX[2]",
+                                "type": 195,
+                                "bitIndex": null,
+                                "value": 3,
+                                "controllerValue": 3,
+                                "path": {
+                                    "type": "Buffer",
+                                    "data": [
+                                        145,
+                                        11,
+                                        78,
+                                        51,
+                                        72,
+                                        95,
+                                        84,
+                                        101,
+                                        108,
+                                        101,
+                                        95,
+                                        84,
+                                        88,
+                                        0,
+                                        40,
+                                        2
+                                    ]
+                                },
+                                "program": null,
+                                "stage_write": false
+                            },
+                            "read_size": 1,
+                            "error": {
+                                "code": null,
+                                "status": null
+                            },
+                            "timestamp": "2023-10-12T07:50:32.331Z",
+                            "instance": "a2c7ed996fce5799b4cdc0d87d5e6ff9",
+                            "keepAlive": 0
+                        }
+                    }
                 },
                 {
                     "scaling": {
@@ -208,7 +346,9 @@
                         "bit": 3,
                         "key": "AI4",
                         "enabled": true,
-                        "moduleId": 0
+                        "moduleId": 0,
+                        "lastCOFSMainValue": 135,
+                        "lastCOFSValue": 135
                     },
                     "masking": {
                         "bit": 0,
@@ -240,7 +380,51 @@
                     "description": "Pump Station Pump No. 1 NOS ",
                     "cofs": -1,
                     "command": "",
-                    "rtuId": 0
+                    "rtuId": 0,
+                    "tag": {
+                        "_events": {},
+                        "_eventsCount": 0,
+                        "state": {
+                            "tag": {
+                                "name": "N3H_Tele_TX[3]",
+                                "type": 195,
+                                "bitIndex": null,
+                                "value": 13,
+                                "controllerValue": 13,
+                                "path": {
+                                    "type": "Buffer",
+                                    "data": [
+                                        145,
+                                        11,
+                                        78,
+                                        51,
+                                        72,
+                                        95,
+                                        84,
+                                        101,
+                                        108,
+                                        101,
+                                        95,
+                                        84,
+                                        88,
+                                        0,
+                                        40,
+                                        3
+                                    ]
+                                },
+                                "program": null,
+                                "stage_write": false
+                            },
+                            "read_size": 1,
+                            "error": {
+                                "code": null,
+                                "status": null
+                            },
+                            "timestamp": "2023-10-12T07:50:32.348Z",
+                            "instance": "cbf2f31bf5ce8ffc50c984628653231f",
+                            "keepAlive": 0
+                        }
+                    }
                 },
                 {
                     "scaling": {
@@ -258,7 +442,9 @@
                         "bit": 4,
                         "key": "AIExt1",
                         "enabled": true,
-                        "moduleId": 0
+                        "moduleId": 0,
+                        "lastCOFSMainValue": 6,
+                        "lastCOFSValue": 6
                     },
                     "masking": {
                         "bit": 0,
@@ -290,7 +476,51 @@
                     "description": "Pump Station Pump No. 1 Delivery Valve Status",
                     "cofs": -1,
                     "command": "",
-                    "rtuId": 0
+                    "rtuId": 0,
+                    "tag": {
+                        "_events": {},
+                        "_eventsCount": 0,
+                        "state": {
+                            "tag": {
+                                "name": "N3H_Tele_TX[4]",
+                                "type": 195,
+                                "bitIndex": null,
+                                "value": 6,
+                                "controllerValue": 6,
+                                "path": {
+                                    "type": "Buffer",
+                                    "data": [
+                                        145,
+                                        11,
+                                        78,
+                                        51,
+                                        72,
+                                        95,
+                                        84,
+                                        101,
+                                        108,
+                                        101,
+                                        95,
+                                        84,
+                                        88,
+                                        0,
+                                        40,
+                                        4
+                                    ]
+                                },
+                                "program": null,
+                                "stage_write": false
+                            },
+                            "read_size": 1,
+                            "error": {
+                                "code": null,
+                                "status": null
+                            },
+                            "timestamp": "2023-10-12T07:50:32.364Z",
+                            "instance": "18e806ccabc8eff5fcb1ddc603094afb",
+                            "keepAlive": 0
+                        }
+                    }
                 },
                 {
                     "scaling": {
@@ -308,7 +538,9 @@
                         "bit": 4,
                         "key": "AIExt2",
                         "enabled": true,
-                        "moduleId": 0
+                        "moduleId": 0,
+                        "lastCOFSMainValue": 0,
+                        "lastCOFSValue": 0
                     },
                     "masking": {
                         "bit": 0,
@@ -340,7 +572,51 @@
                     "description": "Pump Station Spare5",
                     "cofs": -1,
                     "command": "",
-                    "rtuId": 0
+                    "rtuId": 0,
+                    "tag": {
+                        "_events": {},
+                        "_eventsCount": 0,
+                        "state": {
+                            "tag": {
+                                "name": "N3H_Tele_TX[5]",
+                                "type": 195,
+                                "bitIndex": null,
+                                "value": 0,
+                                "controllerValue": 0,
+                                "path": {
+                                    "type": "Buffer",
+                                    "data": [
+                                        145,
+                                        11,
+                                        78,
+                                        51,
+                                        72,
+                                        95,
+                                        84,
+                                        101,
+                                        108,
+                                        101,
+                                        95,
+                                        84,
+                                        88,
+                                        0,
+                                        40,
+                                        5
+                                    ]
+                                },
+                                "program": null,
+                                "stage_write": false
+                            },
+                            "read_size": 1,
+                            "error": {
+                                "code": null,
+                                "status": null
+                            },
+                            "timestamp": "2023-10-12T07:50:32.375Z",
+                            "instance": "38ba711a530724b6c244d45fcdb1689d",
+                            "keepAlive": 0
+                        }
+                    }
                 },
                 {
                     "scaling": {
@@ -358,7 +634,9 @@
                         "bit": 4,
                         "key": "AIExt3",
                         "enabled": true,
-                        "moduleId": 0
+                        "moduleId": 0,
+                        "lastCOFSMainValue": 0,
+                        "lastCOFSValue": 0
                     },
                     "masking": {
                         "bit": 0,
@@ -390,7 +668,51 @@
                     "description": "Pump Station Spare6",
                     "cofs": -1,
                     "command": "",
-                    "rtuId": 0
+                    "rtuId": 0,
+                    "tag": {
+                        "_events": {},
+                        "_eventsCount": 0,
+                        "state": {
+                            "tag": {
+                                "name": "N3H_Tele_TX[6]",
+                                "type": 195,
+                                "bitIndex": null,
+                                "value": 0,
+                                "controllerValue": 0,
+                                "path": {
+                                    "type": "Buffer",
+                                    "data": [
+                                        145,
+                                        11,
+                                        78,
+                                        51,
+                                        72,
+                                        95,
+                                        84,
+                                        101,
+                                        108,
+                                        101,
+                                        95,
+                                        84,
+                                        88,
+                                        0,
+                                        40,
+                                        6
+                                    ]
+                                },
+                                "program": null,
+                                "stage_write": false
+                            },
+                            "read_size": 1,
+                            "error": {
+                                "code": null,
+                                "status": null
+                            },
+                            "timestamp": "2023-10-12T07:50:32.387Z",
+                            "instance": "6781dc2406b980db5288df8d665a58d2",
+                            "keepAlive": 0
+                        }
+                    }
                 },
                 {
                     "scaling": {
@@ -408,7 +730,9 @@
                         "bit": 4,
                         "key": "AIExt3",
                         "enabled": true,
-                        "moduleId": 0
+                        "moduleId": 0,
+                        "lastCOFSMainValue": 0,
+                        "lastCOFSValue": 0
                     },
                     "masking": {
                         "bit": 0,
@@ -440,7 +764,51 @@
                     "description": "Pump Station Spare7",
                     "cofs": -1,
                     "command": "",
-                    "rtuId": 0
+                    "rtuId": 0,
+                    "tag": {
+                        "_events": {},
+                        "_eventsCount": 0,
+                        "state": {
+                            "tag": {
+                                "name": "N3H_Tele_TX[7]",
+                                "type": 195,
+                                "bitIndex": null,
+                                "value": 0,
+                                "controllerValue": 0,
+                                "path": {
+                                    "type": "Buffer",
+                                    "data": [
+                                        145,
+                                        11,
+                                        78,
+                                        51,
+                                        72,
+                                        95,
+                                        84,
+                                        101,
+                                        108,
+                                        101,
+                                        95,
+                                        84,
+                                        88,
+                                        0,
+                                        40,
+                                        7
+                                    ]
+                                },
+                                "program": null,
+                                "stage_write": false
+                            },
+                            "read_size": 1,
+                            "error": {
+                                "code": null,
+                                "status": null
+                            },
+                            "timestamp": "2023-10-12T07:50:32.398Z",
+                            "instance": "b4809d05bd7e2e9bf857831a08d1b0d1",
+                            "keepAlive": 0
+                        }
+                    }
                 },
                 {
                     "scaling": {
@@ -458,7 +826,9 @@
                         "bit": 4,
                         "key": "AIExt4",
                         "enabled": true,
-                        "moduleId": 0
+                        "moduleId": 0,
+                        "lastCOFSMainValue": 0,
+                        "lastCOFSValue": 0
                     },
                     "masking": {
                         "bit": 0,
@@ -490,7 +860,51 @@
                     "description": "Pump Station Spare8",
                     "cofs": -1,
                     "command": "",
-                    "rtuId": 0
+                    "rtuId": 0,
+                    "tag": {
+                        "_events": {},
+                        "_eventsCount": 0,
+                        "state": {
+                            "tag": {
+                                "name": "N3H_Tele_TX[8]",
+                                "type": 195,
+                                "bitIndex": null,
+                                "value": 0,
+                                "controllerValue": 0,
+                                "path": {
+                                    "type": "Buffer",
+                                    "data": [
+                                        145,
+                                        11,
+                                        78,
+                                        51,
+                                        72,
+                                        95,
+                                        84,
+                                        101,
+                                        108,
+                                        101,
+                                        95,
+                                        84,
+                                        88,
+                                        0,
+                                        40,
+                                        8
+                                    ]
+                                },
+                                "program": null,
+                                "stage_write": false
+                            },
+                            "read_size": 1,
+                            "error": {
+                                "code": null,
+                                "status": null
+                            },
+                            "timestamp": "2023-10-12T07:50:32.410Z",
+                            "instance": "780a89405feee179273b2f204adc7c9d",
+                            "keepAlive": 0
+                        }
+                    }
                 },
                 {
                     "scaling": {
@@ -508,7 +922,9 @@
                         "bit": 4,
                         "key": "AIExt5",
                         "enabled": true,
-                        "moduleId": 0
+                        "moduleId": 0,
+                        "lastCOFSMainValue": 0,
+                        "lastCOFSValue": 0
                     },
                     "masking": {
                         "bit": 0,
@@ -540,7 +956,51 @@
                     "description": "Pump Station Spare9",
                     "cofs": -1,
                     "command": "",
-                    "rtuId": 0
+                    "rtuId": 0,
+                    "tag": {
+                        "_events": {},
+                        "_eventsCount": 0,
+                        "state": {
+                            "tag": {
+                                "name": "N3H_Tele_TX[9]",
+                                "type": 195,
+                                "bitIndex": null,
+                                "value": 0,
+                                "controllerValue": 0,
+                                "path": {
+                                    "type": "Buffer",
+                                    "data": [
+                                        145,
+                                        11,
+                                        78,
+                                        51,
+                                        72,
+                                        95,
+                                        84,
+                                        101,
+                                        108,
+                                        101,
+                                        95,
+                                        84,
+                                        88,
+                                        0,
+                                        40,
+                                        9
+                                    ]
+                                },
+                                "program": null,
+                                "stage_write": false
+                            },
+                            "read_size": 1,
+                            "error": {
+                                "code": null,
+                                "status": null
+                            },
+                            "timestamp": "2023-10-12T07:50:32.415Z",
+                            "instance": "dbb351af989e687dbf560c1030d62733",
+                            "keepAlive": 0
+                        }
+                    }
                 }
             ],
             "ip": "10.18.80.10",
@@ -552,7 +1012,7 @@
             "timeout": 300,
             "barcode": "10",
             "publish": true,
-            "enabled": false,
+            "enabled": true,
             "unitId": 0,
             "deviceId": "61bf28b82789ba0ea7b5f197",
             "description": "Hilton Pumpstation PLC 0-9",
@@ -578,7 +1038,9 @@
                         "bit": 10,
                         "key": "AI1",
                         "enabled": true,
-                        "moduleId": 0
+                        "moduleId": 1,
+                        "lastCOFSMainValue": 0,
+                        "lastCOFSValue": 0
                     },
                     "masking": {
                         "bit": 0,
@@ -599,7 +1061,7 @@
                     },
                     "key": "AI1",
                     "tagId": "N3H_Tele_TX[10]",
-                    "value": 18,
+                    "value": 0,
                     "shift": -1,
                     "inputId": "64c1c4aff2e29c176bc3a87d",
                     "register": 0,
@@ -610,7 +1072,51 @@
                     "description": "Pump Station Pump No. 2 Motor Status",
                     "cofs": -1,
                     "command": "",
-                    "rtuId": 0
+                    "rtuId": 0,
+                    "tag": {
+                        "_events": {},
+                        "_eventsCount": 0,
+                        "state": {
+                            "tag": {
+                                "name": "N3H_Tele_TX[10]",
+                                "type": 195,
+                                "bitIndex": null,
+                                "value": 0,
+                                "controllerValue": 0,
+                                "path": {
+                                    "type": "Buffer",
+                                    "data": [
+                                        145,
+                                        11,
+                                        78,
+                                        51,
+                                        72,
+                                        95,
+                                        84,
+                                        101,
+                                        108,
+                                        101,
+                                        95,
+                                        84,
+                                        88,
+                                        0,
+                                        40,
+                                        10
+                                    ]
+                                },
+                                "program": null,
+                                "stage_write": false
+                            },
+                            "read_size": 1,
+                            "error": {
+                                "code": null,
+                                "status": null
+                            },
+                            "timestamp": "2023-10-12T07:50:32.319Z",
+                            "instance": "7417c4e80f1d54fdc58a7bfc3bc93ff1",
+                            "keepAlive": 0
+                        }
+                    }
                 },
                 {
                     "scaling": {
@@ -628,7 +1134,9 @@
                         "bit": 11,
                         "key": "AI2",
                         "enabled": true,
-                        "moduleId": 0
+                        "moduleId": 1,
+                        "lastCOFSMainValue": 0,
+                        "lastCOFSValue": 0
                     },
                     "masking": {
                         "bit": 0,
@@ -649,7 +1157,7 @@
                     },
                     "key": "AI1",
                     "tagId": "N3H_Tele_TX[11]",
-                    "value": 44,
+                    "value": 0,
                     "shift": -1,
                     "inputId": "64c1c4ffdbc611b11f6b14d9",
                     "register": 0,
@@ -660,7 +1168,51 @@
                     "description": "Pump Station Pump No. 2 MCC Status",
                     "cofs": -1,
                     "command": "",
-                    "rtuId": 0
+                    "rtuId": 0,
+                    "tag": {
+                        "_events": {},
+                        "_eventsCount": 0,
+                        "state": {
+                            "tag": {
+                                "name": "N3H_Tele_TX[11]",
+                                "type": 195,
+                                "bitIndex": null,
+                                "value": 0,
+                                "controllerValue": 0,
+                                "path": {
+                                    "type": "Buffer",
+                                    "data": [
+                                        145,
+                                        11,
+                                        78,
+                                        51,
+                                        72,
+                                        95,
+                                        84,
+                                        101,
+                                        108,
+                                        101,
+                                        95,
+                                        84,
+                                        88,
+                                        0,
+                                        40,
+                                        11
+                                    ]
+                                },
+                                "program": null,
+                                "stage_write": false
+                            },
+                            "read_size": 1,
+                            "error": {
+                                "code": null,
+                                "status": null
+                            },
+                            "timestamp": "2023-10-12T07:50:32.334Z",
+                            "instance": "cfac93438440b144fe16661ef200a3c4",
+                            "keepAlive": 0
+                        }
+                    }
                 },
                 {
                     "scaling": {
@@ -678,7 +1230,9 @@
                         "bit": 12,
                         "key": "AI3",
                         "enabled": true,
-                        "moduleId": 0
+                        "moduleId": 1,
+                        "lastCOFSMainValue": 0,
+                        "lastCOFSValue": 0
                     },
                     "masking": {
                         "bit": 0,
@@ -710,7 +1264,51 @@
                     "description": "Pump Station Pump No. 2 RHM ",
                     "cofs": -1,
                     "command": "",
-                    "rtuId": 0
+                    "rtuId": 0,
+                    "tag": {
+                        "_events": {},
+                        "_eventsCount": 0,
+                        "state": {
+                            "tag": {
+                                "name": "N3H_Tele_TX[12]",
+                                "type": 195,
+                                "bitIndex": null,
+                                "value": 0,
+                                "controllerValue": 0,
+                                "path": {
+                                    "type": "Buffer",
+                                    "data": [
+                                        145,
+                                        11,
+                                        78,
+                                        51,
+                                        72,
+                                        95,
+                                        84,
+                                        101,
+                                        108,
+                                        101,
+                                        95,
+                                        84,
+                                        88,
+                                        0,
+                                        40,
+                                        12
+                                    ]
+                                },
+                                "program": null,
+                                "stage_write": false
+                            },
+                            "read_size": 1,
+                            "error": {
+                                "code": null,
+                                "status": null
+                            },
+                            "timestamp": "2023-10-12T07:50:32.351Z",
+                            "instance": "f73afafb6298601314a01ec7cb8efbf9",
+                            "keepAlive": 0
+                        }
+                    }
                 },
                 {
                     "scaling": {
@@ -728,7 +1326,9 @@
                         "bit": 13,
                         "key": "AI4",
                         "enabled": true,
-                        "moduleId": 0
+                        "moduleId": 1,
+                        "lastCOFSMainValue": 0,
+                        "lastCOFSValue": 0
                     },
                     "masking": {
                         "bit": 0,
@@ -760,7 +1360,51 @@
                     "description": "Pump Station Pump No. 2 NOS ",
                     "cofs": -1,
                     "command": "",
-                    "rtuId": 0
+                    "rtuId": 0,
+                    "tag": {
+                        "_events": {},
+                        "_eventsCount": 0,
+                        "state": {
+                            "tag": {
+                                "name": "N3H_Tele_TX[13]",
+                                "type": 195,
+                                "bitIndex": null,
+                                "value": 0,
+                                "controllerValue": 0,
+                                "path": {
+                                    "type": "Buffer",
+                                    "data": [
+                                        145,
+                                        11,
+                                        78,
+                                        51,
+                                        72,
+                                        95,
+                                        84,
+                                        101,
+                                        108,
+                                        101,
+                                        95,
+                                        84,
+                                        88,
+                                        0,
+                                        40,
+                                        13
+                                    ]
+                                },
+                                "program": null,
+                                "stage_write": false
+                            },
+                            "read_size": 1,
+                            "error": {
+                                "code": null,
+                                "status": null
+                            },
+                            "timestamp": "2023-10-12T07:50:32.367Z",
+                            "instance": "5c2fa3ba9267fa2444c60e496a86aec5",
+                            "keepAlive": 0
+                        }
+                    }
                 },
                 {
                     "scaling": {
@@ -778,7 +1422,9 @@
                         "bit": 14,
                         "key": "AIExt1",
                         "enabled": true,
-                        "moduleId": 0
+                        "moduleId": 1,
+                        "lastCOFSMainValue": 0,
+                        "lastCOFSValue": 0
                     },
                     "masking": {
                         "bit": 0,
@@ -810,7 +1456,51 @@
                     "description": "Pump Station Pump No. 2 Delivery Valve Status",
                     "cofs": -1,
                     "command": "",
-                    "rtuId": 0
+                    "rtuId": 0,
+                    "tag": {
+                        "_events": {},
+                        "_eventsCount": 0,
+                        "state": {
+                            "tag": {
+                                "name": "N3H_Tele_TX[14]",
+                                "type": 195,
+                                "bitIndex": null,
+                                "value": 0,
+                                "controllerValue": 0,
+                                "path": {
+                                    "type": "Buffer",
+                                    "data": [
+                                        145,
+                                        11,
+                                        78,
+                                        51,
+                                        72,
+                                        95,
+                                        84,
+                                        101,
+                                        108,
+                                        101,
+                                        95,
+                                        84,
+                                        88,
+                                        0,
+                                        40,
+                                        14
+                                    ]
+                                },
+                                "program": null,
+                                "stage_write": false
+                            },
+                            "read_size": 1,
+                            "error": {
+                                "code": null,
+                                "status": null
+                            },
+                            "timestamp": "2023-10-12T07:50:32.379Z",
+                            "instance": "64e3474290d605d91b11b2c8a86599e6",
+                            "keepAlive": 0
+                        }
+                    }
                 },
                 {
                     "scaling": {
@@ -828,7 +1518,9 @@
                         "bit": 14,
                         "key": "AIExt2",
                         "enabled": true,
-                        "moduleId": 0
+                        "moduleId": 1,
+                        "lastCOFSMainValue": 0,
+                        "lastCOFSValue": 0
                     },
                     "masking": {
                         "bit": 0,
@@ -860,7 +1552,51 @@
                     "description": "Pump Station Spare15",
                     "cofs": -1,
                     "command": "",
-                    "rtuId": 0
+                    "rtuId": 0,
+                    "tag": {
+                        "_events": {},
+                        "_eventsCount": 0,
+                        "state": {
+                            "tag": {
+                                "name": "N3H_Tele_TX[15]",
+                                "type": 195,
+                                "bitIndex": null,
+                                "value": 0,
+                                "controllerValue": 0,
+                                "path": {
+                                    "type": "Buffer",
+                                    "data": [
+                                        145,
+                                        11,
+                                        78,
+                                        51,
+                                        72,
+                                        95,
+                                        84,
+                                        101,
+                                        108,
+                                        101,
+                                        95,
+                                        84,
+                                        88,
+                                        0,
+                                        40,
+                                        15
+                                    ]
+                                },
+                                "program": null,
+                                "stage_write": false
+                            },
+                            "read_size": 1,
+                            "error": {
+                                "code": null,
+                                "status": null
+                            },
+                            "timestamp": "2023-10-12T07:50:32.390Z",
+                            "instance": "6f913f4521b3576abbb77600e9721faf",
+                            "keepAlive": 0
+                        }
+                    }
                 },
                 {
                     "scaling": {
@@ -878,7 +1614,9 @@
                         "bit": 14,
                         "key": "AIExt3",
                         "enabled": true,
-                        "moduleId": 0
+                        "moduleId": 1,
+                        "lastCOFSMainValue": -3,
+                        "lastCOFSValue": -3
                     },
                     "masking": {
                         "bit": 0,
@@ -899,7 +1637,7 @@
                     },
                     "key": "AI1",
                     "tagId": "N3H_Tele_TX[16]",
-                    "value": 0,
+                    "value": -3,
                     "shift": -1,
                     "inputId": "6526960f2424d931b7336d4c",
                     "register": 0,
@@ -910,7 +1648,51 @@
                     "description": "Pump Station Spare16",
                     "cofs": -1,
                     "command": "",
-                    "rtuId": 0
+                    "rtuId": 0,
+                    "tag": {
+                        "_events": {},
+                        "_eventsCount": 0,
+                        "state": {
+                            "tag": {
+                                "name": "N3H_Tele_TX[16]",
+                                "type": 195,
+                                "bitIndex": null,
+                                "value": -3,
+                                "controllerValue": -3,
+                                "path": {
+                                    "type": "Buffer",
+                                    "data": [
+                                        145,
+                                        11,
+                                        78,
+                                        51,
+                                        72,
+                                        95,
+                                        84,
+                                        101,
+                                        108,
+                                        101,
+                                        95,
+                                        84,
+                                        88,
+                                        0,
+                                        40,
+                                        16
+                                    ]
+                                },
+                                "program": null,
+                                "stage_write": false
+                            },
+                            "read_size": 1,
+                            "error": {
+                                "code": null,
+                                "status": null
+                            },
+                            "timestamp": "2023-10-12T07:50:32.401Z",
+                            "instance": "3b469a736d15ed6e3763b9c32d23327a",
+                            "keepAlive": 0
+                        }
+                    }
                 },
                 {
                     "scaling": {
@@ -928,7 +1710,9 @@
                         "bit": 14,
                         "key": "AIExt4",
                         "enabled": true,
-                        "moduleId": 0
+                        "moduleId": 1,
+                        "lastCOFSMainValue": 255,
+                        "lastCOFSValue": 255
                     },
                     "masking": {
                         "bit": 0,
@@ -949,7 +1733,7 @@
                     },
                     "key": "AI1",
                     "tagId": "N3H_Tele_TX[17]",
-                    "value": 0,
+                    "value": 255,
                     "shift": -1,
                     "inputId": "6526961fcc3f314208e9b017",
                     "register": 0,
@@ -960,7 +1744,51 @@
                     "description": "Pump Station Spare17",
                     "cofs": -1,
                     "command": "",
-                    "rtuId": 0
+                    "rtuId": 0,
+                    "tag": {
+                        "_events": {},
+                        "_eventsCount": 0,
+                        "state": {
+                            "tag": {
+                                "name": "N3H_Tele_TX[17]",
+                                "type": 195,
+                                "bitIndex": null,
+                                "value": 255,
+                                "controllerValue": 255,
+                                "path": {
+                                    "type": "Buffer",
+                                    "data": [
+                                        145,
+                                        11,
+                                        78,
+                                        51,
+                                        72,
+                                        95,
+                                        84,
+                                        101,
+                                        108,
+                                        101,
+                                        95,
+                                        84,
+                                        88,
+                                        0,
+                                        40,
+                                        17
+                                    ]
+                                },
+                                "program": null,
+                                "stage_write": false
+                            },
+                            "read_size": 1,
+                            "error": {
+                                "code": null,
+                                "status": null
+                            },
+                            "timestamp": "2023-10-12T07:50:32.414Z",
+                            "instance": "f0268c1bebde4db5e6dd689de1b1070d",
+                            "keepAlive": 0
+                        }
+                    }
                 },
                 {
                     "scaling": {
@@ -978,7 +1806,9 @@
                         "bit": 14,
                         "key": "AIExt5",
                         "enabled": true,
-                        "moduleId": 0
+                        "moduleId": 1,
+                        "lastCOFSMainValue": 0,
+                        "lastCOFSValue": 0
                     },
                     "masking": {
                         "bit": 0,
@@ -1010,7 +1840,51 @@
                     "description": "Pump Station Spare18",
                     "cofs": -1,
                     "command": "",
-                    "rtuId": 0
+                    "rtuId": 0,
+                    "tag": {
+                        "_events": {},
+                        "_eventsCount": 0,
+                        "state": {
+                            "tag": {
+                                "name": "N3H_Tele_TX[18]",
+                                "type": 195,
+                                "bitIndex": null,
+                                "value": 0,
+                                "controllerValue": 0,
+                                "path": {
+                                    "type": "Buffer",
+                                    "data": [
+                                        145,
+                                        11,
+                                        78,
+                                        51,
+                                        72,
+                                        95,
+                                        84,
+                                        101,
+                                        108,
+                                        101,
+                                        95,
+                                        84,
+                                        88,
+                                        0,
+                                        40,
+                                        18
+                                    ]
+                                },
+                                "program": null,
+                                "stage_write": false
+                            },
+                            "read_size": 1,
+                            "error": {
+                                "code": null,
+                                "status": null
+                            },
+                            "timestamp": "2023-10-12T07:50:32.429Z",
+                            "instance": "b7419f422569a81b344d2bc18d0fae8e",
+                            "keepAlive": 0
+                        }
+                    }
                 },
                 {
                     "scaling": {
@@ -1028,7 +1902,9 @@
                         "bit": 14,
                         "key": "AIExt6",
                         "enabled": true,
-                        "moduleId": 0
+                        "moduleId": 1,
+                        "lastCOFSMainValue": 0,
+                        "lastCOFSValue": 0
                     },
                     "masking": {
                         "bit": 0,
@@ -1060,7 +1936,51 @@
                     "description": "Pump Station Spare19",
                     "cofs": -1,
                     "command": "",
-                    "rtuId": 0
+                    "rtuId": 0,
+                    "tag": {
+                        "_events": {},
+                        "_eventsCount": 0,
+                        "state": {
+                            "tag": {
+                                "name": "N3H_Tele_TX[19]",
+                                "type": 195,
+                                "bitIndex": null,
+                                "value": 0,
+                                "controllerValue": 0,
+                                "path": {
+                                    "type": "Buffer",
+                                    "data": [
+                                        145,
+                                        11,
+                                        78,
+                                        51,
+                                        72,
+                                        95,
+                                        84,
+                                        101,
+                                        108,
+                                        101,
+                                        95,
+                                        84,
+                                        88,
+                                        0,
+                                        40,
+                                        19
+                                    ]
+                                },
+                                "program": null,
+                                "stage_write": false
+                            },
+                            "read_size": 1,
+                            "error": {
+                                "code": null,
+                                "status": null
+                            },
+                            "timestamp": "2023-10-12T07:50:32.437Z",
+                            "instance": "e8192c22a7c334eab5235891b4ef8969",
+                            "keepAlive": 0
+                        }
+                    }
                 }
             ],
             "ip": "10.18.80.10",
@@ -1072,7 +1992,7 @@
             "timeout": 300,
             "barcode": "11",
             "publish": true,
-            "enabled": false,
+            "enabled": true,
             "unitId": 0,
             "deviceId": "61bf28b82789ba0ea7b5f198",
             "description": "Hilton Pumpstation PLC 10-19",
@@ -1098,7 +2018,9 @@
                         "bit": 20,
                         "key": "AI1",
                         "enabled": true,
-                        "moduleId": 0
+                        "moduleId": 2,
+                        "lastCOFSMainValue": 0,
+                        "lastCOFSValue": 0
                     },
                     "masking": {
                         "bit": 0,
@@ -1130,7 +2052,51 @@
                     "description": "Pump Station Pump No. 3 Motor Status",
                     "cofs": -1,
                     "command": "",
-                    "rtuId": 0
+                    "rtuId": 0,
+                    "tag": {
+                        "_events": {},
+                        "_eventsCount": 0,
+                        "state": {
+                            "tag": {
+                                "name": "N3H_Tele_TX[20]",
+                                "type": 195,
+                                "bitIndex": null,
+                                "value": 0,
+                                "controllerValue": 0,
+                                "path": {
+                                    "type": "Buffer",
+                                    "data": [
+                                        145,
+                                        11,
+                                        78,
+                                        51,
+                                        72,
+                                        95,
+                                        84,
+                                        101,
+                                        108,
+                                        101,
+                                        95,
+                                        84,
+                                        88,
+                                        0,
+                                        40,
+                                        20
+                                    ]
+                                },
+                                "program": null,
+                                "stage_write": false
+                            },
+                            "read_size": 1,
+                            "error": {
+                                "code": null,
+                                "status": null
+                            },
+                            "timestamp": "2023-10-12T07:50:32.320Z",
+                            "instance": "71cacf89b31fcba8a26bc445f7e1a668",
+                            "keepAlive": 0
+                        }
+                    }
                 },
                 {
                     "scaling": {
@@ -1148,7 +2114,9 @@
                         "bit": 21,
                         "key": "AI2",
                         "enabled": true,
-                        "moduleId": 0
+                        "moduleId": 2,
+                        "lastCOFSMainValue": 0,
+                        "lastCOFSValue": 0
                     },
                     "masking": {
                         "bit": 0,
@@ -1180,7 +2148,51 @@
                     "description": "Pump Station Pump No. 3 MCC Status",
                     "cofs": -1,
                     "command": "",
-                    "rtuId": 0
+                    "rtuId": 0,
+                    "tag": {
+                        "_events": {},
+                        "_eventsCount": 0,
+                        "state": {
+                            "tag": {
+                                "name": "N3H_Tele_TX[21]",
+                                "type": 195,
+                                "bitIndex": null,
+                                "value": 0,
+                                "controllerValue": 0,
+                                "path": {
+                                    "type": "Buffer",
+                                    "data": [
+                                        145,
+                                        11,
+                                        78,
+                                        51,
+                                        72,
+                                        95,
+                                        84,
+                                        101,
+                                        108,
+                                        101,
+                                        95,
+                                        84,
+                                        88,
+                                        0,
+                                        40,
+                                        21
+                                    ]
+                                },
+                                "program": null,
+                                "stage_write": false
+                            },
+                            "read_size": 1,
+                            "error": {
+                                "code": null,
+                                "status": null
+                            },
+                            "timestamp": "2023-10-12T07:50:32.335Z",
+                            "instance": "8e861dcd388260d57347585f0e2b8c08",
+                            "keepAlive": 0
+                        }
+                    }
                 },
                 {
                     "scaling": {
@@ -1198,7 +2210,9 @@
                         "bit": 22,
                         "key": "AI3",
                         "enabled": true,
-                        "moduleId": 0
+                        "moduleId": 2,
+                        "lastCOFSMainValue": 0,
+                        "lastCOFSValue": 0
                     },
                     "masking": {
                         "bit": 0,
@@ -1230,7 +2244,51 @@
                     "description": "Pump Station Pump No. 3 RHM ",
                     "cofs": -1,
                     "command": "",
-                    "rtuId": 0
+                    "rtuId": 0,
+                    "tag": {
+                        "_events": {},
+                        "_eventsCount": 0,
+                        "state": {
+                            "tag": {
+                                "name": "N3H_Tele_TX[22]",
+                                "type": 195,
+                                "bitIndex": null,
+                                "value": 0,
+                                "controllerValue": 0,
+                                "path": {
+                                    "type": "Buffer",
+                                    "data": [
+                                        145,
+                                        11,
+                                        78,
+                                        51,
+                                        72,
+                                        95,
+                                        84,
+                                        101,
+                                        108,
+                                        101,
+                                        95,
+                                        84,
+                                        88,
+                                        0,
+                                        40,
+                                        22
+                                    ]
+                                },
+                                "program": null,
+                                "stage_write": false
+                            },
+                            "read_size": 1,
+                            "error": {
+                                "code": null,
+                                "status": null
+                            },
+                            "timestamp": "2023-10-12T07:50:32.351Z",
+                            "instance": "3d4a552df10c99b09cc68c427cce5355",
+                            "keepAlive": 0
+                        }
+                    }
                 },
                 {
                     "scaling": {
@@ -1248,7 +2306,9 @@
                         "bit": 23,
                         "key": "AI4",
                         "enabled": true,
-                        "moduleId": 0
+                        "moduleId": 2,
+                        "lastCOFSMainValue": 0,
+                        "lastCOFSValue": 0
                     },
                     "masking": {
                         "bit": 0,
@@ -1280,7 +2340,51 @@
                     "description": "Pump Station Pump No. 3 NOS ",
                     "cofs": -1,
                     "command": "",
-                    "rtuId": 0
+                    "rtuId": 0,
+                    "tag": {
+                        "_events": {},
+                        "_eventsCount": 0,
+                        "state": {
+                            "tag": {
+                                "name": "N3H_Tele_TX[23]",
+                                "type": 195,
+                                "bitIndex": null,
+                                "value": 0,
+                                "controllerValue": 0,
+                                "path": {
+                                    "type": "Buffer",
+                                    "data": [
+                                        145,
+                                        11,
+                                        78,
+                                        51,
+                                        72,
+                                        95,
+                                        84,
+                                        101,
+                                        108,
+                                        101,
+                                        95,
+                                        84,
+                                        88,
+                                        0,
+                                        40,
+                                        23
+                                    ]
+                                },
+                                "program": null,
+                                "stage_write": false
+                            },
+                            "read_size": 1,
+                            "error": {
+                                "code": null,
+                                "status": null
+                            },
+                            "timestamp": "2023-10-12T07:50:32.368Z",
+                            "instance": "49356146f2a9bf3f419a1f728622bcc9",
+                            "keepAlive": 0
+                        }
+                    }
                 },
                 {
                     "scaling": {
@@ -1298,7 +2402,9 @@
                         "bit": 24,
                         "key": "AIExt1",
                         "enabled": true,
-                        "moduleId": 0
+                        "moduleId": 2,
+                        "lastCOFSMainValue": 0,
+                        "lastCOFSValue": 0
                     },
                     "masking": {
                         "bit": 0,
@@ -1330,7 +2436,51 @@
                     "description": "Pump Station Pump No. 3 Delivery Valve Status",
                     "cofs": -1,
                     "command": "",
-                    "rtuId": 0
+                    "rtuId": 0,
+                    "tag": {
+                        "_events": {},
+                        "_eventsCount": 0,
+                        "state": {
+                            "tag": {
+                                "name": "N3H_Tele_TX[24]",
+                                "type": 195,
+                                "bitIndex": null,
+                                "value": 0,
+                                "controllerValue": 0,
+                                "path": {
+                                    "type": "Buffer",
+                                    "data": [
+                                        145,
+                                        11,
+                                        78,
+                                        51,
+                                        72,
+                                        95,
+                                        84,
+                                        101,
+                                        108,
+                                        101,
+                                        95,
+                                        84,
+                                        88,
+                                        0,
+                                        40,
+                                        24
+                                    ]
+                                },
+                                "program": null,
+                                "stage_write": false
+                            },
+                            "read_size": 1,
+                            "error": {
+                                "code": null,
+                                "status": null
+                            },
+                            "timestamp": "2023-10-12T07:50:32.381Z",
+                            "instance": "eb921cf8e356e694f0b83ef52c43e634",
+                            "keepAlive": 0
+                        }
+                    }
                 },
                 {
                     "scaling": {
@@ -1348,7 +2498,9 @@
                         "bit": 24,
                         "key": "AIExt2",
                         "enabled": true,
-                        "moduleId": 0
+                        "moduleId": 2,
+                        "lastCOFSMainValue": 2048,
+                        "lastCOFSValue": 2048
                     },
                     "masking": {
                         "bit": 0,
@@ -1369,7 +2521,7 @@
                     },
                     "key": "AI1",
                     "tagId": "N3H_Tele_TX[25]",
-                    "value": 0,
+                    "value": 2048,
                     "shift": -1,
                     "inputId": "6526965c4d5ca4c9d7cb5867",
                     "register": 0,
@@ -1380,7 +2532,51 @@
                     "description": "Pump Station Spare25  ",
                     "cofs": -1,
                     "command": "",
-                    "rtuId": 0
+                    "rtuId": 0,
+                    "tag": {
+                        "_events": {},
+                        "_eventsCount": 0,
+                        "state": {
+                            "tag": {
+                                "name": "N3H_Tele_TX[25]",
+                                "type": 195,
+                                "bitIndex": null,
+                                "value": 2048,
+                                "controllerValue": 2048,
+                                "path": {
+                                    "type": "Buffer",
+                                    "data": [
+                                        145,
+                                        11,
+                                        78,
+                                        51,
+                                        72,
+                                        95,
+                                        84,
+                                        101,
+                                        108,
+                                        101,
+                                        95,
+                                        84,
+                                        88,
+                                        0,
+                                        40,
+                                        25
+                                    ]
+                                },
+                                "program": null,
+                                "stage_write": false
+                            },
+                            "read_size": 1,
+                            "error": {
+                                "code": null,
+                                "status": null
+                            },
+                            "timestamp": "2023-10-12T07:50:32.391Z",
+                            "instance": "21f125c0f66ce6c44978921b1666b726",
+                            "keepAlive": 0
+                        }
+                    }
                 },
                 {
                     "scaling": {
@@ -1398,7 +2594,9 @@
                         "bit": 24,
                         "key": "AIExt3",
                         "enabled": true,
-                        "moduleId": 0
+                        "moduleId": 2,
+                        "lastCOFSMainValue": -3,
+                        "lastCOFSValue": -3
                     },
                     "masking": {
                         "bit": 0,
@@ -1419,7 +2617,7 @@
                     },
                     "key": "AI1",
                     "tagId": "N3H_Tele_TX[26]",
-                    "value": 0,
+                    "value": -3,
                     "shift": -1,
                     "inputId": "6526966c780ffa58b9453771",
                     "register": 0,
@@ -1430,7 +2628,51 @@
                     "description": "Pump Station Spare26  ",
                     "cofs": -1,
                     "command": "",
-                    "rtuId": 0
+                    "rtuId": 0,
+                    "tag": {
+                        "_events": {},
+                        "_eventsCount": 0,
+                        "state": {
+                            "tag": {
+                                "name": "N3H_Tele_TX[26]",
+                                "type": 195,
+                                "bitIndex": null,
+                                "value": -3,
+                                "controllerValue": -3,
+                                "path": {
+                                    "type": "Buffer",
+                                    "data": [
+                                        145,
+                                        11,
+                                        78,
+                                        51,
+                                        72,
+                                        95,
+                                        84,
+                                        101,
+                                        108,
+                                        101,
+                                        95,
+                                        84,
+                                        88,
+                                        0,
+                                        40,
+                                        26
+                                    ]
+                                },
+                                "program": null,
+                                "stage_write": false
+                            },
+                            "read_size": 1,
+                            "error": {
+                                "code": null,
+                                "status": null
+                            },
+                            "timestamp": "2023-10-12T07:50:32.401Z",
+                            "instance": "bac4bd17da6d67b3a69144ffa35e76e8",
+                            "keepAlive": 0
+                        }
+                    }
                 },
                 {
                     "scaling": {
@@ -1448,7 +2690,9 @@
                         "bit": 24,
                         "key": "AIExt4",
                         "enabled": true,
-                        "moduleId": 0
+                        "moduleId": 2,
+                        "lastCOFSMainValue": 255,
+                        "lastCOFSValue": 255
                     },
                     "masking": {
                         "bit": 0,
@@ -1469,7 +2713,7 @@
                     },
                     "key": "AI1",
                     "tagId": "N3H_Tele_TX[27]",
-                    "value": 0,
+                    "value": 255,
                     "shift": -1,
                     "inputId": "6526967bf99fcc879b44e956",
                     "register": 0,
@@ -1480,7 +2724,51 @@
                     "description": "Pump Station Spare27  ",
                     "cofs": -1,
                     "command": "",
-                    "rtuId": 0
+                    "rtuId": 0,
+                    "tag": {
+                        "_events": {},
+                        "_eventsCount": 0,
+                        "state": {
+                            "tag": {
+                                "name": "N3H_Tele_TX[27]",
+                                "type": 195,
+                                "bitIndex": null,
+                                "value": 255,
+                                "controllerValue": 255,
+                                "path": {
+                                    "type": "Buffer",
+                                    "data": [
+                                        145,
+                                        11,
+                                        78,
+                                        51,
+                                        72,
+                                        95,
+                                        84,
+                                        101,
+                                        108,
+                                        101,
+                                        95,
+                                        84,
+                                        88,
+                                        0,
+                                        40,
+                                        27
+                                    ]
+                                },
+                                "program": null,
+                                "stage_write": false
+                            },
+                            "read_size": 1,
+                            "error": {
+                                "code": null,
+                                "status": null
+                            },
+                            "timestamp": "2023-10-12T07:50:32.415Z",
+                            "instance": "83b23252cabe04fa95a7440669e234af",
+                            "keepAlive": 0
+                        }
+                    }
                 },
                 {
                     "scaling": {
@@ -1498,7 +2786,9 @@
                         "bit": 24,
                         "key": "AIExt5",
                         "enabled": true,
-                        "moduleId": 0
+                        "moduleId": 2,
+                        "lastCOFSMainValue": 0,
+                        "lastCOFSValue": 0
                     },
                     "masking": {
                         "bit": 0,
@@ -1530,7 +2820,51 @@
                     "description": "Pump Station Spare28  ",
                     "cofs": -1,
                     "command": "",
-                    "rtuId": 0
+                    "rtuId": 0,
+                    "tag": {
+                        "_events": {},
+                        "_eventsCount": 0,
+                        "state": {
+                            "tag": {
+                                "name": "N3H_Tele_TX[28]",
+                                "type": 195,
+                                "bitIndex": null,
+                                "value": 0,
+                                "controllerValue": 0,
+                                "path": {
+                                    "type": "Buffer",
+                                    "data": [
+                                        145,
+                                        11,
+                                        78,
+                                        51,
+                                        72,
+                                        95,
+                                        84,
+                                        101,
+                                        108,
+                                        101,
+                                        95,
+                                        84,
+                                        88,
+                                        0,
+                                        40,
+                                        28
+                                    ]
+                                },
+                                "program": null,
+                                "stage_write": false
+                            },
+                            "read_size": 1,
+                            "error": {
+                                "code": null,
+                                "status": null
+                            },
+                            "timestamp": "2023-10-12T07:50:32.430Z",
+                            "instance": "6cc46a0ce2192b5544233cc9784e7f24",
+                            "keepAlive": 0
+                        }
+                    }
                 },
                 {
                     "scaling": {
@@ -1548,7 +2882,9 @@
                         "bit": 24,
                         "key": "AIExt6",
                         "enabled": true,
-                        "moduleId": 0
+                        "moduleId": 2,
+                        "lastCOFSMainValue": 0,
+                        "lastCOFSValue": 0
                     },
                     "masking": {
                         "bit": 0,
@@ -1580,7 +2916,51 @@
                     "description": "Pump Station Spare29  ",
                     "cofs": -1,
                     "command": "",
-                    "rtuId": 0
+                    "rtuId": 0,
+                    "tag": {
+                        "_events": {},
+                        "_eventsCount": 0,
+                        "state": {
+                            "tag": {
+                                "name": "N3H_Tele_TX[29]",
+                                "type": 195,
+                                "bitIndex": null,
+                                "value": 0,
+                                "controllerValue": 0,
+                                "path": {
+                                    "type": "Buffer",
+                                    "data": [
+                                        145,
+                                        11,
+                                        78,
+                                        51,
+                                        72,
+                                        95,
+                                        84,
+                                        101,
+                                        108,
+                                        101,
+                                        95,
+                                        84,
+                                        88,
+                                        0,
+                                        40,
+                                        29
+                                    ]
+                                },
+                                "program": null,
+                                "stage_write": false
+                            },
+                            "read_size": 1,
+                            "error": {
+                                "code": null,
+                                "status": null
+                            },
+                            "timestamp": "2023-10-12T07:50:32.443Z",
+                            "instance": "3ff7a18ca83ffdf6293fee0ac33332b4",
+                            "keepAlive": 0
+                        }
+                    }
                 }
             ],
             "ip": "10.18.80.10",
@@ -1592,7 +2972,7 @@
             "timeout": 300,
             "barcode": "12",
             "publish": true,
-            "enabled": false,
+            "enabled": true,
             "unitId": 0,
             "deviceId": "61bf28b82789ba0ea7b5f302",
             "description": "Hilton Pumpstation PLC 20-29",
@@ -1618,7 +2998,9 @@
                         "bit": 30,
                         "key": "AI1",
                         "enabled": true,
-                        "moduleId": 0
+                        "moduleId": 3,
+                        "lastCOFSMainValue": -10497,
+                        "lastCOFSValue": -10497
                     },
                     "masking": {
                         "bit": 0,
@@ -1639,7 +3021,7 @@
                     },
                     "key": "AI1",
                     "tagId": "N3H_Tele_TX[30]",
-                    "value": 555,
+                    "value": 544,
                     "shift": -1,
                     "inputId": "64c1c601b4c706147ce37d4a",
                     "register": 0,
@@ -1650,7 +3032,51 @@
                     "description": "Pump Station Sump Level PV ",
                     "cofs": -1,
                     "command": "",
-                    "rtuId": 0
+                    "rtuId": 0,
+                    "tag": {
+                        "_events": {},
+                        "_eventsCount": 0,
+                        "state": {
+                            "tag": {
+                                "name": "N3H_Tele_TX[30]",
+                                "type": 195,
+                                "bitIndex": null,
+                                "value": 544,
+                                "controllerValue": 544,
+                                "path": {
+                                    "type": "Buffer",
+                                    "data": [
+                                        145,
+                                        11,
+                                        78,
+                                        51,
+                                        72,
+                                        95,
+                                        84,
+                                        101,
+                                        108,
+                                        101,
+                                        95,
+                                        84,
+                                        88,
+                                        0,
+                                        40,
+                                        30
+                                    ]
+                                },
+                                "program": null,
+                                "stage_write": false
+                            },
+                            "read_size": 1,
+                            "error": {
+                                "code": null,
+                                "status": null
+                            },
+                            "timestamp": "2023-10-12T08:03:17.413Z",
+                            "instance": "93e716f38f138590ff78353f941cb9ef",
+                            "keepAlive": 0
+                        }
+                    }
                 },
                 {
                     "scaling": {
@@ -1668,7 +3094,9 @@
                         "bit": 30,
                         "key": "AI2",
                         "enabled": true,
-                        "moduleId": 0
+                        "moduleId": 3,
+                        "lastCOFSMainValue": 0,
+                        "lastCOFSValue": 0
                     },
                     "masking": {
                         "bit": 0,
@@ -1689,7 +3117,7 @@
                     },
                     "key": "AI1",
                     "tagId": "N3H_Tele_TX[31]",
-                    "value": 0,
+                    "value": 122,
                     "shift": -1,
                     "inputId": "64c1c62fcfc0cbdc90a87a88",
                     "register": 0,
@@ -1700,7 +3128,51 @@
                     "description": "Pump Station Delivery Pressure PV ",
                     "cofs": -1,
                     "command": "",
-                    "rtuId": 0
+                    "rtuId": 0,
+                    "tag": {
+                        "_events": {},
+                        "_eventsCount": 0,
+                        "state": {
+                            "tag": {
+                                "name": "N3H_Tele_TX[31]",
+                                "type": 195,
+                                "bitIndex": null,
+                                "value": 122,
+                                "controllerValue": 122,
+                                "path": {
+                                    "type": "Buffer",
+                                    "data": [
+                                        145,
+                                        11,
+                                        78,
+                                        51,
+                                        72,
+                                        95,
+                                        84,
+                                        101,
+                                        108,
+                                        101,
+                                        95,
+                                        84,
+                                        88,
+                                        0,
+                                        40,
+                                        31
+                                    ]
+                                },
+                                "program": null,
+                                "stage_write": false
+                            },
+                            "read_size": 1,
+                            "error": {
+                                "code": null,
+                                "status": null
+                            },
+                            "timestamp": "2023-10-12T08:03:17.420Z",
+                            "instance": "95d2154e823e8208daf3ceb139202e72",
+                            "keepAlive": 0
+                        }
+                    }
                 },
                 {
                     "scaling": {
@@ -1718,7 +3190,9 @@
                         "bit": 30,
                         "key": "AI3",
                         "enabled": true,
-                        "moduleId": 0
+                        "moduleId": 3,
+                        "lastCOFSMainValue": 0,
+                        "lastCOFSValue": 0
                     },
                     "masking": {
                         "bit": 0,
@@ -1750,7 +3224,51 @@
                     "description": "Pump Station Suction Pressure PV ",
                     "cofs": -1,
                     "command": "",
-                    "rtuId": 0
+                    "rtuId": 0,
+                    "tag": {
+                        "_events": {},
+                        "_eventsCount": 0,
+                        "state": {
+                            "tag": {
+                                "name": "N3H_Tele_TX[32]",
+                                "type": 195,
+                                "bitIndex": null,
+                                "value": 0,
+                                "controllerValue": 0,
+                                "path": {
+                                    "type": "Buffer",
+                                    "data": [
+                                        145,
+                                        11,
+                                        78,
+                                        51,
+                                        72,
+                                        95,
+                                        84,
+                                        101,
+                                        108,
+                                        101,
+                                        95,
+                                        84,
+                                        88,
+                                        0,
+                                        40,
+                                        32
+                                    ]
+                                },
+                                "program": null,
+                                "stage_write": false
+                            },
+                            "read_size": 1,
+                            "error": {
+                                "code": null,
+                                "status": null
+                            },
+                            "timestamp": "2023-10-12T07:50:32.365Z",
+                            "instance": "e84039e406cbcb9353303c6aafc2549b",
+                            "keepAlive": 0
+                        }
+                    }
                 },
                 {
                     "scaling": {
@@ -1768,7 +3286,9 @@
                         "bit": 30,
                         "key": "AI4",
                         "enabled": true,
-                        "moduleId": 0
+                        "moduleId": 3,
+                        "lastCOFSMainValue": 0,
+                        "lastCOFSValue": 0
                     },
                     "masking": {
                         "bit": 0,
@@ -1800,7 +3320,51 @@
                     "description": "Pump Station Flowmeter PV ",
                     "cofs": -1,
                     "command": "",
-                    "rtuId": 0
+                    "rtuId": 0,
+                    "tag": {
+                        "_events": {},
+                        "_eventsCount": 0,
+                        "state": {
+                            "tag": {
+                                "name": "N3H_Tele_TX[33]",
+                                "type": 195,
+                                "bitIndex": null,
+                                "value": 0,
+                                "controllerValue": 0,
+                                "path": {
+                                    "type": "Buffer",
+                                    "data": [
+                                        145,
+                                        11,
+                                        78,
+                                        51,
+                                        72,
+                                        95,
+                                        84,
+                                        101,
+                                        108,
+                                        101,
+                                        95,
+                                        84,
+                                        88,
+                                        0,
+                                        40,
+                                        33
+                                    ]
+                                },
+                                "program": null,
+                                "stage_write": false
+                            },
+                            "read_size": 1,
+                            "error": {
+                                "code": null,
+                                "status": null
+                            },
+                            "timestamp": "2023-10-12T07:50:32.376Z",
+                            "instance": "78440b66d2cebd1b645bded78bf01f88",
+                            "keepAlive": 0
+                        }
+                    }
                 },
                 {
                     "scaling": {
@@ -1818,7 +3382,9 @@
                         "bit": 38,
                         "key": "AIExt1",
                         "enabled": true,
-                        "moduleId": 0
+                        "moduleId": 3,
+                        "lastCOFSMainValue": 0,
+                        "lastCOFSValue": 0
                     },
                     "masking": {
                         "bit": 0,
@@ -1850,7 +3416,51 @@
                     "description": "Pump Station Spare34  ",
                     "cofs": -1,
                     "command": "",
-                    "rtuId": 0
+                    "rtuId": 0,
+                    "tag": {
+                        "_events": {},
+                        "_eventsCount": 0,
+                        "state": {
+                            "tag": {
+                                "name": "N3H_Tele_TX[34]",
+                                "type": 195,
+                                "bitIndex": null,
+                                "value": 0,
+                                "controllerValue": 0,
+                                "path": {
+                                    "type": "Buffer",
+                                    "data": [
+                                        145,
+                                        11,
+                                        78,
+                                        51,
+                                        72,
+                                        95,
+                                        84,
+                                        101,
+                                        108,
+                                        101,
+                                        95,
+                                        84,
+                                        88,
+                                        0,
+                                        40,
+                                        34
+                                    ]
+                                },
+                                "program": null,
+                                "stage_write": false
+                            },
+                            "read_size": 1,
+                            "error": {
+                                "code": null,
+                                "status": null
+                            },
+                            "timestamp": "2023-10-12T07:50:32.388Z",
+                            "instance": "903011788b5cf19a5d4f205f54ce96ba",
+                            "keepAlive": 0
+                        }
+                    }
                 },
                 {
                     "scaling": {
@@ -1868,7 +3478,9 @@
                         "bit": 38,
                         "key": "AIExt2",
                         "enabled": true,
-                        "moduleId": 0
+                        "moduleId": 3,
+                        "lastCOFSMainValue": 0,
+                        "lastCOFSValue": 0
                     },
                     "masking": {
                         "bit": 0,
@@ -1900,7 +3512,51 @@
                     "description": "Pump Station Misc. Signals Pump No. 1 ",
                     "cofs": -1,
                     "command": "",
-                    "rtuId": 0
+                    "rtuId": 0,
+                    "tag": {
+                        "_events": {},
+                        "_eventsCount": 0,
+                        "state": {
+                            "tag": {
+                                "name": "N3H_Tele_TX[35]",
+                                "type": 195,
+                                "bitIndex": null,
+                                "value": 0,
+                                "controllerValue": 0,
+                                "path": {
+                                    "type": "Buffer",
+                                    "data": [
+                                        145,
+                                        11,
+                                        78,
+                                        51,
+                                        72,
+                                        95,
+                                        84,
+                                        101,
+                                        108,
+                                        101,
+                                        95,
+                                        84,
+                                        88,
+                                        0,
+                                        40,
+                                        35
+                                    ]
+                                },
+                                "program": null,
+                                "stage_write": false
+                            },
+                            "read_size": 1,
+                            "error": {
+                                "code": null,
+                                "status": null
+                            },
+                            "timestamp": "2023-10-12T07:50:32.399Z",
+                            "instance": "01f18d3fdecfd193be79c2b9dbe6d2c3",
+                            "keepAlive": 0
+                        }
+                    }
                 },
                 {
                     "scaling": {
@@ -1918,7 +3574,9 @@
                         "bit": 38,
                         "key": "AIExt3",
                         "enabled": true,
-                        "moduleId": 0
+                        "moduleId": 3,
+                        "lastCOFSMainValue": 0,
+                        "lastCOFSValue": 0
                     },
                     "masking": {
                         "bit": 0,
@@ -1950,7 +3608,51 @@
                     "description": "Pump Station Misc. Signals Pump No. 2 ",
                     "cofs": -1,
                     "command": "",
-                    "rtuId": 0
+                    "rtuId": 0,
+                    "tag": {
+                        "_events": {},
+                        "_eventsCount": 0,
+                        "state": {
+                            "tag": {
+                                "name": "N3H_Tele_TX[36]",
+                                "type": 195,
+                                "bitIndex": null,
+                                "value": 0,
+                                "controllerValue": 0,
+                                "path": {
+                                    "type": "Buffer",
+                                    "data": [
+                                        145,
+                                        11,
+                                        78,
+                                        51,
+                                        72,
+                                        95,
+                                        84,
+                                        101,
+                                        108,
+                                        101,
+                                        95,
+                                        84,
+                                        88,
+                                        0,
+                                        40,
+                                        36
+                                    ]
+                                },
+                                "program": null,
+                                "stage_write": false
+                            },
+                            "read_size": 1,
+                            "error": {
+                                "code": null,
+                                "status": null
+                            },
+                            "timestamp": "2023-10-12T07:50:32.410Z",
+                            "instance": "0b8f686b169130b8c71574f1b11c50be",
+                            "keepAlive": 0
+                        }
+                    }
                 },
                 {
                     "scaling": {
@@ -1968,7 +3670,9 @@
                         "bit": 38,
                         "key": "AIExt4",
                         "enabled": true,
-                        "moduleId": 0
+                        "moduleId": 3,
+                        "lastCOFSMainValue": 0,
+                        "lastCOFSValue": 0
                     },
                     "masking": {
                         "bit": 0,
@@ -2000,7 +3704,51 @@
                     "description": "Pump Station Misc. Signals Pump No. 3 ",
                     "cofs": -1,
                     "command": "",
-                    "rtuId": 0
+                    "rtuId": 0,
+                    "tag": {
+                        "_events": {},
+                        "_eventsCount": 0,
+                        "state": {
+                            "tag": {
+                                "name": "N3H_Tele_TX[37]",
+                                "type": 195,
+                                "bitIndex": null,
+                                "value": 0,
+                                "controllerValue": 0,
+                                "path": {
+                                    "type": "Buffer",
+                                    "data": [
+                                        145,
+                                        11,
+                                        78,
+                                        51,
+                                        72,
+                                        95,
+                                        84,
+                                        101,
+                                        108,
+                                        101,
+                                        95,
+                                        84,
+                                        88,
+                                        0,
+                                        40,
+                                        37
+                                    ]
+                                },
+                                "program": null,
+                                "stage_write": false
+                            },
+                            "read_size": 1,
+                            "error": {
+                                "code": null,
+                                "status": null
+                            },
+                            "timestamp": "2023-10-12T07:50:32.425Z",
+                            "instance": "2a06ff69b6c55e4a9a0c5fe515bcdee7",
+                            "keepAlive": 0
+                        }
+                    }
                 },
                 {
                     "scaling": {
@@ -2018,7 +3766,9 @@
                         "bit": 38,
                         "key": "AIExt5",
                         "enabled": true,
-                        "moduleId": 0
+                        "moduleId": 3,
+                        "lastCOFSMainValue": 0,
+                        "lastCOFSValue": 0
                     },
                     "masking": {
                         "bit": 0,
@@ -2050,7 +3800,51 @@
                     "description": "Pump Station General Signals  ",
                     "cofs": -1,
                     "command": "",
-                    "rtuId": 0
+                    "rtuId": 0,
+                    "tag": {
+                        "_events": {},
+                        "_eventsCount": 0,
+                        "state": {
+                            "tag": {
+                                "name": "N3H_Tele_TX[38]",
+                                "type": 195,
+                                "bitIndex": null,
+                                "value": 0,
+                                "controllerValue": 0,
+                                "path": {
+                                    "type": "Buffer",
+                                    "data": [
+                                        145,
+                                        11,
+                                        78,
+                                        51,
+                                        72,
+                                        95,
+                                        84,
+                                        101,
+                                        108,
+                                        101,
+                                        95,
+                                        84,
+                                        88,
+                                        0,
+                                        40,
+                                        38
+                                    ]
+                                },
+                                "program": null,
+                                "stage_write": false
+                            },
+                            "read_size": 1,
+                            "error": {
+                                "code": null,
+                                "status": null
+                            },
+                            "timestamp": "2023-10-12T07:50:32.433Z",
+                            "instance": "024b23b61fa72f38a703ba31f5f9705d",
+                            "keepAlive": 0
+                        }
+                    }
                 },
                 {
                     "scaling": {
@@ -2068,7 +3862,9 @@
                         "bit": 38,
                         "key": "AIExt6",
                         "enabled": true,
-                        "moduleId": 0
+                        "moduleId": 3,
+                        "lastCOFSMainValue": 0,
+                        "lastCOFSValue": 0
                     },
                     "masking": {
                         "bit": 0,
@@ -2100,7 +3896,51 @@
                     "description": "Pump Station Spare  ",
                     "cofs": -1,
                     "command": "",
-                    "rtuId": 0
+                    "rtuId": 0,
+                    "tag": {
+                        "_events": {},
+                        "_eventsCount": 0,
+                        "state": {
+                            "tag": {
+                                "name": "N3H_Tele_TX[39]",
+                                "type": 195,
+                                "bitIndex": null,
+                                "value": 0,
+                                "controllerValue": 0,
+                                "path": {
+                                    "type": "Buffer",
+                                    "data": [
+                                        145,
+                                        11,
+                                        78,
+                                        51,
+                                        72,
+                                        95,
+                                        84,
+                                        101,
+                                        108,
+                                        101,
+                                        95,
+                                        84,
+                                        88,
+                                        0,
+                                        40,
+                                        39
+                                    ]
+                                },
+                                "program": null,
+                                "stage_write": false
+                            },
+                            "read_size": 1,
+                            "error": {
+                                "code": null,
+                                "status": null
+                            },
+                            "timestamp": "2023-10-12T07:50:32.453Z",
+                            "instance": "4db2fd0d8ee542b572abea40300321bb",
+                            "keepAlive": 0
+                        }
+                    }
                 }
             ],
             "ip": "10.18.80.10",
@@ -2112,7 +3952,7 @@
             "timeout": 300,
             "barcode": "13",
             "publish": true,
-            "enabled": false,
+            "enabled": true,
             "unitId": 0,
             "deviceId": "61bf28b82789ba0ea7b5f304",
             "description": "Hilton Pumpstation PLC 30-31",
@@ -2279,7 +4119,7 @@
                     },
                     "key": "",
                     "tagId": "",
-                    "value": "12",
+                    "value": "753",
                     "shift": -1,
                     "inputId": "651e5e5f7073df7cb790c3d6",
                     "register": 8,
@@ -2329,7 +4169,7 @@
                     },
                     "key": "",
                     "tagId": "",
-                    "value": 0,
+                    "value": "958",
                     "shift": -1,
                     "inputId": "65269435141f20891ae1d0f9",
                     "register": 9,
@@ -2379,7 +4219,7 @@
                     },
                     "key": "",
                     "tagId": "",
-                    "value": 0,
+                    "value": "0",
                     "shift": -1,
                     "inputId": "65269451858ff15d2540cb5e",
                     "register": 10,
@@ -2429,7 +4269,7 @@
                     },
                     "key": "",
                     "tagId": "",
-                    "value": 0,
+                    "value": "0",
                     "shift": -1,
                     "inputId": "65269461a8d71340ab38cae6",
                     "register": 11,
@@ -2479,7 +4319,7 @@
                     },
                     "key": "",
                     "tagId": "",
-                    "value": 0,
+                    "value": "0",
                     "shift": -1,
                     "inputId": "6526946f7fd38358a6b77888",
                     "register": 12,
@@ -2529,7 +4369,7 @@
                     },
                     "key": "",
                     "tagId": "",
-                    "value": 0,
+                    "value": "0",
                     "shift": -1,
                     "inputId": "652694797ab6d3adbe55f023",
                     "register": 13,
@@ -2579,7 +4419,7 @@
                     },
                     "key": "",
                     "tagId": "",
-                    "value": 0,
+                    "value": "0",
                     "shift": -1,
                     "inputId": "65269487115b6b3b2f6e842a",
                     "register": 14,
@@ -2629,7 +4469,7 @@
                     },
                     "key": "",
                     "tagId": "",
-                    "value": 0,
+                    "value": "0",
                     "shift": -1,
                     "inputId": "6526948fdf1c9324092196ed",
                     "register": 15,
@@ -2679,7 +4519,7 @@
                     },
                     "key": "",
                     "tagId": "",
-                    "value": 0,
+                    "value": "0",
                     "shift": -1,
                     "inputId": "6526949b14b23c6d3b865d8d",
                     "register": 16,
@@ -2729,7 +4569,7 @@
                     },
                     "key": "",
                     "tagId": "",
-                    "value": 0,
+                    "value": "0",
                     "shift": -1,
                     "inputId": "652694a69fb5f07b45846930",
                     "register": 17,
@@ -2778,7 +4618,8 @@
                         "bit": 0,
                         "key": "",
                         "enabled": false,
-                        "moduleId": 0
+                        "moduleId": 0,
+                        "lastCOFSValue": 753
                     },
                     "masking": {
                         "bit": 0,
@@ -2799,7 +4640,7 @@
                     },
                     "key": "",
                     "tagId": "N3H_Tele_RX[0]",
-                    "value": 0,
+                    "value": 753,
                     "shift": -1,
                     "inputId": "651e81d352f62186d17efb57",
                     "register": 0,
@@ -2819,8 +4660,8 @@
                                 "name": "N3H_Tele_RX[0]",
                                 "type": 195,
                                 "bitIndex": null,
-                                "value": null,
-                                "controllerValue": null,
+                                "value": 753,
+                                "controllerValue": 753,
                                 "path": {
                                     "type": "Buffer",
                                     "data": [
@@ -2850,7 +4691,7 @@
                                 "code": null,
                                 "status": null
                             },
-                            "timestamp": "2023-10-11T12:54:21.949Z",
+                            "timestamp": "2023-10-12T07:50:32.334Z",
                             "instance": "e183449f147d81cfad59e0c6abf6e17d",
                             "keepAlive": 0
                         }
@@ -2872,7 +4713,8 @@
                         "bit": 0,
                         "key": "",
                         "enabled": false,
-                        "moduleId": 0
+                        "moduleId": 0,
+                        "lastCOFSValue": 958
                     },
                     "masking": {
                         "bit": 0,
@@ -2893,7 +4735,7 @@
                     },
                     "key": "",
                     "tagId": "N3H_Tele_RX[1]",
-                    "value": 0,
+                    "value": 958,
                     "shift": -1,
                     "inputId": "65269806a64c78cb9052024a",
                     "register": 0,
@@ -2913,8 +4755,8 @@
                                 "name": "N3H_Tele_RX[1]",
                                 "type": 195,
                                 "bitIndex": null,
-                                "value": null,
-                                "controllerValue": null,
+                                "value": 958,
+                                "controllerValue": 958,
                                 "path": {
                                     "type": "Buffer",
                                     "data": [
@@ -2944,7 +4786,7 @@
                                 "code": null,
                                 "status": null
                             },
-                            "timestamp": "2023-10-11T12:54:21.949Z",
+                            "timestamp": "2023-10-12T07:50:32.350Z",
                             "instance": "419473a9c623b19bef14a257d8982d87",
                             "keepAlive": 0
                         }
@@ -2966,7 +4808,8 @@
                         "bit": 0,
                         "key": "",
                         "enabled": false,
-                        "moduleId": 0
+                        "moduleId": 0,
+                        "lastCOFSValue": 0
                     },
                     "masking": {
                         "bit": 0,
@@ -3007,8 +4850,8 @@
                                 "name": "N3H_Tele_RX[2]",
                                 "type": 195,
                                 "bitIndex": null,
-                                "value": null,
-                                "controllerValue": null,
+                                "value": 0,
+                                "controllerValue": 0,
                                 "path": {
                                     "type": "Buffer",
                                     "data": [
@@ -3038,7 +4881,7 @@
                                 "code": null,
                                 "status": null
                             },
-                            "timestamp": "2023-10-11T12:54:21.949Z",
+                            "timestamp": "2023-10-12T07:50:32.366Z",
                             "instance": "6c52c1b4cf39e686e1080be92d689953",
                             "keepAlive": 0
                         }
@@ -3060,7 +4903,8 @@
                         "bit": 0,
                         "key": "",
                         "enabled": false,
-                        "moduleId": 0
+                        "moduleId": 0,
+                        "lastCOFSValue": 0
                     },
                     "masking": {
                         "bit": 0,
@@ -3101,8 +4945,8 @@
                                 "name": "N3H_Tele_RX[3]",
                                 "type": 195,
                                 "bitIndex": null,
-                                "value": null,
-                                "controllerValue": null,
+                                "value": 0,
+                                "controllerValue": 0,
                                 "path": {
                                     "type": "Buffer",
                                     "data": [
@@ -3132,7 +4976,7 @@
                                 "code": null,
                                 "status": null
                             },
-                            "timestamp": "2023-10-11T12:54:21.949Z",
+                            "timestamp": "2023-10-12T07:50:32.377Z",
                             "instance": "0294c8fe7a09328b5c0e8c934f87f592",
                             "keepAlive": 0
                         }
@@ -3154,7 +4998,8 @@
                         "bit": 0,
                         "key": "",
                         "enabled": false,
-                        "moduleId": 0
+                        "moduleId": 0,
+                        "lastCOFSValue": 0
                     },
                     "masking": {
                         "bit": 0,
@@ -3195,8 +5040,8 @@
                                 "name": "N3H_Tele_RX[4]",
                                 "type": 195,
                                 "bitIndex": null,
-                                "value": null,
-                                "controllerValue": null,
+                                "value": 0,
+                                "controllerValue": 0,
                                 "path": {
                                     "type": "Buffer",
                                     "data": [
@@ -3226,7 +5071,7 @@
                                 "code": null,
                                 "status": null
                             },
-                            "timestamp": "2023-10-11T12:54:21.949Z",
+                            "timestamp": "2023-10-12T07:50:32.389Z",
                             "instance": "b7948736761f702bda2a6451e31cd6dd",
                             "keepAlive": 0
                         }
@@ -3248,7 +5093,8 @@
                         "bit": 0,
                         "key": "",
                         "enabled": false,
-                        "moduleId": 0
+                        "moduleId": 0,
+                        "lastCOFSValue": 0
                     },
                     "masking": {
                         "bit": 0,
@@ -3289,8 +5135,8 @@
                                 "name": "N3H_Tele_RX[5]",
                                 "type": 195,
                                 "bitIndex": null,
-                                "value": null,
-                                "controllerValue": null,
+                                "value": 0,
+                                "controllerValue": 0,
                                 "path": {
                                     "type": "Buffer",
                                     "data": [
@@ -3320,7 +5166,7 @@
                                 "code": null,
                                 "status": null
                             },
-                            "timestamp": "2023-10-11T12:54:21.949Z",
+                            "timestamp": "2023-10-12T07:50:32.400Z",
                             "instance": "92bafd4719b8fb0370d7e90a8a40b6ce",
                             "keepAlive": 0
                         }
@@ -3342,7 +5188,8 @@
                         "bit": 0,
                         "key": "",
                         "enabled": false,
-                        "moduleId": 0
+                        "moduleId": 0,
+                        "lastCOFSValue": 0
                     },
                     "masking": {
                         "bit": 0,
@@ -3383,8 +5230,8 @@
                                 "name": "N3H_Tele_RX[6]",
                                 "type": 195,
                                 "bitIndex": null,
-                                "value": null,
-                                "controllerValue": null,
+                                "value": 0,
+                                "controllerValue": 0,
                                 "path": {
                                     "type": "Buffer",
                                     "data": [
@@ -3414,7 +5261,7 @@
                                 "code": null,
                                 "status": null
                             },
-                            "timestamp": "2023-10-11T12:54:21.949Z",
+                            "timestamp": "2023-10-12T07:50:32.412Z",
                             "instance": "e16e01e428a7fa62a06d0ffcc31f1a28",
                             "keepAlive": 0
                         }
@@ -3436,7 +5283,8 @@
                         "bit": 0,
                         "key": "",
                         "enabled": false,
-                        "moduleId": 0
+                        "moduleId": 0,
+                        "lastCOFSValue": 0
                     },
                     "masking": {
                         "bit": 0,
@@ -3477,8 +5325,8 @@
                                 "name": "N3H_Tele_RX[7]",
                                 "type": 195,
                                 "bitIndex": null,
-                                "value": null,
-                                "controllerValue": null,
+                                "value": 0,
+                                "controllerValue": 0,
                                 "path": {
                                     "type": "Buffer",
                                     "data": [
@@ -3508,7 +5356,7 @@
                                 "code": null,
                                 "status": null
                             },
-                            "timestamp": "2023-10-11T12:54:21.950Z",
+                            "timestamp": "2023-10-12T07:50:32.427Z",
                             "instance": "3e9586c2150852f8af515fbcef660d03",
                             "keepAlive": 0
                         }
@@ -3530,7 +5378,8 @@
                         "bit": 0,
                         "key": "",
                         "enabled": false,
-                        "moduleId": 0
+                        "moduleId": 0,
+                        "lastCOFSValue": 0
                     },
                     "masking": {
                         "bit": 0,
@@ -3571,8 +5420,8 @@
                                 "name": "N3H_Tele_RX[8]",
                                 "type": 195,
                                 "bitIndex": null,
-                                "value": null,
-                                "controllerValue": null,
+                                "value": 0,
+                                "controllerValue": 0,
                                 "path": {
                                     "type": "Buffer",
                                     "data": [
@@ -3602,7 +5451,7 @@
                                 "code": null,
                                 "status": null
                             },
-                            "timestamp": "2023-10-11T12:54:21.950Z",
+                            "timestamp": "2023-10-12T07:50:32.435Z",
                             "instance": "b2f4f509884090c668af5d190f94c6dd",
                             "keepAlive": 0
                         }
@@ -3624,7 +5473,8 @@
                         "bit": 0,
                         "key": "",
                         "enabled": false,
-                        "moduleId": 0
+                        "moduleId": 0,
+                        "lastCOFSValue": 0
                     },
                     "masking": {
                         "bit": 0,
@@ -3665,8 +5515,8 @@
                                 "name": "N3H_Tele_RX[9]",
                                 "type": 195,
                                 "bitIndex": null,
-                                "value": null,
-                                "controllerValue": null,
+                                "value": 0,
+                                "controllerValue": 0,
                                 "path": {
                                     "type": "Buffer",
                                     "data": [
@@ -3696,7 +5546,7 @@
                                 "code": null,
                                 "status": null
                             },
-                            "timestamp": "2023-10-11T12:54:21.950Z",
+                            "timestamp": "2023-10-12T07:50:32.460Z",
                             "instance": "449d8b46d9141f6c12fff240c92ee69b",
                             "keepAlive": 0
                         }
