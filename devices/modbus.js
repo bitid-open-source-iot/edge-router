@@ -24,6 +24,7 @@ module.exports = class extends EventEmitter {
             this.enabled = args.enabled;
             this.publish = args.publish || false
             this.deviceId = args.deviceId;
+            this.cofs = args.cofs;
             this.id = args.id;
             this.controller = null;
             this.description = args.description;
@@ -33,8 +34,6 @@ module.exports = class extends EventEmitter {
             this.busy = false
 
             this.test = 0
-
-            this.cofs = new COFS()
 
             setInterval(() => {
                 this.test += 1

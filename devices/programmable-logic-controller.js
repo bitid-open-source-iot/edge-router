@@ -25,12 +25,12 @@ module.exports = class extends EventEmitter {
         this.enabled = args.enabled;
         this.barcode = args.barcode;
         this.deviceId = args.deviceId;
+        this.cofs = args.cofs;
         this.id = args.id;
         this.controller = new Controller();
         this.lastConnection = new Date();
         this.publish = args.publish || false;
         
-        this.cofs = new COFS()
 
         this.on('data', () => {
             if (__socket) {

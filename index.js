@@ -7,6 +7,7 @@ const scaling = require('./lib/scaling');
 const WebSocket = require('./lib/socket').WebSocket;
 const responder = require('./lib/responder');
 const ErrorResponse = require('./lib/error-response');
+const COFS = require('./lib/cofs');
 
 /* --- DEVICES --- */
 const Modbus = require('./devices/modbus');
@@ -236,6 +237,8 @@ try {
             var deferred = Q.defer();
 
             try {
+                let cofs = new COFS()
+                __settings.cofs = cofs
                 __router = new EdgeRouter(__settings);
 
 
@@ -262,6 +265,7 @@ try {
 
                 __settings.devices.filter(o => o.enabled).map(o => {
                     try{
+                        o.cofs = cofs
                         switch (o.type) {
                             case ('tcpClient'):
                                 var device = new TcpClientDevice(o);

@@ -1,6 +1,5 @@
 const MQTT = require('mqtt');
 const TCPCLIENT = require('../lib/tcpClient')
-const COFS = require('../lib/cofs')
 const EventEmitter = require('events').EventEmitter;
 const dates = require('../lib/dates');
 
@@ -50,9 +49,9 @@ module.exports = class extends EventEmitter {
         this.timeout = args.timeout;
         this.barcode = args.barcode;
         this.deviceId = args.deviceId;
+        this.cofs = args.cofs;
 
 
-        this.cofs = new COFS()
         this.arrInterval = []
         this.arrTimeouts = []
 
@@ -390,22 +389,31 @@ module.exports = class extends EventEmitter {
 
     publish(data) {
         __arrPublisher.push(data)
+        console.log('__arrPublisher getting bigger', __arrPublisher.length)
     }
 
     publishOnInterval() {
-        if (__arrPublisher.length > 0) {
-            let arrToSend = __arrPublisher
-
-            return arrToSend.reduce((promise, message) => {
-                return promise.then(async () => {
-                    this.publishArrFromTimer(message)
-                    await this.wait(200)
-                    return
-                })
-            }, Promise.resolve())
-                .then(() => {
-                    __arrPublisher = []
-                })
+        try{
+            if (__arrPublisher.length > 0) {
+                let arrToSend = __arrPublisher
+    
+                return arrToSend.reduce((promise, message) => {
+                    return promise.then(async () => {
+                        this.publishArrFromTimer(message)
+                        await this.wait(200)
+                        return
+                    })
+                }, Promise.resolve())
+                    .then(() => {
+                        __arrPublisher = []
+                    })
+                    .finally(() => {                     
+                        __arrPublisher = []
+                    })
+            }
+        }catch(e){
+            console.error('error in publishOnInterval',e)
+            __arrPublisher = []
         }
     }
 
