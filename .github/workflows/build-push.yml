@@ -5,7 +5,7 @@ on:
     types:
       - created
 env:
-  REGISTRY_IMAGE: user/app
+  REGISTRY_IMAGE: shanebowyer/edge-router
 
 jobs:
   build:
