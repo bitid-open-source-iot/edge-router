@@ -38,6 +38,17 @@ export class InputOutput {
             enabled: false,
             moduleId: 0
         };
+    public externalData = <{
+        bit: number;
+        key: string;
+        enabled: boolean;
+        moduleId: number;
+    }>{
+            bit: 0,
+            key: '',
+            enabled: false,
+            moduleId: 0
+        };
     public masking = <{
         bit: number;
         enabled: boolean;
@@ -122,6 +133,20 @@ export class InputOutput {
                 };
                 if (typeof (args.publish.moduleId) != 'undefined' && args.publish.moduleId != null) {
                     this.publish.moduleId = args.publish.moduleId;
+                };
+            };
+            if (typeof (args.externalData) != 'undefined' && args.externalData != null) {
+                if (typeof (args.externalData.bit) != 'undefined' && args.externalData.bit != null) {
+                    this.externalData.bit = args.externalData.bit;
+                };
+                if (typeof (args.externalData.key) != 'undefined' && args.externalData.key != null) {
+                    this.externalData.key = args.externalData.key;
+                };
+                if (typeof (args.externalData.enabled) != 'undefined' && args.externalData.enabled != null) {
+                    this.externalData.enabled = args.externalData.enabled;
+                };
+                if (typeof (args.externalData.moduleId) != 'undefined' && args.externalData.moduleId != null) {
+                    this.externalData.moduleId = args.externalData.moduleId;
                 };
             };
             if (typeof (args.masking) != 'undefined' && args.masking != null) {

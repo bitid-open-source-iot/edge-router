@@ -38,6 +38,9 @@
                     <mat-option value="hostAgent">
                         Host Agent
                     </mat-option>
+                    <mat-option value="sigfox">
+                        Sigfox
+                    </mat-option>
                 </mat-select>
 
                 <mat-error *ngIf="errors.type">
@@ -72,6 +75,20 @@
                 </mat-error>
             </mat-form-field>
 
+
+            <mat-form-field appearance="outline" *ngIf="form.value.type != 'tcpServer' || (form.value.type == 'modbus' || form.value.type == 'programmable-logic-controller')">
+                <mat-label>
+                    Barcode
+                </mat-label>
+
+                <input matInput type="text" placeholder="barcode" formControlName="barcode" >
+
+                <mat-error *ngIf="errors.barcode">
+                    {{ errors.barcode }}
+                </mat-error>
+            </mat-form-field>
+
+
             <mat-form-field appearance="outline" *ngIf="form.value.type == 'modbus'">
                 <mat-label>
                     Unit ID
@@ -86,7 +103,7 @@
 
         </section>
 
-        <section>
+        <section *ngIf="form.value.type != 'sigfox'">
             <mat-form-field appearance="outline">
                 <mat-label>
                     IP
@@ -243,18 +260,6 @@
                     {{ errors.txtime }}
                 </mat-error>
             </mat-form-field>
-
-            <mat-form-field appearance="outline" *ngIf="form.value.type != 'tcpServer'">
-                <mat-label>
-                    Barcode
-                </mat-label>
-
-                <input matInput type="text" placeholder="barcode" formControlName="barcode" >
-
-                <mat-error *ngIf="errors.barcode">
-                    {{ errors.barcode }}
-                </mat-error>
-            </mat-form-field>
         </section>
 
         <mat-form-field appearance="outline">
@@ -282,12 +287,12 @@
             </td>
         </ng-container>
 
-        <ng-container matColumnDef="key">
+        <ng-container matColumnDef="externalData.key">
             <th mat-header-cell *matHeaderCellDef mat-sort-header>
-                Key
+                externalData Key
             </th>
             <td mat-cell *matCellDef="let element">
-                {{ element.key }}
+                {{ element.externalData.key }}
             </td>
         </ng-container>
 

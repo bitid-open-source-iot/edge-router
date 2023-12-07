@@ -82,7 +82,7 @@
                 </mat-label>
 
                 <input matInput type="number" min="0" placeholder="moduleId" formControlName="moduleId"
-                    [required]="type == 'external'">
+                    [required]="type == 'external' || type == 'sigfox'">
 
                 <mat-error *ngIf="errors.publish.moduleId">
                     {{ errors.publish.moduleId }}
@@ -94,7 +94,7 @@
                     Key
                 </mat-label>
 
-                <mat-select placeholder="key" formControlName="key" [required]="type == 'external'">
+                <mat-select placeholder="key" formControlName="key" [required]="type == 'external' || type == 'sigfox'">
                     <mat-option *ngFor="let key of keys" [value]="key">
                         {{ key }}
                     </mat-option>
@@ -113,7 +113,7 @@
                 </mat-label>
 
                 <input matInput type="number" min="-1" placeholder="bit" formControlName="bit"
-                    [required]="type == 'external' || form.value.publish.key == 'digitalsIn'">
+                    [required]="(type == 'external' || type == 'sigfox' || form.value.publish.key == 'digitalsIn') && form.value.publish.enabled == 'true'">
 
                 <mat-error *ngIf="errors.publish.bit">
                     {{ errors.publish.bit }}
@@ -176,18 +176,18 @@
 
 
 
-        <h2 *ngIf="type == 'external'">
+        <h2 *ngIf="type == 'external' || type == 'sigfox'">
             External
         </h2>
 
-        <section *ngIf="type == 'external'">
+        <section formGroupName="externalData" *ngIf="type == 'external' || type == 'sigfox'">
             <mat-form-field appearance="outline">
                 <mat-label>
                     Module ID
                 </mat-label>
 
                 <input matInput type="number" min="0" placeholder="moduleId" formControlName="moduleId"
-                    [required]="type == 'external'">
+                    [required]="type == 'external' || type == 'sigfox'">
 
                 <mat-error *ngIf="errors.moduleId">
                     {{ errors.moduleId }}
@@ -199,7 +199,7 @@
                     Key
                 </mat-label>
 
-                <mat-select placeholder="key" formControlName="key" [required]="type == 'external'">
+                <mat-select placeholder="key" formControlName="key" [required]="type == 'external' || type == 'sigfox'">
                     <mat-option *ngFor="let key of keys" [value]="key">
                         {{ key }}
                     </mat-option>
@@ -211,7 +211,7 @@
             </mat-form-field>
         </section>
 
-        <section formGroupName="masking" *ngIf="type == 'external'">
+        <section formGroupName="masking" *ngIf="type == 'external' || type == 'sigfox'">
             <mat-form-field appearance="outline">
                 <mat-label>
                     Enable Mask
@@ -237,7 +237,7 @@
                 </mat-label>
 
                 <input matInput type="number" min="0" placeholder="bit" formControlName="bit"
-                    [required]="form.value.masking.enabled && type == 'external'">
+                    [required]="form.value.masking.enabled && (type == 'external' || type == 'sigfox')">
 
                 <mat-error *ngIf="errors.masking.bit">
                     {{ errors.masking.bit }}
@@ -245,14 +245,14 @@
             </mat-form-field>
         </section>
 
-        <section *ngIf="type == 'external'">
+        <section *ngIf="type == 'external' || type == 'sigfox'">
             <mat-form-field appearance="outline">
                 <mat-label>
                     Shift (right)
                 </mat-label>
 
-                <input matInput type="number" min="0" placeholder="shift" formControlName="shift"
-                    [required]="form.value.enabled && type == 'external'">
+                <input matInput type="number" min="-1" placeholder="shift" formControlName="shift"
+                    [required]="form.value.enabled && (type == 'external' || type == 'sigfox')">
 
                 <mat-error *ngIf="errors.shift">
                     {{ errors.shift }}
@@ -275,11 +275,11 @@
             </mat-form-field>
         </section>
 
-        <h2 *ngIf="type == 'external'">
+        <h2 *ngIf="type == 'external' || type == 'sigfox'">
             Scaling
         </h2>
 
-        <section *ngIf="type == 'external'">
+        <section *ngIf="type == 'external' || type == 'sigfox'">
             <mat-form-field appearance="outline" formGroupName="scaling">
                 <mat-label text-uppercase>
                     Type
@@ -310,7 +310,7 @@
             </mat-form-field>
         </section>
 
-        <div *ngIf="type == 'external'" formGroupName="scaling">
+        <div *ngIf="type == 'external' || type == 'sigfox'" formGroupName="scaling">
             <h2 *ngIf="form.value.scaling.type != 'ntc' && form.value.scaling.type != 'none'">
                 Raw
             </h2>

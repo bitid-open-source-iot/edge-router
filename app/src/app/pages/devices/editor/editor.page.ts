@@ -3,7 +3,7 @@ import { MatTableDataSource } from '@angular/material/table';
 import { Router, ActivatedRoute } from '@angular/router';
 import { OnInit, Component, OnDestroy } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import {TooltipPosition, MatTooltipModule} from '@angular/material/tooltip';
+import { TooltipPosition, MatTooltipModule } from '@angular/material/tooltip';
 
 /* --- DIALOGS --- */
 import { InputOutputDialog } from './input-output/input-output.dialog';
@@ -256,12 +256,12 @@ export class DevicesEditorPage implements OnInit, OnDestroy {
     }
 
     ngOnInit(): void {
-        
+
         this.observers.form = this.form.valueChanges.subscribe(data => {
             this.errors = this.formerror.validateForm(this.form, this.errors, true);
         });
 
-        this.observers.type = this.form.controls['type'].valueChanges.subscribe((type: 'tcpClient' | 'tcpServer' | 'modbus' | 'external' | 'programmable-logic-controller' | 'kGateway' | 'hostAgent') => {
+        this.observers.type = this.form.controls['type'].valueChanges.subscribe((type: 'tcpClient' | 'tcpServer' | 'modbus' | 'external' | 'programmable-logic-controller' | 'kGateway' | 'hostAgent' | 'sigfox') => {
             this.type = type;
             switch (type) {
                 case ('tcpClient'):
@@ -273,8 +273,9 @@ export class DevicesEditorPage implements OnInit, OnDestroy {
                 case ('modbus'):
                     this.columns = ['description', 'register', 'publish.enabled', 'publish.bit', 'publish.key', 'publish.moduleId'];
                     break;
+                case ('sigfox'):
                 case ('external'):
-                    this.columns = ['description', 'key', 'moduleId', 'masking.enabled', 'masking.bit', 'publish.enabled', 'publish.bit', 'publish.key', 'publish.moduleId'];
+                    this.columns = ['description', 'externalData.key', 'moduleId', 'masking.enabled', 'masking.bit', 'publish.enabled', 'publish.bit', 'publish.key', 'publish.moduleId'];
                     break;
                 case ('programmable-logic-controller'):
                     this.columns = ['description', 'tagId', 'interface', 'readable', 'writeable', 'publish.enabled', 'publish.bit', 'publish.key', 'publish.moduleId'];
@@ -285,7 +286,7 @@ export class DevicesEditorPage implements OnInit, OnDestroy {
                 case ('hostAgent'):
                     this.columns = ['description', 'register', 'publish.enabled', 'publish.bit', 'publish.key', 'publish.moduleId'];
                     break;
-                };
+            };
         });
 
         const params = this.route.snapshot.queryParams;

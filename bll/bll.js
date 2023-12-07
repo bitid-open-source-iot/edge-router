@@ -215,7 +215,12 @@ var module = function () {
                 };
 
                 try {
-                    __responder.success(req, res, __settings);
+                    let settings = {...__settings}
+                    delete settings.cofs
+                    settings.devices.map(device => {
+                        delete device.cofs
+                    })
+                    __responder.success(req, res, settings);
                 } catch (error) {
                     var err = new ErrorResponse();
                     err.error.errors[0].code = 503;
@@ -338,15 +343,21 @@ var module = function () {
 
         devices: {
 
-            add: async (req, res) => {
+            sigfox: async (req, res) => {
                 var args = {
                     req: req,
                     res: res
                 };
 
+                
+                __responder.success(req, res, args.result);                
+            },
 
-
-
+            add: async (req, res) => {
+                var args = {
+                    req: req,
+                    res: res
+                };
 
 
                 async function reorderIds(){
@@ -378,7 +389,13 @@ var module = function () {
                             password: o.password,
                         };
                     });
-                    const saved = await SaveConfig(__settings);
+                    let settings = {...__settings}
+                    settings.devices.map(device => {
+                        delete device.cofs
+                    })
+                    delete settings.cofs
+
+                    const saved = await SaveConfig(settings);
                     if (!saved) {
                         var err = new ErrorResponse();
                         err.error.errors[0].code = 503;
@@ -392,11 +409,6 @@ var module = function () {
     
                     return deferred.promise
                 }
-
-
-
-
-
 
 
                 try {
@@ -449,7 +461,13 @@ var module = function () {
                                 password: o.password,
                             };
                         });
-                        const saved = await SaveConfig(__settings);
+                        let settings = {...__settings}
+                        settings.devices.map(device => {
+                            delete device.cofs
+                        })
+                        delete settings.cofs
+    
+                        const saved = await SaveConfig(settings);
                         if (!saved) {
                             var err = new ErrorResponse();
                             err.error.errors[0].code = 503;
@@ -613,7 +631,13 @@ var module = function () {
                             })
                         }
 
-                        const saved = await SaveConfig(__settings);
+                        let settings = {...__settings}
+                        settings.devices.map(device => {
+                            delete device.cofs
+                        })
+                        delete settings.cofs
+
+                        const saved = await SaveConfig(settings);
                         if (!saved) {
                             var err = new ErrorResponse();
                             err.error.errors[0].code = 503;
@@ -676,7 +700,14 @@ var module = function () {
                             password: o.password,
                         };
                     });
-                    const saved = await SaveConfig(__settings);
+                    let settings = {...__settings}
+                    settings.devices.map(device => {
+                        delete device.cofs
+                    })
+                    delete settings.cofs
+
+
+                    const saved = await SaveConfig(settings);
                     if (!saved) {
                         var err = new ErrorResponse();
                         err.error.errors[0].code = 503;
@@ -727,7 +758,13 @@ var module = function () {
                         };
                     });
                     if (args.result.n > 0) {
-                        const saved = await SaveConfig(__settings);
+                        let settings = {...__settings}
+                        settings.devices.map(device => {
+                            delete device.cofs
+                        })
+                        delete settings.cofs
+    
+                        const saved = await SaveConfig(settings);
                         if (!saved) {
                             var err = new ErrorResponse();
                             err.error.errors[0].code = 503;

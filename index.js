@@ -18,6 +18,7 @@ const ProgrammableLogicController = require('./devices/programmable-logic-contro
 const KGATEWAY = require('./devices/kGateway')
 const TcpServerDevice = require('./devices/tcpSvrDevice');
 const TcpClientDevice = require('./devices/tcpClientDevice');
+const Sigfox = require('./devices/sigfox');
 
 const BitMask = require('./lib/bit-mask');
 
@@ -264,7 +265,7 @@ try {
                 })
 
                 __settings.devices.filter(o => o.enabled).map(o => {
-                    try{
+                    try {
                         o.cofs = cofs
                         switch (o.type) {
                             case ('tcpClient'):
@@ -317,11 +318,23 @@ try {
                                 });
                                 __devices.push(device);
                                 break;
+                            case ('sigfox'):
+                                var device = new Sigfox(o);
+                                device.on('change', async event => await __router.updateDeviceInputsThenActionMapping(device.id, event));
+                                device.on('data', async (event) => {
+                                    __socket.send('devices:data', {
+                                        data: device.values,
+                                        id: device.id
+                                    });
+                                });
+                                __devices.push(device);
+                                break;
+
                             default:
                                 __logger.warn('Device Type Not Found!')
                                 break;
                         };
-                    }catch(e){
+                    } catch (e) {
                         console.log(e)
                     }
                 });

@@ -16,6 +16,12 @@ export interface INPUT_OUTPUT {
         enabled: boolean;
         moduleId: number;
     };
+    externalData?: {
+        bit: number;
+        key: string;
+        enabled: boolean;
+        moduleId: number;
+    };
     masking?: {
         bit: number;
         enabled: boolean;
