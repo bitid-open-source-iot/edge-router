@@ -1,7 +1,9 @@
+const Q = require('q');
+const scaling = require('../lib/scaling').module();
 const EventEmitter = require('events').EventEmitter;
 
 class SIGFOX extends EventEmitter {
-    constructor(){
+    constructor(args) {
         super();
 
         this.io = args.io;
@@ -18,9 +20,10 @@ class SIGFOX extends EventEmitter {
         this.id = args.id;
         this.lastConnection = new Date();
         this.publish = args.publish || false;
+        this.cofs = args.cofs;
 
-        this.io.map(item=>{
-            if(item.key == 'commsStatus'){
+        this.io.map(item => {
+            if (item.key == 'commsStatus') {
                 this.timeout = parseInt(item.cofs)
             }
         })
@@ -36,7 +39,7 @@ class SIGFOX extends EventEmitter {
     }
 
 
-    async processData(req){
+    async processData(req) {
         var deferred = Q.defer();
 
         var self = this;
@@ -57,7 +60,7 @@ class SIGFOX extends EventEmitter {
             }
         }
 
-        var time = new dates.module().compressDateGlog(new Date(deviceTime * 1000), 2);
+        var time = new Date(deviceTime * 1000);
         var data = req.body.data;
         var rtuId = parseInt(device, 16);
         var args = {
@@ -99,89 +102,17 @@ class SIGFOX extends EventEmitter {
             arrData.push(parseInt(data.substring(i, i + 2), 16));
         };
 
-
-        switch (parseInt(req.body.type)) {
-            case (1):
-                let sensorType = parseInt(arrData[0])
-                let status = parseInt(arrData[1])
-                let parameter1 = (parseInt(arrData[2]) << 8) + parseInt(arrData[3])
-                let parameter2 = (parseInt(arrData[4]) << 8) + parseInt(arrData[5])
-                let battery = (status & 192) >> 6
-
-                switch (battery) {
-                    case (0):
-                        battery = 10
-                        break
+        let bFound = false
+        switch (req.body.deviceType) {
+            case ('daviteqUltrasonic'):
+                switch (parseInt(req.body.type)) {
                     case (1):
-                        battery = 30
-                        break
-                    case (2):
-                        battery = 60
-                        break
-                    case (3):
-                        battery = 99
-                        break
-                    default:
-                        battery = -1
-                }
-                args.values.BATT = battery
-
-                let statusAlarm2 = status & 3
-                switch (statusAlarm2) {
-                    case (0):
-                        args.values.digitalsIn += 0
-                        break
-                    case (1):
-                        args.values.digitalsIn += 1
-                        break
-                    case (3):
-                        args.values.digitalsIn += 2
-                        break
-                    default:
-                        console.error('unhandled switch1 in sigfoxDaviteqUltrasonic')
-                }
-
-
-                let statusAlarm1 = (status & 12) >> 2
-                switch (statusAlarm1) {
-                    case (0):
-                        args.values.digitalsIn += 0
-                        break
-                    case (1):
-                        args.values.digitalsIn += (1 << 2)
-                        break
-                    case (3):
-                        args.values.digitalsIn += (2 << 2)
-                        break
-                    default:
-                        console.error('unhandled switch2 in sigfoxDaviteqUltrasonic')
-                }
-
-                args.values.digitalsIn += (status & 48)
-
-                args.values.AI1 = parameter1 //Level
-                args.values.AI2 = sensorType
-                args.values.AI3 = parameter1
-                args.values.AI4 = parameter2
-                break;
-            case (2):
-                /**
-                 * wtf why do I need to rotate the data right 4 bits? Doesnt make sense according to the documentation
-                */
-                let eventId = (parseInt(arrData[0]) >> 4) & 15
-                switch (eventId) {
-                    case (0):   //startup
-                    case (1):   //heartbeat
-                    case (2):   //parameters update
-                        break
-                    case (3):
-                    case (4):
-                    case (5):
-                        let hardwareError = (parseInt(arrData[0]) & 16) >> 4
-                        let battery = (parseInt(arrData[1]) & 12) >> 2
-                        let alarm = (parseInt(arrData[1]) & 2)
-                        let level = (parseInt(arrData[2]) << 8) + parseInt(arrData[3])
-                        let distance = (parseInt(arrData[4]) << 8) + parseInt(arrData[5])
+                        bFound = true
+                        let sensorType = parseInt(arrData[0])
+                        let status = parseInt(arrData[1])
+                        let parameter1 = (parseInt(arrData[2]) << 8) + parseInt(arrData[3])
+                        let parameter2 = (parseInt(arrData[4]) << 8) + parseInt(arrData[5])
+                        let battery = (status & 192) >> 6
 
                         switch (battery) {
                             case (0):
@@ -201,9 +132,24 @@ class SIGFOX extends EventEmitter {
                         }
                         args.values.BATT = battery
 
-                        args.values.digitalsIn += hardwareError
+                        let statusAlarm2 = status & 3
+                        switch (statusAlarm2) {
+                            case (0):
+                                args.values.digitalsIn += 0
+                                break
+                            case (1):
+                                args.values.digitalsIn += 1
+                                break
+                            case (3):
+                                args.values.digitalsIn += 2
+                                break
+                            default:
+                                console.error('unhandled switch1 in sigfoxDaviteqUltrasonic')
+                        }
 
-                        switch (alarm) {
+
+                        let statusAlarm1 = (status & 12) >> 2
+                        switch (statusAlarm1) {
                             case (0):
                                 args.values.digitalsIn += 0
                                 break
@@ -211,55 +157,158 @@ class SIGFOX extends EventEmitter {
                                 args.values.digitalsIn += (1 << 2)
                                 break
                             case (3):
-                                args.values.digitalsIn += (1 << 3)
+                                args.values.digitalsIn += (2 << 2)
                                 break
                             default:
                                 console.error('unhandled switch2 in sigfoxDaviteqUltrasonic')
                         }
 
+                        args.values.digitalsIn += (status & 48)
 
-                        args.values.AI1 = level
-                        args.values.AI3 = distance
-                        break
+                        args.values.AI1 = parameter1 //Level
+                        args.values.AI2 = sensorType
+                        args.values.AI3 = parameter1
+                        args.values.AI4 = parameter2
+                        break;
+                    case (2):
+                        /**
+                         * wtf why do I need to rotate the data right 4 bits? Doesnt make sense according to the documentation
+                        */
+                        bFound = true
+                        let eventId = (parseInt(arrData[0]) >> 4) & 15
+                        switch (eventId) {
+                            case (0):   //startup
+                            case (1):   //heartbeat
+                            case (2):   //parameters update
+                                break
+                            case (3):
+                            case (4):
+                            case (5):
+                                let hardwareError = (parseInt(arrData[0]) & 16) >> 4
+                                let battery = (parseInt(arrData[1]) & 12) >> 2
+                                let alarm = (parseInt(arrData[1]) & 2)
+                                let level = (parseInt(arrData[2]) << 8) + parseInt(arrData[3])
+                                let distance = (parseInt(arrData[4]) << 8) + parseInt(arrData[5])
+
+                                switch (battery) {
+                                    case (0):
+                                        battery = 10
+                                        break
+                                    case (1):
+                                        battery = 30
+                                        break
+                                    case (2):
+                                        battery = 60
+                                        break
+                                    case (3):
+                                        battery = 99
+                                        break
+                                    default:
+                                        battery = -1
+                                }
+                                args.values.BATT = battery
+
+                                args.values.digitalsIn += hardwareError
+
+                                switch (alarm) {
+                                    case (0):
+                                        args.values.digitalsIn += 0
+                                        break
+                                    case (1):
+                                        args.values.digitalsIn += (1 << 2)
+                                        break
+                                    case (3):
+                                        args.values.digitalsIn += (1 << 3)
+                                        break
+                                    default:
+                                        console.error('unhandled switch2 in sigfoxDaviteqUltrasonic')
+                                }
+
+
+                                args.values.AI1 = level
+                                args.values.AI3 = distance
+                                break
+                            default:
+                                console.error('unhandled switch1 in sigfoxDaviteqUltrasonic')
+                        }
+
+                        break;
+
                     default:
-                        console.error('unhandled switch1 in sigfoxDaviteqUltrasonic')
+                        console.error('Unhandled case for sigfoxDaviteqUltrasonicDriver')
+                        deferred.reject('Unhandled case for sigfoxDaviteqUltrasonicDriver')
                 }
 
-                break;
-
+                break
             default:
-                console.error('Unhandled case for sigfoxDaviteqUltrasonicDriver')
-                deferred.reject('Unhandled case for sigfoxDaviteqUltrasonicDriver')
+                console.log('ubhandled sigfox deviceType', req.body.deviceType)
         }
 
-        try{
-            await self.processIO(args)
-            deferred.resolve()
-        }catch(e){
+
+        try {
+            if (bFound) {
+                await self.processIO(args)
+                deferred.resolve()
+            }
+        } catch (e) {
             deferred.reject(e)
         }
 
         deferred.resolve();
     }
 
-    async processIO(args){
+    async processIO(args) {
+        var change = false;
         await this.io.reduce((promise, item) => {
             return promise.then(async () => {
                 var deferred = Q.defer();
 
+                var regValue = 0
+                switch (item.scaling.type) {
+                    case ('linear'):
+                        regValue = scaling.scaleAnalog(parseFloat(args.values[item.externalData.key]), item.scaling.raw.low, item.scaling.raw.high, item.scaling.scaled.low, item.scaling.scaled.high, false)
+                        break
+                    case ('ntc'):
+                        regValue = scaling.scaleNTC(parseFloat(args.values[item.externalData.key]))
+                        break
+                    default:
+                        regValue = parseFloat(args.values[item.externalData.key])
+                }
 
-                console.log('item', item)
+
+                let io = this.values.find(o => o.inputId == item.inputId)
+                if(io){
+                    if (this.forceChange == true) {
+                        change = true;
+                        io.value = regValue;
+                    }else{
+                        item.value = regValue
+                        if(!change){
+                            change = await this.cofs.checkCOFS(item);
+                        }
+                        io.value = regValue;
+                    }
+                }else{
+                    change = true;
+                    this.values.push({
+                        value: regValue,
+                        inputId: item.inputId
+                    });
+                }
+
+
+                deferred.resolve();
 
                 return deferred.promise;
             });
         }, Promise.resolve())
-        .then(() => {
-            this.emit('data', this.values);
-            if (change) {
-                this.forceChange = false
-                this.emit('change', this.values);
-            };
-        });
+            .then(() => {
+                this.emit('data', this.values);
+                if (change) {
+                    this.forceChange = false
+                    this.emit('change', this.values);
+                };
+            });
 
     }
 
