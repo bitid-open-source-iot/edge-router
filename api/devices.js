@@ -30,4 +30,10 @@ router.post('/delete', (req, res) => {
     myModule.devices.delete(req, res);
 });
 
+router.put('/sigfox', (req, res) => {
+    var myModule = bll.module();
+    myModule.devices.sigfox(req, res);
+});
+
+
 module.exports = router;

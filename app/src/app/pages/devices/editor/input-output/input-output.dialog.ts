@@ -14,7 +14,7 @@ import { InputOutput } from 'src/app/classes/input-output';
 
 export class InputOutputDialog implements OnInit, OnDestroy {
 
-    constructor(private dialog: MatDialogRef<InputOutputDialog>, @Inject(MAT_DIALOG_DATA) private config: { io: InputOutput, type: 'modbus' | 'external' | 'programmable-logic-controller' | 'kGateway' | 'hostAgent' }, private formerror: FormErrorService) { }
+    constructor(private dialog: MatDialogRef<InputOutputDialog>, @Inject(MAT_DIALOG_DATA) private config: { io: InputOutput, type: 'modbus' | 'external' | 'programmable-logic-controller' | 'kGateway' | 'hostAgent' | 'sigfox' }, private formerror: FormErrorService) { }
 
     public keys: string[] = [
         'AI1',
@@ -69,6 +69,12 @@ export class InputOutputDialog implements OnInit, OnDestroy {
             enabled: new FormControl(this.config.io?.publish?.enabled, [Validators.required]),
             moduleId: new FormControl(this.config.io?.publish?.moduleId)
         }),
+        externalData: new FormGroup({
+            bit: new FormControl(this.config.io?.externalData?.bit),
+            key: new FormControl(this.config.io?.externalData?.key),
+            enabled: new FormControl(this.config.io?.externalData?.enabled, [Validators.required]),
+            moduleId: new FormControl(this.config.io?.externalData?.moduleId)
+        }),
         masking: new FormGroup({
             bit: new FormControl(this.config.io?.masking?.bit, [Validators.required]),
             enabled: new FormControl(this.config.io?.masking?.enabled, [Validators.required]),
@@ -87,7 +93,6 @@ export class InputOutputDialog implements OnInit, OnDestroy {
             isHoldingRegister: new FormControl(this.config.io?.modbus?.isHoldingRegister),
         }),
         command: new FormControl(this.config.io?.command),
-        key: new FormControl(this.config.io?.key),
         tagId: new FormControl(this.config.io?.tagId),
         shift: new FormControl(this.config.io?.shift),
         inputId: new FormControl(this.config.io?.inputId, [Validators.required]),
@@ -118,6 +123,12 @@ export class InputOutputDialog implements OnInit, OnDestroy {
             enabled: '',
             moduleId: ''
         },
+        externalData: {
+            bit: '',
+            key: '',
+            enabled: '',
+            moduleId: ''
+        },
         masking: {
             bit: '',
             enabled: ''
@@ -134,7 +145,6 @@ export class InputOutputDialog implements OnInit, OnDestroy {
             isCoil: '',
             isHoldingRegister: ''
         },
-        key: '',
         tagId: '',
         shift: '',
         inputId: '',
@@ -215,9 +225,8 @@ export class InputOutputDialog implements OnInit, OnDestroy {
                 this.form.controls['command'].setValidators([Validators.required]);
                 this.form.controls['command'].updateValueAndValidity();
                 break;
+            case ('sigfox'):
             case ('external'):
-                this.form.controls['key'].setValidators([Validators.required]);
-                this.form.controls['key'].updateValueAndValidity();
                 this.form.controls['shift'].setValidators([Validators.required]);
                 this.form.controls['shift'].updateValueAndValidity();
                 this.form.controls['moduleId'].setValidators([Validators.required]);
@@ -235,14 +244,24 @@ export class InputOutputDialog implements OnInit, OnDestroy {
                 break;
         };
 
-        this.observers.key = this.form.controls['key'].valueChanges.subscribe(key => {
+        this.observers.key =  (this.form.controls['publish'] as FormGroup).controls['key'].valueChanges.subscribe(key => {
             if (key == 'digitalsIn') {
-                this.form.controls['bit'].setValidators([Validators.required, Validators.min(-1)]);
+                (this.form.controls['publish'] as FormGroup).controls['bit'].setValidators([Validators.required, Validators.min(-1)]);
             } else {
-                this.form.controls['bit'].setValidators(null);
+                (this.form.controls['publish'] as FormGroup).controls['bit'].setValidators(null);
             };
-            this.form.controls['bit'].updateValueAndValidity();
+            (this.form.controls['publish'] as FormGroup).controls['bit'].updateValueAndValidity();
         });
+
+        this.observers.key =  (this.form.controls['externalData'] as FormGroup).controls['key'].valueChanges.subscribe(key => {
+            if (key == 'digitalsIn') {
+                (this.form.controls['externalData'] as FormGroup).controls['bit'].setValidators([Validators.required, Validators.min(-1)]);
+            } else {
+                (this.form.controls['externalData'] as FormGroup).controls['bit'].setValidators(null);
+            };
+            (this.form.controls['externalData'] as FormGroup).controls['bit'].updateValueAndValidity();
+        });
+
 
         this.observers.form = this.form.valueChanges.subscribe(data => {
             this.errors = this.formerror.validateForm(this.form, this.errors, true);

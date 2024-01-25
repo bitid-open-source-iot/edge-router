@@ -4712,7 +4712,8 @@
             "destination": {
                 "mask": -1,
                 "inputId": "65267dd94874df6f4e9c3064",
-                "deviceId": "000000000000000000000000"
+                "deviceId": "000000000000000000000000",
+                "destinationRegister": 4
             }
         },
         {
@@ -4725,7 +4726,8 @@
             "destination": {
                 "mask": -1,
                 "inputId": "65267df3676e7ce8de6da8f6",
-                "deviceId": "000000000000000000000000"
+                "deviceId": "000000000000000000000000",
+                "destinationRegister": 5
             }
         },
         {
@@ -4738,7 +4740,8 @@
             "destination": {
                 "mask": -1,
                 "inputId": "65267e392a23770f8514f242",
-                "deviceId": "000000000000000000000000"
+                "deviceId": "000000000000000000000000",
+                "destinationRegister": 6
             }
         },
         {
@@ -4751,7 +4754,8 @@
             "destination": {
                 "mask": -1,
                 "inputId": "65267e4c2e2ff35c327227b8",
-                "deviceId": "000000000000000000000000"
+                "deviceId": "000000000000000000000000",
+                "destinationRegister": 7
             }
         },
         {
@@ -4764,7 +4768,8 @@
             "destination": {
                 "mask": -1,
                 "inputId": "65267e6db8b8461e0ed77ba2",
-                "deviceId": "000000000000000000000000"
+                "deviceId": "000000000000000000000000",
+                "destinationRegister": 8
             }
         },
         {
@@ -4777,7 +4782,8 @@
             "destination": {
                 "mask": -1,
                 "inputId": "65267e81e43645b3cfcccd6d",
-                "deviceId": "000000000000000000000000"
+                "deviceId": "000000000000000000000000",
+                "destinationRegister": 9
             }
         },
         {
@@ -4790,7 +4796,8 @@
             "destination": {
                 "mask": -1,
                 "inputId": "65267e8ebec0bc527715fe56",
-                "deviceId": "000000000000000000000000"
+                "deviceId": "000000000000000000000000",
+                "destinationRegister": 10
             }
         },
         {
@@ -4803,7 +4810,8 @@
             "destination": {
                 "mask": -1,
                 "inputId": "65267ec0dbbfc65408fded45",
-                "deviceId": "000000000000000000000000"
+                "deviceId": "000000000000000000000000",
+                "destinationRegister": 11
             }
         },
         {
@@ -4816,7 +4824,8 @@
             "destination": {
                 "mask": -1,
                 "inputId": "65267ecd0e193cffd94e0cde",
-                "deviceId": "000000000000000000000000"
+                "deviceId": "000000000000000000000000",
+                "destinationRegister": 12
             }
         },
         {
@@ -4829,7 +4838,8 @@
             "destination": {
                 "mask": -1,
                 "inputId": "65267edca36dcb51524eb373",
-                "deviceId": "000000000000000000000000"
+                "deviceId": "000000000000000000000000",
+                "destinationRegister": 13
             }
         },
         {
@@ -4842,7 +4852,8 @@
             "destination": {
                 "mask": -1,
                 "inputId": "65267ee977ee387215e7f757",
-                "deviceId": "000000000000000000000000"
+                "deviceId": "000000000000000000000000",
+                "destinationRegister": 14
             }
         },
         {
@@ -4855,7 +4866,8 @@
             "destination": {
                 "mask": -1,
                 "inputId": "65267ef9bfd67308b932b080",
-                "deviceId": "000000000000000000000000"
+                "deviceId": "000000000000000000000000",
+                "destinationRegister": 15
             }
         },
         {
@@ -4868,7 +4880,8 @@
             "destination": {
                 "mask": -1,
                 "inputId": "65267f0626e25d0d679329c5",
-                "deviceId": "000000000000000000000000"
+                "deviceId": "000000000000000000000000",
+                "destinationRegister": 16
             }
         },
         {
@@ -4881,7 +4894,8 @@
             "destination": {
                 "mask": -1,
                 "inputId": "65267f135f978de83f26a131",
-                "deviceId": "000000000000000000000000"
+                "deviceId": "000000000000000000000000",
+                "destinationRegister": 17
             }
         },
         {
@@ -4894,7 +4908,8 @@
             "destination": {
                 "mask": -1,
                 "inputId": "65267f1f6c6912144a96b4f2",
-                "deviceId": "000000000000000000000000"
+                "deviceId": "000000000000000000000000",
+                "destinationRegister": 18
             }
         },
         {
@@ -4907,7 +4922,8 @@
             "destination": {
                 "mask": -1,
                 "inputId": "65267f2d086a98107e3df5be",
-                "deviceId": "000000000000000000000000"
+                "deviceId": "000000000000000000000000",
+                "destinationRegister": 19
             }
         },
         {
@@ -4920,7 +4936,8 @@
             "destination": {
                 "mask": -1,
                 "inputId": "65267f38907a244e4a85204b",
-                "deviceId": "000000000000000000000000"
+                "deviceId": "000000000000000000000000",
+                "destinationRegister": 20
             }
         },
         {
@@ -4933,7 +4950,8 @@
             "destination": {
                 "mask": -1,
                 "inputId": "65267f43060acb6c114c8ff0",
-                "deviceId": "000000000000000000000000"
+                "deviceId": "000000000000000000000000",
+                "destinationRegister": 21
             }
         },
         {
@@ -4946,7 +4964,8 @@
             "destination": {
                 "mask": -1,
                 "inputId": "65267f4e0649aeb8ba7d4934",
-                "deviceId": "000000000000000000000000"
+                "deviceId": "000000000000000000000000",
+                "destinationRegister": 22
             }
         },
         {
@@ -4959,7 +4978,8 @@
             "destination": {
                 "mask": -1,
                 "inputId": "65267f5c68702aa675a6c571",
-                "deviceId": "000000000000000000000000"
+                "deviceId": "000000000000000000000000",
+                "destinationRegister": 23
             }
         },
         {
@@ -4972,7 +4992,8 @@
             "destination": {
                 "mask": -1,
                 "inputId": "65267f6778913a1b00fa0f68",
-                "deviceId": "000000000000000000000000"
+                "deviceId": "000000000000000000000000",
+                "destinationRegister": 24
             }
         },
         {
@@ -4985,7 +5006,8 @@
             "destination": {
                 "mask": -1,
                 "inputId": "65267f76c0508eb737aae1bb",
-                "deviceId": "000000000000000000000000"
+                "deviceId": "000000000000000000000000",
+                "destinationRegister": 25
             }
         },
         {
@@ -4998,7 +5020,8 @@
             "destination": {
                 "mask": -1,
                 "inputId": "65268b46cba9739df42ca895",
-                "deviceId": "000000000000000000000000"
+                "deviceId": "000000000000000000000000",
+                "destinationRegister": 26
             }
         },
         {
@@ -5011,7 +5034,8 @@
             "destination": {
                 "mask": -1,
                 "inputId": "65268b502b5099a07f4cc155",
-                "deviceId": "000000000000000000000000"
+                "deviceId": "000000000000000000000000",
+                "destinationRegister": 27
             }
         },
         {
@@ -5024,7 +5048,8 @@
             "destination": {
                 "mask": -1,
                 "inputId": "65268b5b52da928ebb3145ed",
-                "deviceId": "000000000000000000000000"
+                "deviceId": "000000000000000000000000",
+                "destinationRegister": 28
             }
         },
         {
@@ -5037,7 +5062,8 @@
             "destination": {
                 "mask": -1,
                 "inputId": "65268b66d4aae27c8f454128",
-                "deviceId": "000000000000000000000000"
+                "deviceId": "000000000000000000000000",
+                "destinationRegister": 29
             }
         },
         {
@@ -5050,7 +5076,8 @@
             "destination": {
                 "mask": -1,
                 "inputId": "65268b716bd20b2e6d799996",
-                "deviceId": "000000000000000000000000"
+                "deviceId": "000000000000000000000000",
+                "destinationRegister": 30
             }
         },
         {
@@ -5063,7 +5090,8 @@
             "destination": {
                 "mask": -1,
                 "inputId": "65268b80ad3ca92e4f2fc54f",
-                "deviceId": "000000000000000000000000"
+                "deviceId": "000000000000000000000000",
+                "destinationRegister": 31
             }
         },
         {
@@ -5076,7 +5104,8 @@
             "destination": {
                 "mask": -1,
                 "inputId": "65268b8a21ea1c9f379a4aab",
-                "deviceId": "000000000000000000000000"
+                "deviceId": "000000000000000000000000",
+                "destinationRegister": 32
             }
         },
         {
@@ -5089,7 +5118,8 @@
             "destination": {
                 "mask": -1,
                 "inputId": "65268b8a21ea1c9f379a4aab",
-                "deviceId": "000000000000000000000000"
+                "deviceId": "000000000000000000000000",
+                "destinationRegister": 32
             }
         },
         {
@@ -5102,7 +5132,8 @@
             "destination": {
                 "mask": -1,
                 "inputId": "65268b947485c8aa34ca54df",
-                "deviceId": "000000000000000000000000"
+                "deviceId": "000000000000000000000000",
+                "destinationRegister": 33
             }
         },
         {
@@ -5115,7 +5146,8 @@
             "destination": {
                 "mask": -1,
                 "inputId": "65268b9f9da3048604a1bba7",
-                "deviceId": "000000000000000000000000"
+                "deviceId": "000000000000000000000000",
+                "destinationRegister": 34
             }
         },
         {
@@ -5128,7 +5160,8 @@
             "destination": {
                 "mask": -1,
                 "inputId": "65268baa737a11a872eee1f9",
-                "deviceId": "000000000000000000000000"
+                "deviceId": "000000000000000000000000",
+                "destinationRegister": 35
             }
         },
         {
@@ -5141,7 +5174,8 @@
             "destination": {
                 "mask": -1,
                 "inputId": "65268bb802898b427b684a8f",
-                "deviceId": "000000000000000000000000"
+                "deviceId": "000000000000000000000000",
+                "destinationRegister": 36
             }
         },
         {
@@ -5154,7 +5188,8 @@
             "destination": {
                 "mask": -1,
                 "inputId": "65268bc3ea3ef009a4bb98e6",
-                "deviceId": "000000000000000000000000"
+                "deviceId": "000000000000000000000000",
+                "destinationRegister": 37
             }
         },
         {
@@ -5167,7 +5202,8 @@
             "destination": {
                 "mask": -1,
                 "inputId": "65268be5a10ed95d37ee4537",
-                "deviceId": "000000000000000000000000"
+                "deviceId": "000000000000000000000000",
+                "destinationRegister": 38
             }
         },
         {
@@ -5180,7 +5216,8 @@
             "destination": {
                 "mask": -1,
                 "inputId": "65268bf1176a3f7a9ce96513",
-                "deviceId": "000000000000000000000000"
+                "deviceId": "000000000000000000000000",
+                "destinationRegister": 39
             }
         },
         {
@@ -5193,7 +5230,8 @@
             "destination": {
                 "mask": -1,
                 "inputId": "65268bff9e97b4da4ccda14a",
-                "deviceId": "000000000000000000000000"
+                "deviceId": "000000000000000000000000",
+                "destinationRegister": 40
             }
         }
     ],
