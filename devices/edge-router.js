@@ -63,14 +63,16 @@ module.exports = class extends EventEmitter {
         if (__settings.commsOption) {
             if (__settings.commsOption == 0) {
                 this.connectMQTT();
-            }else{
+                this.init()
+            }else if (__settings.commsOption == 1) {
                 this.connectTCPClient();    
+                this.init()
+            } else {
+                console.log('commsOption set to none')
             }
         } else {
-            this.connectMQTT();
+            console.log('commsOption not set')
         }
-        
-        this.init()
     }
 
     init() {
