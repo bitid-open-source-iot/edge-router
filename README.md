@@ -21,3 +21,14 @@ docker run --privileged --rm tonistiigi/binfmt --install all
 watch modpoll -p 5002 -l1000 -t4 -r 101 -c 5 -1 10.18.80.17
 ## Write 101
 modpoll -p 5002 -t4 -r 101 -c 1 10.18.80.17 1
+
+
+# Daviteq sigfox level callback config
+{
+  "device" : "{device}",
+  "deviceType" : "daviteqUltrasonic",
+  "type" : "2",
+  "data" : "{data}",
+  "time" : "{time}",
+  "linkquality" : "{linkQuality}"
+}

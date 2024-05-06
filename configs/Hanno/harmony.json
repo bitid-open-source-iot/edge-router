@@ -1,0 +1,885 @@
+{
+    "port": 8080,
+    "txtime": 1,
+    "barcode": "1",
+    "deviceId": "61bf28b82789da0ea7b5f197",
+    "production": true,
+    "authentication": true,
+    "admin": {
+        "email": "admin@bitid.co.za",
+        "password": "admin"
+    },
+    "server": {
+        "host": "mqtt://bitid.co.za",
+        "port": 1888,
+        "username": "telemetry",
+        "password": "telemetry1!",
+        "subscribe": {
+            "data": "/rock/v1.1.zdm/data",
+            "control": "/rock/v1.1.zdm/control"
+        }
+    },
+    "logger": {
+        "appenders": {
+            "edge-router": {
+                "type": "file",
+                "backups": 10,
+                "filename": "/var/www/node/edge-router/logs/edge-router.log",
+                "absolute": true,
+                "maxLogSize": 102400
+            }
+        },
+        "categories": {
+            "default": {
+                "appenders": [
+                    "edge-router"
+                ],
+                "level": "error"
+            }
+        }
+    },
+    "devices": [
+        {
+            "id": 1,
+            "io": [
+                {
+                    "scaling": {
+                        "raw": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "scaled": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "type": "none"
+                    },
+                    "publish": {
+                        "bit": 0,
+                        "key": "",
+                        "enabled": false,
+                        "moduleId": 0,
+                        "lastCOFSValue": 264
+                    },
+                    "externalData": {
+                        "bit": 0,
+                        "key": "",
+                        "enabled": false,
+                        "moduleId": 0
+                    },
+                    "masking": {
+                        "bit": 0,
+                        "enabled": false
+                    },
+                    "mqtt": {
+                        "userName": "",
+                        "password": "",
+                        "subscribe": {
+                            "data": "",
+                            "control": ""
+                        },
+                        "enabled": false
+                    },
+                    "modbus": {
+                        "isCoil": false,
+                        "isHoldingRegister": true
+                    },
+                    "key": "",
+                    "tagId": "",
+                    "value": 264,
+                    "shift": -1,
+                    "inputId": "619e28a2d5b6220d2ad97ba1",
+                    "register": 1,
+                    "moduleId": 0,
+                    "readable": true,
+                    "interface": "",
+                    "writeable": true,
+                    "description": "Sigfox 02F20D06 AI1",
+                    "cofs": -1,
+                    "command": "",
+                    "rtuId": 0
+                },
+                {
+                    "scaling": {
+                        "raw": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "scaled": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "type": "none"
+                    },
+                    "publish": {
+                        "bit": 0,
+                        "key": "",
+                        "enabled": false,
+                        "moduleId": 0,
+                        "lastCOFSValue": 0
+                    },
+                    "externalData": {
+                        "bit": 0,
+                        "key": "",
+                        "enabled": false,
+                        "moduleId": 0
+                    },
+                    "masking": {
+                        "bit": 0,
+                        "enabled": false
+                    },
+                    "mqtt": {
+                        "userName": "",
+                        "password": "",
+                        "subscribe": {
+                            "data": "",
+                            "control": ""
+                        },
+                        "enabled": false
+                    },
+                    "modbus": {
+                        "isCoil": false,
+                        "isHoldingRegister": true
+                    },
+                    "key": "",
+                    "tagId": "",
+                    "value": 0,
+                    "shift": -1,
+                    "inputId": "619e28da5ec5f6977ee6ea29",
+                    "register": 2,
+                    "moduleId": 0,
+                    "readable": true,
+                    "interface": "",
+                    "writeable": true,
+                    "description": "Sigfox 02F20D02 AI1",
+                    "cofs": -1,
+                    "command": "",
+                    "rtuId": 0
+                },
+                {
+                    "scaling": {
+                        "raw": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "scaled": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "type": "none"
+                    },
+                    "publish": {
+                        "bit": 0,
+                        "key": "",
+                        "enabled": false,
+                        "moduleId": 0,
+                        "lastCOFSValue": 0
+                    },
+                    "externalData": {
+                        "bit": 0,
+                        "key": "",
+                        "enabled": false,
+                        "moduleId": 0
+                    },
+                    "masking": {
+                        "bit": 0,
+                        "enabled": false
+                    },
+                    "mqtt": {
+                        "userName": "",
+                        "password": "",
+                        "subscribe": {
+                            "data": "",
+                            "control": ""
+                        },
+                        "enabled": false
+                    },
+                    "modbus": {
+                        "isCoil": false,
+                        "isHoldingRegister": true
+                    },
+                    "key": "",
+                    "tagId": "",
+                    "value": 0,
+                    "shift": -1,
+                    "inputId": "619e28f1d646868573886748",
+                    "register": 3,
+                    "moduleId": 0,
+                    "readable": true,
+                    "interface": "",
+                    "writeable": true,
+                    "description": "Sigfox 02F20D00 AI1",
+                    "cofs": -1,
+                    "command": "",
+                    "rtuId": 0
+                },
+                {
+                    "scaling": {
+                        "raw": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "scaled": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "type": "none"
+                    },
+                    "publish": {
+                        "bit": 0,
+                        "key": "",
+                        "enabled": false,
+                        "moduleId": 0,
+                        "lastCOFSValue": 0
+                    },
+                    "externalData": {
+                        "bit": 0,
+                        "key": "",
+                        "enabled": false,
+                        "moduleId": 0
+                    },
+                    "masking": {
+                        "bit": 0,
+                        "enabled": false
+                    },
+                    "mqtt": {
+                        "userName": "",
+                        "password": "",
+                        "subscribe": {
+                            "data": "",
+                            "control": ""
+                        },
+                        "enabled": false
+                    },
+                    "modbus": {
+                        "isCoil": false,
+                        "isHoldingRegister": true
+                    },
+                    "key": "",
+                    "tagId": "",
+                    "value": 0,
+                    "shift": -1,
+                    "inputId": "65268ccbdaf7d79a4de0517f",
+                    "register": 4,
+                    "moduleId": 0,
+                    "readable": true,
+                    "interface": "",
+                    "writeable": true,
+                    "description": "Sigfox 02A30E33 AI1",
+                    "cofs": "-1",
+                    "command": "",
+                    "rtuId": 0
+                }
+            ],
+            "ip": "192.168.0.21",
+            "port": 5002,
+            "softwarePort": 0,
+            "type": "modbus",
+            "txtime": 1,
+            "pxtime": 120,
+            "timeout": 120,
+            "barcode": "1",
+            "publish": false,
+            "enabled": true,
+            "unitId": 0,
+            "deviceId": "000000000000000000000000",
+            "description": "ADROIT SCADA",
+            "userName": "",
+            "password": ""
+        },
+        {
+            "id": 2,
+            "io": [
+                {
+                    "scaling": {
+                        "raw": {
+                            "low": 0,
+                            "high": 10000000000000
+                        },
+                        "scaled": {
+                            "low": 0,
+                            "high": 1000000000000
+                        },
+                        "type": "linear"
+                    },
+                    "publish": {
+                        "bit": 0,
+                        "key": "",
+                        "enabled": false,
+                        "moduleId": 0
+                    },
+                    "externalData": {
+                        "bit": 0,
+                        "key": "AI1",
+                        "enabled": false,
+                        "moduleId": 0
+                    },
+                    "masking": {
+                        "bit": 0,
+                        "enabled": false
+                    },
+                    "mqtt": {
+                        "userName": "",
+                        "password": "",
+                        "subscribe": {
+                            "data": "",
+                            "control": ""
+                        },
+                        "enabled": false
+                    },
+                    "modbus": {
+                        "isCoil": false,
+                        "isHoldingRegister": false
+                    },
+                    "key": "",
+                    "tagId": "",
+                    "value": 264,
+                    "shift": -1,
+                    "inputId": "6571f97f92a5afa72f261e00",
+                    "register": 0,
+                    "moduleId": 0,
+                    "readable": false,
+                    "interface": "",
+                    "writeable": false,
+                    "description": "AI1",
+                    "cofs": -1,
+                    "command": "",
+                    "rtuId": 0
+                },
+                {
+                    "scaling": {
+                        "raw": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "scaled": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "type": "none"
+                    },
+                    "publish": {
+                        "bit": 0,
+                        "key": "",
+                        "enabled": false,
+                        "moduleId": 0
+                    },
+                    "externalData": {
+                        "bit": 0,
+                        "key": "AI2",
+                        "enabled": false,
+                        "moduleId": 0
+                    },
+                    "masking": {
+                        "bit": 0,
+                        "enabled": false
+                    },
+                    "mqtt": {
+                        "userName": "",
+                        "password": "",
+                        "subscribe": {
+                            "data": "",
+                            "control": ""
+                        },
+                        "enabled": false
+                    },
+                    "modbus": {
+                        "isCoil": false,
+                        "isHoldingRegister": false
+                    },
+                    "key": "",
+                    "tagId": "",
+                    "value": null,
+                    "shift": -1,
+                    "inputId": "6571fa3d36768875034b1c9a",
+                    "register": 0,
+                    "moduleId": 0,
+                    "readable": false,
+                    "interface": "",
+                    "writeable": false,
+                    "description": "AI2",
+                    "cofs": -1,
+                    "command": "",
+                    "rtuId": 0
+                }
+            ],
+            "ip": "0.0.0.0",
+            "port": 0,
+            "type": "sigfox",
+            "txtime": 5,
+            "pxtime": 120,
+            "timeout": 120,
+            "barcode": "02F20D06",
+            "publish": false,
+            "enabled": true,
+            "unitId": 0,
+            "deviceId": "444444444444444444444444",
+            "description": "Sigfox 02F20D06",
+            "userName": "",
+            "password": ""
+        },
+        {
+            "id": 3,
+            "io": [
+                {
+                    "scaling": {
+                        "raw": {
+                            "low": 0,
+                            "high": 10000000000000
+                        },
+                        "scaled": {
+                            "low": 0,
+                            "high": 1000000000000
+                        },
+                        "type": "linear"
+                    },
+                    "publish": {
+                        "bit": 0,
+                        "key": "",
+                        "enabled": false,
+                        "moduleId": 0
+                    },
+                    "externalData": {
+                        "bit": 0,
+                        "key": "AI1",
+                        "enabled": false,
+                        "moduleId": 0
+                    },
+                    "masking": {
+                        "bit": 0,
+                        "enabled": false
+                    },
+                    "mqtt": {
+                        "userName": "",
+                        "password": "",
+                        "subscribe": {
+                            "data": "",
+                            "control": ""
+                        },
+                        "enabled": false
+                    },
+                    "modbus": {
+                        "isCoil": false,
+                        "isHoldingRegister": false
+                    },
+                    "key": "",
+                    "tagId": "",
+                    "value": 315.90000000000003,
+                    "shift": -1,
+                    "inputId": "6634c05ee6e415ad085cfe40",
+                    "register": 0,
+                    "moduleId": 0,
+                    "readable": false,
+                    "interface": "",
+                    "writeable": false,
+                    "description": "AI1",
+                    "cofs": -1,
+                    "command": "",
+                    "rtuId": 0
+                },
+                {
+                    "scaling": {
+                        "raw": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "scaled": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "type": "none"
+                    },
+                    "publish": {
+                        "bit": 0,
+                        "key": "",
+                        "enabled": false,
+                        "moduleId": 0
+                    },
+                    "externalData": {
+                        "bit": 0,
+                        "key": "AI2",
+                        "enabled": false,
+                        "moduleId": 0
+                    },
+                    "masking": {
+                        "bit": 0,
+                        "enabled": false
+                    },
+                    "mqtt": {
+                        "userName": "",
+                        "password": "",
+                        "subscribe": {
+                            "data": "",
+                            "control": ""
+                        },
+                        "enabled": false
+                    },
+                    "modbus": {
+                        "isCoil": false,
+                        "isHoldingRegister": false
+                    },
+                    "key": "",
+                    "tagId": "",
+                    "value": 0,
+                    "shift": -1,
+                    "inputId": "6634c05ec3ddef74c114d15a",
+                    "register": 0,
+                    "moduleId": 0,
+                    "readable": false,
+                    "interface": "",
+                    "writeable": false,
+                    "description": "AI2",
+                    "cofs": -1,
+                    "command": "",
+                    "rtuId": 0
+                }
+            ],
+            "ip": "0.0.0.0",
+            "port": 0,
+            "softwarePort": 0,
+            "type": "sigfox",
+            "txtime": 5,
+            "pxtime": 120,
+            "timeout": 120,
+            "barcode": "02F20D02",
+            "publish": false,
+            "enabled": true,
+            "unitId": 0,
+            "deviceId": "555555555555555555555555",
+            "description": "Sigfox 02F20D02",
+            "userName": "",
+            "password": ""
+        },
+        {
+            "id": 4,
+            "io": [
+                {
+                    "scaling": {
+                        "raw": {
+                            "low": 0,
+                            "high": 10000000000000
+                        },
+                        "scaled": {
+                            "low": 0,
+                            "high": 1000000000000
+                        },
+                        "type": "linear"
+                    },
+                    "publish": {
+                        "bit": 0,
+                        "key": "",
+                        "enabled": false,
+                        "moduleId": 0
+                    },
+                    "externalData": {
+                        "bit": 0,
+                        "key": "AI1",
+                        "enabled": false,
+                        "moduleId": 0
+                    },
+                    "masking": {
+                        "bit": 0,
+                        "enabled": false
+                    },
+                    "mqtt": {
+                        "userName": "",
+                        "password": "",
+                        "subscribe": {
+                            "data": "",
+                            "control": ""
+                        },
+                        "enabled": false
+                    },
+                    "modbus": {
+                        "isCoil": false,
+                        "isHoldingRegister": false
+                    },
+                    "key": "",
+                    "tagId": "",
+                    "value": 315.90000000000003,
+                    "shift": -1,
+                    "inputId": "6634c0977d539ce80d60388e",
+                    "register": 0,
+                    "moduleId": 0,
+                    "readable": false,
+                    "interface": "",
+                    "writeable": false,
+                    "description": "AI1",
+                    "cofs": -1,
+                    "command": "",
+                    "rtuId": 0
+                },
+                {
+                    "scaling": {
+                        "raw": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "scaled": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "type": "none"
+                    },
+                    "publish": {
+                        "bit": 0,
+                        "key": "",
+                        "enabled": false,
+                        "moduleId": 0
+                    },
+                    "externalData": {
+                        "bit": 0,
+                        "key": "AI2",
+                        "enabled": false,
+                        "moduleId": 0
+                    },
+                    "masking": {
+                        "bit": 0,
+                        "enabled": false
+                    },
+                    "mqtt": {
+                        "userName": "",
+                        "password": "",
+                        "subscribe": {
+                            "data": "",
+                            "control": ""
+                        },
+                        "enabled": false
+                    },
+                    "modbus": {
+                        "isCoil": false,
+                        "isHoldingRegister": false
+                    },
+                    "key": "",
+                    "tagId": "",
+                    "value": 0,
+                    "shift": -1,
+                    "inputId": "6634c097752d2af7baaae1d2",
+                    "register": 0,
+                    "moduleId": 0,
+                    "readable": false,
+                    "interface": "",
+                    "writeable": false,
+                    "description": "AI2",
+                    "cofs": -1,
+                    "command": "",
+                    "rtuId": 0
+                }
+            ],
+            "ip": "0.0.0.0",
+            "port": 0,
+            "softwarePort": 0,
+            "type": "sigfox",
+            "txtime": 5,
+            "pxtime": 120,
+            "timeout": 120,
+            "barcode": "02F20D00",
+            "publish": false,
+            "enabled": true,
+            "unitId": 0,
+            "deviceId": "666666666666666666666666",
+            "description": "Sigfox 02F20D00",
+            "userName": "",
+            "password": ""
+        },
+        {
+            "id": 5,
+            "io": [
+                {
+                    "scaling": {
+                        "raw": {
+                            "low": 0,
+                            "high": 10000000000000
+                        },
+                        "scaled": {
+                            "low": 0,
+                            "high": 1000000000000
+                        },
+                        "type": "linear"
+                    },
+                    "publish": {
+                        "bit": 0,
+                        "key": "",
+                        "enabled": false,
+                        "moduleId": 0
+                    },
+                    "externalData": {
+                        "bit": 0,
+                        "key": "AI1",
+                        "enabled": false,
+                        "moduleId": 0
+                    },
+                    "masking": {
+                        "bit": 0,
+                        "enabled": false
+                    },
+                    "mqtt": {
+                        "userName": "",
+                        "password": "",
+                        "subscribe": {
+                            "data": "",
+                            "control": ""
+                        },
+                        "enabled": false
+                    },
+                    "modbus": {
+                        "isCoil": false,
+                        "isHoldingRegister": false
+                    },
+                    "key": "",
+                    "tagId": "",
+                    "value": 315.90000000000003,
+                    "shift": -1,
+                    "inputId": "6634c0b17e7605a29fdc268a",
+                    "register": 0,
+                    "moduleId": 0,
+                    "readable": false,
+                    "interface": "",
+                    "writeable": false,
+                    "description": "AI1",
+                    "cofs": -1,
+                    "command": "",
+                    "rtuId": 0
+                },
+                {
+                    "scaling": {
+                        "raw": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "scaled": {
+                            "low": 0,
+                            "high": 0
+                        },
+                        "type": "none"
+                    },
+                    "publish": {
+                        "bit": 0,
+                        "key": "",
+                        "enabled": false,
+                        "moduleId": 0
+                    },
+                    "externalData": {
+                        "bit": 0,
+                        "key": "AI2",
+                        "enabled": false,
+                        "moduleId": 0
+                    },
+                    "masking": {
+                        "bit": 0,
+                        "enabled": false
+                    },
+                    "mqtt": {
+                        "userName": "",
+                        "password": "",
+                        "subscribe": {
+                            "data": "",
+                            "control": ""
+                        },
+                        "enabled": false
+                    },
+                    "modbus": {
+                        "isCoil": false,
+                        "isHoldingRegister": false
+                    },
+                    "key": "",
+                    "tagId": "",
+                    "value": 0,
+                    "shift": -1,
+                    "inputId": "6634c0b1400487eba9b8d078",
+                    "register": 0,
+                    "moduleId": 0,
+                    "readable": false,
+                    "interface": "",
+                    "writeable": false,
+                    "description": "AI2",
+                    "cofs": -1,
+                    "command": "",
+                    "rtuId": 0
+                }
+            ],
+            "ip": "0.0.0.0",
+            "port": 0,
+            "softwarePort": 0,
+            "type": "sigfox",
+            "txtime": 5,
+            "pxtime": 120,
+            "timeout": 120,
+            "barcode": "02A30E33",
+            "publish": false,
+            "enabled": true,
+            "unitId": 0,
+            "deviceId": "777777777777777777777777",
+            "description": "Sigfox 02A30E33",
+            "userName": "",
+            "password": ""
+        }
+    ],
+    "mapping": [
+        {
+            "mapId": "6572b2cfa229ab2cec29fdfd",
+            "source": {
+                "mask": -1,
+                "inputId": "6571f97f92a5afa72f261e00",
+                "deviceId": "444444444444444444444444"
+            },
+            "destination": {
+                "mask": -1,
+                "inputId": "619e28a2d5b6220d2ad97ba1",
+                "deviceId": "000000000000000000000000",
+                "destinationRegister": 1
+            }
+        },
+        {
+            "mapId": "6634c5a085924db947843441",
+            "source": {
+                "mask": -1,
+                "inputId": "6634c05ee6e415ad085cfe40",
+                "deviceId": "555555555555555555555555"
+            },
+            "destination": {
+                "mask": -1,
+                "inputId": "619e28da5ec5f6977ee6ea29",
+                "deviceId": "000000000000000000000000"
+            }
+        },
+        {
+            "mapId": "6634c5ade0591b673298baa3",
+            "source": {
+                "mask": -1,
+                "inputId": "6634c0977d539ce80d60388e",
+                "deviceId": "666666666666666666666666"
+            },
+            "destination": {
+                "mask": -1,
+                "inputId": "619e28f1d646868573886748",
+                "deviceId": "000000000000000000000000"
+            }
+        },
+        {
+            "mapId": "6634c5b946ca624642c705e6",
+            "source": {
+                "mask": -1,
+                "inputId": "6634c0b17e7605a29fdc268a",
+                "deviceId": "777777777777777777777777"
+            },
+            "destination": {
+                "mask": -1,
+                "inputId": "65268ccbdaf7d79a4de0517f",
+                "deviceId": "000000000000000000000000"
+            }
+        }
+    ],
+    "rateLimits": {
+        "rateLimitTmrSP": 60,
+        "rateLimitTxCountSP": 400
+    },
+    "apn": "tech5",
+    "publishEnabled": true,
+    "overideDeviceBarcode": "true",
+    "commsOption": "2",
+    "tcpClient": {
+        "host": "10.18.80.17",
+        "port": 1456
+    }
+}

@@ -1,9 +1,8 @@
 {
     "port": 8080,
     "txtime": 360,
-    "barcode": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
-    "enabled": true,
-    "deviceId": "xxx",
+    "barcode": "1",
+    "deviceId": "111111111111111111111111",
     "production": true,
     "authentication": true,
     "admin": {
@@ -40,5 +39,17 @@
         }
     },
     "devices": [],
-    "mapping": []
+    "mapping": [],
+    "rateLimits": {
+        "rateLimitTmrSP": 60,
+        "rateLimitTxCountSP": 400
+    },
+    "apn": "tech5",
+    "publishEnabled": true,
+    "overideDeviceBarcode": "true",
+    "commsOption": "2",
+    "tcpClient": {
+        "host": "10.18.80.17",
+        "port": 1456
+    }
 }
