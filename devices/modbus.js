@@ -119,6 +119,10 @@ module.exports = class extends EventEmitter {
                                 //convert 16 bit signed int to 16 bit unsigned int
                                 regValue = regValue + 65536
                             }
+
+                            if(item.masking.enabled == true){
+                                regValue = (regValue & Math.pow(2, item.masking.bit)) >> item.masking.bit
+                            }
                         } else {
                             await this.wait(200);
                             regValue = this.commsStatus
@@ -219,6 +223,7 @@ module.exports = class extends EventEmitter {
         var deferred = Q.defer()
 
 
+        // console.log(`writeModbus inputId: ${inputId} value: ${value}`)
         try {
             if (this.status == 'connected') {
                 let io = this.io.find(o => o.inputId == inputId)

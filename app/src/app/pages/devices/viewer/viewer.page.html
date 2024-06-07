@@ -18,7 +18,7 @@
     <div class="inputs-container">
         <div class="inputs" *ngFor="let input of device.io">
             <div class="input-description">
-                {{ input.description }}     
+                {{ input.description }} ({{ input.register }}) {{ (input.masking.enabled) ? '(bit: ' + input.masking.bit + ')' : ''}}
             </div>
     
             <div class="input-value">

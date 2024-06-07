@@ -525,7 +525,7 @@ try {
                                             deferred.resolve({})
                                         })
                                         .then(async () => {
-                                            await __router.mapping(event.rtuId, data)
+                                            await __router.updateDeviceInputsThenActionMapping(device.id, data)
                                         })
                                 };
 

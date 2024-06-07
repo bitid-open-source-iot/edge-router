@@ -211,7 +211,7 @@
             </mat-form-field>
         </section>
 
-        <section formGroupName="masking" *ngIf="type == 'external' || type == 'sigfox'">
+        <section formGroupName="masking" *ngIf="type == 'external' || type == 'sigfox' || type == 'modbus'">
             <mat-form-field appearance="outline">
                 <mat-label>
                     Enable Mask
