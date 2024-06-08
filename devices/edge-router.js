@@ -115,7 +115,11 @@ module.exports = class extends EventEmitter {
                                             if (io?.masking?.enabled == true) {
                                                 io.value = (ip.value & Math.pow(2, io.masking.bit)) >> io.masking.bit
                                             } else {
-                                                io.value = ip.value
+                                                if(io.shift > 0){
+                                                    io.value = ip.value >> io.shift
+                                                }else{
+                                                    io.value = ip.value
+                                                }
                                             }
 
                                         }

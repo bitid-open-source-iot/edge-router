@@ -463,39 +463,30 @@ try {
                                                 }
 
                                                 if (input.key != 'rtuDate') {
-                                                    if (input.shift > 0 && input.key.indexOf('digitalsIn') > -1 && typeof (event.dataIn[input.key]) != 'undefined' && event.dataIn[input.key] != null) {
-                                                        let shiftedValue = event.dataIn[input.key] >> input.shift;
-                                                        if (input.masking?.enabled == true) {
-                                                            tmp.value = BitMask(input.masking.bit, shiftedValue);
-                                                            input.value = BitMask(input.masking.bit, shiftedValue);
-                                                        } else {
-                                                            tmp.value = shiftedValue;
-                                                            input.value = shiftedValue;
-                                                        }
-                                                    } else if (input.masking?.enabled && input.key.indexOf('digitalsIn') > -1 && typeof (event.dataIn[input.key]) != 'undefined' && event.dataIn[input.key] != null) {
-                                                        tmp.value = BitMask(input.masking.bit, event.dataIn[input.key]);
-                                                        input.value = BitMask(input.masking.bit, event.dataIn[input.key]);
-                                                    } else if (input.key.indexOf('TEXT') == -1 && typeof (event.dataIn[input.key]) != 'undefined' && event.dataIn[input.key] != null) {
+                                                    if (input?.externalData?.key.indexOf('digitalsIn') > -1) {
+                                                        tmp.value = parseFloat(event.dataIn[input?.externalData?.key])
+                                                        input.value = tmp.value
+                                                    } else if (input?.externalData?.key.indexOf('TEXT') == -1 && typeof (event.dataIn[input?.externalData?.key]) != 'undefined' && event.dataIn[input?.externalData?.key] != null) {
                                                         switch (input.scaling?.type) {
                                                             case ('ntc'):
-                                                                tmp.value = new scaling.module().scaleNTC(parseInt(event.dataIn[input.key]));
-                                                                input.value = new scaling.module().scaleNTC(parseInt(event.dataIn[input.key]));
+                                                                tmp.value = new scaling.module().scaleNTC(parseInt(event.dataIn[input?.externalData?.key]));
+                                                                input.value = new scaling.module().scaleNTC(parseInt(event.dataIn[input?.externalData?.key]));
                                                                 break;
                                                             case ('none'):
-                                                                tmp.value = parseInt(event.dataIn[input.key]);
-                                                                input.value = parseInt(event.dataIn[input.key]);
+                                                                tmp.value = parseInt(event.dataIn[input?.externalData?.key]);
+                                                                input.value = parseInt(event.dataIn[input?.externalData?.key]);
                                                                 break;
                                                             case ('linear'):
-                                                                tmp.value = new scaling.module().scaleAnalog(parseInt(event.dataIn[input.key]), input.scaling?.raw?.low, input.scaling?.raw?.high, input.scaling?.scaled?.low, input.scaling?.scaled?.high);
-                                                                input.value = new scaling.module().scaleAnalog(parseInt(event.dataIn[input.key]), input.scaling?.raw?.low, input.scaling?.raw?.high, input.scaling?.scaled?.low, input.scaling?.scaled?.high);
+                                                                tmp.value = new scaling.module().scaleAnalog(parseInt(event.dataIn[input?.externalData?.key]), input.scaling?.raw?.low, input.scaling?.raw?.high, input.scaling?.scaled?.low, input.scaling?.scaled?.high);
+                                                                input.value = new scaling.module().scaleAnalog(parseInt(event.dataIn[input?.externalData?.key]), input.scaling?.raw?.low, input.scaling?.raw?.high, input.scaling?.scaled?.low, input.scaling?.scaled?.high);
                                                                 break;
                                                             case ('invert'):
-                                                                tmp.value = new scaling.module().scaleAnalog(parseInt(event.dataIn[input.key]), input.scaling.raw.low, input.scaling.raw.high, input.scaling.scaled.low, input.scaling.scaled.high, true);
-                                                                input.value = new scaling.module().scaleAnalog(parseInt(event.dataIn[input.key]), input.scaling.raw.low, input.scaling.raw.high, input.scaling.scaled.low, input.scaling.scaled.high, true);
+                                                                tmp.value = new scaling.module().scaleAnalog(parseInt(event.dataIn[input?.externalData?.key]), input.scaling.raw.low, input.scaling.raw.high, input.scaling.scaled.low, input.scaling.scaled.high, true);
+                                                                input.value = new scaling.module().scaleAnalog(parseInt(event.dataIn[input?.externalData?.key]), input.scaling.raw.low, input.scaling.raw.high, input.scaling.scaled.low, input.scaling.scaled.high, true);
                                                                 break;
                                                             default:
-                                                                tmp.value = parseInt(event.dataIn[input.key]);
-                                                                input.value = parseInt(event.dataIn[input.key]);
+                                                                tmp.value = parseInt(event.dataIn[input?.externalData?.key]);
+                                                                input.value = parseInt(event.dataIn[input?.externalData?.key]);
                                                                 break;
                                                         };
                                                     } else if (input.key == 'commsStatus') {
