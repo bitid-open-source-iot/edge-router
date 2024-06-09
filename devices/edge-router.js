@@ -189,9 +189,9 @@ module.exports = class extends EventEmitter {
                                 let destinationCurrentValue = ioDeviceDestination.value
 
                                 if (item.source.mask != -1) {
-                                    maskSourceValue = input.value & item.source.mask;
+                                    maskSourceValue = ioDeviceSource.value & item.source.mask;
                                 } else {
-                                    maskSourceValue = input.value;
+                                    maskSourceValue = ioDeviceSource.value;
                                 }
 
                                 let maskDestinationValue = null
@@ -206,17 +206,17 @@ module.exports = class extends EventEmitter {
                                     maskDestinationValue = maskSourceValue
                                 }
 
-                                if(ioDeviceSource.description.includes('Phase')){
-                                    console.log(`
-                                    input: ${JSON.stringify(input)}
-                                    inputValue: ${input.value} 
-                                    source value: ${maskSourceValue} 
-                                    source mask: ${item.source.mask} 
-                                    destination mask: ${item.destination.mask} 
-                                    destination current: ${destinationCurrentValue} 
-                                    destination value: ${maskDestinationValue} 
-                                    `)
-                                    }
+                                // if(ioDeviceSource.description.includes('Phase')){
+                                //     console.log(`
+                                //     input: ${JSON.stringify(input)}
+                                //     inputValue: ${input.value} 
+                                //     source value: ${maskSourceValue} 
+                                //     source mask: ${item.source.mask} 
+                                //     destination mask: ${item.destination.mask} 
+                                //     destination current: ${destinationCurrentValue} 
+                                //     destination value: ${maskDestinationValue} 
+                                //     `)
+                                //     }
 
 
 
