@@ -3,7 +3,6 @@ const cors = require('cors');
 const http = require('http');
 const chalk = require('chalk');
 const express = require('express');
-const scaling = require('./lib/scaling');
 const WebSocket = require('./lib/socket').WebSocket;
 const responder = require('./lib/responder');
 const ErrorResponse = require('./lib/error-response');
@@ -304,7 +303,7 @@ try {
                                 break;
                             case ('external'):
                                 var device = new External(o);
-                                device.on('commsStatus', event => __router.updateDeviceInputsThenActionMapping(device.id, event));                            // device.on('commsStatus', event => __router.updateExternalCommsStatus(device.deviceId, event));
+                                device.on('commsStatus', event => __router.updateDeviceInputsThenActionMapping(device.id, event));
                                 __devices.push(device);
                                 break;
                             case ('programmable-logic-controller'):
@@ -431,112 +430,14 @@ try {
                 __router.on('control', async event => {
                     var deferred = Q.defer()
 
-
-                    let validDevice = __devices.find(o => o.deviceId == event?.rtuId)
-                    if (validDevice) {
-                        __devices.reduce((promise, device) => {
-                            return promise.then(async () => {
-                                var deferred = Q.defer()
-                                if (device.type == 'external' && device.deviceId == event?.rtuId) {
-                                    device.emit('data', {});
-                                    var data = [];
-                                    var found = false;
-
-                                    await device.io.reduce((promise, input) => {
-                                        return promise.then(async () => {
-                                            var deferred = Q.defer()
-                                            if (input.moduleId == event.moduleId) {
-                                                found = true;
-                                                var tmp
-
-                                                if (input.key != 'rtuDate') {
-                                                    tmp = {
-                                                        value: 0,
-                                                        inputId: input.inputId
-                                                    }
-                                                } else {
-                                                    tmp = {
-                                                        value: new Date(event.rtuDate).getTime(),
-                                                        inputId: input.inputId
-                                                    }
-                                                    input.value = tmp.value
-                                                }
-
-                                                if (input.key != 'rtuDate') {
-                                                    if (input.shift > 0 && input.key.indexOf('digitalsIn') > -1 && typeof (event.dataIn[input.key]) != 'undefined' && event.dataIn[input.key] != null) {
-                                                        let shiftedValue = event.dataIn[input.key] >> input.shift;
-                                                        if (input.masking?.enabled == true) {
-                                                            tmp.value = BitMask(input.masking.bit, shiftedValue);
-                                                            input.value = BitMask(input.masking.bit, shiftedValue);
-                                                        } else {
-                                                            tmp.value = shiftedValue;
-                                                            input.value = shiftedValue;
-                                                        }
-                                                    } else if (input.masking?.enabled && input.key.indexOf('digitalsIn') > -1 && typeof (event.dataIn[input.key]) != 'undefined' && event.dataIn[input.key] != null) {
-                                                        tmp.value = BitMask(input.masking.bit, event.dataIn[input.key]);
-                                                        input.value = BitMask(input.masking.bit, event.dataIn[input.key]);
-                                                    } else if (input.key.indexOf('TEXT') == -1 && typeof (event.dataIn[input.key]) != 'undefined' && event.dataIn[input.key] != null) {
-                                                        switch (input.scaling?.type) {
-                                                            case ('ntc'):
-                                                                tmp.value = new scaling.module().scaleNTC(parseInt(event.dataIn[input.key]));
-                                                                input.value = new scaling.module().scaleNTC(parseInt(event.dataIn[input.key]));
-                                                                break;
-                                                            case ('none'):
-                                                                tmp.value = parseInt(event.dataIn[input.key]);
-                                                                input.value = parseInt(event.dataIn[input.key]);
-                                                                break;
-                                                            case ('linear'):
-                                                                tmp.value = new scaling.module().scaleAnalog(parseInt(event.dataIn[input.key]), input.scaling?.raw?.low, input.scaling?.raw?.high, input.scaling?.scaled?.low, input.scaling?.scaled?.high);
-                                                                input.value = new scaling.module().scaleAnalog(parseInt(event.dataIn[input.key]), input.scaling?.raw?.low, input.scaling?.raw?.high, input.scaling?.scaled?.low, input.scaling?.scaled?.high);
-                                                                break;
-                                                            case ('invert'):
-                                                                tmp.value = new scaling.module().scaleAnalog(parseInt(event.dataIn[input.key]), input.scaling.raw.low, input.scaling.raw.high, input.scaling.scaled.low, input.scaling.scaled.high, true);
-                                                                input.value = new scaling.module().scaleAnalog(parseInt(event.dataIn[input.key]), input.scaling.raw.low, input.scaling.raw.high, input.scaling.scaled.low, input.scaling.scaled.high, true);
-                                                                break;
-                                                            default:
-                                                                tmp.value = parseInt(event.dataIn[input.key]);
-                                                                input.value = parseInt(event.dataIn[input.key]);
-                                                                break;
-                                                        };
-                                                    } else if (input.key == 'commsStatus') {
-                                                        tmp.value = parseInt(input.value)
-                                                    } else {
-                                                        console.log('wtf')
-                                                    }
-                                                }
-
-                                                data.push(tmp);
-                                                deferred.resolve(data)
-                                            } else {
-                                                deferred.resolve()
-                                            }
-
-                                            return deferred.promise
-                                        })
-
-                                    }, Promise.resolve())
-                                        .then(async (data) => {
-                                            if (data) {
-                                                __socket.send('devices:data', {
-                                                    data: data,
-                                                    deviceId: device.deviceId
-                                                });
-                                            };
-                                            deferred.resolve({})
-                                        })
-                                        .then(async () => {
-                                            await __router.mapping(event.rtuId, data)
-                                        })
-                                };
-
-                                deferred.resolve()
-                                return deferred.promise
-                            })
-                        }, Promise.resolve())
-                            .then(async () => {
-                                deferred.resolve({})
-                            })
-                    } else {
+                    try{
+                        let validDevice = __devices.find(o => o.deviceId == event?.rtuId)
+                        if (validDevice) {
+                            await validDevice.processMqttControl(event)
+                        }
+                        deferred.resolve({})
+                    }catch(e){
+                        console.log(`Error in router.on('control'): ${e.message}`)
                         deferred.resolve({})
                     }
 

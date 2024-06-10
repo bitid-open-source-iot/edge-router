@@ -271,7 +271,7 @@ export class DevicesEditorPage implements OnInit, OnDestroy {
                     this.columns = []
                     break
                 case ('modbus'):
-                    this.columns = ['description', 'register', 'publish.enabled', 'publish.bit', 'publish.key', 'publish.moduleId'];
+                    this.columns = ['description', 'register' , 'readable', 'writeable', 'masking.bit', 'publish.enabled', 'publish.bit', 'publish.key', 'publish.moduleId'];
                     break;
                 case ('sigfox'):
                 case ('external'):

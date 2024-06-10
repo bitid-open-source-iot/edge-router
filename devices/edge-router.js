@@ -115,7 +115,11 @@ module.exports = class extends EventEmitter {
                                             if (io?.masking?.enabled == true) {
                                                 io.value = (ip.value & Math.pow(2, io.masking.bit)) >> io.masking.bit
                                             } else {
-                                                io.value = ip.value
+                                                if(io.shift > 0){
+                                                    io.value = ip.value >> io.shift
+                                                }else{
+                                                    io.value = ip.value
+                                                }
                                             }
 
                                         }
@@ -158,51 +162,71 @@ module.exports = class extends EventEmitter {
                         for (const input of inputs) {
                             if (item.source.inputId == input.inputId) {
 
-                                let maskSourceValue = null;
-
-                                if (item.source.mask != -1) {
-                                    maskSourceValue = input.value & item.source.mask;
-                                } else {
-                                    maskSourceValue = input.value;
-                                }
+                                let maskSourceValue = null
 
                                 const deviceSource = __devices.find(d => d.io.find(io => io.inputId === item.source.inputId));
                                 const deviceDestination = __devices.find(d => d.io.find(io => io.inputId === item.destination.inputId));
+
+                                const ioDeviceSource = deviceSource.io.find(io => io.inputId === item.source.inputId);
+                                const ioDeviceDestination = deviceDestination.io.find(io => io.inputId === item.destination.inputId);
+
+                                // if(ioDeviceSource.description == 'RW Procon 1 - Inlet Low Level'){
+                                //     console.log('n')
+                                // }
+
+                                if (!ioDeviceSource || !ioDeviceDestination) {
+                                    continue;
+                                }
 
                                 if (!deviceSource || !deviceDestination) {
                                     continue;
                                 }
 
-                                let deviceCurrentState = null;
-                                let maskDestinationValue = null;
+                                // if(ioDeviceSource.value == ioDeviceDestination.value){
+                                //     continue
+                                // }
 
-                                if (item.destination.mask != -1) {
-                                    for (const dvSource of deviceSource.values) {
-                                        if (dvSource.inputId == item.destination.inputId) {
-                                            deviceCurrentState = (dvSource.value & Math.pow(2, item.destination.mask)) >> item.destination.mask
-                                        }
-                                    }
+                                let destinationCurrentValue = ioDeviceDestination.value
 
-                                    let dontTouchVal = 0;
-                                    maskDestinationValue = maskSourceValue & item.destination.mask;
-
-                                    if (deviceCurrentState & item.destination.mask > 0 && deviceCurrentState != -1) {
-                                        dontTouchVal = deviceCurrentState - (deviceCurrentState & item.destination.mask);
-                                    }
-
-                                    maskDestinationValue = dontTouchVal + maskDestinationValue;
+                                if (item.source.mask != -1) {
+                                    maskSourceValue = ioDeviceSource.value & item.source.mask;
                                 } else {
-                                    maskDestinationValue = maskSourceValue;
+                                    maskSourceValue = ioDeviceSource.value;
                                 }
 
-                                const io = deviceDestination.io.find(io => io.inputId === item.destination.inputId);
+                                let maskDestinationValue = null
+                                if(item.destination.mask != -1){
+                                    if(destinationCurrentValue & Math.pow(2, item.destination.mask) > 0){
+                                        maskDestinationValue = destinationCurrentValue - Math.pow(2, item.destination.mask)
+                                        maskDestinationValue += maskSourceValue
+                                    }else{
+                                        maskDestinationValue = destinationCurrentValue
+                                    }
+                                }else{
+                                    maskDestinationValue = maskSourceValue
+                                }
 
+                                // if(ioDeviceSource.description.includes('Phase')){
+                                //     console.log(`
+                                //     input: ${JSON.stringify(input)}
+                                //     inputValue: ${input.value} 
+                                //     source value: ${maskSourceValue} 
+                                //     source mask: ${item.source.mask} 
+                                //     destination mask: ${item.destination.mask} 
+                                //     destination current: ${destinationCurrentValue} 
+                                //     destination value: ${maskDestinationValue} 
+                                //     `)
+                                //     }
+
+
+
+                                const io = deviceDestination.io.find(io => io.inputId === item.destination.inputId);
                                 if (!io) {
                                     continue;
                                 }
 
-                                // __logger.info(io.description + ': ' + maskDestinationValue);
                                 try {
+                                    // ioDeviceDestination.value = maskDestinationValue
                                     io.value = maskDestinationValue
                                     await deviceDestination.write(item.destination.inputId, maskDestinationValue);
                                 } catch (e) {
