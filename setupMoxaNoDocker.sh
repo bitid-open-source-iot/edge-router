@@ -364,3 +364,15 @@ if [ $? -ne 0 ]; then
 else
     echo "Cron job already exists."
 fi
+
+
+read -p "YOU SHOULD REBOOT. DO YOU WANT TO REBOOT? (Y/N): " user_response_reboot
+
+# Convert the response to uppercase
+user_response_reboot=$(echo "$user_response_reboot" | tr '[:lower:]' '[:upper:]')
+
+
+# Check the user's response
+if [ "$user_response_reboot" == "Y" ]; then
+    sudo reboot
+fi

@@ -60,13 +60,27 @@ module.exports = class extends EventEmitter {
 
         this.sendOnce = true
 
+        this.init()
+
+    }
+
+    async init(){
+        this.manageConnection()
+        setTimeout(() => {
+            this.initFixedTx()
+        }, 30000);
+    }
+
+    manageConnection() {
         if (__settings.commsOption) {
             if (__settings.commsOption == 0) {
-                this.connectMQTT();
-                this.init()
+                if(this.status != 'connected'){
+                    this.connectMQTT();
+                }
+                // this.init()
             }else if (__settings.commsOption == 1) {
                 this.connectTCPClient();    
-                this.init()
+                // this.init()
             } else {
                 console.log('commsOption set to none')
             }
@@ -75,30 +89,29 @@ module.exports = class extends EventEmitter {
         }
     }
 
-    init() {
-        this.fixedTransmit = setInterval(() => {
+
+    initFixedTx() {
+        let self = this
+        self.fixedTransmit = setInterval(() => {
             try {
                 console.log('shane fixedTransmit', new Date())
-                this.cofs.applyCOFSServer()
+                self.cofs.applyCOFSServer()
             } catch (e) {
                 console.error('fixedTransmit Error', e)
             }
-        }, this.pxTime * 1000)
+        }, self.pxTime * 1000)
 
         /**
          * This timer keeps the __arrPublisher empty
          */
-        this.tmrPublish = setInterval(() => {
+        self.tmrPublish = setInterval(() => {
             try {
-                this.publishOnInterval()
+                self.publishOnInterval()
             } catch (e) {
                 console.error('tmrPublish Error', e)
             }
         }, 5000)
-
-
     }
-
 
     updateDeviceInputsThenActionMapping(id, inputs) {
         try {
