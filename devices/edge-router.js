@@ -65,22 +65,29 @@ module.exports = class extends EventEmitter {
     }
 
     async init(){
-        this.manageConnection()
+        var self = this
+        setInterval(() => {
+            self.manageConnection()
+        }, 60000);
+        self.manageConnection()
         setTimeout(() => {
-            this.initFixedTx()
+            self.initFixedTx()
         }, 30000);
     }
 
     manageConnection() {
+        var self = this
         if (__settings.commsOption) {
             if (__settings.commsOption == 0) {
-                if(this.status != 'connected'){
-                    this.connectMQTT();
+                if(self.status != 'connected'){
+                    self.connectMQTT();
                 }
-                // this.init()
+                // self.init()
             }else if (__settings.commsOption == 1) {
-                this.connectTCPClient();    
-                // this.init()
+                if(self.status != 'connected'){
+                    self.connectTCPClient();    
+                    // self.init()
+                }
             } else {
                 console.log('commsOption set to none')
             }
@@ -312,6 +319,7 @@ module.exports = class extends EventEmitter {
 
                     }
                 } catch (e) {
+                    this.status = 'error connecting';
                     console.error(e)
                 }
             })
