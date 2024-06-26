@@ -6,6 +6,12 @@
     "configurations": [
         {
             "type": "node",
+            "request": "attach",
+            "name": "Docker: Attach to Node",
+            "remoteRoot": "/usr/src/app"
+        },
+        {
+            "type": "node",
             "request": "launch",
             "name": "Start Service",
             "skipFiles": [
@@ -36,6 +42,7 @@
             ],
             "internalConsoleOptions": "openOnSessionStart"
         },
+     
 
     ]
 }
